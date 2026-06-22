@@ -641,6 +641,26 @@
         transition: opacity 0.25s ease, transform 0.25s ease;
       }
 
+      .whatsapp-float {
+        position: fixed;
+        right: 1rem;
+        bottom: 4.4rem;
+        z-index: 97;
+        border-radius: 999px;
+        padding: 0.72rem 1rem;
+        font-size: 0.88rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #25d366, #1ebe5d);
+        color: #06140d;
+        box-shadow: 0 10px 28px rgba(37, 211, 102, 0.34);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .whatsapp-float:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 32px rgba(37, 211, 102, 0.44);
+      }
+
       .to-top.show {
         opacity: 1;
         pointer-events: auto;
@@ -741,6 +761,10 @@
 
         .cta-box {
           padding: 1.5rem 1.2rem;
+        }
+
+        .whatsapp-float {
+          bottom: 4.8rem;
         }
       }
     </style>
@@ -1552,6 +1576,14 @@
       </div>
     </footer>
 
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/8801757453611?text=Hello%20Ethereum%20Recovery%20Service.%20I%20need%20a%20consultation."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      >WhatsApp</a
+    >
     <button class="to-top" type="button" aria-label="Back to top">&uarr;</button>
 
     <script>
