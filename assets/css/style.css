@@ -603,6 +603,25 @@ textarea::placeholder {
   margin-bottom: 0.55rem;
 }
 
+.blog-reader {
+  padding: 1.6rem;
+}
+
+.reader-content {
+  margin-top: 1.1rem;
+  color: #d4defa;
+}
+
+.reader-content h3 {
+  margin-top: 1.35rem;
+  margin-bottom: 0.55rem;
+  font-size: 1.06rem;
+}
+
+.reader-content p {
+  margin-bottom: 0.9rem;
+}
+
 .blog-card.hidden-by-search {
   display: none;
 }
