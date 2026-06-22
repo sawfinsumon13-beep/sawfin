@@ -3,6 +3,103 @@ const header = document.querySelector(".site-header");
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-links");
 const backToTop = document.querySelector(".to-top");
+const hero3dCanvas = document.querySelector("#hero-3d-canvas");
+
+const initHero3DBackground = () => {
+  if (!hero3dCanvas) return;
+
+  const context = hero3dCanvas.getContext("2d");
+  if (!context) return;
+
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const pointer = { x: 0.5, y: 0.5 };
+  const particles = [];
+  const particleCount = 90;
+  let width = 0;
+  let height = 0;
+  let animationFrameId = null;
+  let time = 0;
+
+  const respawnParticle = (particle, forceDepth = false) => {
+    particle.x = Math.random() * 2 - 1;
+    particle.y = Math.random() * 2 - 1;
+    particle.z = forceDepth ? Math.random() : 1;
+    particle.size = 0.7 + Math.random() * 1.9;
+    particle.cyan = Math.random() > 0.52;
+  };
+
+  for (let index = 0; index < particleCount; index += 1) {
+    const particle = {};
+    respawnParticle(particle, true);
+    particles.push(particle);
+  }
+
+  const resizeCanvas = () => {
+    const bounds = hero3dCanvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = bounds.width;
+    height = bounds.height;
+    hero3dCanvas.width = Math.max(1, Math.floor(width * dpr));
+    hero3dCanvas.height = Math.max(1, Math.floor(height * dpr));
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+
+  const drawFrame = () => {
+    time += 0.012;
+    context.clearRect(0, 0, width, height);
+
+    const glowCenterX = width * (0.5 + (pointer.x - 0.5) * 0.12);
+    const glowCenterY = height * 0.35;
+    const glow = context.createRadialGradient(glowCenterX, glowCenterY, 10, glowCenterX, glowCenterY, width * 0.55);
+    glow.addColorStop(0, "rgba(98, 126, 234, 0.16)");
+    glow.addColorStop(1, "rgba(98, 126, 234, 0)");
+    context.fillStyle = glow;
+    context.fillRect(0, 0, width, height);
+
+    particles.forEach((particle) => {
+      particle.z -= 0.0032;
+      if (particle.z <= 0.03) respawnParticle(particle);
+
+      const depth = particle.z;
+      const parallaxX = (pointer.x - 0.5) * 0.34 * depth;
+      const parallaxY = (pointer.y - 0.5) * 0.24 * depth;
+      const driftY = Math.sin(time + particle.x * 4) * 0.018;
+      const screenX = width / 2 + (particle.x + parallaxX) * width * 0.66 * depth;
+      const screenY = height / 2 + (particle.y + parallaxY + driftY) * height * 0.56 * depth;
+      const radius = particle.size * (0.45 + depth * 2.25);
+      const alpha = 0.1 + depth * 0.65;
+      const color = particle.cyan ? "0, 212, 255" : "98, 126, 234";
+
+      context.beginPath();
+      context.fillStyle = `rgba(${color}, ${alpha})`;
+      context.arc(screenX, screenY, radius, 0, Math.PI * 2);
+      context.fill();
+    });
+
+    if (!reducedMotionQuery.matches) {
+      animationFrameId = window.requestAnimationFrame(drawFrame);
+    }
+  };
+
+  const handlePointerMove = (event) => {
+    const bounds = hero3dCanvas.getBoundingClientRect();
+    pointer.x = (event.clientX - bounds.left) / bounds.width;
+    pointer.y = (event.clientY - bounds.top) / bounds.height;
+  };
+
+  resizeCanvas();
+  drawFrame();
+
+  window.addEventListener("resize", resizeCanvas);
+  window.addEventListener("pointermove", handlePointerMove);
+
+  if (reducedMotionQuery.matches && animationFrameId) {
+    window.cancelAnimationFrame(animationFrameId);
+    animationFrameId = null;
+  }
+};
+
+initHero3DBackground();
 
 if (header) {
   const handleHeaderState = () => {
