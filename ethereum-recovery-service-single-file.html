@@ -2050,6 +2050,17 @@
         });
       }
 
+      const fallbackCryptoImage =
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20500'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20x2='1'%20y1='0'%20y2='1'%3E%3Cstop%20stop-color='%23090B13'/%3E%3Cstop%20offset='1'%20stop-color='%231a2b57'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='800'%20height='500'%20fill='url(%23g)'/%3E%3Cg%20stroke='%2300D4FF'%20stroke-width='2'%20fill='none'%20opacity='0.72'%3E%3Ccircle%20cx='140'%20cy='120'%20r='26'/%3E%3Ccircle%20cx='310'%20cy='200'%20r='18'/%3E%3Ccircle%20cx='520'%20cy='130'%20r='22'/%3E%3Ccircle%20cx='660'%20cy='250'%20r='20'/%3E%3Cpath%20d='M166%20132%20L292%20188%20L498%20140%20L642%20238'/%3E%3C/g%3E%3Ctext%20x='40'%20y='390'%20fill='%23FFFFFF'%20font-family='Arial,sans-serif'%20font-size='42'%20font-weight='700'%3ECRYPTO%20RECOVERY%3C/text%3E%3Ctext%20x='40'%20y='430'%20fill='%2300D4FF'%20font-family='Arial,sans-serif'%20font-size='24'%3EBlockchain%20Investigation%20%26amp%3B%20Asset%20Trace%3C/text%3E%3C/svg%3E";
+
+      document.querySelectorAll(".blog-image").forEach((image) => {
+        image.addEventListener("error", () => {
+          if (image.dataset.fallbackApplied === "true") return;
+          image.dataset.fallbackApplied = "true";
+          image.src = fallbackCryptoImage;
+        });
+      });
+
       const readerBox = document.querySelector("#blog-reader");
       const readerCategory = document.querySelector("#reader-category");
       const readerTitle = document.querySelector("#reader-title");
