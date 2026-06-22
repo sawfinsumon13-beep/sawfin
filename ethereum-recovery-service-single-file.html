@@ -1,0 +1,1730 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethereum Recovery Service | Premium Blockchain Recovery Consultation</title>
+    <meta
+      name="description"
+      content="Ethereum Recovery Service provides premium blockchain investigation, transaction analysis, digital asset recovery consultation, and security guidance in one modern, high-converting website."
+    />
+    <meta
+      name="keywords"
+      content="ethereum recovery service, crypto recovery consultation, blockchain investigation, wallet investigation, transaction analysis, digital asset security"
+    />
+    <meta name="author" content="Ethereum Recovery Service" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #090b13;
+        --card: #121826;
+        --primary: #627eea;
+        --accent: #00d4ff;
+        --text: #ffffff;
+        --muted: #9ca9c9;
+        --border: rgba(255, 255, 255, 0.12);
+        --shadow: 0 25px 45px rgba(0, 0, 0, 0.35);
+        --radius: 18px;
+        --radius-sm: 12px;
+        --container: 1140px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 15% 15%, rgba(0, 212, 255, 0.12), transparent 35%),
+          radial-gradient(circle at 80% 5%, rgba(98, 126, 234, 0.2), transparent 35%), var(--bg);
+        line-height: 1.6;
+      }
+
+      section[id] {
+        scroll-margin-top: 90px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        line-height: 1.2;
+        margin: 0 0 0.8rem;
+      }
+
+      p {
+        margin: 0 0 1rem;
+      }
+
+      .container {
+        width: min(100% - 2rem, var(--container));
+        margin-inline: auto;
+      }
+
+      .section {
+        padding: 5rem 0;
+      }
+
+      .section-sm {
+        padding: 3rem 0;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 0.35rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(0, 212, 255, 0.12);
+        border: 1px solid rgba(0, 212, 255, 0.25);
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.82rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      .section-title {
+        font-size: clamp(1.7rem, 3vw, 2.5rem);
+      }
+
+      .section-lead {
+        max-width: 760px;
+        color: var(--muted);
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .glass-card {
+        background: linear-gradient(145deg, rgba(18, 24, 38, 0.86), rgba(18, 24, 38, 0.62));
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(15px);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        padding: 0.8rem 1.45rem;
+        font-weight: 600;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), #6d8cf2 60%, var(--accent));
+        color: #041428;
+        box-shadow: 0 8px 24px rgba(98, 126, 234, 0.32);
+      }
+
+      .btn-primary:hover {
+        box-shadow: 0 12px 30px rgba(0, 212, 255, 0.28);
+      }
+
+      .btn-outline {
+        border-color: rgba(0, 212, 255, 0.35);
+        background: rgba(0, 212, 255, 0.08);
+        color: var(--accent);
+      }
+
+      .btn-outline:hover {
+        background: rgba(0, 212, 255, 0.18);
+      }
+
+      .btn-small {
+        padding: 0.6rem 1rem;
+        font-size: 0.86rem;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.78rem;
+        color: var(--accent);
+        background: rgba(0, 212, 255, 0.09);
+        border: 1px solid rgba(0, 212, 255, 0.22);
+        border-radius: 999px;
+        padding: 0.3rem 0.65rem;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 99;
+        transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+      }
+
+      .site-header.is-scrolled {
+        background: rgba(9, 11, 19, 0.85);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(13px);
+      }
+
+      .nav-wrap {
+        min-height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.01em;
+      }
+
+      .brand span {
+        color: var(--accent);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+      }
+
+      .nav-links a {
+        color: #d7e4ff;
+        font-weight: 500;
+        position: relative;
+      }
+
+      .nav-links a:not(.btn)::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.35rem;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        transition: width 0.25s ease;
+      }
+
+      .nav-links a:not(.btn):hover::after {
+        width: 100%;
+      }
+
+      .nav-toggle {
+        display: none;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text);
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        font-size: 1.1rem;
+      }
+
+      .hero {
+        padding: 5.2rem 0 4rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3.7rem);
+        margin-bottom: 0.8rem;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 620px;
+      }
+
+      .hero-actions {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+      }
+
+      .hero-panel {
+        padding: 1.4rem;
+      }
+
+      .hero-panel + .hero-panel {
+        margin-top: 1rem;
+      }
+
+      .hero-panel h3 {
+        font-size: 1rem;
+      }
+
+      .hero-points li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+        color: #d4defb;
+      }
+
+      .hero-points li:last-child {
+        border-bottom: 0;
+      }
+
+      .grid {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .service-card,
+      .feature-card,
+      .testimonial,
+      .timeline-card,
+      .blog-card,
+      .stat-card,
+      .process-card,
+      .contact-panel {
+        padding: 1.3rem;
+      }
+
+      .service-card:hover,
+      .feature-card:hover,
+      .testimonial:hover,
+      .blog-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(0, 212, 255, 0.24);
+      }
+
+      .service-card,
+      .feature-card,
+      .testimonial,
+      .blog-card {
+        transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+      }
+
+      .service-icon,
+      .feature-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: grid;
+        place-content: center;
+        font-weight: 700;
+        color: #04152b;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        margin-bottom: 0.9rem;
+      }
+
+      .timeline {
+        border-left: 1px dashed rgba(255, 255, 255, 0.2);
+        margin-left: 0.4rem;
+        padding-left: 1.2rem;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 1rem;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -1.6rem;
+        top: 1.45rem;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 6px rgba(0, 212, 255, 0.12);
+      }
+
+      .timeline-number {
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 0.82rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .testimonial-author {
+        margin-top: 1rem;
+        color: #cdd8f4;
+        font-weight: 600;
+      }
+
+      .rating {
+        color: #ffd166;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.65rem;
+      }
+
+      .stats-wrap {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .stat-number {
+        font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+        font-weight: 700;
+        margin-bottom: 0.35rem;
+      }
+
+      .stat-label {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .blog-card {
+        overflow: hidden;
+      }
+
+      .blog-image {
+        border-radius: var(--radius-sm);
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        margin-bottom: 0.9rem;
+      }
+
+      .blog-meta {
+        font-size: 0.82rem;
+        color: var(--accent);
+        margin-bottom: 0.45rem;
+      }
+
+      .read-more {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .faq-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .faq-item {
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .faq-question {
+        width: 100%;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        font: inherit;
+        text-align: left;
+        padding: 1rem 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        color: #cad6f8;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        padding: 0 1.2rem;
+      }
+
+      .faq-item.open .faq-answer {
+        max-height: 230px;
+        padding-bottom: 1rem;
+      }
+
+      .faq-item.hidden-by-search {
+        display: none;
+      }
+
+      .search-input,
+      .input,
+      textarea {
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        color: var(--text);
+        padding: 0.9rem 1rem;
+        font: inherit;
+      }
+
+      textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .search-input::placeholder,
+      .input::placeholder,
+      textarea::placeholder {
+        color: #b2bfdf;
+      }
+
+      .cta-box {
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .site-footer {
+        margin-top: 4rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        background: linear-gradient(180deg, rgba(12, 15, 26, 0.95), rgba(5, 6, 12, 1));
+      }
+
+      .footer-grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: 1.2fr 0.8fr 1fr;
+        padding: 3rem 0;
+      }
+
+      .footer-links a {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #dce6ff;
+      }
+
+      .newsletter-form {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.7rem;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 1.1rem 0;
+        color: #a4b3d8;
+        font-size: 0.9rem;
+      }
+
+      .about-stats {
+        margin-top: 1.2rem;
+      }
+
+      .process-wrap {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .process-card h3 {
+        font-size: 1.05rem;
+      }
+
+      .map-placeholder {
+        min-height: 260px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: linear-gradient(125deg, rgba(98, 126, 234, 0.16), rgba(0, 212, 255, 0.1)),
+          repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.02) 0,
+            rgba(255, 255, 255, 0.02) 10px,
+            transparent 10px,
+            transparent 20px
+          );
+        display: grid;
+        place-content: center;
+        color: #d7e3ff;
+        text-align: center;
+        padding: 1.5rem;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+      }
+
+      .contact-form-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .business-info li {
+        margin-bottom: 0.55rem;
+        color: #d5e0ff;
+      }
+
+      .article-template {
+        margin-top: 1rem;
+      }
+
+      .article-template h3 {
+        margin-top: 0;
+      }
+
+      .article-outline {
+        color: #c8d4f4;
+        margin: 0;
+        padding-left: 1rem;
+      }
+
+      .article-outline li {
+        margin-bottom: 0.55rem;
+      }
+
+      .blog-card.hidden-by-search {
+        display: none;
+      }
+
+      .to-top {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        width: 46px;
+        height: 46px;
+        border: 0;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: #041428;
+        font-size: 1.1rem;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(12px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+      }
+
+      .to-top.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      [data-animate] {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.65s ease, transform 0.65s ease;
+      }
+
+      [data-animate].in-view {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+
+      @media (max-width: 992px) {
+        .hero-grid,
+        .grid-cols-3,
+        .stats-wrap,
+        .footer-grid,
+        .process-wrap,
+        .contact-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section {
+          padding: 4rem 0;
+        }
+
+        .nav-toggle {
+          display: inline-grid;
+          place-content: center;
+        }
+
+        .nav-links {
+          position: absolute;
+          right: 1rem;
+          top: 72px;
+          width: min(92vw, 340px);
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.95rem;
+          padding: 1rem;
+          border-radius: var(--radius-sm);
+          background: rgba(10, 13, 22, 0.95);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          transform: translateY(-10px);
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .site-header.nav-open .nav-links {
+          opacity: 1;
+          pointer-events: auto;
+          transform: translateY(0);
+        }
+
+        .hero-grid,
+        .grid-cols-3,
+        .grid-cols-2,
+        .stats-wrap,
+        .footer-grid,
+        .process-wrap,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .newsletter-form {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .hero-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .cta-box {
+          padding: 1.5rem 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home"><span>Ethereum</span> Recovery Service</a>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+        <nav aria-label="Primary">
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact" class="btn btn-small btn-primary">Start Consultation</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="container hero-grid">
+          <div data-animate>
+            <span class="eyebrow">Blockchain Recovery Consultation</span>
+            <h1>Recover Smarter. Understand Your Options.</h1>
+            <p>
+              Professional blockchain investigation and digital asset recovery consultation designed for clients
+              facing complex wallet breaches, scams, and transaction uncertainty.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Start Consultation</a>
+              <a class="btn btn-outline" href="#services">Learn More</a>
+            </div>
+          </div>
+          <div data-animate>
+            <article class="hero-panel glass-card">
+              <h3>High-Integrity Investigation Protocol</h3>
+              <p>
+                Chain-of-custody oriented analysis and transparent findings reports designed to support informed legal
+                and strategic decisions.
+              </p>
+            </article>
+            <article class="hero-panel glass-card">
+              <h3>Core Capabilities</h3>
+              <ul class="hero-points">
+                <li><span>Cross-chain wallet investigation</span><strong>ETH + EVM</strong></li>
+                <li><span>Suspicious route tracing</span><strong>24/7</strong></li>
+                <li><span>Security posture review</span><strong>Priority</strong></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <div class="text-center" data-animate>
+            <span class="eyebrow">About Us</span>
+            <h2 class="section-title">Advanced Blockchain Recovery Advisory with a Security-First Ethos</h2>
+            <p class="section-lead">
+              Ethereum Recovery Service helps clients navigate high-risk digital asset incidents through structured
+              analysis, transparent communication, and actionable strategy.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 section-sm">
+            <article class="glass-card service-card" data-animate>
+              <h3>Our Mission</h3>
+              <p>
+                Deliver premium, ethical consultation for crypto incident response by combining deep blockchain
+                expertise with practical recovery planning.
+              </p>
+              <p>We focus on clarity and accountability so clients can make informed decisions under pressure.</p>
+            </article>
+            <article class="glass-card service-card" data-animate>
+              <h3>Our Approach</h3>
+              <p>
+                Every engagement starts with evidence intake and on-chain reconstruction, followed by strategic
+                reporting and prevention guidance.
+              </p>
+              <p>Our methodology is designed for legal compatibility, executive readability, and technical rigor.</p>
+            </article>
+          </div>
+          <div class="stats-wrap about-stats">
+            <article class="stat-card glass-card text-center" data-animate>
+              <p class="stat-number" data-target="150" data-suffix="+">0+</p>
+              <p class="stat-label">Forensic Reports Delivered</p>
+            </article>
+            <article class="stat-card glass-card text-center" data-animate>
+              <p class="stat-number" data-target="30" data-suffix="+">0+</p>
+              <p class="stat-label">Exchange Liaison Cases</p>
+            </article>
+            <article class="stat-card glass-card text-center" data-animate>
+              <p class="stat-number" data-target="12" data-suffix="+">0+</p>
+              <p class="stat-label">Industry Verticals</p>
+            </article>
+            <article class="stat-card glass-card text-center" data-animate>
+              <p class="stat-number" data-target="99" data-suffix="%">0%</p>
+              <p class="stat-label">Confidentiality Focus</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="container">
+          <div class="text-center" data-animate>
+            <span class="eyebrow">Consulting Services</span>
+            <h2 class="section-title">Premium Recovery Advisory Services</h2>
+            <p class="section-lead">
+              Specialized consulting engagements for digital asset incidents, risk exposure, and blockchain evidence
+              interpretation.
+            </p>
+          </div>
+          <div class="grid grid-cols-3 section-sm">
+            <article class="service-card glass-card" data-animate>
+              <div class="service-icon">01</div>
+              <h3>Wallet Investigation</h3>
+              <p>Deep wallet behavior analysis to map compromise vectors, linked addresses, and risk probability.</p>
+            </article>
+            <article class="service-card glass-card" data-animate>
+              <div class="service-icon">02</div>
+              <h3>Transaction Analysis</h3>
+              <p>Detailed forensic review of transaction flows, smart contract interactions, and bridge activity.</p>
+            </article>
+            <article class="service-card glass-card" data-animate>
+              <div class="service-icon">03</div>
+              <h3>Recovery Consultation</h3>
+              <p>Action-oriented strategies and documentation support for technical and legal recovery pathways.</p>
+            </article>
+            <article class="service-card glass-card" data-animate>
+              <div class="service-icon">04</div>
+              <h3>Security Review</h3>
+              <p>Threat-surface assessment across wallets, devices, account permissions, and signing practices.</p>
+            </article>
+            <article class="service-card glass-card" data-animate>
+              <div class="service-icon">05</div>
+              <h3>Blockchain Trace</h3>
+              <p>Structured tracing of on-chain movement through exchanges, mixers, bridges, and intermediary hops.</p>
+            </article>
+            <article class="service-card glass-card" data-animate>
+              <div class="service-icon">06</div>
+              <h3>Risk Assessment</h3>
+              <p>Executive-level incident scoring and recommendations to reduce recurring compromise exposure.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="process" class="section">
+        <div class="container">
+          <div class="text-center" data-animate>
+            <span class="eyebrow">Recovery Process</span>
+            <h2 class="section-title">Transparent Timeline, Structured Progress</h2>
+          </div>
+          <ol class="timeline section-sm">
+            <li class="timeline-item" data-animate>
+              <article class="timeline-card glass-card">
+                <p class="timeline-number">Step 01</p>
+                <h3>Incident Intake and Evidence Collection</h3>
+                <p>Collect account history, wallet logs, and known compromise points to establish a factual baseline.</p>
+              </article>
+            </li>
+            <li class="timeline-item" data-animate>
+              <article class="timeline-card glass-card">
+                <p class="timeline-number">Step 02</p>
+                <h3>On-Chain Investigation</h3>
+                <p>Trace assets across transactions and counterparties to identify movement patterns and opportunities.</p>
+              </article>
+            </li>
+            <li class="timeline-item" data-animate>
+              <article class="timeline-card glass-card">
+                <p class="timeline-number">Step 03</p>
+                <h3>Recovery Strategy Brief</h3>
+                <p>Deliver a practical route map with priority actions, documentation package, and key next steps.</p>
+              </article>
+            </li>
+            <li class="timeline-item" data-animate>
+              <article class="timeline-card glass-card">
+                <p class="timeline-number">Step 04</p>
+                <h3>Security Hardening Guidance</h3>
+                <p>Provide post-incident recommendations to prevent repeated attacks and improve long-term resilience.</p>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <div class="text-center" data-animate>
+            <span class="eyebrow">Why Clients Choose Us</span>
+            <h2 class="section-title">Features Built for High-Stakes Cases</h2>
+          </div>
+          <div class="grid grid-cols-3 section-sm">
+            <article class="feature-card glass-card" data-animate>
+              <div class="feature-icon">A</div>
+              <h3>Confidential Engagement</h3>
+              <p>Strict privacy-first workflow to protect sensitive data throughout every phase.</p>
+            </article>
+            <article class="feature-card glass-card" data-animate>
+              <div class="feature-icon">B</div>
+              <h3>Chain Analytics Expertise</h3>
+              <p>Advanced interpretation of blockchain evidence and transactional intelligence.</p>
+            </article>
+            <article class="feature-card glass-card" data-animate>
+              <div class="feature-icon">C</div>
+              <h3>Actionable Reporting</h3>
+              <p>Readable executive reports that support legal teams, compliance teams, and decision makers.</p>
+            </article>
+            <article class="feature-card glass-card" data-animate>
+              <div class="feature-icon">D</div>
+              <h3>Rapid Triage</h3>
+              <p>Fast risk triage so critical actions can be prioritized while evidence remains fresh.</p>
+            </article>
+            <article class="feature-card glass-card" data-animate>
+              <div class="feature-icon">E</div>
+              <h3>Security-First Mindset</h3>
+              <p>Each consultation includes mitigation guidance to improve account and wallet safety.</p>
+            </article>
+            <article class="feature-card glass-card" data-animate>
+              <div class="feature-icon">F</div>
+              <h3>Global Client Support</h3>
+              <p>Flexible consultation model for international clients and distributed teams.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="section">
+        <div class="container">
+          <div class="text-center" data-animate>
+            <span class="eyebrow">Client Feedback</span>
+            <h2 class="section-title">Trusted by Asset Holders Worldwide</h2>
+          </div>
+          <div class="grid grid-cols-3 section-sm">
+            <article class="testimonial glass-card" data-animate>
+              <p class="rating">5/5</p>
+              <p>
+                "The investigation report gave us a clear route for legal follow-up and security improvements.
+                Professional from start to finish."
+              </p>
+              <p class="testimonial-author">- Institutional Client, Singapore</p>
+            </article>
+            <article class="testimonial glass-card" data-animate>
+              <p class="rating">5/5</p>
+              <p>
+                "Their transaction breakdown translated complex blockchain data into practical next steps we could
+                execute immediately."
+              </p>
+              <p class="testimonial-author">- Private Investor, London</p>
+            </article>
+            <article class="testimonial glass-card" data-animate>
+              <p class="rating">5/5</p>
+              <p>
+                "Fast triage, strong communication, and credible recommendations. The consultation itself was a major
+                value-add."
+              </p>
+              <p class="testimonial-author">- Founder, Dubai</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="stats" class="section">
+        <div class="container">
+          <div class="stats-wrap">
+            <article class="stat-card glass-card text-center" data-animate>
+              <p class="stat-number" data-target="98" data-suffix="%">0%</p>
+              <p class="stat-label">Client Satisfaction</p>
+            </article>
+            <article class="stat-card glass-card text-center" data-animate>
+              <p class="stat-number" data-target="320" data-suffix="+">0+</p>
+              <p class="stat-label">Consultations Completed</p>
+            </article>
+            <article class="stat-card glass-card text-center" data-animate>
+              <p class="stat-number" data-target="40" data-suffix="+">0+</p>
+              <p class="stat-label">Countries Supported</p>
+            </article>
+            <article class="stat-card glass-card text-center" data-animate>
+              <p class="stat-number" data-target="24" data-suffix="/7">0/7</p>
+              <p class="stat-label">Monitoring Readiness</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog" class="section">
+        <div class="container">
+          <div class="text-center" data-animate>
+            <span class="eyebrow">Knowledge Hub</span>
+            <h2 class="section-title">Crypto Recovery Intelligence and Security Insights</h2>
+            <p class="section-lead">
+              Practical articles for investors, founders, and teams handling wallet incidents, blockchain tracing, and
+              operational security.
+            </p>
+          </div>
+          <div class="section-sm" data-animate>
+            <label class="sr-only" for="blog-search">Search blog</label>
+            <input
+              id="blog-search"
+              class="search-input"
+              type="search"
+              placeholder="Search by title, category, or topic..."
+              data-blog-search
+            />
+          </div>
+          <div class="grid grid-cols-3">
+            <article class="blog-card glass-card" data-category="forensics" data-animate>
+              <img
+                class="blog-image"
+                src="https://picsum.photos/seed/eth-blog-1/800/500"
+                alt="Digital chain analysis dashboard"
+                loading="lazy"
+              />
+              <p class="blog-meta">Forensics</p>
+              <h3>How to Document a Wallet Breach in the First 60 Minutes</h3>
+              <p>Create a legally useful timeline while preserving technical evidence and minimizing added risk.</p>
+              <a class="read-more" href="#article-1">Read More -&gt;</a>
+            </article>
+            <article class="blog-card glass-card" data-category="investigation" data-animate>
+              <img
+                class="blog-image"
+                src="https://picsum.photos/seed/eth-blog-2/800/500"
+                alt="Blockchain path mapping interface"
+                loading="lazy"
+              />
+              <p class="blog-meta">Investigation</p>
+              <h3>Tracing Cross-Chain Transactions: A Practical Framework</h3>
+              <p>Understand how to track movement through bridges and identify significant intermediary addresses.</p>
+              <a class="read-more" href="#article-2">Read More -&gt;</a>
+            </article>
+            <article class="blog-card glass-card" data-category="security" data-animate>
+              <img
+                class="blog-image"
+                src="https://picsum.photos/seed/eth-blog-3/800/500"
+                alt="Hardware wallet and encrypted access setup"
+                loading="lazy"
+              />
+              <p class="blog-meta">Security</p>
+              <h3>Hardware Wallet Operations for High-Value Holders</h3>
+              <p>Key operational practices for reducing phishing, signing abuse, and key compromise exposure.</p>
+              <a class="read-more" href="#article-3">Read More -&gt;</a>
+            </article>
+            <article class="blog-card glass-card" data-category="compliance" data-animate>
+              <img
+                class="blog-image"
+                src="https://picsum.photos/seed/eth-blog-4/800/500"
+                alt="Compliance records and crypto monitoring screens"
+                loading="lazy"
+              />
+              <p class="blog-meta">Compliance</p>
+              <h3>Preparing Exchange Escalation Requests the Right Way</h3>
+              <p>Learn what information improves response quality when submitting suspicious activity cases.</p>
+              <a class="read-more" href="#article-4">Read More -&gt;</a>
+            </article>
+            <article class="blog-card glass-card" data-category="risk" data-animate>
+              <img
+                class="blog-image"
+                src="https://picsum.photos/seed/eth-blog-5/800/500"
+                alt="Risk matrix with blockchain asset icons"
+                loading="lazy"
+              />
+              <p class="blog-meta">Risk</p>
+              <h3>Building a Crypto Incident Risk Matrix for Teams</h3>
+              <p>Translate technical findings into clear severity, probability, and response priorities.</p>
+              <a class="read-more" href="#article-5">Read More -&gt;</a>
+            </article>
+            <article class="blog-card glass-card" data-category="strategy" data-animate>
+              <img
+                class="blog-image"
+                src="https://picsum.photos/seed/eth-blog-6/800/500"
+                alt="Strategic planning board for digital incident response"
+                loading="lazy"
+              />
+              <p class="blog-meta">Strategy</p>
+              <h3>When to Escalate from Technical Review to Legal Action</h3>
+              <p>Decision signals that indicate your case may benefit from coordinated legal escalation.</p>
+              <a class="read-more" href="#article-6">Read More -&gt;</a>
+            </article>
+            <article class="blog-card glass-card" data-category="operations" data-animate>
+              <img
+                class="blog-image"
+                src="https://picsum.photos/seed/eth-blog-7/800/500"
+                alt="Operational security checklist on dark interface"
+                loading="lazy"
+              />
+              <p class="blog-meta">Operations</p>
+              <h3>Designing an Internal Wallet Approval Workflow</h3>
+              <p>Set up layered approvals and signer controls to reduce unauthorized transaction risk.</p>
+              <a class="read-more" href="#article-7">Read More -&gt;</a>
+            </article>
+            <article class="blog-card glass-card" data-category="education" data-animate>
+              <img
+                class="blog-image"
+                src="https://picsum.photos/seed/eth-blog-8/800/500"
+                alt="Educational blockchain chart and notes"
+                loading="lazy"
+              />
+              <p class="blog-meta">Education</p>
+              <h3>Explaining Smart Contract Exploits to Non-Technical Stakeholders</h3>
+              <p>Communicate exploit mechanics clearly to leadership, legal teams, and clients.</p>
+              <a class="read-more" href="#article-8">Read More -&gt;</a>
+            </article>
+            <article class="blog-card glass-card" data-category="forensics" data-animate>
+              <img
+                class="blog-image"
+                src="https://picsum.photos/seed/eth-blog-9/800/500"
+                alt="Timeline-based forensic evidence board"
+                loading="lazy"
+              />
+              <p class="blog-meta">Forensics</p>
+              <h3>Evidence Packaging Checklist for Cross-Border Incidents</h3>
+              <p>Build a standardized evidence package ready for legal counsel and external investigators.</p>
+              <a class="read-more" href="#article-9">Read More -&gt;</a>
+            </article>
+            <article class="blog-card glass-card" data-category="security" data-animate>
+              <img
+                class="blog-image"
+                src="https://picsum.photos/seed/eth-blog-10/800/500"
+                alt="Secure authentication system concept"
+                loading="lazy"
+              />
+              <p class="blog-meta">Security</p>
+              <h3>Why SIM Swap Protection Still Matters in Web3 Environments</h3>
+              <p>Review identity-level controls that protect exchange accounts and communication channels.</p>
+              <a class="read-more" href="#article-10">Read More -&gt;</a>
+            </article>
+            <article class="blog-card glass-card" data-category="analysis" data-animate>
+              <img
+                class="blog-image"
+                src="https://picsum.photos/seed/eth-blog-11/800/500"
+                alt="Advanced analytics panel for crypto investigations"
+                loading="lazy"
+              />
+              <p class="blog-meta">Analysis</p>
+              <h3>Interpreting Wallet Clustering Signals with Caution</h3>
+              <p>Learn why confidence levels and assumptions must be explicit in forensic interpretations.</p>
+              <a class="read-more" href="#article-11">Read More -&gt;</a>
+            </article>
+            <article class="blog-card glass-card" data-category="leadership" data-animate>
+              <img
+                class="blog-image"
+                src="https://picsum.photos/seed/eth-blog-12/800/500"
+                alt="Executive briefing room with crypto visuals"
+                loading="lazy"
+              />
+              <p class="blog-meta">Leadership</p>
+              <h3>Executive Incident Briefing Template for Digital Asset Events</h3>
+              <p>Deliver concise, decision-ready updates during high-pressure recovery scenarios.</p>
+              <a class="read-more" href="#article-12">Read More -&gt;</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="article-placeholders" class="section">
+        <div class="container">
+          <div class="text-center" data-animate>
+            <span class="eyebrow">Long-Form Article Framework</span>
+            <h2 class="section-title">1500-Word Ready Content Placeholders</h2>
+          </div>
+          <div class="grid grid-cols-2 section-sm">
+            <article id="article-1" class="article-template glass-card service-card" data-animate>
+              <h3>Article 1 Structure</h3>
+              <ul class="article-outline">
+                <li>Introduction (150 words): incident context and why timing matters.</li>
+                <li>Section A (350 words): evidence capture workflow and data integrity.</li>
+                <li>Section B (350 words): chain tracing fundamentals with examples.</li>
+                <li>Section C (350 words): documentation format for legal and exchange review.</li>
+                <li>Conclusion + CTA (300 words): next-step checklist and consultation prompt.</li>
+              </ul>
+            </article>
+            <article id="article-2" class="article-template glass-card service-card" data-animate>
+              <h3>Article 2 Structure</h3>
+              <ul class="article-outline">
+                <li>Intro: define cross-chain risk and bridge complexity.</li>
+                <li>Method section: mapping source, intermediary, and destination addresses.</li>
+                <li>Analysis section: confidence scoring and false-positive controls.</li>
+                <li>Application section: turning traces into strategic decisions.</li>
+                <li>CTA: consultation for complex bridge-related incidents.</li>
+              </ul>
+            </article>
+            <article id="article-3" class="article-template glass-card service-card" data-animate>
+              <h3>Article 3 Structure</h3>
+              <ul class="article-outline">
+                <li>Intro: operational security failures in high-value wallets.</li>
+                <li>Setup chapter: secure wallet architecture and signer separation.</li>
+                <li>Threat chapter: phishing, malicious approvals, and social engineering.</li>
+                <li>Control chapter: policy, backups, and emergency protocols.</li>
+                <li>CTA: request a wallet hardening review.</li>
+              </ul>
+            </article>
+            <article id="article-4" class="article-template glass-card service-card" data-animate>
+              <h3>Article 4 Structure</h3>
+              <ul class="article-outline">
+                <li>Intro: exchange escalation expectations and common delays.</li>
+                <li>Evidence chapter: required fields, hashes, and timeline references.</li>
+                <li>Communication chapter: concise, professional escalation language.</li>
+                <li>Follow-up chapter: tracking ticket progress and adding updates.</li>
+                <li>CTA: guided exchange coordination consultation.</li>
+              </ul>
+            </article>
+            <article id="article-5" class="article-template glass-card service-card" data-animate>
+              <h3>Article 5 Structure</h3>
+              <ul class="article-outline">
+                <li>Intro: why risk matrices improve response quality.</li>
+                <li>Framework chapter: severity, likelihood, and detectability scoring.</li>
+                <li>Case chapter: sample matrix for wallet compromise scenarios.</li>
+                <li>Execution chapter: ownership, deadlines, and control mapping.</li>
+                <li>CTA: develop a tailored risk model with specialists.</li>
+              </ul>
+            </article>
+            <article id="article-6" class="article-template glass-card service-card" data-animate>
+              <h3>Article 6 Structure</h3>
+              <ul class="article-outline">
+                <li>Intro: legal escalation decision signals.</li>
+                <li>Technical chapter: quality of evidence and attribution indicators.</li>
+                <li>Strategic chapter: jurisdiction considerations and timing windows.</li>
+                <li>Coordination chapter: counsel, investigators, and compliance teams.</li>
+                <li>CTA: confidential strategy consultation.</li>
+              </ul>
+            </article>
+            <article id="article-7" class="article-template glass-card service-card" data-animate>
+              <h3>Article 7 Structure</h3>
+              <ul class="article-outline">
+                <li>Intro: organizational wallet governance gaps.</li>
+                <li>Design chapter: approval matrices and signer authority levels.</li>
+                <li>Monitoring chapter: anomaly alerts and transaction thresholds.</li>
+                <li>Audit chapter: periodic control validation process.</li>
+                <li>CTA: build your secure workflow blueprint.</li>
+              </ul>
+            </article>
+            <article id="article-8" class="article-template glass-card service-card" data-animate>
+              <h3>Article 8 Structure</h3>
+              <ul class="article-outline">
+                <li>Intro: translating technical exploit language.</li>
+                <li>Audience chapter: tailoring message for legal, finance, and leadership.</li>
+                <li>Visual chapter: using timelines and diagrams effectively.</li>
+                <li>Decision chapter: concise recommendations and risk framing.</li>
+                <li>CTA: executive incident communication support.</li>
+              </ul>
+            </article>
+            <article id="article-9" class="article-template glass-card service-card" data-animate>
+              <h3>Article 9 Structure</h3>
+              <ul class="article-outline">
+                <li>Intro: cross-border evidence challenges.</li>
+                <li>Collection chapter: technical artifacts and chain metadata.</li>
+                <li>Validation chapter: maintaining integrity and chronology.</li>
+                <li>Packaging chapter: report structure for global stakeholders.</li>
+                <li>CTA: request an evidence preparation session.</li>
+              </ul>
+            </article>
+            <article id="article-10" class="article-template glass-card service-card" data-animate>
+              <h3>Article 10 Structure</h3>
+              <ul class="article-outline">
+                <li>Intro: account takeover pathways in crypto ecosystems.</li>
+                <li>Threat chapter: SIM swap tactics and warning indicators.</li>
+                <li>Defense chapter: telco safeguards and account-level controls.</li>
+                <li>Incident chapter: containment and reporting best practices.</li>
+                <li>CTA: security review for identity-linked risk.</li>
+              </ul>
+            </article>
+            <article id="article-11" class="article-template glass-card service-card" data-animate>
+              <h3>Article 11 Structure</h3>
+              <ul class="article-outline">
+                <li>Intro: what wallet clustering can and cannot prove.</li>
+                <li>Method chapter: heuristics, confidence bands, and caveats.</li>
+                <li>Case chapter: interpreting ambiguous cluster signals.</li>
+                <li>Reporting chapter: communicating uncertainty responsibly.</li>
+                <li>CTA: expert review of your clustering analysis.</li>
+              </ul>
+            </article>
+            <article id="article-12" class="article-template glass-card service-card" data-animate>
+              <h3>Article 12 Structure</h3>
+              <ul class="article-outline">
+                <li>Intro: leadership needs in active incidents.</li>
+                <li>Briefing chapter: status, impact, and response priorities.</li>
+                <li>Communication chapter: stakeholder alignment and cadence.</li>
+                <li>Post-incident chapter: lessons learned and control upgrades.</li>
+                <li>CTA: executive-grade incident consultation.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section">
+        <div class="container">
+          <div class="text-center" data-animate>
+            <span class="eyebrow">Support Center</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+          </div>
+          <div class="section-sm" data-animate>
+            <label class="sr-only" for="faq-search">Search FAQ</label>
+            <input id="faq-search" class="search-input" type="search" placeholder="Search questions..." data-faq-search />
+          </div>
+          <div class="faq-grid">
+            <article class="faq-item glass-card" data-animate>
+              <button class="faq-question" type="button">
+                <span>Is Ethereum Recovery Service a fund custody provider?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  No. We provide consultation and investigative analysis. We do not take custody of client assets or
+                  ask for private keys.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item glass-card" data-animate>
+              <button class="faq-question" type="button">
+                <span>What should I avoid doing after a suspected wallet compromise?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Avoid interacting further with suspicious contracts, unknown links, or unverified recovery services.
+                  Preserve records and seek trusted consultation quickly.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item glass-card" data-animate>
+              <button class="faq-question" type="button">
+                <span>Can you help if my transaction moved across multiple chains?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Yes. Cross-chain tracing is part of our service model. We map routes across bridges and counterparties
+                  to improve visibility.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item glass-card" data-animate>
+              <button class="faq-question" type="button">
+                <span>Do you coordinate with legal counsel or compliance teams?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Yes. We can structure reports for legal and compliance readability and support coordinated investigative
+                  workflows.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item glass-card" data-animate>
+              <button class="faq-question" type="button">
+                <span>How quickly can consultation begin?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Initial intake can begin quickly after submission. Urgent incidents are prioritized when critical
+                  evidence windows are active.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item glass-card" data-animate>
+              <button class="faq-question" type="button">
+                <span>What documents improve case quality?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Transaction hashes, wallet addresses, timestamps, screenshots, correspondence logs, and platform ticket
+                  references are all useful.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item glass-card" data-animate>
+              <button class="faq-question" type="button">
+                <span>Can your service improve my long-term wallet security?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Yes. Post-incident consultations include control recommendations for key management, signer separation,
+                  and account hardening.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item glass-card" data-animate>
+              <button class="faq-question" type="button">
+                <span>How do I start?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Share incident details through the contact form and our team will propose a consultation scope aligned
+                  with your needs.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="text-center" data-animate>
+            <span class="eyebrow">Contact Us</span>
+            <h2 class="section-title">Book a Confidential Recovery Consultation</h2>
+            <p class="section-lead">
+              Share your incident details securely. Our team will review your case and respond with a structured next
+              step recommendation.
+            </p>
+          </div>
+          <div class="contact-grid section-sm">
+            <article class="contact-panel glass-card" data-animate>
+              <h3>Submit Your Case</h3>
+              <p>Provide as much detail as possible so we can prioritize your consultation effectively.</p>
+              <form class="contact-form contact-form-grid" aria-label="Contact form">
+                <div>
+                  <label for="name">Name</label>
+                  <input id="name" class="input" type="text" name="name" placeholder="Your full name" required />
+                </div>
+                <div>
+                  <label for="email">Email</label>
+                  <input id="email" class="input" type="email" name="email" placeholder="Your email address" required />
+                </div>
+                <div>
+                  <label for="phone">Phone</label>
+                  <input id="phone" class="input" type="tel" name="phone" placeholder="+880..." required />
+                </div>
+                <div>
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Describe the wallet, transaction details, timeline, and any known suspicious activity."
+                    required
+                  ></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </form>
+            </article>
+            <article class="contact-panel glass-card" data-animate>
+              <h3>Business Information</h3>
+              <ul class="business-info">
+                <li><strong>Project:</strong> Ethereum Recovery Service</li>
+                <li><strong>Email:</strong> sawfinsumon@gmail.com</li>
+                <li><strong>Phone:</strong> +8801757453611</li>
+                <li><strong>Consultation Window:</strong> 24/7 Incident Intake</li>
+                <li><strong>Coverage:</strong> Global remote consultation</li>
+              </ul>
+              <div class="map-placeholder" role="img" aria-label="Map placeholder for business location">
+                <div>
+                  <strong>Embedded Map Placeholder</strong>
+                  <p>Replace this with your preferred map embed code when going live.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <article class="cta-box glass-card" data-animate>
+            <span class="chip">Private Consultation</span>
+            <h2 class="section-title">Need Clarity on a Crypto Incident?</h2>
+            <p>
+              Book a confidential strategy session with a blockchain recovery specialist and get a structured action
+              plan.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Start Consultation</a>
+              <a class="btn btn-outline" href="#faq">View FAQ</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <section>
+          <h3><span class="brand"><span>Ethereum</span> Recovery Service</span></h3>
+          <p>
+            Premium blockchain investigation and digital asset recovery consultation for individuals, families, and
+            organizations.
+          </p>
+        </section>
+        <section class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#blog">Blog</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </section>
+        <section>
+          <h4>Newsletter</h4>
+          <p>Get concise recovery and security insights directly in your inbox.</p>
+          <form class="newsletter-form" aria-label="Newsletter signup">
+            <label class="sr-only" for="newsletter-email-single">Email</label>
+            <input id="newsletter-email-single" class="input" type="email" placeholder="Your email address" required />
+            <button class="btn btn-primary btn-small" type="submit">Subscribe</button>
+          </form>
+          <p style="margin-top: 0.8rem">Email: sawfinsumon@gmail.com<br />Phone: +8801757453611</p>
+        </section>
+      </div>
+      <div class="container footer-bottom">
+        <p>(c) <span data-year></span> Ethereum Recovery Service. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <button class="to-top" type="button" aria-label="Back to top">&uarr;</button>
+
+    <script>
+      const body = document.body;
+      const header = document.querySelector(".site-header");
+      const navToggle = document.querySelector(".nav-toggle");
+      const navMenu = document.querySelector(".nav-links");
+      const backToTop = document.querySelector(".to-top");
+
+      if (header) {
+        const handleHeaderState = () => {
+          if (window.scrollY > 12) {
+            header.classList.add("is-scrolled");
+          } else {
+            header.classList.remove("is-scrolled");
+          }
+        };
+
+        handleHeaderState();
+        window.addEventListener("scroll", handleHeaderState);
+      }
+
+      if (navToggle && header && navMenu) {
+        navToggle.addEventListener("click", () => {
+          const isOpen = header.classList.toggle("nav-open");
+          navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        navMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            header.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+
+      if (backToTop) {
+        const toggleToTop = () => {
+          if (window.scrollY > 420) {
+            backToTop.classList.add("show");
+          } else {
+            backToTop.classList.remove("show");
+          }
+        };
+
+        backToTop.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        toggleToTop();
+        window.addEventListener("scroll", toggleToTop);
+      }
+
+      const animatedElements = document.querySelectorAll("[data-animate]");
+      if (animatedElements.length) {
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -30px 0px" }
+        );
+
+        animatedElements.forEach((element) => revealObserver.observe(element));
+      }
+
+      const statNumbers = document.querySelectorAll(".stat-number[data-target]");
+      if (statNumbers.length) {
+        const startCounter = (element) => {
+          const target = Number(element.dataset.target || "0");
+          const suffix = element.dataset.suffix || "";
+          const duration = 1300;
+          let start = 0;
+          let startTime = null;
+
+          const update = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const current = Math.floor(progress * (target - start) + start);
+            element.textContent = `${current}${suffix}`;
+            if (progress < 1) {
+              window.requestAnimationFrame(update);
+            } else {
+              element.textContent = `${target}${suffix}`;
+            }
+          };
+
+          window.requestAnimationFrame(update);
+        };
+
+        const counterObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                startCounter(entry.target);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.45 }
+        );
+
+        statNumbers.forEach((counter) => counterObserver.observe(counter));
+      }
+
+      const faqItems = document.querySelectorAll(".faq-item");
+      faqItems.forEach((item) => {
+        const button = item.querySelector(".faq-question");
+        if (!button) return;
+        button.addEventListener("click", () => {
+          const isOpen = item.classList.contains("open");
+          faqItems.forEach((faq) => faq.classList.remove("open"));
+          if (!isOpen) item.classList.add("open");
+        });
+      });
+
+      const faqSearch = document.querySelector("[data-faq-search]");
+      if (faqSearch) {
+        faqSearch.addEventListener("input", (event) => {
+          const value = event.target.value.toLowerCase().trim();
+          faqItems.forEach((item) => {
+            const text = item.textContent.toLowerCase();
+            item.classList.toggle("hidden-by-search", Boolean(value) && !text.includes(value));
+          });
+        });
+      }
+
+      const blogSearch = document.querySelector("[data-blog-search]");
+      const blogCards = document.querySelectorAll(".blog-card");
+      if (blogSearch && blogCards.length) {
+        blogSearch.addEventListener("input", (event) => {
+          const value = event.target.value.toLowerCase().trim();
+          blogCards.forEach((card) => {
+            const title = card.querySelector("h3") ? card.querySelector("h3").textContent.toLowerCase() : "";
+            const excerpt = card.querySelector("p") ? card.querySelector("p").textContent.toLowerCase() : "";
+            const category = card.dataset.category ? card.dataset.category.toLowerCase() : "";
+            const matches =
+              !value || title.includes(value) || excerpt.includes(value) || category.includes(value);
+            card.classList.toggle("hidden-by-search", !matches);
+          });
+        });
+      }
+
+      document.querySelectorAll(".newsletter-form, .contact-form").forEach((form) => {
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const submitButton = form.querySelector("[type='submit']");
+          if (!submitButton) return;
+
+          const originalText = submitButton.textContent;
+          submitButton.textContent = "Submitted";
+          submitButton.disabled = true;
+
+          setTimeout(() => {
+            submitButton.textContent = originalText || "Submit";
+            submitButton.disabled = false;
+            form.reset();
+          }, 1400);
+        });
+      });
+
+      const yearTarget = document.querySelector("[data-year]");
+      if (yearTarget) {
+        yearTarget.textContent = new Date().getFullYear();
+      }
+
+      if (body) {
+        body.classList.add("js-ready");
+      }
+    </script>
+  </body>
+</html>
