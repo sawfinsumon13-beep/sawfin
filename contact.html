@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Ethereum Recovery Service</title>
+  <meta
+    name="description"
+    content="Request a private Ethereum consultation. Submit your wallet or transaction case details securely for initial technical review."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="contact">
+  <div class="bg-noise"></div>
+  <div id="site-header"></div>
+  <main>
+    <section class="section page-hero">
+      <div class="container reveal">
+        <p class="eyebrow">Contact</p>
+        <h1>Request a Confidential Consultation</h1>
+        <p>
+          Share your case details for an initial professional review. Do not include your private keys or seed phrase.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <article class="glass contact-panel reveal">
+          <h2>Consultation Request Form</h2>
+          <form id="consultation-form" class="consultation-form">
+            <label>
+              Full Name
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              Phone Number
+              <input type="tel" name="phone" placeholder="+1 (555) 000-0000" required />
+            </label>
+            <label>
+              Service Category
+              <select name="category" required>
+                <option value="">Select a service</option>
+                <option>Wallet Access Recovery Consultation</option>
+                <option>Transaction Investigation</option>
+                <option>Blockchain Trace Analysis</option>
+                <option>Lost Wallet Guidance</option>
+                <option>Security Recommendations</option>
+                <option>Scam Reporting Guidance</option>
+              </select>
+            </label>
+            <label>
+              Case Description
+              <textarea
+                name="case"
+                rows="8"
+                placeholder="Describe what happened, timeline, wallet type, and any transaction hashes."
+                required
+              ></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Submit Secure Request</button>
+            <p class="form-note">
+              Secure submission message: Your case details are transmitted for confidential review only. We do not promise guaranteed recovery results.
+            </p>
+            <p id="form-status" class="form-status" aria-live="polite"></p>
+          </form>
+        </article>
+        <article class="contact-info reveal">
+          <h2>Before Submitting</h2>
+          <ul>
+            <li>Collect wallet name/version and transaction hashes.</li>
+            <li>Document all known timestamps and involved addresses.</li>
+            <li>Do not share private keys or seed phrases with anyone.</li>
+            <li>Preserve screenshots, emails, and communication evidence.</li>
+          </ul>
+          <p class="section-disclaimer">
+            Ethereum Recovery Service provides investigation and consultation support. Outcomes depend on technical facts and third-party cooperation.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/blog-data.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

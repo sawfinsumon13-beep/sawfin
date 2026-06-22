@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Ethereum Recovery Service</title>
+  <meta
+    name="description"
+    content="Educational Ethereum recovery and security blog covering wallet safety, blockchain investigations, scam awareness, and transaction guidance."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="blog">
+  <div class="bg-noise"></div>
+  <div id="site-header"></div>
+  <main>
+    <section class="section page-hero">
+      <div class="container reveal">
+        <p class="eyebrow">Blog</p>
+        <h1>Ethereum Recovery & Security Knowledge Center</h1>
+        <p>
+          Explore expert educational articles on wallet recovery options, blockchain investigation methods, and crypto safety practices.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="blog-toolbar glass reveal">
+          <label class="search-wrap">
+            <span>Search Articles</span>
+            <input id="blog-search" type="search" placeholder="Search by topic or keyword" />
+          </label>
+          <div id="blog-categories" class="category-pills" aria-label="Blog categories"></div>
+        </div>
+        <div id="blog-results-summary" class="results-summary"></div>
+        <div id="blog-list" class="card-grid three-col blog-grid"></div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/blog-data.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
