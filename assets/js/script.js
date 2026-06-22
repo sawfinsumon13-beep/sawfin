@@ -246,18 +246,18 @@ const readerContent = document.querySelector("#reader-content");
 const readMoreLinks = document.querySelectorAll(".read-more[data-article-id]");
 
 const articleAngles = {
-  "article-1": "wallet breach response and digital evidence preservation",
-  "article-2": "cross-chain investigation strategy and transaction path analysis",
-  "article-3": "hardware wallet operations and practical crypto security controls",
-  "article-4": "exchange escalation preparation and incident communication quality",
-  "article-5": "incident risk scoring, triage design, and strategic decision support",
-  "article-6": "legal escalation readiness and technical-to-legal handoff",
-  "article-7": "team wallet governance and secure approval workflow architecture",
-  "article-8": "executive communication for complex smart contract incidents",
-  "article-9": "cross-border evidence packaging and documentation quality standards",
-  "article-10": "identity-layer controls including SIM swap prevention",
-  "article-11": "wallet clustering interpretation and confidence-based reporting",
-  "article-12": "leadership briefing frameworks for high-pressure asset incidents",
+  "article-1": "crypto recovery after wallet hacks and urgent first-hour response",
+  "article-2": "cross-chain stolen fund tracing for active crypto recovery cases",
+  "article-3": "crypto scam recovery after fake support and impersonation attacks",
+  "article-4": "exchange coordination strategy for stronger crypto recovery escalation",
+  "article-5": "wrong-address crypto transfer recovery and realistic options",
+  "article-6": "avoiding fake recovery scams and secondary fraud after asset loss",
+  "article-7": "DeFi exploit crypto recovery planning for investors and teams",
+  "article-8": "evidence file preparation for crypto recovery claims and reports",
+  "article-9": "stablecoin recovery strategy for unauthorized USDT and USDC transfers",
+  "article-10": "wallet-drain emergency containment during live crypto recovery",
+  "article-11": "crypto recovery success factors and case outcome analysis",
+  "article-12": "how to choose a trusted crypto recovery service provider",
 };
 
 const countWords = (html) => html.replace(/<[^>]*>/g, " ").trim().split(/\s+/).filter(Boolean).length;
