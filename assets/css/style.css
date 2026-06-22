@@ -468,7 +468,10 @@ p {
 .blog-image {
   border-radius: var(--radius-sm);
   aspect-ratio: 16 / 10;
-  object-fit: cover;
+  object-fit: contain;
+  background: radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.14), transparent 40%),
+    linear-gradient(160deg, rgba(13, 19, 36, 0.92), rgba(8, 12, 24, 0.96));
+  padding: 0.9rem;
   margin-bottom: 0.9rem;
 }
 
