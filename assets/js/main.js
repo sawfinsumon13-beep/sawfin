@@ -90,10 +90,10 @@
 
           <nav class="hidden items-center gap-6 lg:flex" aria-label="Primary">
             <div class="group relative">
-              <button type="button" class="inline-flex items-center gap-1 text-xs tracking-wide transition hover:text-[var(--accent-blue)] ${enginesActive ? "text-[var(--accent-blue)]" : "text-[var(--text)]"}" aria-label="Open engine family menu">
+              <a href="collection.html" data-transition class="inline-flex items-center gap-1 text-xs tracking-wide transition hover:text-[var(--accent-blue)] ${enginesActive ? "text-[var(--accent-blue)]" : "text-[var(--text)]"}" aria-label="Open engine collection">
                 Engines
                 <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m6 9 6 6 6-6"/></svg>
-              </button>
+              </a>
               <div class="invisible absolute left-0 top-full z-30 mt-3 w-56 rounded-2xl border border-[var(--border)] bg-[var(--bg)]/95 p-2 opacity-0 shadow-2xl transition duration-200 group-hover:visible group-hover:opacity-100">
                 ${engineLinks
                   .map(
