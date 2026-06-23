@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="titleC descC">
+  <title id="titleC">eCommerce SEO Visibility Visual</title>
+  <desc id="descC">Abstract ecommerce visibility and funnel growth graphic.</desc>
+  <defs>
+    <linearGradient id="bgC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1020"/>
+      <stop offset="100%" stop-color="#17365a"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bgC)"/>
+  <polygon points="120,84 530,84 458,154 192,154" fill="#1d4ed8" opacity="0.28"/>
+  <polygon points="176,166 474,166 426,228 224,228" fill="#2563EB" opacity="0.34"/>
+  <polygon points="228,240 422,240 386,294 264,294" fill="#06B6D4" opacity="0.55"/>
+  <circle cx="526" cy="242" r="40" fill="#111827" stroke="#7dd3fc" stroke-opacity="0.55"/>
+  <path d="M507 242l14 13 24-31" fill="none" stroke="#06B6D4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="108" y="62" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="24">eCommerce SEO Funnel</text>
+</svg>

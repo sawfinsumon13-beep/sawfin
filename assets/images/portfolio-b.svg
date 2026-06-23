@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="titleB descB">
+  <title id="titleB">Keyword Ranking Campaign Visual</title>
+  <desc id="descB">Abstract SEO keyword dashboard representation.</desc>
+  <defs>
+    <linearGradient id="bgB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c1629"/>
+      <stop offset="100%" stop-color="#182d4f"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bgB)"/>
+  <rect x="74" y="62" width="492" height="236" rx="18" fill="#111827" stroke="#60a5fa" stroke-opacity="0.38"/>
+  <rect x="98" y="102" width="130" height="18" rx="7" fill="#2563EB" opacity="0.82"/>
+  <rect x="98" y="140" width="180" height="18" rx="7" fill="#1d4ed8" opacity="0.72"/>
+  <rect x="98" y="178" width="230" height="18" rx="7" fill="#1e40af" opacity="0.72"/>
+  <rect x="98" y="216" width="270" height="18" rx="7" fill="#1d4ed8" opacity="0.72"/>
+  <rect x="410" y="110" width="130" height="130" rx="16" fill="#0f1e39"/>
+  <circle cx="475" cy="175" r="42" fill="none" stroke="#06B6D4" stroke-width="13"/>
+  <text x="94" y="90" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="24">Keyword Ranking Lift</text>
+</svg>

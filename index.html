@@ -3,420 +3,395 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asropali | SEO Portfolio</title>
-  <meta name="description" content="Portfolio website for Fiverr seller @asropali, focused on SEO, backlink building, and digital growth services.">
-  <style>
-    :root {
-      --bg: #f6f8fc;
-      --card: #ffffff;
-      --text: #1b2430;
-      --muted: #5e6b7a;
-      --brand: #1dbf73;
-      --brand-dark: #14945a;
-      --line: #dbe3ef;
-      --shadow: 0 12px 30px rgba(15, 27, 43, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1080px, 92%);
-      margin: 0 auto;
-    }
-
-    header {
-      background: linear-gradient(120deg, #0f172a, #1f2b46);
-      color: #fff;
-      padding: 72px 0 56px;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 44px;
-    }
-
-    .logo {
-      font-weight: 700;
-      letter-spacing: 0.6px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      font-size: 0.95rem;
-      color: #d7def0;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 6px 12px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 999px;
-      font-size: 0.8rem;
-      margin-bottom: 14px;
-      color: #d9e6ff;
-    }
-
-    h1 {
-      font-size: clamp(1.8rem, 2.8vw, 2.9rem);
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      color: #d2daec;
-      margin-bottom: 20px;
-      max-width: 55ch;
-    }
-
-    .actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 11px 18px;
-      border-radius: 9px;
-      font-weight: 700;
-      font-size: 0.92rem;
-      border: 1px solid transparent;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--brand);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: var(--brand-dark);
-    }
-
-    .btn-secondary {
-      border-color: rgba(255, 255, 255, 0.36);
-      color: #fff;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 14px;
-      padding: 20px;
-      backdrop-filter: blur(2px);
-    }
-
-    .card h3 {
-      font-size: 1rem;
-      margin-bottom: 12px;
-      color: #e8f0ff;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 6px;
-    }
-
-    .stats div {
-      background: rgba(255, 255, 255, 0.09);
-      border-radius: 10px;
-      padding: 10px;
-    }
-
-    .stats strong {
-      display: block;
-      font-size: 1.2rem;
-      color: #fff;
-    }
-
-    main {
-      padding: 54px 0 66px;
-    }
-
-    section {
-      margin-bottom: 28px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    section h2 {
-      font-size: 1.35rem;
-      margin-bottom: 14px;
-    }
-
-    .muted {
-      color: var(--muted);
-      max-width: 75ch;
-    }
-
-    .grid-3 {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .service {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 14px;
-      background: #fbfdff;
-    }
-
-    .service h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-
-    .service p {
-      font-size: 0.94rem;
-      color: var(--muted);
-    }
-
-    .timeline {
-      margin-top: 14px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .step {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px;
-      background: #fbfdff;
-    }
-
-    .step-number {
-      min-width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #e9f8f0;
-      color: #16764a;
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .contact-box {
-      margin-top: 14px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid #b8edce;
-      background: #edfbf3;
-    }
-
-    footer {
-      padding: 0 0 30px;
-      color: #6d7c8f;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .grid-3 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <title>ASROP ALI - SEO Expert Portfolio | Digital Marketing Specialist</title>
+  <meta name="description" content="ASROP ALI is an SEO expert and digital marketing specialist helping businesses grow organic visibility, rankings, and qualified traffic with premium freelance services.">
+  <meta name="keywords" content="ASROP ALI, SEO expert, digital marketing specialist, backlinks, classified ads posting, organic growth, freelancer portfolio">
+  <meta name="author" content="ASROP ALI">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ASROP ALI - SEO Expert Portfolio">
+  <meta property="og:description" content="Premium personal portfolio for SEO and digital marketing services focused on visibility, growth, and results.">
+  <meta property="og:image" content="assets/images/profile.svg">
+  <meta property="og:url" content="https://www.fiverr.com/asropali">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ASROP ALI - SEO Expert Portfolio">
+  <meta name="twitter:description" content="Helping businesses improve visibility, organic growth, and online presence through SEO and digital marketing solutions.">
+  <meta name="twitter:image" content="assets/images/profile.svg">
+  <link rel="preload" href="assets/css/style.css" as="style">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/script.js"></script>
 </head>
 <body>
-  <header>
+  <div class="noise-layer" aria-hidden="true"></div>
+  <header class="site-header" id="home">
     <div class="container">
-      <nav>
-        <a class="logo" href="#">Asropali Portfolio</a>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#process">Process</a>
-          <a href="#contact">Contact</a>
-        </div>
+      <nav class="navbar glass" aria-label="Main navigation">
+        <a class="brand" href="#home">ASROP ALI</a>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
 
-      <div class="hero">
-        <div>
-          <span class="pill">Fiverr Seller Profile</span>
-          <h1>Helping businesses grow with SEO and off-page optimization</h1>
-          <p>
-            Welcome to my portfolio. I provide practical SEO support focused on backlink building,
-            visibility growth, and search presence improvements for websites and online businesses.
+      <section class="hero">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Premium Freelancer Portfolio</p>
+          <h1>ASROP ALI</h1>
+          <h2>SEO Expert | Digital Marketing Specialist</h2>
+          <p class="intro">
+            Helping businesses improve visibility, organic growth, and online presence through SEO and digital marketing solutions.
           </p>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://www.fiverr.com/asropali" target="_blank" rel="noopener noreferrer">View Fiverr Profile</a>
-            <a class="btn btn-secondary" href="#contact">Work With Me</a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Hire Me</a>
+            <a class="btn btn-ghost" href="#services">View Services</a>
           </div>
         </div>
 
-        <aside class="card">
-          <h3>Profile Snapshot</h3>
-          <p class="muted">
-            Fiverr username: <strong>@asropali</strong><br>
-            Focus areas: SEO, backlinks, and digital visibility.
-          </p>
-          <div class="stats">
-            <div>
-              <small>Platform</small>
-              <strong>Fiverr</strong>
-            </div>
-            <div>
-              <small>Specialization</small>
-              <strong>SEO</strong>
-            </div>
+        <aside class="hero-card glass reveal" aria-label="Profile card">
+          <img src="assets/images/profile.svg" alt="ASROP ALI profile illustration" width="420" height="420" fetchpriority="high">
+          <div class="profile-meta">
+            <p>Results-Driven SEO Strategy</p>
+            <p>Conversion-Focused Digital Execution</p>
           </div>
         </aside>
-      </div>
+      </section>
     </div>
   </header>
 
-  <main class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p class="muted">
-        I support clients who want better online discoverability and stronger search performance.
-        My portfolio is centered on practical, execution-focused SEO services that can be adapted to
-        different industries and business sizes.
-      </p>
-    </section>
-
-    <section id="services">
-      <h2>Services</h2>
-      <p class="muted">Core services based on my Fiverr profile offerings and SEO workflow.</p>
-      <div class="grid-3">
-        <article class="service">
-          <h3>Manual Web 2.0 Backlinks</h3>
-          <p>Build contextual, manually created links to improve authority signals and off-page SEO health.</p>
+  <main>
+    <section class="stats-section">
+      <div class="container stats-grid">
+        <article class="stat-card glass reveal">
+          <p class="stat-value" data-counter data-target="31" data-suffix="+">0</p>
+          <p>Reviews</p>
         </article>
-        <article class="service">
-          <h3>Classified Ad Posting</h3>
-          <p>Publish optimized classified listings on relevant platforms to drive targeted visibility.</p>
+        <article class="stat-card glass reveal">
+          <p class="stat-value" data-counter data-target="70" data-suffix="+">0</p>
+          <p>Orders</p>
         </article>
-        <article class="service">
-          <h3>SEO Growth Support</h3>
-          <p>Assist with practical optimization tasks focused on improving rankings and website reach.</p>
+        <article class="stat-card glass reveal">
+          <p class="stat-value" data-counter data-target="1" data-prefix="<" data-suffix="h">0</p>
+          <p>Fast Response</p>
         </article>
-        <article class="service">
-          <h3>Link Strategy Planning</h3>
-          <p>Map out a sustainable backlink plan aligned with your niche and growth objectives.</p>
-        </article>
-        <article class="service">
-          <h3>Competitor Observation</h3>
-          <p>Review competitor patterns and opportunities to help shape stronger SEO execution.</p>
-        </article>
-        <article class="service">
-          <h3>Delivery Reporting</h3>
-          <p>Clear communication and progress updates so you can track what was delivered and why.</p>
+        <article class="stat-card glass reveal">
+          <p class="stat-value" data-counter data-target="24" data-suffix="+">0</p>
+          <p>Global Clients</p>
         </article>
       </div>
     </section>
 
-    <section id="process">
-      <h2>How I Work</h2>
-      <div class="timeline">
-        <div class="step">
-          <span class="step-number">1</span>
-          <div>
-            <strong>Requirement Review</strong>
-            <p>I gather your goals, URL details, and preferred SEO priorities before starting work.</p>
-          </div>
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">About Me</p>
+          <h2>SEO Strategy Backed by Experience and Communication</h2>
         </div>
-        <div class="step">
-          <span class="step-number">2</span>
-          <div>
-            <strong>Execution</strong>
-            <p>I deliver selected services with attention to relevance, quality, and clear documentation.</p>
-          </div>
-        </div>
-        <div class="step">
-          <span class="step-number">3</span>
-          <div>
-            <strong>Update and Next Steps</strong>
-            <p>You receive a concise summary and guidance for the next growth actions.</p>
-          </div>
+        <div class="about-grid">
+          <article class="about-card glass reveal">
+            <h3>Experience-Focused Work Style</h3>
+            <p>
+              Every campaign is built for measurable growth with a client-first mindset and transparent communication.
+            </p>
+            <ul>
+              <li><strong>6+ years experience</strong> delivering practical SEO and marketing support.</li>
+              <li><strong>SEO focused</strong> process for visibility and ranking improvements.</li>
+              <li><strong>Client-first approach</strong> with custom strategy and updates.</li>
+              <li><strong>Fast communication</strong> and quick response for project momentum.</li>
+            </ul>
+          </article>
+          <article class="about-card glass reveal">
+            <h3>My Working Principle</h3>
+            <p>
+              I prioritize quality over shortcuts and adapt every execution plan to your business goals, competition, and audience.
+            </p>
+            <p>
+              The focus is simple: build trust, drive visibility, and convert visitors into leads and customers.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="contact">
-      <h2>Let's Work Together</h2>
-      <p class="muted">
-        Looking for reliable SEO support on Fiverr? Send your project details and I will suggest a
-        clear service path based on your website goals.
-      </p>
-      <div class="contact-box">
-        <div>
-          <strong>Fiverr Profile:</strong>
-          <a href="https://www.fiverr.com/asropali" target="_blank" rel="noopener noreferrer">fiverr.com/asropali</a>
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Services</p>
+          <h2>Premium SEO & Digital Marketing Services</h2>
         </div>
-        <a class="btn btn-primary" href="https://www.fiverr.com/asropali" target="_blank" rel="noopener noreferrer">Message on Fiverr</a>
+        <div class="services-grid">
+          <article class="service-card glass reveal">
+            <h3>Web 2.0 Backlinks</h3>
+            <p>Manual and structured backlink builds that support authority and ranking growth.</p>
+          </article>
+          <article class="service-card glass reveal">
+            <h3>Classified Ads Posting</h3>
+            <p>Targeted classified submissions to improve visibility and referral opportunities.</p>
+          </article>
+          <article class="service-card glass reveal">
+            <h3>SEO Optimization</h3>
+            <p>On-page and off-page optimization support to improve keyword performance.</p>
+          </article>
+          <article class="service-card glass reveal">
+            <h3>Organic Growth</h3>
+            <p>Long-term SEO workflows for consistent traffic improvement and stronger reach.</p>
+          </article>
+          <article class="service-card glass reveal">
+            <h3>Website Promotion</h3>
+            <p>Promotion strategies to increase discoverability and audience engagement.</p>
+          </article>
+          <article class="service-card glass reveal">
+            <h3>Digital Marketing</h3>
+            <p>Freelance marketing support tailored to startup, local, and global business needs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section portfolio" id="portfolio">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Portfolio</p>
+          <h2>Selected SEO Campaign Outcomes</h2>
+        </div>
+        <div class="portfolio-grid">
+          <article class="portfolio-card glass reveal">
+            <img src="assets/images/portfolio-a.svg" alt="Local business SEO campaign" loading="lazy" decoding="async" width="640" height="360">
+            <div class="portfolio-body">
+              <h3>Local Service SEO Boost</h3>
+              <p>Optimized off-page strategy for a local service provider.</p>
+              <ul>
+                <li><strong>Result:</strong> +62% organic traffic</li>
+                <li><strong>Category:</strong> Local Business</li>
+              </ul>
+            </div>
+          </article>
+          <article class="portfolio-card glass reveal">
+            <img src="assets/images/portfolio-b.svg" alt="Affiliate niche growth project" loading="lazy" decoding="async" width="640" height="360">
+            <div class="portfolio-body">
+              <h3>Affiliate Niche Growth</h3>
+              <p>Backlink and content support for ranking competitive terms.</p>
+              <ul>
+                <li><strong>Result:</strong> 18 keywords in top 10</li>
+                <li><strong>Category:</strong> Affiliate Site</li>
+              </ul>
+            </div>
+          </article>
+          <article class="portfolio-card glass reveal">
+            <img src="assets/images/portfolio-c.svg" alt="Ecommerce visibility campaign" loading="lazy" decoding="async" width="640" height="360">
+            <div class="portfolio-body">
+              <h3>eCommerce Visibility Campaign</h3>
+              <p>Classified posting and authority link profile improvements.</p>
+              <ul>
+                <li><strong>Result:</strong> +47% product page reach</li>
+                <li><strong>Category:</strong> eCommerce</li>
+              </ul>
+            </div>
+          </article>
+          <article class="portfolio-card glass reveal">
+            <img src="assets/images/portfolio-a.svg" alt="New startup domain promotion" loading="lazy" decoding="async" width="640" height="360">
+            <div class="portfolio-body">
+              <h3>Startup Domain Promotion</h3>
+              <p>Early-stage SEO plan to build topical and off-page signals.</p>
+              <ul>
+                <li><strong>Result:</strong> DR improved from 4 to 21</li>
+                <li><strong>Category:</strong> Startup</li>
+              </ul>
+            </div>
+          </article>
+          <article class="portfolio-card glass reveal">
+            <img src="assets/images/portfolio-b.svg" alt="Service business authority project" loading="lazy" decoding="async" width="640" height="360">
+            <div class="portfolio-body">
+              <h3>Authority Building Sprint</h3>
+              <p>High-relevance backlink execution for service-based business.</p>
+              <ul>
+                <li><strong>Result:</strong> +35% leads from organic</li>
+                <li><strong>Category:</strong> Professional Services</li>
+              </ul>
+            </div>
+          </article>
+          <article class="portfolio-card glass reveal">
+            <img src="assets/images/portfolio-c.svg" alt="Content site traffic scaling campaign" loading="lazy" decoding="async" width="640" height="360">
+            <div class="portfolio-body">
+              <h3>Content Site Traffic Scaling</h3>
+              <p>SEO promotion strategy for sustained organic acquisition.</p>
+              <ul>
+                <li><strong>Result:</strong> +78% monthly impressions</li>
+                <li><strong>Category:</strong> Blog / Media</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews" id="reviews">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Reviews</p>
+          <h2>What Clients Say</h2>
+        </div>
+        <div class="testimonial-slider glass reveal" aria-label="Client testimonial slider">
+          <button class="slider-btn prev" type="button" id="prev-review" aria-label="Previous review">&#10094;</button>
+          <div class="testimonial-viewport">
+            <div class="testimonial-track" id="testimonial-track">
+              <article class="testimonial">
+                <p>"Professional delivery and clear updates. My site started getting steady organic leads within weeks."</p>
+                <h3>eCommerce Client</h3>
+              </article>
+              <article class="testimonial">
+                <p>"Excellent backlink quality and communication. Fast responses and exactly what was promised."</p>
+                <h3>Local Business Owner</h3>
+              </article>
+              <article class="testimonial">
+                <p>"ASROP's SEO support helped us improve rankings for key terms in a competitive niche."</p>
+                <h3>Affiliate Publisher</h3>
+              </article>
+              <article class="testimonial">
+                <p>"Great freelancer to work with. Strategy, execution, and reporting were all premium."</p>
+                <h3>Startup Founder</h3>
+              </article>
+            </div>
+          </div>
+          <button class="slider-btn next" type="button" id="next-review" aria-label="Next review">&#10095;</button>
+          <div class="slider-dots" id="slider-dots" aria-label="Review navigation dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blog" id="blog">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Blog</p>
+          <h2>SEO Insights & Actionable Guides</h2>
+        </div>
+        <div class="blog-grid">
+          <article class="blog-card glass reveal">
+            <img src="assets/images/blog.svg" alt="SEO Basics article cover" loading="lazy" decoding="async" width="520" height="300">
+            <h3>SEO Basics for New Websites</h3>
+          </article>
+          <article class="blog-card glass reveal">
+            <img src="assets/images/blog.svg" alt="Web 2.0 backlinks guide cover" loading="lazy" decoding="async" width="520" height="300">
+            <h3>Web 2.0 Backlinks Guide</h3>
+          </article>
+          <article class="blog-card glass reveal">
+            <img src="assets/images/blog.svg" alt="Local SEO success cover" loading="lazy" decoding="async" width="520" height="300">
+            <h3>Local SEO for Service Brands</h3>
+          </article>
+          <article class="blog-card glass reveal">
+            <img src="assets/images/blog.svg" alt="Organic traffic growth cover" loading="lazy" decoding="async" width="520" height="300">
+            <h3>Organic Traffic Growth Blueprint</h3>
+          </article>
+          <article class="blog-card glass reveal">
+            <img src="assets/images/blog.svg" alt="Keyword research framework cover" loading="lazy" decoding="async" width="520" height="300">
+            <h3>Keyword Research Framework</h3>
+          </article>
+          <article class="blog-card glass reveal">
+            <img src="assets/images/blog.svg" alt="Classified advertising strategy cover" loading="lazy" decoding="async" width="520" height="300">
+            <h3>Classified Advertising That Works</h3>
+          </article>
+          <article class="blog-card glass reveal">
+            <img src="assets/images/blog.svg" alt="On-page SEO checklist cover" loading="lazy" decoding="async" width="520" height="300">
+            <h3>On-Page SEO Quick Checklist</h3>
+          </article>
+          <article class="blog-card glass reveal">
+            <img src="assets/images/blog.svg" alt="Off-page SEO strategies cover" loading="lazy" decoding="async" width="520" height="300">
+            <h3>Off-Page SEO Strategies</h3>
+          </article>
+          <article class="blog-card glass reveal">
+            <img src="assets/images/blog.svg" alt="Technical SEO essentials cover" loading="lazy" decoding="async" width="520" height="300">
+            <h3>Technical SEO Essentials</h3>
+          </article>
+          <article class="blog-card glass reveal">
+            <img src="assets/images/blog.svg" alt="SEO reporting tips cover" loading="lazy" decoding="async" width="520" height="300">
+            <h3>SEO Reporting for Clients</h3>
+          </article>
+          <article class="blog-card glass reveal">
+            <img src="assets/images/blog.svg" alt="Link building mistakes cover" loading="lazy" decoding="async" width="520" height="300">
+            <h3>Top Link Building Mistakes</h3>
+          </article>
+          <article class="blog-card glass reveal">
+            <img src="assets/images/blog.svg" alt="Digital marketing growth systems cover" loading="lazy" decoding="async" width="520" height="300">
+            <h3>Digital Marketing Growth Systems</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <article class="contact-info glass reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Start Your Project</h2>
+          <p>Tell me your goals and get a response with a practical SEO action plan.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:hello@asropali.com">Email Me</a>
+            <a class="btn btn-ghost" href="https://www.fiverr.com/asropali" target="_blank" rel="noopener noreferrer">Fiverr Profile</a>
+          </div>
+          <a class="cta-link" href="https://www.fiverr.com/asropali" target="_blank" rel="noopener noreferrer">Start Your Project</a>
+        </article>
+        <form class="contact-form glass reveal" id="contact-form">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="your@email.com" required>
+
+          <label for="service">Service Needed</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option>Web 2.0 Backlinks</option>
+            <option>Classified Ads Posting</option>
+            <option>SEO Optimization</option>
+            <option>Organic Growth</option>
+            <option>Website Promotion</option>
+            <option>Digital Marketing</option>
+          </select>
+
+          <label for="message">Project Details</label>
+          <textarea id="message" name="message" rows="5" placeholder="Share your goals..." required></textarea>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>© <span id="year"></span> Asropali Portfolio. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand">ASROP ALI</p>
+        <p>SEO Expert Portfolio</p>
+      </div>
+      <div>
+        <h3>Quick Navigation</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Social</h3>
+        <ul>
+          <li><a href="https://www.fiverr.com/asropali" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
+          <li><a href="#contact">Email</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">Copyright &copy; <span id="year"></span> ASROP ALI. All rights reserved.</p>
   </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
