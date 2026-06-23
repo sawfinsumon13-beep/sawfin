@@ -325,6 +325,7 @@
     }).slice(0, 6);
     mount.innerHTML = featured.map((product) => buildProductCard(product)).join("");
     bindProductActions(mount);
+    initRevealOnScroll();
   }
 
   function renderCollectionPage() {
@@ -389,6 +390,7 @@
         }
       }
       bindProductActions(mount);
+      initRevealOnScroll();
     };
 
     searchInput.addEventListener("input", function () {
@@ -513,6 +515,7 @@
       const related = data.products.filter((entry) => entry.id !== product.id).slice(0, 3);
       relatedGrid.innerHTML = related.map((entry) => buildProductCard(entry)).join("");
       bindProductActions(relatedGrid);
+      initRevealOnScroll();
     }
   }
 
