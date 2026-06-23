@@ -61,7 +61,8 @@
       <section class="hero-cinematic fine-grid-bg relative min-h-screen overflow-hidden px-4 pb-20 pt-32 md:px-8">
         <div class="pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-accent/30 blur-3xl" data-parallax="0.03"></div>
         <div class="pointer-events-none absolute -right-24 bottom-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" data-parallax="0.05"></div>
-        <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div class="three-d-orbit pointer-events-none left-1/2 top-24 h-[320px] w-[320px] -translate-x-1/2 opacity-70"></div>
+        <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div class="space-y-8">
             <p data-gsap-hero class="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-cloud">
               Original Bavarian Engine • Germany
@@ -84,22 +85,94 @@
             </ul>
           </div>
 
-          <article class="metallic-card reveal rounded-3xl p-7">
-            <p class="text-xs uppercase tracking-[0.22em] text-silver">Instant Matching Desk</p>
-            <h2 class="mt-3 text-2xl text-cloud">Send VIN or Engine Stamp</h2>
-            <p class="mt-2 text-sm leading-relaxed text-silver">
-              Share your VIN, engine code, and destination country. We confirm matching stock before you commit.
+          <div class="three-d-stage relative reveal">
+            <article data-tilt data-tilt-max="7" class="three-d-panel rounded-3xl p-7">
+              <p class="three-d-depth-1 text-xs uppercase tracking-[0.22em] text-silver">Instant Matching Desk</p>
+              <h2 class="three-d-float mt-3 text-2xl text-cloud">Send VIN or Engine Stamp</h2>
+              <p class="three-d-depth-1 mt-2 text-sm leading-relaxed text-silver">
+                Share your VIN, engine code, and destination country. We confirm matching stock before you commit.
+              </p>
+              <form class="three-d-depth-1 mt-6 space-y-3" action="contact.html">
+                <label for="heroVin" class="sr-only">VIN or engine code</label>
+                <input id="heroVin" type="text" placeholder="Example: WBABD11010EX12345 / S50B32" class="w-full rounded-2xl border border-white/25 bg-black/35 px-4 py-3 text-sm text-cloud outline-none focus:border-accent" />
+                <label for="heroEmail" class="sr-only">Email</label>
+                <input id="heroEmail" type="email" placeholder="Business email" class="w-full rounded-2xl border border-white/25 bg-black/35 px-4 py-3 text-sm text-cloud outline-none focus:border-accent" />
+                <button type="submit" class="btn-primary w-full rounded-2xl px-5 py-3 text-sm uppercase tracking-[0.16em]">Check Availability</button>
+              </form>
+              <div class="three-d-depth-2 mt-5 grid grid-cols-2 gap-3 text-center text-xs uppercase tracking-[0.14em] text-silver">
+                <p class="rounded-xl border border-white/20 px-3 py-2">560+ Units Archived</p>
+                <p class="rounded-xl border border-white/20 px-3 py-2">34 Countries Delivered</p>
+              </div>
+            </article>
+            <article data-tilt data-tilt-max="10" class="three-d-panel absolute -bottom-10 -left-10 hidden w-56 rounded-2xl p-4 md:block">
+              <p class="text-[10px] uppercase tracking-[0.18em] text-silver">Warehouse Status</p>
+              <p class="mt-2 text-sm text-cloud">Live inventory refreshes daily with verified old-engine arrivals.</p>
+            </article>
+            <article data-tilt data-tilt-max="10" class="three-d-panel absolute -right-8 -top-8 hidden w-52 rounded-2xl p-4 md:block">
+              <p class="text-[10px] uppercase tracking-[0.18em] text-silver">Collector Priority</p>
+              <p class="mt-2 text-sm text-cloud">Rare M and heritage allocations supported through direct desk review.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="depth-grid px-4 pb-6 md:px-8">
+        <div class="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
+          <article data-tilt data-tilt-max="6" class="three-d-panel reveal rounded-3xl p-6">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">3D Powertrain Archive</p>
+            <h2 class="mt-2 text-2xl text-[var(--text)]">Layered Inspection Intelligence</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">
+              Every listing follows an archive structure: engine ID, donor context, condition notes, compatibility guidance.
             </p>
-            <form class="mt-6 space-y-3" action="contact.html">
-              <label for="heroVin" class="sr-only">VIN or engine code</label>
-              <input id="heroVin" type="text" placeholder="Example: WBABD11010EX12345 / S50B32" class="w-full rounded-2xl border border-white/25 bg-black/35 px-4 py-3 text-sm text-cloud outline-none focus:border-accent" />
-              <label for="heroEmail" class="sr-only">Email</label>
-              <input id="heroEmail" type="email" placeholder="Business email" class="w-full rounded-2xl border border-white/25 bg-black/35 px-4 py-3 text-sm text-cloud outline-none focus:border-accent" />
-              <button type="submit" class="btn-primary w-full rounded-2xl px-5 py-3 text-sm uppercase tracking-[0.16em]">Check Availability</button>
-            </form>
-            <div class="mt-5 grid grid-cols-2 gap-3 text-center text-xs uppercase tracking-[0.14em] text-silver">
-              <p class="rounded-xl border border-white/20 px-3 py-2">560+ Units Archived</p>
-              <p class="rounded-xl border border-white/20 px-3 py-2">34 Countries Delivered</p>
+          </article>
+          <article data-tilt data-tilt-max="6" class="three-d-panel reveal rounded-3xl p-6">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Performance Heritage</p>
+            <h2 class="mt-2 text-2xl text-[var(--text)]">BMW Classics to Modern Icons</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">
+              From M57 and N57 to B57 and B58 families, our catalog supports restoration and precision replacement projects.
+            </p>
+          </article>
+          <article data-tilt data-tilt-max="6" class="three-d-panel reveal rounded-3xl p-6">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Technical Support Stack</p>
+            <h2 class="mt-2 text-2xl text-[var(--text)]">Pre and Post Delivery Assistance</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">
+              Fitment cross-checks, shipping route guidance, and installation communication channels are included.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="px-4 py-10 md:px-8">
+        <div class="mx-auto max-w-7xl">
+          <article class="spec-matrix reveal rounded-[2rem] p-7 md:p-10">
+            <div class="mb-7 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Engine Intelligence Matrix</p>
+                <h2 class="mt-3 text-3xl text-[var(--text)] md:text-4xl">What Makes This Platform Premium</h2>
+              </div>
+              <a href="collection.html" data-transition class="btn-secondary rounded-full px-5 py-2.5 text-sm">Explore 500+ Engines</a>
+            </div>
+            <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              <article class="spec-matrix-item rounded-2xl p-4">
+                <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Verification Layer</p>
+                <h3 class="mt-2 text-lg text-[var(--text)]">Code-Specific Mapping</h3>
+                <p class="mt-2 text-sm text-[var(--muted)]">N57, N47, M57, B57, B47, B58 families with model-specific references.</p>
+              </article>
+              <article class="spec-matrix-item rounded-2xl p-4">
+                <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Condition Layer</p>
+                <h3 class="mt-2 text-lg text-[var(--text)]">Documented Mechanical Notes</h3>
+                <p class="mt-2 text-sm text-[var(--muted)]">Inspection details and reporting-backed listings for confident sourcing.</p>
+              </article>
+              <article class="spec-matrix-item rounded-2xl p-4">
+                <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Logistics Layer</p>
+                <h3 class="mt-2 text-lg text-[var(--text)]">Secure Crated Export</h3>
+                <p class="mt-2 text-sm text-[var(--muted)]">Controlled packing standards and tracked international shipping flows.</p>
+              </article>
+              <article class="spec-matrix-item rounded-2xl p-4">
+                <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Support Layer</p>
+                <h3 class="mt-2 text-lg text-[var(--text)]">Specialist Response Desk</h3>
+                <p class="mt-2 text-sm text-[var(--muted)]">Direct communication for pre-order matching and delivery follow-up.</p>
+              </article>
             </div>
           </article>
         </div>
@@ -140,6 +213,45 @@
             <a href="collection.html" data-transition class="btn-secondary rounded-full px-5 py-2.5 text-sm font-medium transition">View full collection</a>
           </div>
           <div id="featuredGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+        </div>
+      </section>
+
+      <section class="px-4 pb-20 md:px-8">
+        <div class="mx-auto grid max-w-7xl gap-7 lg:grid-cols-[1.1fr_0.9fr]">
+          <article class="three-d-stage reveal rounded-3xl">
+            <div data-tilt data-tilt-max="8" class="three-d-panel rounded-3xl p-7 md:p-8">
+              <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Restoration Intelligence</p>
+              <h2 class="mt-3 text-3xl text-[var(--text)]">Global Buyer Playbook for Old BMW Engines</h2>
+              <p class="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+                High-value classic restorations demand more than availability. They need accurate code mapping, transparent condition context,
+                and logistics execution that protects collector-grade parts during cross-border transport.
+              </p>
+              <p class="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+                Original Bavarian Engine combines technical sourcing with operational discipline so private collectors and professional workshops
+                can plan installation timelines with confidence.
+              </p>
+              <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                <p class="rounded-xl border border-[var(--border)] px-4 py-3 text-sm text-[var(--muted)]">Authentic engine lineage tracking</p>
+                <p class="rounded-xl border border-[var(--border)] px-4 py-3 text-sm text-[var(--muted)]">Platform-specific compatibility review</p>
+                <p class="rounded-xl border border-[var(--border)] px-4 py-3 text-sm text-[var(--muted)]">Priority support for workshop orders</p>
+                <p class="rounded-xl border border-[var(--border)] px-4 py-3 text-sm text-[var(--muted)]">Collector-focused shipment safeguarding</p>
+              </div>
+            </div>
+          </article>
+          <div class="grid gap-4">
+            <article data-tilt data-tilt-max="7" class="three-d-panel reveal rounded-3xl p-6">
+              <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Content Library</p>
+              <h3 class="mt-2 text-2xl text-[var(--text)]">Technical Guides & Buying Notes</h3>
+              <p class="mt-2 text-sm text-[var(--muted)]">Platform comparisons, shipping prep, and installation readiness guidance.</p>
+              <a href="blog.html" data-transition class="btn-secondary mt-4 inline-flex rounded-full px-4 py-2 text-sm">Open Blog</a>
+            </article>
+            <article data-tilt data-tilt-max="7" class="three-d-panel reveal rounded-3xl p-6">
+              <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Conversion Desk</p>
+              <h3 class="mt-2 text-2xl text-[var(--text)]">M57 Swap Kit Planning</h3>
+              <p class="mt-2 text-sm text-[var(--muted)]">Dedicated support for conversion-oriented builds and workshop package planning.</p>
+              <a href="collection.html?category=M57%20Swap%20Kits" data-transition class="btn-primary mt-4 inline-flex rounded-full px-4 py-2 text-sm">View Swap Kits</a>
+            </article>
+          </div>
         </div>
       </section>
 

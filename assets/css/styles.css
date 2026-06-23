@@ -97,6 +97,91 @@ h4 {
   text-shadow: 0 0 28px rgba(46, 91, 255, 0.35);
 }
 
+.three-d-stage {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.three-d-panel {
+  position: relative;
+  border: 1px solid var(--border);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(17, 17, 17, 0.55));
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
+  transform-style: preserve-3d;
+}
+
+.three-d-panel::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(200, 200, 200, 0.28), transparent 25%, transparent 70%, rgba(46, 91, 255, 0.22));
+  opacity: 0.6;
+}
+
+.three-d-float {
+  transform: translateZ(36px);
+}
+
+.three-d-depth-1 {
+  transform: translateZ(18px);
+}
+
+.three-d-depth-2 {
+  transform: translateZ(48px);
+}
+
+.three-d-orbit {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 200, 200, 0.25);
+  transform-style: preserve-3d;
+  animation: orbitSpin 20s linear infinite;
+}
+
+.three-d-orbit::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--accent-blue);
+  transform: translate(-50%, -50%) translateX(140px);
+  box-shadow: 0 0 24px rgba(46, 91, 255, 0.8);
+}
+
+.depth-grid {
+  position: relative;
+  overflow: hidden;
+}
+
+.depth-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 80% 20%, rgba(46, 91, 255, 0.22), transparent 45%);
+}
+
+[data-tilt] {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
+
+.spec-matrix {
+  border: 1px solid var(--border);
+  background: linear-gradient(170deg, rgba(255, 255, 255, 0.1), rgba(17, 17, 17, 0.3));
+}
+
+.spec-matrix-item {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
 .number-badge {
   width: 2rem;
   height: 2rem;
@@ -277,6 +362,12 @@ body.page-leave .page-shell {
   to {
     opacity: 0;
     transform: translateY(-6px);
+  }
+}
+
+@keyframes orbitSpin {
+  to {
+    transform: rotate(360deg);
   }
 }
 

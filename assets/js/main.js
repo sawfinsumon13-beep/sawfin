@@ -26,6 +26,7 @@
     initPageTransitions();
     initRevealOnScroll();
     initParallax();
+    initTiltCards();
     initAccordions();
     initNewsletterForms();
     initGsapAnimations();
@@ -746,6 +747,26 @@
     };
     run();
     window.addEventListener("scroll", run, { passive: true });
+  }
+
+  function initTiltCards() {
+    const cards = document.querySelectorAll("[data-tilt]");
+    if (!cards.length) return;
+
+    cards.forEach((card) => {
+      const maxTilt = Number(card.getAttribute("data-tilt-max")) || 8;
+      card.addEventListener("mousemove", function (event) {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        const rotateY = (x - 0.5) * maxTilt * 2;
+        const rotateX = (0.5 - y) * maxTilt * 2;
+        card.style.transform = `rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+      });
+      card.addEventListener("mouseleave", function () {
+        card.style.transform = "";
+      });
+    });
   }
 
   function initAccordions() {
