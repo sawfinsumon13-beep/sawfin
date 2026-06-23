@@ -271,7 +271,7 @@
   }
 
   function renderGlobalWidgets() {
-    if (!document.querySelector('a[data-global-whatsapp]') && !document.querySelector(`a[href*="wa.me/${WHATSAPP_NUMBER}"]`)) {
+    if (!document.querySelector('a[data-global-whatsapp], a[data-page-whatsapp]')) {
       const whatsapp = document.createElement("a");
       whatsapp.href = WHATSAPP_URL;
       whatsapp.target = "_blank";
