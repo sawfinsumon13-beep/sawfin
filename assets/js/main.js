@@ -48,6 +48,10 @@
     if (page === "details") {
       renderDetailsPage();
     }
+    if (page === "reviews") {
+      renderReviews();
+      renderFaqs();
+    }
   }
 
   function renderNavbar() {
@@ -55,26 +59,55 @@
     if (!mount) return;
 
     const page = document.body.dataset.page || "home";
+    const engineLinks = [
+      { href: "collection.html", label: "All Engines" },
+      { href: "collection.html?category=N57%20Engines", label: "N57 Engines" },
+      { href: "collection.html?category=N47%20Engines", label: "N47 Engines" },
+      { href: "collection.html?category=M57%20Engines", label: "M57 Engines" },
+      { href: "collection.html?category=B57%20Engines", label: "B57 Engines" },
+      { href: "collection.html?category=B47%20Engines", label: "B47 Engines" },
+      { href: "collection.html?category=B58%20Engines", label: "B58 Engines" }
+    ];
     const links = [
       { href: "index.html", label: "Home", key: "home" },
-      { href: "collection.html", label: "Collection", key: "collection" },
-      { href: "about.html", label: "About", key: "about" },
-      { href: "contact.html", label: "Contact", key: "contact" }
+      { href: "collection.html?category=M57%20Swap%20Kits", label: "M57 Swap Kits", key: "collection" },
+      { href: "services.html", label: "Services", key: "services" },
+      { href: "about.html", label: "About Us", key: "about" },
+      { href: "contact.html", label: "Contact Us", key: "contact" },
+      { href: "policies.html", label: "Policies", key: "policies" },
+      { href: "blog.html", label: "Blog", key: "blog" },
+      { href: "reviews.html", label: "Reviews", key: "reviews" }
     ];
+    const enginesActive = page === "collection" || page === "details";
 
     mount.innerHTML = `
       <header id="siteHeader" class="fixed top-0 z-50 w-full border-b border-transparent bg-transparent backdrop-blur-xl">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
           <a href="index.html" data-transition class="group inline-flex items-center gap-3">
             <img src="assets/images/logo-mark.svg" width="36" height="36" alt="Original Bavarian Engine logo" />
-            <span class="text-sm font-semibold tracking-[0.22em] text-[var(--text)]">ORIGINAL BAVARIAN ENGINE</span>
+            <span class="text-sm font-semibold tracking-[0.18em] text-[var(--text)]">ORIGINAL BAVARIAN ENGINE</span>
           </a>
 
-          <nav class="hidden items-center gap-8 lg:flex" aria-label="Primary">
+          <nav class="hidden items-center gap-6 lg:flex" aria-label="Primary">
+            <div class="group relative">
+              <button type="button" class="inline-flex items-center gap-1 text-xs tracking-wide transition hover:text-[var(--accent-blue)] ${enginesActive ? "text-[var(--accent-blue)]" : "text-[var(--text)]"}" aria-label="Open engine family menu">
+                Engines
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="invisible absolute left-0 top-full z-30 mt-3 w-56 rounded-2xl border border-[var(--border)] bg-[var(--bg)]/95 p-2 opacity-0 shadow-2xl transition duration-200 group-hover:visible group-hover:opacity-100">
+                ${engineLinks
+                  .map(
+                    (link) => `
+                  <a href="${link.href}" data-transition class="block rounded-xl px-3 py-2 text-xs tracking-wide text-[var(--text)] transition hover:bg-[var(--glass)] hover:text-[var(--accent-blue)]">${link.label}</a>
+                `
+                  )
+                  .join("")}
+              </div>
+            </div>
             ${links
               .map(
                 (link) => `
-              <a href="${link.href}" data-transition class="text-sm tracking-wide transition hover:text-[var(--accent-blue)] ${
+              <a href="${link.href}" data-transition class="text-xs tracking-wide transition hover:text-[var(--accent-blue)] ${
                 page === link.key ? "text-[var(--accent-blue)]" : "text-[var(--text)]"
               }" ${page === link.key ? 'aria-current="page"' : ""}>${link.label}</a>
             `
@@ -122,7 +155,17 @@
               class="w-full rounded-full border border-[var(--border)] bg-black/15 px-4 py-2 text-sm text-[var(--text)] outline-none transition focus:border-[var(--accent-blue)]"
             />
           </form>
-          <nav class="grid gap-3 pb-2" aria-label="Mobile">
+          <nav class="grid gap-2 pb-2" aria-label="Mobile">
+            <p class="text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">Engine Categories</p>
+            ${engineLinks
+              .map(
+                (link) => `
+              <a href="${link.href}" data-transition class="text-sm text-[var(--text)]">${link.label}</a>
+            `
+              )
+              .join("")}
+            <hr class="my-2 border-[var(--border)]" />
+            <p class="text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">Site Menu</p>
             ${links
               .map(
                 (link) => `
@@ -201,8 +244,10 @@
             <h3 class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--text)]">Quick Links</h3>
             <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
               <li><a data-transition href="collection.html" class="transition hover:text-[var(--accent-blue)]">Browse Collection</a></li>
+              <li><a data-transition href="services.html" class="transition hover:text-[var(--accent-blue)]">Services</a></li>
               <li><a data-transition href="engine-details.html" class="transition hover:text-[var(--accent-blue)]">Engine Details</a></li>
               <li><a data-transition href="about.html" class="transition hover:text-[var(--accent-blue)]">Our Story</a></li>
+              <li><a data-transition href="reviews.html" class="transition hover:text-[var(--accent-blue)]">Reviews</a></li>
               <li><a data-transition href="contact.html" class="transition hover:text-[var(--accent-blue)]">Contact</a></li>
             </ul>
           </div>
@@ -272,7 +317,12 @@
     const mount = document.getElementById("featuredGrid");
     if (!mount) return;
 
-    const featured = data.products.slice(0, 3);
+    const seen = new Set();
+    const featured = data.products.filter((product) => {
+      if (seen.has(product.category)) return false;
+      seen.add(product.category);
+      return true;
+    }).slice(0, 6);
     mount.innerHTML = featured.map((product) => buildProductCard(product)).join("");
     bindProductActions(mount);
   }
@@ -282,6 +332,7 @@
     const searchInput = document.getElementById("collectionSearch");
     const categoryFilter = document.getElementById("categoryFilter");
     const resultMeta = document.getElementById("collectionMeta");
+    const paginationMount = document.getElementById("collectionPagination");
     if (!mount || !searchInput || !categoryFilter || !resultMeta) return;
 
     const uniqueCategories = [...new Set(data.products.map((product) => product.category))];
@@ -294,6 +345,7 @@
     const initialCategory = queryParams.get("category") || "all";
     searchInput.value = initialQuery;
     categoryFilter.value = uniqueCategories.includes(initialCategory) ? initialCategory : "all";
+    let visibleLimit = 24;
 
     const render = function () {
       const query = searchInput.value.trim().toLowerCase();
@@ -304,6 +356,7 @@
         const inQuery = !query || searchableText.includes(query);
         return inCategory && inQuery;
       });
+      const visible = filtered.slice(0, visibleLimit);
 
       if (!filtered.length) {
         mount.innerHTML = `
@@ -313,15 +366,39 @@
           </div>
         `;
       } else {
-        mount.innerHTML = filtered.map((product) => buildProductCard(product)).join("");
+        mount.innerHTML = visible.map((product) => buildProductCard(product)).join("");
       }
 
       resultMeta.textContent = `${filtered.length} original engines found`;
+      if (paginationMount) {
+        if (filtered.length > visibleLimit) {
+          paginationMount.innerHTML = `
+            <button id="loadMoreEngines" type="button" class="btn-secondary rounded-full px-6 py-2.5 text-sm">
+              Load More Engines (${filtered.length - visibleLimit} remaining)
+            </button>
+          `;
+          const loadMore = document.getElementById("loadMoreEngines");
+          if (loadMore) {
+            loadMore.addEventListener("click", function () {
+              visibleLimit += 24;
+              render();
+            });
+          }
+        } else {
+          paginationMount.innerHTML = `<p class="text-sm text-[var(--muted)]">Showing all matching inventory records.</p>`;
+        }
+      }
       bindProductActions(mount);
     };
 
-    searchInput.addEventListener("input", render);
-    categoryFilter.addEventListener("change", render);
+    searchInput.addEventListener("input", function () {
+      visibleLimit = 24;
+      render();
+    });
+    categoryFilter.addEventListener("change", function () {
+      visibleLimit = 24;
+      render();
+    });
     render();
   }
 

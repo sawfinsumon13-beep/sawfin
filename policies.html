@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Policies | Original Bavarian Engine</title>
+    <meta
+      name="description"
+      content="Review warranty, shipping, returns, and order verification policies for original BMW engine purchases."
+    />
+    <link rel="icon" href="assets/images/logo-mark.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: { colors: { matte: "#111111", graphite: "#1F1F1F", silver: "#C8C8C8", accent: "#2E5BFF", cloud: "#F7F7F7" } } }
+      };
+    </script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/data.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body data-page="policies" class="page-shell antialiased">
+    <div id="pageLoader" class="loader-overlay"><div class="loader-ring"></div></div>
+    <div data-component="navbar"></div>
+    <main class="px-4 pb-24 pt-32 md:px-8">
+      <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+        <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Policies</p>
+        <h1 class="mt-3 text-4xl text-[var(--text)] md:text-5xl">Order, Shipping, and Warranty Policies</h1>
+      </section>
+      <section class="mx-auto mt-10 grid max-w-7xl gap-6 lg:grid-cols-2">
+        <article class="section-shell rounded-3xl p-7">
+          <h2 class="text-2xl text-[var(--text)]">Compatibility Policy</h2>
+          <p class="mt-3 text-sm text-[var(--muted)]">VIN and engine code confirmation is strongly recommended before invoice and installation.</p>
+        </article>
+        <article class="section-shell rounded-3xl p-7">
+          <h2 class="text-2xl text-[var(--text)]">Shipping Policy</h2>
+          <p class="mt-3 text-sm text-[var(--muted)]">All engines are prepared with industrial packaging and dispatched with tracking details.</p>
+        </article>
+        <article class="section-shell rounded-3xl p-7">
+          <h2 class="text-2xl text-[var(--text)]">Warranty Policy</h2>
+          <p class="mt-3 text-sm text-[var(--muted)]">Written warranty guidance is provided in order documents before transaction completion.</p>
+        </article>
+        <article class="section-shell rounded-3xl p-7">
+          <h2 class="text-2xl text-[var(--text)]">Returns Policy</h2>
+          <p class="mt-3 text-sm text-[var(--muted)]">Uninstalled units are reviewed under agreed policy terms and documented case handling.</p>
+        </article>
+      </section>
+    </main>
+    <div data-component="footer"></div>
+  </body>
+</html>

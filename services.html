@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services | Original Bavarian Engine</title>
+    <meta
+      name="description"
+      content="Explore sourcing, verification, and shipping services for original BMW engines and M57 swap kits."
+    />
+    <link rel="icon" href="assets/images/logo-mark.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: { colors: { matte: "#111111", graphite: "#1F1F1F", silver: "#C8C8C8", accent: "#2E5BFF", cloud: "#F7F7F7" } } }
+      };
+    </script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/data.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body data-page="services" class="page-shell antialiased">
+    <div id="pageLoader" class="loader-overlay"><div class="loader-ring"></div></div>
+    <div data-component="navbar"></div>
+    <main class="px-4 pb-24 pt-32 md:px-8">
+      <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+        <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Services</p>
+        <h1 class="mt-3 text-4xl text-[var(--text)] md:text-5xl">Complete Engine Sourcing Services</h1>
+        <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+          We help collectors and workshops source original BMW engines with verification, logistics planning, and ongoing support.
+        </p>
+      </section>
+      <section class="mx-auto mt-10 grid max-w-7xl gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <article class="glass-card rounded-3xl p-6"><h2 class="text-2xl text-[var(--text)]">VIN & Code Matching</h2><p class="mt-3 text-sm text-[var(--muted)]">Pre-order compatibility checks using VIN and engine stamp references.</p></article>
+        <article class="glass-card rounded-3xl p-6"><h2 class="text-2xl text-[var(--text)]">Inventory Sourcing</h2><p class="mt-3 text-sm text-[var(--muted)]">Access to 500+ engine records across key BMW diesel and petrol families.</p></article>
+        <article class="glass-card rounded-3xl p-6"><h2 class="text-2xl text-[var(--text)]">M57 Swap Packages</h2><p class="mt-3 text-sm text-[var(--muted)]">Dedicated M57 swap kit support for conversion-focused workshop builds.</p></article>
+        <article class="glass-card rounded-3xl p-6"><h2 class="text-2xl text-[var(--text)]">Condition Documentation</h2><p class="mt-3 text-sm text-[var(--muted)]">Listing-level condition notes and available technical evidence before payment.</p></article>
+        <article class="glass-card rounded-3xl p-6"><h2 class="text-2xl text-[var(--text)]">Worldwide Freight</h2><p class="mt-3 text-sm text-[var(--muted)]">Crated and tracked shipping coordination from Germany to global destinations.</p></article>
+        <article class="glass-card rounded-3xl p-6"><h2 class="text-2xl text-[var(--text)]">Post-Delivery Support</h2><p class="mt-3 text-sm text-[var(--muted)]">Direct communication channels for fitment and order documentation follow-up.</p></article>
+      </section>
+    </main>
+    <div data-component="footer"></div>
+  </body>
+</html>
