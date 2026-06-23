@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Original Bavarian Engine | Premium Old BMW Engines</title>
+    <meta
+      name="description"
+      content="Buy original old BMW engines with premium restoration quality and worldwide delivery."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              matte: "#111111",
+              graphite: "#1F1F1F",
+              silver: "#C8C8C8",
+              accent: "#2E5BFF",
+              cloud: "#F7F7F7"
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :root {
+        --bg: #111111;
+        --bg-elevated: #1f1f1f;
+        --text: #f7f7f7;
+        --muted: #c8c8c8;
+        --border: rgba(200, 200, 200, 0.24);
+        --accent: #2e5bff;
+      }
+      html.light-mode {
+        --bg: #f7f7f7;
+        --bg-elevated: #ffffff;
+        --text: #111111;
+        --muted: #555555;
+        --border: rgba(17, 17, 17, 0.15);
+      }
+      body {
+        font-family: Inter, system-ui, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 12% 18%, rgba(46, 91, 255, 0.35), transparent 40%),
+          radial-gradient(circle at 85% 22%, rgba(122, 151, 255, 0.28), transparent 42%),
+          radial-gradient(circle at 72% 78%, rgba(70, 120, 255, 0.22), transparent 45%),
+          linear-gradient(170deg, #0d1224 0%, #0a1020 48%, #090d1b 100%);
+        min-height: 100vh;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.5;
+        background-image:
+          linear-gradient(rgba(46, 91, 255, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(46, 91, 255, 0.08) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      h1, h2, h3, h4 { font-family: "Playfair Display", Georgia, serif; letter-spacing: .02em; }
+      .glass {
+        border: 1px solid var(--border);
+        background: linear-gradient(150deg, rgba(255,255,255,.12), rgba(17,17,17,.4));
+        backdrop-filter: blur(14px);
+        box-shadow: 0 24px 60px rgba(0,0,0,.4);
+      }
+      .btn-primary { background: linear-gradient(120deg, #2e5bff, #2148db); color: #f7f7f7; }
+      .btn-secondary { border: 1px solid var(--border); color: var(--text); background: rgba(255,255,255,.03); }
+      .chip { border: 1px solid var(--border); background: rgba(255,255,255,.04); }
+      .view { display: none; }
+      .view.active { display: block; }
+      .reveal { opacity: 0; transform: translateY(18px); transition: .6s ease; }
+      .reveal.show { opacity: 1; transform: translateY(0); }
+      #siteHeader {
+        transition: .3s ease;
+      }
+      #siteHeader.scrolled {
+        background: rgba(10, 14, 30, .84);
+        border-bottom: 1px solid var(--border);
+      }
+      html.light-mode #siteHeader.scrolled {
+        background: rgba(247,247,247,.86);
+      }
+      .hero {
+        background:
+          linear-gradient(110deg, rgba(5,10,24,.92), rgba(10,16,36,.45)),
+          url("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/hero-home.webp") center/cover;
+      }
+      .three-card {
+        transform-style: preserve-3d;
+        transition: transform .24s ease;
+      }
+      .faq-body { max-height: 0; overflow: hidden; transition: max-height .32s ease; }
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .orbit {
+        position: absolute; border-radius: 999px; border: 1px solid rgba(200,200,200,.3);
+        animation: spin 18s linear infinite;
+      }
+      .orbit::before {
+        content: ""; position: absolute; top: 50%; left: 50%; width: 12px; height: 12px; border-radius: 999px;
+        background: var(--accent); transform: translate(-50%,-50%) translateX(120px); box-shadow: 0 0 22px rgba(46,91,255,.8);
+      }
+      @keyframes spin { to { transform: rotate(360deg);} }
+    </style>
+  </head>
+  <body class="antialiased">
+    <header id="siteHeader" class="fixed top-0 z-50 w-full border-b border-transparent bg-transparent backdrop-blur-xl">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
+        <a href="#home" class="inline-flex items-center gap-3">
+          <svg width="36" height="36" viewBox="0 0 120 120" aria-hidden="true">
+            <rect x="4" y="4" width="112" height="112" rx="24" fill="#111" stroke="#2E5BFF" stroke-width="4"></rect>
+            <circle cx="60" cy="60" r="28" fill="none" stroke="#C8C8C8" stroke-width="4"></circle>
+            <path d="M42 55h36m-36 10h36" stroke="#2E5BFF" stroke-width="4" stroke-linecap="round"></path>
+          </svg>
+          <span class="text-sm font-semibold tracking-[0.18em] text-[var(--text)]">ORIGINAL BAVARIAN ENGINE</span>
+        </a>
+        <nav class="hidden items-center gap-4 text-xs lg:flex">
+          <a href="#home" class="hover:text-accent">Home</a>
+          <a href="#collection" class="hover:text-accent">Engines</a>
+          <a href="#details" class="hover:text-accent">Engine Details</a>
+          <a href="#services" class="hover:text-accent">Services</a>
+          <a href="#about" class="hover:text-accent">About</a>
+          <a href="#contact" class="hover:text-accent">Contact</a>
+          <a href="#policies" class="hover:text-accent">Policies</a>
+          <a href="#blog" class="hover:text-accent">Blog</a>
+          <a href="#reviews" class="hover:text-accent">Reviews</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <form id="globalSearchForm" class="hidden lg:block">
+            <input id="globalSearchInput" type="search" placeholder="Search engine code..." class="w-52 rounded-full border border-[var(--border)] bg-black/20 px-4 py-2 text-xs outline-none" />
+          </form>
+          <button id="themeToggle" class="rounded-full border border-[var(--border)] p-2" aria-label="Toggle theme">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-24">
+      <section id="view-home" class="view active">
+        <section class="hero relative min-h-[82vh] overflow-hidden px-4 pb-20 pt-12 md:px-8">
+          <div class="orbit left-1/2 top-16 h-[280px] w-[280px] -translate-x-1/2 opacity-75"></div>
+          <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div class="space-y-8">
+              <p class="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-cloud">Original Bavarian Engine • Germany</p>
+              <h1 class="max-w-3xl text-4xl leading-tight text-cloud md:text-6xl">Original BMW Engines. Restoring Performance Since Generations.</h1>
+              <p class="max-w-2xl text-base leading-relaxed text-silver md:text-lg">
+                Premium vintage and classic BMW engines sourced and delivered worldwide with documented fitment support.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <a href="#collection" class="btn-primary rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em]">Browse Engines</a>
+                <a href="#contact" class="btn-secondary rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em]">Request Engine</a>
+              </div>
+              <ul class="grid gap-2 text-xs uppercase tracking-[0.16em] text-silver sm:grid-cols-3">
+                <li class="chip rounded-full px-4 py-2 text-center">VIN Matching</li>
+                <li class="chip rounded-full px-4 py-2 text-center">Crated Shipping</li>
+                <li class="chip rounded-full px-4 py-2 text-center">Specialist Support</li>
+              </ul>
+            </div>
+            <article class="glass three-card rounded-3xl p-7" data-tilt>
+              <p class="text-xs uppercase tracking-[0.2em] text-silver">Instant Matching Desk</p>
+              <h2 class="mt-3 text-2xl text-cloud">Share VIN or Engine Stamp</h2>
+              <p class="mt-2 text-sm text-silver">We cross-check compatibility before invoice to keep your purchase safe.</p>
+              <form class="mt-5 space-y-3" id="heroLeadForm">
+                <input type="text" placeholder="VIN / Engine code" class="w-full rounded-xl border border-white/25 bg-black/35 px-4 py-3 text-sm" />
+                <input type="email" placeholder="Email" class="w-full rounded-xl border border-white/25 bg-black/35 px-4 py-3 text-sm" />
+                <button type="submit" class="btn-primary w-full rounded-xl px-4 py-3 text-sm uppercase tracking-[0.12em]">Check Availability</button>
+              </form>
+              <div class="mt-4 grid grid-cols-2 gap-3 text-center text-xs uppercase tracking-[0.12em] text-silver">
+                <p class="rounded-xl border border-white/20 px-3 py-2">560+ Units</p>
+                <p class="rounded-xl border border-white/20 px-3 py-2">34 Countries</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="px-4 pb-16 md:px-8">
+          <div class="mx-auto max-w-7xl">
+            <article class="glass rounded-[2rem] p-7 md:p-10">
+              <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Buy With Confidence</p>
+              <h2 class="mt-3 text-3xl md:text-4xl">We earn trust before asking for payment.</h2>
+              <p class="mt-4 max-w-4xl text-sm leading-relaxed text-[var(--muted)]">
+                Old-engine purchases are serious decisions. We provide compatibility checks, documentation-first listing clarity,
+                and direct support before and after delivery so customers can buy with confidence.
+              </p>
+              <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Compatibility before invoice</p>
+                <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Real warehouse engine photos</p>
+                <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Written warranty guidance</p>
+                <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Direct post-delivery support</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="px-4 pb-20 md:px-8">
+          <div class="mx-auto max-w-7xl">
+            <div class="mb-8 flex items-end justify-between gap-4">
+              <div>
+                <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Featured Inventory</p>
+                <h2 class="mt-2 text-3xl md:text-4xl">Curated Original Engines</h2>
+              </div>
+              <a href="#collection" class="btn-secondary rounded-full px-5 py-2 text-sm">View Collection</a>
+            </div>
+            <div id="featuredGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+          </div>
+        </section>
+
+        <section class="px-4 pb-20 md:px-8">
+          <div class="mx-auto max-w-7xl">
+            <div class="mb-7">
+              <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Customer Reviews</p>
+              <h2 class="mt-2 text-3xl md:text-4xl">Trusted by Collectors & Workshops</h2>
+            </div>
+            <div id="homeReviewGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+          </div>
+        </section>
+
+        <section class="px-4 pb-24 md:px-8">
+          <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+            <article class="glass rounded-3xl p-7">
+              <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Need a Specific Engine?</p>
+              <h2 class="mt-3 text-3xl">Tell us your code and destination.</h2>
+              <p class="mt-3 text-sm leading-relaxed text-[var(--muted)]">We verify stock and respond with compatible options and shipping path.</p>
+              <a href="#contact" class="btn-primary mt-6 inline-flex rounded-full px-6 py-3 text-sm uppercase tracking-[0.14em]">Request Sourcing</a>
+            </article>
+            <div>
+              <h2 class="mb-4 text-2xl">FAQ</h2>
+              <div id="homeFaqList" class="space-y-3"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="view-collection" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-7 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Inventory</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">BMW Engine Collection (500+)</h1>
+          <p class="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">Explore original old BMW engine listings with clear documentation and compatibility support.</p>
+          <div class="mt-7 grid gap-4 md:grid-cols-3">
+            <div class="md:col-span-2">
+              <label for="collectionSearch" class="mb-2 block text-xs uppercase tracking-[0.16em] text-[var(--muted)]">Search</label>
+              <input id="collectionSearch" type="search" placeholder="Search by code, model, year..." class="w-full rounded-full border border-[var(--border)] bg-transparent px-5 py-3 text-sm outline-none" />
+            </div>
+            <div>
+              <label for="categoryFilter" class="mb-2 block text-xs uppercase tracking-[0.16em] text-[var(--muted)]">Category</label>
+              <select id="categoryFilter" class="w-full rounded-full border border-[var(--border)] bg-[var(--bg)] px-5 py-3 text-sm"></select>
+            </div>
+          </div>
+          <p id="collectionMeta" class="mt-5 text-sm text-[var(--muted)]"></p>
+        </section>
+        <section class="mx-auto mt-10 max-w-7xl">
+          <div id="collectionGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+          <div id="collectionPagination" class="mt-8 flex justify-center"></div>
+        </section>
+      </section>
+
+      <section id="view-details" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl">
+          <p id="detailCategory" class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]"></p>
+          <h1 id="detailTitle" class="mt-3 text-4xl md:text-5xl"></h1>
+          <p id="detailPrice" class="mt-2 text-2xl text-accent"></p>
+        </section>
+        <section class="mx-auto mt-8 grid max-w-7xl gap-7 lg:grid-cols-[1.2fr_0.8fr]">
+          <div class="space-y-4">
+            <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+              <img id="detailMainImage" src="" alt="Engine image" class="h-[440px] w-full object-cover" />
+            </figure>
+            <div id="detailThumbs" class="grid grid-cols-3 gap-3"></div>
+          </div>
+          <aside class="glass rounded-3xl p-6">
+            <h2 class="text-xl">Condition Summary</h2>
+            <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
+              <div><dt class="text-xs uppercase text-[var(--muted)]">Code</dt><dd id="detailCode"></dd></div>
+              <div><dt class="text-xs uppercase text-[var(--muted)]">Mileage</dt><dd id="detailMileage"></dd></div>
+              <div><dt class="text-xs uppercase text-[var(--muted)]">Year</dt><dd id="detailYear"></dd></div>
+              <div><dt class="text-xs uppercase text-[var(--muted)]">Availability</dt><dd id="detailAvailability"></dd></div>
+            </dl>
+            <div id="detailsActions" class="mt-5 flex flex-wrap gap-2"></div>
+          </aside>
+        </section>
+        <section class="mx-auto mt-8 grid max-w-7xl gap-7 lg:grid-cols-2">
+          <article class="glass rounded-3xl p-6">
+            <h2 class="text-2xl">Specifications</h2>
+            <table class="mt-4 w-full border-collapse">
+              <tbody id="specTable"></tbody>
+            </table>
+          </article>
+          <article class="glass rounded-3xl p-6">
+            <h2 class="text-2xl">Compatibility</h2>
+            <ul id="compatibilityList" class="mt-4 space-y-2"></ul>
+          </article>
+        </section>
+      </section>
+
+      <section id="view-about" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">About</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">Preserving Original Bavarian Engineering</h1>
+          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            We are focused exclusively on original BMW old-engine supply for serious restorations, collector projects,
+            and workshop replacement operations.
+          </p>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-6 md:grid-cols-3">
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Mission</h2><p class="mt-2 text-sm text-[var(--muted)]">Protect mechanical heritage through authentic engine sourcing.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Standard</h2><p class="mt-2 text-sm text-[var(--muted)]">Documentation-first listings and compatibility clarity.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Promise</h2><p class="mt-2 text-sm text-[var(--muted)]">Support before payment and after delivery.</p></article>
+        </section>
+      </section>
+
+      <section id="view-contact" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Contact</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">Talk to an Engine Specialist</h1>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-7 lg:grid-cols-[1fr_1.2fr]">
+          <article class="glass rounded-3xl p-6">
+            <h2 class="text-2xl">Direct Contact</h2>
+            <ul class="mt-5 space-y-3 text-sm text-[var(--muted)]">
+              <li class="rounded-xl border border-[var(--border)] p-4">Phone: +49 15510 030835</li>
+              <li class="rounded-xl border border-[var(--border)] p-4">Email: originalbavarianengine@gmail.com</li>
+              <li class="rounded-xl border border-[var(--border)] p-4">Mon-Sat: 08:00 - 19:00 CET</li>
+            </ul>
+          </article>
+          <article class="glass rounded-3xl p-6">
+            <h2 class="text-2xl">Premium Contact Form</h2>
+            <form id="contactForm" class="mt-5 grid gap-4 md:grid-cols-2">
+              <input required placeholder="Full Name" class="rounded-xl border border-[var(--border)] bg-transparent px-4 py-3 text-sm" />
+              <input type="email" required placeholder="Email" class="rounded-xl border border-[var(--border)] bg-transparent px-4 py-3 text-sm" />
+              <input placeholder="Phone" class="rounded-xl border border-[var(--border)] bg-transparent px-4 py-3 text-sm" />
+              <input placeholder="Desired Engine Code" class="rounded-xl border border-[var(--border)] bg-transparent px-4 py-3 text-sm" />
+              <textarea rows="5" required placeholder="Project details..." class="md:col-span-2 rounded-xl border border-[var(--border)] bg-transparent px-4 py-3 text-sm"></textarea>
+              <button type="submit" class="btn-primary md:col-span-2 rounded-full px-8 py-3 text-sm uppercase tracking-[0.14em]">Send Request</button>
+            </form>
+            <p id="contactFormStatus" class="mt-3 text-sm text-accent"></p>
+          </article>
+        </section>
+      </section>
+
+      <section id="view-services" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Services</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">Complete Engine Sourcing Services</h1>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">VIN & Code Matching</h2></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Inventory Sourcing</h2></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">M57 Swap Packages</h2></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Condition Documentation</h2></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Worldwide Freight</h2></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Post-Delivery Support</h2></article>
+        </section>
+      </section>
+
+      <section id="view-policies" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Policies</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">Order, Shipping, Warranty, Returns</h1>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-6 lg:grid-cols-2">
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Compatibility Policy</h2></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Shipping Policy</h2></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Warranty Policy</h2></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Returns Policy</h2></article>
+        </section>
+      </section>
+
+      <section id="view-blog" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Blog</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">BMW Engine Knowledge Center</h1>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">N47 vs N57 Guide</h2></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">B47 and B57 Euro 6 Notes</h2></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">M57 Swap Planning</h2></article>
+        </section>
+      </section>
+
+      <section id="view-reviews" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Reviews</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">Trusted by Workshops and Collectors</h1>
+        </section>
+        <section class="mx-auto mt-10 max-w-7xl">
+          <div id="reviewGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+        </section>
+      </section>
+    </main>
+
+    <a
+      href="https://wa.me/4915510030835"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 left-6 z-40 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-xl"
+      aria-label="Chat on WhatsApp"
+    >WhatsApp</a>
+
+    <footer class="mt-16 border-t border-[var(--border)] bg-[var(--bg-elevated)]/75">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-3 md:px-8">
+        <div>
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Original Bavarian Engine</p>
+          <h2 class="mt-3 text-2xl">Only Original BMW Old Engines</h2>
+          <p class="mt-3 text-sm text-[var(--muted)]">Single-file edition for easy one-click hosting upload.</p>
+        </div>
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.16em]">Quick Links</h3>
+          <ul class="mt-3 space-y-2 text-sm text-[var(--muted)]">
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.16em]">Contact</h3>
+          <ul class="mt-3 space-y-2 text-sm text-[var(--muted)]">
+            <li>+49 15510 030835</li>
+            <li>originalbavarianengine@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const STORAGE_KEYS = { theme: "obe_single_theme", wishlist: "obe_single_wishlist", compare: "obe_single_compare" };
+      const state = {
+        wishlist: new Set(loadJSON(STORAGE_KEYS.wishlist)),
+        compare: new Set(loadJSON(STORAGE_KEYS.compare))
+      };
+
+      const FAMILY_DEFS = [
+        {
+          slug: "n57",
+          category: "N57 Engines",
+          codeRoot: "N57D30",
+          count: 90,
+          basePrice: 6400,
+          yearBase: 2008,
+          yearSpan: 8,
+          displacement: "3.0L Diesel",
+          power: "258-313 hp",
+          torque: "560-630 Nm",
+          fuelSystem: "Common Rail Diesel",
+          models: ["BMW 330d", "BMW 530d", "BMW X5", "BMW X6"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-330d-e90-n57d30a-lci-engine-2011/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-330d-f30-n57d30a-engine-2014/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f10-530d-n57d30a-engine-2015/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f01-730d-n57d30a-engine-2010/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp"
+          ]
+        },
+        {
+          slug: "n47",
+          category: "N47 Engines",
+          codeRoot: "N47D20",
+          count: 90,
+          basePrice: 5200,
+          yearBase: 2007,
+          yearSpan: 10,
+          displacement: "2.0L Diesel",
+          power: "143-218 hp",
+          torque: "320-450 Nm",
+          fuelSystem: "Common Rail Diesel",
+          models: ["BMW 320d", "BMW 520d", "BMW 118d", "BMW X3"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-125d-f20-n47d20d-engine-2012/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f10-520d-n47d20c-engine-2012/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f30-320d-n47d20c-engine-2014/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e90-320d-n47d20c-engine-2011/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp"
+          ]
+        },
+        {
+          slug: "m57",
+          category: "M57 Engines",
+          codeRoot: "M57D30",
+          count: 90,
+          basePrice: 6100,
+          yearBase: 2001,
+          yearSpan: 10,
+          displacement: "3.0L Diesel",
+          power: "184-286 hp",
+          torque: "390-580 Nm",
+          fuelSystem: "Bosch Common Rail",
+          models: ["BMW E60", "BMW E90", "BMW X5 E70", "BMW 730d"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-330d-231hp-m57-2009-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e60-m57n-272hp-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e90-335d-m57-2011-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-x5-e53-3-0d-m57-engine-2006/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp"
+          ]
+        },
+        {
+          slug: "b57",
+          category: "B57 Engines",
+          codeRoot: "B57D30",
+          count: 78,
+          basePrice: 8600,
+          yearBase: 2016,
+          yearSpan: 7,
+          displacement: "3.0L Diesel",
+          power: "265-400 hp",
+          torque: "620-760 Nm",
+          fuelSystem: "Common Rail Diesel",
+          models: ["BMW G30 530d", "BMW X5 G05", "BMW 740d", "BMW 840d"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/540d-740d-640d-840d-3-0-b57d30b-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/730d-xdrive-g11-g12-2019-b57d30a/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/740d-xdrive-2018-g11-b57d30b-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-x6-g06-m50d-b57d30s-engine-2019/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b57.webp"
+          ]
+        },
+        {
+          slug: "b47",
+          category: "B47 Engines",
+          codeRoot: "B47D20",
+          count: 78,
+          basePrice: 6900,
+          yearBase: 2015,
+          yearSpan: 8,
+          displacement: "2.0L Diesel",
+          power: "150-231 hp",
+          torque: "330-500 Nm",
+          fuelSystem: "Common Rail Diesel",
+          models: ["BMW F30 LCI", "BMW X3 G01", "BMW X4", "BMW 320d"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmwx3-x4-b47d20a-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/f30-b47d20a-320d-2017-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/520d-f10-2014-euro6-b47d20a-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/b47c20b-x1-f48-2018-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp"
+          ]
+        },
+        {
+          slug: "b58",
+          category: "B58 Engines",
+          codeRoot: "B58B30",
+          count: 78,
+          basePrice: 9800,
+          yearBase: 2016,
+          yearSpan: 8,
+          displacement: "3.0L Petrol",
+          power: "326-382 hp",
+          torque: "450-500 Nm",
+          fuelSystem: "Direct Injection Turbo",
+          models: ["BMW 340i", "BMW 440i", "BMW M140i", "BMW Supra A90"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f32-440i-engine-2017/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/z4-b58b30c-3-0-2021-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp"
+          ]
+        },
+        {
+          slug: "m57-swap",
+          category: "M57 Swap Kits",
+          codeRoot: "M57SWAP",
+          count: 24,
+          basePrice: 12400,
+          yearBase: 2004,
+          yearSpan: 10,
+          displacement: "3.0L Swap Package",
+          power: "218-286 hp",
+          torque: "500-580 Nm",
+          fuelSystem: "Diesel Conversion Package",
+          models: ["Defender Conversion", "Overland Builds", "Workshop Projects"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/home-m57-swap.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-m57-to-300tdi-r380-conversion-kit/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp"
+          ]
+        }
+      ];
+
+      const CONDITION_ROTATION = [
+        "Factory Original, Compression Tested",
+        "Original Block, Re-sealed",
+        "Workshop Inspected, Bore Scope Verified",
+        "Collector Grade, Documentation Archived"
+      ];
+      const AVAILABILITY_ROTATION = ["In Stock", "In Stock", "Limited", "Reserved"];
+
+      const REVIEWS = [
+        { name: "Markus T.", location: "Stuttgart, Germany", text: "The N57 unit arrived exactly as documented and matched workshop checks.", rating: 5 },
+        { name: "Oliver J.", location: "Manchester, UK", text: "Strong stock quality and clear communication before purchase.", rating: 5 },
+        { name: "Leonard C.", location: "Zurich, Switzerland", text: "Premium packing, trackable freight, and great support.", rating: 5 },
+        { name: "Sofia A.", location: "Stockholm, Sweden", text: "VIN confirmation was immediate and documentation complete.", rating: 5 },
+        { name: "James O.", location: "Dublin, Ireland", text: "Exactly as listed and delivered on schedule.", rating: 5 },
+        { name: "Luc V.", location: "Brussels, Belgium", text: "Professional team and transparent process.", rating: 5 }
+      ];
+
+      const FAQS = [
+        { question: "Are these engines original BMW units?", answer: "Yes. We sell only original BMW old-engine and powertrain stock." },
+        { question: "How many engines are in your inventory?", answer: "More than 500 listings across core BMW diesel and petrol families." },
+        { question: "Do you ship internationally?", answer: "Yes. We support European and worldwide shipping with tracked freight." },
+        { question: "Can I verify compatibility before payment?", answer: "Yes. Share VIN + engine code and we confirm matching options." }
+      ];
+
+      function buildProducts() {
+        const products = [];
+        FAMILY_DEFS.forEach((family) => {
+          let previousImage = "";
+          for (let i = 1; i <= family.count; i += 1) {
+            const suffix = ["A", "B", "C", "D"][i % 4];
+            const codeNum = String(1000 + i);
+            const code = family.codeRoot === "M57SWAP" ? `${family.codeRoot}-${codeNum}` : `${family.codeRoot}${suffix}`;
+            let image = family.images[(i - 1) % family.images.length];
+            if (image === previousImage) image = family.images[i % family.images.length];
+            previousImage = image;
+            const gallery = [image, family.images[(i + 1) % family.images.length], family.images[(i + 2) % family.images.length]];
+
+            products.push({
+              id: `${family.slug}-${codeNum}`,
+              category: family.category,
+              code,
+              title: `BMW ${family.models[i % family.models.length]} Original ${code}`,
+              condition: CONDITION_ROTATION[i % CONDITION_ROTATION.length],
+              mileage: `${new Intl.NumberFormat("en-DE").format(62000 + ((i * 1377) % 158000))} km`,
+              year: String(family.yearBase + (i % family.yearSpan)),
+              availability: AVAILABILITY_ROTATION[i % AVAILABILITY_ROTATION.length],
+              priceEur: family.basePrice + (i % 18) * 170 + Math.floor(i / 7) * 30,
+              image,
+              gallery,
+              displacement: family.displacement,
+              power: family.power,
+              torque: family.torque,
+              fuelSystem: family.fuelSystem,
+              compatibility: [
+                `${family.models[i % family.models.length]} platform verified`,
+                `${family.category} family restoration builds`,
+                "VIN confirmation recommended before invoice"
+              ]
+            });
+          }
+        });
+        return products;
+      }
+
+      const DATA = { products: buildProducts(), reviews: REVIEWS, faqs: FAQS };
+      let collectionVisibleLimit = 24;
+
+      document.addEventListener("DOMContentLoaded", init);
+
+      function init() {
+        initTheme();
+        initHeader();
+        initRouter();
+        initGlobalSearch();
+        initFaqClicks();
+        initTilt();
+        initForms();
+        renderHomeContent();
+      }
+
+      function initHeader() {
+        const header = document.getElementById("siteHeader");
+        const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 10);
+        onScroll();
+        window.addEventListener("scroll", onScroll);
+      }
+
+      function initTheme() {
+        const theme = localStorage.getItem(STORAGE_KEYS.theme) || "dark";
+        setTheme(theme);
+        document.getElementById("themeToggle").addEventListener("click", () => {
+          setTheme(document.documentElement.classList.contains("light-mode") ? "dark" : "light");
+        });
+      }
+
+      function setTheme(theme) {
+        document.documentElement.classList.toggle("light-mode", theme === "light");
+        localStorage.setItem(STORAGE_KEYS.theme, theme);
+      }
+
+      function initRouter() {
+        window.addEventListener("hashchange", route);
+        route();
+      }
+
+      function route() {
+        const parsed = parseHash();
+        const view = parsed.view;
+        document.querySelectorAll(".view").forEach((node) => node.classList.remove("active"));
+        const activeView = document.getElementById(`view-${view}`) || document.getElementById("view-home");
+        activeView.classList.add("active");
+
+        if (view === "collection") {
+          renderCollection(parsed.params);
+        } else if (view === "details") {
+          renderDetails(parsed.params.get("id"));
+        } else if (view === "reviews") {
+          renderReviews(document.getElementById("reviewGrid"));
+        }
+
+        revealVisible();
+      }
+
+      function parseHash() {
+        const raw = (window.location.hash || "#home").slice(1);
+        const [view, query = ""] = raw.split("?");
+        return { view: view || "home", params: new URLSearchParams(query) };
+      }
+
+      function renderHomeContent() {
+        const featuredGrid = document.getElementById("featuredGrid");
+        const seen = new Set();
+        const featured = DATA.products.filter((p) => {
+          if (seen.has(p.category)) return false;
+          seen.add(p.category);
+          return true;
+        }).slice(0, 6);
+        featuredGrid.innerHTML = featured.map((p) => buildCard(p)).join("");
+
+        renderReviews(document.getElementById("homeReviewGrid"));
+        renderFaqs(document.getElementById("homeFaqList"));
+        bindCardActions(document);
+        revealVisible();
+      }
+
+      function renderCollection(params) {
+        const grid = document.getElementById("collectionGrid");
+        const meta = document.getElementById("collectionMeta");
+        const search = document.getElementById("collectionSearch");
+        const filter = document.getElementById("categoryFilter");
+        const pagination = document.getElementById("collectionPagination");
+
+        const categories = [...new Set(DATA.products.map((p) => p.category))];
+        filter.innerHTML = `<option value="all">All Categories</option>` + categories.map((c) => `<option value="${c}">${c}</option>`).join("");
+
+        const q = params.get("query") || "";
+        const cat = params.get("category") || "all";
+        search.value = q;
+        filter.value = categories.includes(cat) ? cat : "all";
+
+        const render = () => {
+          const query = search.value.trim().toLowerCase();
+          const selectedCategory = filter.value;
+          const filtered = DATA.products.filter((p) => {
+            const cMatch = selectedCategory === "all" || p.category === selectedCategory;
+            const qMatch = !query || `${p.code} ${p.title} ${p.condition} ${p.year}`.toLowerCase().includes(query);
+            return cMatch && qMatch;
+          });
+          const visible = filtered.slice(0, collectionVisibleLimit);
+          grid.innerHTML = visible.map((p) => buildCard(p)).join("");
+          meta.textContent = `${filtered.length} original engines found`;
+
+          if (filtered.length > collectionVisibleLimit) {
+            pagination.innerHTML = `<button id="loadMore" class="btn-secondary rounded-full px-6 py-2.5 text-sm">Load More (${filtered.length - collectionVisibleLimit} remaining)</button>`;
+            document.getElementById("loadMore").addEventListener("click", () => {
+              collectionVisibleLimit += 24;
+              render();
+            });
+          } else {
+            pagination.innerHTML = `<p class="text-sm text-[var(--muted)]">Showing all matching inventory records.</p>`;
+          }
+
+          bindCardActions(grid);
+          revealVisible();
+        };
+
+        search.oninput = () => {
+          collectionVisibleLimit = 24;
+          render();
+        };
+        filter.onchange = () => {
+          collectionVisibleLimit = 24;
+          render();
+        };
+        render();
+      }
+
+      function renderDetails(id) {
+        const product = DATA.products.find((p) => p.id === id) || DATA.products[0];
+        setText("detailCategory", product.category);
+        setText("detailTitle", product.title);
+        setText("detailPrice", formatPrice(product.priceEur));
+        setText("detailCode", product.code);
+        setText("detailMileage", product.mileage);
+        setText("detailYear", product.year);
+        setText("detailAvailability", product.availability);
+
+        const main = document.getElementById("detailMainImage");
+        main.src = product.gallery[0];
+        main.alt = product.title;
+
+        const thumbs = document.getElementById("detailThumbs");
+        thumbs.innerHTML = product.gallery
+          .map((img, i) => `<button data-gallery="${img}" class="overflow-hidden rounded-xl border ${i === 0 ? "border-accent" : "border-[var(--border)]"}"><img src="${img}" class="h-20 w-full object-cover" /></button>`)
+          .join("");
+        thumbs.querySelectorAll("[data-gallery]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            main.src = btn.getAttribute("data-gallery");
+            thumbs.querySelectorAll("button").forEach((b) => b.classList.remove("border-accent"));
+            btn.classList.add("border-accent");
+          });
+        });
+
+        document.getElementById("specTable").innerHTML = [
+          ["Engine Code", product.code],
+          ["Displacement", product.displacement],
+          ["Power", product.power],
+          ["Torque", product.torque],
+          ["Fuel System", product.fuelSystem],
+          ["Mileage", product.mileage],
+          ["Year", product.year]
+        ].map(([k,v]) => `<tr class="border-b border-[var(--border)]"><th class="px-3 py-2 text-left text-sm text-[var(--muted)]">${k}</th><td class="px-3 py-2 text-sm">${v}</td></tr>`).join("");
+
+        document.getElementById("compatibilityList").innerHTML = product.compatibility.map((c) => `<li class="rounded-xl border border-[var(--border)] px-4 py-2 text-sm">${c}</li>`).join("");
+        document.getElementById("detailsActions").innerHTML = `
+          <button data-action="wishlist" data-id="${product.id}" class="btn-secondary rounded-full px-5 py-2 text-sm">${state.wishlist.has(product.id) ? "Wishlisted" : "Add to Wishlist"}</button>
+          <button data-action="compare" data-id="${product.id}" class="btn-primary rounded-full px-5 py-2 text-sm">${state.compare.has(product.id) ? "Added to Compare" : "Compare Engine"}</button>
+        `;
+        bindCardActions(document.getElementById("detailsActions"));
+      }
+
+      function buildCard(product) {
+        return `
+          <article class="glass reveal overflow-hidden rounded-3xl">
+            <div class="relative">
+              <img src="${product.image}" alt="${product.title}" class="h-52 w-full object-cover" loading="lazy" />
+              <span class="absolute left-4 top-4 rounded-full border border-[var(--border)] bg-black/60 px-3 py-1 text-xs">${product.category}</span>
+              <span class="absolute right-4 top-4 rounded-full border border-white/40 bg-black/55 px-3 py-1 text-[10px] uppercase tracking-[0.14em]">Original Unit</span>
+            </div>
+            <div class="space-y-3 p-5">
+              <div class="flex items-center justify-between gap-4">
+                <h3 class="text-lg font-semibold">${product.code}</h3>
+                <p class="text-sm font-medium text-accent">${formatPrice(product.priceEur)}</p>
+              </div>
+              <p class="line-clamp-2 text-sm text-[var(--muted)]">${product.title}</p>
+              <dl class="grid grid-cols-2 gap-2 text-xs text-[var(--muted)]">
+                <div><dt class="font-medium uppercase">Condition</dt><dd>${product.condition}</dd></div>
+                <div><dt class="font-medium uppercase">Mileage</dt><dd>${product.mileage}</dd></div>
+                <div><dt class="font-medium uppercase">Year</dt><dd>${product.year}</dd></div>
+                <div><dt class="font-medium uppercase">Availability</dt><dd>${product.availability}</dd></div>
+              </dl>
+              <div class="grid grid-cols-2 gap-2 pt-2">
+                <button data-action="wishlist" data-id="${product.id}" class="btn-secondary rounded-full px-3 py-2 text-xs">${state.wishlist.has(product.id) ? "Wishlisted" : "Wishlist"}</button>
+                <button data-action="compare" data-id="${product.id}" class="btn-secondary rounded-full px-3 py-2 text-xs">${state.compare.has(product.id) ? "Added" : "Compare"}</button>
+                <a href="#details?id=${encodeURIComponent(product.id)}" class="btn-primary col-span-2 inline-flex justify-center rounded-full px-3 py-2 text-xs">View Details</a>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      function bindCardActions(scope) {
+        scope.querySelectorAll("[data-action]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const id = button.getAttribute("data-id");
+            const action = button.getAttribute("data-action");
+            if (action === "wishlist") toggleSet(state.wishlist, id);
+            if (action === "compare") {
+              if (state.compare.has(id)) state.compare.delete(id);
+              else if (state.compare.size < 3) state.compare.add(id);
+            }
+            localStorage.setItem(STORAGE_KEYS.wishlist, JSON.stringify([...state.wishlist]));
+            localStorage.setItem(STORAGE_KEYS.compare, JSON.stringify([...state.compare]));
+            document.querySelectorAll(`[data-action="wishlist"][data-id="${id}"]`).forEach((b) => (b.textContent = state.wishlist.has(id) ? "Wishlisted" : "Wishlist"));
+            document.querySelectorAll(`[data-action="compare"][data-id="${id}"]`).forEach((b) => (b.textContent = state.compare.has(id) ? "Added" : "Compare"));
+          });
+        });
+      }
+
+      function renderReviews(target) {
+        if (!target) return;
+        target.innerHTML = DATA.reviews.map((r) => `
+          <article class="glass reveal rounded-3xl p-6">
+            <p class="text-sm text-[var(--muted)]">${"★".repeat(r.rating)} <span class="ml-2">Verified Buyer</span></p>
+            <p class="mt-4 text-sm text-[var(--text)]">${r.text}</p>
+            <p class="mt-4 text-sm font-medium">${r.name}</p>
+            <p class="text-xs uppercase tracking-[0.14em] text-[var(--muted)]">${r.location}</p>
+          </article>
+        `).join("");
+      }
+
+      function renderFaqs(target) {
+        if (!target) return;
+        target.innerHTML = DATA.faqs.map((f, i) => `
+          <article class="glass">
+            <button data-faq-toggle="${i}" class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-medium">
+              ${f.question}<span data-faq-icon="${i}" class="text-lg text-accent">+</span>
+            </button>
+            <div id="faqBody${i}" class="faq-body px-5"><p class="pb-4 text-sm text-[var(--muted)]">${f.answer}</p></div>
+          </article>
+        `).join("");
+        initFaqClicks();
+      }
+
+      function initFaqClicks() {
+        document.querySelectorAll("[data-faq-toggle]").forEach((btn) => {
+          btn.onclick = () => {
+            const id = btn.getAttribute("data-faq-toggle");
+            const body = document.getElementById(`faqBody${id}`);
+            const icon = document.querySelector(`[data-faq-icon="${id}"]`);
+            const open = body.style.maxHeight && body.style.maxHeight !== "0px";
+            body.style.maxHeight = open ? "0" : `${body.scrollHeight + 2}px`;
+            if (icon) icon.textContent = open ? "+" : "−";
+          };
+        });
+      }
+
+      function initForms() {
+        const contactForm = document.getElementById("contactForm");
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          document.getElementById("contactFormStatus").textContent = "Message submitted. Our specialists will respond shortly.";
+          contactForm.reset();
+        });
+        document.getElementById("heroLeadForm").addEventListener("submit", (e) => {
+          e.preventDefault();
+          window.location.hash = "#contact";
+        });
+      }
+
+      function initGlobalSearch() {
+        const form = document.getElementById("globalSearchForm");
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const query = document.getElementById("globalSearchInput").value.trim();
+          window.location.hash = query ? `#collection?query=${encodeURIComponent(query)}` : "#collection";
+        });
+      }
+
+      function initTilt() {
+        document.querySelectorAll("[data-tilt]").forEach((card) => {
+          card.addEventListener("mousemove", (event) => {
+            const r = card.getBoundingClientRect();
+            const x = (event.clientX - r.left) / r.width;
+            const y = (event.clientY - r.top) / r.height;
+            const rx = (0.5 - y) * 10;
+            const ry = (x - 0.5) * 10;
+            card.style.transform = `rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-3px)`;
+          });
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "";
+          });
+        });
+      }
+
+      function revealVisible() {
+        document.querySelectorAll(".reveal").forEach((node) => node.classList.add("show"));
+      }
+
+      function toggleSet(set, id) { if (set.has(id)) set.delete(id); else set.add(id); }
+      function loadJSON(key) {
+        try { const v = JSON.parse(localStorage.getItem(key) || "[]"); return Array.isArray(v) ? v : []; }
+        catch (_e) { return []; }
+      }
+      function setText(id, v) { const el = document.getElementById(id); if (el) el.textContent = v; }
+      function formatPrice(v) { return new Intl.NumberFormat("en-DE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(v); }
+    </script>
+  </body>
+</html>
