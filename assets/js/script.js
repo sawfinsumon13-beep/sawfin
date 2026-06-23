@@ -6,10 +6,119 @@ const counterItems = document.querySelectorAll("[data-counter]");
 const yearNode = document.getElementById("year");
 const contactForm = document.getElementById("contact-form");
 const formStatus = document.getElementById("form-status");
+const bgCanvas = document.getElementById("bg-3d-canvas");
 
 if (yearNode) {
   yearNode.textContent = new Date().getFullYear();
 }
+
+const init3DBackground = () => {
+  if (!bgCanvas) {
+    return;
+  }
+
+  const context = bgCanvas.getContext("2d");
+  if (!context) {
+    return;
+  }
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  let animationId = 0;
+  let rotation = 0;
+
+  const settings = {
+    depth: 1200,
+    spread: 720,
+    speed: 2.6,
+  };
+
+  const getParticleCount = () => {
+    const screenMin = Math.min(window.innerWidth, window.innerHeight);
+    if (screenMin < 520) return 38;
+    if (screenMin < 900) return 58;
+    return 86;
+  };
+
+  let particles = [];
+
+  const createParticle = () => ({
+    x: (Math.random() - 0.5) * settings.spread * 2,
+    y: (Math.random() - 0.5) * settings.spread * 1.2,
+    z: Math.random() * settings.depth + 20,
+    size: Math.random() * 2 + 0.4,
+    drift: Math.random() * 0.8 + 0.35,
+  });
+
+  const resizeCanvas = () => {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    bgCanvas.width = Math.floor(width * dpr);
+    bgCanvas.height = Math.floor(height * dpr);
+    bgCanvas.style.width = `${width}px`;
+    bgCanvas.style.height = `${height}px`;
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    particles = Array.from({ length: getParticleCount() }, createParticle);
+  };
+
+  const drawFrame = () => {
+    context.clearRect(0, 0, width, height);
+    rotation += 0.0009;
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const perspective = Math.min(width, height) * 0.95;
+
+    for (const particle of particles) {
+      particle.z -= settings.speed * particle.drift;
+      if (particle.z <= 18) {
+        Object.assign(particle, createParticle(), { z: settings.depth + 20 });
+      }
+
+      const rotatedX = particle.x * Math.cos(rotation) - particle.y * Math.sin(rotation);
+      const rotatedY = particle.x * Math.sin(rotation) + particle.y * Math.cos(rotation);
+      const scale = perspective / (perspective + particle.z);
+      const x = rotatedX * scale + centerX;
+      const y = rotatedY * scale + centerY;
+      const radius = Math.max(0.3, particle.size * scale * 1.45);
+      const alpha = Math.max(0.1, 1 - particle.z / settings.depth);
+
+      if (x < -40 || x > width + 40 || y < -40 || y > height + 40) {
+        continue;
+      }
+
+      const glow = context.createRadialGradient(x, y, 0, x, y, radius * 6);
+      glow.addColorStop(0, `rgba(6,182,212,${alpha * 0.9})`);
+      glow.addColorStop(1, "rgba(37,99,235,0)");
+      context.fillStyle = glow;
+      context.beginPath();
+      context.arc(x, y, radius * 6, 0, Math.PI * 2);
+      context.fill();
+
+      context.fillStyle = `rgba(255,255,255,${alpha})`;
+      context.beginPath();
+      context.arc(x, y, radius, 0, Math.PI * 2);
+      context.fill();
+    }
+
+    animationId = requestAnimationFrame(drawFrame);
+  };
+
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  if (prefersReducedMotion) {
+    drawFrame();
+    cancelAnimationFrame(animationId);
+    return;
+  }
+
+  drawFrame();
+};
+
+init3DBackground();
 
 if (menuToggle && navMenu) {
   menuToggle.addEventListener("click", () => {
