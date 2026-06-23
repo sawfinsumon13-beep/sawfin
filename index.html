@@ -58,62 +58,74 @@
     <div data-component="navbar"></div>
 
     <main>
-      <section class="hero-cinematic relative min-h-screen overflow-hidden px-4 pb-20 pt-32 md:px-8">
-        <div
-          class="pointer-events-none absolute -right-24 top-20 h-64 w-64 rounded-full bg-accent/25 blur-3xl"
-          data-parallax="0.03"
-        ></div>
-        <div class="mx-auto grid max-w-7xl items-end gap-10 lg:grid-cols-2">
+      <section class="hero-cinematic fine-grid-bg relative min-h-screen overflow-hidden px-4 pb-20 pt-32 md:px-8">
+        <div class="pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-accent/30 blur-3xl" data-parallax="0.03"></div>
+        <div class="pointer-events-none absolute -right-24 bottom-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" data-parallax="0.05"></div>
+        <div class="mx-auto grid max-w-7xl items-end gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div class="space-y-8">
-            <p
-              data-gsap-hero
-              class="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-cloud"
-            >
-              Verified Original BMW Heritage Stock
+            <p data-gsap-hero class="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-cloud">
+              Original Bavarian Engine • Germany
             </p>
-            <h1 data-gsap-hero class="max-w-2xl text-4xl leading-tight text-cloud md:text-6xl">
+            <h1 data-gsap-hero class="text-glow max-w-3xl text-4xl leading-tight text-cloud md:text-6xl">
               Original BMW Engines. Restoring Performance Since Generations.
             </h1>
-            <p data-gsap-hero class="max-w-xl text-base leading-relaxed text-silver md:text-lg">
-              Premium vintage and classic BMW engines sourced and delivered worldwide. Exclusive catalog of
-              original Bavarian powertrain units for serious restorers.
+            <p data-gsap-hero class="max-w-2xl text-base leading-relaxed text-silver md:text-lg">
+              Premium vintage and classic BMW engines sourced and delivered worldwide. We provide code-level verification,
+              documented condition notes, and professional export handling for restorers and workshops.
             </p>
             <div data-gsap-hero class="flex flex-wrap gap-4">
-              <a
-                href="collection.html"
-                data-transition
-                class="btn-primary rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition"
-                >Browse Engines</a
-              >
-              <a
-                href="contact.html"
-                data-transition
-                class="btn-secondary rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition"
-                >Request Engine</a
-              >
+              <a href="collection.html" data-transition class="btn-primary rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition">Browse Engines</a>
+              <a href="contact.html" data-transition class="btn-secondary rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition">Request Engine</a>
             </div>
+            <ul data-gsap-hero class="grid gap-2 text-xs uppercase tracking-[0.18em] text-silver sm:grid-cols-3">
+              <li class="trust-pill rounded-full px-4 py-2 text-center">VIN & Code Verification</li>
+              <li class="trust-pill rounded-full px-4 py-2 text-center">Global Crated Shipping</li>
+              <li class="trust-pill rounded-full px-4 py-2 text-center">Specialist Assistance</li>
+            </ul>
           </div>
 
-          <article class="glass-card reveal rounded-3xl p-7">
-            <h2 class="text-xl text-cloud">Premium Sourcing Protocol</h2>
-            <div class="mt-6 grid gap-4 sm:grid-cols-2">
-              <div class="rounded-2xl border border-white/20 bg-black/30 p-4">
-                <p class="text-xs uppercase tracking-[0.2em] text-silver">Engines Archived</p>
-                <p class="mt-1 text-2xl font-semibold text-cloud">420+</p>
-              </div>
-              <div class="rounded-2xl border border-white/20 bg-black/30 p-4">
-                <p class="text-xs uppercase tracking-[0.2em] text-silver">Countries Delivered</p>
-                <p class="mt-1 text-2xl font-semibold text-cloud">34</p>
-              </div>
-              <div class="rounded-2xl border border-white/20 bg-black/30 p-4">
-                <p class="text-xs uppercase tracking-[0.2em] text-silver">Authenticity Verified</p>
-                <p class="mt-1 text-2xl font-semibold text-cloud">100%</p>
-              </div>
-              <div class="rounded-2xl border border-white/20 bg-black/30 p-4">
-                <p class="text-xs uppercase tracking-[0.2em] text-silver">Collector Support</p>
-                <p class="mt-1 text-2xl font-semibold text-cloud">24/7</p>
-              </div>
+          <article class="metallic-card reveal rounded-3xl p-7">
+            <p class="text-xs uppercase tracking-[0.22em] text-silver">Instant Matching Desk</p>
+            <h2 class="mt-3 text-2xl text-cloud">Send VIN or Engine Stamp</h2>
+            <p class="mt-2 text-sm leading-relaxed text-silver">
+              Share your VIN, engine code, and destination country. We confirm matching stock before you commit.
+            </p>
+            <form class="mt-6 space-y-3" action="contact.html">
+              <label for="heroVin" class="sr-only">VIN or engine code</label>
+              <input id="heroVin" type="text" placeholder="Example: WBABD11010EX12345 / S50B32" class="w-full rounded-2xl border border-white/25 bg-black/35 px-4 py-3 text-sm text-cloud outline-none focus:border-accent" />
+              <label for="heroEmail" class="sr-only">Email</label>
+              <input id="heroEmail" type="email" placeholder="Business email" class="w-full rounded-2xl border border-white/25 bg-black/35 px-4 py-3 text-sm text-cloud outline-none focus:border-accent" />
+              <button type="submit" class="btn-primary w-full rounded-2xl px-5 py-3 text-sm uppercase tracking-[0.16em]">Check Availability</button>
+            </form>
+            <div class="mt-5 grid grid-cols-2 gap-3 text-center text-xs uppercase tracking-[0.14em] text-silver">
+              <p class="rounded-xl border border-white/20 px-3 py-2">420+ Units Archived</p>
+              <p class="rounded-xl border border-white/20 px-3 py-2">34 Countries Delivered</p>
             </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="px-4 py-10 md:px-8">
+        <div class="mx-auto grid max-w-7xl gap-4 md:grid-cols-4">
+          <article class="metallic-card reveal rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Documentation</p>
+            <h2 class="mt-2 text-xl text-[var(--text)]">Condition Logs</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Mileage, code verification, and unit notes available per listing.</p>
+          </article>
+          <article class="metallic-card reveal rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Warranty</p>
+            <h2 class="mt-2 text-xl text-[var(--text)]">Written Coverage</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Mechanical warranty process explained clearly before purchase.</p>
+          </article>
+          <article class="metallic-card reveal rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Logistics</p>
+            <h2 class="mt-2 text-xl text-[var(--text)]">Crated Dispatch</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Insured freight handling for workshop and collector shipments.</p>
+          </article>
+          <article class="metallic-card reveal rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Support</p>
+            <h2 class="mt-2 text-xl text-[var(--text)]">Specialist Guidance</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Fast answers by phone, email, and WhatsApp for fitment questions.</p>
           </article>
         </div>
       </section>
@@ -125,12 +137,7 @@
               <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Featured Inventory</p>
               <h2 class="heading-accent mt-2 text-3xl md:text-4xl">Curated Original Engines</h2>
             </div>
-            <a
-              href="collection.html"
-              data-transition
-              class="btn-secondary rounded-full px-5 py-2.5 text-sm font-medium transition"
-              >View full collection</a
-            >
+            <a href="collection.html" data-transition class="btn-secondary rounded-full px-5 py-2.5 text-sm font-medium transition">View full collection</a>
           </div>
           <div id="featuredGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
         </div>
@@ -140,52 +147,31 @@
         <div class="section-shell mx-auto max-w-7xl rounded-[2rem] p-8 md:p-10">
           <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Engine Families</p>
           <h2 class="mt-3 text-3xl text-[var(--text)] md:text-4xl">Browse by Legendary BMW Chassis</h2>
+          <p class="mt-3 max-w-3xl text-sm text-[var(--muted)]">
+            Our inventory focuses exclusively on original engines for classic BMW chassis with verified provenance and platform compatibility.
+          </p>
           <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            <a
-              href="collection.html?category=BMW%20E30%20Engines"
-              data-transition
-              class="hover-glow reveal rounded-2xl border border-[var(--border)] p-5"
-            >
+            <a href="collection.html?category=BMW%20E30%20Engines" data-transition class="hover-glow reveal rounded-2xl border border-[var(--border)] p-5">
               <h3 class="text-lg text-[var(--text)]">BMW E30 Engines</h3>
               <p class="mt-2 text-sm text-[var(--muted)]">Original high-revving units for iconic E30 restorations.</p>
             </a>
-            <a
-              href="collection.html?category=BMW%20E34%20Engines"
-              data-transition
-              class="hover-glow reveal rounded-2xl border border-[var(--border)] p-5"
-            >
+            <a href="collection.html?category=BMW%20E34%20Engines" data-transition class="hover-glow reveal rounded-2xl border border-[var(--border)] p-5">
               <h3 class="text-lg text-[var(--text)]">BMW E34 Engines</h3>
               <p class="mt-2 text-sm text-[var(--muted)]">Balanced inline classics with documented provenance.</p>
             </a>
-            <a
-              href="collection.html?category=BMW%20E36%20Engines"
-              data-transition
-              class="hover-glow reveal rounded-2xl border border-[var(--border)] p-5"
-            >
+            <a href="collection.html?category=BMW%20E36%20Engines" data-transition class="hover-glow reveal rounded-2xl border border-[var(--border)] p-5">
               <h3 class="text-lg text-[var(--text)]">BMW E36 Engines</h3>
               <p class="mt-2 text-sm text-[var(--muted)]">Original motorsport-era powerplants from the 90s.</p>
             </a>
-            <a
-              href="collection.html?category=BMW%20E39%20Engines"
-              data-transition
-              class="hover-glow reveal rounded-2xl border border-[var(--border)] p-5"
-            >
+            <a href="collection.html?category=BMW%20E39%20Engines" data-transition class="hover-glow reveal rounded-2xl border border-[var(--border)] p-5">
               <h3 class="text-lg text-[var(--text)]">BMW E39 Engines</h3>
               <p class="mt-2 text-sm text-[var(--muted)]">Refined V8 and inline engines from classic executive platforms.</p>
             </a>
-            <a
-              href="collection.html?category=BMW%20M%20Series%20Classic%20Engines"
-              data-transition
-              class="hover-glow reveal rounded-2xl border border-[var(--border)] p-5"
-            >
+            <a href="collection.html?category=BMW%20M%20Series%20Classic%20Engines" data-transition class="hover-glow reveal rounded-2xl border border-[var(--border)] p-5">
               <h3 class="text-lg text-[var(--text)]">BMW M Series Classic Engines</h3>
               <p class="mt-2 text-sm text-[var(--muted)]">Collector-grade performance engines from BMW M heritage.</p>
             </a>
-            <a
-              href="collection.html?category=Rare%20Bavarian%20Engine%20Collection"
-              data-transition
-              class="hover-glow reveal rounded-2xl border border-[var(--border)] p-5"
-            >
+            <a href="collection.html?category=Rare%20Bavarian%20Engine%20Collection" data-transition class="hover-glow reveal rounded-2xl border border-[var(--border)] p-5">
               <h3 class="text-lg text-[var(--text)]">Rare Bavarian Engine Collection</h3>
               <p class="mt-2 text-sm text-[var(--muted)]">Hard-to-source originals preserved for elite restoration projects.</p>
             </a>
@@ -194,30 +180,98 @@
       </section>
 
       <section class="px-4 pb-20 md:px-8">
+        <div class="mx-auto grid max-w-7xl gap-7 lg:grid-cols-2">
+          <article class="glass-card reveal rounded-3xl p-7">
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Preparation Workflow</p>
+            <h2 class="mt-3 text-3xl text-[var(--text)]">How We Prepare Every Engine</h2>
+            <div class="mt-6 space-y-4">
+              <div class="rounded-2xl border border-[var(--border)] p-4">
+                <span class="number-badge">1</span>
+                <h3 class="mt-3 text-lg text-[var(--text)]">Stamp & Heritage Audit</h3>
+                <p class="mt-1 text-sm text-[var(--muted)]">Engine code verification, donor history checks, and authenticity review before listing.</p>
+              </div>
+              <div class="rounded-2xl border border-[var(--border)] p-4">
+                <span class="number-badge">2</span>
+                <h3 class="mt-3 text-lg text-[var(--text)]">Mechanical Assessment</h3>
+                <p class="mt-1 text-sm text-[var(--muted)]">Visual inspection, test documentation, and condition notes for transparent purchase decisions.</p>
+              </div>
+              <div class="rounded-2xl border border-[var(--border)] p-4">
+                <span class="number-badge">3</span>
+                <h3 class="mt-3 text-lg text-[var(--text)]">VIN Alignment Support</h3>
+                <p class="mt-1 text-sm text-[var(--muted)]">Our specialists confirm platform fitment and required ancillaries before invoice.</p>
+              </div>
+              <div class="rounded-2xl border border-[var(--border)] p-4">
+                <span class="number-badge">4</span>
+                <h3 class="mt-3 text-lg text-[var(--text)]">Protected Global Dispatch</h3>
+                <p class="mt-1 text-sm text-[var(--muted)]">Industrial packing, paperwork handling, and tracked shipping from Germany.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="section-shell reveal rounded-3xl p-7">
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Why Workshops Choose Us</p>
+            <h2 class="mt-3 text-3xl text-[var(--text)]">Built for Professionals and Serious Restorers</h2>
+            <ul class="mt-6 space-y-3 text-sm text-[var(--muted)]">
+              <li class="rounded-2xl border border-[var(--border)] px-4 py-3">Clear listing transparency: mileage, condition, and availability.</li>
+              <li class="rounded-2xl border border-[var(--border)] px-4 py-3">Direct support for classic BMW restoration workshops.</li>
+              <li class="rounded-2xl border border-[var(--border)] px-4 py-3">Rare BMW M and heritage stock not commonly available in open marketplaces.</li>
+              <li class="rounded-2xl border border-[var(--border)] px-4 py-3">International export support with freight-ready packaging.</li>
+              <li class="rounded-2xl border border-[var(--border)] px-4 py-3">Long-term sourcing partnership for recurring restoration projects.</li>
+            </ul>
+            <div class="mt-6 rounded-2xl border border-[var(--border)] p-4">
+              <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Shipping Coverage</p>
+              <p class="mt-2 text-sm text-[var(--text)]">Germany, UK, Ireland, France, Benelux, Nordics, Iberia, Italy, Eastern Europe, and worldwide export on request.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="px-4 pb-20 md:px-8">
+        <div class="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
+          <article class="metallic-card reveal rounded-3xl p-6">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Payment Method</p>
+            <h2 class="mt-3 text-2xl text-[var(--text)]">SEPA / Bank Transfer</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Preferred for EU workshops and collectors with formal invoice support.</p>
+          </article>
+          <article class="metallic-card reveal rounded-3xl p-6">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Payment Method</p>
+            <h2 class="mt-3 text-2xl text-[var(--text)]">International Wire</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Supported for international high-value engine orders with shipment preparation after confirmation.</p>
+          </article>
+          <article class="metallic-card reveal rounded-3xl p-6">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Order Guidance</p>
+            <h2 class="mt-3 text-2xl text-[var(--text)]">Proforma Before Dispatch</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Engine code, inclusions, and freight destination are confirmed before final processing.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="px-4 pb-20 md:px-8">
         <div class="mx-auto max-w-7xl">
           <div class="mb-10">
             <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Client Trust</p>
             <h2 class="mt-2 text-3xl text-[var(--text)] md:text-4xl">Customer Reviews</h2>
+            <p class="mt-2 max-w-2xl text-sm text-[var(--muted)]">Verified feedback from private collectors and professional workshops across Europe.</p>
           </div>
-          <div id="reviewGrid" class="grid gap-6 md:grid-cols-3"></div>
+          <div id="reviewGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
         </div>
       </section>
 
       <section class="px-4 pb-24 md:px-8">
-        <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.2fr_1fr]">
+        <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div class="section-shell reveal rounded-3xl p-7">
             <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Need a Specific Engine?</p>
-            <h2 class="mt-3 text-3xl text-[var(--text)]">Tell us your code, we will source it.</h2>
-            <p class="mt-3 max-w-xl text-sm text-[var(--muted)]">
-              Share your chassis and engine code requirement. Our team can locate verified original units through
-              our Bavarian network.
+            <h2 class="mt-3 text-3xl text-[var(--text)]">Tell us your code and destination.</h2>
+            <p class="mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)]">
+              Share your chassis, target engine code, and shipping location. We will verify current stock options and send a detailed response.
             </p>
-            <a
-              href="contact.html"
-              data-transition
-              class="btn-primary mt-6 inline-flex rounded-full px-7 py-3 text-sm uppercase tracking-[0.15em]"
-              >Request Sourcing</a
-            >
+            <div class="mt-6 grid gap-3 text-sm text-[var(--muted)] md:grid-cols-2">
+              <p class="rounded-xl border border-[var(--border)] px-4 py-3">Long block and complete unit sourcing</p>
+              <p class="rounded-xl border border-[var(--border)] px-4 py-3">Classic M platform support</p>
+              <p class="rounded-xl border border-[var(--border)] px-4 py-3">Worldwide insured freight options</p>
+              <p class="rounded-xl border border-[var(--border)] px-4 py-3">Documentation-first purchasing</p>
+            </div>
+            <a href="contact.html" data-transition class="btn-primary mt-6 inline-flex rounded-full px-7 py-3 text-sm uppercase tracking-[0.15em]">Request Sourcing</a>
           </div>
           <div>
             <h2 class="mb-4 text-2xl text-[var(--text)]">FAQ</h2>

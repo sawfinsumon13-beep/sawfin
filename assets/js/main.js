@@ -183,8 +183,13 @@
             <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Original Bavarian Engine</p>
             <h2 class="mt-3 text-2xl font-semibold text-[var(--text)]">Preserving BMW heritage with verified original engines.</h2>
             <p class="mt-4 max-w-xl text-sm leading-relaxed text-[var(--muted)]">
-              We source and deliver only original old BMW engines and vintage Bavarian powertrain components with documented provenance.
+              We source and deliver only original old BMW engines and vintage Bavarian powertrain components with documented provenance, condition reporting, and protected international shipping.
             </p>
+            <ul class="mt-4 grid gap-2 text-xs uppercase tracking-[0.16em] text-[var(--muted)] sm:grid-cols-3">
+              <li class="rounded-full border border-[var(--border)] px-3 py-2 text-center">VIN Matching</li>
+              <li class="rounded-full border border-[var(--border)] px-3 py-2 text-center">Global Freight</li>
+              <li class="rounded-full border border-[var(--border)] px-3 py-2 text-center">Collector Support</li>
+            </ul>
             <form class="mt-6 flex max-w-md flex-col gap-3 sm:flex-row" data-newsletter-form>
               <label for="newsletterEmailFooter" class="sr-only">Email for newsletter</label>
               <input id="newsletterEmailFooter" type="email" required placeholder="Enter your email" class="w-full rounded-full border border-[var(--border)] bg-transparent px-4 py-2.5 text-sm text-[var(--text)] outline-none transition focus:border-[var(--accent-blue)]" />
@@ -196,6 +201,7 @@
             <h3 class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--text)]">Quick Links</h3>
             <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
               <li><a data-transition href="collection.html" class="transition hover:text-[var(--accent-blue)]">Browse Collection</a></li>
+              <li><a data-transition href="engine-details.html" class="transition hover:text-[var(--accent-blue)]">Engine Details</a></li>
               <li><a data-transition href="about.html" class="transition hover:text-[var(--accent-blue)]">Our Story</a></li>
               <li><a data-transition href="contact.html" class="transition hover:text-[var(--accent-blue)]">Contact</a></li>
             </ul>
@@ -424,12 +430,20 @@
         quoteForm.reset();
       });
     }
+
+    const relatedGrid = document.getElementById("relatedEngineGrid");
+    if (relatedGrid) {
+      const related = data.products.filter((entry) => entry.id !== product.id).slice(0, 3);
+      relatedGrid.innerHTML = related.map((entry) => buildProductCard(entry)).join("");
+      bindProductActions(relatedGrid);
+    }
   }
 
   function renderReviews() {
     const mount = document.getElementById("reviewGrid");
     if (!mount) return;
     mount.innerHTML = data.reviews
+      .slice(0, 6)
       .map(
         (review) => `
       <article class="glass-card hover-glow rounded-3xl p-6 reveal">
@@ -730,6 +744,7 @@
         <div class="relative">
           <img src="${product.image}" alt="${product.title}" loading="lazy" class="h-52 w-full object-cover" />
           <span class="absolute left-4 top-4 rounded-full border border-[var(--border)] bg-black/60 px-3 py-1 text-xs text-[var(--white-soft)]">${product.category}</span>
+          <span class="absolute right-4 top-4 rounded-full border border-white/40 bg-black/55 px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-[var(--white-soft)]">Original Unit</span>
         </div>
         <div class="space-y-3 p-5">
           <div class="flex items-center justify-between gap-4">
@@ -737,6 +752,7 @@
             <p class="text-sm font-medium text-[var(--accent-blue)]">${formatPrice(product.priceEur)}</p>
           </div>
           <p class="line-clamp-2 text-sm text-[var(--muted)]">${product.title}</p>
+          <p class="rounded-full border border-[var(--border)] px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-[var(--muted)]">VIN matching support available</p>
           <dl class="grid grid-cols-2 gap-2 text-xs text-[var(--muted)]">
             <div><dt class="font-medium uppercase">Condition</dt><dd>${product.condition}</dd></div>
             <div><dt class="font-medium uppercase">Mileage</dt><dd>${product.mileage}</dd></div>

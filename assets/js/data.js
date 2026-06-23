@@ -181,6 +181,24 @@ window.OBE_DATA = {
       location: "Zurich, Switzerland",
       text: "Premium packaging and traceable history. This is how classic engine sourcing should be done.",
       rating: 5
+    },
+    {
+      name: "Sofia A.",
+      location: "Stockholm, Sweden",
+      text: "VIN confirmation was immediate and the engine arrived with clear documentation for our client file.",
+      rating: 5
+    },
+    {
+      name: "James O.",
+      location: "Dublin, Ireland",
+      text: "Great communication before payment. The unit matched exactly and installation was straightforward.",
+      rating: 5
+    },
+    {
+      name: "Luc V.",
+      location: "Brussels, Belgium",
+      text: "Professional freight packaging and excellent follow-up support after delivery.",
+      rating: 5
     }
   ],
   faqs: [
@@ -198,6 +216,31 @@ window.OBE_DATA = {
       question: "Can I request matching powertrain components?",
       answer:
         "Yes. We can source matching transmissions, differential components, and period-correct accessories where available."
+    },
+    {
+      question: "How do I confirm the correct engine for my chassis?",
+      answer:
+        "Share your VIN and a photo of your engine code stamp. Our specialists verify compatibility before invoice to reduce mismatch risk."
+    },
+    {
+      question: "What is included with each engine listing?",
+      answer:
+        "Each product clearly states whether it is long block only or includes ancillaries such as intake, injectors, and electronics."
+    },
+    {
+      question: "Do you provide condition evidence before shipping?",
+      answer:
+        "Yes. Depending on the unit, we can provide inspection photos, compression information, and startup footage for documentation."
+    },
+    {
+      question: "What are typical shipping times?",
+      answer:
+        "European deliveries are typically 3 to 7 business days depending on destination and freight method. Worldwide export timelines vary by customs."
+    },
+    {
+      question: "Can private buyers order, or only workshops?",
+      answer:
+        "Both are welcome. Private buyers usually install through local specialists, and we support workshops directly with technical order clarity."
     }
   ]
 };

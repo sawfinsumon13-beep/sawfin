@@ -66,6 +66,49 @@ h4 {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
 }
 
+.metallic-card {
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(31, 31, 31, 0.32));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 18px 42px rgba(0, 0, 0, 0.35);
+}
+
+.fine-grid-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.fine-grid-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(200, 200, 200, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 200, 200, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 100%);
+}
+
+.trust-pill {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.text-glow {
+  text-shadow: 0 0 28px rgba(46, 91, 255, 0.35);
+}
+
+.number-badge {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(46, 91, 255, 0.5);
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
 .heading-accent {
   background: linear-gradient(120deg, #f7f7f7 10%, #c8c8c8 55%, #2e5bff 110%);
   -webkit-background-clip: text;
