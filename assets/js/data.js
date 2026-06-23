@@ -1,3 +1,103 @@
+function makeImageSet(basePath, count) {
+  const urls = [`${basePath}/main.webp`];
+  for (let i = 1; i <= count; i += 1) {
+    urls.push(`${basePath}/${String(i).padStart(2, "0")}.webp`);
+  }
+  return urls;
+}
+
+function uniqueList(items) {
+  return [...new Set(items.filter(Boolean))];
+}
+
+const N57_IMAGE_POOL = uniqueList([
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-330d-e90-n57d30a-lci-engine-2011", 4),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-330d-f30-n57d30a-engine-2014", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-335d-f30-n57d30b-engine-2015", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-530d-f10-n57d30a-engine", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-530d-gt-f07-n57d30a-engine-2012", 4),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f01-730d-n57d30a-engine-2010", 4),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f06-n57-640d-xdrive-engine", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f10-525d-n57d30a-engine-2010", 8),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f10-530d-n57d30a-engine-2010", 6),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f10-530d-n57d30a-engine-2015", 7),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f10-530d-n57d30b-engine-2012", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-x3-f25-n57d30a-engine-2017", 3),
+  "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp"
+]);
+
+const N47_IMAGE_POOL = uniqueList([
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-125d-f20-n47d20d-engine-2012", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e82-123d-n47d20b-engine-2010", 4),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e87-123d-n47d20b-engine-2008", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e90-320d-n47d20c-engine-2010", 4),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e90-320d-n47d20c-engine-2011", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e91-320d-n47d20-engine-2011", 6),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f10-520d-n47d20c-engine-2011", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f10-520d-n47d20c-engine-2012", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f10-525d-n47d20d-engine-2012", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f30-320d-n47d20c-engine-2013", 3),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f30-320d-n47d20c-engine-2014", 4),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f34-320d-n47d20c-engine-2015", 4),
+  "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp"
+]);
+
+const M57_IMAGE_POOL = uniqueList([
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-330d-231hp-m57-2009-engine", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e46-330d-m57d30-engine-2002", 4),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e60-530d-m57-engine", 4),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e60-535d-m57d30tu2-engine-2007", 7),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e60-535d-m57-engine", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e60-e61-m57tue-177hp-engine", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e60-m57n-272hp-engine", 10),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e90-335d-m57-2011-engine", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-x3-e83-m57d30tu2-engine-2007", 7),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-x5-e53-3-0d-m57-engine-2006", 4),
+  "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp"
+]);
+
+const B57_IMAGE_POOL = uniqueList([
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/540d-740d-640d-840d-3-0-b57d30b-engine", 4),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/730d-xdrive-g11-g12-2019-b57d30a", 6),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/740d-xdrive-2018-g11-b57d30b-engine", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-g20-m340d-b57-engine-2021", 6),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/x5-530d-b57d30b-3-0d-engine", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-x6-g06-m50d-b57d30s-engine-2019", 6),
+  "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-g20-330d-b57d30a-engine-2021/main.webp",
+  "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b57.webp"
+]);
+
+const B47_IMAGE_POOL = uniqueList([
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmwx3-x4-b47d20a-engine", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/118d-f20-b47d20a-2016-lci-engine", 3),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/125d-2016-b47d30b-euro6-engine", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/520d-f10-2014-euro6-b47d20a-engine", 4),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/b47c20b-x1-f48-2018-engine", 4),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/f30-b47d20a-320d-2017-engine", 5),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/f10-b47d20a-2016-engine", 6),
+  "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp"
+]);
+
+const B58_IMAGE_POOL = uniqueList([
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f32-440i-engine-2017", 3),
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/z4-b58b30c-3-0-2021-engine", 4),
+  "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp"
+]);
+
+const M57_SWAP_IMAGE_POOL = uniqueList([
+  ...makeImageSet("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-m57-to-300tdi-r380-conversion-kit", 6),
+  "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/home-m57-swap.webp",
+  "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp"
+]);
+
+const SHARED_OLD_ENGINE_IMAGES = uniqueList([
+  ...N57_IMAGE_POOL,
+  ...N47_IMAGE_POOL,
+  ...M57_IMAGE_POOL,
+  ...B57_IMAGE_POOL,
+  ...B47_IMAGE_POOL
+]).slice(0, 120);
+
 const OBE_FAMILY_TEMPLATES = [
   {
     slug: "n57",
@@ -12,11 +112,7 @@ const OBE_FAMILY_TEMPLATES = [
     basePrice: 6400,
     count: 90,
     models: ["BMW 330d", "BMW 530d", "BMW X5", "BMW X6"],
-    images: [
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp",
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-330d-e90-n57d30a-lci-engine-2011/main.webp",
-      "https://bavarianengine.com/wp-content/uploads/2026/06/BMW-X6-E71-N63B44A-Engine-2011-1-2.webp"
-    ]
+    images: uniqueList([...N57_IMAGE_POOL, ...SHARED_OLD_ENGINE_IMAGES.slice(0, 40)])
   },
   {
     slug: "n47",
@@ -31,11 +127,7 @@ const OBE_FAMILY_TEMPLATES = [
     basePrice: 5200,
     count: 90,
     models: ["BMW 320d", "BMW 520d", "BMW 118d", "BMW X3"],
-    images: [
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp",
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-125d-f20-n47d20d-engine-2012/main.webp",
-      "https://bavarianengine.com/wp-content/uploads/2026/06/images-7-2.jpeg"
-    ]
+    images: uniqueList([...N47_IMAGE_POOL, ...SHARED_OLD_ENGINE_IMAGES.slice(15, 55)])
   },
   {
     slug: "m57",
@@ -50,11 +142,7 @@ const OBE_FAMILY_TEMPLATES = [
     basePrice: 6100,
     count: 90,
     models: ["BMW E60", "BMW E90", "BMW X5 E70", "BMW 730d"],
-    images: [
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp",
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-330d-231hp-m57-2009-engine/main.webp",
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/home-m57-swap.webp"
-    ]
+    images: uniqueList([...M57_IMAGE_POOL, ...SHARED_OLD_ENGINE_IMAGES.slice(35, 75)])
   },
   {
     slug: "b57",
@@ -69,11 +157,7 @@ const OBE_FAMILY_TEMPLATES = [
     basePrice: 8600,
     count: 78,
     models: ["BMW G30 530d", "BMW X5 G05", "BMW 740d", "BMW 840d"],
-    images: [
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b57.webp",
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/540d-740d-640d-840d-3-0-b57d30b-engine/main.webp",
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/home-b47-b57-euro6.webp"
-    ]
+    images: uniqueList([...B57_IMAGE_POOL, ...SHARED_OLD_ENGINE_IMAGES.slice(50, 95)])
   },
   {
     slug: "b47",
@@ -88,11 +172,7 @@ const OBE_FAMILY_TEMPLATES = [
     basePrice: 6900,
     count: 78,
     models: ["BMW F30 LCI", "BMW X3 G01", "BMW X4", "BMW 320d"],
-    images: [
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp",
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmwx3-x4-b47d20a-engine/main.webp",
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/home-b47-b57-euro6.webp"
-    ]
+    images: uniqueList([...B47_IMAGE_POOL, ...SHARED_OLD_ENGINE_IMAGES.slice(20, 70)])
   },
   {
     slug: "b58",
@@ -107,11 +187,7 @@ const OBE_FAMILY_TEMPLATES = [
     basePrice: 9800,
     count: 78,
     models: ["BMW 340i", "BMW 440i", "BMW M140i", "BMW Supra A90"],
-    images: [
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp",
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f32-440i-engine-2017/main.webp",
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/home-b58-petrol.webp"
-    ]
+    images: uniqueList([...B58_IMAGE_POOL, ...SHARED_OLD_ENGINE_IMAGES.slice(60, 110)])
   },
   {
     slug: "m57-swap",
@@ -126,11 +202,7 @@ const OBE_FAMILY_TEMPLATES = [
     basePrice: 12400,
     count: 24,
     models: ["Defender Conversion", "Overland Builds", "Workshop Projects"],
-    images: [
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/home-m57-swap.webp",
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp",
-      "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-330d-231hp-m57-2009-engine/main.webp"
-    ]
+    images: uniqueList([...M57_SWAP_IMAGE_POOL, ...M57_IMAGE_POOL.slice(0, 25)])
   }
 ];
 
@@ -143,9 +215,21 @@ const CONDITION_ROTATION = [
 
 const AVAILABILITY_ROTATION = ["In Stock", "In Stock", "Limited", "Reserved"];
 
+function pickGallery(pool, startIndex) {
+  const size = pool.length;
+  const one = pool[startIndex % size];
+  const two = pool[(startIndex + 1) % size];
+  const three = pool[(startIndex + 2) % size];
+  return uniqueList([one, two, three]);
+}
+
 function buildInventory() {
   const products = [];
+
   OBE_FAMILY_TEMPLATES.forEach((template) => {
+    let previousImage = "";
+    const pool = template.images.length ? template.images : SHARED_OLD_ENGINE_IMAGES;
+
     for (let i = 1; i <= template.count; i += 1) {
       const suffix = ["A", "B", "C", "D"][i % 4];
       const sequenceCode = String(1000 + i);
@@ -154,12 +238,14 @@ function buildInventory() {
       const mileageValue = 62000 + ((i * 1377) % 158000);
       const priceEur = template.basePrice + (i % 18) * 170 + Math.floor(i / 7) * 30;
       const model = template.models[i % template.models.length];
-      const image = template.images[i % template.images.length];
-      const gallery = [
-        template.images[i % template.images.length],
-        template.images[(i + 1) % template.images.length],
-        template.images[(i + 2) % template.images.length]
-      ];
+
+      let image = pool[(i - 1) % pool.length];
+      if (image === previousImage) {
+        image = pool[i % pool.length];
+      }
+      previousImage = image;
+
+      const gallery = pickGallery(pool, i - 1);
 
       products.push({
         id: `${template.slug}-${sequenceCode.toLowerCase()}`,
@@ -189,6 +275,7 @@ function buildInventory() {
       });
     }
   });
+
   return products;
 }
 
