@@ -5,6 +5,10 @@ const navMenu = document.querySelector(".nav-links");
 const backToTop = document.querySelector(".to-top");
 const hero3dCanvas = document.querySelector("#hero-3d-canvas");
 
+if (body) {
+  body.classList.add("js-ready");
+}
+
 const initHero3DBackground = () => {
   if (!hero3dCanvas) return;
   if (window.innerWidth <= 768) return;
@@ -148,19 +152,25 @@ if (backToTop) {
 
 const animatedElements = document.querySelectorAll("[data-animate]");
 if (animatedElements.length) {
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: "0px 0px -30px 0px" }
-  );
+  const shouldUseStaticReveal = window.innerWidth <= 768 || !("IntersectionObserver" in window);
 
-  animatedElements.forEach((element) => revealObserver.observe(element));
+  if (shouldUseStaticReveal) {
+    animatedElements.forEach((element) => element.classList.add("in-view"));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -30px 0px" }
+    );
+
+    animatedElements.forEach((element) => revealObserver.observe(element));
+  }
 }
 
 const statNumbers = document.querySelectorAll(".stat-number[data-target]");
@@ -187,19 +197,27 @@ if (statNumbers.length) {
     window.requestAnimationFrame(update);
   };
 
-  const counterObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          startCounter(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.45 }
-  );
+  if (!("IntersectionObserver" in window) || window.innerWidth <= 768) {
+    statNumbers.forEach((counter) => {
+      const target = Number(counter.dataset.target || "0");
+      const suffix = counter.dataset.suffix || "";
+      counter.textContent = `${target}${suffix}`;
+    });
+  } else {
+    const counterObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.45 }
+    );
 
-  statNumbers.forEach((counter) => counterObserver.observe(counter));
+    statNumbers.forEach((counter) => counterObserver.observe(counter));
+  }
 }
 
 const faqItems = document.querySelectorAll(".faq-item");
@@ -230,9 +248,11 @@ if (blogSearch && blogCards.length) {
   blogSearch.addEventListener("input", (event) => {
     const value = event.target.value.toLowerCase().trim();
     blogCards.forEach((card) => {
-      const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
-      const excerpt = card.querySelector("p")?.textContent.toLowerCase() || "";
-      const category = card.dataset.category?.toLowerCase() || "";
+      const titleEl = card.querySelector("h3");
+      const excerptEl = card.querySelector("p");
+      const title = titleEl ? titleEl.textContent.toLowerCase() : "";
+      const excerpt = excerptEl ? excerptEl.textContent.toLowerCase() : "";
+      const category = card.dataset.category ? card.dataset.category.toLowerCase() : "";
       const matches = !value || title.includes(value) || excerpt.includes(value) || category.includes(value);
       card.classList.toggle("hidden-by-search", !matches);
     });
@@ -324,7 +344,8 @@ if (readMoreLinks.length && readerBox && readerCategory && readerTitle && reader
       if (!card) return;
 
       const articleId = link.dataset.articleId || "article-1";
-      const title = card.querySelector("h3")?.textContent?.trim() || "Crypto Recovery Insight";
+      const titleElement = card.querySelector("h3");
+      const title = titleElement ? titleElement.textContent.trim() : "Crypto Recovery Insight";
       const category = card.dataset.category || "insights";
       const categoryLabel = category[0].toUpperCase() + category.slice(1);
       const angle = articleAngles[articleId] || "crypto incident response strategy";
@@ -361,8 +382,4 @@ document.querySelectorAll(".newsletter-form, .contact-form").forEach((form) => {
 const yearTarget = document.querySelector("[data-year]");
 if (yearTarget) {
   yearTarget.textContent = new Date().getFullYear();
-}
-
-if (body) {
-  body.classList.add("js-ready");
 }
