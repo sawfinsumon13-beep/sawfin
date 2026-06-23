@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Original Bavarian Engine</title>
+    <meta
+      name="description"
+      content="Learn the story behind Original Bavarian Engine and our mission to preserve authentic BMW engineering heritage."
+    />
+    <link rel="icon" href="assets/images/logo-mark.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              matte: "#111111",
+              graphite: "#1F1F1F",
+              silver: "#C8C8C8",
+              accent: "#2E5BFF",
+              cloud: "#F7F7F7"
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="assets/js/data.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body data-page="about" class="page-shell antialiased">
+    <div id="pageLoader" class="loader-overlay">
+      <div class="text-center">
+        <div class="loader-ring mx-auto"></div>
+        <p class="mt-4 text-xs uppercase tracking-[0.3em] text-silver">Loading Heritage Story</p>
+      </div>
+    </div>
+
+    <div data-component="navbar"></div>
+
+    <main class="px-4 pb-24 pt-32 md:px-8">
+      <section class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2">
+        <article class="space-y-5">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Our Story</p>
+          <h1 class="text-4xl text-[var(--text)] md:text-5xl">
+            Preserving Original Bavarian Engineering for the Next Generation
+          </h1>
+          <p class="text-sm leading-relaxed text-[var(--muted)]">
+            Original Bavarian Engine was founded by BMW restoration specialists with one strict principle: supply only
+            authentic original BMW engines and vintage powertrain parts. Every unit is sourced through trusted
+            European networks and verified by technical documentation before listing.
+          </p>
+          <p class="text-sm leading-relaxed text-[var(--muted)]">
+            We support private collectors, motorsport historians, and high-end restoration workshops that demand
+            period-correct components with uncompromising authenticity.
+          </p>
+          <div class="grid gap-4 sm:grid-cols-3">
+            <div class="rounded-2xl border border-[var(--border)] p-4">
+              <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Authenticity Checks</p>
+              <p class="mt-2 text-2xl text-[var(--text)]">5-Step</p>
+            </div>
+            <div class="rounded-2xl border border-[var(--border)] p-4">
+              <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">In-house Inspection</p>
+              <p class="mt-2 text-2xl text-[var(--text)]">100%</p>
+            </div>
+            <div class="rounded-2xl border border-[var(--border)] p-4">
+              <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Global Partners</p>
+              <p class="mt-2 text-2xl text-[var(--text)]">70+</p>
+            </div>
+          </div>
+        </article>
+
+        <figure class="overflow-hidden rounded-3xl border border-[var(--border)] reveal">
+          <img
+            src="https://images.unsplash.com/photo-1607603750909-40874f7e3e53?auto=format&fit=crop&w=1400&q=80"
+            alt="Vintage BMW workshop with engine assembly equipment"
+            class="h-full min-h-[400px] w-full object-cover"
+            loading="lazy"
+          />
+        </figure>
+      </section>
+
+      <section class="mx-auto mt-14 max-w-7xl">
+        <h2 class="mb-6 text-3xl text-[var(--text)]">Workshop Gallery</h2>
+        <div class="grid gap-5 md:grid-cols-3">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img
+              src="https://images.unsplash.com/photo-1519752594763-2633cfe6f5b1?auto=format&fit=crop&w=1200&q=80"
+              alt="Detailed engine teardown in restoration bay"
+              class="h-64 w-full object-cover transition duration-500 hover:scale-105"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img
+              src="https://images.unsplash.com/photo-1504222490345-c075b6008014?auto=format&fit=crop&w=1200&q=80"
+              alt="BMW classic powertrain parts arranged for inspection"
+              class="h-64 w-full object-cover transition duration-500 hover:scale-105"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img
+              src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80"
+              alt="Precision assembly of vintage BMW engine components"
+              class="h-64 w-full object-cover transition duration-500 hover:scale-105"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="mx-auto mt-14 max-w-7xl">
+        <h2 class="mb-8 text-3xl text-[var(--text)]">Milestone Timeline</h2>
+        <div class="timeline-line relative space-y-6 pl-8">
+          <article class="reveal rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)]/55 p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--accent-blue)]">2009</p>
+            <h3 class="mt-2 text-lg text-[var(--text)]">Specialist Network Founded</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]">
+              Established sourcing links with Bavarian dismantlers and restoration specialists.
+            </p>
+          </article>
+          <article class="reveal rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)]/55 p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--accent-blue)]">2015</p>
+            <h3 class="mt-2 text-lg text-[var(--text)]">Collector Verification Program</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]">
+              Introduced serial verification and technical condition reporting for every listing.
+            </p>
+          </article>
+          <article class="reveal rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)]/55 p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--accent-blue)]">2020</p>
+            <h3 class="mt-2 text-lg text-[var(--text)]">Global Delivery Expansion</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]">
+              Expanded premium crated shipping support for workshops and collectors worldwide.
+            </p>
+          </article>
+          <article class="reveal rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)]/55 p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--accent-blue)]">Today</p>
+            <h3 class="mt-2 text-lg text-[var(--text)]">Original Bavarian Engine</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]">
+              Serving restoration leaders with exclusive original old BMW engine inventory and trusted support.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div data-component="footer"></div>
+  </body>
+</html>

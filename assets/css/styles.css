@@ -1,0 +1,244 @@
+:root {
+  --matte-black: #111111;
+  --deep-graphite: #1f1f1f;
+  --silver-metallic: #c8c8c8;
+  --accent-blue: #2e5bff;
+  --white-soft: #f7f7f7;
+  --bg: #111111;
+  --bg-elevated: #1f1f1f;
+  --text: #f7f7f7;
+  --muted: #c8c8c8;
+  --border: rgba(200, 200, 200, 0.25);
+  --glass: rgba(255, 255, 255, 0.06);
+  --shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+}
+
+html.light-mode {
+  --bg: #f7f7f7;
+  --bg-elevated: #ffffff;
+  --text: #111111;
+  --muted: #444444;
+  --border: rgba(17, 17, 17, 0.12);
+  --glass: rgba(17, 17, 17, 0.06);
+  --shadow: 0 24px 64px rgba(17, 17, 17, 0.12);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at 15% 0%, rgba(46, 91, 255, 0.18), transparent 35%), var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: url("../images/industrial-texture.svg");
+  background-size: 320px 320px;
+  z-index: -1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Playfair Display", Georgia, serif;
+  letter-spacing: 0.02em;
+}
+
+.glass-card {
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.14), var(--glass));
+  border: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+}
+
+.section-shell {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+}
+
+.heading-accent {
+  background: linear-gradient(120deg, #f7f7f7 10%, #c8c8c8 55%, #2e5bff 110%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+html.light-mode .heading-accent {
+  background: linear-gradient(120deg, #111111 10%, #353535 55%, #2e5bff 110%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, #2e5bff, #1f46db);
+  color: #f7f7f7;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 0 4px rgba(46, 91, 255, 0.2), 0 12px 34px rgba(46, 91, 255, 0.45);
+}
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  border-color: rgba(46, 91, 255, 0.75);
+  box-shadow: 0 0 0 4px rgba(46, 91, 255, 0.12);
+}
+
+.hover-glow {
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.hover-glow:hover {
+  transform: translateY(-6px);
+  border-color: rgba(46, 91, 255, 0.6);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3), 0 0 42px rgba(46, 91, 255, 0.2);
+}
+
+#siteHeader {
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+#siteHeader.nav-scrolled {
+  background: rgba(17, 17, 17, 0.8);
+  border-bottom: 1px solid rgba(200, 200, 200, 0.25);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+}
+
+html.light-mode #siteHeader.nav-scrolled {
+  background: rgba(247, 247, 247, 0.86);
+}
+
+.hero-cinematic {
+  background: linear-gradient(105deg, rgba(17, 17, 17, 0.92), rgba(17, 17, 17, 0.4)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=80")
+      center/cover;
+}
+
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #090909;
+  z-index: 120;
+  transition: opacity 0.55s ease, visibility 0.55s ease;
+}
+
+.loader-overlay.is-loaded {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-ring {
+  width: 70px;
+  height: 70px;
+  border: 3px solid rgba(247, 247, 247, 0.2);
+  border-top-color: var(--accent-blue);
+  border-radius: 999px;
+  animation: spin 0.95s linear infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-shell {
+  animation: pageIn 0.45s ease;
+}
+
+body.page-leave .page-shell {
+  animation: pageOut 0.26s ease forwards;
+}
+
+#backToTop {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.compare-drawer {
+  transition: transform 0.35s ease;
+  transform: translateX(100%);
+}
+
+.compare-drawer.open {
+  transform: translateX(0);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.timeline-line::before {
+  content: "";
+  position: absolute;
+  left: 0.8rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(#2e5bff, transparent);
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-cinematic {
+    background-position: 65% center;
+  }
+}
