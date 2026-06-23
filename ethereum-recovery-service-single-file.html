@@ -88,6 +88,7 @@
         background: radial-gradient(circle at 15% 15%, rgba(0, 212, 255, 0.12), transparent 35%),
           radial-gradient(circle at 80% 5%, rgba(98, 126, 234, 0.2), transparent 35%), var(--bg);
         line-height: 1.6;
+        overflow-x: hidden;
       }
 
       section[id] {
@@ -850,6 +851,14 @@
       }
 
       @media (max-width: 768px) {
+        .hero-3d-bg {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 4.1rem;
+        }
+
         .section {
           padding: 4rem 0;
         }
@@ -895,6 +904,14 @@
 
         .newsletter-form {
           grid-template-columns: 1fr;
+        }
+
+        .blog-image {
+          max-height: 230px;
+        }
+
+        .long-copy-article {
+          padding: 1rem;
         }
       }
 
@@ -1814,6 +1831,7 @@
 
       const initHero3DBackground = () => {
         if (!hero3dCanvas) return;
+        if (window.innerWidth <= 768) return;
 
         const context = hero3dCanvas.getContext("2d");
         if (!context) return;

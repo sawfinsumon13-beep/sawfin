@@ -7,6 +7,7 @@ const hero3dCanvas = document.querySelector("#hero-3d-canvas");
 
 const initHero3DBackground = () => {
   if (!hero3dCanvas) return;
+  if (window.innerWidth <= 768) return;
 
   const context = hero3dCanvas.getContext("2d");
   if (!context) return;
