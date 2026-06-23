@@ -2,6 +2,10 @@
   "use strict";
 
   const data = window.OBE_DATA || { products: [], reviews: [], faqs: [] };
+  const WHATSAPP_NUMBER = "4915510030835";
+  const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    "Hello Original Bavarian Engine, I need help choosing the right old BMW engine."
+  )}`;
   const STORAGE_KEYS = {
     theme: "obe_theme",
     wishlist: "obe_wishlist",
@@ -256,6 +260,7 @@
             <h3 class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--text)]">Direct Contact</h3>
             <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
               <li><a href="tel:+4915510030835" class="transition hover:text-[var(--accent-blue)]">+49 15510 030835</a></li>
+              <li><a href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" class="transition hover:text-[var(--accent-blue)]">WhatsApp Chat</a></li>
               <li><a href="mailto:originalbavarianengine@gmail.com" class="transition hover:text-[var(--accent-blue)]">originalbavarianengine@gmail.com</a></li>
               <li>Worldwide shipping from Germany</li>
             </ul>
@@ -266,6 +271,20 @@
   }
 
   function renderGlobalWidgets() {
+    if (!document.querySelector('a[data-global-whatsapp]') && !document.querySelector(`a[href*="wa.me/${WHATSAPP_NUMBER}"]`)) {
+      const whatsapp = document.createElement("a");
+      whatsapp.href = WHATSAPP_URL;
+      whatsapp.target = "_blank";
+      whatsapp.rel = "noopener noreferrer";
+      whatsapp.dataset.globalWhatsapp = "true";
+      whatsapp.setAttribute("aria-label", "Chat on WhatsApp");
+      whatsapp.className =
+        "fixed bottom-6 left-6 z-40 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-xl transition hover:scale-105";
+      whatsapp.innerHTML =
+        '<svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.84 11.84 0 0 0 12.05 0 11.98 11.98 0 0 0 1.8 17.95L0 24l6.22-1.63A12 12 0 0 0 12 24h.01a11.99 11.99 0 0 0 8.5-20.52Zm-8.51 18.5h-.01a9.95 9.95 0 0 1-5.07-1.39l-.36-.21-3.69.97.99-3.59-.23-.37a9.96 9.96 0 1 1 8.37 4.59Zm5.46-7.44c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.49s1.07 2.9 1.22 3.1c.15.2 2.1 3.2 5.09 4.48.71.31 1.26.5 1.69.65.71.23 1.35.2 1.86.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.08-.12-.27-.2-.57-.35Z"/></svg>WhatsApp';
+      document.body.append(whatsapp);
+    }
+
     if (!document.getElementById("backToTop")) {
       const button = document.createElement("button");
       button.id = "backToTop";
