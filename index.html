@@ -47,7 +47,7 @@
     <script src="assets/js/data.js" defer></script>
     <script src="assets/js/main.js" defer></script>
   </head>
-  <body data-page="home" class="page-shell antialiased">
+  <body data-page="home" class="page-shell home-color-3d antialiased">
     <div id="pageLoader" class="loader-overlay">
       <div class="text-center">
         <div class="loader-ring mx-auto"></div>
@@ -59,6 +59,9 @@
 
     <main>
       <section class="hero-cinematic fine-grid-bg relative min-h-screen overflow-hidden px-4 pb-20 pt-32 md:px-8">
+        <div class="color-3d-layer layer-a left-[4%] top-[18%]"></div>
+        <div class="color-3d-layer layer-b right-[8%] top-[26%]"></div>
+        <div class="color-3d-layer layer-c right-[14%] bottom-[8%]"></div>
         <div class="pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-accent/30 blur-3xl" data-parallax="0.03"></div>
         <div class="pointer-events-none absolute -right-24 bottom-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" data-parallax="0.05"></div>
         <div class="three-d-orbit pointer-events-none left-1/2 top-24 h-[320px] w-[320px] -translate-x-1/2 opacity-70"></div>
@@ -142,6 +145,46 @@
         </div>
       </section>
 
+      <section class="px-4 pb-14 md:px-8">
+        <div class="mx-auto max-w-7xl">
+          <article class="heart-trust-card reveal rounded-[2rem] p-7 md:p-10">
+            <div class="grid gap-7 lg:grid-cols-[1.2fr_0.8fr]">
+              <div>
+                <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Buy With Total Confidence</p>
+                <h2 class="mt-3 text-3xl text-[var(--text)] md:text-4xl">
+                  We know old BMW engines are high-trust purchases. That trust is earned, not claimed.
+                </h2>
+                <p class="mt-4 text-sm leading-relaxed text-[var(--muted)]">
+                  Every customer is making a serious decision: performance, restoration value, and investment protection.
+                  Our job is to remove uncertainty through transparent documentation, VIN alignment support, and honest communication.
+                </p>
+                <p class="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+                  We do not treat you like a quick transaction. We treat your project like a mechanical legacy worth preserving.
+                </p>
+                <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                  <p class="commitment-chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Pre-payment compatibility checks</p>
+                  <p class="commitment-chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Real warehouse old-engine images</p>
+                  <p class="commitment-chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Written warranty guidance</p>
+                  <p class="commitment-chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Direct support after delivery</p>
+                </div>
+              </div>
+              <div class="grid gap-4">
+                <article data-tilt data-tilt-max="6" class="three-d-panel rounded-2xl p-5">
+                  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Customer Protection</p>
+                  <h3 class="mt-2 text-2xl text-[var(--text)]">No Blind Purchases</h3>
+                  <p class="mt-2 text-sm text-[var(--muted)]">VIN and engine-code confirmation before invoice processing.</p>
+                </article>
+                <article data-tilt data-tilt-max="6" class="three-d-panel rounded-2xl p-5">
+                  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Delivery Assurance</p>
+                  <h3 class="mt-2 text-2xl text-[var(--text)]">Crate + Tracking</h3>
+                  <p class="mt-2 text-sm text-[var(--muted)]">Professional packaging and tracking updates until arrival.</p>
+                </article>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section class="px-4 py-10 md:px-8">
         <div class="mx-auto max-w-7xl">
           <article class="spec-matrix reveal rounded-[2rem] p-7 md:p-10">
@@ -175,6 +218,39 @@
               </article>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section class="px-4 pb-20 md:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-7 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Customer-First Purchase Path</p>
+              <h2 class="mt-2 text-3xl text-[var(--text)] md:text-4xl">The Journey We Follow To Win Your Trust</h2>
+            </div>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <article class="heart-trust-card reveal rounded-2xl p-5">
+              <span class="number-badge">1</span>
+              <h3 class="mt-3 text-xl text-[var(--text)]">You Share Requirements</h3>
+              <p class="mt-2 text-sm text-[var(--muted)]">VIN, engine code, country, and project details are reviewed by specialists.</p>
+            </article>
+            <article class="heart-trust-card reveal rounded-2xl p-5">
+              <span class="number-badge">2</span>
+              <h3 class="mt-3 text-xl text-[var(--text)]">We Match Real Stock</h3>
+              <p class="mt-2 text-sm text-[var(--muted)]">You receive clear options with condition notes and image-backed evidence.</p>
+            </article>
+            <article class="heart-trust-card reveal rounded-2xl p-5">
+              <span class="number-badge">3</span>
+              <h3 class="mt-3 text-xl text-[var(--text)]">You Approve Safely</h3>
+              <p class="mt-2 text-sm text-[var(--muted)]">Price, inclusion scope, and freight terms are confirmed before dispatch.</p>
+            </article>
+            <article class="heart-trust-card reveal rounded-2xl p-5">
+              <span class="number-badge">4</span>
+              <h3 class="mt-3 text-xl text-[var(--text)]">We Stay With You</h3>
+              <p class="mt-2 text-sm text-[var(--muted)]">After delivery, you still have support for installation and documentation questions.</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -367,6 +443,44 @@
             <p class="mt-2 max-w-2xl text-sm text-[var(--muted)]">Verified feedback from private collectors and professional workshops across Europe.</p>
           </div>
           <div id="reviewGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+        </div>
+      </section>
+
+      <section class="px-4 pb-20 md:px-8">
+        <div class="mx-auto grid max-w-7xl gap-7 lg:grid-cols-[0.95fr_1.05fr]">
+          <article class="heart-trust-card reveal rounded-3xl p-7">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Guarantee To Every Buyer</p>
+            <h2 class="mt-3 text-3xl text-[var(--text)]">Our Promise Before You Spend</h2>
+            <ul class="mt-5 space-y-3 text-sm text-[var(--muted)]">
+              <li class="rounded-xl border border-[var(--border)] px-4 py-3">No pressure purchasing - ask every technical question first.</li>
+              <li class="rounded-xl border border-[var(--border)] px-4 py-3">No hidden listing ambiguity - conditions are communicated clearly.</li>
+              <li class="rounded-xl border border-[var(--border)] px-4 py-3">No freight uncertainty - protected packing and tracking are standard.</li>
+              <li class="rounded-xl border border-[var(--border)] px-4 py-3">No post-sale silence - support remains available after delivery.</li>
+            </ul>
+            <a href="contact.html" data-transition class="btn-primary mt-6 inline-flex rounded-full px-6 py-3 text-sm uppercase tracking-[0.14em]">Start a Safe Enquiry</a>
+          </article>
+          <article class="section-shell reveal rounded-3xl p-7">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Frequently Asked by Serious Buyers</p>
+            <h2 class="mt-3 text-3xl text-[var(--text)]">Can I Really Trust This Engine Purchase?</h2>
+            <div class="mt-5 space-y-3 text-sm text-[var(--muted)]">
+              <p class="rounded-xl border border-[var(--border)] px-4 py-3">
+                <span class="font-medium text-[var(--text)]">Q:</span> What if my code does not match after delivery?<br />
+                <span class="font-medium text-[var(--text)]">A:</span> We verify fitment before invoice using your VIN and engine stamp.
+              </p>
+              <p class="rounded-xl border border-[var(--border)] px-4 py-3">
+                <span class="font-medium text-[var(--text)]">Q:</span> How do I know the listing is real?<br />
+                <span class="font-medium text-[var(--text)]">A:</span> Listings use real warehouse photos and documented stock details.
+              </p>
+              <p class="rounded-xl border border-[var(--border)] px-4 py-3">
+                <span class="font-medium text-[var(--text)]">Q:</span> Is this only for workshops?<br />
+                <span class="font-medium text-[var(--text)]">A:</span> Both private owners and professional garages are fully supported.
+              </p>
+              <p class="rounded-xl border border-[var(--border)] px-4 py-3">
+                <span class="font-medium text-[var(--text)]">Q:</span> Will I receive support after purchase?<br />
+                <span class="font-medium text-[var(--text)]">A:</span> Yes, post-delivery assistance is part of our service model.
+              </p>
+            </div>
+          </article>
         </div>
       </section>
 
