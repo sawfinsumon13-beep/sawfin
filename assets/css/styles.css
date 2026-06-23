@@ -240,6 +240,51 @@ h4 {
   box-shadow: 0 24px 52px rgba(0, 0, 0, 0.36);
 }
 
+.value-3d-card {
+  position: relative;
+  border: 1px solid var(--border);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(12, 20, 44, 0.55));
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.34);
+  overflow: hidden;
+}
+
+.value-3d-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.16), transparent 45%, rgba(46, 91, 255, 0.2));
+  opacity: 0.55;
+}
+
+.icon-token {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(46, 91, 255, 0.45);
+  background: radial-gradient(circle at 30% 30%, rgba(122, 151, 255, 0.42), rgba(46, 91, 255, 0.1));
+  color: #f7f7f7;
+}
+
+.depth-ribbon {
+  border: 1px solid var(--border);
+  background: linear-gradient(120deg, rgba(46, 91, 255, 0.24), rgba(255, 255, 255, 0.06));
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
+}
+
+.comparison-shell {
+  border: 1px solid var(--border);
+  background: linear-gradient(170deg, rgba(255, 255, 255, 0.1), rgba(12, 18, 36, 0.52));
+}
+
+.comparison-cell {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
 .commitment-chip {
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.05);
