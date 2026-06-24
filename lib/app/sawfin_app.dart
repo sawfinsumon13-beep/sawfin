@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../screens/firebase_setup_screen.dart';
+import '../screens/demo/offline_demo_app.dart';
 import 'app_theme.dart';
 import 'routes.dart';
 
@@ -21,7 +21,7 @@ class SawfinApp extends StatelessWidget {
         title: 'sawfin777',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.dark(),
-        home: FirebaseSetupScreen(message: firebaseError),
+        home: OfflineDemoApp(startupMessage: firebaseError),
       );
     }
 
