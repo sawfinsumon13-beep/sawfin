@@ -358,4 +358,3 @@ String _formatDate(DateTime? date) {
 }
 
 String _two(int value) => value.toString().padLeft(2, '0');
-
