@@ -99,6 +99,25 @@ flutter run -d android \
   --dart-define=FIREBASE_STORAGE_BUCKET=your-project-id.appspot.com
 ```
 
+## Build Android APK with GitHub Actions
+
+This repository includes `.github/workflows/build-android-apk.yml` to generate a
+downloadable release APK from GitHub.
+
+1. Add these repository secrets:
+   - `FIREBASE_ANDROID_API_KEY`
+   - `FIREBASE_ANDROID_APP_ID`
+   - `FIREBASE_MESSAGING_SENDER_ID`
+   - `FIREBASE_PROJECT_ID`
+   - `FIREBASE_STORAGE_BUCKET`
+2. Open GitHub -> Actions -> Build Android APK.
+3. Click **Run workflow**.
+4. Download the `sawfin777-release-apk` artifact.
+
+The workflow generates the Android runner with
+`flutter create . --platforms=android --org com.sawfin` and uploads
+`sawfin777-release.apk`.
+
 You may also run `flutterfire configure` and replace `lib/firebase_options.dart`
 with the generated file if your team prefers the FlutterFire workflow.
 
