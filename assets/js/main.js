@@ -542,7 +542,7 @@
   function renderReviews() {
     const mount = document.getElementById("reviewGrid");
     if (!mount) return;
-    const page = document.body.dataset.page;
+    const page = (document.body.dataset.page || "").toLowerCase();
     const reviewItems = page === "reviews" ? data.reviews : data.reviews.slice(0, 6);
     mount.innerHTML = reviewItems
       .map(
@@ -556,6 +556,10 @@
     `
       )
       .join("");
+    const countMount = document.getElementById("reviewCount");
+    if (countMount) {
+      countMount.textContent = `${reviewItems.length} verified buyer reviews displayed`;
+    }
     initRevealOnScroll();
   }
 

@@ -18,9 +18,9 @@
         theme: { extend: { colors: { matte: "#111111", graphite: "#1F1F1F", silver: "#C8C8C8", accent: "#2E5BFF", cloud: "#F7F7F7" } } }
       };
     </script>
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script src="assets/js/data.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260624b" />
+    <script src="assets/js/data.js?v=20260624b" defer></script>
+    <script src="assets/js/main.js?v=20260624b" defer></script>
   </head>
   <body data-page="reviews" class="page-shell antialiased">
     <div id="pageLoader" class="loader-overlay"><div class="loader-ring"></div></div>
@@ -32,6 +32,7 @@
         <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
           Verified clients choose us for transparent listings, code-level matching support, and dependable cross-border delivery workflow.
         </p>
+        <p id="reviewCount" class="mt-4 text-sm font-medium text-[var(--accent-blue)]">Loading verified buyer reviews...</p>
       </section>
 
       <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
