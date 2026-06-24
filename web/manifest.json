@@ -1,0 +1,12 @@
+{
+  "name": "sawfin777",
+  "short_name": "sawfin777",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#07040D",
+  "theme_color": "#FFD166",
+  "description": "Play-money casino-style demo entertainment app.",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "icons": []
+}
