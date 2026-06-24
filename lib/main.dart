@@ -6,6 +6,33 @@ import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const SawfinApp());
+  try {
+    final options = DefaultFirebaseOptions.currentPlatform;
+    if (_hasMissingFirebaseConfig(options)) {
+      runApp(
+        const SawfinApp(
+          firebaseReady: false,
+          firebaseError:
+              'Firebase configuration is missing. Rebuild the APK with Firebase --dart-define values or GitHub Actions secrets.',
+        ),
+      );
+      return;
+    }
+    await Firebase.initializeApp(options: options);
+    runApp(const SawfinApp());
+  } catch (error) {
+    runApp(
+      SawfinApp(
+        firebaseReady: false,
+        firebaseError: 'Firebase failed to start: $error',
+      ),
+    );
+  }
+}
+
+bool _hasMissingFirebaseConfig(FirebaseOptions options) {
+  return options.apiKey.isEmpty ||
+      options.appId.isEmpty ||
+      options.messagingSenderId.isEmpty ||
+      options.projectId.isEmpty;
 }
