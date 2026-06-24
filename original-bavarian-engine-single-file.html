@@ -236,7 +236,27 @@
           <button id="themeToggle" class="rounded-full border border-[var(--border)] p-2" aria-label="Toggle theme">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg>
           </button>
+          <button id="mobileMenuToggle" class="rounded-full border border-[var(--border)] p-2 lg:hidden" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
         </div>
+      </div>
+      <div id="mobileMenu" class="hidden border-t border-[var(--border)] bg-[var(--bg)]/95 px-4 py-4 lg:hidden">
+        <form id="globalSearchFormMobile" class="mb-4">
+          <input id="globalSearchInputMobile" type="search" placeholder="Search engine code..." class="w-full rounded-full border border-[var(--border)] bg-black/20 px-4 py-2 text-sm outline-none" />
+        </form>
+        <nav class="grid gap-2 text-sm" aria-label="Mobile Menu">
+          <a href="#home" class="rounded-lg px-2 py-1 hover:text-accent">Home</a>
+          <a href="#collection" class="rounded-lg px-2 py-1 hover:text-accent">Engines</a>
+          <a href="#collection" class="rounded-lg px-2 py-1 hover:text-accent">M57 Swap Kits</a>
+          <a href="#details" class="rounded-lg px-2 py-1 hover:text-accent">Engine Details</a>
+          <a href="#services" class="rounded-lg px-2 py-1 hover:text-accent">Services</a>
+          <a href="#about" class="rounded-lg px-2 py-1 hover:text-accent">About</a>
+          <a href="#contact" class="rounded-lg px-2 py-1 hover:text-accent">Contact</a>
+          <a href="#policies" class="rounded-lg px-2 py-1 hover:text-accent">Policies</a>
+          <a href="#blog" class="rounded-lg px-2 py-1 hover:text-accent">Blog</a>
+          <a href="#reviews" class="rounded-lg px-2 py-1 hover:text-accent">Reviews</a>
+        </nav>
       </div>
     </header>
 
@@ -1147,6 +1167,7 @@
       function init() {
         initTheme();
         initHeader();
+        initMobileMenu();
         initRouter();
         initGlobalSearch();
         initFaqClicks();
@@ -1160,6 +1181,25 @@
         const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 10);
         onScroll();
         window.addEventListener("scroll", onScroll);
+      }
+
+      function initMobileMenu() {
+        const toggle = document.getElementById("mobileMenuToggle");
+        const menu = document.getElementById("mobileMenu");
+        if (!toggle || !menu) return;
+
+        toggle.addEventListener("click", () => {
+          const expanded = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!expanded));
+          menu.classList.toggle("hidden");
+        });
+
+        menu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            menu.classList.add("hidden");
+            toggle.setAttribute("aria-expanded", "false");
+          });
+        });
       }
 
       function initTheme() {
@@ -1417,12 +1457,19 @@
       }
 
       function initGlobalSearch() {
-        const form = document.getElementById("globalSearchForm");
-        form.addEventListener("submit", (e) => {
-          e.preventDefault();
-          const query = document.getElementById("globalSearchInput").value.trim();
-          window.location.hash = query ? `#collection?query=${encodeURIComponent(query)}` : "#collection";
-        });
+        const bindSearch = (formId, inputId) => {
+          const form = document.getElementById(formId);
+          const input = document.getElementById(inputId);
+          if (!form || !input) return;
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const query = input.value.trim();
+            window.location.hash = query ? `#collection?query=${encodeURIComponent(query)}` : "#collection";
+          });
+        };
+
+        bindSearch("globalSearchForm", "globalSearchInput");
+        bindSearch("globalSearchFormMobile", "globalSearchInputMobile");
       }
 
       function initTilt() {
