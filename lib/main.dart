@@ -6,6 +6,16 @@ import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  if (const bool.fromEnvironment('FORCE_OFFLINE_DEMO')) {
+    runApp(
+      const SawfinApp(
+        firebaseReady: false,
+        firebaseError: 'Running install-ready offline demo mode.',
+      ),
+    );
+    return;
+  }
+
   try {
     final options = DefaultFirebaseOptions.currentPlatform;
     if (_hasMissingFirebaseConfig(options)) {

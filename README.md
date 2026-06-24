@@ -102,7 +102,7 @@ flutter run -d android \
 ## Build Android APK with GitHub Actions
 
 This repository includes `.github/workflows/build-android-apk.yml` to generate a
-downloadable release APK from GitHub.
+downloadable install-ready Android APK from GitHub.
 
 1. Add these repository secrets:
    - `FIREBASE_ANDROID_API_KEY`
@@ -112,11 +112,16 @@ downloadable release APK from GitHub.
    - `FIREBASE_STORAGE_BUCKET`
 2. Open GitHub -> Actions -> Build Android APK.
 3. Click **Run workflow**.
-4. Download the `sawfin777-release-apk` artifact.
+4. Download the `sawfin777-demo-install-ready-apk` artifact.
 
 The workflow generates the Android runner with
 `flutter create . --platforms=android --org com.sawfin` and uploads
-`sawfin777-release.apk`.
+`sawfin777-demo-install-ready.apk`.
+
+By default this workflow builds with `FORCE_OFFLINE_DEMO=true`, so the APK opens
+the complete offline demo immediately even if Firebase secrets are not set. For
+a live Firebase-backed production build, remove that dart define and provide the
+Firebase secrets above.
 
 You may also run `flutterfire configure` and replace `lib/firebase_options.dart`
 with the generated file if your team prefers the FlutterFire workflow.
