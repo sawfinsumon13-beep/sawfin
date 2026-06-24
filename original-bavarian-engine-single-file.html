@@ -172,6 +172,7 @@
         <nav class="hidden items-center gap-4 text-xs lg:flex">
           <a href="#home" class="hover:text-accent">Home</a>
           <a href="#collection" class="hover:text-accent">Engines</a>
+          <a href="#collection" class="hover:text-accent">M57 Swap Kits</a>
           <a href="#details" class="hover:text-accent">Engine Details</a>
           <a href="#services" class="hover:text-accent">Services</a>
           <a href="#about" class="hover:text-accent">About</a>
@@ -431,6 +432,42 @@
           <p id="collectionMeta" class="mt-5 text-sm text-[var(--muted)]"></p>
         </section>
         <section class="mx-auto mt-10 max-w-7xl">
+          <div class="grid gap-4 md:grid-cols-6">
+            <a href="#collection" class="group relative overflow-hidden rounded-3xl border border-[var(--border)] md:col-span-3">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp" alt="N57 engines family cover" class="h-56 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+              <h3 class="absolute bottom-4 left-4 text-2xl font-semibold text-white">N57 Engines</h3>
+            </a>
+            <a href="#collection" class="group relative overflow-hidden rounded-3xl border border-[var(--border)] md:col-span-3">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp" alt="N47 engines family cover" class="h-56 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+              <h3 class="absolute bottom-4 left-4 text-2xl font-semibold text-white">N47 Engines</h3>
+            </a>
+            <a href="#collection" class="group relative overflow-hidden rounded-3xl border border-[var(--border)] md:col-span-2">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp" alt="M57 engines family cover" class="h-52 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+              <h3 class="absolute bottom-4 left-4 text-xl font-semibold text-white">M57 Engines</h3>
+            </a>
+            <a href="#collection" class="group relative overflow-hidden rounded-3xl border border-[var(--border)] md:col-span-2">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b57.webp" alt="B57 engines family cover" class="h-52 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+              <h3 class="absolute bottom-4 left-4 text-xl font-semibold text-white">B57 Engines</h3>
+            </a>
+            <a href="#collection" class="group relative overflow-hidden rounded-3xl border border-[var(--border)] md:col-span-2">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp" alt="B47 engines family cover" class="h-52 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+              <h3 class="absolute bottom-4 left-4 text-xl font-semibold text-white">B47 Engines</h3>
+            </a>
+          </div>
+        </section>
+        <section class="mx-auto mt-10 max-w-7xl">
+          <article class="glass rounded-3xl p-7">
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">M57 Swap Kits</p>
+            <h2 class="mt-3 text-3xl">Conversion Support for 4x4 and Workshop Projects</h2>
+            <p class="mt-3 text-sm leading-relaxed text-[var(--muted)]">The M57 menu option is fully supported with swap-oriented sourcing guidance, inclusion clarity, and freight planning.</p>
+          </article>
+        </section>
+        <section class="mx-auto mt-10 max-w-7xl">
           <div id="collectionGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
           <div id="collectionPagination" class="mt-8 flex justify-center"></div>
         </section>
@@ -475,18 +512,35 @@
       </section>
 
       <section id="view-about" class="view px-4 pb-24 md:px-8">
-        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
-          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">About</p>
-          <h1 class="mt-3 text-4xl md:text-5xl">Preserving Original Bavarian Engineering</h1>
-          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
-            We are focused exclusively on original BMW old-engine supply for serious restorations, collector projects,
-            and workshop replacement operations.
-          </p>
+        <section class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2">
+          <article class="space-y-5">
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">About</p>
+            <h1 class="text-4xl md:text-5xl">Preserving Original Bavarian Engineering</h1>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">
+              We are focused exclusively on original BMW old-engine supply for serious restorations, collector projects,
+              and workshop replacement operations across Europe and global export routes.
+            </p>
+            <div class="grid gap-3 text-xs uppercase tracking-[0.16em] text-[var(--muted)] sm:grid-cols-2">
+              <p class="chip rounded-full px-4 py-2 text-center">Original Units Only</p>
+              <p class="chip rounded-full px-4 py-2 text-center">No Generic Substitutes</p>
+              <p class="chip rounded-full px-4 py-2 text-center">VIN Matching Desk</p>
+              <p class="chip rounded-full px-4 py-2 text-center">Workshop-Grade Support</p>
+            </div>
+          </article>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp" alt="Original BMW engine heritage visual" class="h-full min-h-[360px] w-full object-cover" loading="lazy" />
+          </figure>
         </section>
-        <section class="mx-auto mt-10 grid max-w-7xl gap-6 md:grid-cols-3">
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Mission</h2><p class="mt-2 text-sm text-[var(--muted)]">Protect mechanical heritage through authentic engine sourcing.</p></article>
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Standard</h2><p class="mt-2 text-sm text-[var(--muted)]">Documentation-first listings and compatibility clarity.</p></article>
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Promise</h2><p class="mt-2 text-sm text-[var(--muted)]">Support before payment and after delivery.</p></article>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp" alt="BMW workshop heritage visual N47" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b57.webp" alt="BMW warehouse heritage visual B57" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp" alt="BMW restoration visual M57" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
         </section>
       </section>
 
@@ -494,6 +548,7 @@
         <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
           <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Contact</p>
           <h1 class="mt-3 text-4xl md:text-5xl">Talk to an Engine Specialist</h1>
+          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--muted)]">Send your engine code, VIN, and destination. We respond with matching options and shipping clarity.</p>
         </section>
         <section class="mx-auto mt-10 grid max-w-7xl gap-7 lg:grid-cols-[1fr_1.2fr]">
           <article class="glass rounded-3xl p-6">
@@ -517,20 +572,54 @@
             <p id="contactFormStatus" class="mt-3 text-sm text-accent"></p>
           </article>
         </section>
+        <section class="mx-auto mt-10 max-w-7xl">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="assets/images/map-placeholder.svg" alt="Original Bavarian Engine map placeholder" class="h-[320px] w-full object-cover" loading="lazy" />
+          </figure>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
+          <article class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Before You Enquire</p>
+            <h3 class="mt-2 text-xl">Share VIN & Code</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]">This helps us prevent compatibility mistakes before quoting.</p>
+          </article>
+          <article class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Fast Response</p>
+            <h3 class="mt-2 text-xl">Specialist Contact</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]">WhatsApp and email support for private buyers and garages.</p>
+          </article>
+          <article class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">After Ordering</p>
+            <h3 class="mt-2 text-xl">Dispatch Guidance</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]">Crate, tracking, and documentation details are shared clearly.</p>
+          </article>
+        </section>
       </section>
 
       <section id="view-services" class="view px-4 pb-24 md:px-8">
         <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
           <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Services</p>
           <h1 class="mt-3 text-4xl md:text-5xl">Complete Engine Sourcing Services</h1>
+          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">Technical matching, inventory sourcing, freight planning, and after-delivery support from one desk.</p>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp" alt="Service visual for N57 sourcing" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp" alt="Service visual for M57 swaps" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b57.webp" alt="Service visual for B57 logistics" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
         </section>
         <section class="mx-auto mt-10 grid max-w-7xl gap-6 md:grid-cols-2 xl:grid-cols-3">
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">VIN & Code Matching</h2></article>
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Inventory Sourcing</h2></article>
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">M57 Swap Packages</h2></article>
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Condition Documentation</h2></article>
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Worldwide Freight</h2></article>
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Post-Delivery Support</h2></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">VIN & Code Matching</h2><p class="mt-2 text-sm text-[var(--muted)]">Suffix-level compatibility review before invoice.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Inventory Sourcing</h2><p class="mt-2 text-sm text-[var(--muted)]">Access to diesel and petrol families with real stock context.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">M57 Swap Packages</h2><p class="mt-2 text-sm text-[var(--muted)]">Conversion pathway support for Defender and 4x4 builds.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Condition Documentation</h2><p class="mt-2 text-sm text-[var(--muted)]">Image-backed notes and listing clarity for buyers.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Worldwide Freight</h2><p class="mt-2 text-sm text-[var(--muted)]">Crated and tracked shipping with export support.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Post-Delivery Support</h2><p class="mt-2 text-sm text-[var(--muted)]">Direct support after dispatch and arrival.</p></article>
         </section>
       </section>
 
@@ -538,12 +627,21 @@
         <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
           <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Policies</p>
           <h1 class="mt-3 text-4xl md:text-5xl">Order, Shipping, Warranty, Returns</h1>
+          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">Policy clarity is part of our trust model. We define fitment, freight, and warranty expectations before payment.</p>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-2">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp" alt="Policy visual for compatibility checks" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp" alt="Policy visual for shipping and warranty terms" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
         </section>
         <section class="mx-auto mt-10 grid max-w-7xl gap-6 lg:grid-cols-2">
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Compatibility Policy</h2></article>
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Shipping Policy</h2></article>
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Warranty Policy</h2></article>
-          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Returns Policy</h2></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Compatibility Policy</h2><p class="mt-2 text-sm text-[var(--muted)]">VIN + code verification is recommended before order confirmation.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Shipping Policy</h2><p class="mt-2 text-sm text-[var(--muted)]">Engines ship via protected crate or pallet with tracking workflow.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Warranty Policy</h2><p class="mt-2 text-sm text-[var(--muted)]">Written coverage terms are shared in order documents before payment.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Returns Policy</h2><p class="mt-2 text-sm text-[var(--muted)]">Case handling follows documented conditions agreed during checkout.</p></article>
         </section>
       </section>
 
@@ -552,10 +650,24 @@
           <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Blog</p>
           <h1 class="mt-3 text-4xl md:text-5xl">BMW Engine Knowledge Center</h1>
         </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp" alt="BMW blog graphic N47 engine" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp" alt="BMW blog graphic N57 engine" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp" alt="BMW blog graphic B58 engine" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+        </section>
         <section class="mx-auto mt-10 max-w-7xl space-y-8">
           <article class="glass rounded-3xl p-6 md:p-8">
             <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Long Form Guide - 1500+ Words</p>
             <h2 class="mt-3 text-2xl md:text-3xl">Complete Buyer Blueprint for Old BMW Diesel Engines: N47, N57, and M57</h2>
+            <figure class="mt-5 overflow-hidden rounded-2xl border border-[var(--border)]">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp" alt="Old BMW diesel buying guide image" class="h-72 w-full object-cover" loading="lazy" />
+            </figure>
             <div class="mt-6 space-y-4 text-sm leading-relaxed text-[var(--muted)]">
               <p>Buying an old BMW diesel engine is never only about price, and serious buyers already know that the cheapest listing often becomes the most expensive story once labor, freight, coding, and downtime enter the equation. A correct old-engine purchase is really a systems decision that includes mechanical condition, injector history, turbo health, ECU generation, gearbox communication, DPF strategy, and the practical skill level of the workshop that will install the unit. If your target is a dependable and authentic restoration outcome, you need to treat the engine as part of a complete drivetrain ecosystem. That is why experienced buyers start with compatibility architecture first, then condition evidence, then logistics planning, and only then payment and dispatch timing.</p>
               <p>The first discipline is identity verification. On BMW diesels, many purchase failures happen because people match a family label but ignore suffix-level details. A listing that says N57 or M57 is not enough. You must request and confirm the full stamp, donor chassis context, and generation notes that explain injector type, emissions package, and accessory arrangement. The goal is to prevent hidden conversion work that appears after the crate arrives. In practical terms, this means checking block code, intake layout, EGR arrangement, turbo setup, and sensor ports against your receiving vehicle and its control strategy. When the supplier provides matching photos, compression context, and continuity notes, your risk drops dramatically.</p>
@@ -578,6 +690,9 @@
           <article class="glass rounded-3xl p-6 md:p-8">
             <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Long Form Guide - 1500+ Words</p>
             <h2 class="mt-3 text-2xl md:text-3xl">Old BMW Petrol Engines and M Heritage Units: Authentic Restoration Strategy from Purchase to First Drive</h2>
+            <figure class="mt-5 overflow-hidden rounded-2xl border border-[var(--border)]">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp" alt="Old BMW petrol restoration guide image" class="h-72 w-full object-cover" loading="lazy" />
+            </figure>
             <div class="mt-6 space-y-4 text-sm leading-relaxed text-[var(--muted)]">
               <p>Old BMW petrol engines are emotional purchases as much as technical ones, because buyers are not just restoring mobility; they are restoring response, sound character, and the analog relationship between throttle input and chassis movement that defined an era. This emotional value is exactly why technical discipline matters so much. A heritage engine that looks correct in photos can still become an expensive compromise if compression balance is weak, timing components are worn beyond service tolerance, or accessory architecture does not match the target chassis. The difference between a joyful restoration and a frustrating one is rarely luck. It is almost always the quality of sourcing process before the crate is ever booked.</p>
               <p>The first strategic question is authenticity depth. Some clients want visual authenticity only, while others want code-correct drivetrain identity that aligns with production-era expectations. You should decide this early, because it changes your acceptance criteria during purchase. Code-correct projects often require stricter block and head verification, period-consistent ancillary layout, and stronger insistence on donor documentation. Visual-authenticity projects may allow broader internal updating while preserving external presentation. Neither route is wrong, but confusion between the two creates conflict between buyer expectations and workshop execution. A seller who understands restoration goals can help filter inventory choices according to your chosen authenticity level.</p>
@@ -600,6 +715,9 @@
           <article class="glass rounded-3xl p-6 md:p-8">
             <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Long Form Guide - 1500+ Words</p>
             <h2 class="mt-3 text-2xl md:text-3xl">Long-Term Survival Manual for Old BMW Engines: Storage, Startup, Break-In, and Reliability Planning</h2>
+            <figure class="mt-5 overflow-hidden rounded-2xl border border-[var(--border)]">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp" alt="Old BMW engine reliability guide image" class="h-72 w-full object-cover" loading="lazy" />
+            </figure>
             <div class="mt-6 space-y-4 text-sm leading-relaxed text-[var(--muted)]">
               <p>Owning an old BMW engine is not only about choosing the right unit at purchase; long-term success is determined by what happens in storage, installation prep, startup routines, and maintenance discipline afterward. Many engines that could have delivered years of reliable service fail early because these phases are rushed or treated as secondary. A buyer can spend significant money on an authentic unit and still lose performance confidence if recommissioning is careless. The strongest projects are those where the owner and workshop adopt a lifecycle mindset from day one. That means every stage, from crate opening to post-install monitoring, is planned as part of reliability engineering.</p>
               <p>Storage is your first reliability checkpoint. If an engine sits in humid or dirty conditions, corrosion and contamination risk rises immediately. Keep the unit in a dry indoor area, away from direct weather exposure and high condensation zones. Protect open ports and connectors from dust ingress and avoid unnecessary handling that can stress external points. If installation is delayed, inspect the storage environment regularly instead of assuming everything remains unchanged. Simple discipline at this stage prevents many later mysteries. Buyers sometimes focus on advanced tuning plans while overlooking storage basics, yet those basics often have a larger impact on first-start behavior and long-term sealing health.</p>
@@ -625,6 +743,35 @@
         <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
           <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Reviews</p>
           <h1 class="mt-3 text-4xl md:text-5xl">Trusted by Workshops and Collectors</h1>
+          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">Client feedback consistently highlights our fitment accuracy, listing transparency, and support quality.</p>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp" alt="Review visual N57 engine delivery" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp" alt="Review visual M57 conversion support" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp" alt="Review visual B47 collector purchase" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
+          <article class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Technical Confidence</p>
+            <h2 class="mt-2 text-xl">Accurate Matching</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Buyers value code-level review before committing to purchase.</p>
+          </article>
+          <article class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Communication Quality</p>
+            <h2 class="mt-2 text-xl">Fast Response</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Clients mention quick answers on WhatsApp and email.</p>
+          </article>
+          <article class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Delivery Experience</p>
+            <h2 class="mt-2 text-xl">Secure Dispatch</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Tracking and packing standards are repeatedly praised.</p>
+          </article>
         </section>
         <section class="mx-auto mt-10 max-w-7xl">
           <div id="reviewGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
