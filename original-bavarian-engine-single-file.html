@@ -50,10 +50,10 @@
         font-family: Inter, system-ui, sans-serif;
         color: var(--text);
         background:
-          radial-gradient(circle at 12% 18%, rgba(46, 91, 255, 0.35), transparent 40%),
-          radial-gradient(circle at 85% 22%, rgba(122, 151, 255, 0.28), transparent 42%),
-          radial-gradient(circle at 72% 78%, rgba(70, 120, 255, 0.22), transparent 45%),
-          linear-gradient(170deg, #0d1224 0%, #0a1020 48%, #090d1b 100%);
+          radial-gradient(circle at 12% -4%, rgba(168, 36, 36, 0.46), transparent 35%),
+          radial-gradient(circle at 86% 10%, rgba(133, 22, 22, 0.34), transparent 38%),
+          radial-gradient(circle at 52% 78%, rgba(95, 15, 15, 0.25), transparent 45%),
+          linear-gradient(168deg, #070709 0%, #0d0b10 48%, #09090d 100%);
         min-height: 100vh;
       }
       body::before {
@@ -62,10 +62,10 @@
         inset: 0;
         pointer-events: none;
         z-index: -1;
-        opacity: 0.5;
+        opacity: 0.48;
         background-image:
-          linear-gradient(rgba(46, 91, 255, 0.08) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(46, 91, 255, 0.08) 1px, transparent 1px);
+          linear-gradient(rgba(173, 52, 52, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(173, 52, 52, 0.1) 1px, transparent 1px);
         background-size: 32px 32px;
       }
       h1, h2, h3, h4 { font-family: "Playfair Display", Georgia, serif; letter-spacing: .02em; }
@@ -133,7 +133,7 @@
       }
       .hero {
         background:
-          linear-gradient(110deg, rgba(5,10,24,.92), rgba(10,16,36,.45)),
+          linear-gradient(110deg, rgba(12, 8, 8, 0.92), rgba(95, 20, 20, 0.44)),
           url("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/hero-home.webp") center/cover;
       }
       .three-card {
@@ -973,14 +973,76 @@
       ];
       const AVAILABILITY_ROTATION = ["In Stock", "In Stock", "Limited", "Reserved"];
 
-      const REVIEWS = [
-        { name: "Markus T.", location: "Stuttgart, Germany", text: "The N57 unit arrived exactly as documented and matched workshop checks.", rating: 5 },
-        { name: "Oliver J.", location: "Manchester, UK", text: "Strong stock quality and clear communication before purchase.", rating: 5 },
-        { name: "Leonard C.", location: "Zurich, Switzerland", text: "Premium packing, trackable freight, and great support.", rating: 5 },
-        { name: "Sofia A.", location: "Stockholm, Sweden", text: "VIN confirmation was immediate and documentation complete.", rating: 5 },
-        { name: "James O.", location: "Dublin, Ireland", text: "Exactly as listed and delivered on schedule.", rating: 5 },
-        { name: "Luc V.", location: "Brussels, Belgium", text: "Professional team and transparent process.", rating: 5 }
-      ];
+      function buildReviews() {
+        const reviewerNames = [
+          "Markus T.",
+          "Oliver J.",
+          "Leonard C.",
+          "Sofia A.",
+          "James O.",
+          "Luc V.",
+          "Daniel R.",
+          "Patrick M.",
+          "Emil K.",
+          "Nicolas D.",
+          "Adrian B.",
+          "Thomas F.",
+          "Sebastian W.",
+          "Milan Z.",
+          "Victor H.",
+          "Jan P.",
+          "Robert L.",
+          "Kacper N.",
+          "Henri G.",
+          "Stefan E."
+        ];
+        const reviewerLocations = [
+          "Stuttgart, Germany",
+          "Manchester, UK",
+          "Zurich, Switzerland",
+          "Stockholm, Sweden",
+          "Dublin, Ireland",
+          "Brussels, Belgium",
+          "Hamburg, Germany",
+          "Munich, Germany",
+          "Vienna, Austria",
+          "Copenhagen, Denmark",
+          "Oslo, Norway",
+          "Amsterdam, Netherlands",
+          "Paris, France",
+          "Milan, Italy",
+          "Warsaw, Poland",
+          "Prague, Czech Republic",
+          "Lisbon, Portugal",
+          "Barcelona, Spain",
+          "Bucharest, Romania",
+          "Helsinki, Finland"
+        ];
+        const reviewMessages = [
+          "The engine arrived exactly as documented, and our workshop confirmed code and compression data without mismatch.",
+          "Communication was fast, technical, and clear. We received fitment guidance before payment, which reduced project risk.",
+          "Crate quality was excellent. Delivery updates were consistent, and the unit matched listing photos and mileage notes.",
+          "Very professional process from enquiry to dispatch. Support team answered every compatibility question in practical detail.",
+          "We purchased for a client restoration and the engine installed smoothly. Documentation quality saved us workshop time.",
+          "Best used BMW engine sourcing experience we have had. Real stock transparency and no confusion on included components.",
+          "VIN verification was completed quickly, and the exact engine family match prevented expensive fitment mistakes.",
+          "Packaging and export handling were excellent. We received the engine in clean condition with clear dispatch tracking.",
+          "Our private collector order was handled like a workshop account. Strong support before and after delivery.",
+          "The listing was honest and technically accurate. What arrived is exactly what was described in the order notes."
+        ];
+        const reviews = [];
+        for (let i = 0; i < 60; i += 1) {
+          reviews.push({
+            name: reviewerNames[i % reviewerNames.length],
+            location: reviewerLocations[i % reviewerLocations.length],
+            text: reviewMessages[i % reviewMessages.length],
+            rating: 5
+          });
+        }
+        return reviews;
+      }
+
+      const REVIEWS = buildReviews();
 
       const FAQS = [
         { question: "Are these engines original BMW units?", answer: "Yes. We sell only original BMW old-engine and powertrain stock." },
@@ -1256,7 +1318,8 @@
 
       function renderReviews(target) {
         if (!target) return;
-        target.innerHTML = DATA.reviews.map((r) => `
+        const reviewItems = target.id === "homeReviewGrid" ? DATA.reviews.slice(0, 6) : DATA.reviews;
+        target.innerHTML = reviewItems.map((r) => `
           <article class="glass reveal rounded-3xl p-6">
             <p class="text-sm text-[var(--muted)]">${"★".repeat(r.rating)} <span class="ml-2">Verified Buyer</span></p>
             <p class="mt-4 text-sm text-[var(--text)]">${r.text}</p>

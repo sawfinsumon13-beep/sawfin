@@ -29,18 +29,22 @@ html.light-mode {
 
 body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at 15% 0%, rgba(46, 91, 255, 0.18), transparent 35%), var(--bg);
+  background:
+    radial-gradient(circle at 12% -5%, rgba(167, 35, 35, 0.45), transparent 34%),
+    radial-gradient(circle at 88% 8%, rgba(134, 22, 22, 0.34), transparent 38%),
+    radial-gradient(circle at 50% 78%, rgba(95, 14, 14, 0.24), transparent 45%),
+    linear-gradient(165deg, #060708 0%, #0b0b10 52%, #09090d 100%);
   color: var(--text);
   min-height: 100vh;
 }
 
 body.home-color-3d {
   background:
-    radial-gradient(circle at 12% 18%, rgba(46, 91, 255, 0.35), transparent 40%),
-    radial-gradient(circle at 85% 22%, rgba(122, 151, 255, 0.28), transparent 42%),
-    radial-gradient(circle at 72% 78%, rgba(70, 120, 255, 0.22), transparent 45%),
-    radial-gradient(circle at 30% 82%, rgba(200, 200, 200, 0.12), transparent 48%),
-    linear-gradient(170deg, #0d1224 0%, #0a1020 48%, #090d1b 100%);
+    radial-gradient(circle at 14% 16%, rgba(176, 38, 38, 0.52), transparent 42%),
+    radial-gradient(circle at 84% 20%, rgba(138, 23, 23, 0.4), transparent 42%),
+    radial-gradient(circle at 73% 78%, rgba(110, 16, 16, 0.3), transparent 45%),
+    radial-gradient(circle at 28% 82%, rgba(200, 200, 200, 0.08), transparent 48%),
+    linear-gradient(168deg, #09080a 0%, #0d0b10 48%, #0a090d 100%);
 }
 
 body::before {
@@ -48,24 +52,35 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.08;
+  opacity: 0.12;
   background-image: url("../images/industrial-texture.svg");
   background-size: 320px 320px;
   z-index: -1;
 }
 
-body.home-color-3d::after {
+body::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.55;
+  opacity: 0.48;
   background-image:
-    linear-gradient(rgba(46, 91, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(46, 91, 255, 0.08) 1px, transparent 1px),
-    radial-gradient(circle at 50% 10%, rgba(247, 247, 247, 0.08), transparent 45%);
+    linear-gradient(rgba(170, 48, 48, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(170, 48, 48, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 52% 12%, rgba(255, 185, 185, 0.12), transparent 45%);
   background-size: 36px 36px, 36px 36px, cover;
+}
+
+html.light-mode body {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(180, 40, 40, 0.12), transparent 40%),
+    radial-gradient(circle at 85% 22%, rgba(150, 34, 34, 0.08), transparent 42%),
+    #f3f3f4;
+}
+
+html.light-mode body::after {
+  opacity: 0.3;
 }
 
 h1,
@@ -360,7 +375,7 @@ html.light-mode #siteHeader.nav-scrolled {
 }
 
 .hero-cinematic {
-  background: linear-gradient(105deg, rgba(17, 17, 17, 0.92), rgba(17, 17, 17, 0.4)),
+  background: linear-gradient(105deg, rgba(10, 6, 6, 0.92), rgba(90, 20, 20, 0.45)),
     url("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/hero-home.webp")
       center/cover;
 }

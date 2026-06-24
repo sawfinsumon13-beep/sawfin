@@ -279,46 +279,81 @@ function buildInventory() {
   return products;
 }
 
+function buildReviews() {
+  const reviewerNames = [
+    "Markus T.",
+    "Oliver J.",
+    "Leonard C.",
+    "Sofia A.",
+    "James O.",
+    "Luc V.",
+    "Daniel R.",
+    "Patrick M.",
+    "Emil K.",
+    "Nicolas D.",
+    "Adrian B.",
+    "Thomas F.",
+    "Sebastian W.",
+    "Milan Z.",
+    "Victor H.",
+    "Jan P.",
+    "Robert L.",
+    "Kacper N.",
+    "Henri G.",
+    "Stefan E."
+  ];
+
+  const reviewerLocations = [
+    "Stuttgart, Germany",
+    "Manchester, UK",
+    "Zurich, Switzerland",
+    "Stockholm, Sweden",
+    "Dublin, Ireland",
+    "Brussels, Belgium",
+    "Hamburg, Germany",
+    "Munich, Germany",
+    "Vienna, Austria",
+    "Copenhagen, Denmark",
+    "Oslo, Norway",
+    "Amsterdam, Netherlands",
+    "Paris, France",
+    "Milan, Italy",
+    "Warsaw, Poland",
+    "Prague, Czech Republic",
+    "Lisbon, Portugal",
+    "Barcelona, Spain",
+    "Bucharest, Romania",
+    "Helsinki, Finland"
+  ];
+
+  const reviewMessages = [
+    "The engine arrived exactly as documented, and our workshop confirmed code and compression data without mismatch.",
+    "Communication was fast, technical, and clear. We received fitment guidance before payment, which reduced project risk.",
+    "Crate quality was excellent. Delivery updates were consistent, and the unit matched listing photos and mileage notes.",
+    "Very professional process from enquiry to dispatch. Support team answered every compatibility question in practical detail.",
+    "We purchased for a client restoration and the engine installed smoothly. Documentation quality saved us workshop time.",
+    "Best used BMW engine sourcing experience we have had. Real stock transparency and no confusion on included components.",
+    "VIN verification was completed quickly, and the exact engine family match prevented expensive fitment mistakes.",
+    "Packaging and export handling were excellent. We received the engine in clean condition with clear dispatch tracking.",
+    "Our private collector order was handled like a workshop account. Strong support before and after delivery.",
+    "The listing was honest and technically accurate. What arrived is exactly what was described in the order notes."
+  ];
+
+  const reviews = [];
+  for (let i = 0; i < 60; i += 1) {
+    reviews.push({
+      name: reviewerNames[i % reviewerNames.length],
+      location: reviewerLocations[i % reviewerLocations.length],
+      text: reviewMessages[i % reviewMessages.length],
+      rating: 5
+    });
+  }
+  return reviews;
+}
+
 window.OBE_DATA = {
   products: buildInventory(),
-  reviews: [
-    {
-      name: "Markus T.",
-      location: "Stuttgart, Germany",
-      text: "The N57 unit arrived exactly as documented and the compression profile matched our workshop checks.",
-      rating: 5
-    },
-    {
-      name: "Oliver J.",
-      location: "Manchester, UK",
-      text: "Very strong stock quality and clear communication before purchase. Fitment was accurate.",
-      rating: 5
-    },
-    {
-      name: "Leonard C.",
-      location: "Zurich, Switzerland",
-      text: "Premium packing, trackable freight, and great technical support during installation.",
-      rating: 5
-    },
-    {
-      name: "Sofia A.",
-      location: "Stockholm, Sweden",
-      text: "VIN confirmation was immediate and the engine arrived with complete handling documentation.",
-      rating: 5
-    },
-    {
-      name: "James O.",
-      location: "Dublin, Ireland",
-      text: "Exactly as listed. Great support before payment and the crate arrived on schedule.",
-      rating: 5
-    },
-    {
-      name: "Luc V.",
-      location: "Brussels, Belgium",
-      text: "Professional service. The donor details and platform guidance made ordering easy.",
-      rating: 5
-    }
-  ],
+  reviews: buildReviews(),
   faqs: [
     {
       question: "Are these engines original BMW units?",

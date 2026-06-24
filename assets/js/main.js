@@ -542,8 +542,9 @@
   function renderReviews() {
     const mount = document.getElementById("reviewGrid");
     if (!mount) return;
-    mount.innerHTML = data.reviews
-      .slice(0, 6)
+    const page = document.body.dataset.page;
+    const reviewItems = page === "reviews" ? data.reviews : data.reviews.slice(0, 6);
+    mount.innerHTML = reviewItems
       .map(
         (review) => `
       <article class="glass-card hover-glow rounded-3xl p-6 reveal">
