@@ -10,9 +10,12 @@ class AppUser {
     required this.dailyStreak,
     required this.achievements,
     required this.isAdmin,
+    required this.status,
     required this.createdAt,
     this.photoUrl,
     this.lastBonusAt,
+    this.lastActiveAt,
+    this.deletedAt,
   });
 
   final String uid;
@@ -24,8 +27,25 @@ class AppUser {
   final int dailyStreak;
   final List<String> achievements;
   final bool isAdmin;
+  final String status;
   final DateTime createdAt;
   final DateTime? lastBonusAt;
+  final DateTime? lastActiveAt;
+  final DateTime? deletedAt;
+
+  bool get isActive => status == 'active';
+
+  bool get isSuspended => status == 'suspended';
+
+  bool get isDeleted => status == 'deleted';
+
+  bool get isRecentlyActive {
+    final activeAt = lastActiveAt;
+    if (activeAt == null) {
+      return false;
+    }
+    return DateTime.now().difference(activeAt).inHours < 24;
+  }
 
   bool get canClaimDailyBonus {
     if (lastBonusAt == null) {
@@ -67,8 +87,11 @@ class AppUser {
       dailyStreak: (data['dailyStreak'] as num?)?.toInt() ?? 0,
       achievements: List<String>.from(data['achievements'] as List? ?? const []),
       isAdmin: data['role'] == 'admin',
+      status: data['status'] as String? ?? 'active',
       createdAt: _readDate(data['createdAt']) ?? DateTime.now(),
       lastBonusAt: _readDate(data['lastBonusAt']),
+      lastActiveAt: _readDate(data['lastActiveAt']),
+      deletedAt: _readDate(data['deletedAt']),
     );
   }
 
@@ -82,8 +105,11 @@ class AppUser {
       'dailyStreak': dailyStreak,
       'achievements': achievements,
       'role': isAdmin ? 'admin' : 'player',
+      'status': status,
       'createdAt': Timestamp.fromDate(createdAt),
       'lastBonusAt': lastBonusAt == null ? null : Timestamp.fromDate(lastBonusAt!),
+      'lastActiveAt': lastActiveAt == null ? null : Timestamp.fromDate(lastActiveAt!),
+      'deletedAt': deletedAt == null ? null : Timestamp.fromDate(deletedAt!),
     };
   }
 

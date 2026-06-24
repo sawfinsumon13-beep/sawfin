@@ -16,6 +16,27 @@ class GameOutcome {
   final int xp;
   final List<String> symbols;
   final String? achievement;
+
+  GameOutcome withAdjustedRewards({
+    required double rewardMultiplier,
+    required String difficulty,
+  }) {
+    final difficultyFactor = switch (difficulty) {
+      'easy' => .85,
+      'hard' => 1.2,
+      'expert' => 1.4,
+      _ => 1.0,
+    };
+    final adjustedDelta = coinDelta > 0 ? (coinDelta * rewardMultiplier).round() : coinDelta;
+    return GameOutcome(
+      title: title,
+      message: message,
+      coinDelta: adjustedDelta,
+      xp: max(1, (xp * difficultyFactor).round()),
+      symbols: symbols,
+      achievement: achievement,
+    );
+  }
 }
 
 class GameService {

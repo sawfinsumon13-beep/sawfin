@@ -13,7 +13,8 @@ service cloud.firestore {
     function admin() {
       return signedIn()
         && exists(/databases/$(database)/documents/users/$(request.auth.uid))
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'active';
     }
 
     function onlyChanged(keys) {
@@ -26,6 +27,7 @@ service cloud.firestore {
         && request.resource.data.email is string
         && request.resource.data.displayName is string
         && request.resource.data.role == 'player'
+        && request.resource.data.status == 'active'
         && request.resource.data.balance == 777
         && request.resource.data.xp == 0;
       allow update: if admin()
@@ -33,10 +35,12 @@ service cloud.firestore {
           isSelf(userId)
           && request.resource.data.role == resource.data.role
           && request.resource.data.email == resource.data.email
+          && request.resource.data.status == resource.data.status
           && (
             onlyChanged(['displayName', 'photoUrl', 'updatedAt'])
+            || onlyChanged(['lastActiveAt', 'loginCount'])
             || (
-              onlyChanged(['balance', 'xp', 'dailyStreak', 'lastBonusAt', 'achievements', 'updatedAt'])
+              onlyChanged(['balance', 'xp', 'dailyStreak', 'lastBonusAt', 'lastActiveAt', 'achievements', 'updatedAt'])
               && request.resource.data.balance is int
               && request.resource.data.balance >= 0
               && request.resource.data.balance <= resource.data.balance + 1200
@@ -66,6 +70,21 @@ service cloud.firestore {
       allow create, update, delete: if admin();
     }
 
+    match /banners/{bannerId} {
+      allow get, list: if signedIn() && (resource.data.active == true || admin());
+      allow create, update, delete: if admin();
+    }
+
+    match /notifications/{notificationId} {
+      allow get, list: if signedIn() && (resource.data.active == true || admin());
+      allow create, update, delete: if admin();
+    }
+
+    match /gameConfigs/{gameId} {
+      allow get, list: if signedIn();
+      allow create, update, delete: if admin();
+    }
+
     match /rewardRedemptions/{redemptionId} {
       allow get, list: if signedIn() && (resource.data.uid == request.auth.uid || admin());
       allow create: if signedIn()
@@ -91,6 +110,11 @@ service cloud.firestore {
         && request.resource.data.amount is int
         && request.resource.data.amount >= -100000
         && request.resource.data.amount <= 1200;
+      allow update, delete: if false;
+    }
+
+    match /adminActivityLogs/{logId} {
+      allow get, list, create: if admin();
       allow update, delete: if false;
     }
   }

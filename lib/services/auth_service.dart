@@ -40,11 +40,16 @@ class AuthService {
   Future<UserCredential> login({
     required String email,
     required String password,
-  }) {
-    return _auth.signInWithEmailAndPassword(
+  }) async {
+    final credential = await _auth.signInWithEmailAndPassword(
       email: email.trim(),
       password: password,
     );
+    final uid = credential.user?.uid;
+    if (uid != null) {
+      await _userRepository.touchUserActivity(uid);
+    }
+    return credential;
   }
 
   Future<void> signOut() => _auth.signOut();

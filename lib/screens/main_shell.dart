@@ -44,6 +44,9 @@ class _MainShellState extends State<MainShell> {
           );
         }
         final user = snapshot.data!;
+        if (!user.isActive) {
+          return _BlockedAccount(user: user);
+        }
         final pages = [
           HomeScreen(user: user, onOpenGames: () => setState(() => _index = 1)),
           GamesScreen(user: user),
@@ -69,6 +72,43 @@ class _MainShellState extends State<MainShell> {
           ),
         );
       },
+    );
+  }
+}
+
+class _BlockedAccount extends StatelessWidget {
+  const _BlockedAccount({required this.user});
+
+  final AppUser user;
+
+  @override
+  Widget build(BuildContext context) {
+    final auth = AuthService();
+    return Scaffold(
+      body: PremiumBackground(
+        child: SafeArea(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: EmptyState(
+                icon: Icons.block_rounded,
+                title: 'Account ${user.status}',
+                message: 'This profile cannot access sawfin777. Please contact an administrator.',
+              ),
+            ),
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async {
+          await auth.signOut();
+          if (context.mounted) {
+            Navigator.of(context).pushNamedAndRemoveUntil(AppRoutes.login, (_) => false);
+          }
+        },
+        icon: const Icon(Icons.logout_rounded),
+        label: const Text('Sign out'),
+      ),
     );
   }
 }

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../app/app_theme.dart';
 import '../models/announcement.dart';
+import '../models/app_notification.dart';
 import '../models/app_user.dart';
+import '../models/banner_item.dart';
 import '../services/user_repository.dart';
 import '../widgets/casino_widgets.dart';
 
@@ -73,6 +75,35 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(height: 18),
         const DemoOnlyBanner(),
         const SizedBox(height: 18),
+        StreamBuilder<List<BannerItem>>(
+          stream: _repository.watchBanners(),
+          builder: (context, snapshot) {
+            final banners = snapshot.data ?? const <BannerItem>[];
+            if (banners.isEmpty) {
+              return const SizedBox.shrink();
+            }
+            final banner = banners.first;
+            return CasinoCard(
+              child: Row(
+                children: [
+                  const Icon(Icons.view_carousel_rounded, color: CasinoColors.gold, size: 34),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(banner.title, style: const TextStyle(fontWeight: FontWeight.w900)),
+                        Text(banner.message, style: const TextStyle(color: CasinoColors.muted)),
+                      ],
+                    ),
+                  ),
+                  TextButton(onPressed: widget.onOpenGames, child: Text(banner.actionLabel)),
+                ],
+              ),
+            );
+          },
+        ),
+        const SizedBox(height: 18),
         CasinoCard(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,6 +172,46 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
         const SizedBox(height: 22),
+        StreamBuilder<List<AppNotification>>(
+          stream: _repository.watchNotifications(),
+          builder: (context, snapshot) {
+            final notifications = snapshot.data ?? const <AppNotification>[];
+            if (notifications.isEmpty) {
+              return const SizedBox.shrink();
+            }
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SectionHeader(title: 'Notifications'),
+                const SizedBox(height: 12),
+                ...notifications.take(3).map((notification) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: CasinoCard(
+                      child: Row(
+                        children: [
+                          const Icon(Icons.notifications_active_rounded, color: CasinoColors.gold),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(notification.title, style: const TextStyle(fontWeight: FontWeight.w800)),
+                                Text(notification.body, style: const TextStyle(color: CasinoColors.muted)),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }),
+                const SizedBox(height: 12),
+              ],
+            );
+          },
+        ),
+        const SizedBox(height: 10),
         const SectionHeader(title: 'Announcements'),
         const SizedBox(height: 12),
         StreamBuilder<List<Announcement>>(

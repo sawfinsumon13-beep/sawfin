@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../app/app_theme.dart';
 import '../../models/app_user.dart';
+import '../../models/game_config.dart';
 import '../../services/game_service.dart';
 import '../../services/user_repository.dart';
 import '../../widgets/casino_widgets.dart';
@@ -27,8 +28,13 @@ class _GamesScreenState extends State<GamesScreen> {
     required String gameId,
     required int cost,
     required GameOutcome outcome,
+    required GameConfig config,
   }) async {
     if (_busy) {
+      return false;
+    }
+    if (!config.enabled) {
+      _showMessage('${config.title} is temporarily disabled by admins.');
       return false;
     }
     if (widget.user.balance < cost) {
@@ -38,12 +44,18 @@ class _GamesScreenState extends State<GamesScreen> {
 
     setState(() => _busy = true);
     try {
+      final adjustedOutcome = outcome.withAdjustedRewards(
+        rewardMultiplier: config.rewardMultiplier,
+        difficulty: config.difficulty,
+      );
       await _repository.recordGameOutcome(
         uid: widget.user.uid,
         gameId: gameId,
-        outcome: outcome,
+        outcome: adjustedOutcome,
       );
-      _showMessage('${outcome.title}: ${outcome.coinDelta >= 0 ? '+' : ''}${outcome.coinDelta} coins');
+      _showMessage(
+        '${adjustedOutcome.title}: ${adjustedOutcome.coinDelta >= 0 ? '+' : ''}${adjustedOutcome.coinDelta} coins',
+      );
       return true;
     } catch (error) {
       _showMessage(error.toString());
@@ -100,59 +112,88 @@ class _GamesScreenState extends State<GamesScreen> {
             ],
           ),
           Expanded(
-            child: TabBarView(
-              children: [
-                _SlotGame(
-                  service: _gameService,
-                  disabled: _busy,
-                  onRecord: (outcome) => _record(
-                    gameId: 'slot_machine',
-                    cost: GameService.slotCost,
-                    outcome: outcome,
-                  ),
-                ),
-                _WheelGame(
-                  service: _gameService,
-                  disabled: _busy,
-                  onRecord: (outcome) => _record(
-                    gameId: 'lucky_wheel',
-                    cost: GameService.wheelCost,
-                    outcome: outcome,
-                  ),
-                ),
-                _CardMatchGame(
-                  user: widget.user,
-                  service: _gameService,
-                  disabled: _busy,
-                  onRecord: (outcome) => _record(
-                    gameId: 'card_match',
-                    cost: GameService.cardMatchCost,
-                    outcome: outcome,
-                  ),
-                ),
-                _DiceGame(
-                  service: _gameService,
-                  disabled: _busy,
-                  onRecord: (outcome) => _record(
-                    gameId: 'dice',
-                    cost: GameService.diceCost,
-                    outcome: outcome,
-                  ),
-                ),
-                _CoinFlipGame(
-                  service: _gameService,
-                  disabled: _busy,
-                  onRecord: (outcome) => _record(
-                    gameId: 'coin_flip',
-                    cost: GameService.coinFlipCost,
-                    outcome: outcome,
-                  ),
-                ),
-              ],
+            child: StreamBuilder<List<GameConfig>>(
+              stream: _repository.watchGameConfigs(),
+              builder: (context, snapshot) {
+                final configs = snapshot.data ?? GameConfig.defaults;
+                final slots = _config(configs, 'slot_machine');
+                final wheel = _config(configs, 'lucky_wheel');
+                final cards = _config(configs, 'card_match');
+                final dice = _config(configs, 'dice');
+                final coinFlip = _config(configs, 'coin_flip');
+
+                return TabBarView(
+                  children: [
+                    _SlotGame(
+                      service: _gameService,
+                      disabled: _busy || !slots.enabled,
+                      config: slots,
+                      onRecord: (outcome) => _record(
+                        gameId: 'slot_machine',
+                        cost: GameService.slotCost,
+                        outcome: outcome,
+                        config: slots,
+                      ),
+                    ),
+                    _WheelGame(
+                      service: _gameService,
+                      disabled: _busy || !wheel.enabled,
+                      config: wheel,
+                      onRecord: (outcome) => _record(
+                        gameId: 'lucky_wheel',
+                        cost: GameService.wheelCost,
+                        outcome: outcome,
+                        config: wheel,
+                      ),
+                    ),
+                    _CardMatchGame(
+                      user: widget.user,
+                      service: _gameService,
+                      disabled: _busy || !cards.enabled,
+                      config: cards,
+                      onRecord: (outcome) => _record(
+                        gameId: 'card_match',
+                        cost: GameService.cardMatchCost,
+                        outcome: outcome,
+                        config: cards,
+                      ),
+                    ),
+                    _DiceGame(
+                      service: _gameService,
+                      disabled: _busy || !dice.enabled,
+                      config: dice,
+                      onRecord: (outcome) => _record(
+                        gameId: 'dice',
+                        cost: GameService.diceCost,
+                        outcome: outcome,
+                        config: dice,
+                      ),
+                    ),
+                    _CoinFlipGame(
+                      service: _gameService,
+                      disabled: _busy || !coinFlip.enabled,
+                      config: coinFlip,
+                      onRecord: (outcome) => _record(
+                        gameId: 'coin_flip',
+                        cost: GameService.coinFlipCost,
+                        outcome: outcome,
+                        config: coinFlip,
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
           ),
         ],
       ),
+    );
+  }
+
+  GameConfig _config(List<GameConfig> configs, String id) {
+    return configs.firstWhere(
+      (config) => config.id == id,
+      orElse: () => GameConfig.defaults.firstWhere((config) => config.id == id),
     );
   }
 }
@@ -164,12 +205,14 @@ class _GameLayout extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.cost,
+    required this.config,
     required this.child,
   });
 
   final String title;
   final String subtitle;
   final int cost;
+  final GameConfig config;
   final Widget child;
 
   @override
@@ -177,8 +220,29 @@ class _GameLayout extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.all(20),
       children: [
-        SectionHeader(title: title, subtitle: '$subtitle - Cost: $cost demo coins'),
+        SectionHeader(
+          title: title,
+          subtitle:
+              '$subtitle - Cost: $cost coins - ${config.difficulty} - x${config.rewardMultiplier.toStringAsFixed(2)} rewards',
+        ),
         const SizedBox(height: 16),
+        if (!config.enabled) ...[
+          const CasinoCard(
+            child: Row(
+              children: [
+                Icon(Icons.pause_circle_filled_rounded, color: CasinoColors.gold),
+                SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    'This game is currently disabled by administrators.',
+                    style: TextStyle(color: CasinoColors.muted),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+        ],
         child,
       ],
     );
@@ -189,11 +253,13 @@ class _SlotGame extends StatefulWidget {
   const _SlotGame({
     required this.service,
     required this.disabled,
+    required this.config,
     required this.onRecord,
   });
 
   final GameService service;
   final bool disabled;
+  final GameConfig config;
   final OutcomeRecorder onRecord;
 
   @override
@@ -219,6 +285,7 @@ class _SlotGameState extends State<_SlotGame> {
       title: 'Slot Machine',
       subtitle: 'Match reels for virtual rewards',
       cost: GameService.slotCost,
+      config: widget.config,
       child: CasinoCard(
         child: Column(
           children: [
@@ -274,11 +341,13 @@ class _WheelGame extends StatefulWidget {
   const _WheelGame({
     required this.service,
     required this.disabled,
+    required this.config,
     required this.onRecord,
   });
 
   final GameService service;
   final bool disabled;
+  final GameConfig config;
   final OutcomeRecorder onRecord;
 
   @override
@@ -304,6 +373,7 @@ class _WheelGameState extends State<_WheelGame> {
       title: 'Lucky Wheel',
       subtitle: 'A smooth animated prize wheel',
       cost: GameService.wheelCost,
+      config: widget.config,
       child: CasinoCard(
         child: Column(
           children: [
@@ -385,12 +455,14 @@ class _CardMatchGame extends StatefulWidget {
     required this.user,
     required this.service,
     required this.disabled,
+    required this.config,
     required this.onRecord,
   });
 
   final AppUser user;
   final GameService service;
   final bool disabled;
+  final GameConfig config;
   final OutcomeRecorder onRecord;
 
   @override
@@ -471,6 +543,7 @@ class _CardMatchGameState extends State<_CardMatchGame> {
       title: 'Card Matching Game',
       subtitle: 'Clear the board with fewer moves',
       cost: GameService.cardMatchCost,
+      config: widget.config,
       child: CasinoCard(
         child: Column(
           children: [
@@ -530,11 +603,13 @@ class _DiceGame extends StatefulWidget {
   const _DiceGame({
     required this.service,
     required this.disabled,
+    required this.config,
     required this.onRecord,
   });
 
   final GameService service;
   final bool disabled;
+  final GameConfig config;
   final OutcomeRecorder onRecord;
 
   @override
@@ -556,6 +631,7 @@ class _DiceGameState extends State<_DiceGame> {
       title: 'Dice Game',
       subtitle: 'Roll high for demo coin wins',
       cost: GameService.diceCost,
+      config: widget.config,
       child: CasinoCard(
         child: Column(
           children: [
@@ -589,11 +665,13 @@ class _CoinFlipGame extends StatefulWidget {
   const _CoinFlipGame({
     required this.service,
     required this.disabled,
+    required this.config,
     required this.onRecord,
   });
 
   final GameService service;
   final bool disabled;
+  final GameConfig config;
   final OutcomeRecorder onRecord;
 
   @override
@@ -615,6 +693,7 @@ class _CoinFlipGameState extends State<_CoinFlipGame> {
       title: 'Coin Flip',
       subtitle: 'Call heads or tails',
       cost: GameService.coinFlipCost,
+      config: widget.config,
       child: CasinoCard(
         child: Column(
           children: [

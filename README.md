@@ -20,9 +20,14 @@ integration.
   - Dice Game
   - Coin Flip
 - Admin console:
-  - Manage users and virtual balances
-  - Manage virtual rewards
-  - Manage dashboard announcements
+  - Secure admin login with Firebase Authentication
+  - Role-based access control using `users/{uid}.role == "admin"`
+  - Dashboard metrics for total users, active users, new registrations, and game statistics
+  - User management with search, profile edits, suspend/restore, and deleted-status actions
+  - Content management for banners, announcements, and notifications
+  - Game settings for enable/disable, reward multipliers, and difficulty levels
+  - Virtual reward configuration
+  - Reports for user activity, game usage, reward distribution, and admin activity logs
 - Firestore security rules for authenticated users and admin-only management
 
 ## Project structure
@@ -111,6 +116,29 @@ firebase deploy --only firestore:rules
 2. Open Firestore Console -> `users/{yourUid}`.
 3. Change `role` from `player` to `admin`.
 4. Return to the app and open Profile -> Admin Console.
+
+Only active administrators can access the control panel. Admin logins and
+privileged writes are recorded in `adminActivityLogs`.
+
+## Admin control panel collections
+
+The admin panel uses these Firestore collections:
+
+- `users` - player/admin profiles, account status, virtual balances, activity
+- `banners` - active dashboard banner cards
+- `announcements` - dashboard announcements
+- `notifications` - in-app notification records
+- `rewards` - virtual reward catalog
+- `gameConfigs` - game enable/disable state, reward multiplier, difficulty
+- `gameSessions` - gameplay usage reports
+- `rewardRedemptions` - reward distribution reports
+- `coinLedger` - virtual coin audit trail
+- `adminActivityLogs` - admin login and privileged action audit trail
+
+The client can mark profiles as `suspended` or `deleted` to block app access
+while preserving audit history. Deleting Firebase Authentication users requires
+a trusted Admin SDK backend such as Cloud Functions; it should not be performed
+directly from the Flutter client.
 
 ## Seed optional demo content
 

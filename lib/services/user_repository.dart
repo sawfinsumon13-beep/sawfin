@@ -3,7 +3,10 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/announcement.dart';
+import '../models/app_notification.dart';
 import '../models/app_user.dart';
+import '../models/banner_item.dart';
+import '../models/game_config.dart';
 import '../models/reward_item.dart';
 import 'game_service.dart';
 
@@ -24,7 +27,9 @@ class UserRepository {
         .orderBy('xp', descending: true)
         .limit(50)
         .snapshots()
-        .map((snapshot) => snapshot.docs.map(AppUser.fromFirestore).toList());
+        .map((snapshot) {
+      return snapshot.docs.map(AppUser.fromFirestore).where((user) => user.isActive).toList();
+    });
   }
 
   Stream<List<AppUser>> watchUsersForAdmin() {
@@ -60,6 +65,32 @@ class UserRepository {
     });
   }
 
+  Stream<List<BannerItem>> watchBanners() {
+    return _db.collection('banners').where('active', isEqualTo: true).snapshots().map((snapshot) {
+      final banners = snapshot.docs.map(BannerItem.fromFirestore).toList();
+      banners.sort((a, b) => b.priority.compareTo(a.priority));
+      return banners;
+    });
+  }
+
+  Stream<List<AppNotification>> watchNotifications() {
+    return _db.collection('notifications').where('active', isEqualTo: true).snapshots().map((snapshot) {
+      final notifications = snapshot.docs.map(AppNotification.fromFirestore).toList();
+      notifications.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+      return notifications;
+    });
+  }
+
+  Stream<List<GameConfig>> watchGameConfigs() {
+    return _db.collection('gameConfigs').snapshots().map((snapshot) {
+      final configs = {for (final config in GameConfig.defaults) config.id: config};
+      for (final doc in snapshot.docs) {
+        configs[doc.id] = GameConfig.fromFirestore(doc);
+      }
+      return configs.values.toList();
+    });
+  }
+
   Future<void> createPlayerProfile({
     required String uid,
     required String email,
@@ -75,8 +106,11 @@ class UserRepository {
         'dailyStreak': 0,
         'achievements': <String>[],
         'role': 'player',
+        'status': 'active',
         'createdAt': FieldValue.serverTimestamp(),
         'lastBonusAt': null,
+        'lastActiveAt': FieldValue.serverTimestamp(),
+        'loginCount': 1,
       },
       SetOptions(merge: true),
     );
@@ -86,6 +120,7 @@ class UserRepository {
     return _db.runTransaction((transaction) async {
       final snapshot = await transaction.get(userRef(uid));
       final user = AppUser.fromFirestore(snapshot);
+      _ensureActive(user);
       if (!user.canClaimDailyBonus) {
         throw StateError('Daily bonus is already claimed.');
       }
@@ -99,6 +134,7 @@ class UserRepository {
         'xp': FieldValue.increment(20),
         'dailyStreak': streak,
         'lastBonusAt': Timestamp.fromDate(now),
+        'lastActiveAt': Timestamp.fromDate(now),
         'achievements': FieldValue.arrayUnion(['daily_bonus']),
       });
       _writeLedger(transaction, uid, amount, 'daily_bonus', 'Daily bonus streak $streak');
@@ -114,11 +150,14 @@ class UserRepository {
     await _db.runTransaction((transaction) async {
       final ref = userRef(uid);
       final snapshot = await transaction.get(ref);
+      final user = AppUser.fromFirestore(snapshot);
+      _ensureActive(user);
       final balance = (snapshot.data()?['balance'] as num?)?.toInt() ?? 0;
       final nextBalance = max(0, balance + outcome.coinDelta);
       final data = <String, dynamic>{
         'balance': nextBalance,
         'xp': FieldValue.increment(outcome.xp),
+        'lastActiveAt': FieldValue.serverTimestamp(),
         'updatedAt': FieldValue.serverTimestamp(),
       };
       if (outcome.achievement != null) {
@@ -144,6 +183,8 @@ class UserRepository {
   }) async {
     await _db.runTransaction((transaction) async {
       final userSnapshot = await transaction.get(userRef(uid));
+      final user = AppUser.fromFirestore(userSnapshot);
+      _ensureActive(user);
       final rewardRef = _db.collection('rewards').doc(reward.id);
       final rewardSnapshot = await transaction.get(rewardRef);
       final currentReward = RewardItem.fromFirestore(rewardSnapshot);
@@ -159,6 +200,7 @@ class UserRepository {
       transaction.update(userSnapshot.reference, {
         'balance': balance - currentReward.cost,
         'xp': FieldValue.increment(40),
+        'lastActiveAt': FieldValue.serverTimestamp(),
       });
       if (currentReward.stock > 0) {
         transaction.update(rewardRef, {'stock': FieldValue.increment(-1)});
@@ -185,6 +227,16 @@ class UserRepository {
       'photoUrl': photoUrl,
       'updatedAt': FieldValue.serverTimestamp(),
     });
+  }
+
+  Future<void> touchUserActivity(String uid) {
+    return userRef(uid).set(
+      {
+        'lastActiveAt': FieldValue.serverTimestamp(),
+        'loginCount': FieldValue.increment(1),
+      },
+      SetOptions(merge: true),
+    );
   }
 
   Future<void> setUserBalance({
@@ -253,5 +305,11 @@ class UserRepository {
       'title': title,
       'createdAt': FieldValue.serverTimestamp(),
     });
+  }
+
+  void _ensureActive(AppUser user) {
+    if (!user.isActive) {
+      throw StateError('This account is ${user.status}. Contact support.');
+    }
   }
 }
