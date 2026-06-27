@@ -127,6 +127,27 @@ function renderFooter() {
       </div>
     </div>
   </footer>
+  <div id="google_translate_element" class="google-translate-hidden" aria-hidden="true"></div>
+  <div class="lang-switcher" id="lang-switcher">
+    <label for="lang-select" class="visually-hidden">Translate page</label>
+    <select id="lang-select" aria-label="Translate page">
+      <option value="en">English</option>
+      <option value="de">Deutsch</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="it">Italiano</option>
+      <option value="nl">Nederlands</option>
+      <option value="pl">Polski</option>
+      <option value="pt">Português</option>
+      <option value="da">Dansk</option>
+      <option value="sv">Svenska</option>
+    </select>
+  </div>
+  <div class="purchase-toast" id="purchase-toast" role="status" hidden>
+    <button type="button" class="purchase-toast-close" aria-label="Close notification">×</button>
+    <span class="purchase-toast-icon" aria-hidden="true">✓</span>
+    <p class="purchase-toast-text" id="purchase-toast-text"></p>
+  </div>
   <a href="https://wa.me/${SITE.wa}" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>`;
@@ -153,13 +174,109 @@ function refreshCartBadge() {
   });
 }
 
-function renderPurchaseToast() {
-  return `
-  <div class="purchase-toast" id="purchase-toast" role="status">
-    <span class="check">✓</span>
-    <strong>Henrik</strong> from Copenhagen, Denmark recently purchased
-    <strong>BMW 118D F20 B47D20A Engine</strong> for €2,200 · 1 minute ago
-  </div>`;
+const PURCHASE_ALERTS = [
+  { name: 'Lars', city: 'Brussels', country: 'Belgium', product: 'BMW F10 530d N57D30A Engine', price: '€3.500,00', ago: '5 minutes ago' },
+  { name: 'Henrik', city: 'Copenhagen', country: 'Denmark', product: 'BMW 118D F20 B47D20A Engine', price: '€2.200,00', ago: '1 minute ago' },
+  { name: 'Sofia', city: 'Stockholm', country: 'Sweden', product: 'BMW F30 320d N47D20C Engine', price: '€1.850,00', ago: '8 minutes ago' },
+  { name: 'Marco', city: 'Milan', country: 'Italy', product: 'BMW X5 F15 30d N57D30B Engine', price: '€3.200,00', ago: '12 minutes ago' },
+  { name: 'Petra', city: 'Prague', country: 'Czech Republic', product: 'BMW X3 F25 B47D20A Engine', price: '€2.450,00', ago: '3 minutes ago' },
+  { name: 'David', city: 'Dublin', country: 'Ireland', product: 'BMW E90 320d N47D20C Engine', price: '€1.650,00', ago: '18 minutes ago' },
+  { name: 'Antoine', city: 'Lyon', country: 'France', product: 'BMW G30 530d B57D30B Engine', price: '€4.100,00', ago: '6 minutes ago' },
+  { name: 'Katarzyna', city: 'Warsaw', country: 'Poland', product: 'BMW F30 320d N47D20A Engine', price: '€1.900,00', ago: '22 minutes ago' },
+];
+
+const PURCHASE_TOAST_PAGES = new Set(['home', 'shop', 'reviews', 'cart', 'checkout', 'n47', 'n57', 'b47', 'b57', 'b58', 'm57']);
+
+function setTranslateCookie(lang) {
+  const host = window.location.hostname;
+  const clear = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  document.cookie = clear;
+  document.cookie = `${clear} domain=${host};`;
+  document.cookie = `${clear} domain=.${host};`;
+  if (lang && lang !== 'en') {
+    const value = `googtrans=/en/${lang}; path=/;`;
+    document.cookie = value;
+    document.cookie = `${value} domain=${host};`;
+    document.cookie = `${value} domain=.${host};`;
+  }
+}
+
+function initLanguageSwitcher() {
+  const select = document.getElementById('lang-select');
+  if (!select) return;
+
+  const saved = localStorage.getItem('be-lang') || 'en';
+  select.value = saved;
+
+  if (saved !== 'en' && !document.cookie.includes('googtrans')) {
+    setTranslateCookie(saved);
+    window.location.reload();
+    return;
+  }
+
+  if (!window.googleTranslateElementInit) {
+    window.googleTranslateElementInit = () => {
+      if (!window.google?.translate?.TranslateElement) return;
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: 'en,de,fr,es,it,nl,pl,pt,da,sv',
+          autoDisplay: false,
+        },
+        'google_translate_element'
+      );
+    };
+    const script = document.createElement('script');
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+
+  select.addEventListener('change', () => {
+    const lang = select.value;
+    localStorage.setItem('be-lang', lang);
+    setTranslateCookie(lang);
+    window.location.reload();
+  });
+}
+
+function renderPurchaseAlert(alert) {
+  return `<strong>${alert.name}</strong> from ${alert.city}, ${alert.country} recently purchased <strong>${alert.product}</strong> for <strong>${alert.price}</strong> · ${alert.ago}`;
+}
+
+function initPurchaseToast(activePage) {
+  const toast = document.getElementById('purchase-toast');
+  const text = document.getElementById('purchase-toast-text');
+  if (!toast || !text || !PURCHASE_TOAST_PAGES.has(activePage)) return;
+  if (sessionStorage.getItem('be-purchase-toast-off') === '1') return;
+
+  let index = Math.floor(Math.random() * PURCHASE_ALERTS.length);
+
+  const show = () => {
+    text.innerHTML = renderPurchaseAlert(PURCHASE_ALERTS[index]);
+    toast.hidden = false;
+    toast.classList.remove('purchase-toast--hide');
+    toast.classList.add('purchase-toast--show');
+  };
+
+  const hide = () => {
+    toast.classList.add('purchase-toast--hide');
+    setTimeout(() => { toast.hidden = true; }, 300);
+  };
+
+  setTimeout(show, 2500);
+
+  toast.querySelector('.purchase-toast-close')?.addEventListener('click', () => {
+    sessionStorage.setItem('be-purchase-toast-off', '1');
+    hide();
+  });
+
+  setInterval(() => {
+    if (sessionStorage.getItem('be-purchase-toast-off') === '1') return;
+    index = (index + 1) % PURCHASE_ALERTS.length;
+    hide();
+    setTimeout(show, 400);
+  }, 12000);
 }
 
 function initSiteChrome() {
@@ -168,13 +285,8 @@ function initSiteChrome() {
   document.body.insertAdjacentHTML('beforeend', renderFooter());
   if (typeof window.updateCartBadge === 'function') window.updateCartBadge();
   else refreshCartBadge();
-  if (active === 'home') {
-    document.body.insertAdjacentHTML('beforeend', renderPurchaseToast());
-    setTimeout(() => {
-      const toast = document.getElementById('purchase-toast');
-      if (toast) toast.style.display = 'none';
-    }, 8000);
-  }
+  initLanguageSwitcher();
+  initPurchaseToast(active);
 
   const dropdown = document.getElementById('engines-dropdown');
   dropdown?.querySelector('.nav-link')?.addEventListener('click', (e) => {
