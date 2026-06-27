@@ -7,8 +7,8 @@ Static HTML website for **Bavarian Engines** — modeled after [bavarianengine.c
 | | |
 |---|---|
 | **Business** | Bavarian Engines |
-| **Phone / WhatsApp** | +880 1757 453611 |
-| **Email** | sawfin@gmail.com |
+| **Phone / WhatsApp** | +447944470816 |
+| **Email** | flashkingpro202@gmail.com |
 | **Address** | Tilsiter Str. 90, 22047 Hamburg, Germany |
 
 ## All pages

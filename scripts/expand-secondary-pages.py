@@ -71,7 +71,7 @@ def m57_content() -> str:
         p("Qualified workshops typically budget multiple days for a first-time M57 Defender conversion — engine mount alignment, cooling plumbing, exhaust, prop shaft lengths, ECU coding, and commissioning. Kits reduce fabrication time but do not eliminate professional labour. We help you quote customer jobs accurately by stating what ships and what the installer must source locally."),
         p("Order lead time depends on kit variant and stock rotation. Contact us on WhatsApp with your chassis details for same-day guidance. Browse related articles: <a href='blog-defender-m57.html' class='seo-link'>Defender M57 cost guide</a>, <a href='blog-m57-defender-wiring.html' class='seo-link'>wiring loom guide</a>, and <a href='blog-m57-swap-labour-hours.html' class='seo-link'>labour hour planning</a>."),
         h2("Six-month warranty and after-sales support"),
-        p("M57 engines and kits carry written mechanical warranty cover on correctly installed units. Full terms are on our <a href='policies.html' class='seo-link'>policies page</a>. Contact <a href='https://wa.me/8801757453611' target='_blank' rel='noopener'>WhatsApp +880 1757 453611</a> or <a href='mailto:sawfin@gmail.com' class='seo-link'>sawfin@gmail.com</a> to start your conversion enquiry."),
+        p("M57 engines and kits carry written mechanical warranty cover on correctly installed units. Full terms are on our <a href='policies.html' class='seo-link'>policies page</a>. Contact <a href='https://wa.me/447944470816' target='_blank' rel='noopener'>Phone +447944470816</a> or <a href='mailto:flashkingpro202@gmail.com' class='seo-link'>flashkingpro202@gmail.com</a> to start your conversion enquiry."),
     ]
     body = "\n".join(blocks)
     while wc(body) < 1000:
@@ -100,7 +100,7 @@ def services_content() -> str:
         trust_block(),
         h2("Who we serve every week"),
         "<ul class='seo-list'><li><strong>Private BMW owners</strong> — F30 320d, F10 530d, X3, and G-series diesels; we explain options and ship to your chosen garage</li><li><strong>Independent garages</strong> — repeat N47/N57/B47 orders with compression reports and accurate listings</li><li><strong>4×4 builders</strong> — M57 kits with documentation and pre-sale technical answers</li><li><strong>Export buyers</strong> — UK, Ireland, Scandinavia, Eastern EU with tracked Hamburg freight</li></ul>",
-        p("Message <a href='https://wa.me/8801757453611' target='_blank' rel='noopener'>WhatsApp</a> with your VIN today or browse <a href='shop.html' class='seo-link'>two thousand plus engines online</a>."),
+        p("Message <a href='https://wa.me/447944470816' target='_blank' rel='noopener'>WhatsApp</a> with your VIN today or browse <a href='shop.html' class='seo-link'>two thousand plus engines online</a>."),
     ]
     body = "\n".join(blocks)
     while wc(body) < 1000:
@@ -125,7 +125,7 @@ def about_content() -> str:
         p("Land Rover Defender M57 swaps, Mitsubishi Pajero conversions, and Nissan Patrol Y61 packages give our team practical insight into mounts, cooling, gearbox adapters, and wiring — knowledge that informs how we document M57 donor engines for 4×4 builders as well as classic BMW E60 and E70 replacements."),
         h2("Trust, warranty, and long-term support"),
         trust_block(),
-        p("Contact us at <a href='mailto:sawfin@gmail.com' class='seo-link'>sawfin@gmail.com</a> or <a href='https://wa.me/8801757453611' target='_blank' rel='noopener'>WhatsApp +880 1757 453611</a>. Browse <a href='shop.html' class='seo-link'>inventory</a>, read <a href='reviews.html' class='seo-link'>customer reviews</a>, or explore our <a href='blog.html' class='seo-link'>technical blog</a>."),
+        p("Contact us at <a href='mailto:flashkingpro202@gmail.com' class='seo-link'>flashkingpro202@gmail.com</a> or <a href='https://wa.me/447944470816' target='_blank' rel='noopener'>Phone +447944470816</a>. Browse <a href='shop.html' class='seo-link'>inventory</a>, read <a href='reviews.html' class='seo-link'>customer reviews</a>, or explore our <a href='blog.html' class='seo-link'>technical blog</a>."),
     ]
     body = "\n".join(blocks)
     while wc(body) < 1000:
@@ -138,7 +138,7 @@ def contact_content() -> str:
         img(IMAGES["crate"], "BMW replacement engine crated for delivery — contact Bavarian Engines for quotes"),
         h2("How to reach our Hamburg team"),
         p("The fastest way to check BMW engine compatibility is WhatsApp — send your seventeen-digit VIN, a photo of the engine stamp, vehicle model and year, and delivery postcode. Our desk confirms suffix against live stock, quotes inclusions and freight, and issues a proforma for bank transfer before preparation begins. Email suits formal quotes, VAT invoices, and documentation trails."),
-        p("<strong>WhatsApp:</strong> <a href='https://wa.me/8801757453611' target='_blank' rel='noopener'>+880 1757 453611</a><br><strong>Email:</strong> <a href='mailto:sawfin@gmail.com' class='seo-link'>sawfin@gmail.com</a><br><strong>Address:</strong> Tilsiter Str. 90, 22047 Hamburg, Germany"),
+        p("<strong>WhatsApp:</strong> <a href='https://wa.me/447944470816' target='_blank' rel='noopener'>+447944470816</a><br><strong>Email:</strong> <a href='mailto:flashkingpro202@gmail.com' class='seo-link'>flashkingpro202@gmail.com</a><br><strong>Address:</strong> Tilsiter Str. 90, 22047 Hamburg, Germany"),
         h2("What to include in your enquiry"),
         "<ul class='seo-list'><li>Full VIN from registration or door jamb sticker</li><li>Engine code stamped on the block (e.g. N47D20C, N57D30A, B47D20A)</li><li>Vehicle model, year, and market if known</li><li>Delivery country and postcode for freight quote</li><li>Required inclusions — long block, turbo, injectors, ECU/DME, loom</li><li>Photos of existing engine label if accessible</li></ul>",
         img(IMAGES["b58"], "B58 petrol turbo engine — performance replacements from Bavarian Engines"),
@@ -181,7 +181,7 @@ def policies_content() -> str:
         h2("Compatibility and pre-installation confirmation"),
         p("You must confirm VIN and stamp match in writing with us before installation. Fitting an engine without confirmation may void return and warranty rights if suffix mismatch occurs. We provide pre-payment verification specifically to prevent this outcome."),
         h2("Privacy policy"),
-        p("We collect name, address, email, phone, VIN, and payment data to process orders and support enquiries. We do not sell personal data. You may request access, correction, or deletion by emailing <a href='mailto:sawfin@gmail.com' class='seo-link'>sawfin@gmail.com</a>. Industry-standard security protects stored information."),
+        p("We collect name, address, email, phone, VIN, and payment data to process orders and support enquiries. We do not sell personal data. You may request access, correction, or deletion by emailing <a href='mailto:flashkingpro202@gmail.com' class='seo-link'>flashkingpro202@gmail.com</a>. Industry-standard security protects stored information."),
         h2("Payment terms"),
         p("Proforma invoices precede engine preparation. Payment via SEPA, SWIFT, or Zelle as agreed. Engines crate after cleared funds. PayPal, Revolut, Wise, or escrow available on request for large international orders."),
         trust_block(),
@@ -214,7 +214,7 @@ def reviews_content() -> str:
         h2("What reviewers mention most"),
         "<ul class='seo-list'><li><strong>VIN and suffix matching</strong> — correct N47D20C, N57D30A, B47D20A before invoice</li><li><strong>Accurate inclusions</strong> — turbo, DME, and loom as listed on the SKU</li><li><strong>Compression data</strong> — diesel test figures for workshop sign-off</li><li><strong>Fast EU freight</strong> — tracked delivery in days, not weeks</li><li><strong>WhatsApp responsiveness</strong> — technical answers before and after install</li><li><strong>M57 kits</strong> — Defender and overland builds with documentation</li></ul>",
         h2("Leave your experience"),
-        p("Ordered from Bavarian Engines? We welcome honest feedback — contact <a href='mailto:sawfin@gmail.com' class='seo-link'>sawfin@gmail.com</a> or message <a href='https://wa.me/8801757453611' target='_blank' rel='noopener'>WhatsApp</a>. Your review helps other workshops and owners choose documented used BMW motors over risky anonymous listings."),
+        p("Ordered from Bavarian Engines? We welcome honest feedback — contact <a href='mailto:flashkingpro202@gmail.com' class='seo-link'>flashkingpro202@gmail.com</a> or message <a href='https://wa.me/447944470816' target='_blank' rel='noopener'>WhatsApp</a>. Your review helps other workshops and owners choose documented used BMW motors over risky anonymous listings."),
         trust_block(),
     ]
     body = "\n".join(narrative)

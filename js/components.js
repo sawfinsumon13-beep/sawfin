@@ -1,9 +1,9 @@
 /* Shared site header, footer, and UI chrome */
 
 const SITE = {
-  phone: '+880 1757 453611',
-  wa: '8801757453611',
-  email: 'sawfin@gmail.com',
+  phone: '+447944470816',
+  wa: '447944470816',
+  email: 'flashkingpro202@gmail.com',
 };
 
 function getActivePage() {

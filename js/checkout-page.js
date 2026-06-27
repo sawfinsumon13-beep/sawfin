@@ -70,7 +70,7 @@ async function initCheckoutPage() {
 
       const body = `Checkout enquiry from ${name}%0AEmail: ${email}%0APhone: ${phone}%0ACountry: ${country}%0AOrder: ${encodeURIComponent(lines)}%0AEstimated total: ${encodeURIComponent(formatEuro(subtotal))}`;
       clearCart();
-      window.location.href = `https://wa.me/8801757453611?text=${body}`;
+      window.location.href = `https://wa.me/447944470816?text=${body}`;
     });
   } catch (_) {
     summary.innerHTML = '<p>Unable to load order summary.</p>';

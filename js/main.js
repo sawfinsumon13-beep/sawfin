@@ -58,7 +58,7 @@ function initVinForm() {
     const message = encodeURIComponent(
       `Hi, I'd like to check stock for my vehicle.\n\nVIN / Engine code: ${vin}`
     );
-    window.open(`https://wa.me/8801757453611?text=${message}`, '_blank');
+    window.open(`https://wa.me/447944470816?text=${message}`, '_blank');
   });
 }
 
