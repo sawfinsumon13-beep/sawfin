@@ -54,6 +54,20 @@ python3 -m http.server 8080
 | Blog | http://127.0.0.1:8080/blog.html |
 | Reviews | http://127.0.0.1:8080/reviews.html |
 
+## Catalog (2,000 engines)
+
+- **2,000 products** in `js/products.json`
+- Each product: **1 unique main image + 5 unique thumbnails** (12,000 unique image URLs)
+- Product cards match reference: Sale badge, thumb gallery, Add to cart, euro pricing
+- Shop: 12 per page with pagination · Category pages show 24 previews
+- Product detail: `product.html?id=123`
+
+Regenerate:
+
+```bash
+python3 scripts/generate-products.py
+```
+
 ## Deploy to Hostinger
 
 1. Log in to **hPanel** → **File Manager** → `public_html`
