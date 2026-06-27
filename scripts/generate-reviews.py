@@ -170,7 +170,11 @@ def format_date(iso: str) -> str:
 
 
 def star_distribution(total: int) -> list[int]:
-    counts = {5: round(total * 0.94), 4: round(total * 0.05), 3: max(1, total - round(total * 0.94) - round(total * 0.05))}
+    # 10% three-star; remaining 90% split between four- and five-star (80% / 10%)
+    count_3 = round(total * 0.10)
+    count_4 = round(total * 0.10)
+    count_5 = total - count_3 - count_4
+    counts = {5: count_5, 4: count_4, 3: count_3}
     stars = [5] * counts[5] + [4] * counts[4] + [3] * counts[3]
     while len(stars) < total:
         stars.append(5)

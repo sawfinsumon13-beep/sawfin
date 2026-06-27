@@ -1,7 +1,7 @@
-/** Reviews page — 81 profile grid + 450+ paginated customer reviews */
+/** Reviews page — 354 profile grid + 450+ paginated customer reviews */
 
 const REVIEWS_PER_PAGE = 20;
-const PROFILE_COUNT = 81;
+const PROFILE_COUNT = 354;
 let allReviews = [];
 
 function escapeHtml(str) {
