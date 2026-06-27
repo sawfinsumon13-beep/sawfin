@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | VeloCore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header scrolled">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon">V</div><div><span class="logo-text">VeloCore</span></div></a>
+    </div>
+  </header>
+
+  <div class="container" style="padding:140px 0 80px;max-width:900px">
+    <h1 class="section-title" style="margin-bottom:32px">Checkout</h1>
+    <form id="checkout-form" style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+      <div class="card" style="padding:28px">
+        <h3 style="margin-bottom:20px">Shipping Details</h3>
+        <div class="form-group"><input type="text" placeholder="First Name" required></div>
+        <div class="form-group"><input type="text" placeholder="Last Name" required></div>
+        <div class="form-group"><input type="email" placeholder="Email" required></div>
+        <div class="form-group"><input type="text" placeholder="Street Address" required></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="form-group"><input type="text" placeholder="City" required></div>
+          <div class="form-group"><input type="text" placeholder="Postal Code" required></div>
+        </div>
+        <div class="form-group"><input type="text" placeholder="Country" required></div>
+        <div class="form-group"><input type="text" placeholder="Coupon Code"></div>
+      </div>
+      <div class="card" style="padding:28px" id="checkout-summary"></div>
+    </form>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = Cart.get();
+      if (items.length === 0) { location.href = 'cart.html'; return; }
+      const subtotal = Cart.total();
+      const shipping = subtotal > 500 ? 0 : 49.99;
+      const tax = subtotal * 0.21;
+      const total = subtotal + shipping + tax;
+      document.getElementById('checkout-summary').innerHTML = `
+        <h3 style="margin-bottom:20px">Order Summary</h3>
+        ${items.map(i => `<div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:8px"><span>${i.name} ×${i.qty}</span><span>€${(i.price*i.qty).toLocaleString()}</span></div>`).join('')}
+        <hr style="margin:16px 0;border-color:var(--border)">
+        <div style="font-size:0.9rem"><div style="display:flex;justify-content:space-between;margin-bottom:8px"><span>Subtotal</span><span>€${subtotal.toLocaleString()}</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span>Shipping</span><span>${shipping===0?'Free':'€'+shipping.toFixed(2)}</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:16px"><span>VAT (21%)</span><span>€${tax.toFixed(2)}</span></div></div>
+        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1.2rem;margin-bottom:24px"><span>Total</span><span>€${total.toFixed(2)}</span></div>
+        <button type="submit" form="checkout-form" class="btn btn-primary" style="width:100%">Place Order</button>
+      `;
+      document.getElementById('checkout-form').addEventListener('submit', e => {
+        e.preventDefault();
+        Cart.save([]);
+        document.body.innerHTML = '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px"><div><h1 style="font-family:Playfair Display,serif;font-size:2.5rem;margin-bottom:16px">Order Confirmed!</h1><p style="color:#6b7280;margin-bottom:24px">Thank you for your order. We\'ll send confirmation to your email.</p><a href="index.html" style="padding:14px 28px;background:#c9a227;color:#0a1628;border-radius:12px;font-weight:600">Back to Home</a></div></div>';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Engines | VeloCore</title>
+  <meta name="description" content="Browse premium BMW diesel and petrol engines. N47, N57, B47, B58 and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header scrolled">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon">V</div><div><span class="logo-text">VeloCore</span><span class="logo-tagline">Premium Engines</span></div></a>
+      <nav class="nav">
+        <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="categories.html">Categories</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><form class="search-form"><input type="text" placeholder="Search engines..."></form></div>
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle"><span class="theme-icon">🌙</span></button>
+        <a href="cart.html" class="icon-btn">🛒<span class="badge cart-count" style="display:none">0</span></a>
+        <button class="icon-btn menu-toggle">☰</button>
+      </div>
+    </div>
+    <nav class="mobile-nav"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="categories.html">Categories</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Shop</div>
+      <h1>Shop Engines</h1>
+      <p id="search-label">Browse our premium BMW engine collection</p>
+    </div>
+  </div>
+
+  <div class="container shop-layout">
+    <aside class="card filters">
+      <h3>Filters</h3>
+      <div class="filter-group">
+        <label>Engine Family</label>
+        <select id="filter-family"><option value="">All Families</option><option>N47</option><option>N57</option><option>M57</option><option>B47</option><option>B57</option><option>B58</option></select>
+      </div>
+      <div class="filter-group">
+        <label>Fuel Type</label>
+        <select id="filter-fuel"><option value="">All Types</option><option>Diesel</option><option>Petrol</option></select>
+      </div>
+      <div class="filter-group">
+        <label>Price Range (€)</label>
+        <div style="display:flex;gap:8px"><input type="number" placeholder="Min" id="filter-min"><input type="number" placeholder="Max" id="filter-max"></div>
+      </div>
+      <div class="filter-group">
+        <label><input type="checkbox" id="filter-stock"> In Stock Only</label>
+      </div>
+    </aside>
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+        <p style="color:var(--text-muted);font-size:0.9rem" id="product-count"></p>
+        <select style="padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text)">
+          <option>Newest</option><option>Price: Low to High</option><option>Price: High to Low</option><option>Top Rated</option>
+        </select>
+      </div>
+      <div class="products-grid" id="shop-products"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-bottom" style="border:none">
+      <p>&copy; 2025 VeloCore. All rights reserved.</p>
+      <div class="footer-bottom-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+  </footer>
+  <a href="https://wa.me/31612345678" class="whatsapp-btn" target="_blank">💬</a>
+  <button class="back-to-top">↑</button>
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('shop-products');
+      grid.innerHTML = PRODUCTS.map(p => productCardHTML(p)).join('');
+      document.getElementById('product-count').textContent = PRODUCTS.length + ' products';
+      initProductButtons();
+      initReveal();
+      const params = new URLSearchParams(location.search);
+      if (params.get('family')) { document.getElementById('filter-family').value = params.get('family'); filterProducts(); }
+    });
+  </script>
+</body>
+</html>
