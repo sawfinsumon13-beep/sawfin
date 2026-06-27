@@ -1041,6 +1041,18 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.4rem;
   margin-top: 0.5rem;
   padding: 0 0.1rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #444 #111;
+}
+
+.product-thumbs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.product-thumbs::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 2px;
 }
 
 .product-thumb {

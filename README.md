@@ -54,25 +54,24 @@ python3 -m http.server 8080
 | Blog | http://127.0.0.1:8080/blog.html |
 | Reviews | http://127.0.0.1:8080/reviews.html |
 
-## Catalog (2,000 engines)
+## Catalog (2,000 engines + real photos)
 
 - **2,000 products** in `js/products.json`
-- Each product: **1 unique main image + 5 unique thumbnails** (12,000 unique image URLs)
-- Product cards match reference: Sale badge, thumb gallery, Add to cart, euro pricing
-- Shop: 12 per page with pagination · Category pages show 24 previews
-- Product detail: `product.html?id=123`
-
-Regenerate:
+- **616 real BMW engine photos** in `images/engines/` (~80 MB) — engines on pallets, workshop style
+- Each product: **1 main image + 5 thumbnails** (6 real photos per listing)
+- **124 unique donor engine photo sets** used across the catalog
 
 ```bash
-python3 scripts/generate-products.py
+python3 scripts/download-engine-images.py   # download real photos
+python3 scripts/generate-products.py        # build 2000-product catalog
 ```
 
 ## Deploy to Hostinger
 
 1. Log in to **hPanel** → **File Manager** → `public_html`
-2. Upload **all files** keeping folder structure (`css/`, `js/`)
-3. Visit your domain
+2. Upload **all files** including the `images/engines/` folder (~80 MB)
+3. Keep folder structure: `css/`, `js/`, `images/engines/`
+4. Visit your domain
 
 ## Menu (matches reference site)
 
