@@ -57,10 +57,11 @@ function renderHeader(active) {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span class="cart-badge">0</span>
         </a>
-        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
       </div>
     </div>
-    <nav class="nav-mobile" aria-label="Mobile navigation">
+    <button type="button" class="nav-mobile-backdrop" id="nav-mobile-backdrop" aria-hidden="true" tabindex="-1"></button>
+    <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
       <a href="index.html">Home</a>
       <a href="shop.html">All Engines</a>
       <a href="n47-engines.html">N47 Engines</a>
@@ -279,6 +280,46 @@ function initPurchaseToast(activePage) {
   }, 12000);
 }
 
+function initMobileNav() {
+  const toggle = document.querySelector('.nav-toggle');
+  const mobileNav = document.getElementById('nav-mobile');
+  const backdrop = document.getElementById('nav-mobile-backdrop');
+  if (!toggle || !mobileNav || toggle.dataset.navBound === '1') return;
+
+  toggle.dataset.navBound = '1';
+
+  const setOpen = (open) => {
+    mobileNav.classList.toggle('open', open);
+    backdrop?.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (backdrop) backdrop.setAttribute('aria-hidden', open ? 'false' : 'true');
+  };
+
+  const handleToggle = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setOpen(!mobileNav.classList.contains('open'));
+  };
+
+  toggle.addEventListener('click', handleToggle);
+
+  backdrop?.addEventListener('click', () => setOpen(false));
+
+  mobileNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1100) setOpen(false);
+  });
+}
+
 function initSiteChrome() {
   const active = getActivePage();
   document.body.insertAdjacentHTML('afterbegin', renderHeader(active));
@@ -315,6 +356,8 @@ function initSiteChrome() {
     }
     window.location.href = 'shop.html';
   });
+
+  initMobileNav();
 }
 
 document.addEventListener('DOMContentLoaded', initSiteChrome);

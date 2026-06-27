@@ -1,28 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Defer until components.js injects shared header
   requestAnimationFrame(() => {
-    initMobileNav();
     initFaq();
     initVinForm();
     initProductFilters();
   });
 });
-
-function initMobileNav() {
-  const toggle = document.querySelector('.nav-toggle');
-  const mobileNav = document.querySelector('.nav-mobile');
-
-  if (!toggle || !mobileNav) return;
-
-  toggle.addEventListener('click', () => {
-    mobileNav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', mobileNav.classList.contains('open'));
-  });
-
-  mobileNav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => mobileNav.classList.remove('open'));
-  });
-}
 
 function initFaq() {
   document.querySelectorAll('.faq-question').forEach((btn) => {
