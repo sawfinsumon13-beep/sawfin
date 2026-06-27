@@ -1,0 +1,31 @@
+BAVARIAN ENGINES — HOSTINGER UPLOAD GUIDE
+==========================================
+
+1. LOG IN to Hostinger → hPanel → Files → File Manager
+
+2. OPEN the folder: public_html
+   (Delete any default Hostinger placeholder files first if this is a fresh site)
+
+3. UPLOAD this entire ZIP and EXTRACT it here
+   All files must sit directly inside public_html:
+     - index.html
+     - shop.html, about.html, etc.
+     - css/   js/   images/
+     - robots.txt   sitemap.xml   .htaccess
+
+4. SET YOUR DOMAIN in js/seo-config.js (line 2):
+     window.SEO_BASE_URL = 'https://YOURDOMAIN.com';
+
+   Then update sitemap.xml and robots.txt if your domain is not bavarianengine.com
+   (search/replace bavarianengine.com with your real domain)
+
+5. VISIT your domain — homepage should load with images and shop working.
+
+6. GOOGLE: Submit https://YOURDOMAIN.com/sitemap.xml in Google Search Console.
+
+NOTES
+-----
+- This is a static HTML site — no PHP or database required.
+- Cart uses browser localStorage; checkout opens WhatsApp.
+- Contact: flashkingpro202@gmail.com | +447944470816
+- If images do not load, confirm the images/ folder uploaded completely (~170 MB).
