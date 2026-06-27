@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product | VeloCore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header scrolled">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon">V</div><div><span class="logo-text">VeloCore</span></div></a>
+      <nav class="nav"><a href="shop.html">Shop</a><a href="contact.html">Contact</a></nav>
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle"><span class="theme-icon">🌙</span></button>
+        <a href="cart.html" class="icon-btn">🛒<span class="badge cart-count" style="display:none">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav class="breadcrumb" style="padding-top:120px;margin-bottom:24px;color:var(--text-muted);font-size:0.85rem">
+      <a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <span id="breadcrumb-name">Product</span>
+    </nav>
+    <div class="product-detail" id="product-detail"></div>
+
+    <div class="tabs">
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="tab-specs">Specifications</button>
+        <button class="tab-btn" data-tab="tab-compat">Compatibility</button>
+        <button class="tab-btn" data-tab="tab-compression">Compression Report</button>
+        <button class="tab-btn" data-tab="tab-included">Included Parts</button>
+        <button class="tab-btn" data-tab="tab-reviews">Reviews</button>
+      </div>
+      <div id="tab-specs" class="tab-panel active">
+        <div class="specs-grid" id="specs-grid"></div>
+      </div>
+      <div id="tab-compat" class="tab-panel">
+        <ul id="compat-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px"></ul>
+      </div>
+      <div id="tab-compression" class="tab-panel">
+        <div class="card" style="padding:32px">
+          <span style="background:#dcfce7;color:#166534;padding:4px 12px;border-radius:20px;font-size:0.8rem;font-weight:600">PASS</span>
+          <h3 style="margin:16px 0">Compression Test Report</h3>
+          <div class="specs-grid" id="compression-grid"></div>
+        </div>
+      </div>
+      <div id="tab-included" class="tab-panel">
+        <ul id="included-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px"></ul>
+      </div>
+      <div id="tab-reviews" class="tab-panel">
+        <p style="text-align:center;padding:40px;color:var(--text-muted)">Customer reviews coming soon.</p>
+      </div>
+    </div>
+
+    <div style="padding:60px 0">
+      <h2 class="section-title" style="margin-bottom:32px">Related Products</h2>
+      <div class="products-grid" id="related-products"></div>
+    </div>
+  </div>
+
+  <footer class="footer"><div class="container footer-bottom" style="border:none"><p>&copy; 2025 VeloCore</p></div></footer>
+  <a href="https://wa.me/31612345678" class="whatsapp-btn" target="_blank">💬</a>
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const SPECS = {
+      n47d20c: { displacement:'1995cc', power:'143hp / 320Nm', cylinders:'4', config:'Inline-4 Turbo Diesel', year:'2010-2015' },
+      n57d30a: { displacement:'2993cc', power:'313hp / 630Nm', cylinders:'6', config:'Inline-6 Turbo Diesel', year:'2013-2018' },
+      m57d30: { displacement:'2926cc', power:'218hp / 500Nm', cylinders:'6', config:'Inline-6 Turbo Diesel', year:'2004-2010' },
+      b47d20a: { displacement:'1995cc', power:'190hp / 400Nm', cylinders:'4', config:'Inline-4 TwinPower Turbo', year:'2015-2020' },
+      b57d30a: { displacement:'2993cc', power:'400hp / 760Nm', cylinders:'6', config:'Inline-6 Quad Turbo', year:'2016-2023' },
+      b58b30: { displacement:'2998cc', power:'340hp / 450Nm', cylinders:'6', config:'Inline-6 TwinPower Turbo', year:'2015-2023' },
+    };
+    const COMPAT = {
+      n47d20c: ['BMW 320d E90','BMW 520d F10','BMW X1 E84','BMW 118d E87'],
+      n57d30a: ['BMW 535d F10','BMW X5 F15','BMW 335d F30'],
+      m57d30: ['BMW 530d E60','BMW X5 E53','BMW 330d E46'],
+      b47d20a: ['BMW 320d G20','BMW X1 F48','BMW 220d F45'],
+      b57d30a: ['BMW 750d G11','BMW X5 M50d G05','BMW M550d G30'],
+      b58b30: ['BMW M340i G20','BMW X3 M40i G01','BMW 540i G30'],
+    };
+    const COMPRESSION = { cyl1:'12.5 bar', cyl2:'12.4 bar', cyl3:'12.6 bar', cyl4:'12.3 bar', average:'12.45 bar' };
+    const INCLUDED = ['Engine block','Cylinder head','Turbocharger','Injection system','Oil pan','Engine mounts'];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const slug = new URLSearchParams(location.search).get('id') || 'n47d20c';
+      const p = getProductBySlug(slug) || PRODUCTS[0];
+      document.title = p.name + ' | VeloCore';
+      document.getElementById('breadcrumb-name').textContent = p.name;
+      const data = JSON.stringify({ id:p.id, name:p.name, code:p.code, price:p.price, image:p.image });
+
+      document.getElementById('product-detail').innerHTML = `
+        <div>
+          <div class="product-gallery-main"><img id="gallery-main" src="${p.image}" alt="${p.name}"></div>
+          <div class="product-gallery-thumbs">
+            <img src="${p.image}" class="active" alt="">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=200&h=200&fit=crop" alt="">
+            <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=200&h=200&fit=crop" alt="">
+          </div>
+        </div>
+        <div class="product-info">
+          <span class="product-code">${p.code}</span>
+          <h1>${p.name}</h1>
+          <div class="product-rating"><span class="star">${'★'.repeat(p.rating)}</span><span class="rating-count">(${p.reviews} reviews)</span></div>
+          <div style="margin:20px 0">
+            <span style="font-size:2rem;font-weight:700">€${p.price.toLocaleString()}</span>
+            ${p.oldPrice ? `<span class="product-price-old">€${p.oldPrice.toLocaleString()}</span>` : ''}
+          </div>
+          <p style="color:var(--text-muted);line-height:1.7;margin-bottom:24px">Professionally inspected BMW engine with full compression test report. Ideal replacement for your vehicle with 12-month warranty.</p>
+          <div class="product-meta">
+            <div><span>Mileage</span><strong>${p.mileage.toLocaleString()} km</strong></div>
+            <div><span>Fuel</span><strong>${p.fuel}</strong></div>
+            <div><span>Family</span><strong>${p.family}</strong></div>
+            <div><span>Stock</span><strong style="color:#16a34a">In Stock</strong></div>
+          </div>
+          <div style="display:flex;gap:12px;margin:24px 0">
+            <button class="btn btn-primary" style="flex:1" data-product='${data}'>🛒 Add to Cart</button>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:20px;font-size:0.9rem">
+            <p>🛡️ 12-month / 20,000 km warranty</p>
+            <p style="margin-top:8px">🚚 Worldwide insured shipping</p>
+            <p style="margin-top:8px">↩️ 14-day return policy</p>
+          </div>
+        </div>
+      `;
+
+      const specs = SPECS[p.slug] || SPECS.n47d20c;
+      document.getElementById('specs-grid').innerHTML = Object.entries(specs).map(([k,v]) => `<div class="spec-item"><span>${k}</span><strong>${v}</strong></div>`).join('');
+      document.getElementById('compat-list').innerHTML = (COMPAT[p.slug]||[]).map(c => `<li style="padding:12px 16px;background:var(--bg-muted);border-radius:10px">✅ ${c}</li>`).join('');
+      document.getElementById('compression-grid').innerHTML = Object.entries(COMPRESSION).map(([k,v]) => `<div class="spec-item"><span>${k}</span><strong>${v}</strong></div>`).join('');
+      document.getElementById('included-list').innerHTML = INCLUDED.map(i => `<li style="padding:12px 16px;background:var(--bg-muted);border-radius:10px">✅ ${i}</li>`).join('');
+      document.getElementById('related-products').innerHTML = PRODUCTS.filter(x => x.id !== p.id).slice(0,4).map(x => productCardHTML(x)).join('');
+      initProductButtons(); initGallery(); initTabs();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | VeloCore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header scrolled">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon">V</div><div><span class="logo-text">VeloCore</span></div></a>
+      <nav class="nav"><a href="shop.html">Continue Shopping</a></nav>
+    </div>
+  </header>
+
+  <div class="page-hero" style="padding:140px 0 60px">
+    <div class="container"><h1>Shopping Cart</h1></div>
+  </div>
+
+  <div class="container" style="padding-bottom:80px">
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:32px">
+      <div class="card" style="padding:0;overflow:auto">
+        <table class="cart-table">
+          <thead><tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th><th></th></tr></thead>
+          <tbody id="cart-items"></tbody>
+        </table>
+      </div>
+      <div class="card cart-summary" id="cart-summary"></div>
+    </div>
+  </div>
+
+  <footer class="footer"><div class="container footer-bottom" style="border:none"><p>&copy; 2025 VeloCore</p></div></footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
