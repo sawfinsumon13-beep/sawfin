@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Bavarian Engines technical blog — N47 vs N57, B47 vs B57, Defender M57 swaps, shipping guides and BMW engine buying advice.">
+  <meta name="description" content="Bavarian Engines technical blog — 60+ guides on N47, N57, B47, B57, B58, M57, shipping, warranty, and BMW engine buying advice from Hamburg.">
   <title>Blog | Bavarian Engines</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,42 +16,21 @@
     <div class="page-header">
       <div class="container">
         <h1>Blog</h1>
-        <p>Technical guides, engine comparisons, and workshop advice from the Bavarian Engines Hamburg team.</p>
+        <p id="blog-count">Technical guides, engine comparisons, and workshop advice from the Bavarian Engines Hamburg team.</p>
       </div>
     </div>
 
     <section class="content-section">
       <div class="container">
-        <div class="blog-grid">
-          <a href="blog-n47-vs-n57.html" class="blog-card">
-            <div class="blog-card-image"><img src="https://images.unsplash.com/photo-1625047509168-a70253f36af7?w=600&q=80" alt="N47 vs N57"></div>
-            <div class="blog-card-body"><div class="blog-meta">Buying guide</div><h3>N47 vs N57 — Which BMW Diesel Fits Your Car?</h3><p>Compare 2.0-litre four-cylinder vs 3.0-litre six-cylinder BMW diesels. Codes, models, and suffix matching explained.</p></div>
-          </a>
-          <a href="blog-b47-vs-b57.html" class="blog-card">
-            <div class="blog-card-image"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80" alt="B47 vs B57"></div>
-            <div class="blog-card-body"><div class="blog-meta">Euro 6</div><h3>B47 vs B57 — Which Modern BMW Diesel Is Right?</h3><p>B47 2.0-litre vs B57 3.0-litre six for F-series and G-series BMWs. VIN essential before checkout.</p></div>
-          </a>
-          <a href="blog-defender-m57.html" class="blog-card">
-            <div class="blog-card-image"><img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80" alt="Defender M57"></div>
-            <div class="blog-card-body"><div class="blog-meta">Conversions</div><h3>How Much Does A Land Rover Defender M57 Conversion Cost?</h3><p>Kit vs engine-only budgeting, labour planning, and long-term reliability wins for overland builds.</p></div>
-          </a>
-          <a href="blog-b57-guide.html" class="blog-card">
-            <div class="blog-card-image"><img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80" alt="B57 guide"></div>
-            <div class="blog-card-body"><div class="blog-meta">Engine guide</div><h3>BMW B57 Engine — Codes, Models, Prices &amp; Where to Buy</h3><p>Complete B57D30 suffix guide for G30 530d and X5 G05 with tested stock from Hamburg.</p></div>
-          </a>
-          <a href="blog-shipping.html" class="blog-card">
-            <div class="blog-card-image"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="Shipping"></div>
-            <div class="blog-card-body"><div class="blog-meta">Logistics</div><h3>Shipping BMW Engines Across Europe From Hamburg</h3><p>Crating standards, delivery timelines, UK customs after Brexit, and lift requirements at your workshop.</p></div>
-          </a>
-          <a href="blog-pajero-m57.html" class="blog-card">
-            <div class="blog-card-image"><img src="https://images.unsplash.com/photo-1519641471654-76ce0107a651?w=600&q=80" alt="Pajero M57"></div>
-            <div class="blog-card-body"><div class="blog-meta">4×4</div><h3>Is A Mitsubishi Pajero M57 Conversion Worth It?</h3><p>Why Pajero owners choose M57 torque — fuel economy, kit completeness, and expedition confidence.</p></div>
-          </a>
+        <div class="blog-grid" id="blog-grid">
+          <p style="color:#888;grid-column:1/-1;">Loading articles…</p>
         </div>
+        <div id="blog-pagination"></div>
       </div>
     </section>
   </main>
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/blog.js"></script>
 </body>
 </html>

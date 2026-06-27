@@ -31,14 +31,11 @@ Static HTML website for **Bavarian Engines** — modeled after [bavarianengine.c
 | Blog | `blog.html` |
 | Reviews | `reviews.html` |
 
-### Blog articles
+### Blog (61 articles, 2200+ words each)
 
-- `blog-n47-vs-n57.html`
-- `blog-b47-vs-b57.html`
-- `blog-defender-m57.html`
-- `blog-b57-guide.html`
-- `blog-shipping.html`
-- `blog-pajero-m57.html`
+- Listing loads from `js/blog-index.json` with pagination (12 per page)
+- Individual articles: `blog-{slug}.html` (e.g. `blog-n47-vs-n57.html`)
+- Regenerate: `python3 scripts/generate-blog.py`
 
 ## Preview locally
 
