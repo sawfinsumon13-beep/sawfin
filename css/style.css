@@ -930,6 +930,19 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
+.review-list-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0 0 1rem;
+}
+
+.review-pagination {
+  margin-bottom: 1rem;
+}
+
 /* Profile grid card */
 .review-profiles-card {
   background: linear-gradient(145deg, #2a1216 0%, #1a0e10 100%);
