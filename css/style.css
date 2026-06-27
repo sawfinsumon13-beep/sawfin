@@ -563,6 +563,23 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.65;
 }
 
+.hero-terminal-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3.2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+  text-shadow: 0 0 20px var(--color-accent-glow);
+  margin: 0.35rem 0 1rem;
+  text-transform: none;
+}
+
+.hero-terminal-headline::before {
+  content: "> ";
+  color: var(--color-cyan);
+}
+
 .terminal-line {
   margin: 0 0 0.35rem;
   color: var(--color-text);
