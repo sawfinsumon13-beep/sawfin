@@ -82,12 +82,6 @@ const REVIEW_PROFILES = [
   { initials: 'RR', name: 'Renee', id: 'review-list' },
   { initials: 'SS', name: 'Simon', id: 'review-list' },
   { initials: 'TT', name: 'Tina', id: 'review-list' },
-  { initials: 'UU', name: 'Ulrich', id: 'review-list' },
-  { initials: 'VV', name: 'Vince', id: 'review-list' },
-  { initials: 'WW', name: 'Wendy', id: 'review-list' },
-  { initials: 'XX', name: 'Xenia', id: 'review-list' },
-  { initials: 'YY', name: 'Yves', id: 'review-list' },
-  { initials: 'ZZ', name: 'Zara', id: 'review-list' },
 ];
 
 function renderProfiles() {
