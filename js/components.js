@@ -57,12 +57,26 @@ function renderHeader(active) {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span class="cart-badge">0</span>
         </a>
-        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile" onclick="window.toggleMobileNav&&window.toggleMobileNav(event)"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
+  <div class="search-overlay" id="search-overlay">
+    <form class="search-box" id="search-form">
+      <input type="search" placeholder="Search engines (e.g. N47, 530d, M57)..." aria-label="Search">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>`;
+}
+
+function renderMobileNav() {
+  return `
   <button type="button" class="nav-mobile-backdrop" id="nav-mobile-backdrop" aria-hidden="true" tabindex="-1"></button>
-  <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
+  <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="nav-mobile-head">
+      <span class="nav-mobile-title">// menu.nav</span>
+      <button type="button" class="nav-mobile-close" id="nav-mobile-close" aria-label="Close menu">×</button>
+    </div>
     <a href="index.html">Home</a>
     <a href="shop.html">All Engines</a>
     <a href="n47-engines.html">N47 Engines</a>
@@ -79,13 +93,7 @@ function renderHeader(active) {
     <a href="blog.html">Blog</a>
     <a href="reviews.html">Reviews</a>
     <a href="https://wa.me/${SITE.wa}" target="_blank" rel="noopener">WhatsApp</a>
-  </nav>
-  <div class="search-overlay" id="search-overlay">
-    <form class="search-box" id="search-form">
-      <input type="search" placeholder="Search engines (e.g. N47, 530d, M57)..." aria-label="Search">
-      <button type="submit" class="btn btn-primary">Search</button>
-    </form>
-  </div>`;
+  </nav>`;
 }
 
 function renderFooter() {
@@ -281,12 +289,11 @@ function initPurchaseToast(activePage) {
 }
 
 function initMobileNav() {
-  const toggle = document.querySelector('.nav-toggle');
+  const toggle = document.getElementById('nav-toggle') || document.querySelector('.nav-toggle');
   const mobileNav = document.getElementById('nav-mobile');
   const backdrop = document.getElementById('nav-mobile-backdrop');
-  if (!toggle || !mobileNav || toggle.dataset.navBound === '1') return;
-
-  toggle.dataset.navBound = '1';
+  const closeBtn = document.getElementById('nav-mobile-close');
+  if (!toggle || !mobileNav) return;
 
   const setOpen = (open) => {
     mobileNav.classList.toggle('open', open);
@@ -294,36 +301,49 @@ function initMobileNav() {
     document.body.classList.toggle('nav-open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileNav.setAttribute('aria-hidden', open ? 'false' : 'true');
     if (backdrop) backdrop.setAttribute('aria-hidden', open ? 'false' : 'true');
   };
 
-  const handleToggle = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  window.toggleMobileNav = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     setOpen(!mobileNav.classList.contains('open'));
   };
 
-  toggle.addEventListener('click', handleToggle);
+  if (toggle.dataset.navBound !== '1') {
+    toggle.dataset.navBound = '1';
+    toggle.addEventListener('click', window.toggleMobileNav);
+  }
 
+  closeBtn?.addEventListener('click', () => setOpen(false));
   backdrop?.addEventListener('click', () => setOpen(false));
 
   mobileNav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => setOpen(false));
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setOpen(false);
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 1100) setOpen(false);
-  });
+  if (!document.body.dataset.navKeysBound) {
+    document.body.dataset.navKeysBound = '1';
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1100) setOpen(false);
+    });
+  }
 }
 
 function initSiteChrome() {
+  if (document.body.dataset.chromeReady === '1') return;
+  document.body.dataset.chromeReady = '1';
+
   const active = getActivePage();
   document.body.insertAdjacentHTML('afterbegin', renderHeader(active));
   document.body.insertAdjacentHTML('beforeend', renderFooter());
+  document.body.insertAdjacentHTML('beforeend', renderMobileNav());
   if (typeof window.updateCartBadge === 'function') window.updateCartBadge();
   else refreshCartBadge();
   initLanguageSwitcher();
@@ -360,4 +380,12 @@ function initSiteChrome() {
   initMobileNav();
 }
 
-document.addEventListener('DOMContentLoaded', initSiteChrome);
+function bootSiteChrome() {
+  initSiteChrome();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootSiteChrome);
+} else {
+  bootSiteChrome();
+}
