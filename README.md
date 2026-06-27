@@ -1,6 +1,6 @@
-# Sawfin Engines
+# Bavarian Engines
 
-Static HTML website for a BMW engine exchange business — modeled after [bavarianengine.com](https://bavarianengine.com/).
+Static HTML website for the Bavarian Engines BMW engine exchange — modeled after [bavarianengine.com](https://bavarianengine.com/).
 
 ## Pages
 
@@ -25,7 +25,7 @@ Then visit http://localhost:8080
 
 ## Customize
 
-- **Brand name:** search/replace "Sawfin Engines" across HTML files
+- **Brand name:** already set to Bavarian Engines — edit HTML files if needed
 - **Contact details:** update WhatsApp number, email, and address in all pages
 - **Products:** edit `shop.html` product cards
 - **Colors:** edit CSS variables in `css/style.css`
