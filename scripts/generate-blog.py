@@ -8,6 +8,8 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+BASE_URL = "https://bavarianengine.com"
+KEYWORDS = "BMW engines, bmw engines for sale, buy used bmw engines, original BMW engine, Bavarian Engines"
 BLOG_DIR = ROOT / "blog"
 INDEX_PATH = ROOT / "js" / "blog-index.json"
 MANIFEST_PATH = ROOT / "images" / "engines" / "image-sets.json"
@@ -407,16 +409,37 @@ def article_html(post: dict, image: str, body: str) -> str:
     slug = post["slug"]
     title = post["title"]
     excerpt = post["excerpt"]
+    filename = f"blog-{slug}.html"
+    seo_title = f"{title} | BMW Engines Blog | Bavarian Engines"
+    seo_desc = f"{excerpt} Buy used BMW engines for sale from Bavarian Engines — original BMW motors, Hamburg export."
+    url = f"{BASE_URL}/{filename}"
+    esc = lambda s: s.replace("&", "&amp;").replace('"', "&quot;")
+    t, d = esc(seo_title), esc(seo_desc)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{excerpt}">
-  <title>{title} | Bavarian Engines Blog</title>
+  <meta name="description" content="{d}">
+  <meta name="keywords" content="{KEYWORDS}">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Bavarian Engines">
+  <link rel="canonical" href="{url}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Bavarian Engines">
+  <meta property="og:title" content="{t}">
+  <meta property="og:description" content="{d}">
+  <meta property="og:url" content="{url}">
+  <meta property="og:image" content="{BASE_URL}/{image.lstrip('/') if not image.startswith('http') else image}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{t}">
+  <meta name="twitter:description" content="{d}">
+  <title>{t}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,600;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="js/seo-config.js"></script>
+  <script src="js/seo.js" defer></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="blog">

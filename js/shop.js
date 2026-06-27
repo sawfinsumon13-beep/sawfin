@@ -25,6 +25,71 @@ function stockClass(stock) {
   return '';
 }
 
+function updateProductSeo(p) {
+  const base = (window.SEO_BASE_URL || window.location.origin).replace(/\/$/, '');
+  const pageUrl = `${base}/product.html?id=${p.id}`;
+  const title = `${p.title} | Buy Used BMW Engine | Bavarian Engines`;
+  const desc = `Buy used original BMW engine: ${p.title}. Code ${p.code}, ${p.year}, ${p.hp} HP. BMW engines for sale from Bavarian Engines Hamburg — VIN match available.`;
+  const image = p.image.startsWith('http') ? p.image : `${base}/${p.image.replace(/^\//, '')}`;
+
+  document.title = title;
+
+  const setMeta = (attr, name, content) => {
+    const sel = `meta[${attr}="${name}"]`;
+    let el = document.querySelector(sel);
+    if (!el) {
+      el = document.createElement('meta');
+      el.setAttribute(attr, name);
+      document.head.appendChild(el);
+    }
+    el.content = content;
+  };
+
+  setMeta('name', 'description', desc);
+  setMeta('property', 'og:title', title);
+  setMeta('property', 'og:description', desc);
+  setMeta('property', 'og:url', pageUrl);
+  setMeta('property', 'og:image', image);
+  setMeta('name', 'twitter:title', title);
+  setMeta('name', 'twitter:description', desc);
+  setMeta('name', 'twitter:image', image);
+
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    document.head.appendChild(canonical);
+  }
+  canonical.href = pageUrl;
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: p.title,
+    description: desc,
+    image,
+    sku: p.sku,
+    brand: { '@type': 'Brand', name: 'BMW' },
+    category: p.categoryLabel,
+    offers: {
+      '@type': 'Offer',
+      price: p.price,
+      priceCurrency: 'EUR',
+      availability: p.stock === 'Out of stock'
+        ? 'https://schema.org/OutOfStock'
+        : 'https://schema.org/InStock',
+      seller: { '@type': 'Organization', name: 'Bavarian Engines', url: base },
+      url: pageUrl,
+    },
+  };
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.dataset.productSeo = 'true';
+  script.textContent = JSON.stringify(schema);
+  document.head.appendChild(script);
+}
+
 function renderProductCard(p) {
   const thumbs = p.thumbnails.map((src, i) =>
     `<button type="button" class="product-thumb${i === 0 ? ' active' : ''}" data-src="${src}" aria-label="View image ${i + 1}">
@@ -262,7 +327,7 @@ async function initProductPage() {
 
     container.querySelector('.add-to-cart')?.addEventListener('click', () => handleAddToCart(p.id));
     if (typeof window.updateCartBadge === 'function') window.updateCartBadge();
-    document.title = `${p.title} | Bavarian Engines`;
+    updateProductSeo(p);
   } catch (err) {
     container.innerHTML = '<p>Error loading product.</p>';
   }
