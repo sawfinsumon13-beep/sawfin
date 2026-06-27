@@ -53,7 +53,7 @@ function renderHeader(active) {
         <button class="header-icon-btn" id="search-toggle" aria-label="Search">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         </button>
-        <a href="shop.html" class="header-icon-btn" aria-label="Cart">
+        <a href="cart.html" class="header-icon-btn" aria-label="Cart">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span class="cart-badge">0</span>
         </a>
@@ -132,6 +132,27 @@ function renderFooter() {
   </a>`;
 }
 
+function getCartCountQuick() {
+  try {
+    const raw = JSON.parse(localStorage.getItem('be-cart') || '[]');
+    if (!Array.isArray(raw) || !raw.length) return 0;
+    if (typeof raw[0] === 'object' && raw[0].id != null) {
+      return raw.reduce((sum, item) => sum + item.qty, 0);
+    }
+    return raw.length;
+  } catch {
+    return 0;
+  }
+}
+
+function refreshCartBadge() {
+  const count = typeof window.getCartCount === 'function' ? window.getCartCount() : getCartCountQuick();
+  document.querySelectorAll('.cart-badge').forEach((b) => {
+    b.textContent = count > 99 ? '99+' : count;
+    b.style.display = count > 0 ? 'flex' : 'none';
+  });
+}
+
 function renderPurchaseToast() {
   return `
   <div class="purchase-toast" id="purchase-toast" role="status">
@@ -146,6 +167,7 @@ function initSiteChrome() {
   document.body.insertAdjacentHTML('afterbegin', renderHeader(active));
   document.body.insertAdjacentHTML('beforeend', renderFooter());
   if (typeof window.updateCartBadge === 'function') window.updateCartBadge();
+  else refreshCartBadge();
   if (active === 'home') {
     document.body.insertAdjacentHTML('beforeend', renderPurchaseToast());
     setTimeout(() => {

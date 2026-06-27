@@ -121,27 +121,19 @@ function bindProductCardEvents() {
   });
 
   document.querySelectorAll('.add-to-cart').forEach((btn) => {
-    btn.addEventListener('click', () => addToCart(Number(btn.dataset.id)));
+    btn.addEventListener('click', () => handleAddToCart(Number(btn.dataset.id)));
   });
 }
 
-function addToCart(id) {
-  const cart = JSON.parse(localStorage.getItem('be-cart') || '[]');
-  cart.push(id);
-  localStorage.setItem('be-cart', JSON.stringify(cart));
-  updateCartBadge();
+function handleAddToCart(id) {
+  if (typeof window.addToCart === 'function') {
+    window.addToCart(id, 1);
+  }
   const btn = document.querySelector(`.add-to-cart[data-id="${id}"]`);
   if (btn) {
     btn.textContent = 'Added ✓';
     setTimeout(() => { btn.textContent = 'Add to cart'; }, 1500);
   }
-}
-
-function updateCartBadge() {
-  const cart = JSON.parse(localStorage.getItem('be-cart') || '[]');
-  document.querySelectorAll('.cart-badge').forEach((b) => {
-    b.textContent = cart.length > 99 ? '99+' : cart.length;
-  });
 }
 
 function bindFilters() {
@@ -181,7 +173,7 @@ async function initShop() {
 
     renderShop();
     bindFilters();
-    updateCartBadge();
+    if (typeof window.updateCartBadge === 'function') window.updateCartBadge();
   } catch (err) {
     grid.innerHTML = '<p style="color:#888;">Unable to load engine catalog. Please refresh.</p>';
     console.error(err);
@@ -199,7 +191,7 @@ async function initCategoryPage() {
     const filtered = all.filter((p) => p.category === cat).slice(0, 24);
     grid.innerHTML = filtered.map(renderProductCard).join('');
     bindProductCardEvents();
-    updateCartBadge();
+    if (typeof window.updateCartBadge === 'function') window.updateCartBadge();
 
     const countEl = document.getElementById('category-count');
     if (countEl) {
@@ -268,8 +260,8 @@ async function initProductPage() {
       });
     });
 
-    container.querySelector('.add-to-cart')?.addEventListener('click', () => addToCart(p.id));
-    updateCartBadge();
+    container.querySelector('.add-to-cart')?.addEventListener('click', () => handleAddToCart(p.id));
+    if (typeof window.updateCartBadge === 'function') window.updateCartBadge();
     document.title = `${p.title} | Bavarian Engines`;
   } catch (err) {
     container.innerHTML = '<p>Error loading product.</p>';
@@ -284,6 +276,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.renderProductCard = renderProductCard;
 window.bindProductCardEvents = bindProductCardEvents;
-
-// Expose for components.js
-window.updateCartBadge = updateCartBadge;
