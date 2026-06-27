@@ -904,9 +904,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .family-card {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
   overflow: hidden;
   transition: all var(--transition);
   text-decoration: none;
@@ -915,17 +915,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .family-card:hover {
-  border-color: var(--color-accent);
+  border-color: #555;
   transform: translateY(-3px);
-  box-shadow: var(--shadow);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
 .family-card-image {
-  height: 160px;
-  background: linear-gradient(135deg, #1a2332, #0d1520);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 200px;
+  background: #0d0d0d;
   position: relative;
   overflow: hidden;
 }
@@ -936,33 +933,77 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.family-card:hover .family-card-image img {
+  transform: scale(1.05);
+}
+
+.family-card-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+  z-index: 1;
 }
 
 .family-badge {
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
-  padding: 0.25rem 0.6rem;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 4px;
-  font-size: 0.7rem;
-  font-weight: 600;
+  z-index: 2;
+  padding: 0.3rem 0.65rem;
+  background: #c9a227;
+  color: #111;
+  border-radius: 100px;
+  font-size: 0.62rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+}
+
+.family-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem 2rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.family-overlay h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+  margin: 0;
+}
+
+.family-overlay p {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 0;
+  right: 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  padding: 0 0.75rem;
 }
 
 .family-card-body {
-  padding: 1.25rem;
-}
-
-.family-card-body h3 {
-  font-size: 1.15rem;
-  margin-bottom: 0.35rem;
-}
-
-.family-card-body p {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
+  display: none;
 }
 
 /* Products */

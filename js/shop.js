@@ -282,5 +282,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductPage();
 });
 
+window.renderProductCard = renderProductCard;
+window.bindProductCardEvents = bindProductCardEvents;
+
 // Expose for components.js
 window.updateCartBadge = updateCartBadge;
