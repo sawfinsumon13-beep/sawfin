@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,600;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-page="m57">
+<body data-page="m57" data-category="m57">
 
   <main>
     <div class="page-header">
@@ -19,42 +19,18 @@
         <p>Proven E-series 3.0-litre diesels and swap-ready units for Defender and 4×4 conversions.</p>
       </div>
     </div>
-    <section class="products-section">
+        <section class="products-section">
       <div class="container">
-        <div class="products-grid">
-          <article class="product-card">
-            <div class="product-image"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="BMW 330D 231Hp M57 2009 Engine"><span class="product-sale">Sale</span><span class="product-stock">In stock</span></div>
-            <div class="product-body"><div class="product-category">M57</div><h3><a href="contact.html">BMW 330D 231Hp M57 2009 Engine</a></h3>
-            <div class="product-price"><span class="price-current">€1,000</span><span class="price-old">€1,250</span></div>
-            <a href="contact.html" class="btn btn-outline btn-sm">Get quote</a></div>
-          </article>
-          <article class="product-card">
-            <div class="product-image"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="BMW E60 530D M57 Engine"><span class="product-sale">Sale</span><span class="product-stock">In stock</span></div>
-            <div class="product-body"><div class="product-category">M57</div><h3><a href="contact.html">BMW E60 530D M57 Engine</a></h3>
-            <div class="product-price"><span class="price-current">€800</span><span class="price-old">€1,000</span></div>
-            <a href="contact.html" class="btn btn-outline btn-sm">Get quote</a></div>
-          </article>
-          <article class="product-card">
-            <div class="product-image"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="BMW E60 M57N 272hp Engine"><span class="product-sale">Sale</span><span class="product-stock">In stock</span></div>
-            <div class="product-body"><div class="product-category">M57</div><h3><a href="contact.html">BMW E60 M57N 272hp Engine</a></h3>
-            <div class="product-price"><span class="price-current">€1,250</span><span class="price-old">€1,500</span></div>
-            <a href="contact.html" class="btn btn-outline btn-sm">Get quote</a></div>
-          </article>
-          <article class="product-card">
-            <div class="product-image"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="BMW X5 E53 3.0d M57 Engine 2006"><span class="product-sale">Sale</span><span class="product-stock">In stock</span></div>
-            <div class="product-body"><div class="product-category">M57</div><h3><a href="contact.html">BMW X5 E53 3.0d M57 Engine 2006</a></h3>
-            <div class="product-price"><span class="price-current">€1,000</span><span class="price-old">€1,250</span></div>
-            <a href="contact.html" class="btn btn-outline btn-sm">Get quote</a></div>
-          </article>
-          <article class="product-card">
-            <div class="product-image"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="BMW E60 535d M57 Engine"><span class="product-sale">Sale</span><span class="product-stock">In stock</span></div>
-            <div class="product-body"><div class="product-category">M57</div><h3><a href="contact.html">BMW E60 535d M57 Engine</a></h3>
-            <div class="product-price"><span class="price-current">€1,300</span><span class="price-old">€1,500</span></div>
-            <a href="contact.html" class="btn btn-outline btn-sm">Get quote</a></div>
-          </article>
+        <p style="color:var(--color-text-muted);margin-bottom:1.5rem;"><strong id="category-count">—</strong> engines in this family · <a href="shop.html?cat=m57">View all in shop →</a></p>
+        <div class="products-grid" id="category-products-grid">
+          <p style="color:#888;">Loading engines…</p>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="shop.html?cat=m57" class="btn btn-primary">Browse all M57 engines</a>
         </div>
       </div>
     </section>
+
     <section class="content-section">
       <div class="container content-block">
         <h2>About M57 engines</h2>
@@ -64,6 +40,7 @@
     </section>
   </main>
   <script src="js/components.js"></script>
+  <script src="js/shop.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

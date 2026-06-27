@@ -145,6 +145,7 @@ function initSiteChrome() {
   const active = getActivePage();
   document.body.insertAdjacentHTML('afterbegin', renderHeader(active));
   document.body.insertAdjacentHTML('beforeend', renderFooter());
+  if (typeof window.updateCartBadge === 'function') window.updateCartBadge();
   if (active === 'home') {
     document.body.insertAdjacentHTML('beforeend', renderPurchaseToast());
     setTimeout(() => {

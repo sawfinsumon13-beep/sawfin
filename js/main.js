@@ -63,6 +63,7 @@ function initVinForm() {
 }
 
 function initProductFilters() {
+  if (document.getElementById('products-grid')) return;
   const tags = document.querySelectorAll('.filter-tag[data-filter]');
   const products = document.querySelectorAll('.product-card[data-category]');
 

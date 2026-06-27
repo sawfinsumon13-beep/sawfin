@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,600;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-page="b47">
+<body data-page="b47" data-category="b47">
 
   <main>
     <div class="page-header">
@@ -19,36 +19,18 @@
         <p>Euro 6 efficient 2.0-litre diesels for F30 LCI, G-series BMWs, X3 G01 and Mini F56.</p>
       </div>
     </div>
-    <section class="products-section">
+        <section class="products-section">
       <div class="container">
-        <div class="products-grid">
-          <article class="product-card">
-            <div class="product-image"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&q=80" alt="BMW 118D F20 B47D20A 2016 LCI Engine"><span class="product-sale">Sale</span><span class="product-stock">In stock</span></div>
-            <div class="product-body"><div class="product-category">B47</div><h3><a href="contact.html">BMW 118D F20 B47D20A 2016 LCI Engine</a></h3>
-            <div class="product-price"><span class="price-current">€2,000</span><span class="price-old">€2,400</span></div>
-            <a href="contact.html" class="btn btn-outline btn-sm">Get quote</a></div>
-          </article>
-          <article class="product-card">
-            <div class="product-image"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&q=80" alt="BMW X3 X4 B47D20A Engine"><span class="product-sale">Sale</span><span class="product-stock">In stock</span></div>
-            <div class="product-body"><div class="product-category">B47</div><h3><a href="contact.html">BMW X3 X4 B47D20A Engine</a></h3>
-            <div class="product-price"><span class="price-current">€1,500</span><span class="price-old">€2,000</span></div>
-            <a href="contact.html" class="btn btn-outline btn-sm">Get quote</a></div>
-          </article>
-          <article class="product-card">
-            <div class="product-image"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&q=80" alt="BMW 520d F10 2014 Euro6 B47D20A"><span class="product-sale">Sale</span><span class="product-stock">In stock</span></div>
-            <div class="product-body"><div class="product-category">B47</div><h3><a href="contact.html">BMW 520d F10 2014 Euro6 B47D20A</a></h3>
-            <div class="product-price"><span class="price-current">€2,000</span><span class="price-old">€2,350</span></div>
-            <a href="contact.html" class="btn btn-outline btn-sm">Get quote</a></div>
-          </article>
-          <article class="product-card">
-            <div class="product-image"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&q=80" alt="BMW 125d 2016 B47D30B EURO6 Engine"><span class="product-sale">Sale</span><span class="product-stock">In stock</span></div>
-            <div class="product-body"><div class="product-category">B47</div><h3><a href="contact.html">BMW 125d 2016 B47D30B EURO6 Engine</a></h3>
-            <div class="product-price"><span class="price-current">€3,750</span><span class="price-old">€4,250</span></div>
-            <a href="contact.html" class="btn btn-outline btn-sm">Get quote</a></div>
-          </article>
+        <p style="color:var(--color-text-muted);margin-bottom:1.5rem;"><strong id="category-count">—</strong> engines in this family · <a href="shop.html?cat=b47">View all in shop →</a></p>
+        <div class="products-grid" id="category-products-grid">
+          <p style="color:#888;">Loading engines…</p>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="shop.html?cat=b47" class="btn btn-primary">Browse all B47 engines</a>
         </div>
       </div>
     </section>
+
     <section class="content-section">
       <div class="container content-block">
         <h2>About B47 engines</h2>
@@ -58,6 +40,7 @@
     </section>
   </main>
   <script src="js/components.js"></script>
+  <script src="js/shop.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
