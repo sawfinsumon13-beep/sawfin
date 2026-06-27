@@ -1585,8 +1585,289 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .seo-list a:hover,
-.seo-content a:hover {
+.seo-content a:hover,
+.seo-link:hover {
   color: #e8c06a;
+}
+
+.seo-link {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.seo-platforms,
+.seo-ordering {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.seo-platforms h3,
+.seo-ordering h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.seo-platforms-intro {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.seo-list--platforms li {
+  margin-bottom: 0.5rem;
+}
+
+.seo-ordering p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.seo-content--compact {
+  padding: 3.5rem 0;
+}
+
+/* Inspected motors — hero-style two-column */
+.seo-inspected {
+  position: relative;
+  padding: 5rem 0;
+  overflow: hidden;
+}
+
+.seo-inspected-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.seo-inspected-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.25) saturate(0.7);
+}
+
+.seo-inspected-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.85) 100%);
+}
+
+.seo-inspected .container {
+  position: relative;
+  z-index: 1;
+}
+
+.seo-inspected-heading {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.35;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.seo-inspected-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .seo-inspected-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.seo-inspected-col p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.seo-inspected-col h3 {
+  font-size: 1.05rem;
+  margin: 1.25rem 0 0.75rem;
+  color: #fff;
+}
+
+.seo-inspected-col .seo-list li {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Trust strip */
+.trust-strip {
+  padding: 4rem 0;
+  background: #000;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.trust-strip-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .trust-strip-inner {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.trust-strip-text h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.trust-strip-text > p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.trust-strip-text .btn {
+  margin-top: 1.25rem;
+}
+
+.trust-strip-stats {
+  display: grid;
+  gap: 1rem;
+}
+
+.trust-stat-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.trust-stat-card strong {
+  display: block;
+  font-size: 1.75rem;
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.trust-stat-card > span {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.trust-stat-card p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+/* Two-column SEO blocks */
+.seo-two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .seo-two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.seo-two-col h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.seo-two-col p {
+  color: var(--color-text-muted);
+  font-size: 0.93rem;
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.seo-steps {
+  list-style: none;
+  counter-reset: seo-step;
+  display: grid;
+  gap: 1rem;
+}
+
+.seo-steps li {
+  position: relative;
+  padding-left: 2.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  counter-increment: seo-step;
+}
+
+.seo-steps li::before {
+  content: counter(seo-step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seo-note {
+  font-size: 0.88rem !important;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* Warranty support grid */
+.warranty-grid-section {
+  padding: 4.5rem 0;
+  background: var(--color-bg-elevated);
+}
+
+.warranty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.warranty-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.warranty-card h3 {
+  font-size: 1rem;
+  color: var(--color-gold);
+  margin-bottom: 0.6rem;
+}
+
+.warranty-card p {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
 }
 
 /* Topic cards */
