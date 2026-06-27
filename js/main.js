@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  initMobileNav();
-  initFaq();
-  initVinForm();
-  initProductFilters();
+  // Defer until components.js injects shared header
+  requestAnimationFrame(() => {
+    initMobileNav();
+    initFaq();
+    initVinForm();
+    initProductFilters();
+  });
 });
 
 function initMobileNav() {

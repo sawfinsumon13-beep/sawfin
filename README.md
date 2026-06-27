@@ -1,6 +1,6 @@
 # Bavarian Engines
 
-Static HTML website for **Bavarian Engines** — modeled after [bavarianengine.com](https://bavarianengine.com/).
+Static HTML website for **Bavarian Engines** — modeled after [bavarianengine.com](https://bavarianengine.com/). Ready for **Hostinger** upload.
 
 ## Contact
 
@@ -11,17 +11,34 @@ Static HTML website for **Bavarian Engines** — modeled after [bavarianengine.c
 | **Email** | sawfin@gmail.com |
 | **Address** | Tilsiter Str. 90, 22047 Hamburg, Germany |
 
-## Pages
+## All pages
 
 | Page | File |
 |------|------|
 | Home | `index.html` |
-| Shop | `shop.html` |
+| All Engines (Shop) | `shop.html` |
+| N47 Engines | `n47-engines.html` |
+| N57 Engines | `n57-engines.html` |
+| B47 Engines | `b47-engines.html` |
+| B57 Engines | `b57-engines.html` |
+| B58 Engines | `b58-engines.html` |
+| M57 Engines | `m57-engines.html` |
+| M57 Swap Kits | `m57-swap-kits.html` |
 | Services | `services.html` |
-| About | `about.html` |
-| Reviews | `reviews.html` |
-| Contact | `contact.html` |
+| About Us | `about.html` |
+| Contact Us | `contact.html` |
 | Policies | `policies.html` |
+| Blog | `blog.html` |
+| Reviews | `reviews.html` |
+
+### Blog articles
+
+- `blog-n47-vs-n57.html`
+- `blog-b47-vs-b57.html`
+- `blog-defender-m57.html`
+- `blog-b57-guide.html`
+- `blog-shipping.html`
+- `blog-pajero-m57.html`
 
 ## Preview locally
 
@@ -33,37 +50,16 @@ python3 -m http.server 8080
 |------|-----|
 | Home | http://127.0.0.1:8080/index.html |
 | Shop | http://127.0.0.1:8080/shop.html |
+| M57 Swap Kits | http://127.0.0.1:8080/m57-swap-kits.html |
+| Blog | http://127.0.0.1:8080/blog.html |
 | Reviews | http://127.0.0.1:8080/reviews.html |
-| Contact | http://127.0.0.1:8080/contact.html |
 
 ## Deploy to Hostinger
 
-1. Log in to [Hostinger hPanel](https://hpanel.hostinger.com)
-2. Open **File Manager** → `public_html`
-3. Upload all files keeping this structure:
+1. Log in to **hPanel** → **File Manager** → `public_html`
+2. Upload **all files** keeping folder structure (`css/`, `js/`)
+3. Visit your domain
 
-```
-public_html/
-├── index.html
-├── shop.html
-├── about.html
-├── services.html
-├── reviews.html
-├── contact.html
-├── policies.html
-├── css/style.css
-└── js/main.js
-```
+## Menu (matches reference site)
 
-4. Or upload a **ZIP** of the project and extract inside `public_html`
-5. Visit your domain — `index.html` loads automatically
-
-### Optional: custom domain
-
-In hPanel → **Domains** → point your domain to the hosting account. DNS may take up to 24 hours.
-
-## Customize
-
-- **Products:** edit cards in `shop.html`
-- **Reviews:** edit `reviews.html`
-- **Colors:** CSS variables in `css/style.css`
+Home · Engines (dropdown) · M57 Swap Kits · Services · About Us · Contact Us · Policies · Blog · Reviews
