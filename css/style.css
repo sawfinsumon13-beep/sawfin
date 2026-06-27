@@ -479,6 +479,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   padding: 0.875rem 0;
   border-bottom: 1px solid var(--color-border);
+  display: block;
 }
 
 /* Hero — full-width reference style */

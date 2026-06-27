@@ -60,26 +60,26 @@ function renderHeader(active) {
         <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
       </div>
     </div>
-    <button type="button" class="nav-mobile-backdrop" id="nav-mobile-backdrop" aria-hidden="true" tabindex="-1"></button>
-    <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="shop.html">All Engines</a>
-      <a href="n47-engines.html">N47 Engines</a>
-      <a href="n57-engines.html">N57 Engines</a>
-      <a href="b47-engines.html">B47 Engines</a>
-      <a href="b57-engines.html">B57 Engines</a>
-      <a href="b58-engines.html">B58 Engines</a>
-      <a href="m57-engines.html">M57 Engines</a>
-      <a href="m57-swap-kits.html">M57 Swap Kits</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="policies.html">Policies</a>
-      <a href="blog.html">Blog</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="https://wa.me/${SITE.wa}" target="_blank" rel="noopener">WhatsApp</a>
-    </nav>
   </header>
+  <button type="button" class="nav-mobile-backdrop" id="nav-mobile-backdrop" aria-hidden="true" tabindex="-1"></button>
+  <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="shop.html">All Engines</a>
+    <a href="n47-engines.html">N47 Engines</a>
+    <a href="n57-engines.html">N57 Engines</a>
+    <a href="b47-engines.html">B47 Engines</a>
+    <a href="b57-engines.html">B57 Engines</a>
+    <a href="b58-engines.html">B58 Engines</a>
+    <a href="m57-engines.html">M57 Engines</a>
+    <a href="m57-swap-kits.html">M57 Swap Kits</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="policies.html">Policies</a>
+    <a href="blog.html">Blog</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="https://wa.me/${SITE.wa}" target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
   <div class="search-overlay" id="search-overlay">
     <form class="search-box" id="search-form">
       <input type="search" placeholder="Search engines (e.g. N47, 530d, M57)..." aria-label="Search">
