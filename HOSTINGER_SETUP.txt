@@ -1,31 +1,38 @@
-BAVARIAN ENGINES — HOSTINGER UPLOAD GUIDE
-==========================================
+BAVARIAN ENGINES — FULL WEBSITE (ONE ZIP FILE)
+==============================================
 
-1. LOG IN to Hostinger → hPanel → Files → File Manager
+This is ONE zip file containing your COMPLETE website:
+  - 79 HTML pages (homepage, shop, blog, contact, etc.)
+  - css/ folder (styles)
+  - js/ folder (scripts, products, reviews)
+  - images/ folder (all engine photos)
+  - robots.txt, sitemap.xml, .htaccess
 
-2. OPEN the folder: public_html
-   (Delete any default Hostinger placeholder files first if this is a fresh site)
+A website needs many HTML files — that is normal. You do NOT merge
+them into one HTML file. This zip already packages everything together.
 
-3. UPLOAD this entire ZIP and EXTRACT it here
-   All files must sit directly inside public_html:
-     - index.html
-     - shop.html, about.html, etc.
-     - css/   js/   images/
-     - robots.txt   sitemap.xml   .htaccess
+HOSTINGER UPLOAD (3 STEPS)
+--------------------------
+1. Log in to Hostinger → hPanel → Files → File Manager
 
-4. SET YOUR DOMAIN in js/seo-config.js (line 2):
-     window.SEO_BASE_URL = 'https://YOURDOMAIN.com';
+2. Open public_html and DELETE old site files if replacing a previous upload
 
-   Then update sitemap.xml and robots.txt if your domain is not bavarianengine.com
-   (search/replace bavarianengine.com with your real domain)
+3. Upload bavarian-engines-website.zip → Right-click → Extract
+   After extract you should see directly inside public_html:
+     index.html
+     shop.html
+     about.html
+     css/
+     js/
+     images/
+   (NOT inside an extra subfolder)
 
-5. VISIT your domain — homepage should load with images and shop working.
+4. Visit your domain — open index.html as the homepage
 
-6. GOOGLE: Submit https://YOURDOMAIN.com/sitemap.xml in Google Search Console.
+5. Optional: edit js/seo-config.js and set your real domain URL
 
-NOTES
------
-- This is a static HTML site — no PHP or database required.
-- Cart uses browser localStorage; checkout opens WhatsApp.
-- Contact: flashkingpro202@gmail.com | +49 176 13627363
-- If images do not load, confirm the images/ folder uploaded completely (~170 MB).
+CONTACT
+-------
+Phone/WhatsApp: +49 176 13627363
+Email: flashkingpro202@gmail.com
+Address: Tilsiter Str. 90, 22047 Hamburg, Germany
