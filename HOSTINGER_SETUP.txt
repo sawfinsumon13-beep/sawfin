@@ -27,5 +27,5 @@ NOTES
 -----
 - This is a static HTML site — no PHP or database required.
 - Cart uses browser localStorage; checkout opens WhatsApp.
-- Contact: flashkingpro202@gmail.com | +447944470816
+- Contact: flashkingpro202@gmail.com | +49 176 13627363
 - If images do not load, confirm the images/ folder uploaded completely (~170 MB).

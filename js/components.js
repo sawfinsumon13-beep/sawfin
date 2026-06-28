@@ -1,8 +1,8 @@
 /* Shared site header, footer, and UI chrome */
 
 const SITE = {
-  phone: '+447944470816',
-  wa: '447944470816',
+  phone: '+49 176 13627363',
+  wa: '4917613627363',
   email: 'flashkingpro202@gmail.com',
 };
 
