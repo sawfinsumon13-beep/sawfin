@@ -160,4 +160,8 @@ async function initCartPage() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', initCartPage);
+if (window.SPA_MODE) {
+  window.initCartPage = initCartPage;
+} else {
+  document.addEventListener('DOMContentLoaded', initCartPage);
+}

@@ -333,11 +333,17 @@ async function initProductPage() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  initShop();
-  initCategoryPage();
-  initProductPage();
-});
+if (window.SPA_MODE) {
+  window.initShop = initShop;
+  window.initCategoryPage = initCategoryPage;
+  window.initProductPage = initProductPage;
+} else {
+  document.addEventListener('DOMContentLoaded', () => {
+    initShop();
+    initCategoryPage();
+    initProductPage();
+  });
+}
 
 window.renderProductCard = renderProductCard;
 window.bindProductCardEvents = bindProductCardEvents;

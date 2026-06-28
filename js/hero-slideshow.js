@@ -51,4 +51,8 @@ async function initHeroSlideshow() {
   }, HERO_INTERVAL_MS);
 }
 
-document.addEventListener('DOMContentLoaded', initHeroSlideshow);
+if (window.SPA_MODE) {
+  window.initHeroSlideshow = initHeroSlideshow;
+} else {
+  document.addEventListener('DOMContentLoaded', initHeroSlideshow);
+}

@@ -74,4 +74,8 @@ async function initBlogListing() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', initBlogListing);
+if (window.SPA_MODE) {
+  window.initBlogListing = initBlogListing;
+} else {
+  document.addEventListener('DOMContentLoaded', initBlogListing);
+}

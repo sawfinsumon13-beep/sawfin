@@ -150,4 +150,8 @@ async function initReviewsPage() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', initReviewsPage);
+if (window.SPA_MODE) {
+  window.initReviewsPage = initReviewsPage;
+} else {
+  document.addEventListener('DOMContentLoaded', initReviewsPage);
+}

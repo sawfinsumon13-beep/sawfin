@@ -28,7 +28,11 @@ async function initCheckoutPage() {
   updateCartBadge();
 
   if (!items.length) {
-    window.location.href = 'cart.html';
+    if (window.SPA_MODE && typeof window.spaNavigate === 'function') {
+      window.spaNavigate('cart.html');
+    } else {
+      window.location.href = 'cart.html';
+    }
     return;
   }
 
@@ -77,4 +81,8 @@ async function initCheckoutPage() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', initCheckoutPage);
+if (window.SPA_MODE) {
+  window.initCheckoutPage = initCheckoutPage;
+} else {
+  document.addEventListener('DOMContentLoaded', initCheckoutPage);
+}

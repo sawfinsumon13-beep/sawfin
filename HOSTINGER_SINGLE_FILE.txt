@@ -1,0 +1,27 @@
+BAVARIAN ENGINES — SINGLE HTML FILE PACKAGE
+===========================================
+
+This zip has ONLY 2 things:
+  1. index.html  — ENTIRE website in ONE file (all 79 pages + CSS + JS inside)
+  2. images/     — engine photos (required — too large to put inside HTML)
+
+HOSTINGER UPLOAD
+----------------
+1. Hostinger → File Manager → public_html
+2. Upload this zip → Extract
+3. You should see:
+     index.html
+     images/
+4. Open your domain — the site runs from ONE html file
+
+HOW IT WORKS
+------------
+- All pages (home, shop, blog, contact…) are inside index.html
+- Clicking menu links switches pages without loading new files
+- Phone: +49 176 13627363
+- Email: flashkingpro202@gmail.com
+
+IMPORTANT
+---------
+You still need the images/ folder next to index.html.
+Photos cannot be merged into one HTML file (would be 500+ MB).
