@@ -14,6 +14,7 @@ echo "Copying site files..."
 mkdir -p "$STAGING"
 cp -a "$ROOT"/*.html "$STAGING/" 2>/dev/null || true
 cp -a "$ROOT"/robots.txt "$ROOT"/sitemap.xml "$ROOT"/.htaccess "$ROOT"/HOSTINGER_SETUP.txt "$STAGING/"
+cp -a "$ROOT"/favicon.ico "$ROOT"/favicon.svg "$ROOT"/favicon-32.png "$ROOT"/apple-touch-icon.png "$STAGING/" 2>/dev/null || true
 cp -a "$ROOT"/css "$ROOT"/js "$ROOT"/images "$STAGING/"
 
 echo "Creating zip ($(du -sh "$STAGING" | cut -f1))..."

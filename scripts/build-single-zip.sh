@@ -13,6 +13,7 @@ rm -rf "$STAGING"
 mkdir -p "$STAGING" "$OUT_DIR"
 cp "$ROOT/bavarian-engines-all-in-one.html" "$STAGING/index.html"
 cp -a "$ROOT/images" "$STAGING/"
+cp "$ROOT/favicon.ico" "$ROOT/favicon.svg" "$ROOT/favicon-32.png" "$ROOT/apple-touch-icon.png" "$STAGING/" 2>/dev/null || true
 cp "$ROOT/HOSTINGER_SINGLE_FILE.txt" "$STAGING/"
 
 (cd "$STAGING" && zip -rq "$ZIP_PATH" .)

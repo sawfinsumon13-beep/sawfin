@@ -12,6 +12,11 @@ BASE_URL = "https://bavarianengine.com"
 KEYWORDS = "BMW engines, bmw engines for sale, buy used bmw engines, original BMW engine, Bavarian Engines"
 OG_IMAGE = f"{BASE_URL}/images/engines/sets/set-0108/main-BMW-530d-F10-N57D30A-Engine-2012-1.webp"
 
+FAVICON_LINKS = """  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">"""
+
 PAGE_SEO: dict[str, dict[str, str]] = {
     "index.html": {
         "title": "BMW Engines For Sale | Buy Used Original BMW Engines | Bavarian Engines",
@@ -115,7 +120,24 @@ def build_head_block(filename: str, title: str, description: str) -> str:
   <meta name="twitter:title" content="{t}">
   <meta name="twitter:description" content="{d}">
   <meta name="twitter:image" content="{OG_IMAGE}">
-  <title>{t}</title>"""
+  <title>{t}</title>
+{FAVICON_LINKS}"""
+
+
+def add_favicons(path: Path) -> bool:
+    text = path.read_text(encoding="utf-8")
+    if "favicon.ico" in text:
+        return False
+    new_text, n = re.subn(
+        r"(  <title>[^<]*</title>)",
+        r"\1\n" + FAVICON_LINKS,
+        text,
+        count=1,
+    )
+    if n and new_text != text:
+        path.write_text(new_text, encoding="utf-8")
+        return True
+    return False
 
 
 def update_html(path: Path, title: str, description: str) -> bool:
@@ -168,7 +190,14 @@ def main() -> None:
             updated += 1
             print(f"Updated {name}")
 
-    print(f"Done — {updated} pages updated")
+    fav_added = 0
+    for html in sorted(ROOT.glob("*.html")):
+        if html.name == "bavarian-engines-all-in-one.html":
+            continue
+        if add_favicons(html):
+            fav_added += 1
+
+    print(f"Done — {updated} pages updated, {fav_added} favicons added")
 
 
 if __name__ == "__main__":

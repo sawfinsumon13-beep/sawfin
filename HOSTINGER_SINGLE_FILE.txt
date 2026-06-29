@@ -1,9 +1,10 @@
 BAVARIAN ENGINES — SINGLE HTML FILE PACKAGE
 ===========================================
 
-This zip has ONLY 2 things:
+This zip has ONLY these items:
   1. index.html  — ENTIRE website in ONE file (all 79 pages + CSS + JS inside)
   2. images/     — engine photos (required — too large to put inside HTML)
+  3. favicon.ico, favicon.svg, favicon-32.png, apple-touch-icon.png — site icon
 
 HOSTINGER UPLOAD
 ----------------
@@ -12,6 +13,7 @@ HOSTINGER UPLOAD
 3. You should see:
      index.html
      images/
+     favicon.ico (and other icon files)
 4. Open your domain — the site runs from ONE html file
 
 HOW IT WORKS

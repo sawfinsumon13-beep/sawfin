@@ -6,6 +6,7 @@ This is ONE zip file containing your COMPLETE website:
   - css/ folder (styles)
   - js/ folder (scripts, products, reviews)
   - images/ folder (all engine photos)
+  - favicon.ico, favicon.svg, apple-touch-icon.png (browser tab icon)
   - robots.txt, sitemap.xml, .htaccess
 
 A website needs many HTML files — that is normal. You do NOT merge
@@ -25,6 +26,7 @@ HOSTINGER UPLOAD (3 STEPS)
      css/
      js/
      images/
+     favicon.ico
    (NOT inside an extra subfolder)
 
 4. Visit your domain — open index.html as the homepage
