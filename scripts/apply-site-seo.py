@@ -12,10 +12,17 @@ BASE_URL = "https://bavarianengine.com"
 KEYWORDS = "BMW engines, bmw engines for sale, buy used bmw engines, original BMW engine, Bavarian Engines"
 OG_IMAGE = f"{BASE_URL}/images/engines/sets/set-0108/main-BMW-530d-F10-N57D30A-Engine-2012-1.webp"
 
-FAVICON_LINKS = """  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">"""
+
+def favicon_links() -> str:
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "generate_favicon", ROOT / "scripts" / "generate-favicon.py"
+    )
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.build_favicon_links()
+
 
 PAGE_SEO: dict[str, dict[str, str]] = {
     "index.html": {
@@ -121,7 +128,7 @@ def build_head_block(filename: str, title: str, description: str) -> str:
   <meta name="twitter:description" content="{d}">
   <meta name="twitter:image" content="{OG_IMAGE}">
   <title>{t}</title>
-{FAVICON_LINKS}"""
+{favicon_links()}"""
 
 
 def add_favicons(path: Path) -> bool:
@@ -130,7 +137,7 @@ def add_favicons(path: Path) -> bool:
         return False
     new_text, n = re.subn(
         r"(  <title>[^<]*</title>)",
-        r"\1\n" + FAVICON_LINKS,
+        r"\1\n" + favicon_links(),
         text,
         count=1,
     )

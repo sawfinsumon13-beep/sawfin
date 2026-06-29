@@ -7,9 +7,17 @@ import json
 import re
 import base64
 import argparse
+import importlib.util
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+_spec = importlib.util.spec_from_file_location(
+    "generate_favicon", ROOT / "scripts" / "generate-favicon.py"
+)
+_favicon_mod = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_favicon_mod)
+FAVICON_LINKS = _favicon_mod.build_favicon_links()
 
 JS_ORDER = [
     "seo-config.js",
@@ -272,10 +280,7 @@ def build(theme: str = "terminal") -> Path:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{head_title}</title>
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+{FAVICON_LINKS}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,600;9..40,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
