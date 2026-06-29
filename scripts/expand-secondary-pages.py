@@ -74,8 +74,6 @@ def m57_content() -> str:
         p("M57 engines and kits carry written mechanical warranty cover on correctly installed units. Full terms are on our <a href='policies.html' class='seo-link'>policies page</a>. Contact <a href='https://wa.me/4917613627363' target='_blank' rel='noopener'>Phone +49 176 13627363</a> or <a href='mailto:flashkingpro202@gmail.com' class='seo-link'>flashkingpro202@gmail.com</a> to start your conversion enquiry."),
     ]
     body = "\n".join(blocks)
-    while wc(body) < 1000:
-        body += p("M57 swap customers benefit from Bavarian Engines' BMW-only focus — stamp identification, donor documentation, and export preparation follow the same rigorous workflow we apply to N47, N57, B47, and B57 replacement supply.")
     return f'<section class="page-rich-content"><div class="container article-content">{body}</div></section>'
 
 
@@ -103,8 +101,6 @@ def services_content() -> str:
         p("Message <a href='https://wa.me/4917613627363' target='_blank' rel='noopener'>WhatsApp</a> with your VIN today or browse <a href='shop.html' class='seo-link'>two thousand plus engines online</a>."),
     ]
     body = "\n".join(blocks)
-    while wc(body) < 1000:
-        body += p("Our services team speaks to fitters and owners in plain language — suffix codes, inclusion scope, warranty steps, and freight expectations — because clarity before payment prevents costly returns.")
     return f'<section class="page-rich-content"><div class="container article-content">{body}</div></section>'
 
 
@@ -128,8 +124,6 @@ def about_content() -> str:
         p("Contact us at <a href='mailto:flashkingpro202@gmail.com' class='seo-link'>flashkingpro202@gmail.com</a> or <a href='https://wa.me/4917613627363' target='_blank' rel='noopener'>Phone +49 176 13627363</a>. Browse <a href='shop.html' class='seo-link'>inventory</a>, read <a href='reviews.html' class='seo-link'>customer reviews</a>, or explore our <a href='blog.html' class='seo-link'>technical blog</a>."),
     ]
     body = "\n".join(blocks)
-    while wc(body) < 1000:
-        body += p("Bavarian Engines exists so European BMW owners and workshops can source documented used motors with human accountability — the standard we apply to every engine leaving Hamburg.")
     return f'<section class="page-rich-content"><div class="container article-content">{body}</div></section>'
 
 
@@ -152,8 +146,6 @@ def contact_content() -> str:
         p("Use the contact form above to compose an email enquiry, or open WhatsApp for immediate VIN checks. We look forward to helping you source the correct BMW motor for your project."),
     ]
     body = "\n".join(blocks)
-    while wc(body) < 1000:
-        body += p("Whether you are a private 320d owner, an F10 530d specialist, or a Defender M57 builder, Bavarian Engines responds with the same transparency — stamp verification, honest inclusions, and tracked export from Hamburg.")
     return f'<section class="page-rich-content"><div class="container article-content">{body}</div></section>'
 
 
@@ -187,9 +179,6 @@ def policies_content() -> str:
         trust_block(),
     ]
     body = "\n".join(blocks)
-    pad = "Bavarian Engines policies prioritise fair treatment when documentation, installation discipline, and pre-payment VIN confirmation are followed."
-    while wc(body) < 1000:
-        body += p(pad)
     return f'<section class="page-rich-content"><div class="container article-content">{body}</div></section>'
 
 
@@ -218,8 +207,6 @@ def reviews_content() -> str:
         trust_block(),
     ]
     body = "\n".join(narrative)
-    while wc(body) < 1000:
-        body += p("Every five-star review represents a BMW back on the road with documented hardware, fair warranty terms, and a Hamburg team that answers the phone — the standard we work to on every order.")
     return extra_reviews, f'<section class="page-rich-content"><div class="container article-content">{body}</div></section>'
 
 
