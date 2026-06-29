@@ -1,27 +1,33 @@
 [
   {
     "src": "images/engines/sets/set-0018/main-BMW-G23-M440i-B58-Engine-1.webp",
-    "label": "BMW G23 M440i B58 Engine"
+    "label": "BMW G23 M440i B58 Engine",
+    "position": "center 38%"
   },
   {
     "src": "images/engines/sets/set-0066/main-BMW-118D-F20-B47D20A-2016-LCI-Engine.webp",
-    "label": "BMW 118D F20 B47D20A 2016 LCI Engine"
+    "label": "BMW 118D F20 B47D20A 2016 LCI Engine",
+    "position": "center 45%"
   },
   {
     "src": "images/engines/sets/set-0088/main-BMW-330D-231Hp-M57-2009-Engine-2.webp",
-    "label": "BMW 330D 231Hp M57 2009 Engine"
+    "label": "BMW 330D 231Hp M57 2009 Engine",
+    "position": "center 40%"
   },
   {
     "src": "images/engines/sets/set-0108/main-BMW-530d-F10-N57D30A-Engine-2012-1.webp",
-    "label": "BMW 530d F10 N57D30A Engine 2012"
+    "label": "BMW 530d F10 N57D30A Engine 2012",
+    "position": "center 42%"
   },
   {
     "src": "images/engines/sets/set-0114/main-BMW-F30-320d-N47D20C-Engine-2014-1.webp",
-    "label": "BMW F30 320d N47D20C Engine 2014"
+    "label": "BMW F30 320d N47D20C Engine 2014",
+    "position": "center 40%"
   },
   {
     "src": "images/engines/sets/set-0052/main-BMW-X6-G06-M50d-B57D30S-Engine-2019-2.webp",
-    "label": "BMW X6 G06 M50d B57D30S Engine 2019"
+    "label": "BMW X6 G06 M50d B57D30S Engine 2019",
+    "position": "center 35%"
   },
   {
     "src": "images/engines/sets/set-0092/main-BMW-X5-F15-M50d-N57D30C-Engine-2017-1.webp",
