@@ -189,12 +189,12 @@ function refreshCartBadge() {
 const PURCHASE_ALERTS = [
   { name: 'Lars', city: 'Brussels', country: 'Belgium', product: 'BMW F10 530d N57D30A Engine', price: '€3.500,00', ago: '5 minutes ago' },
   { name: 'Henrik', city: 'Copenhagen', country: 'Denmark', product: 'BMW 118D F20 B47D20A Engine', price: '€2.200,00', ago: '1 minute ago' },
-  { name: 'Sofia', city: 'Stockholm', country: 'Sweden', product: 'BMW F30 320d N47D20C Engine', price: '€1.850,00', ago: '8 minutes ago' },
+  { name: 'Sofia', city: 'Stockholm', country: 'Sweden', product: 'BMW F30 320d N47D20C Engine', price: '€2.400,00', ago: '8 minutes ago' },
   { name: 'Marco', city: 'Milan', country: 'Italy', product: 'BMW X5 F15 30d N57D30B Engine', price: '€3.200,00', ago: '12 minutes ago' },
   { name: 'Petra', city: 'Prague', country: 'Czech Republic', product: 'BMW X3 F25 B47D20A Engine', price: '€2.450,00', ago: '3 minutes ago' },
-  { name: 'David', city: 'Dublin', country: 'Ireland', product: 'BMW E90 320d N47D20C Engine', price: '€1.650,00', ago: '18 minutes ago' },
+  { name: 'David', city: 'Dublin', country: 'Ireland', product: 'BMW E90 320d N47D20C Engine', price: '€2.100,00', ago: '18 minutes ago' },
   { name: 'Antoine', city: 'Lyon', country: 'France', product: 'BMW G30 530d B57D30B Engine', price: '€4.100,00', ago: '6 minutes ago' },
-  { name: 'Katarzyna', city: 'Warsaw', country: 'Poland', product: 'BMW F30 320d N47D20A Engine', price: '€1.900,00', ago: '22 minutes ago' },
+  { name: 'Katarzyna', city: 'Warsaw', country: 'Poland', product: 'BMW F30 320d N47D20A Engine', price: '€2.350,00', ago: '22 minutes ago' },
 ];
 
 const PURCHASE_TOAST_PAGES = new Set(['home', 'shop', 'reviews', 'cart', 'checkout', 'n47', 'n57', 'b47', 'b57', 'b58', 'm57']);
