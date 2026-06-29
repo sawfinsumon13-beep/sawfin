@@ -304,7 +304,7 @@ async function initProductPage() {
           </div>
           <p class="product-stock-label${stockClass(p.stock)}">${p.stock}</p>
           <button class="btn btn-cart add-to-cart" data-id="${p.id}" style="width:100%;margin:1rem 0;" ${p.stock === 'Out of stock' ? 'disabled' : ''}>Add to cart</button>
-          <a href="${window.SITE_WA_URL || 'https://wa.me/4917613627363'}?text=${encodeURIComponent('Hi, I am interested in ' + p.title + ' (SKU: ' + p.sku + ')')}" class="btn btn-whatsapp" style="width:100%;" target="_blank" rel="noopener">WhatsApp enquiry</a>
+          <a href="${window.SITE_WA_URL || 'https://wa.me/4915510030835'}?text=${encodeURIComponent('Hi, I am interested in ' + p.title + ' (SKU: ' + p.sku + ')')}" class="btn btn-whatsapp" style="width:100%;" target="_blank" rel="noopener">WhatsApp enquiry</a>
           <div class="detail-includes" style="margin-top:2rem;">
             <h3>What's included</h3>
             <ul>

@@ -24,8 +24,8 @@
     url: base,
     logo: `${base}/images/engines/sets/set-0108/main-BMW-530d-F10-N57D30A-Engine-2012-1.webp`,
     description: 'Buy used original BMW engines for sale from Hamburg. VIN-verified BMW motors — N47, N57, B47, B57, B58, M57.',
-    email: 'flashkingpro202@gmail.com',
-    telephone: window.SITE_PHONE || '+49 176 13627363',
+    email: 'originalbavarianengine@gmail.com',
+    telephone: window.SITE_PHONE || '+49 15510 030835',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Tilsiter Str. 90',
@@ -35,7 +35,7 @@
     },
     areaServed: ['DE', 'EU', 'GB', 'IE', 'FR', 'ES', 'IT', 'NL', 'PL', 'CZ'],
     priceRange: '€€€',
-    sameAs: [window.SITE_WA_URL || 'https://wa.me/4917613627363'],
+    sameAs: [window.SITE_WA_URL || 'https://wa.me/4915510030835'],
   };
 
   const website = {

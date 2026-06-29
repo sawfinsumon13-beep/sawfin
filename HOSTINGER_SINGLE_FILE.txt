@@ -20,8 +20,8 @@ HOW IT WORKS
 ------------
 - All pages (home, shop, blog, contact…) are inside index.html
 - Clicking menu links switches pages without loading new files
-- Phone: +49 176 13627363
-- Email: flashkingpro202@gmail.com
+- Phone: +49 15510 030835
+- Email: originalbavarianengine@gmail.com
 
 IMPORTANT
 ---------

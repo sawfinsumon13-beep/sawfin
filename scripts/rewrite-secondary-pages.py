@@ -213,8 +213,8 @@ def contact_deep_content() -> str:
     <section class="contact-facts">
       <div class="container">
         <div class="contact-facts-grid">
-          <div class="contact-fact"><strong>WhatsApp</strong><a href="https://wa.me/4917613627363" target="_blank" rel="noopener">+49 176 13627363</a></div>
-          <div class="contact-fact"><strong>Email</strong><a href="mailto:flashkingpro202@gmail.com">flashkingpro202@gmail.com</a></div>
+          <div class="contact-fact"><strong>WhatsApp</strong><a href="https://wa.me/4915510030835" target="_blank" rel="noopener">+49 15510 030835</a></div>
+          <div class="contact-fact"><strong>Email</strong><a href="mailto:originalbavarianengine@gmail.com">originalbavarianengine@gmail.com</a></div>
           <div class="contact-fact"><strong>Warehouse</strong><span>Tilsiter Str. 90, 22047 Hamburg</span></div>
           <div class="contact-fact"><strong>Hours</strong><span>Mon–Fri, CET business hours</span></div>
         </div>
@@ -357,7 +357,7 @@ def main() -> None:
           <h2>Send your VIN for a free match</h2>
           <p>WhatsApp is fastest — we typically reply the same business day with compatible stock and freight.</p>
           <div class="cta-buttons">
-            <a href="https://wa.me/4917613627363" class="btn btn-primary" target="_blank" rel="noopener">WhatsApp +49 176 13627363</a>
+            <a href="https://wa.me/4915510030835" class="btn btn-primary" target="_blank" rel="noopener">WhatsApp +49 15510 030835</a>
             <a href="shop.html" class="btn btn-outline">Browse engines</a>
           </div>
         </div>
@@ -373,6 +373,7 @@ def main() -> None:
         ROOT / "policies.html",
         '<section class="cta-banner">',
         policies_deep_content(),
+        marker="policy-cards",
     )
 
     patch_file(

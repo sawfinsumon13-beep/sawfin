@@ -15,7 +15,7 @@ NEW_HERO = """      <div class="container hero-layout">
           <p class="hero-lead">Bavarian Engines supplies original BMW motors to workshops and owners across Europe. Every unit is suffix-verified against your VIN before dispatch.</p>
           <div class="hero-actions">
             <a href="shop.html" class="btn btn-primary">Browse 2,000+ engines</a>
-            <a href="https://wa.me/4917613627363" class="btn btn-outline" style="border-color:#fff;color:#fff" target="_blank" rel="noopener">WhatsApp VIN check</a>
+            <a href="https://wa.me/4915510030835" class="btn btn-outline" style="border-color:#fff;color:#fff" target="_blank" rel="noopener">WhatsApp VIN check</a>
           </div>
           <div class="hero-stats-row">
             <div class="hero-stat"><strong>2,000+</strong><span>Motors in stock</span></div>

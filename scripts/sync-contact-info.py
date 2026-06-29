@@ -5,8 +5,8 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parent.parent
-PHONE_DISPLAY = "+49 176 13627363"
-WA_NUMBER = "4917613627363"
+PHONE_DISPLAY = "+49 15510 030835"
+WA_NUMBER = "4915510030835"
 WA_URL = f"https://wa.me/{WA_NUMBER}"
 
 # Legacy numbers to replace if any remain

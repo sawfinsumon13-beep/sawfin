@@ -364,7 +364,7 @@ def generate_body(post: dict) -> str:
     ]))
 
     blocks.append(section("Conclusion — your next step with Bavarian Engines", [
-        f"If {models} brought you here, you already know engine failure is stressful. The path forward is clarity: confirm suffix, buy documented hardware, install with discipline, and keep a supplier who answers after the crate arrives. Browse our <a href='shop.html'>online inventory</a>, read <a href='reviews.html'>buyer reviews</a>, explore <a href='policies.html'>warranty terms</a>, or message our Hamburg team on <a href='https://wa.me/4917613627363' target='_blank' rel='noopener'>WhatsApp</a> with your VIN for a same-day fitment check on {platform} stock.",
+        f"If {models} brought you here, you already know engine failure is stressful. The path forward is clarity: confirm suffix, buy documented hardware, install with discipline, and keep a supplier who answers after the crate arrives. Browse our <a href='shop.html'>online inventory</a>, read <a href='reviews.html'>buyer reviews</a>, explore <a href='policies.html'>warranty terms</a>, or message our Hamburg team on <a href='https://wa.me/4915510030835' target='_blank' rel='noopener'>WhatsApp</a> with your VIN for a same-day fitment check on {platform} stock.",
         f"Bavarian Engines exists so {category.lower()} decisions are made with eyes open — not with guesswork on the most expensive component your BMW will ever need. We look forward to helping you source the right {platform} motor for your {models} application with the transparency, preparation, and support that European workshops and owners expect from a dedicated BMW engine exchange in Hamburg.",
     ]))
 
@@ -457,7 +457,7 @@ def article_html(post: dict, image: str, body: str) -> str:
         {body}
         <div class="article-footer-cta">
           <a href="shop.html" class="btn btn-primary">Browse engines</a>
-          <a href="https://wa.me/4917613627363" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp VIN match</a>
+          <a href="https://wa.me/4915510030835" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp VIN match</a>
           <a href="blog.html" class="btn btn-outline">← All articles</a>
         </div>
       </div>

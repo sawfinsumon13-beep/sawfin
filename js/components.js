@@ -1,9 +1,9 @@
 /* Shared site header, footer, and UI chrome */
 
 const SITE = {
-  phone: window.SITE_PHONE || '+49 176 13627363',
-  wa: window.SITE_WA || '4917613627363',
-  email: window.SITE_EMAIL || 'flashkingpro202@gmail.com',
+  phone: window.SITE_PHONE || '+49 15510 030835',
+  wa: window.SITE_WA || '4915510030835',
+  email: window.SITE_EMAIL || 'originalbavarianengine@gmail.com',
   get waUrl() {
     return window.SITE_WA_URL || `https://wa.me/${this.wa}`;
   },
