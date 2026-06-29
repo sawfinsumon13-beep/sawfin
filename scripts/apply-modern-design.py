@@ -37,7 +37,15 @@ NEW_HERO = """      <div class="container hero-layout">
 
 
 def main() -> None:
-    STYLE.write_text(MODERN.read_text(encoding="utf-8"), encoding="utf-8")
+    premium = Path(__file__).parent / "style-premium.css"
+    overrides = Path(__file__).parent / "premium-overrides.css"
+    if premium.exists():
+        css = premium.read_text(encoding="utf-8")
+        if overrides.exists():
+            css += "\n" + overrides.read_text(encoding="utf-8")
+        STYLE.write_text(css, encoding="utf-8")
+    else:
+        STYLE.write_text(MODERN.read_text(encoding="utf-8"), encoding="utf-8")
     print(f"Updated {STYLE}")
 
     index = ROOT / "index.html"
