@@ -1,0 +1,29 @@
+BAVARIAN ENGINES — PREMIUM DESIGN (same website, new look)
+============================================================
+
+This is the SAME Bavarian Engines website (all pages, shop, blog, cart)
+with a PREMIUM BMW dealer design instead of the green terminal theme.
+
+DESIGN DIFFERENCE
+-----------------
+  Terminal theme (original): green matrix / hacker style
+  Premium theme (this):      navy blue, BMW blue accents, clean dealer look
+
+Same content, phone, WhatsApp, products, and features.
+
+HOSTINGER UPLOAD — SINGLE FILE
+------------------------------
+1. Extract the premium single-file ZIP
+2. Upload to public_html:
+     index.html
+     images/
+     favicon.ico (+ other icon files)
+3. Open your domain
+
+HOSTINGER UPLOAD — FULL SITE (79 HTML files)
+--------------------------------------------
+1. Extract bavarian-engines-premium-website.zip
+2. Upload all files to public_html
+3. css/style.css is already the premium theme
+
+Contact: +49 176 13627363 | flashkingpro202@gmail.com

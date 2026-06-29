@@ -37,6 +37,21 @@ Static HTML website for **Bavarian Engines** — modeled after [bavarianengine.c
 - Individual articles: `blog-{slug}.html` (e.g. `blog-n47-vs-n57.html`)
 - Regenerate: `python3 scripts/generate-blog.py`
 
+## Two designs (same content)
+
+| Theme | Look | Build |
+|-------|------|-------|
+| **Terminal** (default) | Green matrix / hacker style | `bash scripts/build-single-zip.sh` |
+| **Premium** | Navy BMW dealer / professional | `bash scripts/build-premium-single-zip.sh` |
+
+Both include the same 79 pages, shop, blog, cart, and contact details.
+
+Regenerate premium CSS after editing `css/style.css`:
+
+```bash
+python3 scripts/generate-premium-theme.py
+```
+
 ## Preview locally
 
 ```bash

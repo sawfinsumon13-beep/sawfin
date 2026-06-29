@@ -6,10 +6,10 @@ from __future__ import annotations
 import json
 import re
 import base64
+import argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "bavarian-engines-all-in-one.html"
 
 JS_ORDER = [
     "seo-config.js",
@@ -208,8 +208,9 @@ def escape_script(js: str) -> str:
     return js.replace("</script>", "<\\/script>")
 
 
-SKIP_PAGES = {
-    OUT.name,
+SKIP_NAMES = {
+    "bavarian-engines-all-in-one.html",
+    "bavarian-engines-premium-all-in-one.html",
     "single.html",
     "mini-test.html",
     "mini.html",
@@ -222,8 +223,11 @@ SKIP_PAGES = {
 }
 
 
-def build() -> None:
-    css = (ROOT / "css" / "style.css").read_text(encoding="utf-8")
+def build(theme: str = "terminal") -> Path:
+    premium = theme == "premium"
+    css_name = "style-premium.css" if premium else "style.css"
+    out = ROOT / ("bavarian-engines-premium-all-in-one.html" if premium else "bavarian-engines-all-in-one.html")
+    css = (ROOT / "css" / css_name).read_text(encoding="utf-8")
 
     embed: dict = {}
     for rel, key in JSON_EMBED.items():
@@ -231,7 +235,7 @@ def build() -> None:
 
     pages = []
     for html in sorted(ROOT.glob("*.html")):
-        if html.name in SKIP_PAGES or html.name.startswith("test-js-"):
+        if html.name in SKIP_NAMES or html.name.startswith("test-js-"):
             continue
         pages.append(extract_page(html))
 
@@ -293,11 +297,16 @@ window.__EMBED__ = JSON.parse(atob("__EMBED_B64__"));
 """
 
     html = html.replace("__EMBED_B64__", embed_b64)
-    OUT.write_text(html, encoding="utf-8")
-    size_mb = OUT.stat().st_size / (1024 * 1024)
-    print(f"Built {OUT.name}: {len(pages)} pages, {size_mb:.1f} MB")
+    out.write_text(html, encoding="utf-8")
+    size_mb = out.stat().st_size / (1024 * 1024)
+    label = "Premium" if premium else "Standard"
+    print(f"Built {out.name} ({label}): {len(pages)} pages, {size_mb:.1f} MB")
     print("Note: upload images/ folder alongside this file on Hostinger.")
+    return out
 
 
 if __name__ == "__main__":
-    build()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--theme", choices=["terminal", "premium"], default="terminal")
+    args = parser.parse_args()
+    build(args.theme)
