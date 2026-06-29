@@ -77,7 +77,7 @@ function renderMobileNav() {
   <button type="button" class="nav-mobile-backdrop" id="nav-mobile-backdrop" aria-hidden="true" tabindex="-1"></button>
   <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation" aria-hidden="true">
     <div class="nav-mobile-head">
-      <span class="nav-mobile-title">// menu.nav</span>
+      <span class="nav-mobile-title">Menu</span>
       <button type="button" class="nav-mobile-close" id="nav-mobile-close" aria-label="Close menu">×</button>
     </div>
     <a href="index.html">Home</a>

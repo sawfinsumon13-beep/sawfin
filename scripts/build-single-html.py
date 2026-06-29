@@ -211,6 +211,7 @@ def escape_script(js: str) -> str:
 SKIP_NAMES = {
     "bavarian-engines-all-in-one.html",
     "bavarian-engines-premium-all-in-one.html",
+    "harbor-motor-exchange.html",
     "single.html",
     "mini-test.html",
     "mini.html",
