@@ -1,0 +1,23 @@
+HARBOR MOTOR EXCHANGE — SECOND WEBSITE (separate from Bavarian Engines)
+=======================================================================
+
+This is a COMPLETELY DIFFERENT website:
+  - New brand: Harbor Motor Exchange
+  - New design: warm cream/terracotta/forest (NOT green terminal)
+  - New content: rewritten copy
+  - Same purpose: selling used BMW engines
+
+FILES TO UPLOAD
+---------------
+  harbor-motor-exchange.html  → rename to index.html on hosting
+  images/                     → same engine photos folder
+
+HOSTINGER
+---------
+1. Use a NEW domain or subfolder (e.g. harborengines.com or yourdomain.com/harbor/)
+2. Upload index.html + images/ to public_html
+3. Hard refresh browser to see the new design
+
+BUILD AGAIN
+-----------
+  python3 scripts/build-harbor-site.py
