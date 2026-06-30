@@ -4017,6 +4017,38 @@ body {
   max-width: 560px;
 }
 
+.checkout-place-order {
+  margin-top: 1.5rem;
+}
+
+.checkout-place-order-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.checkout-place-order-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 360px;
+}
+
+.btn-checkout-email {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--color-text);
+  box-shadow: none;
+}
+
+.btn-checkout-email:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
 .checkout-summary-card {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);

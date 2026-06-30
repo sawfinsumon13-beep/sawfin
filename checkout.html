@@ -92,7 +92,13 @@
           <h2 style="margin-top:2rem;">Payment</h2>
           <p class="checkout-payment-note">After you place the order we send a proforma invoice. Pay by <strong>SEPA bank transfer</strong>, <strong>SWIFT wire</strong>, or <strong>Zelle</strong>. Shipping is quoted once your VIN and suffix are confirmed.</p>
 
-          <button type="submit" class="btn btn-checkout" style="margin-top:1.5rem;width:100%;max-width:360px;">Place order via WhatsApp</button>
+          <div class="checkout-place-order">
+            <p class="checkout-place-order-label">Place order via</p>
+            <div class="checkout-place-order-actions">
+              <button type="button" class="btn btn-checkout" id="checkout-whatsapp">Place order via WhatsApp</button>
+              <button type="button" class="btn btn-checkout btn-checkout-email" id="checkout-email">Place order via Email</button>
+            </div>
+          </div>
         </form>
 
         <aside class="checkout-summary-card" id="checkout-summary">
