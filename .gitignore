@@ -1,0 +1,9 @@
+# Large downloaded site files (too big for git)
+purebredkitties-site/purebredkitties.com/
+purebredkitties-site/cdn.shopify.com/
+purebredkitties-site/all-urls.txt
+purebredkitties-site/product-urls.txt
+purebredkitties-site.zip
+wget-log.txt
+wget-bulk-log.txt
+wget-products-log.txt
