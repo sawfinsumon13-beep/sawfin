@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 """
-Build Apache-ready hosting ZIP with:
-- Files at ZIP root (not nested in a subfolder)
-- Clean asset copies (no ? in filenames)
-- .htaccess included
+Build ONE complete Apache-ready hosting ZIP.
+Extract directly into public_html — no extra fix steps needed.
 """
 
 import os
@@ -13,8 +11,7 @@ from pathlib import Path
 
 SOURCE = Path("/workspace/purebredkitties-website")
 STAGING = Path("/workspace/hosting-staging")
-OUTPUT_ZIP = Path("/workspace/purebredkitties-hosting-fixed.zip")
-ESSENTIAL_ZIP = Path("/workspace/essential-assets.zip")
+OUTPUT_ZIP = Path("/workspace/purebredkitties-complete-hosting.zip")
 
 SKIP_NAMES = {".git", "__pycache__", "agents.md"}
 
@@ -49,7 +46,6 @@ def stage_site():
             (STAGING / rel).mkdir(parents=True, exist_ok=True)
             continue
 
-        # Skip wget-style filenames; clean copies are added below
         if "?" in src.name:
             continue
 
@@ -58,7 +54,6 @@ def stage_site():
         shutil.copy2(src, dst)
         copied += 1
 
-    # Add clean copies from wget-style source files
     for src in SOURCE.rglob("*"):
         if not src.is_file() or "?" not in src.name:
             continue
@@ -78,7 +73,7 @@ def stage_site():
     return copied
 
 
-def make_zip(folder: Path, zip_path: Path, prefix: str = ""):
+def make_zip(folder: Path, zip_path: Path):
     if zip_path.exists():
         zip_path.unlink()
 
@@ -87,7 +82,7 @@ def make_zip(folder: Path, zip_path: Path, prefix: str = ""):
         for root, _, files in os.walk(folder):
             for name in files:
                 full = Path(root) / name
-                arc = prefix + str(full.relative_to(folder)).replace("\\", "/")
+                arc = str(full.relative_to(folder)).replace("\\", "/")
                 zf.write(full, arc)
                 count += 1
     size_mb = zip_path.stat().st_size / (1024 * 1024)
@@ -95,42 +90,31 @@ def make_zip(folder: Path, zip_path: Path, prefix: str = ""):
     return count
 
 
-def make_essential_assets():
-    """Small ZIP with theme CSS/JS that Hostinger failed to upload."""
-    essential = STAGING / "_essential"
-    if essential.exists():
-        shutil.rmtree(essential)
-
-    paths = [
-        "cdn/shop/t/285/assets",
-        "favicon.png",
-        "favicon.ico",
-    ]
-
-    for rel in paths:
-        src = STAGING / rel
-        if src.is_dir():
-            for f in src.rglob("*"):
-                if f.is_file() and "?" not in f.name:
-                    dst = essential / f.relative_to(STAGING)
-                    dst.parent.mkdir(parents=True, exist_ok=True)
-                    shutil.copy2(f, dst)
-        elif src.is_file():
-            dst = essential / rel
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(src, dst)
-
-    make_zip(essential, ESSENTIAL_ZIP)
-    shutil.rmtree(essential)
+def verify_zip(zip_path: Path):
+    bad = 0
+    has_htaccess = False
+    has_index = False
+    has_css = False
+    with zipfile.ZipFile(zip_path) as zf:
+        for name in zf.namelist():
+            if "?" in name:
+                bad += 1
+            if name == ".htaccess":
+                has_htaccess = True
+            if name == "index.html":
+                has_index = True
+            if name == "cdn/shop/t/285/assets/yas_css.css":
+                has_css = True
+    print(f"Verify: index={has_index} htaccess={has_htaccess} css={has_css} bad_names={bad}")
+    if bad or not (has_index and has_htaccess and has_css):
+        raise SystemExit("ZIP verification failed!")
 
 
 def main():
     stage_site()
     make_zip(STAGING, OUTPUT_ZIP)
-    make_essential_assets()
-    print("\nDone!")
-    print(f"  Full site:    {OUTPUT_ZIP}")
-    print(f"  Essential:    {ESSENTIAL_ZIP}  (upload this if site still missing CSS)")
+    verify_zip(OUTPUT_ZIP)
+    print(f"\nReady: {OUTPUT_ZIP}")
 
 
 if __name__ == "__main__":
