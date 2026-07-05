@@ -175,6 +175,27 @@
     updateHeaderCount(cart.items.length + (n || 1));
   };
 
+  function handleContactForm(form) {
+    var data = {};
+    form.querySelectorAll('input, textarea, select').forEach(function (el) {
+      if (!el.name || el.type === 'checkbox' && !el.checked) return;
+      var key = el.name.replace(/^contact\[|\]$/g, '');
+      data[key] = el.value;
+    });
+    var lines = [
+      'Hello! New contact form submission:',
+      '',
+      'Name: ' + ((data.first_name || '') + ' ' + (data.last_name || '')).trim(),
+      'Email: ' + (data.email || ''),
+      'Phone: ' + (data.phone || data[''] || ''),
+      'Subject: ' + (data.subject || ''),
+      'Message: ' + (data.message || ''),
+      '',
+      'Page: ' + window.location.href,
+    ];
+    openWhatsApp(lines.join('\n'));
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     updateHeaderCount(readCart().items.length);
   });
@@ -183,6 +204,12 @@
     var form = event.target;
     if (!form || form.tagName !== 'FORM') return;
     var action = form.getAttribute('action') || '';
+    if (action.indexOf('/contact') !== -1 || (form.classList.contains('contact-form') && form.querySelector('[name="contact[email]"]'))) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      handleContactForm(form);
+      return;
+    }
     if (form.classList.contains('product-form') || action.indexOf('/cart/add') !== -1) {
       event.preventDefault();
       event.stopImmediatePropagation();

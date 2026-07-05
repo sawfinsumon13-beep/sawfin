@@ -3,9 +3,11 @@
 Build Hostinger-ready Purebred Kitties site — fixed product lists + cart/checkout.
 """
 
+import json
 import os
 import re
 import shutil
+import urllib.request
 import zipfile
 from pathlib import Path
 
@@ -18,8 +20,11 @@ SKIP_DIRS = {"videos"}
 EXTERNAL_CDN = "https://purebredkitties.com"
 SKIP_NAMES = {".git", "__pycache__", "agents.md"}
 STATIC_CART_SRC = Path("/workspace/static-cart.js")
+STATIC_SEARCH_SRC = Path("/workspace/static-search.js")
 CART_DEST = "cdn/shop/t/285/assets/static-cart.js"
+SEARCH_DEST = "cdn/shop/t/285/assets/static-search.js"
 CART_TAG = '<script src="/cdn/shop/t/285/assets/static-cart.js"></script>'
+SEARCH_TAG = '<script src="/cdn/shop/t/285/assets/static-search.js"></script>'
 
 REMOVE_PATTERNS = [
     r"<script id=\"captcha-bootstrap\">.*?</script>",
@@ -32,9 +37,41 @@ REMOVE_PATTERNS = [
     r"<script src=\"/cdn-shopify/extensions/[^\"]*omnisend[^\"]*\".*?</script>",
     r"<script[^>]*integrity=\"[^\"]*\"[^>]*origin_trials[^>]*>.*?</script>",
     r"<script type=\"text/javascript\" async=\"\" src=\"/cdn/shopifycloud/shopify.*?</script>",
+    r'<script src="/cdn/shop/t/285/assets/custom-order-handler\.js"[^>]*></script>',
 ]
 
 FOLDER_COLLECTIONS = {"kittens-for-sale", "bengal-cats-for-sale", "abyssinian-kitties-for-sale"}
+
+REMOTE_ASSETS = [
+    "cdn/shop/t/285/assets/yas-cart.css",
+    "cdn/shop/t/285/assets/custom.css",
+    "cdn/shop/t/285/assets/custom1.css",
+    "cdn/shop/t/285/assets/cart.js",
+]
+REMOTE_PAGES = [
+    "pages/for-breeders.html",
+    "search.html",
+]
+
+
+def ensure_remote_files():
+    """Download theme assets / pages missing from staging."""
+    for rel in REMOTE_ASSETS + REMOTE_PAGES:
+        dest = SOURCE / rel
+        if dest.exists() and dest.stat().st_size > 1000:
+            continue
+        url = f"{EXTERNAL_CDN}/{rel.replace('.html', '')}" if rel.endswith(".html") and rel.startswith("pages/") else f"{EXTERNAL_CDN}/{rel}"
+        if rel == "search.html":
+            url = f"{EXTERNAL_CDN}/search"
+        if rel == "pages/for-breeders.html":
+            url = f"{EXTERNAL_CDN}/pages/for-breeders"
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            print(f"Downloading {url}")
+            with urllib.request.urlopen(url, timeout=60) as resp:
+                dest.write_bytes(resp.read())
+        except Exception as exc:
+            print(f"Warning: could not download {url}: {exc}")
 
 
 def clean_target(path: Path) -> Path | None:
@@ -62,7 +99,7 @@ def collection_info(rel: Path) -> tuple[str, bool] | None:
         if m:
             return m.group(1), m.group(1) in FOLDER_COLLECTIONS
         return slug, slug in FOLDER_COLLECTIONS
-    if len(parts) == 3 and parts[2] in ("index.html",) or parts[2].startswith("page-"):
+    if len(parts) == 3 and (parts[2] == "index.html" or parts[2].startswith("page-")):
         return parts[1], True
     return None
 
@@ -81,6 +118,15 @@ def fix_pagination_links(html: str, slug: str, is_folder: bool) -> str:
         replacer,
         html,
     )
+    return html
+
+
+def fix_static_links(html: str) -> str:
+    html = html.replace("https://purebredkitties.com/pages/partnerships", "/pages/partnerships")
+    html = html.replace("https://purebredkitties.com/pages/partnerships.html", "/pages/partnerships")
+    html = re.sub(r'href="/account"', 'href="/pages/contact"', html)
+    html = re.sub(r'action="/contact[^"]*"', 'action="/pages/contact"', html)
+    html = re.sub(r'action="/search"', 'action="/search.html"', html)
     return html
 
 
@@ -104,12 +150,17 @@ def fix_asset_paths(html: str, externalize: bool) -> str:
     return html
 
 
-def inject_static_cart(html: str) -> str:
-    if "static-cart.js" in html:
+def inject_static_scripts(html: str) -> str:
+    inject = ""
+    if "static-cart.js" not in html:
+        inject += CART_TAG
+    if "static-search.js" not in html:
+        inject += SEARCH_TAG
+    if not inject:
         return html
-    if "<head" in html and CART_TAG not in html:
-        return html.replace("<head>", "<head>" + CART_TAG, 1)
-    return html.replace("</body>", CART_TAG + "</body>", 1)
+    if "<head" in html:
+        return html.replace("<head>", "<head>" + inject, 1)
+    return html.replace("</body>", inject + "</body>", 1)
 
 
 def optimize_html(html: str, externalize: bool = False, rel: Path | None = None) -> str:
@@ -117,11 +168,12 @@ def optimize_html(html: str, externalize: bool = False, rel: Path | None = None)
         html = re.sub(pattern, "", html, flags=re.DOTALL | re.IGNORECASE)
     html = re.sub(r"<!--.*?-->", "", html, flags=re.DOTALL)
     html = fix_asset_paths(html, externalize)
+    html = fix_static_links(html)
     if rel:
         info = collection_info(rel)
         if info:
             html = fix_pagination_links(html, info[0], info[1])
-    html = inject_static_cart(html)
+    html = inject_static_scripts(html)
     html = re.sub(r">\s+<", "><", html)
     return html
 
@@ -131,6 +183,16 @@ def should_skip_path(rel: Path, lite: bool = False) -> bool:
         return True
     if any(part in SKIP_DIRS for part in rel.parts):
         return True
+
+    # Flat collection HTML shadows paginated folder index on Apache
+    parts = rel.parts
+    if len(parts) == 2 and parts[0] == "collections" and parts[1].endswith(".html"):
+        slug = parts[1][:-5]
+        if slug in FOLDER_COLLECTIONS:
+            folder_index = SOURCE / "collections" / slug / "index.html"
+            if folder_index.exists():
+                return True
+
     if lite:
         rel_str = str(rel).replace("\\", "/")
         if rel_str.startswith("cdn/shop/files/"):
@@ -138,6 +200,38 @@ def should_skip_path(rel: Path, lite: bool = False) -> bool:
         if rel_str.startswith("cdn/shop/articles/"):
             return True
     return False
+
+
+def build_product_index(out: Path) -> int:
+    products = []
+    products_dir = out / "products"
+    if not products_dir.exists():
+        return 0
+
+    title_re = re.compile(r"<title>([^<|]+)", re.IGNORECASE)
+    img_re = re.compile(r'"(?:https://purebredkitties\.com)?/cdn/shop/files/[^"]+\.(?:jpg|jpeg|png|webp)[^"]*"', re.IGNORECASE)
+
+    for html_file in sorted(products_dir.glob("*.html")):
+        try:
+            text = html_file.read_text(encoding="utf-8", errors="ignore")[:8000]
+        except OSError:
+            continue
+        handle = html_file.stem
+        m = title_re.search(text)
+        title = m.group(1).strip() if m else handle.replace("-", " ").title()
+        img_m = img_re.search(text)
+        image = ""
+        if img_m:
+            image = img_m.group(0).strip('"').replace(EXTERNAL_CDN, "")
+        products.append({
+            "handle": handle,
+            "title": title,
+            "url": f"/products/{handle}",
+            "image": image,
+        })
+
+    (out / "products-index.json").write_text(json.dumps(products, separators=(",", ":")), encoding="utf-8")
+    return len(products)
 
 
 def stage_site(lite: bool = False):
@@ -190,36 +284,99 @@ def stage_site(lite: bool = False):
                 clean_dst.write_text(optimize_html(raw, externalize=lite, rel=clean.relative_to(SOURCE)), encoding="utf-8")
             else:
                 shutil.copy2(src, clean_dst)
-            created_clean = 1
 
     cart_dst = out / CART_DEST
     cart_dst.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(STATIC_CART_SRC, cart_dst)
+    shutil.copy2(STATIC_SEARCH_SRC, out / SEARCH_DEST)
+
+    product_count = build_product_index(out)
 
     label = "LITE" if lite else "FULL"
-    print(f"[{label}] HTML files: {html_count}, saved {html_saved/1e6:.1f} MB bloat")
+    print(f"[{label}] HTML files: {html_count}, products indexed: {product_count}, saved {html_saved/1e6:.1f} MB bloat")
     return out
 
 
 def write_htaccess(out: Path):
-    htaccess = SOURCE / ".htaccess"
-    extra = """
+    content = """# Purebred Kitties - Apache Hosting Configuration
+# Upload this file to your public_html root (same folder as index.html)
+
+DirectoryIndex index.html
+
+Options -Indexes
+
+# Gzip compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# Browser caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 0) Redirect wrong index.html/ folder URL to site root
+  RewriteRule ^index\\.html/?$ / [R=301,L]
+
   # Collection pagination fallback (?page=N)
-  RewriteCond %{QUERY_STRING} (?:^|&)page=([2-9][0-9]*)
-  RewriteCond %{DOCUMENT_ROOT}/collections/$1-page-%1.html -f
+  RewriteCond %{QUERY_STRING} (?:^|&)page=([2-9][0-9]+)
+  RewriteRule ^collections/([^/]+)/?$ collections/$1/page-%1.html [L]
+
+  RewriteCond %{QUERY_STRING} (?:^|&)page=([2-9][0-9]+)
   RewriteRule ^collections/([^/]+)/?$ collections/$1-page-%1.html [L]
 
-  RewriteCond %{QUERY_STRING} (?:^|&)page=([2-9][0-9]*)
-  RewriteCond %{DOCUMENT_ROOT}/collections/$1/page-%1.html -f
-  RewriteRule ^collections/([^/]+)/?$ collections/$1/page-%1.html [L]
+  # Prefer paginated collection folders over flat .html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/collections/$1/index.html -f
+  RewriteRule ^collections/([^/]+)/?$ collections/$1/index.html [L]
+
+  # Search URL
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^search/?$ search.html [L,QSA]
+
+  # 1) HTML pages without .html extension (products, collections, pages, blogs)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+
+  # 2) Wget-style CSS: file.css?v=HASH.css on disk
+  RewriteCond %{QUERY_STRING} ^(.+)$
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}?%{QUERY_STRING}.css -f
+  RewriteRule ^(.+\\.css)$ $1?%{QUERY_STRING}.css [L]
+
+  # 3) Wget-style JS: file.js?v=HASH.js on disk
+  RewriteCond %{QUERY_STRING} ^(.+)$
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}?%{QUERY_STRING}.js -f
+  RewriteRule ^(.+\\.js)$ $1?%{QUERY_STRING}.js [L]
+
+  # 4) Wget-style images/assets: file.ext?v=HASH on disk
+  RewriteCond %{QUERY_STRING} ^(.+)$
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}?%{QUERY_STRING} -f
+  RewriteRule ^(.+)$ $1?%{QUERY_STRING} [L]
+</IfModule>
+
+# Correct MIME types
+AddType text/css .css
+AddType application/javascript .js
+AddType image/svg+xml .svg
+AddType image/webp .webp
 """
-    if htaccess.exists():
-        content = htaccess.read_text()
-        if "Collection pagination fallback" not in content:
-            content = content.replace("</IfModule>", extra + "</IfModule>", 1)
-        (out / ".htaccess").write_text(content)
-    else:
-        (out / ".htaccess").write_text("DirectoryIndex index.html\n")
+    (out / ".htaccess").write_text(content)
 
 
 def write_readme(out: Path, lite: bool):
@@ -230,7 +387,7 @@ def write_readme(out: Path, lite: bool):
 3. Upload ZIP → Extract here
 4. Visit your domain
 
-Fixed: full product lists (all pages), cart + WhatsApp checkout.
+Fixed: full product lists (all pages), cart + WhatsApp checkout, search, contact form.
 Contact: kittenspurebreed@gmail.com | WhatsApp: +1 343-809-2153
 """
     if lite:
@@ -253,6 +410,7 @@ def make_zip(folder: Path, zip_path: Path):
 
 
 def main():
+    ensure_remote_files()
     lite_dir = stage_site(lite=True)
     write_htaccess(lite_dir)
     write_readme(lite_dir, lite=True)
