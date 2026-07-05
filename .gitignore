@@ -6,7 +6,7 @@ purebredkitties-site/product-urls.txt
 purebredkitties-site.zip
 purebredkitties-website/
 purebredkitties-website-hosting.zip
-wget-log.txt
-wget-bulk-log.txt
-wget-products-log.txt
-preview-tunnel.log
+purebredkitties-hosting-fixed.zip
+hosting-staging/
+__pycache__/
+*.log
