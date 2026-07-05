@@ -130,23 +130,29 @@ def fix_static_links(html: str) -> str:
     return html
 
 
+def externalize_cdn_urls(text: str) -> str:
+    """Point /cdn/shop/files/ references to the live CDN (lite build)."""
+    replacements = [
+        ('"/cdn/shop/files/', f'"{EXTERNAL_CDN}/cdn/shop/files/'),
+        ("'/cdn/shop/files/", f"'{EXTERNAL_CDN}/cdn/shop/files/"),
+        ("(/cdn/shop/files/", f"({EXTERNAL_CDN}/cdn/shop/files/"),
+        ("url(/cdn/shop/files/", f"url({EXTERNAL_CDN}/cdn/shop/files/"),
+        ('url("/cdn/shop/files/', f'url("{EXTERNAL_CDN}/cdn/shop/files/'),
+        ("url('/cdn/shop/files/", f"url('{EXTERNAL_CDN}/cdn/shop/files/"),
+        ('"/cdn/shop/articles/', f'"{EXTERNAL_CDN}/cdn/shop/articles/'),
+    ]
+    for old, new in replacements:
+        text = text.replace(old, new)
+    return text
+
+
 def fix_asset_paths(html: str, externalize: bool) -> str:
     html = html.replace("../cdn/", "/cdn/")
     html = html.replace('srcset="../', 'srcset="/')
     html = re.sub(r'href="\.\./pages/', 'href="/pages/', html)
     html = re.sub(r'href="([a-z0-9-]+)\.html#', r'href="/products/\1#', html)
-
     if externalize:
-        for pattern in (
-            r'"/cdn/shop/files/',
-            r"'/cdn/shop/files/",
-            r"\(/cdn/shop/files/",
-            r"url\(/cdn/shop/files/",
-            r'url\("/cdn/shop/files/',
-            r"url\('/cdn/shop/files/",
-        ):
-            html = html.replace(pattern, pattern.replace("/cdn/shop/files/", EXTERNAL_CDN + "/cdn/shop/files/"))
-        html = html.replace('"/cdn/shop/articles/', f'"{EXTERNAL_CDN}/cdn/shop/articles/')
+        html = externalize_cdn_urls(html)
     return html
 
 
@@ -263,6 +269,9 @@ def stage_site(lite: bool = False):
             dst.write_text(opt, encoding="utf-8")
             html_count += 1
             html_saved += len(raw) - len(opt)
+        elif lite and src.suffix.lower() == ".css":
+            raw = src.read_text(encoding="utf-8", errors="ignore")
+            dst.write_text(externalize_cdn_urls(raw), encoding="utf-8")
         else:
             shutil.copy2(src, dst)
         copied += 1
