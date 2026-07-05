@@ -26,6 +26,10 @@ def candidate_paths(url_path: str, query: str) -> list[str]:
 
     paths.append(os.path.join(ROOT, rel))
 
+    # Shopify-style URLs without .html extension
+    if not rel.endswith(".html"):
+        paths.append(os.path.join(ROOT, rel + ".html"))
+
     # Directory index fallback
     if os.path.isdir(os.path.join(ROOT, rel)):
         paths.append(os.path.join(ROOT, rel, "index.html"))
