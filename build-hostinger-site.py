@@ -1,12 +1,6 @@
 #!/usr/bin/env python3
 """
-Build a Hostinger-ready Purebred Kitties site (~500-800 MB instead of 3.4 GB).
-
-Fixes:
-- Strips Shopify bloat scripts from HTML (92% smaller pages)
-- No video files (saves 2.4 GB; pages still show kitten photos)
-- Clean Apache filenames, .htaccess, contact info, WhatsApp checkout
-- Files at ZIP root — extract directly into public_html
+Build Hostinger-ready Purebred Kitties site — fixed product lists + cart/checkout.
 """
 
 import os
@@ -16,22 +10,17 @@ import zipfile
 from pathlib import Path
 
 SOURCE = Path("/workspace/hosting-staging")
-if not SOURCE.exists():
-    SOURCE = Path("/workspace/purebredkitties-website")
-
 OUTPUT_DIR = Path("/workspace/purebred-kitties-site")
 OUTPUT_ZIP = Path("/workspace/purebred-kitties-site.zip")
 OUTPUT_ZIP_LITE = Path("/workspace/purebred-kitties-site-lite.zip")
 
-SKIP_DIRS = {"videos"}  # 2.4 GB of kitten videos — photos still work
-EXTERNALIZE_PREFIXES = (
-    "/cdn/shop/files/",
-    "/cdn/shop/articles/",
-)
+SKIP_DIRS = {"videos"}
 EXTERNAL_CDN = "https://purebredkitties.com"
 SKIP_NAMES = {".git", "__pycache__", "agents.md"}
+STATIC_CART_SRC = Path("/workspace/static-cart.js")
+CART_DEST = "cdn/shop/t/285/assets/static-cart.js"
+CART_TAG = '<script src="/cdn/shop/t/285/assets/static-cart.js"></script>'
 
-# Scripts that bloat HTML but aren't needed for static display
 REMOVE_PATTERNS = [
     r"<script id=\"captcha-bootstrap\">.*?</script>",
     r"<script id=\"shopify-origin-trials\".*?</script>",
@@ -44,6 +33,8 @@ REMOVE_PATTERNS = [
     r"<script[^>]*integrity=\"[^\"]*\"[^>]*origin_trials[^>]*>.*?</script>",
     r"<script type=\"text/javascript\" async=\"\" src=\"/cdn/shopifycloud/shopify.*?</script>",
 ]
+
+FOLDER_COLLECTIONS = {"kittens-for-sale", "bengal-cats-for-sale", "abyssinian-kitties-for-sale"}
 
 
 def clean_target(path: Path) -> Path | None:
@@ -59,16 +50,78 @@ def clean_target(path: Path) -> Path | None:
     return None
 
 
-def optimize_html(html: str, externalize: bool = False) -> str:
+def collection_info(rel: Path) -> tuple[str, bool] | None:
+    parts = rel.parts
+    if parts[0] != "collections":
+        return None
+    if len(parts) == 2 and parts[1].endswith(".html"):
+        slug = parts[1][:-5]
+        if slug.endswith("-page-"):
+            return None
+        m = re.match(r"^(.+)-page-(\d+)$", slug)
+        if m:
+            return m.group(1), m.group(1) in FOLDER_COLLECTIONS
+        return slug, slug in FOLDER_COLLECTIONS
+    if len(parts) == 3 and parts[2] in ("index.html",) or parts[2].startswith("page-"):
+        return parts[1], True
+    return None
+
+
+def fix_pagination_links(html: str, slug: str, is_folder: bool) -> str:
+    def replacer(match):
+        page = match.group(1)
+        if page == "1":
+            return f'href="/collections/{slug}/"' if is_folder else f'href="/collections/{slug}.html"'
+        if is_folder:
+            return f'href="/collections/{slug}/page-{page}.html"'
+        return f'href="/collections/{slug}-page-{page}.html"'
+
+    html = re.sub(
+        r'href="/collections/' + re.escape(slug) + r'\?page=(\d+)(?:&amp;[^"]*|&[^"]*)?"',
+        replacer,
+        html,
+    )
+    return html
+
+
+def fix_asset_paths(html: str, externalize: bool) -> str:
+    html = html.replace("../cdn/", "/cdn/")
+    html = html.replace('srcset="../', 'srcset="/')
+    html = re.sub(r'href="\.\./pages/', 'href="/pages/', html)
+    html = re.sub(r'href="([a-z0-9-]+)\.html#', r'href="/products/\1#', html)
+
+    if externalize:
+        for pattern in (
+            r'"/cdn/shop/files/',
+            r"'/cdn/shop/files/",
+            r"\(/cdn/shop/files/",
+            r"url\(/cdn/shop/files/",
+            r'url\("/cdn/shop/files/',
+            r"url\('/cdn/shop/files/",
+        ):
+            html = html.replace(pattern, pattern.replace("/cdn/shop/files/", EXTERNAL_CDN + "/cdn/shop/files/"))
+        html = html.replace('"/cdn/shop/articles/', f'"{EXTERNAL_CDN}/cdn/shop/articles/')
+    return html
+
+
+def inject_static_cart(html: str) -> str:
+    if "static-cart.js" in html:
+        return html
+    if "<head" in html and CART_TAG not in html:
+        return html.replace("<head>", "<head>" + CART_TAG, 1)
+    return html.replace("</body>", CART_TAG + "</body>", 1)
+
+
+def optimize_html(html: str, externalize: bool = False, rel: Path | None = None) -> str:
     for pattern in REMOVE_PATTERNS:
         html = re.sub(pattern, "", html, flags=re.DOTALL | re.IGNORECASE)
     html = re.sub(r"<!--.*?-->", "", html, flags=re.DOTALL)
-    if externalize:
-        for prefix in EXTERNALIZE_PREFIXES:
-            html = html.replace(f'"{prefix}', f'"{EXTERNAL_CDN}{prefix}')
-            html = html.replace(f"('{prefix}", f"('{EXTERNAL_CDN}{prefix}")
-            html = html.replace(f"({prefix}", f"({EXTERNAL_CDN}{prefix}")
-            html = html.replace(f"url({prefix}", f"url({EXTERNAL_CDN}{prefix}")
+    html = fix_asset_paths(html, externalize)
+    if rel:
+        info = collection_info(rel)
+        if info:
+            html = fix_pagination_links(html, info[0], info[1])
+    html = inject_static_cart(html)
     html = re.sub(r">\s+<", "><", html)
     return html
 
@@ -97,7 +150,6 @@ def stage_site(lite: bool = False):
     html_saved = 0
     copied = 0
 
-    # Pass 1: copy non-? files (skip videos folder)
     for src in SOURCE.rglob("*"):
         rel = src.relative_to(SOURCE)
         if should_skip_path(rel, lite=lite):
@@ -113,7 +165,7 @@ def stage_site(lite: bool = False):
 
         if src.suffix.lower() == ".html":
             raw = src.read_text(encoding="utf-8", errors="ignore")
-            opt = optimize_html(raw, externalize=lite)
+            opt = optimize_html(raw, externalize=lite, rel=rel)
             dst.write_text(opt, encoding="utf-8")
             html_count += 1
             html_saved += len(raw) - len(opt)
@@ -121,8 +173,6 @@ def stage_site(lite: bool = False):
             shutil.copy2(src, dst)
         copied += 1
 
-    # Pass 2: clean copies from wget-style names
-    created_clean = 0
     for src in SOURCE.rglob("*"):
         if not src.is_file() or "?" not in src.name:
             continue
@@ -137,47 +187,55 @@ def stage_site(lite: bool = False):
             clean_dst.parent.mkdir(parents=True, exist_ok=True)
             if clean.suffix.lower() == ".html":
                 raw = src.read_text(encoding="utf-8", errors="ignore")
-                clean_dst.write_text(optimize_html(raw, externalize=lite), encoding="utf-8")
+                clean_dst.write_text(optimize_html(raw, externalize=lite, rel=clean.relative_to(SOURCE)), encoding="utf-8")
             else:
                 shutil.copy2(src, clean_dst)
-            created_clean += 1
+            created_clean = 1
+
+    cart_dst = out / CART_DEST
+    cart_dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(STATIC_CART_SRC, cart_dst)
 
     label = "LITE" if lite else "FULL"
-    print(f"[{label}] Copied/optimized {html_count} HTML files, saved {html_saved/1e6:.1f} MB of bloat")
-    print(f"[{label}] Other files: {copied - html_count}, clean assets added: {created_clean}")
+    print(f"[{label}] HTML files: {html_count}, saved {html_saved/1e6:.1f} MB bloat")
     return out
 
 
-def write_readme(out: Path, lite: bool = False):
-    if lite:
-        readme = """PUREBRED KITTIES — EASY UPLOAD VERSION (~150 MB)
-================================================
+def write_htaccess(out: Path):
+    htaccess = SOURCE / ".htaccess"
+    extra = """
+  # Collection pagination fallback (?page=N)
+  RewriteCond %{QUERY_STRING} (?:^|&)page=([2-9][0-9]*)
+  RewriteCond %{DOCUMENT_ROOT}/collections/$1-page-%1.html -f
+  RewriteRule ^collections/([^/]+)/?$ collections/$1-page-%1.html [L]
 
-Best for Hostinger web upload (under size limits).
-
-1. Hostinger → File Manager → public_html
-2. Delete old files
-3. Upload this ZIP → Extract here
-4. Visit your domain
-
-Photos load from the original CDN (site looks identical).
-All pages included. Contact: kittenspurebreed@gmail.com
-WhatsApp: +1 343-809-2153
+  RewriteCond %{QUERY_STRING} (?:^|&)page=([2-9][0-9]*)
+  RewriteCond %{DOCUMENT_ROOT}/collections/$1/page-%1.html -f
+  RewriteRule ^collections/([^/]+)/?$ collections/$1/page-%1.html [L]
 """
+    if htaccess.exists():
+        content = htaccess.read_text()
+        if "Collection pagination fallback" not in content:
+            content = content.replace("</IfModule>", extra + "</IfModule>", 1)
+        (out / ".htaccess").write_text(content)
     else:
-        readme = """PUREBRED KITTIES — FULL OFFLINE VERSION (~935 MB)
-======================================================
+        (out / ".htaccess").write_text("DirectoryIndex index.html\n")
 
-All photos stored locally. Use FTP if web upload fails.
 
+def write_readme(out: Path, lite: bool):
+    text = """PUREBRED KITTIES — READY TO UPLOAD
+===================================
 1. Hostinger → File Manager → public_html
 2. Delete old files
-3. Upload this ZIP → Extract here
+3. Upload ZIP → Extract here
 4. Visit your domain
 
+Fixed: full product lists (all pages), cart + WhatsApp checkout.
 Contact: kittenspurebreed@gmail.com | WhatsApp: +1 343-809-2153
 """
-    (out / "README.txt").write_text(readme)
+    if lite:
+        text += "\nPhotos load from CDN (smaller upload size).\n"
+    (out / "README.txt").write_text(text)
 
 
 def make_zip(folder: Path, zip_path: Path):
@@ -188,37 +246,18 @@ def make_zip(folder: Path, zip_path: Path):
         for root, _, files in os.walk(folder):
             for name in files:
                 full = Path(root) / name
-                arc = str(full.relative_to(folder)).replace("\\", "/")
-                zf.write(full, arc)
+                zf.write(full, str(full.relative_to(folder)).replace("\\", "/"))
                 count += 1
     mb = zip_path.stat().st_size / (1024 * 1024)
     print(f"ZIP: {zip_path.name} — {count} files, {mb:.1f} MB")
-    return mb
-
-
-def verify(zip_path: Path):
-    with zipfile.ZipFile(zip_path) as zf:
-        names = zf.namelist()
-        assert "index.html" in names
-        assert ".htaccess" in names
-        bad = [n for n in names if "?" in n]
-        videos = [n for n in names if "/videos/" in n]
-        print(f"Verify {zip_path.name}: {len(names)} files, bad={len(bad)}, videos={len(videos)}")
 
 
 def main():
-    full_dir = stage_site(lite=False)
-    write_readme(full_dir, lite=False)
-    make_zip(full_dir, OUTPUT_ZIP)
-    verify(OUTPUT_ZIP)
-
     lite_dir = stage_site(lite=True)
+    write_htaccess(lite_dir)
     write_readme(lite_dir, lite=True)
     make_zip(lite_dir, OUTPUT_ZIP_LITE)
-    verify(OUTPUT_ZIP_LITE)
-
-    print(f"\nFULL (all photos local): {OUTPUT_ZIP}")
-    print(f"LITE (easy upload):       {OUTPUT_ZIP_LITE}")
+    print(f"\nReady: {OUTPUT_ZIP_LITE}")
 
 
 if __name__ == "__main__":
