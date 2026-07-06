@@ -200,6 +200,31 @@ def fix_pagination_links(html: str, slug: str, is_folder: bool) -> str:
     )
 
 
+def fix_html_links(html: str) -> str:
+    folder_collections = {f"/collections/{s}/" for s in FOLDER_COLLECTIONS}
+
+    def prod(m: re.Match[str]) -> str:
+        return f'href="/products/{m.group(1)}.html"'
+
+    html = re.sub(r'href="/products/([^"#?/]+?)(?<!\.html)"', prod, html)
+    html = re.sub(r'href="/pages/([^"#?/]+?)(?<!\.html)"', r'href="/pages/\1.html"', html)
+    html = re.sub(r'href="/blogs/([^"#?/]+?/[^"#?/]+?)(?<!\.html)"', r'href="/blogs/\1.html"', html)
+
+    def coll(m: re.Match[str]) -> str:
+        slug = m.group(1)
+        if slug in FOLDER_COLLECTIONS:
+            return f'href="/collections/{slug}/"'
+        return f'href="/collections/{slug}.html"'
+
+    html = re.sub(r'href="/collections/([^"#?/]+?)(?<!\.html)"', coll, html)
+    for path in folder_collections:
+        html = html.replace(f'href="{path.rstrip("/")}.html"', f'href="{path}"')
+
+    html = re.sub(r'(href|action)="/cart"(?![\w.-])', r'\1="/cart.html"', html)
+    html = re.sub(r'(href|action)="/search"(?![\w.-])', r'\1="/search.html"', html)
+    return html
+
+
 def externalize_all_urls(text: str) -> str:
     text = text.replace("../cdn/", "/cdn/")
     text = text.replace('srcset="../', 'srcset="/')
@@ -369,6 +394,7 @@ def ultra_optimize(html: str, rel: Path | None = None) -> str:
             html = fix_pagination_links(html, info[0], info[1])
     html = inject_head(html)
     html = inject_body_scripts(html)
+    html = fix_html_links(html)
     html = compact_html(html, rel)
     html = compact_svgs(html)
     html = re.sub(r">\s+<", "><", html)
