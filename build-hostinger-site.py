@@ -49,7 +49,7 @@ THEME_SCRIPT_MARKERS = (
 
 THEME_SCRIPT_URLS = (
     "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js",
-    "https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js",
+    "https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js",
     f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/vendor.js",
     f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/lazysizes.min.js",
     f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/yas-main-script.js",
@@ -88,6 +88,7 @@ LOADER_FIX = (
 
 STATIC_CART_SRC = Path("/workspace/static-cart.js")
 STATIC_SEARCH_SRC = Path("/workspace/static-search.js")
+ANIMATIONS_FIX_SRC = Path("/workspace/animations-fix.js")
 SKIP_DIRS = {"videos"}
 SKIP_NAMES = {".git", "__pycache__", "agents.md"}
 SKIP_TOP = {"cdn-shopify", "checkouts", "cdn", "policies"}
@@ -297,6 +298,8 @@ def inject_head(html: str) -> str:
     html = re.sub(r'<link rel="(?:shortcut )?icon"[^>]*>', "", html, flags=re.I)
     html = re.sub(r'<link rel="apple-touch-icon"[^>]*>', "", html, flags=re.I)
     inject = FAVICON_TAGS + CDN_CSS + LOADER_FIX
+    if ANIMATIONS_FIX_SRC.exists():
+        inject += f"<script>{ANIMATIONS_FIX_SRC.read_text(encoding='utf-8')}</script>"
     if "pk_static_cart_v1" not in html and STATIC_CART_SRC.exists():
         inject += f"<script>{STATIC_CART_SRC.read_text(encoding='utf-8')}</script>"
     if "loadIndex" not in html and STATIC_SEARCH_SRC.exists():
@@ -341,7 +344,12 @@ def minify_collection_cards(html: str) -> str:
 
 def compact_html(html: str, rel: Path | None = None) -> str:
     html = re.sub(r'\ssrcset="[^"]*"', "", html)
-    html = re.sub(r'\sdata-[a-z0-9-]+="[^"]*"', "", html, flags=re.I)
+    html = re.sub(
+        r'\sdata-(?!autoplay|speed|direction|product|reserve|pk-|collection)[a-z0-9-]+="[^"]*"',
+        "",
+        html,
+        flags=re.I,
+    )
     if rel and rel.parts[0] == "collections":
         html = minify_collection_cards(html)
     return html
