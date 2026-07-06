@@ -24,11 +24,45 @@ FAVICON_TAGS = (
     f'<link rel="apple-touch-icon" href="{FAVICON_URL}">'
 )
 CDN_CSS = (
-    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/font-family.css" rel="stylesheet">'
-    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/font-family1.css" rel="stylesheet">'
-    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/yas_css.css" rel="stylesheet">'
-    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/pk-wishlist.css" rel="stylesheet">'
-    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/pk-mobile-card-no-hover.css" rel="stylesheet">'
+    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/font-family.css" rel="stylesheet" media="all">'
+    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/font-family1.css" rel="stylesheet" media="all">'
+    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/yas_css.css" rel="stylesheet" media="all">'
+    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/pk-wishlist.css" rel="stylesheet" media="all">'
+    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/pk-mobile-card-no-hover.css" rel="stylesheet" media="all">'
+)
+
+THEME_SCRIPT_MARKERS = (
+    "yas-main-script",
+    "yas-script.js",
+    "yas-script-collection",
+    "vendor.js",
+    "lazysizes",
+    "swiper",
+    "pk-wishlist",
+    "pk-video-click",
+)
+
+THEME_SCRIPT_URLS = (
+    "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js",
+    f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/vendor.js",
+    f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/lazysizes.min.js",
+    f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/yas-main-script.js",
+    f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/yas-script.js",
+    f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/pk-wishlist.js",
+    f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/pk-video-click-to-play-inline.js",
+)
+
+LOADER_FIX = (
+    "<style>"
+    "html.is-loaded .loading-overlay{opacity:0!important;pointer-events:none!important;visibility:hidden!important}"
+    ".loading-overlay{position:fixed;top:0;left:0;z-index:99999;width:100vw;height:100%;"
+    "display:flex;align-items:center;justify-content:center;background:#fff}"
+    "</style>"
+    "<script>"
+    "(function(){function hideLoader(){document.documentElement.classList.add('is-loaded');}"
+    "hideLoader();document.addEventListener('DOMContentLoaded',hideLoader);"
+    "window.addEventListener('load',hideLoader);setTimeout(hideLoader,2500);})();"
+    "</script>"
 )
 
 STATIC_CART_SRC = Path("/workspace/static-cart.js")
@@ -60,8 +94,8 @@ REMOVE_PATTERNS = [
     r'<meta id="shopify-digital-wallet"[^>]*>',
 ]
 
-ULTRA_STRIP = [
-    r"<script[^>]*>.*?</script>",
+STYLE_STRIP = [
+    r'<style id="shopify-accelerated-checkout-cart">.*?</style>',
     r"<style[^>]*>.*?</style>",
     r"<noscript[^>]*>.*?</noscript>",
 ]
@@ -175,17 +209,73 @@ def externalize_all_urls(text: str) -> str:
     return text
 
 
+def fix_stylesheet_media(html: str) -> str:
+    html = re.sub(
+        r'(<link[^>]+rel=["\']stylesheet["\'][^>]*)\smedia=["\']print["\']\s+onload=["\']this\.media=[\'"]all[\'"]["\']',
+        r'\1 media="all"',
+        html,
+        flags=re.I,
+    )
+    html = re.sub(
+        r'(<link[^>]+rel=["\']stylesheet["\'][^>]*)\s+onload=["\']this\.media=[\'"]all[\'"]["\']',
+        r'\1',
+        html,
+        flags=re.I,
+    )
+    return html
+
+
+def is_theme_script(tag: str) -> bool:
+    return any(marker in tag for marker in THEME_SCRIPT_MARKERS)
+
+
+def externalize_script_tag(tag: str) -> str:
+    tag = tag.replace('src="/cdn/', f'src="{EXTERNAL_CDN}/cdn/')
+    tag = tag.replace("src='/cdn/", f"src='{EXTERNAL_CDN}/cdn/")
+    tag = re.sub(r'\sintegrity="[^"]*"', "", tag)
+    tag = re.sub(r"\sintegrity='[^']*'", "", tag)
+    tag = re.sub(r'\scrossorigin="[^"]*"', "", tag)
+    return tag
+
+
+def strip_scripts(html: str) -> str:
+    def repl(match: re.Match[str]) -> str:
+        tag = match.group(0)
+        if re.search(r"\bsrc\s*=", tag, re.I):
+            if is_theme_script(tag):
+                return externalize_script_tag(tag)
+            return ""
+        return ""
+
+    return re.sub(r"<script\b[^>]*>.*?</script>", repl, html, flags=re.DOTALL | re.I)
+
+
+def theme_scripts_block() -> str:
+    return "".join(f'<script src="{url}"></script>' for url in THEME_SCRIPT_URLS)
+
+
 def inject_head(html: str) -> str:
-    html = re.sub(r'<link rel="(?:shortcut )?icon"[^>]*>', '', html, flags=re.I)
-    html = re.sub(r'<link rel="apple-touch-icon"[^>]*>', '', html, flags=re.I)
-    inject = FAVICON_TAGS + CDN_CSS
+    html = re.sub(r'<link rel="(?:shortcut )?icon"[^>]*>', "", html, flags=re.I)
+    html = re.sub(r'<link rel="apple-touch-icon"[^>]*>', "", html, flags=re.I)
+    inject = FAVICON_TAGS + CDN_CSS + LOADER_FIX
     if "pk_static_cart_v1" not in html and STATIC_CART_SRC.exists():
         inject += f"<script>{STATIC_CART_SRC.read_text(encoding='utf-8')}</script>"
     if "loadIndex" not in html and STATIC_SEARCH_SRC.exists():
         inject += f"<script>{STATIC_SEARCH_SRC.read_text(encoding='utf-8')}</script>"
-    if "<head" in html:
+    if "</head>" in html:
+        return html.replace("</head>", inject + "</head>", 1)
+    if "<head>" in html:
         return html.replace("<head>", "<head>" + inject, 1)
     return inject + html
+
+
+def inject_body_scripts(html: str) -> str:
+    if not any(marker in html for marker in ("yas-main-script", "yas-script.js")):
+        block = theme_scripts_block()
+        if "</body>" in html:
+            return html.replace("</body>", block + "</body>", 1)
+        return html + block
+    return html
 
 
 def minify_collection_cards(html: str) -> str:
@@ -219,20 +309,54 @@ def compact_html(html: str, rel: Path | None = None) -> str:
     return html
 
 
+ICON_KEEP = (
+    "icon",
+    "play-icon",
+    "haeding_arrow",
+    "arrow",
+    "logo",
+    "cart",
+    "search",
+    "menu",
+    "close",
+    "heart",
+    "wishlist",
+)
+
+
+def compact_svgs(html: str) -> str:
+    def repl(match: re.Match[str]) -> str:
+        svg = match.group(0)
+        if len(svg) <= 500:
+            return svg
+        head = svg[:400].lower()
+        if any(marker in head for marker in ICON_KEEP):
+            return svg
+        open_tag = re.match(r"(<svg[^>]*>)", svg, re.I)
+        return (open_tag.group(1) + "</svg>") if open_tag else "<svg></svg>"
+
+    return re.sub(r"<svg[^>]*>.*?</svg>", repl, html, flags=re.DOTALL | re.I)
+
+
 def ultra_optimize(html: str, rel: Path | None = None) -> str:
-    for pattern in REMOVE_PATTERNS + ULTRA_STRIP:
+    for pattern in REMOVE_PATTERNS:
+        html = re.sub(pattern, "", html, flags=re.DOTALL | re.IGNORECASE)
+    html = strip_scripts(html)
+    for pattern in STYLE_STRIP:
         html = re.sub(pattern, "", html, flags=re.DOTALL | re.IGNORECASE)
     for pattern in OPTIONAL_SECTIONS:
         html = re.sub(pattern, "", html, flags=re.I)
     html = re.sub(r"<!--.*?-->", "", html, flags=re.DOTALL)
-    html = re.sub(r"<svg[^>]*>.*?</svg>", "<svg/>", html, flags=re.DOTALL | re.I)
     html = externalize_all_urls(html)
+    html = fix_stylesheet_media(html)
     if rel:
         info = collection_info(rel)
         if info:
             html = fix_pagination_links(html, info[0], info[1])
     html = inject_head(html)
+    html = inject_body_scripts(html)
     html = compact_html(html, rel)
+    html = compact_svgs(html)
     html = re.sub(r">\s+<", "><", html)
     return html
 
@@ -352,14 +476,16 @@ AddType application/javascript .js
 
 
 def write_readme(out: Path):
-    (out / "UPLOAD-FIRST.txt").write_text("""PUREBRED KITTIES — 50MB HOSTINGER PACKAGE
-============================================
+    (out / "UPLOAD-FIRST.txt").write_text("""PUREBRED KITTIES — HOSTINGER UPLOAD (FIXED BUILD)
+=================================================
+IMPORTANT: Extract into public_html root — NOT into an index.html/ subfolder.
+
 1. Hostinger → File Manager → public_html
-2. DELETE all old files
-3. Upload purebred-kitties-site-ultra.zip
-4. Extract HERE (into public_html, not a subfolder)
-5. Confirm public_html/index.html is a FILE
-6. Visit yourdomain.com/verify.html
+2. DELETE all old files (including any index.html/ folder)
+3. Upload PUREBRED-KITTIES-UPLOAD-ONE-FILE.zip
+4. Extract HERE — you should see public_html/index.html as a FILE
+5. Visit yourdomain.com/verify.html (all checks should be green)
+6. Visit yourdomain.com/ — full site, NOT stuck on paw prints
 
 CSS/photos load from purebredkitties.com CDN — no local cdn/ folder needed.
 Contact: kittenspurebreed@gmail.com | WhatsApp: +1 343-809-2153
@@ -396,6 +522,9 @@ def main():
     write_verify(out)
     write_readme(out)
     mb = make_zip(out, OUTPUT_ULTRA_ZIP)
+    one_file = Path("/workspace/PUREBRED-KITTIES-UPLOAD-ONE-FILE.zip")
+    shutil.copy2(OUTPUT_ULTRA_ZIP, one_file)
+    print(f"ONE-FILE: {one_file.name} — {mb:.1f} MB")
     if mb > 50:
         print(f"WARNING: {mb:.1f} MB exceeds 50MB target")
     print(f"Ready: {OUTPUT_ULTRA_ZIP}")
