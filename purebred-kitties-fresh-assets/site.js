@@ -66,10 +66,22 @@
     });
   }
 
+  function normalizeProduct(row) {
+    if (row.handle) return row;
+    return {
+      handle: row.h,
+      title: row.t,
+      breed_label: row.b,
+      image: row.i,
+      url: row.u,
+      price: row.p,
+    };
+  }
+
   function loadProducts(cb) {
     if (products.length) { cb(products); return; }
     fetch('/data/products.json').then(function (r) { return r.json(); }).then(function (d) {
-      products = d;
+      products = d.map(normalizeProduct);
       cb(products);
     }).catch(function () { cb([]); });
   }

@@ -21,6 +21,7 @@ EMAIL = "kittenspurebreed@gmail.com"
 WHATSAPP = "13438092153"
 WHATSAPP_DISPLAY = "+1 343-809-2153"
 PER_PAGE = 24
+MAX_ZIP_MB = 10
 
 SKIP_HANDLES = set()
 HERO_BG = f"{CDN}/cdn/shop/files/girl-cat-sitting-bed_0_1_1600x.png?v=1704462288"
@@ -56,6 +57,31 @@ BREED_LABELS = {
 
 def esc(text: str) -> str:
     return html_lib.escape(str(text or ""), quote=True)
+
+
+def minify_html(text: str) -> str:
+    text = re.sub(r">\s+<", "><", text)
+    text = re.sub(r"\n\s*", "", text)
+    return text.strip()
+
+
+def write_html(path: Path, content: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(minify_html(content), encoding="utf-8")
+
+
+def catalog_json(products: list[dict]) -> list[dict]:
+    return [
+        {
+            "h": p["handle"],
+            "t": p["title"],
+            "b": p.get("breed_label") or "",
+            "i": p["image"],
+            "u": p["url"],
+            "p": p.get("price") or "",
+        }
+        for p in products
+    ]
 
 
 def parse_product(path: Path) -> dict | None:
@@ -345,16 +371,16 @@ def build_all_collections(products: list[dict]) -> None:
   {nav}
 </section>"""
         fname = "index.html" if page == 1 else f"page-{page}.html"
-        (out / fname).write_text(layout("Kittens for Sale", body), encoding="utf-8")
+        write_html(out / fname, layout("Kittens for Sale", body))
 
     # Breeds index
     breeds = sorted({p.get("breed_label") or "Other" for p in kitten_products})
     links = "".join(
         f'<a class="breed-chip" href="/collections/{slugify(b)}.html">{esc(b)}</a>' for b in breeds if b
     )
-    (OUTPUT / "collections" / "breeds.html").write_text(
+    write_html(
+        OUTPUT / "collections" / "breeds.html",
         layout("Cat Breeds", f'<section class="section container"><h1>Cat Breeds</h1><div class="breed-list">{links}</div></section>'),
-        encoding="utf-8",
     )
 
     # Per-breed pages
@@ -376,7 +402,7 @@ def build_all_collections(products: list[dict]) -> None:
   {nav}
 </section>"""
             fname = f"{slug}.html" if page == 1 else f"{slug}-page-{page}.html"
-            (OUTPUT / "collections" / fname).write_text(layout(f"{breed} Kittens", body), encoding="utf-8")
+            write_html(OUTPUT / "collections" / fname, layout(f"{breed} Kittens", body))
 
 
 def build_product_pages(products: list[dict]) -> None:
@@ -408,7 +434,7 @@ def build_product_pages(products: list[dict]) -> None:
     </div>
   </div>
 </section>"""
-        (out / f"{p['handle']}.html").write_text(layout(p["title"], body), encoding="utf-8")
+        write_html(out / f"{p['handle']}.html", layout(p["title"], body))
 
 
 def build_static_pages(products: list[dict]) -> None:
@@ -428,7 +454,7 @@ def build_static_pages(products: list[dict]) -> None:
     <button class="btn btn-purple" type="submit">Send via WhatsApp</button>
   </form>
 </section>"""
-    (pages / "contact.html").write_text(layout("Contact", contact), encoding="utf-8")
+    write_html(pages / "contact.html", layout("Contact", contact))
 
     search = """<section class="section container">
   <h1>Search Kittens</h1>
@@ -436,7 +462,7 @@ def build_static_pages(products: list[dict]) -> None:
   <div id="search-results" class="grid"></div>
 </section>
 <script>document.addEventListener('DOMContentLoaded',function(){PK.initSearch('#search-input','#search-results');var q=new URLSearchParams(location.search).get('q');if(q){document.getElementById('search-input').value=q;document.getElementById('search-input').dispatchEvent(new Event('input'));}});</script>"""
-    (OUTPUT / "search.html").write_text(layout("Search", search), encoding="utf-8")
+    write_html(OUTPUT / "search.html", layout("Search", search))
 
     cart = """<section class="section container narrow">
   <h1>Your Cart</h1>
@@ -445,7 +471,7 @@ def build_static_pages(products: list[dict]) -> None:
   <button class="btn btn-yellow" id="checkout-btn" onclick="PK.checkout()">Checkout via WhatsApp</button>
 </section>
 <script>document.addEventListener('DOMContentLoaded',PK.renderCart);</script>"""
-    (OUTPUT / "cart.html").write_text(layout("Cart", cart), encoding="utf-8")
+    write_html(OUTPUT / "cart.html", layout("Cart", cart))
 
 
 def write_assets(products: list[dict]) -> None:
@@ -453,7 +479,7 @@ def write_assets(products: list[dict]) -> None:
     assets.mkdir(parents=True, exist_ok=True)
     (OUTPUT / "data").mkdir(parents=True, exist_ok=True)
     (OUTPUT / "data" / "products.json").write_text(
-        json.dumps(products, separators=(",", ":")), encoding="utf-8"
+        json.dumps(catalog_json(products), separators=(",", ":")), encoding="utf-8"
     )
     shutil.copy2(Path("/workspace/purebred-kitties-fresh-assets/style.css"), assets / "style.css")
     shutil.copy2(Path("/workspace/purebred-kitties-fresh-assets/site.js"), assets / "site.js")
@@ -485,10 +511,11 @@ RewriteRule ^(.+)$ $1.html [L]
 """)
 
 
-def write_readme() -> None:
-    (OUTPUT / "UPLOAD-FIRST.txt").write_text(f"""PUREBRED KITTIES — BRAND NEW CLEAN SITE
-========================================
-This is a fresh HTML website (NOT the old Shopify mirror).
+def write_readme(zip_mb: float, product_count: int, page_count: int) -> None:
+    (OUTPUT / "UPLOAD-FIRST.txt").write_text(f"""PUREBRED KITTIES — CLEAN SITE (UNDER 10 MB)
+==============================================
+ZIP size: {zip_mb:.1f} MB | Products: {product_count} | Pages: {page_count}
+All photos load from purebredkitties.com CDN (not stored in zip).
 
 1. Hostinger → File Manager → public_html
 2. DELETE all old files
@@ -526,9 +553,32 @@ def make_zip() -> float:
     with zipfile.ZipFile(OUTPUT_ZIP, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
         for root, _, files in os.walk(OUTPUT):
             for name in files:
+                if name.endswith(".zip"):
+                    continue
                 full = Path(root) / name
+                if full.is_symlink():
+                    continue
                 zf.write(full, str(full.relative_to(OUTPUT)).replace("\\", "/"))
     return OUTPUT_ZIP.stat().st_size / (1024 * 1024)
+
+
+def verify_build(product_count: int) -> int:
+    html_files = list(OUTPUT.rglob("*.html"))
+    product_pages = list((OUTPUT / "products").glob("*.html"))
+    if len(product_pages) != product_count:
+        raise RuntimeError(f"Expected {product_count} product pages, got {len(product_pages)}")
+    required = [
+        OUTPUT / "index.html",
+        OUTPUT / "cart.html",
+        OUTPUT / "search.html",
+        OUTPUT / "collections" / "kittens-for-sale" / "index.html",
+        OUTPUT / "pages" / "contact.html",
+        OUTPUT / "data" / "products.json",
+    ]
+    missing = [str(p) for p in required if not p.exists()]
+    if missing:
+        raise RuntimeError("Missing required files: " + ", ".join(missing))
+    return len(html_files)
 
 
 def main() -> None:
@@ -540,17 +590,20 @@ def main() -> None:
     print(f"Products loaded: {len(products)}")
 
     write_assets(products)
-    (OUTPUT / "index.html").write_text(build_index(products), encoding="utf-8")
+    write_html(OUTPUT / "index.html", build_index(products))
     build_all_collections(products)
     build_product_pages(products)
     build_static_pages(products)
     write_htaccess()
-    write_readme()
     write_verify()
-
+    page_count = verify_build(len(products))
     mb = make_zip()
+    write_readme(mb, len(products), page_count)
+    if mb > MAX_ZIP_MB:
+        raise RuntimeError(f"ZIP is {mb:.1f} MB — exceeds {MAX_ZIP_MB} MB limit")
+    print(f"Pages: {page_count}")
     print(f"Built {OUTPUT}")
-    print(f"ZIP: {OUTPUT_ZIP.name} — {mb:.1f} MB")
+    print(f"ZIP: {OUTPUT_ZIP.name} — {mb:.1f} MB (limit {MAX_ZIP_MB} MB)")
 
 
 if __name__ == "__main__":
