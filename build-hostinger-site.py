@@ -96,8 +96,6 @@ REMOVE_PATTERNS = [
 
 STYLE_STRIP = [
     r'<style id="shopify-accelerated-checkout-cart">.*?</style>',
-    r"<style[^>]*>.*?</style>",
-    r"<noscript[^>]*>.*?</noscript>",
 ]
 
 OPTIONAL_SECTIONS = [
@@ -347,6 +345,7 @@ def ultra_optimize(html: str, rel: Path | None = None) -> str:
     for pattern in OPTIONAL_SECTIONS:
         html = re.sub(pattern, "", html, flags=re.I)
     html = re.sub(r"<!--.*?-->", "", html, flags=re.DOTALL)
+    html = re.sub(r"<noscript[^>]*>.*?</noscript>", "", html, flags=re.DOTALL | re.I)
     html = externalize_all_urls(html)
     html = fix_stylesheet_media(html)
     if rel:
