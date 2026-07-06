@@ -8,8 +8,10 @@ import json
 import os
 import re
 import shutil
+import sys
 import urllib.request
 import zipfile
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 SOURCE = Path("/workspace/hosting-staging")
@@ -29,11 +31,35 @@ CDN_CSS = (
     f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/font-family.css" rel="stylesheet" media="all">'
     f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/font-family1.css" rel="stylesheet" media="all">'
     f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/yas_css.css" rel="stylesheet" media="all">'
-    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/custom.css" rel="stylesheet" media="all">'
-    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/custom1.css" rel="stylesheet" media="all">'
     f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/pk-wishlist.css" rel="stylesheet" media="all">'
     f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/pk-mobile-card-no-hover.css" rel="stylesheet" media="all">'
     f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/yas-product-template.css" rel="stylesheet" media="all">'
+)
+
+# custom.css / custom1.css are NOT loaded on the live site homepage and break layout
+# (e.g. position:absolute on .reputable_container). Do not inject them globally.
+
+LAYOUT_FIX = (
+    "<style>"
+    ":root{--desk-container:1400px}"
+    ".wow,.wow.fadeInUp,.wow.animated{visibility:visible!important;opacity:1!important;"
+    "animation:none!important;transform:none!important}"
+    "@keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}"
+    "@keyframes scroll-right{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}"
+    "@keyframes scrolling{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}"
+    ".slideshow-wrapper{overflow:hidden!important;width:100%!important}"
+    ".slideshow-track{display:flex!important;flex-wrap:nowrap!important;white-space:nowrap!important;width:max-content!important}"
+    "#slideshow-template--21804439798011__slider_first_global_79iWkH{animation:scroll-left 70s linear infinite!important}"
+    "#slideshow-template--21804439798011__slider_second_global_yebyGC{animation:scroll-right 125s linear infinite!important}"
+    "@media(max-width:768px){"
+    "#slideshow-template--21804439798011__slider_first_global_79iWkH{animation-duration:25s!important}"
+    "#slideshow-template--21804439798011__slider_second_global_yebyGC{animation-duration:15s!important}"
+    "}"
+    ".reputable_breeders .reputable_container{position:static!important;transform:none!important;top:auto!important}"
+    ".social-sharing-wrapper svg,.footer-social svg{width:40px!important;height:41px!important;display:inline-block!important}"
+    ".footer-social,.social-sharing-wrapper{display:flex!important;gap:20px!important;align-items:center!important}"
+    ".social-sharing-wrapper a{display:inline-flex!important;opacity:1!important;visibility:visible!important}"
+    "</style>"
 )
 
 THEME_SCRIPT_MARKERS = (
@@ -67,7 +93,6 @@ INLINE_SCRIPT_KEEP = (
     "lazySizes",
     "Swiper(",
     "pk-video",
-    "DOMContentLoaded",
     "waitForBreedMcWorldwide",
     "handleLeave",
     "handleReturn",
@@ -127,6 +152,79 @@ OPTIONAL_SECTIONS = [
 BREED_ALIASES = {
     "abyssinian-kittens-for-sale": "abyssinian-kitties-for-sale",
 }
+
+
+def fetch_url(url: str, timeout: int = 60) -> bytes | None:
+    try:
+        from urllib.parse import quote, urlparse, urlunparse
+
+        parsed = urlparse(url)
+        safe_path = quote(parsed.path, safe="/:%")
+        safe_url = urlunparse(parsed._replace(path=safe_path))
+        req = urllib.request.Request(safe_url, headers={"User-Agent": "Mozilla/5.0 (compatible; PKSiteBuilder/1.0)"})
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return resp.read()
+    except Exception as exc:
+        print(f"Warning: fetch {url}: {exc}")
+        return None
+
+
+def fetch_missing_products():
+    """Download product pages from live site that are missing from staging mirror."""
+    products_dir = SOURCE / "products"
+    products_dir.mkdir(parents=True, exist_ok=True)
+    existing = {p.stem for p in products_dir.glob("*.html")}
+    if len(existing) >= 4000:
+        print(f"Staging already has {len(existing)} products — skipping live fetch")
+        return
+    missing_handles: list[str] = []
+    page = 1
+
+    while True:
+        data = fetch_url(f"{EXTERNAL_CDN}/products.json?limit=250&page={page}")
+        if not data:
+            break
+        try:
+            payload = json.loads(data.decode("utf-8"))
+        except json.JSONDecodeError:
+            break
+        items = payload.get("products") or []
+        if not items:
+            break
+        for item in items:
+            handle = item.get("handle")
+            if handle and handle not in existing:
+                missing_handles.append(handle)
+        if len(items) < 250:
+            break
+        page += 1
+
+    if not missing_handles:
+        print("All live products already in staging mirror")
+        return
+
+    print(f"Fetching {len(missing_handles)} missing product pages...", flush=True)
+
+    def download(handle: str) -> str | None:
+        html = fetch_url(f"{EXTERNAL_CDN}/products/{handle}", timeout=30)
+        if not html:
+            return None
+        text = html.decode("utf-8", errors="ignore")
+        if "<html" not in text.lower():
+            return None
+        (products_dir / f"{handle}.html").write_text(text, encoding="utf-8")
+        return handle
+
+    fetched = 0
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        futures = {pool.submit(download, h): h for h in missing_handles}
+        for future in as_completed(futures):
+            if future.result():
+                fetched += 1
+                if fetched % 100 == 0:
+                    print(f"  fetched {fetched}/{len(missing_handles)}...", flush=True)
+
+    print(f"Fetched {fetched} missing product pages from live site", flush=True)
 
 
 def ensure_remote_files():
@@ -236,6 +334,10 @@ def externalize_all_urls(text: str) -> str:
         ("url(/cdn/", f"url({EXTERNAL_CDN}/cdn/"),
         ('url("/cdn/', f'url("{EXTERNAL_CDN}/cdn/'),
         ("url('/cdn/", f"url('{EXTERNAL_CDN}/cdn/"),
+        ('"/cdn-shopify/', '"https://cdn.shopify.com/'),
+        ("'/cdn-shopify/", "'https://cdn.shopify.com/"),
+        ('src="/cdn-shopify/', 'src="https://cdn.shopify.com/'),
+        ("src='/cdn-shopify/", "src='https://cdn.shopify.com/"),
         ('href="/pages/', 'href="/pages/'),
     ]
     for old, new in replacements:
@@ -245,6 +347,34 @@ def externalize_all_urls(text: str) -> str:
     text = re.sub(r'action="/search"', 'action="/search.html"', text)
     text = text.replace("https://purebredkitties.com/pages/partnerships", "/pages/partnerships")
     return text
+
+
+def strip_broken_stylesheets(html: str) -> str:
+    """Remove custom.css/custom1.css links — not used on live site and breaks layout."""
+    html = re.sub(
+        r'<link[^>]+/assets/custom\.css[^>]*>',
+        "",
+        html,
+        flags=re.I,
+    )
+    html = re.sub(
+        r'<link[^>]+/assets/custom1\.css[^>]*>',
+        "",
+        html,
+        flags=re.I,
+    )
+    return html
+
+
+def strip_slideshow_scripts(html: str) -> str:
+    """Remove inline slideshow init that sets animation:none when data-autoplay missing."""
+    return re.sub(
+        r"<script defer>\s*document\.addEventListener\('DOMContentLoaded',\s*function\s*\(\)\s*\{"
+        r"[\s\S]*?slideshow-template[\s\S]*?</script>",
+        "",
+        html,
+        flags=re.I,
+    )
 
 
 def fix_stylesheet_media(html: str) -> str:
@@ -297,9 +427,7 @@ def theme_scripts_block() -> str:
 def inject_head(html: str) -> str:
     html = re.sub(r'<link rel="(?:shortcut )?icon"[^>]*>', "", html, flags=re.I)
     html = re.sub(r'<link rel="apple-touch-icon"[^>]*>', "", html, flags=re.I)
-    inject = FAVICON_TAGS + CDN_CSS + LOADER_FIX
-    if ANIMATIONS_FIX_SRC.exists():
-        inject += f"<script>{ANIMATIONS_FIX_SRC.read_text(encoding='utf-8')}</script>"
+    inject = FAVICON_TAGS + CDN_CSS + LAYOUT_FIX + LOADER_FIX
     if "pk_static_cart_v1" not in html and STATIC_CART_SRC.exists():
         inject += f"<script>{STATIC_CART_SRC.read_text(encoding='utf-8')}</script>"
     if "loadIndex" not in html and STATIC_SEARCH_SRC.exists():
@@ -312,10 +440,14 @@ def inject_head(html: str) -> str:
 
 
 def inject_body_scripts(html: str) -> str:
+    block = ""
     if not any(marker in html for marker in ("yas-main-script", "yas-script.js")):
-        block = theme_scripts_block()
-        if "</body>" in html:
-            return html.replace("</body>", block + "</body>", 1)
+        block += theme_scripts_block()
+    if ANIMATIONS_FIX_SRC.exists() and html.count("fixSlideshows") < 1:
+        block += f"<script>{ANIMATIONS_FIX_SRC.read_text(encoding='utf-8')}</script>"
+    if block and "</body>" in html:
+        return html.replace("</body>", block + "</body>", 1)
+    if block:
         return html + block
     return html
 
@@ -367,6 +499,13 @@ ICON_KEEP = (
     "close",
     "heart",
     "wishlist",
+    "social",
+    "youtube",
+    "facebook",
+    "instagram",
+    "sharing",
+    "pinterest",
+    "tiktok",
 )
 
 
@@ -378,6 +517,12 @@ def compact_svgs(html: str) -> str:
         head = svg[:400].lower()
         if any(marker in head for marker in ICON_KEEP):
             return svg
+        if 'viewbox="0 0 40 41"' in head or "height=41" in head:
+            return svg
+        ctx_start = max(0, match.start() - 300)
+        ctx = html[ctx_start:match.end() + 80].lower()
+        if any(k in ctx for k in ("social-sharing", "footer-social", "footer_img", "payment-icon")):
+            return svg
         open_tag = re.match(r"(<svg[^>]*>)", svg, re.I)
         return (open_tag.group(1) + "</svg>") if open_tag else "<svg></svg>"
 
@@ -388,6 +533,7 @@ def ultra_optimize(html: str, rel: Path | None = None) -> str:
     for pattern in REMOVE_PATTERNS:
         html = re.sub(pattern, "", html, flags=re.DOTALL | re.IGNORECASE)
     html = strip_scripts(html)
+    html = strip_slideshow_scripts(html)
     for pattern in STYLE_STRIP:
         html = re.sub(pattern, "", html, flags=re.DOTALL | re.IGNORECASE)
     for pattern in OPTIONAL_SECTIONS:
@@ -395,6 +541,7 @@ def ultra_optimize(html: str, rel: Path | None = None) -> str:
     html = re.sub(r"<!--.*?-->", "", html, flags=re.DOTALL)
     html = re.sub(r"<noscript[^>]*>.*?</noscript>", "", html, flags=re.DOTALL | re.I)
     html = externalize_all_urls(html)
+    html = strip_broken_stylesheets(html)
     html = fix_stylesheet_media(html)
     if rel:
         info = collection_info(rel)
@@ -567,6 +714,7 @@ def make_zip(folder: Path, zip_path: Path):
 
 def main():
     ensure_remote_files()
+    fetch_missing_products()
     out = stage_ultra()
     write_htaccess(out)
     write_verify(out)
