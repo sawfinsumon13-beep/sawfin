@@ -525,12 +525,27 @@ def make_zip(folder: Path, zip_path: Path):
     print(f"ZIP: {zip_path.name} — {count} files, {mb:.1f} MB")
 
 
+def write_hostinger_root_fix():
+    fix_dir = Path("/workspace/hostinger-root-fix")
+    fix_dir.mkdir(exist_ok=True)
+    shutil.copy2(fix_dir / ".htaccess", fix_dir / ".htaccess")  # ensure exists
+    fix_zip = Path("/workspace/hostinger-root-fix.zip")
+    if fix_zip.exists():
+        fix_zip.unlink()
+    with zipfile.ZipFile(fix_zip, "w", zipfile.ZIP_DEFLATED) as zf:
+        for name in (".htaccess", "READ-ME-FIRST.txt"):
+            p = fix_dir / name
+            if p.exists():
+                zf.write(p, name)
+
+
 def main():
     ensure_remote_files()
     lite_dir = stage_site(lite=True)
     write_htaccess(lite_dir)
     write_verify_page(lite_dir)
     write_readme(lite_dir, lite=True)
+    write_hostinger_root_fix()
     make_zip(lite_dir, OUTPUT_ZIP_LITE)
     print(f"\nReady: {OUTPUT_ZIP_LITE}")
 
