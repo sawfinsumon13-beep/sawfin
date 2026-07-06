@@ -130,6 +130,32 @@ def fix_static_links(html: str) -> str:
     return html
 
 
+def simplify_asset_urls(text: str) -> str:
+    """Remove ?v= cache-bust params so CSS/JS load without Apache rewrite rules."""
+    text = re.sub(
+        r'((?:href|src)=["\']/(?:cdn/shop|cdn/shopifycloud)[^"\']+?\.(?:css|js))(\?[^"\']*)"',
+        r'\1"',
+        text,
+    )
+    text = re.sub(
+        r'((?:href|src)=["\']/(?:cdn/shop|cdn/shopifycloud)[^"\']+?\.(?:css|js))(\?[^"\']*)(["\'])',
+        r"\1\3",
+        text,
+    )
+    return text
+
+
+def fix_css_loading(text: str) -> str:
+    """Ensure stylesheets load without JavaScript (Hostinger-safe)."""
+    text = re.sub(
+        r'(<link[^>]+href="[^"]+\.css[^"]*"[^>]*)\smedia="print"\s+onload="this\.media=\'all\'"',
+        r'\1 media="all"',
+        text,
+        flags=re.IGNORECASE,
+    )
+    return text
+
+
 def externalize_cdn_urls(text: str) -> str:
     """Point /cdn/shop/files/ references to the live CDN (lite build)."""
     replacements = [
@@ -175,6 +201,8 @@ def optimize_html(html: str, externalize: bool = False, rel: Path | None = None)
     html = re.sub(r"<!--.*?-->", "", html, flags=re.DOTALL)
     html = fix_asset_paths(html, externalize)
     html = fix_static_links(html)
+    html = simplify_asset_urls(html)
+    html = fix_css_loading(html)
     if rel:
         info = collection_info(rel)
         if info:
@@ -307,8 +335,8 @@ def stage_site(lite: bool = False):
 
 
 def write_htaccess(out: Path):
-    content = """# Purebred Kitties - Apache Hosting Configuration
-# Upload this file to your public_html root (same folder as index.html)
+    content = """# Purebred Kitties - Apache / Hostinger Configuration
+# MUST be in public_html root (same folder as index.html file)
 
 DirectoryIndex index.html
 
@@ -334,8 +362,15 @@ Options -Indexes
   RewriteEngine On
   RewriteBase /
 
-  # 0) Redirect wrong index.html/ folder URL to site root
+  # Redirect index.html/ folder URL to site root
   RewriteRule ^index\\.html/?$ / [R=301,L]
+  RewriteRule ^index\\.html/(.*)$ /$1 [R=301,L]
+
+  # Fallback: files wrongly extracted inside index.html/ subfolder
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/index.html/$1 -f
+  RewriteRule ^(.+)$ index.html/$1 [L]
 
   # Collection pagination fallback (?page=N)
   RewriteCond %{QUERY_STRING} (?:^|&)page=([2-9][0-9]+)
@@ -354,29 +389,11 @@ Options -Indexes
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^search/?$ search.html [L,QSA]
 
-  # 1) HTML pages without .html extension (products, collections, pages, blogs)
+  # HTML pages without .html extension
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.+)$ $1.html [L]
-
-  # 2) Wget-style CSS: file.css?v=HASH.css on disk
-  RewriteCond %{QUERY_STRING} ^(.+)$
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}?%{QUERY_STRING}.css -f
-  RewriteRule ^(.+\\.css)$ $1?%{QUERY_STRING}.css [L]
-
-  # 3) Wget-style JS: file.js?v=HASH.js on disk
-  RewriteCond %{QUERY_STRING} ^(.+)$
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}?%{QUERY_STRING}.js -f
-  RewriteRule ^(.+\\.js)$ $1?%{QUERY_STRING}.js [L]
-
-  # 4) Wget-style images/assets: file.ext?v=HASH on disk
-  RewriteCond %{QUERY_STRING} ^(.+)$
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}?%{QUERY_STRING} -f
-  RewriteRule ^(.+)$ $1?%{QUERY_STRING} [L]
 </IfModule>
 
 # Correct MIME types
@@ -388,20 +405,76 @@ AddType image/webp .webp
     (out / ".htaccess").write_text(content)
 
 
-def write_readme(out: Path, lite: bool):
-    text = """PUREBRED KITTIES — READY TO UPLOAD
-===================================
-1. Hostinger → File Manager → public_html
-2. Delete old files
-3. Upload ZIP → Extract here
-4. Visit your domain
+def write_verify_page(out: Path):
+    html = """<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Site Health Check</title>
+<style>body{font-family:Arial,sans-serif;max-width:720px;margin:40px auto;padding:0 20px}
+.ok{color:#0a0}.bad{color:#c00;font-weight:bold}code{background:#f4f4f4;padding:2px 6px}</style>
+</head><body>
+<h1>Purebred Kitties — Upload Check</h1>
+<p id="status">Testing...</p>
+<ul id="results"></ul>
+<h2>If CSS test fails</h2>
+<ol>
+<li>Open Hostinger File Manager → <code>public_html</code></li>
+<li>If you see a folder named <code>index.html</code>, open it</li>
+<li>Select ALL files inside → Move UP to <code>public_html</code></li>
+<li>Delete the empty <code>index.html</code> folder</li>
+<li>Confirm <code>public_html/index.html</code> is a FILE (not a folder)</li>
+<li>Confirm <code>public_html/cdn/</code> folder exists</li>
+</ol>
+<script>
+(function(){
+  var results=document.getElementById('results');
+  var status=document.getElementById('status');
+  function add(ok,msg){var li=document.createElement('li');li.className=ok?'ok':'bad';li.textContent=(ok?'PASS: ':'FAIL: ')+msg;results.appendChild(li);return ok;}
+  var tests=[
+    ['/cdn/shop/t/285/assets/yas_css.css','Main CSS at site root'],
+    ['/index.html','Homepage index.html is a file at root'],
+  ];
+  var passed=0;
+  Promise.all(tests.map(function(t){
+    return fetch(t[0],{method:'HEAD'}).then(function(r){
+      if(add(r.ok,t[1]+' ('+t[0]+')')) passed++;
+    }).catch(function(){add(false,t[1]+' ('+t[0]+')');});
+  })).then(function(){
+    status.textContent=passed===tests.length?'All checks passed — site is uploaded correctly!':'Some checks failed — follow the fix steps below.';
+    status.className=passed===tests.length?'ok':'bad';
+  });
+})();
+</script>
+</body></html>"""
+    (out / "verify.html").write_text(html)
 
-Fixed: full product lists (all pages), cart + WhatsApp checkout, search, contact form.
+
+def write_readme(out: Path, lite: bool):
+    text = """PUREBRED KITTIES — HOSTINGER UPLOAD (READ THIS FIRST)
+======================================================
+
+IMPORTANT: Files must go directly in public_html, NOT inside a subfolder.
+
+STEP BY STEP:
+1. Hostinger → File Manager → public_html
+2. DELETE everything old (select all → delete)
+3. Upload purebred-kitties-site-lite.zip
+4. Click ZIP → Extract → Extract files HERE (into public_html)
+5. CHECK these exist in public_html (not in a subfolder):
+   - index.html   (must be a FILE, not a folder)
+   - .htaccess
+   - cdn/         (folder)
+   - collections/ (folder)
+6. Open yourdomain.com/verify.html to confirm upload is correct
+
+COMMON MISTAKE (causes unstyled plain HTML page):
+  WRONG: public_html/index.html/index.html  ← folder named index.html
+  RIGHT: public_html/index.html             ← file at root
+
 Contact: kittenspurebreed@gmail.com | WhatsApp: +1 343-809-2153
 """
     if lite:
-        text += "\nPhotos load from CDN (smaller upload size).\n"
+        text += "\nPhotos load from purebredkitties.com CDN (keeps ZIP smaller).\n"
     (out / "README.txt").write_text(text)
+    (out / "UPLOAD-FIRST.txt").write_text(text)
 
 
 def make_zip(folder: Path, zip_path: Path):
@@ -422,6 +495,7 @@ def main():
     ensure_remote_files()
     lite_dir = stage_site(lite=True)
     write_htaccess(lite_dir)
+    write_verify_page(lite_dir)
     write_readme(lite_dir, lite=True)
     make_zip(lite_dir, OUTPUT_ZIP_LITE)
     print(f"\nReady: {OUTPUT_ZIP_LITE}")
