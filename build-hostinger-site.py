@@ -13,8 +13,9 @@ import zipfile
 from pathlib import Path
 
 SOURCE = Path("/workspace/hosting-staging")
-OUTPUT_ULTRA_DIR = Path("/workspace/purebred-kitties-site-ultra")
-OUTPUT_ULTRA_ZIP = Path("/workspace/purebred-kitties-site-ultra.zip")
+OUTPUT_ULTRA_DIR = Path("/workspace/purebred-kitties-clone")
+OUTPUT_ULTRA_ZIP = Path("/workspace/PUREBRED-KITTIES-CLONE-SITE.zip")
+MAX_ZIP_MB = 10
 
 EXTERNAL_CDN = "https://purebredkitties.com"
 FAVICON_URL = EXTERNAL_CDN + "/cdn/shop/files/purebred_kitties_fav_icon_af099f12-929b-46f9-9f52-ab8077b3bd03_32x32.png?v=1707586342"
@@ -24,11 +25,15 @@ FAVICON_TAGS = (
     f'<link rel="apple-touch-icon" href="{FAVICON_URL}">'
 )
 CDN_CSS = (
+    f'<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">'
     f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/font-family.css" rel="stylesheet" media="all">'
     f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/font-family1.css" rel="stylesheet" media="all">'
     f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/yas_css.css" rel="stylesheet" media="all">'
+    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/custom.css" rel="stylesheet" media="all">'
+    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/custom1.css" rel="stylesheet" media="all">'
     f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/pk-wishlist.css" rel="stylesheet" media="all">'
     f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/pk-mobile-card-no-hover.css" rel="stylesheet" media="all">'
+    f'<link href="{EXTERNAL_CDN}/cdn/shop/t/285/assets/yas-product-template.css" rel="stylesheet" media="all">'
 )
 
 THEME_SCRIPT_MARKERS = (
@@ -44,12 +49,28 @@ THEME_SCRIPT_MARKERS = (
 
 THEME_SCRIPT_URLS = (
     "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js",
+    "https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js",
     f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/vendor.js",
     f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/lazysizes.min.js",
     f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/yas-main-script.js",
     f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/yas-script.js",
+    f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/yas-script-collection.js",
     f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/pk-wishlist.js",
     f"{EXTERNAL_CDN}/cdn/shop/t/285/assets/pk-video-click-to-play-inline.js",
+)
+
+INLINE_SCRIPT_KEEP = (
+    "Typed(",
+    "finishLoading",
+    "is-loaded",
+    "text-type",
+    "lazySizes",
+    "Swiper(",
+    "pk-video",
+    "DOMContentLoaded",
+    "waitForBreedMcWorldwide",
+    "handleLeave",
+    "handleReturn",
 )
 
 LOADER_FIX = (
@@ -99,14 +120,7 @@ STYLE_STRIP = [
 ]
 
 OPTIONAL_SECTIONS = [
-    r'<div id="shopify-section-template[^"]*__related"[\s\S]*?(?=<div id="shopify-section|$)',
-    r'<div id="shopify-section-template[^"]*__review_global[\s\S]*?(?=<div id="shopify-section|$)',
-    r'<div id="shopify-section-template[^"]*slider_[\s\S]*?(?=<div id="shopify-section|$)',
     r'<div id="shopify-section-cookie-banner"[\s\S]*?(?=<div id="shopify-section|$)',
-    r'<div id="shopify-section-template[^"]*trust_section[\s\S]*?(?=<div id="shopify-section|$)',
-    r'<div id="shopify-section-template[^"]*adoption_section[\s\S]*?(?=<div id="shopify-section|$)',
-    r'<div id="shopify-section-template[^"]*yas_global[\s\S]*?(?=<div id="shopify-section|$)',
-    r'<div class="collection__filters[\s\S]*?(?=data-collection-products|class="product-grid-item)',
 ]
 
 BREED_ALIASES = {
@@ -243,6 +257,8 @@ def strip_scripts(html: str) -> str:
             if is_theme_script(tag):
                 return externalize_script_tag(tag)
             return ""
+        if any(marker in tag for marker in INLINE_SCRIPT_KEEP):
+            return tag
         return ""
 
     return re.sub(r"<script\b[^>]*>.*?</script>", repl, html, flags=re.DOTALL | re.I)
@@ -301,7 +317,6 @@ def minify_collection_cards(html: str) -> str:
 def compact_html(html: str, rel: Path | None = None) -> str:
     html = re.sub(r'\ssrcset="[^"]*"', "", html)
     html = re.sub(r'\sdata-[a-z0-9-]+="[^"]*"', "", html, flags=re.I)
-    html = re.sub(r'\saria-[a-z]+="[^"]*"', "", html, flags=re.I)
     if rel and rel.parts[0] == "collections":
         html = minify_collection_cards(html)
     return html
@@ -475,18 +490,20 @@ AddType application/javascript .js
 
 
 def write_readme(out: Path):
-    (out / "UPLOAD-FIRST.txt").write_text("""PUREBRED KITTIES — HOSTINGER UPLOAD (FIXED BUILD)
-=================================================
-IMPORTANT: Extract into public_html root — NOT into an index.html/ subfolder.
+    (out / "UPLOAD-FIRST.txt").write_text(f"""PUREBRED KITTIES — EXACT CLONE (CDN ASSETS)
+================================================
+This is a full clone of https://purebredkitties.com/
+Photos/CSS/JS load from purebredkitties.com CDN — small zip, full website.
+
+DO NOT open files by double-clicking on your computer (file:///C:/...)
+You MUST upload to Hostinger web hosting for the site to work.
 
 1. Hostinger → File Manager → public_html
-2. DELETE all old files (including any index.html/ folder)
-3. Upload PUREBRED-KITTIES-UPLOAD-ONE-FILE.zip
-4. Extract HERE — you should see public_html/index.html as a FILE
-5. Visit yourdomain.com/verify.html (all checks should be green)
-6. Visit yourdomain.com/ — full site, NOT stuck on paw prints
+2. DELETE all old files (including index.html/ folder if present)
+3. Upload PUREBRED-KITTIES-CLONE-SITE.zip
+4. Extract directly into public_html
+5. Visit yourdomain.com/verify.html then yourdomain.com/
 
-CSS/photos load from purebredkitties.com CDN — no local cdn/ folder needed.
 Contact: kittenspurebreed@gmail.com | WhatsApp: +1 343-809-2153
 """)
 
@@ -521,11 +538,9 @@ def main():
     write_verify(out)
     write_readme(out)
     mb = make_zip(out, OUTPUT_ULTRA_ZIP)
-    one_file = Path("/workspace/PUREBRED-KITTIES-UPLOAD-ONE-FILE.zip")
-    shutil.copy2(OUTPUT_ULTRA_ZIP, one_file)
-    print(f"ONE-FILE: {one_file.name} — {mb:.1f} MB")
-    if mb > 50:
-        print(f"WARNING: {mb:.1f} MB exceeds 50MB target")
+    print(f"CLONE ZIP: {OUTPUT_ULTRA_ZIP.name} — {mb:.1f} MB")
+    if mb > MAX_ZIP_MB:
+        print(f"NOTE: Full visual clone is {mb:.1f} MB (limit target {MAX_ZIP_MB} MB). All assets load from CDN.")
     print(f"Ready: {OUTPUT_ULTRA_ZIP}")
 
 
