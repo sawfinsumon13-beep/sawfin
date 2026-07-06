@@ -18,6 +18,12 @@ OUTPUT_ZIP_LITE = Path("/workspace/purebred-kitties-site-lite.zip")
 
 SKIP_DIRS = {"videos"}
 EXTERNAL_CDN = "https://purebredkitties.com"
+FAVICON_URL = EXTERNAL_CDN + "/cdn/shop/files/purebred_kitties_fav_icon_af099f12-929b-46f9-9f52-ab8077b3bd03_32x32.png?v=1707586342"
+FAVICON_TAGS = (
+    f'<link rel="icon" href="{FAVICON_URL}" type="image/png" sizes="32x32">'
+    f'<link rel="shortcut icon" href="{FAVICON_URL}" type="image/png">'
+    f'<link rel="apple-touch-icon" href="{FAVICON_URL}">'
+)
 SKIP_NAMES = {".git", "__pycache__", "agents.md"}
 STATIC_CART_SRC = Path("/workspace/static-cart.js")
 STATIC_SEARCH_SRC = Path("/workspace/static-search.js")
@@ -121,6 +127,15 @@ def fix_pagination_links(html: str, slug: str, is_folder: bool) -> str:
     return html
 
 
+def fix_favicon(html: str) -> str:
+    """Use CDN favicon so it works even if local files are misplaced on Hostinger."""
+    html = re.sub(r'<link rel="(?:shortcut )?icon"[^>]*>', '', html, flags=re.IGNORECASE)
+    html = re.sub(r'<link rel="apple-touch-icon"[^>]*>', '', html, flags=re.IGNORECASE)
+    if FAVICON_URL not in html and "<head" in html:
+        html = html.replace("<head>", "<head>" + FAVICON_TAGS, 1)
+    return html
+
+
 def fix_static_links(html: str) -> str:
     html = html.replace("https://purebredkitties.com/pages/partnerships", "/pages/partnerships")
     html = html.replace("https://purebredkitties.com/pages/partnerships.html", "/pages/partnerships")
@@ -156,6 +171,22 @@ def fix_css_loading(text: str) -> str:
     return text
 
 
+def externalize_theme_assets(text: str) -> str:
+    """Load theme CSS/JS from live CDN — works even when Hostinger upload is in wrong folder."""
+    text = text.replace('"/cdn/shop/t/285/assets/', f'"{EXTERNAL_CDN}/cdn/shop/t/285/assets/')
+    text = text.replace("'/cdn/shop/t/285/assets/", f"'{EXTERNAL_CDN}/cdn/shop/t/285/assets/")
+    text = text.replace('"/cdn/shopifycloud/', f'"{EXTERNAL_CDN}/cdn/shopifycloud/')
+    text = text.replace("'/cdn/shopifycloud/", f"'{EXTERNAL_CDN}/cdn/shopifycloud/")
+    return text
+
+
+def inline_local_scripts(html: str, out_dir: Path) -> str:
+    """Remove external refs to our custom scripts (now inlined in head)."""
+    for rel in (CART_DEST, SEARCH_DEST):
+        html = re.sub(rf'<script src="/{re.escape(rel)}[^"]*"></script>', '', html)
+    return html
+
+
 def externalize_cdn_urls(text: str) -> str:
     """Point /cdn/shop/files/ references to the live CDN (lite build)."""
     replacements = [
@@ -179,15 +210,16 @@ def fix_asset_paths(html: str, externalize: bool) -> str:
     html = re.sub(r'href="([a-z0-9-]+)\.html#', r'href="/products/\1#', html)
     if externalize:
         html = externalize_cdn_urls(html)
+        html = externalize_theme_assets(html)
     return html
 
 
 def inject_static_scripts(html: str) -> str:
     inject = ""
-    if "static-cart.js" not in html:
-        inject += CART_TAG
-    if "static-search.js" not in html:
-        inject += SEARCH_TAG
+    if "pk_static_cart_v1" not in html and STATIC_CART_SRC.exists():
+        inject += f"<script>{STATIC_CART_SRC.read_text(encoding='utf-8')}</script>"
+    if "loadIndex" not in html and STATIC_SEARCH_SRC.exists():
+        inject += f"<script>{STATIC_SEARCH_SRC.read_text(encoding='utf-8')}</script>"
     if not inject:
         return html
     if "<head" in html:
@@ -201,6 +233,7 @@ def optimize_html(html: str, externalize: bool = False, rel: Path | None = None)
     html = re.sub(r"<!--.*?-->", "", html, flags=re.DOTALL)
     html = fix_asset_paths(html, externalize)
     html = fix_static_links(html)
+    html = fix_favicon(html)
     html = simplify_asset_urls(html)
     html = fix_css_loading(html)
     if rel:
@@ -208,6 +241,7 @@ def optimize_html(html: str, externalize: bool = False, rel: Path | None = None)
         if info:
             html = fix_pagination_links(html, info[0], info[1])
     html = inject_static_scripts(html)
+    html = inline_local_scripts(html, Path("."))
     html = re.sub(r">\s+<", "><", html)
     return html
 
@@ -299,7 +333,7 @@ def stage_site(lite: bool = False):
             html_saved += len(raw) - len(opt)
         elif lite and src.suffix.lower() == ".css":
             raw = src.read_text(encoding="utf-8", errors="ignore")
-            dst.write_text(externalize_cdn_urls(raw), encoding="utf-8")
+            dst.write_text(externalize_cdn_urls(externalize_theme_assets(raw)), encoding="utf-8")
         else:
             shutil.copy2(src, dst)
         copied += 1
