@@ -7,6 +7,13 @@ import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
+from pk_blog_posts import (
+    build_blog_pages,
+    desktop_blog_menu_html,
+    mobile_blog_menu_html,
+    render_homepage_blog_section,
+)
+
 CLONE = Path("/workspace/purebred-kitties-clone")
 OUT = Path("/workspace/SINGLE-SITE.html")
 ZIP_OUT = Path("/workspace/PUREBRED-KITTIES-SINGLE-SITE.html")
@@ -342,6 +349,38 @@ def strip_internal_links(html: str) -> str:
     html = re.sub(r"window\.location\.href\s*=\s*['\"]/collections/", "window.location.href='#/collections/", html)
     html = re.sub(r"window\.location\.href\s*=\s*['\"]/index\.html/collections/", "window.location.href='#/collections/", html)
     return html
+
+
+def inject_blog_menu(body: str) -> str:
+    blog_li = desktop_blog_menu_html()
+    body = body.replace(
+        '<li><a href="/index.html/pages/protection-from-scams.html" rel="prefetch">Scam Protection</a></li>',
+        blog_li + '<li><a href="/index.html/pages/protection-from-scams.html" rel="prefetch">Scam Protection</a></li>',
+        1,
+    )
+    body = body.replace(
+        '<li><a href="/index.html/pages/protection-from-scams.html" rel="prefetch" aria-label="Scam Protection">Scam Protection</a></li>',
+        mobile_blog_menu_html()
+        + '<li><a href="/index.html/pages/protection-from-scams.html" rel="prefetch" aria-label="Scam Protection">Scam Protection</a></li>',
+        1,
+    )
+    body = body.replace(
+        'href="/index.html/blogs/purebred-cats-care"',
+        'href="#/blogs/pk-blog"',
+    )
+    return body
+
+
+def replace_homepage_blog_section(body: str) -> str:
+    start = body.find('<div class="blog_container-w">')
+    if start == -1:
+        raise SystemExit("Could not locate homepage blog section")
+    end = body.find('<div id="shopify-section-template--21804439798011__global_companion', start)
+    if end == -1:
+        end = body.find('class="shopify-section global_companion-yas"', start)
+    if end == -1:
+        raise SystemExit("Could not locate homepage blog section end")
+    return body[:start] + render_homepage_blog_section() + body[end:]
 
 
 def patch_inline_scripts(html: str) -> str:
@@ -797,7 +836,8 @@ SPA_JS = r"""
     collectionList=null;
     if(parts[0]==='products'&&parts[1]){ setRoute('product'); showProduct(parts[1]); }
     else if(parts[0]==='pages'&&parts[1]){ setRoute('page'); showPage('pages/'+parts[1]); }
-    else if(parts[0]==='blogs'&&parts[1]){ setRoute('page'); showPage('blogs/'+parts[1]); }
+    else if(parts[0]==='blogs'&&parts.length>1){ setRoute('page'); showPage('blogs/'+parts.slice(1).join('/')); }
+    else if(parts[0]==='blogs'){ setRoute('page'); showPage('blogs/pk-blog'); }
     else if(parts[0]==='collections'&&parts[1]){ setRoute('collection'); showCollection(parts[1]); }
     else if(parts[0]==='search'){ setRoute('search'); showGrid(document.getElementById('pk-grid-2'),decodeURIComponent((location.search.match(/q=([^&]+)/)||[])[1]||'')); }
     else if(parts[0]==='contact'){ setRoute('page'); showPage('pages/contact'); }
@@ -913,6 +953,7 @@ def build_single_html():
 
     print("Building static pages...")
     pages = build_pages()
+    pages.update(build_blog_pages())
     print(f"Pages: {len(pages)} (info pages, blogs, cart, search)")
 
     head, body = get_home_shell()
@@ -925,6 +966,8 @@ def build_single_html():
         email=CONTACT_EMAIL,
     )
 
+    body = inject_blog_menu(body)
+    body = replace_homepage_blog_section(body)
     body = strip_internal_links(body)
     body = patch_inline_scripts(body)
     body = restructure_layout(body, contact_views)
