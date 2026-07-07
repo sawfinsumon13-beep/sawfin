@@ -18,8 +18,8 @@ const cats = [
     age: '14 weeks',
     gender: 'Male',
     price: 1500,
-    badge: 'Giant Breed',
-    badgeClass: '',
+    badge: 'Popular',
+    badgeClass: 'popular',
     image: 'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=500&h=375&fit=crop',
     description: 'Gentle giants known for their playful personality and impressive tufted ears.',
   },
@@ -42,7 +42,7 @@ const cats = [
     age: '11 weeks',
     gender: 'Female',
     price: 1800,
-    badge: 'Exotic Look',
+    badge: 'Exotic',
     badgeClass: 'popular',
     image: 'https://images.unsplash.com/photo-1568153180638-259747ab10c5?w=500&h=375&fit=crop',
     description: 'Wild-looking rosettes with an energetic, athletic personality. Loves to climb.',
@@ -78,7 +78,7 @@ const cats = [
     age: '11 weeks',
     gender: 'Female',
     price: 1300,
-    badge: 'Unique Ears',
+    badge: 'Unique',
     badgeClass: '',
     image: 'https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=500&h=375&fit=crop',
     description: 'Adorable folded ears and owl-like expression. Sweet, adaptable temperament.',
@@ -97,6 +97,18 @@ const cats = [
   },
   {
     id: 9,
+    name: 'Devon Rex',
+    category: 'exotic',
+    age: '10 weeks',
+    gender: 'Female',
+    price: 1250,
+    badge: 'Curly Coat',
+    badgeClass: '',
+    image: 'https://images.unsplash.com/photo-1571566882370-7d0bde34b0ab?w=500&h=375&fit=crop',
+    description: 'Pixie-like face with a soft curly coat. Playful, mischievous, and highly social.',
+  },
+  {
+    id: 10,
     name: 'Norwegian Forest',
     category: 'longhair',
     age: '13 weeks',
@@ -106,18 +118,6 @@ const cats = [
     badgeClass: '',
     image: 'https://images.unsplash.com/photo-1529770533926-4a4934ff79c5?w=500&h=375&fit=crop',
     description: 'Built for cold climates with a thick double coat. Adventurous and intelligent.',
-  },
-  {
-    id: 10,
-    name: 'Abyssinian',
-    category: 'shorthair',
-    age: '10 weeks',
-    gender: 'Female',
-    price: 950,
-    badge: 'Active',
-    badgeClass: '',
-    image: 'https://images.unsplash.com/photo-1571566882370-7d0bde34b0ab?w=500&h=375&fit=crop',
-    description: 'One of the oldest breeds. Curious, athletic, and always exploring.',
   },
   {
     id: 11,
@@ -146,9 +146,12 @@ const cats = [
 ];
 
 let cart = [];
+let wishlist = [];
 let activeFilter = 'all';
+let searchQuery = '';
 
 const catGrid = document.getElementById('catGrid');
+const noResults = document.getElementById('noResults');
 const cartBtn = document.getElementById('cartBtn');
 const cartSidebar = document.getElementById('cartSidebar');
 const cartOverlay = document.getElementById('cartOverlay');
@@ -157,23 +160,45 @@ const cartItems = document.getElementById('cartItems');
 const cartCount = document.getElementById('cartCount');
 const cartTotal = document.getElementById('cartTotal');
 const checkoutBtn = document.getElementById('checkoutBtn');
+const wishlistBtn = document.getElementById('wishlistBtn');
+const wishlistCount = document.getElementById('wishlistCount');
 const toast = document.getElementById('toast');
 const contactForm = document.getElementById('contactForm');
+const heroSearch = document.getElementById('heroSearch');
+const searchInput = document.getElementById('searchInput');
+const searchToggle = document.getElementById('searchToggle');
 
 function formatPrice(price) {
   return '$' + price.toLocaleString();
 }
 
+function getFilteredCats() {
+  return cats.filter(cat => {
+    const matchesFilter = activeFilter === 'all' || cat.category === activeFilter;
+    const matchesSearch = !searchQuery || cat.name.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+}
+
 function renderCats() {
-  const filtered = activeFilter === 'all'
-    ? cats
-    : cats.filter(cat => cat.category === activeFilter);
+  const filtered = getFilteredCats();
+
+  if (filtered.length === 0) {
+    catGrid.innerHTML = '';
+    noResults.hidden = false;
+    return;
+  }
+
+  noResults.hidden = true;
 
   catGrid.innerHTML = filtered.map(cat => `
     <article class="cat-card" data-category="${cat.category}">
       <div class="cat-card-image">
         <img src="${cat.image}" alt="${cat.name} kitten" loading="lazy">
         <span class="cat-badge ${cat.badgeClass}">${cat.badge}</span>
+        <button class="wishlist-toggle ${wishlist.includes(cat.id) ? 'active' : ''}" data-id="${cat.id}" aria-label="Add ${cat.name} to wishlist">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="${wishlist.includes(cat.id) ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
       </div>
       <div class="cat-card-body">
         <h3>${cat.name}</h3>
@@ -194,14 +219,17 @@ function renderCats() {
   document.querySelectorAll('.add-btn').forEach(btn => {
     btn.addEventListener('click', () => addToCart(Number(btn.dataset.id)));
   });
+
+  document.querySelectorAll('.wishlist-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleWishlist(Number(btn.dataset.id)));
+  });
 }
 
 function addToCart(id) {
   const cat = cats.find(c => c.id === id);
   if (!cat) return;
 
-  const existing = cart.find(item => item.id === id);
-  if (existing) {
+  if (cart.find(item => item.id === id)) {
     showToast(`${cat.name} is already in your cart!`);
     return;
   }
@@ -214,6 +242,23 @@ function addToCart(id) {
 function removeFromCart(id) {
   cart = cart.filter(item => item.id !== id);
   updateCart();
+}
+
+function toggleWishlist(id) {
+  const cat = cats.find(c => c.id === id);
+  if (!cat) return;
+
+  const index = wishlist.indexOf(id);
+  if (index > -1) {
+    wishlist.splice(index, 1);
+    showToast(`${cat.name} removed from wishlist`);
+  } else {
+    wishlist.push(id);
+    showToast(`${cat.name} added to wishlist!`);
+  }
+
+  wishlistCount.textContent = wishlist.length;
+  renderCats();
 }
 
 function updateCart() {
@@ -273,19 +318,46 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
+heroSearch.addEventListener('submit', (e) => {
+  e.preventDefault();
+  searchQuery = searchInput.value.trim();
+  renderCats();
+  document.getElementById('cats').scrollIntoView({ behavior: 'smooth' });
+});
+
+searchInput.addEventListener('input', () => {
+  searchQuery = searchInput.value.trim();
+  renderCats();
+});
+
+searchToggle.addEventListener('click', () => {
+  searchInput.focus();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  searchInput.scrollIntoView({ behavior: 'smooth' });
+});
+
 cartBtn.addEventListener('click', openCart);
 cartClose.addEventListener('click', closeCart);
 cartOverlay.addEventListener('click', closeCart);
 
+wishlistBtn.addEventListener('click', () => {
+  if (wishlist.length === 0) {
+    showToast('Your wishlist is empty. Heart a kitten to save it!');
+  } else {
+    const names = wishlist.map(id => cats.find(c => c.id === id).name).join(', ');
+    showToast(`Wishlist: ${names}`);
+  }
+});
+
 checkoutBtn.addEventListener('click', () => {
   if (cart.length === 0) return;
-  showToast('Checkout coming soon! Thanks for your interest.');
+  showToast('Checkout coming soon! A specialist will contact you.');
   closeCart();
 });
 
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  showToast('Message sent! We\'ll be in touch soon.');
+  showToast('Message sent! A specialist will be in touch soon.');
   contactForm.reset();
 });
 
