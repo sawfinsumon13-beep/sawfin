@@ -452,14 +452,100 @@ def inject_body_scripts(html: str) -> str:
     return html
 
 
+SHOPIFY_THUMB_SIZE = re.compile(
+    r"_(?:30|50|80|100|150|200|240|300|400|496|500|520|600)x(?=\.(?:jpg|jpeg|png|webp|gif))",
+    re.I,
+)
+
+
+def upgrade_cdn_url(url: str, min_width: int = 800) -> str:
+    if not url:
+        return url
+    if "/cdn/shop/" not in url and "cdn.shopify.com" not in url:
+        return url
+    lower = url.lower()
+    if any(skip in lower for skip in ("favicon", "paws_1", "icon-qaulity", "radius-qaulity", "mark.svg")):
+        return url
+    url = re.sub(r"([?&])width=\d+", rf"\1width={min_width}", url)
+    return SHOPIFY_THUMB_SIZE.sub(f"_{min_width}x", url)
+
+
+def best_from_srcset(srcset: str) -> str | None:
+    best_url = None
+    best_w = 0
+    for part in srcset.split(","):
+        part = part.strip()
+        if not part:
+            continue
+        bits = part.split()
+        url = bits[0]
+        width = 0
+        if len(bits) > 1 and bits[1].endswith("w"):
+            try:
+                width = int(bits[1][:-1])
+            except ValueError:
+                width = 0
+        if width >= best_w:
+            best_w = width
+            best_url = url
+    return best_url
+
+
+def fix_image_urls(html: str) -> str:
+    def fix_img(match: re.Match[str]) -> str:
+        tag = match.group(0)
+        candidates: list[str] = []
+        for attr in ("data-srcset", "srcset", "data-src", "src"):
+            m = re.search(rf'\s{attr}="([^"]+)"', tag, re.I)
+            if not m:
+                continue
+            val = m.group(1)
+            if attr.endswith("srcset"):
+                best = best_from_srcset(val)
+                if best:
+                    candidates.append(best)
+            else:
+                candidates.append(val)
+        if not candidates:
+            return tag
+        best = upgrade_cdn_url(candidates[0])
+        for c in candidates[1:]:
+            upgraded = upgrade_cdn_url(c)
+            if upgraded != c or "_30x" in c or "_50x" in c:
+                best = upgraded
+                break
+        tag = re.sub(r'\s(?:data-srcset|srcset|data-src|src)="[^"]*"', "", tag, flags=re.I)
+        tag = re.sub(r"\sclass=\"lazyload\"", "", tag, flags=re.I)
+        tag = re.sub(r"\sloading=\"lazy\"", "", tag, flags=re.I)
+        if re.search(r'\ssrc="', tag, re.I):
+            tag = re.sub(r'\ssrc="[^"]*"', f' src="{best}"', tag, flags=re.I)
+        else:
+            tag = tag.replace("<img", f'<img src="{best}"', 1)
+        if 'loading=' not in tag.lower():
+            tag = tag.replace("<img", '<img loading="lazy"', 1)
+        return tag
+
+    html = re.sub(r"<img\b[^>]*>", fix_img, html, flags=re.I)
+
+    def fix_url_in_text(match: re.Match[str]) -> str:
+        return upgrade_cdn_url(match.group(0))
+
+    html = re.sub(
+        r"https?://(?:purebredkitties\.com|cdn\.shopify\.com)/cdn/shop/files/[^\s\"')]+",
+        fix_url_in_text,
+        html,
+    )
+    return html
+
+
 def minify_collection_cards(html: str) -> str:
     def shrink(card: str) -> str:
         link = re.search(r'href="(/products/[^"]+)"', card)
-        img = re.search(r'src="(https://purebredkitties\.com/cdn/shop/files/[^"]+)"', card)
+        img = re.search(r'(?:data-src|src)="(https://purebredkitties\.com/cdn/shop/files/[^"]+)"', card)
         title = re.search(r"<h2>([^<]+)</h2>", card)
         if not link:
             return card
-        src = img.group(1) if img else ""
+        src = upgrade_cdn_url(img.group(1)) if img else ""
         name = title.group(1).strip() if title else "View kitten"
         return (
             f'<div class="product-grid-item"><a class="product-card" href="{link.group(1)}">'
@@ -475,9 +561,8 @@ def minify_collection_cards(html: str) -> str:
 
 
 def compact_html(html: str, rel: Path | None = None) -> str:
-    html = re.sub(r'\ssrcset="[^"]*"', "", html)
     html = re.sub(
-        r'\sdata-(?!autoplay|speed|direction|product|reserve|pk-|collection)[a-z0-9-]+="[^"]*"',
+        r'\sdata-(?!autoplay|speed|direction|product|reserve|pk-|collection|src|srcset|sizes|image|handle|url|variant|price)[a-z0-9-]+="[^"]*"',
         "",
         html,
         flags=re.I,
@@ -550,6 +635,7 @@ def ultra_optimize(html: str, rel: Path | None = None) -> str:
     html = inject_head(html)
     html = inject_body_scripts(html)
     html = fix_html_links(html)
+    html = fix_image_urls(html)
     html = compact_html(html, rel)
     html = compact_svgs(html)
     html = re.sub(r">\s+<", "><", html)
