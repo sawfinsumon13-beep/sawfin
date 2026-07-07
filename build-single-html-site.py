@@ -928,6 +928,18 @@ SPA_JS = r"""
   };
 
   document.addEventListener('click',function(e){
+    var omniform=e.target.closest('a[href*="omniform1.com"]');
+    if(omniform){
+      e.preventDefault();
+      var href=omniform.getAttribute('href')||'';
+      if(href.indexOf('6403a509')!==-1 || /breeder/i.test((omniform.textContent||'')+(omniform.getAttribute('title')||''))){
+        location.hash='/pages/breeder-application';
+        closeMobileMenu();
+      }else{
+        window.open(href,'_blank','noopener');
+      }
+      return;
+    }
     var linkChild=e.target.closest('a.link_child, a.h-link-child');
     if(linkChild && (linkChild.getAttribute('href')==='#' || linkChild.getAttribute('href')==='')){
       e.preventDefault();
@@ -1011,6 +1023,7 @@ def build_single_html():
         catalog_script + pages_script + f"<script>{cart_src}</script>\n" + spa_script + "</body>",
         1,
     )
+    html = replace_omniform_links(html)
 
     OUT.write_text(html, encoding="utf-8")
     ZIP_OUT.write_text(html, encoding="utf-8")
