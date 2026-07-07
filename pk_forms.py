@@ -22,6 +22,9 @@ FORM_CSS = """
 .pk-form-submit{width:100%;padding:16px 24px;background:#f4ff73;color:#342a41;border:none;border-radius:999px;font-size:18px;font-weight:700;cursor:pointer;margin-top:8px}
 .pk-form-submit:hover{filter:brightness(.97)}
 .pk-form-submit:disabled{opacity:.7;cursor:wait}
+.pk-form-actions{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.pk-form-submit-email{background:#dec0fc;color:#342a41}
+.pk-form-submit-whatsapp{background:#25D366;color:#fff}
 .pk-form-success{display:none;text-align:center;padding:20px 0}
 .pk-form-success.active{display:block}
 .pk-form-success h3{font-size:24px;color:#342a41;margin:0 0 12px}
@@ -77,14 +80,58 @@ BREEDER_OMNIFORM = (
 ADOPTION_OMNIFORM = (
     "https://omniform1.com/forms/v1/landingPage/6377b4a600e4d27e263b56d1/65ec902d75b6cc4e1b8f7ee4"
 )
+APPOINTMENT_ROUTE = "#/pages/book-appointment"
+CONTACT_EMAIL = "kittenspurebreed@gmail.com"
+
+
+def render_appointment_page() -> str:
+    return f"""<div class="shopify-section pk-form-page"><style>{FORM_CSS}</style>
+<div class="pk-form-card">
+<img class="pk-form-logo" src="{LOGO_URL}" alt="Purebred Kitties">
+<h1>Book Your Call for Personalized Adoption Support</h1>
+<p class="pk-form-intro">Schedule a free 30-minute call with our adoption team. We will answer your questions and guide you through every step of finding your perfect kitten.</p>
+<form class="pk-appointment-form" id="pk-appointment-form" action="#" method="post">
+<div class="pk-form-field"><label for="pk-appt-name">Full Name</label>
+<input id="pk-appt-name" name="full_name" type="text" autocomplete="name" required></div>
+<div class="pk-form-field"><label for="pk-appt-email">Email Address</label>
+<input id="pk-appt-email" name="email" type="email" autocomplete="email" required></div>
+<div class="pk-form-field"><label for="pk-appt-phone">Phone / WhatsApp Number</label>
+<input id="pk-appt-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1" required></div>
+<div class="pk-form-field"><label for="pk-appt-date">Preferred Date</label>
+<input id="pk-appt-date" name="preferred_date" type="date" required></div>
+<div class="pk-form-field"><label for="pk-appt-time">Preferred Time</label>
+<input id="pk-appt-time" name="preferred_time" type="time" required></div>
+<div class="pk-form-field"><label for="pk-appt-timezone">Your Time Zone</label>
+<input id="pk-appt-timezone" name="timezone" type="text" placeholder="e.g., EST, PST, West Africa Time" required></div>
+<div class="pk-form-field"><label for="pk-appt-notes">What would you like to discuss?</label>
+<textarea id="pk-appt-notes" name="notes" placeholder="Breeds you are interested in, delivery questions, etc." required></textarea></div>
+<label class="pk-form-check"><input type="checkbox" name="consent" value="yes" required>
+<span>I agree to be contacted about this appointment request. See our <a href="#/pages/privacy-policy">Privacy Policy</a>.</span></label>
+<div class="pk-form-actions">
+<button class="pk-form-submit pk-form-submit-email" type="button" data-pk-submit="email">Submit via Email</button>
+<button class="pk-form-submit pk-form-submit-whatsapp" type="button" data-pk-submit="whatsapp">Submit via WhatsApp</button>
+</div>
+</form>
+<div class="pk-form-success" id="pk-appointment-success">
+<h3>Thank you!</h3>
+<p>Your appointment request has been prepared. If your email app or WhatsApp did not open automatically, please contact us directly.</p>
+<p><strong>Phone / WhatsApp:</strong> +1 3475417149<br><strong>Email:</strong> {CONTACT_EMAIL}</p>
+</div>
+</div></div>"""
 
 
 def build_form_pages() -> dict[str, dict[str, str]]:
+    appointment = {
+        "title": "Book Your Call | Purebred Kitties",
+        "html": render_appointment_page(),
+    }
     return {
         "pages/breeder-application": {
             "title": "Breeder Application | Purebred Kitties",
             "html": render_breeder_application_page(),
         },
+        "pages/book-appointment": appointment,
+        "pages/personalized-adoption-support": appointment,
     }
 
 
@@ -102,6 +149,71 @@ def replace_omniform_links(html: str) -> str:
     html = re.sub(
         rf"href='{re.escape(BREEDER_OMNIFORM)}'\s*target='_blank'",
         f"href='{route}'",
+        html,
+        flags=re.I,
+    )
+    return html
+
+
+def replace_calendly_links(html: str) -> str:
+    import re
+
+    route = APPOINTMENT_ROUTE
+    redirect = f"window.location.hash='{route}';return false;"
+
+    html = re.sub(r"<link[^>]*calendly[^>]*>", "", html, flags=re.I)
+    html = re.sub(r"<script[^>]*calendly[^>]*>.*?</script>", "", html, flags=re.I | re.S)
+    html = re.sub(
+        r'onclick="<div class="middle_[^"]*".*?</div></div>Calendly\.initPopupWidget\(\{url: \'[^\']+\'\}\);return false;"',
+        f'onclick="{redirect}"',
+        html,
+        flags=re.DOTALL,
+    )
+    html = re.sub(
+        r"Calendly\.initPopupWidget\(\{[^}]*\}\);return false;",
+        redirect,
+        html,
+        flags=re.I,
+    )
+    html = re.sub(
+        r"Calendly\.initPopupWidget\(\{\s*url:\s*'[^']+'\s*\}\);?",
+        f"window.location.hash='{route}';",
+        html,
+        flags=re.I,
+    )
+    html = re.sub(
+        r'<div class="calendly-inline-widget"[^>]*></div>',
+        (
+            f'<div class="pk-appointment-embed"><p style="text-align:center;margin:0 0 16px;color:#5d5c78;">'
+            f"Book a free 30-minute call with our adoption team. Requests go directly to {CONTACT_EMAIL}.</p>"
+            f'<a href="{route}" class="btn_pink callendar_btn" style="display:inline-block;text-align:center;">Book Your Call</a></div>'
+        ),
+        html,
+        flags=re.I,
+    )
+    html = re.sub(r'href="https?://[^"]*calendly\.com[^"]*"', f'href="{route}"', html, flags=re.I)
+    html = re.sub(r"href='https?://[^']*calendly\.com[^']*'", f"href='{route}'", html, flags=re.I)
+    html = re.sub(
+        r'class="btn_pink callendar_btn"([^>]*)href=""',
+        f'class="btn_pink callendar_btn"\\1href="{route}"',
+        html,
+        flags=re.I,
+    )
+    html = re.sub(
+        r'class="btn_pink callendar_btn"([^>]*)onclick=""',
+        f'class="btn_pink callendar_btn"\\1href="{route}"',
+        html,
+        flags=re.I,
+    )
+    html = re.sub(
+        r'title="https?://[^"]*calendly\.com[^"]*"',
+        'title="Book Your Call"',
+        html,
+        flags=re.I,
+    )
+    html = re.sub(
+        r"https?://[^\s\"'<>\\]*calendly\.com[^\s\"'<>\\]*",
+        "Book Your Call",
         html,
         flags=re.I,
     )

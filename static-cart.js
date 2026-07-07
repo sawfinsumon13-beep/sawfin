@@ -58,6 +58,63 @@
     );
   }
 
+  function openEmail(subject, body) {
+    window.location.href =
+      'mailto:' + CONTACT_EMAIL +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+  }
+
+  function readFormData(form) {
+    var data = {};
+    form.querySelectorAll('input, textarea, select').forEach(function (el) {
+      if (!el.name) return;
+      if (el.type === 'checkbox' && !el.checked) return;
+      if (el.type === 'radio' && !el.checked) return;
+      data[el.name] = el.value;
+    });
+    return data;
+  }
+
+  function buildAppointmentMessage(data) {
+    return [
+      'New appointment request — Personalized Adoption Support',
+      '',
+      'Full name: ' + (data.full_name || ''),
+      'Email: ' + (data.email || ''),
+      'Phone / WhatsApp: ' + (data.phone || ''),
+      'Preferred date: ' + (data.preferred_date || ''),
+      'Preferred time: ' + (data.preferred_time || ''),
+      'Time zone: ' + (data.timezone || ''),
+      '',
+      'Discussion notes:',
+      data.notes || '',
+      '',
+      contactDetails(),
+      '',
+      'Page: ' + window.location.href,
+    ].join('\n');
+  }
+
+  function handleAppointmentForm(form, channel) {
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    var data = readFormData(form);
+    var message = buildAppointmentMessage(data);
+    var subject = 'Appointment Request — ' + (data.full_name || 'Adoption Support Call');
+    if (channel === 'email') openEmail(subject, message);
+    else openWhatsApp('Hello! ' + message);
+    var success = document.getElementById('pk-appointment-success');
+    if (success) {
+      form.style.display = 'none';
+      success.classList.add('active');
+    }
+  }
+
+  window.pkSubmitAppointmentForm = handleAppointmentForm;
+
   function addToCart(payload) {
     var cart = readCart();
     var items = payload.items || [payload];
@@ -298,6 +355,27 @@
   }, true);
 
   document.addEventListener('click', function (event) {
+    var submitBtn = event.target.closest('[data-pk-submit]');
+    if (submitBtn) {
+      var form = submitBtn.closest('form');
+      if (form && form.classList.contains('pk-appointment-form')) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        handleAppointmentForm(form, submitBtn.getAttribute('data-pk-submit'));
+        return;
+      }
+    }
+    var calendlyLink = event.target.closest('a[href*="calendly.com"], .callendar_btn');
+    if (calendlyLink) {
+      var href = calendlyLink.getAttribute('href') || '';
+      var onclick = calendlyLink.getAttribute('onclick') || '';
+      if (href.indexOf('calendly.com') !== -1 || onclick.indexOf('Calendly') !== -1) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        window.location.hash = '#/pages/book-appointment';
+        return;
+      }
+    }
     var target = event.target.closest('button[name="checkout"], .cart__checkout, .cart_btn, .bottom-cart-btn, .new_cart-btn');
     if (!target) return;
     if (target.closest('form.product-form')) return;

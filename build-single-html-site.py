@@ -13,7 +13,7 @@ from pk_blog_posts import (
     mobile_blog_menu_html,
     render_homepage_blog_section,
 )
-from pk_forms import build_form_pages, replace_omniform_links
+from pk_forms import build_form_pages, replace_calendly_links, replace_omniform_links
 
 CLONE = Path("/workspace/purebred-kitties-clone")
 OUT = Path("/workspace/SINGLE-SITE.html")
@@ -1080,6 +1080,8 @@ def build_single_html():
     pages = build_pages()
     pages.update(build_blog_pages())
     pages.update(build_form_pages())
+    for key in pages:
+        pages[key]["html"] = replace_calendly_links(replace_omniform_links(pages[key]["html"]))
     print(f"Pages: {len(pages)} (info pages, blogs, cart, search)")
 
     head, body = get_home_shell()
@@ -1095,6 +1097,7 @@ def build_single_html():
     body = inject_blog_menu(body)
     body = replace_homepage_blog_section(body)
     body = replace_omniform_links(body)
+    body = replace_calendly_links(body)
     body = strip_internal_links(body)
     body = patch_inline_scripts(body)
     body = restructure_layout(body, contact_views)
@@ -1118,6 +1121,7 @@ def build_single_html():
         1,
     )
     html = replace_omniform_links(html)
+    html = replace_calendly_links(html)
 
     OUT.write_text(html, encoding="utf-8")
     ZIP_OUT.write_text(html, encoding="utf-8")
