@@ -818,8 +818,61 @@ a {
   border-radius: var(--radius-lg);
   padding: 56px;
   text-align: center;
-  max-width: 640px;
+  max-width: 720px;
   margin: 0 auto;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  text-align: left;
+  margin-top: 8px;
+}
+
+.contact-info h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.15s, box-shadow 0.15s;
+  border: 2px solid transparent;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.contact-btn.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.contact-btn.phone {
+  background: var(--white);
+  color: var(--gray-900);
+  border-color: var(--gray-200);
+}
+
+.contact-btn.signal {
+  background: #3A76F0;
+  color: white;
 }
 
 .contact-card h2 {
@@ -1144,6 +1197,10 @@ a {
 
   .contact-card {
     padding: 32px 20px;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
   }
 
   .about-stats {
