@@ -130,11 +130,9 @@
 
   function handleProductOrder(form, button) {
     var productName = getProductName();
-    var option = getSelectedOption(form);
     var message =
       'Hello! I would like to reserve/order:\n\n' +
       'Kitten: ' + productName + '\n' +
-      'Payment Option: ' + option + '\n' +
       'Page: ' + window.location.href + '\n\n' +
       contactDetails() + '\n\n' +
       'Please contact me with next steps. Thank you!';
@@ -185,16 +183,20 @@
   function handleContactForm(form) {
     var data = {};
     form.querySelectorAll('input, textarea, select').forEach(function (el) {
-      if (!el.name || el.type === 'checkbox' && !el.checked) return;
+      if (!el.name) return;
+      if (el.type === 'checkbox' && !el.checked) return;
+      if (el.type === 'radio' && !el.checked) return;
       var key = el.name.replace(/^contact\[|\]$/g, '');
       data[key] = el.value;
     });
+    var phoneEl = document.getElementById('phone');
+    var phone = data.phone || data['email-2'] || (phoneEl ? phoneEl.value : '');
     var lines = [
       'Hello! New contact form submission:',
       '',
       'Name: ' + ((data.first_name || '') + ' ' + (data.last_name || '')).trim(),
       'Email: ' + (data.email || ''),
-      'Phone: ' + (data.phone || data[''] || ''),
+      'Phone: ' + phone,
       'Subject: ' + (data.subject || ''),
       'Message: ' + (data.message || ''),
       '',
@@ -203,6 +205,16 @@
       'Page: ' + window.location.href,
     ];
     openWhatsApp(lines.join('\n'));
+    var btn = form.querySelector('button[type="submit"]');
+    if (btn) {
+      var original = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = 'Sent — opening WhatsApp...';
+      setTimeout(function () {
+        btn.disabled = false;
+        btn.innerHTML = original;
+      }, 3000);
+    }
   }
 
   document.addEventListener('DOMContentLoaded', function () {

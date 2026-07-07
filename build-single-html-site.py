@@ -24,17 +24,39 @@ PRICE_RE = re.compile(r'data-price-formatted="([^"]+)"', re.I)
 H1_RE = re.compile(r"<h1[^>]*>([^<]+)", re.I)
 
 
+def normalize_img_url(src: str) -> str:
+    src = src.strip()
+    if src.startswith("//"):
+        src = "https:" + src
+    if "_800x" not in src and re.search(r"\.(jpg|jpeg|png|webp)", src, re.I):
+        src = re.sub(r"(_\d+x)?\.(jpg|jpeg|png|webp)", r"_800x.\2", src, count=1, flags=re.I)
+    return src
+
+
+def extract_product_images(text: str) -> list[str]:
+    imgs: list[str] = []
+    for m in re.finditer(r'class="product-image"[^>]*>.*?src="([^"]+)"', text, re.I | re.S):
+        src = m.group(1)
+        if ".mp4" in src.lower():
+            continue
+        src = normalize_img_url(src)
+        if src not in imgs:
+            imgs.append(src)
+    return imgs
+
+
 def extract_product(path: Path) -> dict | None:
-    text = path.read_text(encoding="utf-8", errors="ignore")[:25000]
+    text = path.read_text(encoding="utf-8", errors="ignore")[:180000]
     handle = path.stem
     title_m = TITLE_RE.search(text) or H1_RE.search(text)
     title = title_m.group(1).strip() if title_m else handle.replace("-", " ").title()
     desc_m = DESC_RE.search(text)
     desc = desc_m.group(1).strip() if desc_m else ""
+    images = extract_product_images(text)
     img_m = IMG_RE.search(text)
-    image = img_m.group(1).strip() if img_m else ""
-    if image and "_800x" not in image:
-        image = re.sub(r"(_\d+x)?\.(jpg|jpeg|png|webp)", r"_800x.\2", image, count=1, flags=re.I)
+    image = images[0] if images else (img_m.group(1).strip() if img_m else "")
+    if image:
+        image = normalize_img_url(image)
     price_m = PRICE_RE.search(text)
     price = price_m.group(1).strip() if price_m else ""
     return {
@@ -42,6 +64,7 @@ def extract_product(path: Path) -> dict | None:
         "title": title,
         "description": desc[:500],
         "image": image,
+        "images": images[:16],
         "price": price,
     }
 
@@ -59,6 +82,12 @@ def build_catalog() -> list[dict]:
     return catalog
 
 
+def sanitize_page_html(html: str) -> str:
+    html = re.sub(r'<ul class="payment-icon-list"[^>]*>.*?</ul>', "", html, flags=re.I | re.S)
+    html = re.sub(r"<div class=\"payment-icons\"[^>]*>.*?</div>", "", html, flags=re.I | re.S)
+    return html
+
+
 def extract_page(path: Path, folder: str) -> dict | None:
     html = path.read_text(encoding="utf-8", errors="ignore")
     title_m = TITLE_RE.search(html)
@@ -68,6 +97,7 @@ def extract_page(path: Path, folder: str) -> dict | None:
         return None
     body = strip_internal_links(main_m.group(1))
     body = re.sub(r"<script[^>]*>.*?</script>", "", body, flags=re.I | re.DOTALL)
+    body = sanitize_page_html(body)
     return {"key": f"{folder}/{path.stem}", "title": title, "html": body}
 
 
@@ -111,10 +141,16 @@ def get_home_shell() -> str:
     body = index[start:end + 7]
     # Wrap main content for SPA views
     body = body.replace("<body", '<body class="pk-spa"', 1)
-    # Wrap homepage content for SPA show/hide
+    # Wrap only homepage main content — keep header + mobile menu always visible
     body = re.sub(
-        r"(<body[^>]*>)",
-        r'\1<div id="pk-view-home">',
+        r'(<main id="MainContent">)',
+        r'<div id="pk-view-home">\1',
+        body,
+        count=1,
+    )
+    body = re.sub(
+        r"(</main>)",
+        r"\1</div>",
         body,
         count=1,
     )
@@ -136,11 +172,21 @@ SPA_CSS = """
 .pk-spa-route-search #pk-view-home,
 .pk-spa-route-collection #pk-view-home,
 .pk-spa-route-page #pk-view-home{display:none!important}
-#pk-view-product,#pk-view-page{padding:40px 20px;max-width:1200px;margin:0 auto}
+#pk-view-product,#pk-view-page{padding:20px;max-width:1200px;margin:0 auto}
 #pk-page-root img{max-width:100%;height:auto}
+.yas_header,.mobile_menu_sec{position:relative;z-index:100}
+.mobile_menu_sec .mobile_menu{z-index:101}
+.mobile_menu li a.link_child,.mobile_menu li a.h-link-child{cursor:pointer;touch-action:manipulation}
+.mobile_menu li a+ul{display:none}
+.mobile_menu li a.open_child+ul{display:flex}
 .pk-product-detail{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
 @media(max-width:768px){.pk-product-detail{grid-template-columns:1fr}}
-.pk-product-detail img{width:100%;border-radius:12px}
+.pk-product-gallery .pk-main-swiper{border-radius:12px;overflow:hidden;background:#f5f5f5}
+.pk-product-gallery .pk-main-swiper .swiper-button-next,.pk-product-gallery .pk-main-swiper .swiper-button-prev{color:#774C9D}
+.pk-product-gallery .pk-thumb-swiper{margin-top:12px}
+.pk-product-gallery .pk-thumb-swiper .swiper-slide{opacity:.55;cursor:pointer;border-radius:8px;overflow:hidden;border:2px solid transparent}
+.pk-product-gallery .pk-thumb-swiper .swiper-slide-thumb-active{opacity:1;border-color:#774C9D}
+.pk-product-gallery .pk-thumb-swiper img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
 .pk-product-detail h1{font-size:2rem;margin:0 0 12px;color:#342A41}
 .pk-product-price{font-size:1.5rem;color:#774C9D;font-weight:700;margin:12px 0}
 .pk-product-desc{color:#555;line-height:1.6;margin:16px 0}
@@ -186,6 +232,51 @@ SPA_JS = r"""
   var PAGES=pagesEl?JSON.parse(pagesEl.textContent):{};
   var byHandle={}; CATALOG.forEach(function(p){byHandle[p.handle]=p;});
   var collectionList=null;
+  var productSwiper=null, productThumbSwiper=null;
+
+  function closeMobileMenu(){
+    var cb=document.getElementById('menuCheckbox');
+    if(cb) cb.checked=false;
+  }
+
+  function initMobileMenu(){
+    document.querySelectorAll('.mobile_menu .link_child').forEach(function(el){
+      if(el.dataset.pkBound) return;
+      el.dataset.pkBound='1';
+      el.addEventListener('click',function(e){
+        e.preventDefault();
+        el.classList.toggle('open_child');
+      });
+    });
+  }
+
+  function destroyProductSwipers(){
+    if(productSwiper){ productSwiper.destroy(true,true); productSwiper=null; }
+    if(productThumbSwiper){ productThumbSwiper.destroy(true,true); productThumbSwiper=null; }
+  }
+
+  function initProductSwipers(){
+    destroyProductSwipers();
+    if(typeof Swiper==='undefined') return;
+    var thumbsEl=document.querySelector('.pk-thumb-swiper');
+    var mainEl=document.querySelector('.pk-main-swiper');
+    if(!mainEl) return;
+    if(thumbsEl){
+      productThumbSwiper=new Swiper(thumbsEl,{slidesPerView:4,spaceBetween:10,freeMode:true,watchSlidesProgress:true,breakpoints:{768:{slidesPerView:5}}});
+    }
+    productSwiper=new Swiper(mainEl,{
+      spaceBetween:10,
+      navigation:{nextEl:'.pk-main-swiper .swiper-button-next',prevEl:'.pk-main-swiper .swiper-button-prev'},
+      thumbs: productThumbSwiper?{swiper:productThumbSwiper}:undefined
+    });
+    mainEl.querySelectorAll('.swiper-slide img').forEach(function(img){
+      img.addEventListener('click',function(){
+        if(!productSwiper) return;
+        var idx=Array.prototype.indexOf.call(img.closest('.swiper-wrapper').children, img.closest('.swiper-slide'));
+        if(idx>=0) productSwiper.slideTo(idx);
+      });
+    });
+  }
 
   function parseParts(){
     var h=(location.hash||'#/').replace(/^#/,'').replace(/^\//,'');
@@ -208,6 +299,7 @@ SPA_JS = r"""
       else { setRoute('cart'); renderCart(); }
     }
     else { document.body.className='pk-spa'; }
+    closeMobileMenu();
     window.scrollTo(0,0);
   }
 
@@ -217,6 +309,7 @@ SPA_JS = r"""
     if(!page){ root.innerHTML='<p>Page not found.</p>'; return; }
     if(page.title) document.title=page.title;
     root.innerHTML=page.html;
+    initMobileMenu();
   }
 
   function showProduct(handle){
@@ -224,7 +317,18 @@ SPA_JS = r"""
     var p=byHandle[handle]; var root=document.getElementById('pk-product-root');
     if(!p){ root.innerHTML='<p>Product not found.</p>'; return; }
     if(p.title) document.title=p.title;
-    root.innerHTML='<div class="pk-product-detail"><div><img src="'+esc(p.image)+'" alt="'+esc(p.title)+'"></div><div><h1>'+esc(p.title)+'</h1>'+
+    var imgs=(p.images&&p.images.length)?p.images:(p.image?[p.image]:[]);
+    if(!imgs.length) imgs=[''];
+    var mainSlides=imgs.map(function(src){
+      return '<div class="swiper-slide"><img src="'+esc(src)+'" alt="'+esc(p.title)+'" loading="lazy"></div>';
+    }).join('');
+    var thumbSlides=imgs.map(function(src){
+      return '<div class="swiper-slide"><img src="'+esc(src)+'" alt="" loading="lazy"></div>';
+    }).join('');
+    root.innerHTML='<div class="pk-product-detail"><div class="pk-product-gallery"><div class="swiper pk-main-swiper"><div class="swiper-wrapper">'+mainSlides+
+      '</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div>'+
+      (imgs.length>1?'<div class="swiper pk-thumb-swiper"><div class="swiper-wrapper">'+thumbSlides+'</div></div>':'')+
+      '</div><div><h1>'+esc(p.title)+'</h1>'+
       (p.price?'<div class="pk-product-price">'+esc(p.price)+'</div>':'')+
       '<p class="pk-product-desc">'+esc(p.description)+'</p>'+
       '<button class="pk-btn-order" id="pk-order-btn">Reserve / Order via WhatsApp</button></div></div>';
@@ -232,6 +336,7 @@ SPA_JS = r"""
       var msg='Hello! I would like to reserve/order:\n\nKitten: '+p.title+'\nPrice: '+(p.price||'N/A')+'\n\nPhone/WhatsApp: +1 3475417149\nSignal: '+SIGNAL+'\nEmail: '+EMAIL;
       window.open('https://api.whatsapp.com/send?phone='+WHATSAPP+'&text='+encodeURIComponent(msg),'_blank');
     };
+    initProductSwipers();
   }
 
   function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
@@ -283,8 +388,18 @@ SPA_JS = r"""
   };
 
   document.addEventListener('click',function(e){
+    var linkChild=e.target.closest('a.link_child, a.h-link-child');
+    if(linkChild && (linkChild.getAttribute('href')==='#' || linkChild.getAttribute('href')==='')){
+      e.preventDefault();
+      linkChild.classList.toggle('open_child');
+      return;
+    }
     var a=e.target.closest('a[href^="#/"]');
-    if(a){ e.preventDefault(); location.hash=a.getAttribute('href').slice(1); }
+    if(a){
+      e.preventDefault();
+      location.hash=a.getAttribute('href').slice(1);
+      closeMobileMenu();
+    }
   });
 
   ['pk-search-input','pk-search-input-2'].forEach(function(id){
@@ -295,6 +410,7 @@ SPA_JS = r"""
     });
   });
 
+  initMobileMenu();
   window.addEventListener('hashchange', route);
   route();
 })();
@@ -313,8 +429,8 @@ def build_single_html():
     head, body = get_home_shell()
     head = head.replace("</head>", SPA_CSS + "</head>", 1)
 
-    # Close home view, then insert SPA views before closing body
-    body = body.replace("</body>", "</div>" + SPA_VIEWS + "</body>", 1)
+    # Insert SPA views before closing body (pk-view-home already closed after </main>)
+    body = body.replace("</body>", SPA_VIEWS + "</body>", 1)
 
     # Fix links in body for hash routing
     body = strip_internal_links(body)
