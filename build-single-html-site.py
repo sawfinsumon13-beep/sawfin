@@ -78,10 +78,145 @@ def extract_product_media(text: str) -> list[dict]:
     return media[:20]
 
 
+def sanitize_product_fragment(html: str) -> str:
+    html = re.sub(r"\s+", " ", html)
+    html = re.sub(r'href="/index\.html/([^"]+?)\.html"', r'href="#/\1"', html)
+    html = re.sub(r'href="/index\.html/([^"]*?)/?"', r'href="#/\1"', html)
+    html = re.sub(r'href="/products/([^"]+?)\.html"', r'href="#/products/\1"', html)
+    html = re.sub(r'src="\.\./\.\./cdn\.shopify\.com/', 'src="https://cdn.shopify.com/', html)
+    html = re.sub(r'src="//cdn\.shopify\.com/', 'src="https://cdn.shopify.com/', html)
+    html = re.sub(r"\sonclick=\"[^\"]*\"", "", html, flags=re.I)
+    html = re.sub(r"<script[^>]*>.*?</script>", "", html, flags=re.I | re.S)
+    return html.strip()
+
+
+def extract_block(text: str, start: str, end: str) -> str:
+    m = re.search(start + r"(.*?)" + end, text, re.I | re.S)
+    return m.group(1).strip() if m else ""
+
+
+def extract_info_html(text: str) -> str:
+    block = extract_block(
+        text,
+        r'<div class="custom_meta_fild">',
+        r'</div>\s*</div>\s*<div class="includes active_bar">',
+    )
+    return sanitize_product_fragment(block)[:12000] if block else ""
+
+
+def extract_family_html(text: str) -> str:
+    block = extract_block(
+        text,
+        r'<div class="reco_pro">',
+        r'</div>\s*</div>\s*<div class="product_right">',
+    )
+    return sanitize_product_fragment(block)[:12000] if block else ""
+
+
+def extract_product_right_bar(text: str) -> str:
+    m = re.search(
+        r'<div class="product_right">\s*<div class="right_side_bar">(.*)</div>\s*</div>\s*</div>\s*</div>\s*(?:<script|\n<script|</section>)',
+        text,
+        re.I | re.S,
+    )
+    return m.group(1).strip() if m else ""
+
+
+def extract_sidebar_extras(right_bar: str) -> str:
+    if not right_bar:
+        return ""
+    m = re.search(
+        r'(<div class="payment_icon wow fadeInUp animated">[\s\S]*?'
+        r'<div class="pay_time">[\s\S]*?</div>\s*)'
+        r'</div>\s*<div class="shipping_details">',
+        right_bar,
+        re.I,
+    )
+    sidebar = m.group(1).strip() if m else ""
+    if not sidebar:
+        parts: list[str] = []
+        payment = None
+        for hit in re.finditer(
+            r'<div class="payment_icon wow fadeInUp animated">[\s\S]*?</div>',
+            right_bar,
+            re.I,
+        ):
+            payment = hit.group(0)
+        if payment:
+            parts.append(payment)
+        ssl = re.search(r'<div class="secu_ssl for_desktop">[\s\S]*?</div>', right_bar, re.I)
+        if ssl:
+            parts.append(ssl.group(0))
+        pay = re.search(
+            r'<div class="pay_time">[\s\S]*?</div>\s*(?=</div>\s*<div class="shipping_details">)',
+            right_bar,
+            re.I,
+        )
+        if pay:
+            parts.append(pay.group(0))
+        sidebar = "".join(parts)
+    sidebar = sidebar.replace('href="/pages/adopt-now-pay-later"', 'href="#/pages/adopt-now-pay-later"')
+    sidebar = sidebar.replace('href="/index.html/pages/adopt-now-pay-later.html"', 'href="#/pages/adopt-now-pay-later"')
+    return sidebar
+
+
+def extract_inner_div_html(text: str, class_name: str) -> str:
+    m = re.search(rf'<div class="{class_name}">', text, re.I)
+    if not m:
+        return ""
+    start = m.end()
+    depth = 1
+    i = start
+    while i < len(text) and depth:
+        next_open = text.find("<div", i)
+        next_close = text.find("</div>", i)
+        if next_close == -1:
+            break
+        if next_open != -1 and next_open < next_close:
+            depth += 1
+            i = text.find(">", next_open) + 1
+        else:
+            depth -= 1
+            if depth == 0:
+                return text[start:next_close].strip()
+            i = next_close + 6
+    return ""
+
+
+def extract_desktop_shipping(right_bar: str) -> str:
+    if not right_bar:
+        return ""
+    return extract_inner_div_html(right_bar, "shipping_details")
+
+
+def load_product_static_sections() -> dict[str, str]:
+    ernest = CLONE / "products" / "male-british-shorthair-kitten-ernest.html"
+    umar = CLONE / "products" / "male-bengal-kitten-umar.html"
+    guarantees_src = ernest if ernest.exists() else umar
+    sidebar_src = umar if umar.exists() else ernest
+    if not guarantees_src.exists():
+        return {"guarantees": "", "shipping": "", "sidebarExtras": ""}
+    guarantees_text = guarantees_src.read_text(encoding="utf-8", errors="ignore")
+    sidebar_text = sidebar_src.read_text(encoding="utf-8", errors="ignore")
+    guarantees = extract_block(
+        guarantees_text,
+        r'<div class="includes active_bar">',
+        r'</div>\s*<div class="reco_pro">',
+    )
+    right_bar = extract_product_right_bar(sidebar_text)
+    shipping = extract_desktop_shipping(right_bar)
+    sidebar = extract_sidebar_extras(right_bar)
+    return {
+        "guarantees": sanitize_product_fragment(guarantees),
+        "shipping": sanitize_product_fragment(shipping),
+        "sidebarExtras": sanitize_product_fragment(sidebar),
+    }
+
+
 def extract_product_variants(text: str) -> list[dict]:
     variants: list[dict] = []
     for m in re.finditer(
-        r'class="variant-radio desktop-variant"[^>]*>.*?<label for="[^"]+">\s*(.*?)\s*</label><p>(.*?)</p>',
+        r'class="variant-radio desktop-variant"[^>]*>.*?<label for="[^"]+">\s*(.*?)\s*</label>\s*<p>(.*?)</p>',
         text,
         re.I | re.S,
     ):
@@ -93,7 +228,7 @@ def extract_product_variants(text: str) -> list[dict]:
 
 
 def extract_product(path: Path) -> dict | None:
-    text = path.read_text(encoding="utf-8", errors="ignore")[:180000]
+    text = path.read_text(encoding="utf-8", errors="ignore")
     handle = path.stem
     heading_m = re.search(r'<div class="product_title"><h1>([^<]+)</h1>', text, re.I)
     heading = heading_m.group(1).strip() if heading_m else ""
@@ -108,8 +243,8 @@ def extract_product(path: Path) -> dict | None:
     )
     breed_slug = breed_m.group(1).rstrip("/") if breed_m else ""
     breed = breed_m.group(2).strip() if breed_m else ""
-    about_m = re.search(r'<div class="about_products[^"]*">\s*(.*?)\s*</div>', text, re.I | re.S)
-    about = about_m.group(1).strip() if about_m else ""
+    about_parts = re.findall(r'<div class="about_products[^"]*">\s*(.*?)\s*</div>', text, re.I | re.S)
+    about = max(about_parts, key=len).strip() if about_parts else ""
     desc_m = DESC_RE.search(text)
     desc = desc_m.group(1).strip() if desc_m else ""
     media = extract_product_media(text)
@@ -125,6 +260,8 @@ def extract_product(path: Path) -> dict | None:
     price = price_m.group(1).strip() if price_m else ""
     if not variants and price:
         variants = [{"label": f"Complete Adoption Fee - {price}", "subtitle": "One Payment, Fully Yours Instantly"}]
+    info_html = extract_info_html(text)
+    family_html = extract_family_html(text)
     return {
         "handle": handle,
         "title": title,
@@ -133,7 +270,9 @@ def extract_product(path: Path) -> dict | None:
         "breed": breed,
         "breedSlug": breed_slug,
         "description": desc[:500],
-        "about": about[:6000],
+        "about": about[:8000],
+        "infoHtml": info_html,
+        "familyHtml": family_html,
         "image": image,
         "images": images[:16],
         "media": media[:20],
@@ -294,6 +433,32 @@ body.pk-spa{display:flex;flex-direction:column;min-height:100vh}
 .pk-spa-route-collection #pk-view-home,
 .pk-spa-route-page #pk-view-home{display:none!important}
 #pk-view-product{padding:0;max-width:none;width:100%;margin:0}
+#pk-product-root .product_outer{width:100%}
+@media(min-width:992px){
+  .pk-spa-route-product .product_conatiner{display:flex!important;flex-wrap:nowrap!important;align-items:flex-start!important;gap:70px!important;max-width:1360px;margin:0 auto;padding:100px 50px;width:100%;box-sizing:border-box}
+  .pk-spa-route-product .product_left{width:60%!important;flex:0 0 60%!important;min-width:0}
+  .pk-spa-route-product .product_right{width:40%!important;flex:0 0 40%!important;min-width:0;display:flex!important;flex-direction:column!important}
+  .pk-spa-route-product .right_side_bar{width:100%;position:sticky;top:100px}
+  .pk-spa-route-product .product_desktop{display:block!important}
+  .pk-spa-route-product .mobile_product.also_hidden{display:none!important}
+  .pk-spa-route-product .shipping_details.for_mobile{display:none!important}
+  .pk-spa-route-product .secu_ssl.for_desktop{display:flex!important}
+  .pk-spa-route-product .secu_ssl.for_mobile{display:none!important}
+  .pk-spa-route-product .includes.active_bar{display:block!important}
+  .pk-spa-route-product .includes .prd-alt-metafield.metafield-sub{display:flex!important;flex-wrap:wrap!important}
+  .pk-spa-route-product .includes.active_bar .prd-alt-metafield{display:flex!important;flex-wrap:wrap!important}
+  .pk-spa-route-product .meta_data.active_bar .custom_meta_fild{display:flex!important;flex-wrap:wrap!important}
+  .pk-spa-route-product .shipping_details{display:block!important;width:100%}
+  .pk-spa-route-product .payment_icon,.pk-spa-route-product .pay_time{display:block!important;width:100%}
+}
+@media(max-width:991px){
+  .pk-spa-route-product .product_conatiner{display:flex!important;flex-wrap:wrap!important;padding:20px!important;gap:24px!important}
+  .pk-spa-route-product .product_left,.pk-spa-route-product .product_right{width:100%!important;flex:0 0 100%!important}
+  .pk-spa-route-product .mobile_product.also_hidden{display:block!important}
+  .pk-spa-route-product .shipping_details.for_mobile{display:block!important}
+  .pk-spa-route-product .product_right .shipping_details{display:none!important}
+  .pk-spa-route-product .includes .prd-alt-metafield.metafield-sub{display:flex!important;flex-wrap:wrap!important}
+}
 #pk-view-page,#pk-view-collection,#pk-view-search,#pk-view-cart{padding:24px 20px 48px;max-width:1200px;margin:0 auto;width:100%}
 #pk-view-collection,#pk-view-search{max-width:1400px}
 #pk-page-root,#pk-product-root{min-height:200px}
@@ -362,6 +527,7 @@ SPA_VIEWS = """
 
 SPA_JS = r"""
 (function(){
+  /*PK_PRODUCT_STATIC*/
   var WHATSAPP='13475417149', EMAIL='kittenspurebreed@gmail.com', SIGNAL='https://signal.me/#eu/MEs5W26kT7oIxnW-QEh7_yPa1HN1JkuLRxwWgzK3dMAuS9CzNgVJfpicAJqaaERL';
   var CART_KEY='pk_static_cart_v1';
   var catalogEl=document.getElementById('pk-catalog-data');
@@ -515,6 +681,13 @@ SPA_JS = r"""
     if(askSticky) askSticky.onclick=function(){ openProductWhatsApp(p,''); };
     var askDesktop=root.querySelector('#pk-ask-desktop');
     if(askDesktop) askDesktop.onclick=function(e){ e.preventDefault(); openProductWhatsApp(p,''); };
+    root.querySelectorAll('.product_conatiner .product_description .sub_heading,.product_conatiner .meta_data .sub_heading,.product_conatiner .includes .sub_heading').forEach(function(subHeading){
+      subHeading.style.cursor='pointer';
+      subHeading.addEventListener('click',function(){
+        var container=subHeading.closest('.product_description,.meta_data,.includes');
+        if(container) container.classList.toggle('active_bar');
+      });
+    });
   }
 
   function getSelectedOption(form){
@@ -556,6 +729,12 @@ SPA_JS = r"""
     var desktopVariants=buildVariantRadios(p,'desktop-variant',formId);
     var mobileVariants=buildVariantRadios(p,'mobile_variant',formId+'m');
     var aboutHtml=p.about||('<p>'+esc(p.description)+'</p>');
+    var infoHtml=p.infoHtml||'';
+    var familyHtml=p.familyHtml||'';
+    var guaranteesHtml=(PK_PRODUCT_STATIC&&PK_PRODUCT_STATIC.guarantees)||'';
+    var shippingHtml=(PK_PRODUCT_STATIC&&PK_PRODUCT_STATIC.shipping)||'';
+    var sidebarExtras=(PK_PRODUCT_STATIC&&PK_PRODUCT_STATIC.sidebarExtras)||'';
+    var mobileShipping='<div class="shipping_details for_mobile">'+shippingHtml+'</div>';
     root.innerHTML=
       '<div class="product_outer"><div class="product_tab_slide">'+
         '<div class="swiper mySwiper_product_img"><div class="swiper-wrapper">'+buildMediaSlides(p)+'</div>'+
@@ -585,17 +764,24 @@ SPA_JS = r"""
             '<div class="selected_variant_price"><p>AMOUNT TO PAY</p><span id="selected_variant_price_placeholder"></span></div>'+
             '<button type="submit" class="cart_btn new_cart-btn">Adopt Me</button></form></div>'+
           '<div class="product_description active_bar for_mobile"><h3 class="sub_heading about_heading">About Me</h3><div class="about_products">'+aboutHtml+'</div></div>'+
+          mobileShipping+
         '</div>'+
         '<div class="product_description active_bar"><h2 class="sub_heading about_heading">About Me</h2><div class="about_products">'+aboutHtml+'</div></div>'+
+        (infoHtml?'<div class="meta_data active_bar"><h3 class="sub_heading kitty_snap">My Info</h3><div class="custom_meta_fild">'+infoHtml+'</div></div>':'')+
+        (guaranteesHtml?'<div class="includes active_bar">'+guaranteesHtml+'</div>':'')+
+        (familyHtml?'<div class="reco_pro">'+familyHtml+'</div>':'')+
       '</div>'+
       '<div class="product_right"><div class="right_side_bar"><div class="product_desktop">'+
         '<div class="content_above_variant"><h3>My Adoption Fee</h3><span>Choose the payment option that works best and click \'Reserve Me\'—I\'ll be snuggled in your arms before you know it!</span></div>'+
         '<div class="price_varient_add_to_cart"><form action="#/cart/add" method="post" class="product-form bottom-text" id="'+formId+'">'+desktopVariants+
           '<div class="selected_variant_price"><p>Amount Due</p><span id="selected_variant_price_placeholders"></span></div>'+
-          '<button type="submit" class="cart_btn bottom-cart-btn">Reserve Me</button></form></div>'+
+          '<button type="submit" class="cart_btn bottom-cart-btn">Reserve Me <span><svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none"><path d="M8.5 1L10 6H15L11 9L12.5 14L8.5 11L4.5 14L6 9L2 6H7L8.5 1Z" fill="currentColor"/></svg></span></button></form></div>'+
         '<div class="btn_form"><div class="button_app"><button type="button" id="pk-ask-desktop">Ask About Me</button></div></div>'+
-        '<div class="secu_ssl for_desktop"><p>Secure SSL-Encrypted Checkout</p></div>'+
-      '</div></div></div></div></div>'+
+        sidebarExtras+
+        '<div class="secu_ssl for_mobile"><span></span><p>Secure SSL-Encrypted Checkout</p></div>'+
+      '</div>'+
+      (shippingHtml?'<div class="shipping_details">'+shippingHtml+'</div>':'')+
+      '</div></div></div></div>'+
       '<div class="fix_button-s"><div class="reserve_block"><span class="ask-button" id="pk-ask-sticky">Ask About Me</span>'+
         '<button type="button" id="pk-reserve-sticky" class="reserve-button">Reserve Me</button></div></div>';
     initProductPage(p);
@@ -741,6 +927,10 @@ def build_single_html():
     catalog_script = f'<script type="application/json" id="pk-catalog-data">{catalog_json}</script>\n'
     pages_script = f'<script type="application/json" id="pk-pages-data">{pages_json}</script>\n'
     spa_script = f"<script>{SPA_JS}</script>\n"
+
+    static_sections = load_product_static_sections()
+    static_js = "var PK_PRODUCT_STATIC=" + json.dumps(static_sections, separators=(",", ":")) + ";window.PK_PRODUCT_STATIC=PK_PRODUCT_STATIC;\n"
+    spa_script = spa_script.replace("/*PK_PRODUCT_STATIC*/", static_js)
 
     cart_src = Path("/workspace/static-cart.js").read_text(encoding="utf-8")
 
