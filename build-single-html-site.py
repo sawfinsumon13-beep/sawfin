@@ -459,7 +459,7 @@ def restructure_layout(body: str, spa_views: str) -> str:
     if pos == -1:
         raise SystemExit("Could not locate pk-view-home close")
     pos += len(home_close)
-    insert = f"\n{spa_views}\n</div>\n<div id=\"pk-site-footer\">\n{footer_html}\n</div>\n"
+    insert = f"\n{spa_views}\n<div id=\"pk-site-footer\">\n{footer_html}\n</div>\n</div>\n"
     return body[:pos] + insert + body[pos:]
 
 
@@ -492,9 +492,10 @@ def get_home_shell() -> str:
 
 SPA_CSS = """
 <style id="pk-spa-styles">
-body.pk-spa{display:flex;flex-direction:column;min-height:100vh}
-#pk-content-shell{flex:1;width:100%;background:#fff}
-#pk-site-footer{margin-top:auto;width:100%}
+body.pk-spa{min-height:100vh}
+html:has(body.pk-spa){height:auto;min-height:100vh}
+#pk-content-shell{width:100%;background:#fff;display:block}
+#pk-site-footer{width:100%;position:relative;z-index:2}
 #pk-view-product,#pk-view-contact,#pk-view-cart,#pk-view-search,#pk-view-collection,#pk-view-page{display:none!important}
 .pk-spa-route-product #pk-view-product,
 .pk-spa-route-contact #pk-view-contact,
@@ -558,6 +559,12 @@ body.pk-spa{display:flex;flex-direction:column;min-height:100vh}
   #pk-page-root .for_desktop{display:none!important}
   #pk-page-root .for_mobile{display:block!important}
 }
+/* Blog posts — template-blog body class + full-height content flow */
+body.template-blog{background:#f6f7fe}
+#pk-page-root .article-page-yas,#pk-page-root .pk-blog-index{display:block;width:100%}
+#pk-page-root .article-page-yas .wrapper.custom_wrapper{padding-bottom:80px}
+#pk-page-root .article-page-yas .articledesc.rte{position:relative;z-index:1}
+#pk-page-root .pk-blog-index{padding-bottom:80px}
 .yas_header,.mobile_menu_sec{position:relative;z-index:100}
 .mobile_menu_sec .mobile_menu{z-index:101}
 .mobile_menu li a.link_child,.mobile_menu li a.h-link-child{cursor:pointer;touch-action:manipulation}
@@ -740,8 +747,13 @@ SPA_JS = r"""
       }catch(e){}
     });
   }
-  function setRoute(cls){
-    var extra=cls==='product'?' template-product':(cls==='page'?' template-page':'');
+  function setRoute(cls,pageKind){
+    var extra='';
+    if(cls==='product') extra=' template-product';
+    else if(cls==='page'){
+      extra=' template-page';
+      if(pageKind==='blog') extra+=' template-blog';
+    }
     document.body.className='pk-spa pk-spa-route-'+cls+extra;
   }
 
@@ -920,8 +932,8 @@ SPA_JS = r"""
     collectionList=null;
     if(parts[0]==='products'&&parts[1]){ setRoute('product'); showProduct(parts[1]); }
     else if(parts[0]==='pages'&&parts[1]){ setRoute('page'); showPage('pages/'+parts[1]); }
-    else if(parts[0]==='blogs'&&parts.length>1){ setRoute('page'); showPage('blogs/'+parts.slice(1).join('/')); }
-    else if(parts[0]==='blogs'){ setRoute('page'); showPage('blogs/pk-blog'); }
+    else if(parts[0]==='blogs'&&parts.length>1){ setRoute('page','blog'); showPage('blogs/'+parts.slice(1).join('/')); }
+    else if(parts[0]==='blogs'){ setRoute('page','blog'); showPage('blogs/pk-blog'); }
     else if(parts[0]==='collections'&&parts[1]){ setRoute('collection'); showCollection(parts[1]); }
     else if(parts[0]==='search'){ setRoute('search'); showGrid(document.getElementById('pk-grid-2'),decodeURIComponent((location.search.match(/q=([^&]+)/)||[])[1]||'')); }
     else if(parts[0]==='contact'){ setRoute('page'); showPage('pages/contact'); }
