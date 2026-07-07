@@ -45,26 +45,99 @@ def extract_product_images(text: str) -> list[str]:
     return imgs
 
 
+def extract_product_media(text: str) -> list[dict]:
+    media: list[dict] = []
+    wrapper_m = re.search(
+        r'<div class="swiper-wrapper">(.*?)</div><div class="swiper-button-next">',
+        text,
+        re.I | re.S,
+    )
+    if not wrapper_m:
+        return media
+    slides = re.findall(
+        r'<div class="swiper-slide">(.*?)(?=<div class="swiper-slide">|$)',
+        wrapper_m.group(1),
+        re.I | re.S,
+    )
+    for slide in slides:
+        if "product-single__video" in slide or "<video" in slide.lower():
+            src_m = re.search(r'<source src="([^"]+)"', slide, re.I)
+            poster_m = re.search(r'poster="([^"]+)"', slide, re.I)
+            if src_m:
+                media.append(
+                    {
+                        "type": "video",
+                        "src": src_m.group(1).strip(),
+                        "poster": poster_m.group(1).strip() if poster_m else "",
+                    }
+                )
+        else:
+            src_m = re.search(r'src="([^"]+)"', slide, re.I)
+            if src_m and ".mp4" not in src_m.group(1).lower():
+                media.append({"type": "image", "src": normalize_img_url(src_m.group(1))})
+    return media[:20]
+
+
+def extract_product_variants(text: str) -> list[dict]:
+    variants: list[dict] = []
+    for m in re.finditer(
+        r'class="variant-radio desktop-variant"[^>]*>.*?<label for="[^"]+">\s*(.*?)\s*</label><p>(.*?)</p>',
+        text,
+        re.I | re.S,
+    ):
+        label = re.sub(r"\s+", " ", m.group(1).strip())
+        subtitle = re.sub(r"\s+", " ", m.group(2).strip())
+        if label and not any(v["label"] == label for v in variants):
+            variants.append({"label": label, "subtitle": subtitle})
+    return variants[:3]
+
+
 def extract_product(path: Path) -> dict | None:
     text = path.read_text(encoding="utf-8", errors="ignore")[:180000]
     handle = path.stem
-    title_m = TITLE_RE.search(text) or H1_RE.search(text)
-    title = title_m.group(1).strip() if title_m else handle.replace("-", " ").title()
+    heading_m = re.search(r'<div class="product_title"><h1>([^<]+)</h1>', text, re.I)
+    heading = heading_m.group(1).strip() if heading_m else ""
+    title_m = TITLE_RE.search(text)
+    title = title_m.group(1).strip() if title_m else (heading or handle.replace("-", " ").title())
+    name_m = re.search(r'<div class="breadcrumbs__current">([^<]+)', text)
+    name = name_m.group(1).strip() if name_m else heading.replace("Hi, I'm ", "").strip()
+    breed_m = re.search(
+        r'<span class="breadcrumbs__current"><a class="breadcrumbs__link" href="/index\.html/collections/([^"]+)"[^>]*aria-label="([^"]+)"',
+        text,
+        re.I,
+    )
+    breed_slug = breed_m.group(1).rstrip("/") if breed_m else ""
+    breed = breed_m.group(2).strip() if breed_m else ""
+    about_m = re.search(r'<div class="about_products[^"]*">\s*(.*?)\s*</div>', text, re.I | re.S)
+    about = about_m.group(1).strip() if about_m else ""
     desc_m = DESC_RE.search(text)
     desc = desc_m.group(1).strip() if desc_m else ""
-    images = extract_product_images(text)
+    media = extract_product_media(text)
+    images = [m["src"] for m in media if m["type"] == "image"]
+    if not images:
+        images = extract_product_images(text)
     img_m = IMG_RE.search(text)
     image = images[0] if images else (img_m.group(1).strip() if img_m else "")
     if image:
         image = normalize_img_url(image)
+    variants = extract_product_variants(text)
     price_m = PRICE_RE.search(text)
     price = price_m.group(1).strip() if price_m else ""
+    if not variants and price:
+        variants = [{"label": f"Complete Adoption Fee - {price}", "subtitle": "One Payment, Fully Yours Instantly"}]
     return {
         "handle": handle,
         "title": title,
+        "heading": heading or f"Hi, I'm {name}",
+        "name": name,
+        "breed": breed,
+        "breedSlug": breed_slug,
         "description": desc[:500],
+        "about": about[:6000],
         "image": image,
         "images": images[:16],
+        "media": media[:20],
+        "variants": variants,
         "price": price,
     }
 
@@ -220,7 +293,8 @@ body.pk-spa{display:flex;flex-direction:column;min-height:100vh}
 .pk-spa-route-search #pk-view-home,
 .pk-spa-route-collection #pk-view-home,
 .pk-spa-route-page #pk-view-home{display:none!important}
-#pk-view-product,#pk-view-page,#pk-view-collection,#pk-view-search,#pk-view-cart{padding:24px 20px 48px;max-width:1200px;margin:0 auto;width:100%}
+#pk-view-product{padding:0;max-width:none;width:100%;margin:0}
+#pk-view-page,#pk-view-collection,#pk-view-search,#pk-view-cart{padding:24px 20px 48px;max-width:1200px;margin:0 auto;width:100%}
 #pk-view-collection,#pk-view-search{max-width:1400px}
 #pk-page-root,#pk-product-root{min-height:200px}
 #pk-page-root img{max-width:100%;height:auto}
@@ -229,20 +303,7 @@ body.pk-spa{display:flex;flex-direction:column;min-height:100vh}
 .mobile_menu li a.link_child,.mobile_menu li a.h-link-child{cursor:pointer;touch-action:manipulation}
 .mobile_menu li a+ul{display:none}
 .mobile_menu li a.open_child+ul{display:flex}
-.pk-product-detail{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-@media(max-width:768px){.pk-product-detail{grid-template-columns:1fr}}
-.pk-product-gallery .pk-main-image{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;display:block}
-.pk-thumb-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.pk-thumb-item{padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;background:none;cursor:pointer;width:72px;height:72px}
-.pk-thumb-item.active{border-color:#774C9D}
-.pk-thumb-item img{width:100%;height:100%;object-fit:cover;display:block}
-.pk-product-detail h1{font-size:2rem;margin:0 0 12px;color:#342A41}
-.pk-product-price{font-size:1.5rem;color:#774C9D;font-weight:700;margin:12px 0}
-.pk-product-desc{color:#555;line-height:1.6;margin:16px 0}
-.pk-btn-order{display:inline-block;background:#B8E847;color:#342A41;padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-size:1rem;margin:8px 8px 8px 0}
-.pk-btn-order:hover{opacity:.9}
-.pk-btn-back{color:#774C9D;margin-bottom:20px;display:inline-block;cursor:pointer}
-#pk-view-collection,#pk-view-search{padding:40px 20px;max-width:1400px;margin:0 auto}
+.pk-spa-route-product .pk-btn-back{display:none}
 .pk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
 .pk-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);text-decoration:none;color:inherit;display:block}
 .pk-card img{width:100%;aspect-ratio:1;object-fit:cover}
@@ -253,11 +314,39 @@ body.pk-spa{display:flex;flex-direction:column;min-height:100vh}
 #pk-view-contact{padding:40px 20px;max-width:900px;margin:0 auto}
 .pk-contact-box{background:#f9f7fc;border-radius:12px;padding:32px;line-height:2}
 .pk-contact-box a{color:#774C9D;font-weight:600}
+.pk-btn-back{color:#774C9D;margin-bottom:20px;display:inline-block;cursor:pointer}
+.pk-btn-order{display:inline-block;background:#B8E847;color:#342A41;padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-size:1rem;margin:8px 8px 8px 0}
+/* Product page gallery + layout helpers */
+#pk-product-root .product-gallery-wishlist{display:none}
+#pk-product-root .mySwiper_product_img .swiper-button-next,
+#pk-product-root .mySwiper_product_img .swiper-button-prev{width:60px!important;height:60px!important;background-size:contain;background-repeat:no-repeat;background-position:center;border-radius:50px;filter:drop-shadow(0 1px 2px rgba(52,42,65,.18))}
+#pk-product-root .mySwiper_product_img .swiper-button-prev{background-image:url('https://purebredkitties.com/cdn/shop/t/285/assets/icon-qaulity.png?v=145612438941284489071779897798');background-color:rgba(255,255,255,.78);transform:rotate(135deg)}
+#pk-product-root .mySwiper_product_img .swiper-button-next{background-image:url('https://purebredkitties.com/cdn/shop/t/285/assets/icon-qaulity.png?v=145612438941284489071779897798');background-color:rgba(255,255,255,.78);transform:rotate(-45deg)}
+#pk-product-root .mySwiper_product_img .swiper-button-next::after,
+#pk-product-root .mySwiper_product_img .swiper-button-prev::after{display:none}
+#pk-product-root .product-gallery-video-play{align-items:center;background:rgba(244,255,115,.96);border:0;border-radius:50%;box-shadow:0 6px 18px rgba(52,42,65,.28);color:#342a41;cursor:pointer;display:flex;height:68px;justify-content:center;left:50%;padding:0;position:absolute;top:50%;transform:translate(-50%,-50%);width:68px;z-index:4}
+#pk-product-root .product-single__video.is-video-playing .product-gallery-video-play{display:none}
+#pk-product-root .product-single__video{position:relative;width:100%}
+#pk-product-root .product-single__video video{width:100%;max-width:586px;display:block;border-radius:51px}
+#pk-product-root .pk-trustpilot-inline{display:flex;align-items:center;gap:8px;font-size:14px;color:#342a41;white-space:nowrap}
+#pk-product-root .pk-trustpilot-inline .stars{color:#00b67a;font-weight:700;letter-spacing:1px}
+#pk-product-root .fix_button-s{position:fixed;bottom:0;left:0;right:0;z-index:90;display:none}
+@media(max-width:767px){
+  #pk-product-root .product-gallery-wishlist{display:block;left:30px;position:absolute;top:30px;z-index:6}
+  #pk-product-root .mySwiper_product_img .swiper-button-prev{left:30px}
+  #pk-product-root .mySwiper_product_img .swiper-button-next{right:30px}
+  #pk-product-root .fix_button-s{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;box-shadow:0 -4px 20px rgba(52,42,65,.12);gap:12px}
+  #pk-product-root .fix_button-s .reserve_block{display:flex;flex:1;gap:10px}
+  #pk-product-root .fix_button-s .ask-button,#pk-product-root .fix_button-s .reserve-button{flex:1;border:none;border-radius:50px;padding:14px 16px;font-weight:700;font-size:15px;cursor:pointer}
+  #pk-product-root .fix_button-s .ask-button{background:#dec0fc;color:#342a41}
+  #pk-product-root .fix_button-s .reserve-button{background:#f4ff73;color:#342a41;display:flex;align-items:center;justify-content:center;gap:6px}
+  body.pk-spa-route-product{padding-bottom:72px}
+}
 </style>
 """
 
 SPA_VIEWS = """
-<div id="pk-view-product"><a class="pk-btn-back" href="#/">← Back</a><div id="pk-product-root"></div></div>
+<div id="pk-view-product"><div id="pk-product-root"></div></div>
 <div id="pk-view-page"><a class="pk-btn-back" href="#/">← Back</a><div id="pk-page-root"></div></div>
 <div id="pk-view-collection"><a class="pk-btn-back" href="#/">← Back</a><h2 id="pk-collection-title">Available Kittens</h2><input id="pk-search-input" type="search" placeholder="Search by name or breed..."><div id="pk-grid" class="pk-grid"></div></div>
 <div id="pk-view-search"><a class="pk-btn-back" href="#/">← Back</a><h2>Search</h2><input id="pk-search-input-2" type="search" placeholder="Search kittens..."><div id="pk-grid-2" class="pk-grid"></div></div>
@@ -360,7 +449,157 @@ SPA_JS = r"""
     return h.split('/').filter(Boolean).map(function(p){return p.replace(/\.html$/,'');});
   }
 
-  function setRoute(cls){ document.body.className='pk-spa pk-spa-route-'+cls; }
+  function setRoute(cls){ document.body.className='pk-spa pk-spa-route-'+cls+(cls==='product'?' template-product':''); }
+
+  function productLoveCount(handle){
+    var n=0; for(var i=0;i<(handle||'').length;i++) n+=handle.charCodeAt(i);
+    return 20+(n%61);
+  }
+
+  function buildMediaSlides(p){
+    var slides=(p.media&&p.media.length)?p.media:(p.images||[]).map(function(src){return{type:'image',src:src};});
+    if(!slides.length && p.image) slides=[{type:'image',src:p.image}];
+    return slides.map(function(item){
+      if(item.type==='video'){
+        return '<div class="swiper-slide"><div class="pro_img slider-video"><div class="product-single__video">'+
+          '<video playsinline controls preload="metadata" poster="'+esc(item.poster||p.image||'')+'">'+
+          '<source src="'+esc(item.src)+'" type="video/mp4"></video>'+
+          '<button class="product-gallery-video-play" type="button" aria-label="Play video"><svg viewBox="0 0 512 512" width="34" height="34"><path d="M160 112v288l240-144-240-144z" fill="currentColor"/></svg></button>'+
+          '</div></div></div>';
+      }
+      return '<div class="swiper-slide"><div class="pro_img"><div class="product-image"><img loading="lazy" src="'+esc(item.src)+'" alt="'+esc(p.heading||p.title)+'"></div></div></div>';
+    }).join('');
+  }
+
+  function buildVariantRadios(p, cssClass, formId){
+    var variants=p.variants&&p.variants.length?p.variants:(p.price?[{label:'Complete Adoption Fee - '+p.price,subtitle:'One Payment, Fully Yours Instantly'}]:[]);
+    return variants.map(function(v,i){
+      var id='variant_'+formId+'_'+i;
+      return '<div class="variant-radio '+cssClass+'" data-variant-index="'+i+'"><div class="variant_radio_inner">'+
+        '<input type="radio" id="'+id+'" name="id" value="'+i+'"'+(i===0?' checked':'')+'>'+
+        '<label for="'+id+'">'+esc(v.label)+'</label><p>'+esc(v.subtitle)+'</p></div></div>';
+    }).join('');
+  }
+
+  function initProductPage(p){
+    destroyProductSwipers();
+    var root=document.getElementById('pk-product-root');
+    if(!root) return;
+    var swiperEl=root.querySelector('.mySwiper_product_img');
+    if(swiperEl && typeof Swiper!=='undefined'){
+      try{
+        productSwiper=new Swiper(swiperEl,{
+          slidesPerView:1,spaceBetween:10,loop:true,
+          pagination:{el:swiperEl.querySelector('.swiper-pagination'),clickable:true},
+          navigation:{nextEl:swiperEl.querySelector('.swiper-button-next'),prevEl:swiperEl.querySelector('.swiper-button-prev')},
+          breakpoints:{469:{slidesPerView:1.5,spaceBetween:10},659:{slidesPerView:2.5,spaceBetween:10},992:{slidesPerView:3.5,spaceBetween:10},1200:{slidesPerView:3.5,spaceBetween:10}}
+        });
+      }catch(e){}
+    }
+    root.querySelectorAll('.product-gallery-video-play').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var wrap=btn.closest('.product-single__video');
+        var video=wrap&&wrap.querySelector('video');
+        if(!video) return;
+        video.play();
+        wrap.classList.add('is-video-playing');
+      });
+    });
+    root.querySelectorAll('input[name="id"]').forEach(function(radio){
+      radio.addEventListener('change',function(){ updateSelectedPrice(root); });
+    });
+    updateSelectedPrice(root);
+    var reserveSticky=root.querySelector('#pk-reserve-sticky');
+    if(reserveSticky) reserveSticky.onclick=function(){ var f=root.querySelector('.product-form.bottom-text')||root.querySelector('.product-form'); if(f){ var btn=f.querySelector('.cart_btn'); openProductWhatsApp(p,getSelectedOption(f)); if(btn){btn.disabled=true;var o=btn.innerHTML;btn.innerHTML='Opening...';setTimeout(function(){btn.disabled=false;btn.innerHTML=o;},2500);} } };
+    var askSticky=root.querySelector('#pk-ask-sticky');
+    if(askSticky) askSticky.onclick=function(){ openProductWhatsApp(p,''); };
+    var askDesktop=root.querySelector('#pk-ask-desktop');
+    if(askDesktop) askDesktop.onclick=function(e){ e.preventDefault(); openProductWhatsApp(p,''); };
+  }
+
+  function getSelectedOption(form){
+    var sel=form.querySelector('input[name="id"]:checked');
+    if(!sel) return '';
+    var label=form.querySelector('label[for="'+sel.id+'"]');
+    return label?label.textContent.replace(/\s+/g,' ').trim():'';
+  }
+
+  function updateSelectedPrice(root){
+    var sel=root.querySelector('input[name="id"]:checked');
+    var priceEl=root.querySelector('#selected_variant_price_placeholders')||root.querySelector('#selected_variant_price_placeholder');
+    if(!sel||!priceEl) return;
+    var label=root.querySelector('label[for="'+sel.id+'"]');
+    var text=label?label.textContent.replace(/\s+/g,' ').trim():'';
+    var m=text.match(/\$[\d,]+(?:\.\d{2})?/);
+    priceEl.textContent=m?m[0]:'';
+  }
+
+  function openProductWhatsApp(p, optionLabel){
+    var msg='Hello! I would like to reserve:\n\nKitten: '+(p.heading||p.title)+'\n';
+    if(optionLabel) msg+='Payment option: '+optionLabel+'\n';
+    if(p.breed) msg+='Breed: '+p.breed+'\n';
+    msg+='Page: '+window.location.href+'\n\nPhone/WhatsApp: +1 3475417149\nSignal: '+SIGNAL+'\nEmail: '+EMAIL;
+    window.open('https://api.whatsapp.com/send?phone='+WHATSAPP+'&text='+encodeURIComponent(msg),'_blank');
+  }
+
+  function showProduct(handle){
+    handle=handle.replace(/\.html$/,'');
+    var p=byHandle[handle]; var root=document.getElementById('pk-product-root');
+    if(!p){ root.innerHTML='<p>Product not found.</p>'; return; }
+    if(p.title) document.title=p.title;
+    var loves=productLoveCount(handle);
+    var breedSlug=p.breedSlug||'kittens-for-sale';
+    var breedLabel=p.breed||'Kittens';
+    var formId='pk_'+handle.replace(/[^a-z0-9]/gi,'_');
+    var shareUrl=encodeURIComponent(window.location.href.split('#')[0]+'#/products/'+handle);
+    var shareText=encodeURIComponent((p.heading||p.title)+'');
+    var desktopVariants=buildVariantRadios(p,'desktop-variant',formId);
+    var mobileVariants=buildVariantRadios(p,'mobile_variant',formId+'m');
+    var aboutHtml=p.about||('<p>'+esc(p.description)+'</p>');
+    root.innerHTML=
+      '<div class="product_outer"><div class="product_tab_slide">'+
+        '<div class="swiper mySwiper_product_img"><div class="swiper-wrapper">'+buildMediaSlides(p)+'</div>'+
+        '<div class="swiper-button-next"></div><div class="swiper-button-prev"></div><div class="swiper-pagination"></div></div></div>'+
+      '<div class="product_conatiner"><div class="product_left">'+
+        '<div class="breadcrum_pro"><nav class="breadcrumbs">'+
+          '<a href="#/" class="breadcrumbs__link" aria-label="Home"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3.333 10.833L10 4.167L16.667 10.833V16.667C16.667 17.083 16.333 17.417 15.917 17.417H4.083C3.667 17.417 3.333 17.083 3.333 16.667V10.833Z" stroke="#292D32" stroke-width="1.5"/></svg></a>'+
+          '<span class="breadcrumbs__sep">→</span>'+
+          '<a href="#/collections/all-kittens-for-sale" class="breadcrumbs__link">Kittens For Sale</a>'+
+          '<span class="breadcrumbs__sep">→</span>'+
+          '<a href="#/collections/'+esc(breedSlug)+'" class="breadcrumbs__link">'+esc(breedLabel)+'</a>'+
+          '<span class="breadcrumbs__sep">→</span>'+
+          '<div class="breadcrumbs__current">'+esc(p.name||'')+'</div></nav></div>'+
+        '<div class="product_title"><h1>'+esc(p.heading||p.title)+'</h1></div>'+
+        '<div class="text_intrested"><p><span>🔥</span><span>'+loves+' people love me</span></p></div>'+
+        '<div class="wish_review_social">'+
+          '<div class="social-sharing-wrapper"><div class="social-share">'+
+            '<a href="https://api.whatsapp.com/send?phone='+WHATSAPP+'&text='+shareText+'%20'+shareUrl+'" target="_blank" rel="noopener" aria-label="whatsapp">WA</a>'+
+            '<a href="https://www.facebook.com/sharer/sharer.php?u='+shareUrl+'" target="_blank" rel="noopener" aria-label="facebook">FB</a>'+
+          '</div></div>'+
+          '<div class="pipe_line pipe_line--trustpilot"></div>'+
+          '<div class="trust_review trust_review_outer"><div class="pk-trustpilot-inline"><strong>Great</strong> <span class="stars">★★★★☆</span> <span>650 reviews on Trustpilot</span></div></div>'+
+        '</div>'+
+        '<div class="mobile_product also_hidden">'+
+          '<div class="content_above_variant"><h3 class="wow fadeInUp">My Adoption Fee</h3><span>Please choose the payment option which is the best for you and click "Adopt Me" button</span></div>'+
+          '<div class="price_varient_add_to_cart"><form action="#/cart/add" method="post" class="product-form new_mobile_cart" id="'+formId+'m">'+mobileVariants+
+            '<div class="selected_variant_price"><p>AMOUNT TO PAY</p><span id="selected_variant_price_placeholder"></span></div>'+
+            '<button type="submit" class="cart_btn new_cart-btn">Adopt Me</button></form></div>'+
+          '<div class="product_description active_bar for_mobile"><h3 class="sub_heading about_heading">About Me</h3><div class="about_products">'+aboutHtml+'</div></div>'+
+        '</div>'+
+        '<div class="product_description active_bar"><h2 class="sub_heading about_heading">About Me</h2><div class="about_products">'+aboutHtml+'</div></div>'+
+      '</div>'+
+      '<div class="product_right"><div class="right_side_bar"><div class="product_desktop">'+
+        '<div class="content_above_variant"><h3>My Adoption Fee</h3><span>Choose the payment option that works best and click \'Reserve Me\'—I\'ll be snuggled in your arms before you know it!</span></div>'+
+        '<div class="price_varient_add_to_cart"><form action="#/cart/add" method="post" class="product-form bottom-text" id="'+formId+'">'+desktopVariants+
+          '<div class="selected_variant_price"><p>Amount Due</p><span id="selected_variant_price_placeholders"></span></div>'+
+          '<button type="submit" class="cart_btn bottom-cart-btn">Reserve Me</button></form></div>'+
+        '<div class="btn_form"><div class="button_app"><button type="button" id="pk-ask-desktop">Ask About Me</button></div></div>'+
+        '<div class="secu_ssl for_desktop"><p>Secure SSL-Encrypted Checkout</p></div>'+
+      '</div></div></div></div></div>'+
+      '<div class="fix_button-s"><div class="reserve_block"><span class="ask-button" id="pk-ask-sticky">Ask About Me</span>'+
+        '<button type="button" id="pk-reserve-sticky" class="reserve-button">Reserve Me</button></div></div>';
+    initProductPage(p);
+  }
 
   function route(){
     var parts=parseParts();
@@ -388,30 +627,6 @@ SPA_JS = r"""
     if(page.title) document.title=page.title;
     root.innerHTML=page.html;
     initMobileMenu();
-  }
-
-  function showProduct(handle){
-    handle=handle.replace(/\.html$/,'');
-    var p=byHandle[handle]; var root=document.getElementById('pk-product-root');
-    if(!p){ root.innerHTML='<p>Product not found.</p>'; return; }
-    if(p.title) document.title=p.title;
-    var imgs=(p.images&&p.images.length)?p.images:(p.image?[p.image]:[]);
-    if(!imgs.length) imgs=[''];
-    var galleryHtml=imgs.length>1
-      ? '<div class="pk-gallery-simple"><img class="pk-main-image" src="'+esc(imgs[0])+'" alt="'+esc(p.title)+'"><div class="pk-thumb-row">'+imgs.map(function(src,i){
-          return '<button type="button" class="pk-thumb-item'+(i===0?' active':'')+'" data-idx="'+i+'"><img src="'+esc(src)+'" alt="" loading="lazy"></button>';
-        }).join('')+'</div></div>'
-      : '<img class="pk-main-image" src="'+esc(imgs[0])+'" alt="'+esc(p.title)+'">';
-    root.innerHTML='<div class="pk-product-detail"><div class="pk-product-gallery">'+galleryHtml+
-      '</div><div><h1>'+esc(p.title)+'</h1>'+
-      (p.price?'<div class="pk-product-price">'+esc(p.price)+'</div>':'')+
-      '<p class="pk-product-desc">'+esc(p.description)+'</p>'+
-      '<button class="pk-btn-order" id="pk-order-btn">Reserve / Order via WhatsApp</button></div></div>';
-    document.getElementById('pk-order-btn').onclick=function(){
-      var msg='Hello! I would like to reserve/order:\n\nKitten: '+p.title+'\nPrice: '+(p.price||'N/A')+'\n\nPhone/WhatsApp: +1 3475417149\nSignal: '+SIGNAL+'\nEmail: '+EMAIL;
-      window.open('https://api.whatsapp.com/send?phone='+WHATSAPP+'&text='+encodeURIComponent(msg),'_blank');
-    };
-    initSimpleGallery();
   }
 
   function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }

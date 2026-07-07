@@ -130,9 +130,11 @@
 
   function handleProductOrder(form, button) {
     var productName = getProductName();
+    var option = getSelectedOption(form);
     var message =
       'Hello! I would like to reserve/order:\n\n' +
       'Kitten: ' + productName + '\n' +
+      (option && option !== 'Standard option' ? 'Payment option: ' + option + '\n' : '') +
       'Page: ' + window.location.href + '\n\n' +
       contactDetails() + '\n\n' +
       'Please contact me with next steps. Thank you!';
