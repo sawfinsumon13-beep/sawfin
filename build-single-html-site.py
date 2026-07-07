@@ -231,14 +231,11 @@ body.pk-spa{display:flex;flex-direction:column;min-height:100vh}
 .mobile_menu li a.open_child+ul{display:flex}
 .pk-product-detail{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
 @media(max-width:768px){.pk-product-detail{grid-template-columns:1fr}}
-.pk-product-gallery .pk-main-swiper{border-radius:12px;overflow:hidden;background:#f5f5f5}
 .pk-product-gallery .pk-main-image{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;display:block}
-.pk-product-gallery .pk-main-swiper .swiper-button-next,.pk-product-gallery .pk-main-swiper .swiper-button-prev{color:#774C9D}
-.pk-product-gallery .pk-main-swiper .swiper-slide img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
-.pk-product-gallery .pk-thumb-swiper{margin-top:12px}
-.pk-product-gallery .pk-thumb-swiper .swiper-slide{opacity:.55;cursor:pointer;border-radius:8px;overflow:hidden;border:2px solid transparent}
-.pk-product-gallery .pk-thumb-swiper .swiper-slide-thumb-active{opacity:1;border-color:#774C9D}
-.pk-product-gallery .pk-thumb-swiper img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.pk-thumb-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pk-thumb-item{padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;background:none;cursor:pointer;width:72px;height:72px}
+.pk-thumb-item.active{border-color:#774C9D}
+.pk-thumb-item img{width:100%;height:100%;object-fit:cover;display:block}
 .pk-product-detail h1{font-size:2rem;margin:0 0 12px;color:#342A41}
 .pk-product-price{font-size:1.5rem;color:#774C9D;font-weight:700;margin:12px 0}
 .pk-product-desc{color:#555;line-height:1.6;margin:16px 0}
@@ -309,17 +306,20 @@ SPA_JS = r"""
 
   function initProductSwipers(){
     destroyProductSwipers();
+    var root=document.getElementById('pk-product-root');
+    if(!root) return;
+    var mainEl=root.querySelector('.pk-main-swiper');
+    var thumbsEl=root.querySelector('.pk-thumb-swiper');
+    if(!mainEl){ initSimpleGallery(); return; }
     if(typeof Swiper==='undefined'){ initSimpleGallery(); return; }
-    var thumbsEl=document.querySelector('.pk-thumb-swiper');
-    var mainEl=document.querySelector('.pk-main-swiper');
-    if(!mainEl) return;
     try{
       if(thumbsEl){
         productThumbSwiper=new Swiper(thumbsEl,{slidesPerView:4,spaceBetween:10,freeMode:true,watchSlidesProgress:true,breakpoints:{768:{slidesPerView:5}}});
       }
       productSwiper=new Swiper(mainEl,{
         spaceBetween:10,
-        navigation:{nextEl:'.pk-main-swiper .swiper-button-next',prevEl:'.pk-main-swiper .swiper-button-prev'},
+        loop:false,
+        navigation:{nextEl:mainEl.querySelector('.swiper-button-next'),prevEl:mainEl.querySelector('.swiper-button-prev')},
         thumbs: productThumbSwiper?{swiper:productThumbSwiper}:undefined
       });
     }catch(e){
@@ -328,9 +328,11 @@ SPA_JS = r"""
   }
 
   function initSimpleGallery(){
-    var mainImg=document.querySelector('.pk-main-image')||document.querySelector('.pk-main-swiper .swiper-slide img');
+    var root=document.getElementById('pk-product-root');
+    if(!root) return;
+    var mainImg=root.querySelector('.pk-main-image')||root.querySelector('.pk-main-swiper .swiper-slide img');
     if(!mainImg) return;
-    document.querySelectorAll('.pk-thumb-swiper .swiper-slide, .pk-thumb-btn').forEach(function(btn){
+    root.querySelectorAll('.pk-thumb-swiper .swiper-slide, .pk-thumb-btn, .pk-thumb-item').forEach(function(btn){
       btn.addEventListener('click',function(){
         var img=btn.querySelector('img');
         if(img && img.src){
@@ -340,10 +342,17 @@ SPA_JS = r"""
             if(!isNaN(idx)) productSwiper.slideTo(idx);
           }
         }
-        document.querySelectorAll('.pk-thumb-btn,.pk-thumb-swiper .swiper-slide').forEach(function(b){b.classList.remove('active');});
+        root.querySelectorAll('.pk-thumb-btn,.pk-thumb-swiper .swiper-slide,.pk-thumb-item').forEach(function(b){b.classList.remove('active');});
         btn.classList.add('active');
       });
     });
+  }
+
+  function finishLoading(){
+    document.documentElement.classList.add('is-loaded');
+    document.documentElement.classList.remove('wait-breed-mc-loader');
+    var overlay=document.querySelector('.loading-overlay');
+    if(overlay) overlay.style.display='none';
   }
 
   function parseParts(){
@@ -367,6 +376,7 @@ SPA_JS = r"""
       else { setRoute('cart'); renderCart(); }
     }
     else { document.body.className='pk-spa'; }
+    finishLoading();
     closeMobileMenu();
     window.scrollTo(0,0);
   }
@@ -387,14 +397,10 @@ SPA_JS = r"""
     if(p.title) document.title=p.title;
     var imgs=(p.images&&p.images.length)?p.images:(p.image?[p.image]:[]);
     if(!imgs.length) imgs=[''];
-    var mainSlides=imgs.map(function(src,i){
-      return '<div class="swiper-slide'+(i===0?' swiper-slide-active':'')+'"><img src="'+esc(src)+'" alt="'+esc(p.title)+'" loading="lazy"></div>';
-    }).join('');
-    var thumbSlides=imgs.map(function(src,i){
-      return '<div class="swiper-slide pk-thumb-btn'+(i===0?' active':'')+'" data-idx="'+i+'"><img src="'+esc(src)+'" alt="" loading="lazy"></div>';
-    }).join('');
     var galleryHtml=imgs.length>1
-      ? '<div class="swiper pk-main-swiper"><div class="swiper-wrapper">'+mainSlides+'</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div><div class="swiper pk-thumb-swiper"><div class="swiper-wrapper">'+thumbSlides+'</div></div>'
+      ? '<div class="pk-gallery-simple"><img class="pk-main-image" src="'+esc(imgs[0])+'" alt="'+esc(p.title)+'"><div class="pk-thumb-row">'+imgs.map(function(src,i){
+          return '<button type="button" class="pk-thumb-item'+(i===0?' active':'')+'" data-idx="'+i+'"><img src="'+esc(src)+'" alt="" loading="lazy"></button>';
+        }).join('')+'</div></div>'
       : '<img class="pk-main-image" src="'+esc(imgs[0])+'" alt="'+esc(p.title)+'">';
     root.innerHTML='<div class="pk-product-detail"><div class="pk-product-gallery">'+galleryHtml+
       '</div><div><h1>'+esc(p.title)+'</h1>'+
@@ -405,7 +411,7 @@ SPA_JS = r"""
       var msg='Hello! I would like to reserve/order:\n\nKitten: '+p.title+'\nPrice: '+(p.price||'N/A')+'\n\nPhone/WhatsApp: +1 3475417149\nSignal: '+SIGNAL+'\nEmail: '+EMAIL;
       window.open('https://api.whatsapp.com/send?phone='+WHATSAPP+'&text='+encodeURIComponent(msg),'_blank');
     };
-    initProductSwipers();
+    initSimpleGallery();
   }
 
   function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
