@@ -628,7 +628,7 @@ SPA_VIEWS = """
 <p>Have questions about adopting? Message us on WhatsApp or Signal and we'll help you find your perfect kitten.</p>
 </div></div>
 <div id="pk-view-cart"><a class="pk-btn-back" href="#/">← Back</a><h2>Your Cart</h2><div id="pk-cart-root"><p>Your cart is empty. <a href="#/collections/kittens-for-sale">Browse kittens</a></p></div>
-<button class="pk-btn-order" id="pk-checkout-btn">Checkout via WhatsApp</button></div>
+<button class="pk-btn-order" id="pk-checkout-btn">Complete Reservation</button></div>
 """
 
 SPA_JS = r"""
@@ -816,7 +816,18 @@ SPA_JS = r"""
     });
     updateSelectedPrice(root);
     var reserveSticky=root.querySelector('#pk-reserve-sticky');
-    if(reserveSticky) reserveSticky.onclick=function(){ var f=root.querySelector('.product-form.bottom-text')||root.querySelector('.product-form'); if(f){ var btn=f.querySelector('.cart_btn'); openProductWhatsApp(p,getSelectedOption(f)); if(btn){btn.disabled=true;var o=btn.innerHTML;btn.innerHTML='Opening...';setTimeout(function(){btn.disabled=false;btn.innerHTML=o;},2500);} } };
+    if(reserveSticky) reserveSticky.onclick=function(){
+      var f=root.querySelector('.product-form.bottom-text')||root.querySelector('.product-form.new_mobile_cart')||root.querySelector('.product-form');
+      var option=f?getSelectedOption(f):'';
+      var pageUrl=window.location.href.split('#')[0]+'#/products/'+p.handle;
+      if(typeof window.pkPrepareProductReserve==='function'){
+        window.pkPrepareProductReserve({title:p.heading||p.title,paymentOption:option,url:pageUrl,handle:p.handle,breed:p.breed||''});
+      }else if(typeof window.pkGoToReserveForm==='function'){
+        window.pkGoToReserveForm({source:'product',items:[{title:p.heading||p.title,variant_title:option,url:pageUrl,handle:p.handle,breed:p.breed||''}],paymentOption:option});
+      }else{
+        location.hash='/pages/reserve-kitten';
+      }
+    };
     var askSticky=root.querySelector('#pk-ask-sticky');
     if(askSticky) askSticky.onclick=function(){ openProductWhatsApp(p,''); };
     var askDesktop=root.querySelector('#pk-ask-desktop');
@@ -937,10 +948,7 @@ SPA_JS = r"""
     else if(parts[0]==='collections'&&parts[1]){ setRoute('collection'); showCollection(parts[1]); }
     else if(parts[0]==='search'){ setRoute('search'); showGrid(document.getElementById('pk-grid-2'),decodeURIComponent((location.search.match(/q=([^&]+)/)||[])[1]||'')); }
     else if(parts[0]==='contact'){ setRoute('page'); showPage('pages/contact'); }
-    else if(parts[0]==='cart'){
-      if(PAGES.cart){ setRoute('page'); showPage('cart'); }
-      else { setRoute('cart'); renderCart(); }
-    }
+    else if(parts[0]==='cart'){ setRoute('cart'); renderCart(); }
     else { document.body.className='pk-spa'; }
     finishLoading();
     closeMobileMenu();
@@ -965,6 +973,17 @@ SPA_JS = r"""
       breederForm.addEventListener('submit',function(e){
         e.preventDefault();
         if(typeof window.pkSubmitBreederForm==='function') window.pkSubmitBreederForm(breederForm);
+      });
+    }
+    var reserveForm=document.getElementById('pk-reserve-form');
+    if(reserveForm && !reserveForm.dataset.pkBound){
+      reserveForm.dataset.pkBound='1';
+      if(typeof window.pkPopulateReserveForm==='function') window.pkPopulateReserveForm();
+      reserveForm.querySelectorAll('[data-pk-submit]').forEach(function(btn){
+        btn.addEventListener('click',function(e){
+          e.preventDefault();
+          if(typeof window.pkSubmitReserveForm==='function') window.pkSubmitReserveForm(reserveForm, btn.getAttribute('data-pk-submit'));
+        });
       });
     }
   }
@@ -1006,15 +1025,14 @@ SPA_JS = r"""
     var cart=JSON.parse(localStorage.getItem(CART_KEY)||'{"items":[]}');
     var root=document.getElementById('pk-cart-root');
     if(!cart.items.length){ root.innerHTML='<p>Your cart is empty. <a href="#/collections/kittens-for-sale">Browse kittens</a></p>'; return; }
-    root.innerHTML='<ul>'+cart.items.map(function(i){return '<li>'+esc(i.title)+'</li>';}).join('')+'</ul>';
+    root.innerHTML='<ul>'+cart.items.map(function(i){return '<li><strong>'+esc(i.title)+'</strong>'+(i.variant_title?' — '+esc(i.variant_title):'')+'</li>';}).join('')+'</ul>'+
+      '<p style="margin-top:20px"><button class="pk-btn-order" id="pk-cart-reserve-btn" type="button">Complete Reservation</button></p>';
   }
 
   var checkoutBtn=document.getElementById('pk-checkout-btn');
   if(checkoutBtn) checkoutBtn.onclick=function(){
-    var cart=JSON.parse(localStorage.getItem(CART_KEY)||'{"items":[]}');
-    var msg=cart.items.length?'Hello! I would like to complete my order:\n\n'+cart.items.map(function(i,n){return (n+1)+'. '+i.title;}).join('\n'):'Hello! I would like to inquire about adopting a kitten.';
-    msg+='\n\nPhone/WhatsApp: +1 3475417149\nSignal: '+SIGNAL+'\nEmail: '+EMAIL;
-    window.open('https://api.whatsapp.com/send?phone='+WHATSAPP+'&text='+encodeURIComponent(msg),'_blank');
+    if(typeof window.pkGoToReserveFromCart==='function') window.pkGoToReserveFromCart();
+    else location.hash='/pages/reserve-kitten';
   };
 
   document.addEventListener('click',function(e){

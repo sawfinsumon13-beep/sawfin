@@ -22,6 +22,13 @@ FORM_CSS = """
 .pk-form-submit{width:100%;padding:16px 24px;background:#f4ff73;color:#342a41;border:none;border-radius:999px;font-size:18px;font-weight:700;cursor:pointer;margin-top:8px}
 .pk-form-submit:hover{filter:brightness(.97)}
 .pk-form-submit:disabled{opacity:.7;cursor:wait}
+.pk-form-actions{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.pk-form-submit-email{background:#dec0fc;color:#342a41}
+.pk-form-submit-whatsapp{background:#25D366;color:#fff}
+.pk-reserve-summary{background:#f6f7fe;border-radius:12px;padding:16px 18px;margin-bottom:24px;font-size:15px;line-height:1.65;color:#342a41}
+.pk-reserve-summary h3{font-size:16px;font-weight:700;margin:0 0 10px;color:#342a41}
+.pk-reserve-summary ul{margin:0;padding-left:18px}
+.pk-reserve-summary li{margin-bottom:6px}
 .pk-form-success{display:none;text-align:center;padding:20px 0}
 .pk-form-success.active{display:block}
 .pk-form-success h3{font-size:24px;color:#342a41;margin:0 0 12px}
@@ -79,11 +86,51 @@ ADOPTION_OMNIFORM = (
 )
 
 
+def render_reserve_kitten_page() -> str:
+    return f"""<div class="shopify-section pk-form-page"><style>{FORM_CSS}</style>
+<div class="pk-form-card">
+<img class="pk-form-logo" src="{LOGO_URL}" alt="Purebred Kitties">
+<h1>Reserve Your Kitten</h1>
+<p class="pk-form-intro">Complete this short form so our adoption team can confirm availability and guide you through the next steps.</p>
+<div class="pk-reserve-summary" id="pk-reserve-summary"><h3>Your selection</h3><p>Loading reservation details…</p></div>
+<form class="pk-reserve-form" id="pk-reserve-form" action="#" method="post">
+<div class="pk-form-field"><label for="pk-reserve-name">Full Name</label>
+<input id="pk-reserve-name" name="full_name" type="text" autocomplete="name" required></div>
+<div class="pk-form-field"><label for="pk-reserve-email">Email Address</label>
+<input id="pk-reserve-email" name="email" type="email" autocomplete="email" required></div>
+<div class="pk-form-field"><label for="pk-reserve-phone">Phone / WhatsApp Number</label>
+<input id="pk-reserve-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1" required></div>
+<div class="pk-form-field"><label for="pk-reserve-city">City &amp; State</label>
+<input id="pk-reserve-city" name="city_state" type="text" required></div>
+<div class="pk-form-field"><label for="pk-reserve-home">Tell us about your home &amp; family</label>
+<textarea id="pk-reserve-home" name="home_info" placeholder="Who lives at home, other pets, experience with cats, etc." required></textarea></div>
+<div class="pk-form-field"><label for="pk-reserve-notes">Additional notes (optional)</label>
+<textarea id="pk-reserve-notes" name="notes" placeholder="Preferred delivery timing, questions, etc."></textarea></div>
+<label class="pk-form-check"><input type="checkbox" name="consent" value="yes" required>
+<span>I agree to be contacted about this kitten reservation. See our <a href="#/pages/privacy-policy">Privacy Policy</a>.</span></label>
+<div class="pk-form-actions">
+<button class="pk-form-submit pk-form-submit-email" type="button" data-pk-submit="email">Submit via Email</button>
+<button class="pk-form-submit pk-form-submit-whatsapp" type="button" data-pk-submit="whatsapp">Submit via WhatsApp</button>
+</div>
+</form>
+<div class="pk-form-success" id="pk-reserve-success">
+<h3>Thank you!</h3>
+<p>Your reservation request has been prepared. If your email app or WhatsApp did not open automatically, please contact us directly.</p>
+<p><strong>Phone / WhatsApp:</strong> +1 3475417149<br><strong>Email:</strong> kittenspurebreed@gmail.com</p>
+<a class="pk-form-submit" href="#/collections/kittens-for-sale" style="display:inline-block;text-decoration:none;margin-top:16px">Browse More Kittens</a>
+</div>
+</div></div>"""
+
+
 def build_form_pages() -> dict[str, dict[str, str]]:
     return {
         "pages/breeder-application": {
             "title": "Breeder Application | Purebred Kitties",
             "html": render_breeder_application_page(),
+        },
+        "pages/reserve-kitten": {
+            "title": "Reserve Your Kitten | Purebred Kitties",
+            "html": render_reserve_kitten_page(),
         },
     }
 
