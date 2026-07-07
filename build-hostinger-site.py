@@ -30,19 +30,23 @@ HOSTINGER_SUBFOLDER = os.environ.get("HOSTINGER_SUBFOLDER", "/index.html")
 SIGNAL_FOOTER_HTML = (
     f'<div class="footer_signal foot_col"><span>'
     f'<svg fill=none height=25 viewBox="0 0 24 25"width=24 xmlns=http://www.w3.org/2000/svg>'
-    f'<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"fill=#726A87/>'
-    f'</svg></span><a href="{SIGNAL_URL}" target="_blank" rel="noopener">Signal</a></div>'
+    f'<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.57 3 3.5S13.66 12 12 12s-3-1.57-3-3.5S10.34 5 12 5zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-2 4-3.1 6-3.1s5.97 1.1 6 3.1c-1.29 1.94-3.5 3.22-6 3.22z"fill=#726A87/>'
+    f'</svg></span><a href="{SIGNAL_URL}" target="_blank" rel="noopener noreferrer">Signal</a></div>'
 )
 
 CONTACT_SIGNAL_BLOCK = (
-    f'<div class="middle_four first_cont"><div class="iconss wow fadeInUp animated">'
+    f'<div class="middle_signal first_cont"><div class="iconss wow fadeInUp animated">'
     f'<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">'
     f'<circle cx="18.5859" cy="18.687" r="18" fill="#774C9D"/>'
     f'<path d="M11 12h15v2H11v-2zm0 4h15v2H11v-2zm0 4h10v2H11v-2z" fill="white"/>'
-    f'</svg></div><div class="icon_titles"><p class="call_title wow fadeInUp animated">Signal</p>'
-    f'<p class="wow fadeInUp animated"><a href="{SIGNAL_URL}" target="_blank" rel="noopener">Message on Signal</a></p>'
+    f'</svg></div><div class="icon_titles">'
+    f'<p class="call_title wow fadeInUp animated">Signal</p>'
+    f'<p class="wow fadeInUp animated"><a href="{SIGNAL_URL}" target="_blank" rel="noopener noreferrer">Message on Signal</a></p>'
     f'</div></div>'
 )
+
+CALENDLY_URL = "https://calendly.com/adoption-specialist-calendar/personalized-adoption-support?hide_gdpr_banner=1&primary_color=b47ce4"
+CALENDLY_ONCLICK = f"Calendly.initPopupWidget({{url: '{CALENDLY_URL}'}});return false;"
 
 EXTERNAL_CDN = "https://purebredkitties.com"
 FAVICON_URL = EXTERNAL_CDN + "/cdn/shop/files/purebred_kitties_fav_icon_af099f12-929b-46f9-9f52-ab8077b3bd03_32x32.png?v=1707586342"
@@ -84,6 +88,14 @@ LAYOUT_FIX = (
     ".social-sharing-wrapper svg,.footer-social svg{width:40px!important;height:41px!important;display:inline-block!important}"
     ".footer-social,.social-sharing-wrapper{display:flex!important;gap:20px!important;align-items:center!important}"
     ".social-sharing-wrapper a{display:inline-flex!important;opacity:1!important;visibility:visible!important}"
+    ".footer_phone.foot_col,.footer_email.foot_col,.footer_signal.foot_col,.footer_location.foot_col"
+    "{display:flex!important;align-items:flex-start!important;gap:10px!important;margin-bottom:12px!important}"
+    ".footer_signal.foot_col a{color:#726A87!important;font-size:16px!important;line-height:1.4!important;text-decoration:none!important}"
+    ".footer_signal.foot_col a:hover{text-decoration:underline!important}"
+    ".middle_signal.first_cont{display:flex!important;gap:16px!important;align-items:flex-start!important;margin-bottom:24px!important}"
+    ".middle_signal .icon_titles .call_title{margin-bottom:4px!important}"
+    ".middle_signal .icon_titles a{color:#774C9D!important;font-weight:600!important;text-decoration:none!important}"
+    ".middle_signal .icon_titles a:hover{text-decoration:underline!important}"
     "</style>"
 )
 
@@ -710,7 +722,25 @@ def replace_contact_info(html: str) -> str:
     return html
 
 
+def repair_broken_signal_injection(html: str) -> str:
+    """Fix Signal block wrongly injected inside Calendly onclick attributes."""
+    html = re.sub(
+        r'onclick="<div class="middle_four first_cont">.*?</div></div>Calendly\.initPopupWidget\(\{url: \'[^\']+\'\}\);return false;"',
+        f'onclick="{CALENDLY_ONCLICK}"',
+        html,
+        flags=re.DOTALL,
+    )
+    html = re.sub(
+        r'onclick="<div class="middle_signal first_cont">.*?</div></div>Calendly\.initPopupWidget\(\{url: \'[^\']+\'\}\);return false;"',
+        f'onclick="{CALENDLY_ONCLICK}"',
+        html,
+        flags=re.DOTALL,
+    )
+    return html
+
+
 def inject_signal_contact(html: str) -> str:
+    html = repair_broken_signal_injection(html)
     if 'class="footer_signal foot_col"' not in html and 'class="footer_email foot_col"' in html:
         html = re.sub(
             r'(<div class="footer_email foot_col">.*?</div>)',
@@ -719,19 +749,14 @@ def inject_signal_contact(html: str) -> str:
             count=1,
             flags=re.DOTALL,
         )
-    if 'Message on Signal' not in html and 'Calendly.initPopupWidget' in html:
+    if 'class="right_contact"' in html and 'middle_signal first_cont' not in html:
         html = re.sub(
-            r'(<a href="#"[^>]*onclick="Calendly\.initPopupWidget[^"]*"[^>]*class="[^"]*callendar_btn[^"]*")',
-            CONTACT_SIGNAL_BLOCK + r'\1',
+            r'(<div class="middle_two first_cont">.*?</div>\s*)(<div class="middle_three first_cont">)',
+            r"\1" + CONTACT_SIGNAL_BLOCK + r"\2",
             html,
             count=1,
+            flags=re.DOTALL,
         )
-        if 'Message on Signal' not in html:
-            html = html.replace(
-                'Calendly.initPopupWidget',
-                CONTACT_SIGNAL_BLOCK + 'Calendly.initPopupWidget',
-                1,
-            )
     return html
 
 
