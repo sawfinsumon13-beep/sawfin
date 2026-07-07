@@ -811,22 +811,10 @@ Options -Indexes
 RewriteEngine On
 RewriteBase /
 
-# --- FIX: site uploaded inside public_html/index.html/ folder (Hostinger common mistake) ---
+# --- FIX: site uploaded inside public_html/index.html/ folder (Hostinger mistake) ---
 RewriteCond %{REQUEST_URI} !^/index\\.html/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{DOCUMENT_ROOT}/index.html/$1 -f
-RewriteRule ^(.+)$ index.html/$1 [L]
-RewriteCond %{REQUEST_URI} !^/index\\.html/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{DOCUMENT_ROOT}/index.html/$1.html -f
-RewriteRule ^(.+)$ index.html/$1.html [L]
-RewriteCond %{REQUEST_URI} !^/index\\.html/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{DOCUMENT_ROOT}/index.html/$1/index.html -f
-RewriteRule ^(.+)$ index.html/$1/index.html [L]
+RewriteCond %{REQUEST_URI} !^/move-to-root\\.php
+RewriteRule ^(.*)$ /index.html/$1 [L]
 
 RewriteRule ^index\\.html/index\\.html/?$ / [R=301,L]
 RewriteRule ^index\\.html/(.*)$ /$1 [R=301,L]
