@@ -143,7 +143,7 @@ BLOG_POSTS: list[dict[str, Any]] = [
         "title": "Safe Travel and Delivery Options for Your New Kitten",
         "excerpt": "Ground transport, air nanny services, and what to expect when your kitten travels to you.",
         "read_time": "8 min read",
-        "image": "https://purebredkitties.com/cdn/shop/articles/discover-your-perfect-purebred-explore-the-best-cat-breeds-for-your-home_800x.webp?v=1753442709",
+        "image": "https://purebredkitties.com/cdn/shop/articles/plan-kittens-arrival-adoption-journey-specialists-fluffy-cream-white_800x.webp?v=1742040286",
         "sections": [
             {"type": "p", "text": "Distance should not prevent you from adopting the purebred kitten that fits your family. Professional pet travel has matured into a structured industry with temperature-controlled vehicles, flight nannies, and health-certified routing. Still, travel stresses young animals, so choosing the right method and preparing thoroughly keeps your kitten safe and comfortable. Understanding options helps you coordinate timing, paperwork, and arrival routines without last-minute panic."},
             {"type": "h2", "text": "Ground Transportation"},
@@ -165,7 +165,7 @@ BLOG_POSTS: list[dict[str, Any]] = [
         "title": "How to Spot Kitten Scams and Adopt Safely Online",
         "excerpt": "Warning signs, verification steps, and practical tips to protect yourself from fraud.",
         "read_time": "9 min read",
-        "image": "https://purebredkitties.com/cdn/shop/articles/decoding-meows-and-more-understanding-your-purebred-kittens-behavior_800x.webp?v=1753442709",
+        "image": "https://purebredkitties.com/cdn/shop/articles/choose-reputable-breeder-avoiding-pitfalls-kitten-adoption-breeder_800x.webp?v=1775075616",
         "sections": [
             {"type": "p", "text": "Online kitten listings combine legitimate ethical breeders with sophisticated scam operations designed to exploit emotion. Fraudsters steal photos from real catteries, advertise impossibly low prices, and vanish after collecting deposits. Purebred kittens represent significant financial and emotional investment, which makes buyers attractive targets. Learning verification habits protects your money and ensures animals are treated humanely rather than used as bait in fake listings."},
             {"type": "h2", "text": "Common Scam Patterns"},
@@ -187,7 +187,7 @@ BLOG_POSTS: list[dict[str, Any]] = [
         "title": "British Shorthair vs Maine Coon: Which Breed Fits Your Lifestyle?",
         "excerpt": "Compare temperament, grooming, space needs, and family fit between two beloved breeds.",
         "read_time": "8 min read",
-        "image": "https://purebredkitties.com/cdn/shop/articles/british-shorthair-cats-indoors-how-their-calm-demeanor-suits-indoor-living_800x.webp?v=1753442709",
+        "image": "https://purebredkitties.com/cdn/shop/articles/british-shorthair-cats-indoors-calm-demeanor-suits-indoor-living-cat_800x.webp?v=1773325893",
         "sections": [
             {"type": "p", "text": "British Shorthairs and Maine Coons rank among the most requested purebred kittens in the United States, yet they offer distinctly different living experiences. Both breeds attract families with their striking appearances and affectionate reputations, but comparing temperament, maintenance, and space requirements prevents mismatched expectations. Neither breed is universally better — the ideal choice depends on your home rhythm, activity level, and tolerance for grooming."},
             {"type": "h2", "text": "Temperament and Personality"},
@@ -209,7 +209,7 @@ BLOG_POSTS: list[dict[str, Any]] = [
         "title": "Litter Box Training Your Purebred Kitten Step by Step",
         "excerpt": "Setup, troubleshooting, and habits that keep your kitten using the box reliably.",
         "read_time": "8 min read",
-        "image": "https://purebredkitties.com/cdn/shop/articles/tmastering-the-art-of-grooming-essential-maintenance-for-your-purebreds-coat-and-claws_800x.webp?v=1773488771",
+        "image": "https://purebredkitties.com/cdn/shop/articles/ultimate-guide-litter-training-purebred-kitten-tips-happy_800x.webp?v=1723075679",
         "sections": [
             {"type": "p", "text": "Most purebred kittens arrive partially or fully litter trained thanks to conscientious breeders who establish habits early. Still, a new environment disrupts routines. Carpet textures, box placement, and litter fragrance differ from what your kitten knows. Consistent training during the first two weeks prevents accidents from becoming patterns. Patience and cleanliness solve the majority of house-training challenges without punishment or stress."},
             {"type": "h2", "text": "Choosing the Right Box and Litter"},
@@ -230,7 +230,7 @@ BLOG_POSTS: list[dict[str, Any]] = [
         "title": "Building a Lifelong Bond With Your Purebred Cat",
         "excerpt": "Trust, play, communication, and daily rituals that deepen your relationship over the years.",
         "read_time": "9 min read",
-        "image": "https://purebredkitties.com/cdn/shop/articles/decoding-meows-and-more-understanding-your-purebred-kittens-behavior_800x.webp?v=1753442709",
+        "image": "https://purebredkitties.com/cdn/shop/articles/ultimate-guide-bonding-new-kitten-purebred-building-trust-training_800x.webp?v=1742039969",
         "sections": [
             {"type": "p", "text": "Adoption day is the beginning of a relationship measured in years of shared routine, not a single joyful moment. Purebred cats form deep attachments when humans communicate consistently through respect, play, and predictability. Bonding is not automatic — it grows through daily choices that signal safety and affection. Whether your kitten is boldly social or quietly observant, intentional interaction builds trust that survives vet visits, travel, and life's inevitable changes."},
             {"type": "h2", "text": "Learning Feline Communication"},
