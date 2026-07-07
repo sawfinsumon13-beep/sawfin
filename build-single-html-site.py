@@ -302,9 +302,39 @@ def build_catalog() -> list[dict]:
     return catalog
 
 
+GLOBAL_PAGE_SECTION_MARKERS = (
+    "__slider_first_global_",
+    "__slider_second_global_",
+    "__section_collection_",
+    "__related_product_new_",
+    "__global_companion_",
+    "__global_link_",
+    "__yas_subscription_",
+)
+
+
+def strip_embedded_global_sections(html: str) -> str:
+    """Remove homepage-global blocks accidentally embedded in cloned page HTML."""
+    for marker in GLOBAL_PAGE_SECTION_MARKERS:
+        pat = rf'<div id="shopify-section-template--[^"]+{re.escape(marker)}[^"]+" class="shopify-section[^"]*">'
+        while True:
+            m = re.search(pat, html, re.I)
+            if not m:
+                break
+            start = m.start()
+            rest = html[m.end() :]
+            next_m = re.search(r'<div id="shopify-section-template--', rest, re.I)
+            end = m.end() + (next_m.start() if next_m else len(rest))
+            html = html[:start] + html[end:]
+    return html
+
+
 def sanitize_page_html(html: str) -> str:
     html = re.sub(r'<ul class="payment-icon-list"[^>]*>.*?</ul>', "", html, flags=re.I | re.S)
     html = re.sub(r"<div class=\"payment-icons\"[^>]*>.*?</div>", "", html, flags=re.I | re.S)
+    html = re.sub(r"<a\s+href\s*\n\s*=\s*\"([^\"]*)\"", r'<a href="\1"', html, flags=re.I)
+    html = re.sub(r'href="\s+/pages/', 'href="#/pages/', html)
+    html = strip_embedded_global_sections(html)
     return html
 
 
@@ -505,10 +535,29 @@ body.pk-spa{display:flex;flex-direction:column;min-height:100vh}
   .pk-spa-route-product .product_right .shipping_details{display:none!important}
   .pk-spa-route-product .includes .prd-alt-metafield.metafield-sub{display:flex!important;flex-wrap:wrap!important}
 }
-#pk-view-page,#pk-view-collection,#pk-view-search,#pk-view-cart{padding:24px 20px 48px;max-width:1200px;margin:0 auto;width:100%}
+#pk-view-collection,#pk-view-search,#pk-view-cart{padding:24px 20px 48px;max-width:1200px;margin:0 auto;width:100%}
 #pk-view-collection,#pk-view-search{max-width:1400px}
+#pk-view-page{padding:0;max-width:none;width:100%;margin:0}
+#pk-view-page>.pk-btn-back{margin:16px 20px 0;max-width:1360px;display:inline-block}
 #pk-page-root,#pk-product-root{min-height:200px}
+#pk-page-root{width:100%;overflow-x:hidden}
 #pk-page-root img{max-width:100%;height:auto}
+/* Info/story pages rely on yas-page.css + template-page body class; add SPA safety overrides */
+#pk-page-root .promise-section-yas .our_promise_outer{position:relative;min-height:0}
+#pk-page-root .promise-section-yas .our_promise_outer .our_promise_inner{position:relative!important;left:auto!important;top:auto!important;transform:none!important;margin:0 auto;padding:24px 20px}
+#pk-page-root .testing-page-yas .shipping_option.kitties_story_sec{display:flex!important;flex-wrap:wrap;align-items:center}
+#pk-page-root .include_slide .header_text{position:relative!important;width:50%;flex:0 0 50%;box-sizing:border-box}
+#pk-page-root .include_slide .image{width:50%;flex:0 0 50%;position:relative!important;box-sizing:border-box}
+#pk-page-root .vertical_left_slider{position:relative!important;max-width:100%!important;height:auto!important}
+#pk-page-root .hidden-text.hidden{display:none!important}
+@media(min-width:768px){
+  #pk-page-root .for_desktop{display:flex!important}
+  #pk-page-root .for_mobile{display:none!important}
+}
+@media(max-width:767px){
+  #pk-page-root .for_desktop{display:none!important}
+  #pk-page-root .for_mobile{display:block!important}
+}
 .yas_header,.mobile_menu_sec{position:relative;z-index:100}
 .mobile_menu_sec .mobile_menu{z-index:101}
 .mobile_menu li a.link_child,.mobile_menu li a.h-link-child{cursor:pointer;touch-action:manipulation}
@@ -666,7 +715,35 @@ SPA_JS = r"""
     return h.split('/').filter(Boolean).map(function(p){return p.replace(/\.html$/,'');});
   }
 
-  function setRoute(cls){ document.body.className='pk-spa pk-spa-route-'+cls+(cls==='product'?' template-product':''); }
+  var pageSwipers=[];
+  function destroyPageSwipers(){
+    pageSwipers.forEach(function(s){ try{ s.destroy(true,true); }catch(e){} });
+    pageSwipers=[];
+  }
+  function initPageSwipers(root){
+    destroyPageSwipers();
+    if(!root || typeof Swiper==='undefined') return;
+    root.querySelectorAll('.swiper').forEach(function(el){
+      if(el.closest('#pk-product-root')) return;
+      try{
+        var opts;
+        if(el.classList.contains('firstwipe') || el.closest('.vertical_left_slider')){
+          opts={direction:'vertical',loop:true,autoplay:{delay:0,disableOnInteraction:false},speed:4500,slidesPerView:'auto',freeMode:true,allowTouchMove:false};
+        }else if(el.classList.contains('firstwipemob') || el.closest('.vertical_mobile_slider')){
+          opts={slidesPerView:2.2,spaceBetween:12,loop:true,speed:800};
+        }else if(el.classList.contains('mySwiper_review') || el.closest('.review_block')){
+          opts={slidesPerView:1,spaceBetween:16,pagination:{el:el.querySelector('.swiper-pagination'),clickable:true}};
+        }else{
+          opts={slidesPerView:1,spaceBetween:10,loop:true};
+        }
+        pageSwipers.push(new Swiper(el, opts));
+      }catch(e){}
+    });
+  }
+  function setRoute(cls){
+    var extra=cls==='product'?' template-product':(cls==='page'?' template-page':'');
+    document.body.className='pk-spa pk-spa-route-'+cls+extra;
+  }
 
   function productLoveCount(handle){
     var n=0; for(var i=0;i<(handle||'').length;i++) n+=handle.charCodeAt(i);
@@ -866,6 +943,7 @@ SPA_JS = r"""
     root.innerHTML=page.html;
     initMobileMenu();
     initPkForms();
+    initPageSwipers(root);
   }
 
   function initPkForms(){
@@ -971,6 +1049,10 @@ SPA_JS = r"""
 """
 
 
+HEAD_ASSETS = """
+<link href="https://purebredkitties.com/cdn/shop/t/285/assets/yas-page.css" rel="stylesheet" media="all">
+"""
+
 HEAD_SCRIPTS = """
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
@@ -989,7 +1071,7 @@ def build_single_html():
     print(f"Pages: {len(pages)} (info pages, blogs, cart, search)")
 
     head, body = get_home_shell()
-    head = head.replace("</head>", SPA_CSS + HEAD_SCRIPTS + "</head>", 1)
+    head = head.replace("</head>", SPA_CSS + HEAD_ASSETS + HEAD_SCRIPTS + "</head>", 1)
 
     contact_views = SPA_VIEWS.format(
         phone=CONTACT_PHONE,
