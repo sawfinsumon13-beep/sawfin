@@ -127,7 +127,52 @@ def strip_internal_links(html: str) -> str:
     html = re.sub(r'href="/search\.html"', 'href="#/search"', html)
     html = re.sub(r'href="/"', 'href="#/"', html)
     html = re.sub(r'href="#/([^"]+?)\.html"', r'href="#/\1"', html)
+    html = re.sub(r"window\.location\.href\s*=\s*['\"]/collections/", "window.location.href='#/collections/", html)
+    html = re.sub(r"window\.location\.href\s*=\s*['\"]/index\.html/collections/", "window.location.href='#/collections/", html)
     return html
+
+
+def patch_inline_scripts(html: str) -> str:
+    """Remove/guard homepage scripts that break SPA routes."""
+    html = re.sub(
+        r"<script defer>\s*window\.addEventListener\('load'[\s\S]*?new Typed\([\s\S]*?</script>",
+        "",
+        html,
+        flags=re.I,
+    )
+    html = re.sub(
+        r"new Typed\(",
+        "typeof Typed!=='undefined'&&new Typed(",
+        html,
+    )
+    return html
+
+
+def restructure_layout(body: str, spa_views: str) -> str:
+    """Place SPA views before footer so content appears above footer, not below."""
+    body = re.sub(
+        r'(<div id="pk-view-home">)',
+        r'<div id="pk-content-shell">\1',
+        body,
+        count=1,
+    )
+
+    footer_re = re.compile(
+        r'<div id="shopify-section-sections--21804441370875__footer"[\s\S]*?(?=<div id="popup-overlay")'
+    )
+    footer_match = footer_re.search(body)
+    if not footer_match:
+        raise SystemExit("Could not locate site footer block")
+    footer_html = footer_match.group(0)
+    body = body[: footer_match.start()] + body[footer_match.end() :]
+
+    home_close = "</main></div>"
+    pos = body.find(home_close)
+    if pos == -1:
+        raise SystemExit("Could not locate pk-view-home close")
+    pos += len(home_close)
+    insert = f"\n{spa_views}\n</div>\n<div id=\"pk-site-footer\">\n{footer_html}\n</div>\n"
+    return body[:pos] + insert + body[pos:]
 
 
 def get_home_shell() -> str:
@@ -159,6 +204,9 @@ def get_home_shell() -> str:
 
 SPA_CSS = """
 <style id="pk-spa-styles">
+body.pk-spa{display:flex;flex-direction:column;min-height:100vh}
+#pk-content-shell{flex:1;width:100%;background:#fff}
+#pk-site-footer{margin-top:auto;width:100%}
 #pk-view-product,#pk-view-contact,#pk-view-cart,#pk-view-search,#pk-view-collection,#pk-view-page{display:none!important}
 .pk-spa-route-product #pk-view-product,
 .pk-spa-route-contact #pk-view-contact,
@@ -172,7 +220,9 @@ SPA_CSS = """
 .pk-spa-route-search #pk-view-home,
 .pk-spa-route-collection #pk-view-home,
 .pk-spa-route-page #pk-view-home{display:none!important}
-#pk-view-product,#pk-view-page{padding:20px;max-width:1200px;margin:0 auto}
+#pk-view-product,#pk-view-page,#pk-view-collection,#pk-view-search,#pk-view-cart{padding:24px 20px 48px;max-width:1200px;margin:0 auto;width:100%}
+#pk-view-collection,#pk-view-search{max-width:1400px}
+#pk-page-root,#pk-product-root{min-height:200px}
 #pk-page-root img{max-width:100%;height:auto}
 .yas_header,.mobile_menu_sec{position:relative;z-index:100}
 .mobile_menu_sec .mobile_menu{z-index:101}
@@ -182,7 +232,9 @@ SPA_CSS = """
 .pk-product-detail{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
 @media(max-width:768px){.pk-product-detail{grid-template-columns:1fr}}
 .pk-product-gallery .pk-main-swiper{border-radius:12px;overflow:hidden;background:#f5f5f5}
+.pk-product-gallery .pk-main-image{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;display:block}
 .pk-product-gallery .pk-main-swiper .swiper-button-next,.pk-product-gallery .pk-main-swiper .swiper-button-prev{color:#774C9D}
+.pk-product-gallery .pk-main-swiper .swiper-slide img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
 .pk-product-gallery .pk-thumb-swiper{margin-top:12px}
 .pk-product-gallery .pk-thumb-swiper .swiper-slide{opacity:.55;cursor:pointer;border-radius:8px;overflow:hidden;border:2px solid transparent}
 .pk-product-gallery .pk-thumb-swiper .swiper-slide-thumb-active{opacity:1;border-color:#774C9D}
@@ -257,23 +309,39 @@ SPA_JS = r"""
 
   function initProductSwipers(){
     destroyProductSwipers();
-    if(typeof Swiper==='undefined') return;
+    if(typeof Swiper==='undefined'){ initSimpleGallery(); return; }
     var thumbsEl=document.querySelector('.pk-thumb-swiper');
     var mainEl=document.querySelector('.pk-main-swiper');
     if(!mainEl) return;
-    if(thumbsEl){
-      productThumbSwiper=new Swiper(thumbsEl,{slidesPerView:4,spaceBetween:10,freeMode:true,watchSlidesProgress:true,breakpoints:{768:{slidesPerView:5}}});
+    try{
+      if(thumbsEl){
+        productThumbSwiper=new Swiper(thumbsEl,{slidesPerView:4,spaceBetween:10,freeMode:true,watchSlidesProgress:true,breakpoints:{768:{slidesPerView:5}}});
+      }
+      productSwiper=new Swiper(mainEl,{
+        spaceBetween:10,
+        navigation:{nextEl:'.pk-main-swiper .swiper-button-next',prevEl:'.pk-main-swiper .swiper-button-prev'},
+        thumbs: productThumbSwiper?{swiper:productThumbSwiper}:undefined
+      });
+    }catch(e){
+      initSimpleGallery();
     }
-    productSwiper=new Swiper(mainEl,{
-      spaceBetween:10,
-      navigation:{nextEl:'.pk-main-swiper .swiper-button-next',prevEl:'.pk-main-swiper .swiper-button-prev'},
-      thumbs: productThumbSwiper?{swiper:productThumbSwiper}:undefined
-    });
-    mainEl.querySelectorAll('.swiper-slide img').forEach(function(img){
-      img.addEventListener('click',function(){
-        if(!productSwiper) return;
-        var idx=Array.prototype.indexOf.call(img.closest('.swiper-wrapper').children, img.closest('.swiper-slide'));
-        if(idx>=0) productSwiper.slideTo(idx);
+  }
+
+  function initSimpleGallery(){
+    var mainImg=document.querySelector('.pk-main-image')||document.querySelector('.pk-main-swiper .swiper-slide img');
+    if(!mainImg) return;
+    document.querySelectorAll('.pk-thumb-swiper .swiper-slide, .pk-thumb-btn').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var img=btn.querySelector('img');
+        if(img && img.src){
+          mainImg.src=img.src;
+          if(productSwiper){
+            var idx=parseInt(btn.getAttribute('data-idx')||'0',10);
+            if(!isNaN(idx)) productSwiper.slideTo(idx);
+          }
+        }
+        document.querySelectorAll('.pk-thumb-btn,.pk-thumb-swiper .swiper-slide').forEach(function(b){b.classList.remove('active');});
+        btn.classList.add('active');
       });
     });
   }
@@ -319,15 +387,16 @@ SPA_JS = r"""
     if(p.title) document.title=p.title;
     var imgs=(p.images&&p.images.length)?p.images:(p.image?[p.image]:[]);
     if(!imgs.length) imgs=[''];
-    var mainSlides=imgs.map(function(src){
-      return '<div class="swiper-slide"><img src="'+esc(src)+'" alt="'+esc(p.title)+'" loading="lazy"></div>';
+    var mainSlides=imgs.map(function(src,i){
+      return '<div class="swiper-slide'+(i===0?' swiper-slide-active':'')+'"><img src="'+esc(src)+'" alt="'+esc(p.title)+'" loading="lazy"></div>';
     }).join('');
-    var thumbSlides=imgs.map(function(src){
-      return '<div class="swiper-slide"><img src="'+esc(src)+'" alt="" loading="lazy"></div>';
+    var thumbSlides=imgs.map(function(src,i){
+      return '<div class="swiper-slide pk-thumb-btn'+(i===0?' active':'')+'" data-idx="'+i+'"><img src="'+esc(src)+'" alt="" loading="lazy"></div>';
     }).join('');
-    root.innerHTML='<div class="pk-product-detail"><div class="pk-product-gallery"><div class="swiper pk-main-swiper"><div class="swiper-wrapper">'+mainSlides+
-      '</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div>'+
-      (imgs.length>1?'<div class="swiper pk-thumb-swiper"><div class="swiper-wrapper">'+thumbSlides+'</div></div>':'')+
+    var galleryHtml=imgs.length>1
+      ? '<div class="swiper pk-main-swiper"><div class="swiper-wrapper">'+mainSlides+'</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div><div class="swiper pk-thumb-swiper"><div class="swiper-wrapper">'+thumbSlides+'</div></div>'
+      : '<img class="pk-main-image" src="'+esc(imgs[0])+'" alt="'+esc(p.title)+'">';
+    root.innerHTML='<div class="pk-product-detail"><div class="pk-product-gallery">'+galleryHtml+
       '</div><div><h1>'+esc(p.title)+'</h1>'+
       (p.price?'<div class="pk-product-price">'+esc(p.price)+'</div>':'')+
       '<p class="pk-product-desc">'+esc(p.description)+'</p>'+
@@ -417,6 +486,12 @@ SPA_JS = r"""
 """
 
 
+HEAD_SCRIPTS = """
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+"""
+
+
 def build_single_html():
     print("Building product catalog...")
     catalog = build_catalog()
@@ -427,22 +502,7 @@ def build_single_html():
     print(f"Pages: {len(pages)} (info pages, blogs, cart, search)")
 
     head, body = get_home_shell()
-    head = head.replace("</head>", SPA_CSS + "</head>", 1)
-
-    # Insert SPA views before closing body (pk-view-home already closed after </main>)
-    body = body.replace("</body>", SPA_VIEWS + "</body>", 1)
-
-    # Fix links in body for hash routing
-    body = strip_internal_links(body)
-
-    catalog_json = json.dumps(catalog, separators=(",", ":"))
-    pages_json = json.dumps(pages, separators=(",", ":"))
-    catalog_script = f'<script type="application/json" id="pk-catalog-data">{catalog_json}</script>\n'
-    pages_script = f'<script type="application/json" id="pk-pages-data">{pages_json}</script>\n'
-    spa_script = f"<script>{SPA_JS}</script>\n"
-
-    # Inject cart script from static-cart.js (minimal)
-    cart_src = Path("/workspace/static-cart.js").read_text(encoding="utf-8")
+    head = head.replace("</head>", SPA_CSS + HEAD_SCRIPTS + "</head>", 1)
 
     contact_views = SPA_VIEWS.format(
         phone=CONTACT_PHONE,
@@ -450,7 +510,18 @@ def build_single_html():
         signal=SIGNAL_URL,
         email=CONTACT_EMAIL,
     )
-    body = body.replace(SPA_VIEWS, contact_views, 1)
+
+    body = strip_internal_links(body)
+    body = patch_inline_scripts(body)
+    body = restructure_layout(body, contact_views)
+
+    catalog_json = json.dumps(catalog, separators=(",", ":"))
+    pages_json = json.dumps(pages, separators=(",", ":"))
+    catalog_script = f'<script type="application/json" id="pk-catalog-data">{catalog_json}</script>\n'
+    pages_script = f'<script type="application/json" id="pk-pages-data">{pages_json}</script>\n'
+    spa_script = f"<script>{SPA_JS}</script>\n"
+
+    cart_src = Path("/workspace/static-cart.js").read_text(encoding="utf-8")
 
     html = head + body
     html = html.replace(
