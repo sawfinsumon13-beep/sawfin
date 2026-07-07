@@ -808,29 +808,6 @@ SPA_JS = r"""
     }).join('');
   }
 
-  function buildProductOrderMessage(p, optionLabel){
-    var msg='Hello! I would like to reserve/order:\n\nKitten: '+(p.heading||p.title)+'\n';
-    if(optionLabel) msg+='Payment option: '+optionLabel+'\n';
-    if(p.breed) msg+='Breed: '+p.breed+'\n';
-    msg+='Page: '+window.location.href+'\n\nPhone/WhatsApp: +1 3475417149\nSignal: '+SIGNAL+'\nEmail: '+EMAIL+'\n\nPlease contact me with next steps. Thank you!';
-    return msg;
-  }
-
-  function openProductOrder(p, optionLabel, channel){
-    var msg=buildProductOrderMessage(p, optionLabel);
-    var subject='Order Request — '+(p.heading||p.title||'kitten');
-    if(channel==='email') window.location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(msg);
-    else window.open('https://api.whatsapp.com/send?phone='+WHATSAPP+'&text='+encodeURIComponent(msg),'_blank');
-  }
-
-  function triggerProductOrder(root, p, channel, button){
-    var form=root.querySelector('.product-form.bottom-text')||root.querySelector('.product-form');
-    if(!form) return;
-    var option=getSelectedOption(form);
-    if(typeof window.pkHandleProductOrder==='function') window.pkHandleProductOrder(form, button, channel);
-    else openProductOrder(p, option, channel);
-  }
-
   function initProductPage(p){
     destroyProductSwipers();
     var root=document.getElementById('pk-product-root');
@@ -859,16 +836,6 @@ SPA_JS = r"""
       radio.addEventListener('change',function(){ updateSelectedPrice(root); });
     });
     updateSelectedPrice(root);
-    root.querySelectorAll('[data-pk-order]').forEach(function(btn){
-      btn.onclick=function(e){
-        e.preventDefault();
-        triggerProductOrder(root, p, btn.getAttribute('data-pk-order'), btn);
-      };
-    });
-    var orderStickyWa=root.querySelector('#pk-order-sticky-wa');
-    if(orderStickyWa) orderStickyWa.onclick=function(){ triggerProductOrder(root, p, 'whatsapp', orderStickyWa); };
-    var orderStickyEmail=root.querySelector('#pk-order-sticky-email');
-    if(orderStickyEmail) orderStickyEmail.onclick=function(){ triggerProductOrder(root, p, 'email', orderStickyEmail); };
     var askStickyWa=root.querySelector('#pk-ask-sticky-wa');
     if(askStickyWa) askStickyWa.onclick=function(){ openProductWhatsApp(p,''); };
     var askStickyEmail=root.querySelector('#pk-ask-sticky-email');
