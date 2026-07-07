@@ -608,9 +608,15 @@ body.template-blog{background:#f6f7fe}
   #pk-product-root .mySwiper_product_img .swiper-button-next{right:30px}
   #pk-product-root .fix_button-s{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;box-shadow:0 -4px 20px rgba(52,42,65,.12);gap:12px}
   #pk-product-root .fix_button-s .reserve_block{display:flex;flex:1;gap:10px}
-  #pk-product-root .fix_button-s .ask-button,#pk-product-root .fix_button-s .reserve-button{flex:1;border:none;border-radius:50px;padding:14px 16px;font-weight:700;font-size:15px;cursor:pointer}
-  #pk-product-root .fix_button-s .ask-button{background:#dec0fc;color:#342a41}
+  #pk-product-root .fix_button-s .ask-options{display:flex;flex:1;gap:8px;min-width:0}
+  #pk-product-root .fix_button-s .ask-button,#pk-product-root .fix_button-s .reserve-button{flex:1;border:none;border-radius:50px;padding:14px 10px;font-weight:700;font-size:14px;cursor:pointer;min-width:0}
+  #pk-product-root .fix_button-s .ask-button-wa{background:#25D366;color:#fff}
+  #pk-product-root .fix_button-s .ask-button-email{background:#dec0fc;color:#342a41}
   #pk-product-root .fix_button-s .reserve-button{background:#f4ff73;color:#342a41;display:flex;align-items:center;justify-content:center;gap:6px}
+  #pk-product-root .pk-ask-options{display:flex;flex-direction:column;gap:10px;width:100%}
+  #pk-product-root .pk-ask-options button{width:100%;border:none;border-radius:50px;padding:14px 16px;font-weight:700;font-size:15px;cursor:pointer}
+  #pk-product-root .pk-ask-wa{background:#25D366;color:#fff}
+  #pk-product-root .pk-ask-email{background:#dec0fc;color:#342a41}
   body.pk-spa-route-product{padding-bottom:72px}
 }
 </style>
@@ -817,10 +823,14 @@ SPA_JS = r"""
     updateSelectedPrice(root);
     var reserveSticky=root.querySelector('#pk-reserve-sticky');
     if(reserveSticky) reserveSticky.onclick=function(){ var f=root.querySelector('.product-form.bottom-text')||root.querySelector('.product-form'); if(f){ var btn=f.querySelector('.cart_btn'); openProductWhatsApp(p,getSelectedOption(f)); if(btn){btn.disabled=true;var o=btn.innerHTML;btn.innerHTML='Opening...';setTimeout(function(){btn.disabled=false;btn.innerHTML=o;},2500);} } };
-    var askSticky=root.querySelector('#pk-ask-sticky');
-    if(askSticky) askSticky.onclick=function(){ openProductWhatsApp(p,''); };
-    var askDesktop=root.querySelector('#pk-ask-desktop');
-    if(askDesktop) askDesktop.onclick=function(e){ e.preventDefault(); openProductWhatsApp(p,''); };
+    var askStickyWa=root.querySelector('#pk-ask-sticky-wa');
+    if(askStickyWa) askStickyWa.onclick=function(){ openProductWhatsApp(p,''); };
+    var askStickyEmail=root.querySelector('#pk-ask-sticky-email');
+    if(askStickyEmail) askStickyEmail.onclick=function(){ openProductEmail(p,''); };
+    var askDesktopWa=root.querySelector('#pk-ask-desktop-wa');
+    if(askDesktopWa) askDesktopWa.onclick=function(e){ e.preventDefault(); openProductWhatsApp(p,''); };
+    var askDesktopEmail=root.querySelector('#pk-ask-desktop-email');
+    if(askDesktopEmail) askDesktopEmail.onclick=function(e){ e.preventDefault(); openProductEmail(p,''); };
     root.querySelectorAll('.product_conatiner .product_description .sub_heading,.product_conatiner .meta_data .sub_heading,.product_conatiner .includes .sub_heading').forEach(function(subHeading){
       subHeading.style.cursor='pointer';
       subHeading.addEventListener('click',function(){
@@ -847,12 +857,21 @@ SPA_JS = r"""
     priceEl.textContent=m?m[0]:'';
   }
 
-  function openProductWhatsApp(p, optionLabel){
-    var msg='Hello! I would like to reserve:\n\nKitten: '+(p.heading||p.title)+'\n';
+  function buildProductAskMessage(p, optionLabel){
+    var msg='Hello! I have a question about:\n\nKitten: '+(p.heading||p.title)+'\n';
     if(optionLabel) msg+='Payment option: '+optionLabel+'\n';
     if(p.breed) msg+='Breed: '+p.breed+'\n';
-    msg+='Page: '+window.location.href+'\n\nPhone/WhatsApp: +1 3475417149\nSignal: '+SIGNAL+'\nEmail: '+EMAIL;
-    window.open('https://api.whatsapp.com/send?phone='+WHATSAPP+'&text='+encodeURIComponent(msg),'_blank');
+    msg+='Page: '+window.location.href+'\n\nPhone/WhatsApp: +1 3475417149\nSignal: '+SIGNAL+'\nEmail: '+EMAIL+'\n\nPlease contact me. Thank you!';
+    return msg;
+  }
+
+  function openProductWhatsApp(p, optionLabel){
+    window.open('https://api.whatsapp.com/send?phone='+WHATSAPP+'&text='+encodeURIComponent(buildProductAskMessage(p, optionLabel)),'_blank');
+  }
+
+  function openProductEmail(p, optionLabel){
+    var subject='Question about '+(p.heading||p.title||'kitten');
+    window.location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(buildProductAskMessage(p, optionLabel));
   }
 
   function showProduct(handle){
@@ -916,13 +935,18 @@ SPA_JS = r"""
         '<div class="price_varient_add_to_cart"><form action="#/cart/add" method="post" class="product-form bottom-text" id="'+formId+'">'+desktopVariants+
           '<div class="selected_variant_price"><p>Amount Due</p><span id="selected_variant_price_placeholders"></span></div>'+
           '<button type="submit" class="cart_btn bottom-cart-btn">Reserve Me <span><svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none"><path d="M8.5 1L10 6H15L11 9L12.5 14L8.5 11L4.5 14L6 9L2 6H7L8.5 1Z" fill="currentColor"/></svg></span></button></form></div>'+
-        '<div class="btn_form"><div class="button_app"><button type="button" id="pk-ask-desktop">Ask About Me</button></div></div>'+
+        '<div class="btn_form"><div class="button_app pk-ask-options">'+
+          '<button type="button" class="pk-ask-wa" id="pk-ask-desktop-wa">Ask via WhatsApp</button>'+
+          '<button type="button" class="pk-ask-email" id="pk-ask-desktop-email">Ask via Email</button>'+
+        '</div></div>'+
         sidebarExtras+
         '<div class="secu_ssl for_mobile"><span></span><p>Secure SSL-Encrypted Checkout</p></div>'+
       '</div>'+
       (shippingHtml?'<div class="shipping_details">'+shippingHtml+'</div>':'')+
       '</div></div></div></div>'+
-      '<div class="fix_button-s"><div class="reserve_block"><span class="ask-button" id="pk-ask-sticky">Ask About Me</span>'+
+      '<div class="fix_button-s"><div class="reserve_block"><div class="ask-options">'+
+        '<button type="button" id="pk-ask-sticky-wa" class="ask-button ask-button-wa">WhatsApp</button>'+
+        '<button type="button" id="pk-ask-sticky-email" class="ask-button ask-button-email">Email</button></div>'+
         '<button type="button" id="pk-reserve-sticky" class="reserve-button">Reserve Me</button></div></div>';
     initProductPage(p);
   }
