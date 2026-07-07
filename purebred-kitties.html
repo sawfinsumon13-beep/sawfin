@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purebred Kitties — Find Your Purrfect Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple: #7B5EA7;
+  --purple-dark: #63478C;
+  --purple-light: #9B7EC8;
+  --purple-pale: #EDE6F5;
+  --lavender: #C4A8E8;
+  --orange: #F4845F;
+  --orange-dark: #E06B42;
+  --blue: #3D5A80;
+  --blue-dark: #2C4466;
+  --white: #ffffff;
+  --off-white: #FAFAFA;
+  --gray-100: #F5F5F7;
+  --gray-200: #E8E8ED;
+  --gray-400: #9B9BA8;
+  --gray-600: #5C5C6E;
+  --gray-900: #1A1A2E;
+  --shadow: 0 4px 20px rgba(26, 26, 46, 0.08);
+  --shadow-lg: 0 12px 40px rgba(26, 26, 46, 0.12);
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 50px;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--white);
+  color: var(--gray-900);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-orange {
+  background: var(--orange);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(244, 132, 95, 0.35);
+}
+
+.btn-orange:hover {
+  background: var(--orange-dark);
+}
+
+.btn-blue {
+  background: var(--blue);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(61, 90, 128, 0.3);
+}
+
+.btn-blue:hover {
+  background: var(--blue-dark);
+}
+
+.btn-purple {
+  background: var(--purple);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(123, 94, 167, 0.3);
+}
+
+.btn-purple:hover {
+  background: var(--purple-dark);
+}
+
+.btn-purple:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  height: 68px;
+  gap: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  flex-shrink: 0;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  border-radius: var(--radius);
+  transition: color 0.15s, background 0.15s;
+}
+
+.nav-links a:hover {
+  color: var(--purple);
+  background: var(--purple-pale);
+}
+
+.chevron {
+  font-size: 0.65rem;
+  opacity: 0.6;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.sign-in {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  transition: color 0.15s;
+}
+
+.sign-in:hover {
+  color: var(--purple);
+}
+
+.icon-btn {
+  position: relative;
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--gray-600);
+  transition: background 0.15s, color 0.15s;
+}
+
+.icon-btn:hover {
+  background: var(--gray-100);
+  color: var(--purple);
+}
+
+.badge-count {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: var(--purple);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--gray-900);
+  border-radius: 2px;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  margin-top: 68px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(60, 40, 90, 0.82) 0%,
+    rgba(80, 55, 115, 0.65) 45%,
+    rgba(100, 70, 130, 0.4) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 80px 24px;
+  max-width: 680px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 .highlight {
+  color: var(--lavender);
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 560px;
+}
+
+.hero-search {
+  display: flex;
+  background: var(--white);
+  border-radius: var(--radius-pill);
+  padding: 6px 6px 6px 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 520px;
+}
+
+.hero-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  color: var(--gray-900);
+  background: transparent;
+  min-width: 0;
+}
+
+.hero-search input::placeholder {
+  color: var(--gray-400);
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--purple);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.search-btn:hover {
+  background: var(--purple-dark);
+}
+
+/* Trust Bar */
+.trust-bar {
+  background: var(--purple-pale);
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(123, 94, 167, 0.12);
+}
+
+.trust-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--purple-dark);
+}
+
+.trust-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--purple);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  color: var(--gray-600);
+  font-size: 1.05rem;
+}
+
+/* How It Works */
+.how-it-works {
+  padding: 80px 0;
+  background: var(--off-white);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.step-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+}
+
+.step-num {
+  width: 44px;
+  height: 44px;
+  background: var(--purple);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 0 auto 16px;
+}
+
+.step-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.step-card p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+/* Breeds / Catalog */
+.breeds {
+  padding: 80px 0;
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--gray-200);
+  background: var(--white);
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filter-btn:hover {
+  border-color: var(--purple-light);
+  color: var(--purple);
+}
+
+.filter-btn.active {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: white;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.cat-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cat-card-image {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.cat-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.cat-card:hover .cat-card-image img {
+  transform: scale(1.05);
+}
+
+.cat-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--purple);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cat-badge.popular {
+  background: var(--orange);
+}
+
+.wishlist-toggle {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--gray-400);
+  transition: color 0.15s, transform 0.15s;
+}
+
+.wishlist-toggle:hover {
+  transform: scale(1.1);
+}
+
+.wishlist-toggle.active {
+  color: #E74C6F;
+}
+
+.cat-card-body {
+  padding: 20px;
+}
+
+.cat-card-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.cat-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  margin-bottom: 10px;
+}
+
+.cat-desc {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.cat-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cat-price {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--purple);
+}
+
+.add-btn {
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: var(--purple);
+  color: white;
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.add-btn:hover {
+  background: var(--purple-dark);
+}
+
+.no-results {
+  text-align: center;
+  color: var(--gray-600);
+  padding: 48px 0;
+  font-size: 1.05rem;
+}
+
+/* Scam Protection */
+.scam-protection {
+  padding: 80px 0;
+  background: var(--off-white);
+}
+
+.scam-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.scam-text h2 {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.scam-text p {
+  color: var(--gray-600);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.scam-list {
+  list-style: none;
+  margin-bottom: 28px;
+}
+
+.scam-list li {
+  padding: 8px 0;
+  padding-left: 28px;
+  position: relative;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.scam-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--purple);
+  font-weight: 700;
+}
+
+.scam-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.scam-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Reviews */
+.reviews {
+  padding: 80px 0;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.review-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: box-shadow 0.2s;
+}
+
+.review-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.stars {
+  color: var(--orange);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.review-card p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.reviewer strong {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+
+.reviewer span {
+  font-size: 0.8rem;
+  color: var(--gray-400);
+}
+
+/* About */
+.about {
+  padding: 80px 0;
+  background: var(--off-white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-text h2 {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.about-text p {
+  color: var(--gray-600);
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+
+.about-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 28px;
+}
+
+.about-stats strong {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--purple);
+}
+
+.about-stats span {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+}
+
+/* Contact */
+.contact {
+  padding: 80px 0;
+}
+
+.contact-card {
+  background: var(--purple-pale);
+  border-radius: var(--radius-lg);
+  padding: 56px;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  text-align: left;
+  margin-top: 8px;
+}
+
+.contact-info h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.15s, box-shadow 0.15s;
+  border: 2px solid transparent;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.contact-btn.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.contact-btn.phone {
+  background: var(--white);
+  color: var(--gray-900);
+  border-color: var(--gray-200);
+}
+
+.contact-btn.signal {
+  background: #3A76F0;
+  color: white;
+}
+
+.contact-card h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.contact-card > p {
+  color: var(--gray-600);
+  margin-bottom: 28px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  background: var(--white);
+  transition: border-color 0.15s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--purple);
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+/* Footer */
+.footer {
+  background: var(--gray-900);
+  color: rgba(255, 255, 255, 0.65);
+  padding: 56px 0 0;
+}
+
+.footer .logo {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-brand p {
+  font-size: 0.875rem;
+}
+
+.footer-links h4 {
+  color: white;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.footer-links a {
+  display: block;
+  font-size: 0.875rem;
+  padding: 5px 0;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+/* Cart Sidebar */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 46, 0.4);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.cart-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  max-width: 100vw;
+  height: 100vh;
+  background: var(--white);
+  z-index: 201;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  box-shadow: -8px 0 32px rgba(26, 26, 46, 0.1);
+}
+
+.cart-sidebar.open {
+  transform: translateX(0);
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.cart-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.cart-close {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--gray-400);
+  line-height: 1;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.cart-empty {
+  color: var(--gray-400);
+  text-align: center;
+  padding: 40px 0;
+}
+
+.cart-item {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.cart-item img {
+  width: 68px;
+  height: 68px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-info h4 {
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+
+.cart-item-info p {
+  font-size: 0.8rem;
+  color: var(--gray-400);
+}
+
+.cart-item-price {
+  font-weight: 700;
+  color: var(--purple);
+}
+
+.cart-item-remove {
+  background: none;
+  border: none;
+  color: var(--gray-400);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.cart-item-remove:hover {
+  color: #E74C6F;
+}
+
+.cart-footer {
+  padding: 24px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.cart-total span:last-child {
+  font-size: 1.3rem;
+  color: var(--purple);
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--gray-900);
+  color: white;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 500;
+  z-index: 300;
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+  pointer-events: none;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-actions .btn {
+    display: none;
+  }
+
+  .sign-in {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .scam-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-content {
+    padding: 60px 24px;
+  }
+
+  .hero-search {
+    flex-direction: column;
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .search-btn {
+    justify-content: center;
+    border-radius: var(--radius);
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    padding: 32px 20px;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats {
+    gap: 24px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="#" class="logo">
+        <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="18" fill="#7B5EA7"/>
+          <ellipse cx="11" cy="10" rx="4" ry="5" fill="#9B7EC8"/>
+          <ellipse cx="25" cy="10" rx="4" ry="5" fill="#9B7EC8"/>
+          <circle cx="13" cy="18" r="2" fill="white"/>
+          <circle cx="23" cy="18" r="2" fill="white"/>
+          <ellipse cx="18" cy="23" rx="3" ry="2" fill="#E8A0BF"/>
+          <path d="M14 26 Q18 30 22 26" stroke="white" stroke-width="1.5" fill="none"/>
+        </svg>
+        Purebred Kitties
+      </a>
+
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="#how-it-works">How it works <span class="chevron">▾</span></a>
+        </li>
+        <li class="has-dropdown">
+          <a href="#cats">Popular Breeds <span class="chevron">▾</span></a>
+        </li>
+        <li><a href="#scam-protection">Scam Protection</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li class="has-dropdown">
+          <a href="#about">About <span class="chevron">▾</span></a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#cats" class="btn btn-orange">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9.5 2 7.5 4 7.5 6.5c0 2.5 2 4.5 4.5 4.5s4.5-2 4.5-4.5C16.5 4 14.5 2 12 2zm-5 8c-2 0-3.5 1.5-3.5 3.5V18h17V13.5C20.5 11.5 19 10 17 10H7z"/></svg>
+          Meet Available Kittens
+        </a>
+        <a href="#contact" class="btn btn-blue">Talk to Specialist</a>
+        <a href="#" class="sign-in">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Sign in
+        </a>
+        <button class="icon-btn" id="searchToggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="badge-count" id="wishlistCount">0</span>
+        </button>
+        <button class="icon-btn" id="cartBtn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge-count" id="cartCount">0</span>
+        </button>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1600&h=900&fit=crop" alt="">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container hero-content">
+        <h1>Find your purrfect<br>purebred <span class="highlight">kitties.</span></h1>
+        <p class="hero-sub">Discover 50+ purebred kitten breeds from vetted ethical breeders — Maine Coon, Sphynx, Ragdoll, Bengal, Devon Rex &amp; more. Every kitten is health-checked, vaccinated, and backed by our comprehensive guarantee. Reserve yours today via WhatsApp, email, or Signal.</p>
+        <form class="hero-search" id="heroSearch">
+          <input type="text" id="searchInput" placeholder="Which breed are you looking for?" autocomplete="off">
+          <button type="submit" class="search-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9.5 2 7.5 4 7.5 6.5c0 2.5 2 4.5 4.5 4.5s4.5-2 4.5-4.5C16.5 4 14.5 2 12 2zm-5 8c-2 0-3.5 1.5-3.5 3.5V18h17V13.5C20.5 11.5 19 10 17 10H7z"/></svg>
+            Search
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section class="trust-bar">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Vetted Ethical Breeders</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Health-Checked &amp; Vaccinated</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Comprehensive Guarantee</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Scam Protection Included</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2>How it works</h2>
+          <p>From search to snuggles — we make finding your kitten simple and safe.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <h3>Browse &amp; Search</h3>
+            <p>Explore 50+ breeds from our network of vetted ethical breeders across the country.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <h3>Connect with a Specialist</h3>
+            <p>Our team helps match you with the right breed and breeder for your lifestyle.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <h3>Reserve Your Kitten</h3>
+            <p>Secure your kitten with a deposit. Every cat comes with full health documentation.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <h3>Welcome Home</h3>
+            <p>Safe, climate-controlled delivery to your door with lifetime breeder support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="breeds" id="cats">
+      <div class="container">
+        <div class="section-header">
+          <h2>Popular Breeds</h2>
+          <p>Hand-picked kittens from champion bloodlines, ready for their forever homes.</p>
+        </div>
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All Breeds</button>
+          <button class="filter-btn" data-filter="longhair">Longhair</button>
+          <button class="filter-btn" data-filter="shorthair">Shorthair</button>
+          <button class="filter-btn" data-filter="exotic">Exotic</button>
+        </div>
+        <div class="cat-grid" id="catGrid"></div>
+        <p class="no-results" id="noResults" hidden>No breeds match your search. Try a different name!</p>
+      </div>
+    </section>
+
+    <section class="scam-protection" id="scam-protection">
+      <div class="container scam-grid">
+        <div class="scam-text">
+          <h2>Scam Protection</h2>
+          <p>Online kitten scams are on the rise. That's why every breeder on Purebred Kitties is personally vetted, and every transaction is protected by our guarantee.</p>
+          <ul class="scam-list">
+            <li>Identity-verified breeders only</li>
+            <li>Secure payment with buyer protection</li>
+            <li>Video calls before you commit</li>
+            <li>Full refund if kitten doesn't match listing</li>
+          </ul>
+          <a href="#contact" class="btn btn-purple">Learn More About Protection</a>
+        </div>
+        <div class="scam-image">
+          <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=600&h=500&fit=crop" alt="A trusted kitten">
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-header">
+          <h2>What families are saying</h2>
+          <p>Over 2,400 happy families and counting.</p>
+        </div>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"We found our Maine Coon through Purebred Kitties and the whole process felt safe and professional. Our kitten arrived healthy and so well socialized!"</p>
+            <div class="reviewer">
+              <strong>Sarah M.</strong>
+              <span>Maine Coon · Austin, TX</span>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"The specialist helped us choose between a Ragdoll and a British Shorthair. Couldn't be happier with our decision. Best customer service ever."</p>
+            <div class="reviewer">
+              <strong>James &amp; Lisa K.</strong>
+              <span>Ragdoll · Denver, CO</span>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"I was nervous about buying online, but the scam protection and video call with the breeder gave me total peace of mind. Our Bengal is perfect."</p>
+            <div class="reviewer">
+              <strong>Michael R.</strong>
+              <span>Bengal · Miami, FL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=700&fit=crop" alt="Happy kitten">
+        </div>
+        <div class="about-text">
+          <h2>Our Story</h2>
+          <p>Founded in 2010, Purebred Kitties was born from a simple belief: every family deserves a healthy, ethically bred kitten — and every breeder deserves a platform built on trust.</p>
+          <p>We've built a network of 200+ vetted breeders across North America, connecting loving families with their perfect feline companions. We never sell to pet stores. Every kitten is raised in a home, not a cage.</p>
+          <div class="about-stats">
+            <div><strong>2,400+</strong><span>Happy families</span></div>
+            <div><strong>50+</strong><span>Breeds</span></div>
+            <div><strong>200+</strong><span>Vetted breeders</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <h2>Talk to a Specialist</h2>
+          <p>Not sure which breed is right for you? Reach out directly — we respond fast on WhatsApp, phone, or Signal.</p>
+          <div class="contact-layout">
+            <div class="contact-info">
+              <h3>Contact us directly</h3>
+              <div class="contact-methods">
+                <a href="https://wa.me/13475417149" class="contact-btn whatsapp" target="_blank" rel="noopener noreferrer">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  WhatsApp: +1 (347) 541-7149
+                </a>
+                <a href="tel:+13475417149" class="contact-btn phone">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  Call: +1 (347) 541-7149
+                </a>
+                <a href="https://signal.me/#eu/MEs5W26kT7oIxnW-QEh7_yPa1HN1JkuLRxwWgzK3dMAuS9CzNgVJfpicAJqaaERL" class="contact-btn signal" target="_blank" rel="noopener noreferrer">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 16.894l-1.388 1.388c-.39.39-1.024.39-1.414 0l-3.08-3.08-3.08 3.08c-.39.39-1.024.39-1.414 0l-1.388-1.388c-.39-.39-.39-1.024 0-1.414l3.08-3.08-3.08-3.08c-.39-.39-.39-1.024 0-1.414l1.388-1.388c.39-.39 1.024-.39 1.414 0l3.08 3.08 3.08-3.08c.39-.39 1.024-.39 1.414 0l1.388 1.388c.39.39.39 1.024 0 1.414l-3.08 3.08 3.08 3.08c.39.39.39 1.024 0 1.414z"/></svg>
+                  Message on Signal
+                </a>
+              </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+              <div class="form-row">
+                <input type="text" placeholder="Your name" required>
+                <input type="email" placeholder="Email address" required>
+              </div>
+              <textarea placeholder="Tell us about your home and what you're looking for..." rows="4" required></textarea>
+              <button type="submit" class="btn btn-purple btn-full">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <svg class="logo-icon" width="28" height="28" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="18" fill="#9B7EC8"/>
+            <ellipse cx="11" cy="10" rx="4" ry="5" fill="#B99FD4"/>
+            <ellipse cx="25" cy="10" rx="4" ry="5" fill="#B99FD4"/>
+            <circle cx="13" cy="18" r="2" fill="white"/>
+            <circle cx="23" cy="18" r="2" fill="white"/>
+          </svg>
+          Purebred Kitties
+        </a>
+        <p>Ethical purebred kittens since 2010.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="#cats">Popular Breeds</a>
+        <a href="#how-it-works">How it Works</a>
+        <a href="#scam-protection">Scam Protection</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="#about">Our Story</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <a href="https://wa.me/13475417149" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="tel:+13475417149">+1 (347) 541-7149</a>
+        <a href="https://signal.me/#eu/MEs5W26kT7oIxnW-QEh7_yPa1HN1JkuLRxwWgzK3dMAuS9CzNgVJfpicAJqaaERL" target="_blank" rel="noopener">Signal</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Purebred Kitties. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Your cart is empty. Time to find a furry friend!</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">$0</span>
+      </div>
+      <button class="btn btn-purple btn-full" id="checkoutBtn" disabled>Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+<script>
+const cats = [
+  {
+    id: 1,
+    name: 'Persian',
+    category: 'longhair',
+    age: '12 weeks',
+    gender: 'Female',
+    price: 1200,
+    badge: 'Popular',
+    badgeClass: 'popular',
+    image: 'https://images.unsplash.com/photo-1595433707805-32b9092a5e10?w=500&h=375&fit=crop',
+    description: 'Calm and affectionate with a luxurious long coat. Perfect lap cat for quiet homes.',
+  },
+  {
+    id: 2,
+    name: 'Maine Coon',
+    category: 'longhair',
+    age: '14 weeks',
+    gender: 'Male',
+    price: 1500,
+    badge: 'Popular',
+    badgeClass: 'popular',
+    image: 'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=500&h=375&fit=crop',
+    description: 'Gentle giants known for their playful personality and impressive tufted ears.',
+  },
+  {
+    id: 3,
+    name: 'Siamese',
+    category: 'shorthair',
+    age: '10 weeks',
+    gender: 'Male',
+    price: 900,
+    badge: 'Talkative',
+    badgeClass: '',
+    image: 'https://images.unsplash.com/photo-1513245547812-789637e3ebdb?w=500&h=375&fit=crop',
+    description: 'Vocal and social with striking blue eyes. Loves being the center of attention.',
+  },
+  {
+    id: 4,
+    name: 'Bengal',
+    category: 'shorthair',
+    age: '11 weeks',
+    gender: 'Female',
+    price: 1800,
+    badge: 'Exotic',
+    badgeClass: 'popular',
+    image: 'https://images.unsplash.com/photo-1568153180638-259747ab10c5?w=500&h=375&fit=crop',
+    description: 'Wild-looking rosettes with an energetic, athletic personality. Loves to climb.',
+  },
+  {
+    id: 5,
+    name: 'British Shorthair',
+    category: 'shorthair',
+    age: '13 weeks',
+    gender: 'Male',
+    price: 1100,
+    badge: 'Easy Going',
+    badgeClass: '',
+    image: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=500&h=375&fit=crop',
+    description: 'Round-faced and plush-coated. Independent yet deeply loyal to their family.',
+  },
+  {
+    id: 6,
+    name: 'Ragdoll',
+    category: 'longhair',
+    age: '12 weeks',
+    gender: 'Female',
+    price: 1400,
+    badge: 'Popular',
+    badgeClass: 'popular',
+    image: 'https://images.unsplash.com/photo-1611042556567-25b15aa38d54?w=500&h=375&fit=crop',
+    description: 'Famous for going limp when held. Incredibly docile and great with children.',
+  },
+  {
+    id: 7,
+    name: 'Scottish Fold',
+    category: 'shorthair',
+    age: '11 weeks',
+    gender: 'Female',
+    price: 1300,
+    badge: 'Unique',
+    badgeClass: '',
+    image: 'https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=500&h=375&fit=crop',
+    description: 'Adorable folded ears and owl-like expression. Sweet, adaptable temperament.',
+  },
+  {
+    id: 8,
+    name: 'Sphynx',
+    category: 'exotic',
+    age: '14 weeks',
+    gender: 'Male',
+    price: 2000,
+    badge: 'Hairless',
+    badgeClass: '',
+    image: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=500&h=375&fit=crop',
+    description: 'Hairless and hypoallergenic. Warm to the touch and craves human companionship.',
+  },
+  {
+    id: 9,
+    name: 'Devon Rex',
+    category: 'exotic',
+    age: '10 weeks',
+    gender: 'Female',
+    price: 1250,
+    badge: 'Curly Coat',
+    badgeClass: '',
+    image: 'https://images.unsplash.com/photo-1571566882370-7d0bde34b0ab?w=500&h=375&fit=crop',
+    description: 'Pixie-like face with a soft curly coat. Playful, mischievous, and highly social.',
+  },
+  {
+    id: 10,
+    name: 'Norwegian Forest',
+    category: 'longhair',
+    age: '13 weeks',
+    gender: 'Male',
+    price: 1350,
+    badge: 'Nordic',
+    badgeClass: '',
+    image: 'https://images.unsplash.com/photo-1529770533926-4a4934ff79c5?w=500&h=375&fit=crop',
+    description: 'Built for cold climates with a thick double coat. Adventurous and intelligent.',
+  },
+  {
+    id: 11,
+    name: 'Savannah',
+    category: 'exotic',
+    age: '15 weeks',
+    gender: 'Male',
+    price: 3500,
+    badge: 'Rare',
+    badgeClass: 'popular',
+    image: 'https://images.unsplash.com/photo-1511044568932-338cba0ad803?w=500&h=375&fit=crop',
+    description: 'Exotic hybrid with serval ancestry. Tall, lean, and remarkably dog-like loyalty.',
+  },
+  {
+    id: 12,
+    name: 'Munchkin',
+    category: 'exotic',
+    age: '11 weeks',
+    gender: 'Female',
+    price: 1600,
+    badge: 'Short Legs',
+    badgeClass: '',
+    image: 'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=500&h=375&fit=crop',
+    description: 'Distinctive short legs with a big personality. Playful, confident, and social.',
+  },
+];
+
+let cart = [];
+let wishlist = [];
+let activeFilter = 'all';
+let searchQuery = '';
+
+const catGrid = document.getElementById('catGrid');
+const noResults = document.getElementById('noResults');
+const cartBtn = document.getElementById('cartBtn');
+const cartSidebar = document.getElementById('cartSidebar');
+const cartOverlay = document.getElementById('cartOverlay');
+const cartClose = document.getElementById('cartClose');
+const cartItems = document.getElementById('cartItems');
+const cartCount = document.getElementById('cartCount');
+const cartTotal = document.getElementById('cartTotal');
+const checkoutBtn = document.getElementById('checkoutBtn');
+const wishlistBtn = document.getElementById('wishlistBtn');
+const wishlistCount = document.getElementById('wishlistCount');
+const toast = document.getElementById('toast');
+const contactForm = document.getElementById('contactForm');
+const heroSearch = document.getElementById('heroSearch');
+const searchInput = document.getElementById('searchInput');
+const searchToggle = document.getElementById('searchToggle');
+
+function formatPrice(price) {
+  return '$' + price.toLocaleString();
+}
+
+function getFilteredCats() {
+  return cats.filter(cat => {
+    const matchesFilter = activeFilter === 'all' || cat.category === activeFilter;
+    const matchesSearch = !searchQuery || cat.name.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+}
+
+function renderCats() {
+  const filtered = getFilteredCats();
+
+  if (filtered.length === 0) {
+    catGrid.innerHTML = '';
+    noResults.hidden = false;
+    return;
+  }
+
+  noResults.hidden = true;
+
+  catGrid.innerHTML = filtered.map(cat => `
+    <article class="cat-card" data-category="${cat.category}">
+      <div class="cat-card-image">
+        <img src="${cat.image}" alt="${cat.name} kitten" loading="lazy">
+        <span class="cat-badge ${cat.badgeClass}">${cat.badge}</span>
+        <button class="wishlist-toggle ${wishlist.includes(cat.id) ? 'active' : ''}" data-id="${cat.id}" aria-label="Add ${cat.name} to wishlist">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="${wishlist.includes(cat.id) ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+      </div>
+      <div class="cat-card-body">
+        <h3>${cat.name}</h3>
+        <div class="cat-meta">
+          <span>${cat.age}</span>
+          <span>·</span>
+          <span>${cat.gender}</span>
+        </div>
+        <p class="cat-desc">${cat.description}</p>
+        <div class="cat-card-footer">
+          <span class="cat-price">${formatPrice(cat.price)}</span>
+          <button class="add-btn" data-id="${cat.id}">Add to Cart</button>
+        </div>
+      </div>
+    </article>
+  `).join('');
+
+  document.querySelectorAll('.add-btn').forEach(btn => {
+    btn.addEventListener('click', () => addToCart(Number(btn.dataset.id)));
+  });
+
+  document.querySelectorAll('.wishlist-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleWishlist(Number(btn.dataset.id)));
+  });
+}
+
+function addToCart(id) {
+  const cat = cats.find(c => c.id === id);
+  if (!cat) return;
+
+  if (cart.find(item => item.id === id)) {
+    showToast(`${cat.name} is already in your cart!`);
+    return;
+  }
+
+  cart.push({ ...cat });
+  updateCart();
+  showToast(`${cat.name} added to cart!`);
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  updateCart();
+}
+
+function toggleWishlist(id) {
+  const cat = cats.find(c => c.id === id);
+  if (!cat) return;
+
+  const index = wishlist.indexOf(id);
+  if (index > -1) {
+    wishlist.splice(index, 1);
+    showToast(`${cat.name} removed from wishlist`);
+  } else {
+    wishlist.push(id);
+    showToast(`${cat.name} added to wishlist!`);
+  }
+
+  wishlistCount.textContent = wishlist.length;
+  renderCats();
+}
+
+function updateCart() {
+  const count = cart.length;
+  cartCount.textContent = count;
+  checkoutBtn.disabled = count === 0;
+
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  cartTotal.textContent = formatPrice(total);
+
+  if (count === 0) {
+    cartItems.innerHTML = '<p class="cart-empty">Your cart is empty. Time to find a furry friend!</p>';
+    return;
+  }
+
+  cartItems.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <img src="${item.image}" alt="${item.name}">
+      <div class="cart-item-info">
+        <h4>${item.name}</h4>
+        <p>${item.age} · ${item.gender}</p>
+        <span class="cart-item-price">${formatPrice(item.price)}</span>
+      </div>
+      <button class="cart-item-remove" data-id="${item.id}" aria-label="Remove ${item.name}">&times;</button>
+    </div>
+  `).join('');
+
+  document.querySelectorAll('.cart-item-remove').forEach(btn => {
+    btn.addEventListener('click', () => removeFromCart(Number(btn.dataset.id)));
+  });
+}
+
+function openCart() {
+  cartSidebar.classList.add('open');
+  cartOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  cartSidebar.classList.remove('open');
+  cartOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    renderCats();
+  });
+});
+
+heroSearch.addEventListener('submit', (e) => {
+  e.preventDefault();
+  searchQuery = searchInput.value.trim();
+  renderCats();
+  document.getElementById('cats').scrollIntoView({ behavior: 'smooth' });
+});
+
+searchInput.addEventListener('input', () => {
+  searchQuery = searchInput.value.trim();
+  renderCats();
+});
+
+searchToggle.addEventListener('click', () => {
+  searchInput.focus();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  searchInput.scrollIntoView({ behavior: 'smooth' });
+});
+
+cartBtn.addEventListener('click', openCart);
+cartClose.addEventListener('click', closeCart);
+cartOverlay.addEventListener('click', closeCart);
+
+wishlistBtn.addEventListener('click', () => {
+  if (wishlist.length === 0) {
+    showToast('Your wishlist is empty. Heart a kitten to save it!');
+  } else {
+    const names = wishlist.map(id => cats.find(c => c.id === id).name).join(', ');
+    showToast(`Wishlist: ${names}`);
+  }
+});
+
+checkoutBtn.addEventListener('click', () => {
+  if (cart.length === 0) return;
+  showToast('Checkout coming soon! A specialist will contact you.');
+  closeCart();
+});
+
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  showToast('Message sent! A specialist will be in touch soon.');
+  contactForm.reset();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeCart();
+});
+
+renderCats();
+
+</script>
+</body>
+</html>

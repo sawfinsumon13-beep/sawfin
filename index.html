@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purebred Kitties — Find Your Purrfect Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="#" class="logo">
+        <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="18" fill="#7B5EA7"/>
+          <ellipse cx="11" cy="10" rx="4" ry="5" fill="#9B7EC8"/>
+          <ellipse cx="25" cy="10" rx="4" ry="5" fill="#9B7EC8"/>
+          <circle cx="13" cy="18" r="2" fill="white"/>
+          <circle cx="23" cy="18" r="2" fill="white"/>
+          <ellipse cx="18" cy="23" rx="3" ry="2" fill="#E8A0BF"/>
+          <path d="M14 26 Q18 30 22 26" stroke="white" stroke-width="1.5" fill="none"/>
+        </svg>
+        Purebred Kitties
+      </a>
+
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="#how-it-works">How it works <span class="chevron">▾</span></a>
+        </li>
+        <li class="has-dropdown">
+          <a href="#cats">Popular Breeds <span class="chevron">▾</span></a>
+        </li>
+        <li><a href="#scam-protection">Scam Protection</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li class="has-dropdown">
+          <a href="#about">About <span class="chevron">▾</span></a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#cats" class="btn btn-orange">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9.5 2 7.5 4 7.5 6.5c0 2.5 2 4.5 4.5 4.5s4.5-2 4.5-4.5C16.5 4 14.5 2 12 2zm-5 8c-2 0-3.5 1.5-3.5 3.5V18h17V13.5C20.5 11.5 19 10 17 10H7z"/></svg>
+          Meet Available Kittens
+        </a>
+        <a href="#contact" class="btn btn-blue">Talk to Specialist</a>
+        <a href="#" class="sign-in">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Sign in
+        </a>
+        <button class="icon-btn" id="searchToggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="badge-count" id="wishlistCount">0</span>
+        </button>
+        <button class="icon-btn" id="cartBtn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge-count" id="cartCount">0</span>
+        </button>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1600&h=900&fit=crop" alt="">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container hero-content">
+        <h1>Find your purrfect<br>purebred <span class="highlight">kitties.</span></h1>
+        <p class="hero-sub">Discover 50+ purebred kitten breeds from vetted ethical breeders — Maine Coon, Sphynx, Ragdoll, Bengal, Devon Rex &amp; more. Every kitten is health-checked, vaccinated, and backed by our comprehensive guarantee. Reserve yours today via WhatsApp, email, or Signal.</p>
+        <form class="hero-search" id="heroSearch">
+          <input type="text" id="searchInput" placeholder="Which breed are you looking for?" autocomplete="off">
+          <button type="submit" class="search-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9.5 2 7.5 4 7.5 6.5c0 2.5 2 4.5 4.5 4.5s4.5-2 4.5-4.5C16.5 4 14.5 2 12 2zm-5 8c-2 0-3.5 1.5-3.5 3.5V18h17V13.5C20.5 11.5 19 10 17 10H7z"/></svg>
+            Search
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section class="trust-bar">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Vetted Ethical Breeders</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Health-Checked &amp; Vaccinated</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Comprehensive Guarantee</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Scam Protection Included</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2>How it works</h2>
+          <p>From search to snuggles — we make finding your kitten simple and safe.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <h3>Browse &amp; Search</h3>
+            <p>Explore 50+ breeds from our network of vetted ethical breeders across the country.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <h3>Connect with a Specialist</h3>
+            <p>Our team helps match you with the right breed and breeder for your lifestyle.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <h3>Reserve Your Kitten</h3>
+            <p>Secure your kitten with a deposit. Every cat comes with full health documentation.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <h3>Welcome Home</h3>
+            <p>Safe, climate-controlled delivery to your door with lifetime breeder support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="breeds" id="cats">
+      <div class="container">
+        <div class="section-header">
+          <h2>Popular Breeds</h2>
+          <p>Hand-picked kittens from champion bloodlines, ready for their forever homes.</p>
+        </div>
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All Breeds</button>
+          <button class="filter-btn" data-filter="longhair">Longhair</button>
+          <button class="filter-btn" data-filter="shorthair">Shorthair</button>
+          <button class="filter-btn" data-filter="exotic">Exotic</button>
+        </div>
+        <div class="cat-grid" id="catGrid"></div>
+        <p class="no-results" id="noResults" hidden>No breeds match your search. Try a different name!</p>
+      </div>
+    </section>
+
+    <section class="scam-protection" id="scam-protection">
+      <div class="container scam-grid">
+        <div class="scam-text">
+          <h2>Scam Protection</h2>
+          <p>Online kitten scams are on the rise. That's why every breeder on Purebred Kitties is personally vetted, and every transaction is protected by our guarantee.</p>
+          <ul class="scam-list">
+            <li>Identity-verified breeders only</li>
+            <li>Secure payment with buyer protection</li>
+            <li>Video calls before you commit</li>
+            <li>Full refund if kitten doesn't match listing</li>
+          </ul>
+          <a href="#contact" class="btn btn-purple">Learn More About Protection</a>
+        </div>
+        <div class="scam-image">
+          <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=600&h=500&fit=crop" alt="A trusted kitten">
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-header">
+          <h2>What families are saying</h2>
+          <p>Over 2,400 happy families and counting.</p>
+        </div>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"We found our Maine Coon through Purebred Kitties and the whole process felt safe and professional. Our kitten arrived healthy and so well socialized!"</p>
+            <div class="reviewer">
+              <strong>Sarah M.</strong>
+              <span>Maine Coon · Austin, TX</span>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"The specialist helped us choose between a Ragdoll and a British Shorthair. Couldn't be happier with our decision. Best customer service ever."</p>
+            <div class="reviewer">
+              <strong>James &amp; Lisa K.</strong>
+              <span>Ragdoll · Denver, CO</span>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"I was nervous about buying online, but the scam protection and video call with the breeder gave me total peace of mind. Our Bengal is perfect."</p>
+            <div class="reviewer">
+              <strong>Michael R.</strong>
+              <span>Bengal · Miami, FL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=700&fit=crop" alt="Happy kitten">
+        </div>
+        <div class="about-text">
+          <h2>Our Story</h2>
+          <p>Founded in 2010, Purebred Kitties was born from a simple belief: every family deserves a healthy, ethically bred kitten — and every breeder deserves a platform built on trust.</p>
+          <p>We've built a network of 200+ vetted breeders across North America, connecting loving families with their perfect feline companions. We never sell to pet stores. Every kitten is raised in a home, not a cage.</p>
+          <div class="about-stats">
+            <div><strong>2,400+</strong><span>Happy families</span></div>
+            <div><strong>50+</strong><span>Breeds</span></div>
+            <div><strong>200+</strong><span>Vetted breeders</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <h2>Talk to a Specialist</h2>
+          <p>Not sure which breed is right for you? Reach out directly — we respond fast on WhatsApp, phone, or Signal.</p>
+          <div class="contact-layout">
+            <div class="contact-info">
+              <h3>Contact us directly</h3>
+              <div class="contact-methods">
+                <a href="https://wa.me/13475417149" class="contact-btn whatsapp" target="_blank" rel="noopener noreferrer">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  WhatsApp: +1 (347) 541-7149
+                </a>
+                <a href="tel:+13475417149" class="contact-btn phone">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  Call: +1 (347) 541-7149
+                </a>
+                <a href="https://signal.me/#eu/MEs5W26kT7oIxnW-QEh7_yPa1HN1JkuLRxwWgzK3dMAuS9CzNgVJfpicAJqaaERL" class="contact-btn signal" target="_blank" rel="noopener noreferrer">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 16.894l-1.388 1.388c-.39.39-1.024.39-1.414 0l-3.08-3.08-3.08 3.08c-.39.39-1.024.39-1.414 0l-1.388-1.388c-.39-.39-.39-1.024 0-1.414l3.08-3.08-3.08-3.08c-.39-.39-.39-1.024 0-1.414l1.388-1.388c.39-.39 1.024-.39 1.414 0l3.08 3.08 3.08-3.08c.39-.39 1.024-.39 1.414 0l1.388 1.388c.39.39.39 1.024 0 1.414l-3.08 3.08 3.08 3.08c.39.39.39 1.024 0 1.414z"/></svg>
+                  Message on Signal
+                </a>
+              </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+              <div class="form-row">
+                <input type="text" placeholder="Your name" required>
+                <input type="email" placeholder="Email address" required>
+              </div>
+              <textarea placeholder="Tell us about your home and what you're looking for..." rows="4" required></textarea>
+              <button type="submit" class="btn btn-purple btn-full">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <svg class="logo-icon" width="28" height="28" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="18" fill="#9B7EC8"/>
+            <ellipse cx="11" cy="10" rx="4" ry="5" fill="#B99FD4"/>
+            <ellipse cx="25" cy="10" rx="4" ry="5" fill="#B99FD4"/>
+            <circle cx="13" cy="18" r="2" fill="white"/>
+            <circle cx="23" cy="18" r="2" fill="white"/>
+          </svg>
+          Purebred Kitties
+        </a>
+        <p>Ethical purebred kittens since 2010.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="#cats">Popular Breeds</a>
+        <a href="#how-it-works">How it Works</a>
+        <a href="#scam-protection">Scam Protection</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="#about">Our Story</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <a href="https://wa.me/13475417149" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="tel:+13475417149">+1 (347) 541-7149</a>
+        <a href="https://signal.me/#eu/MEs5W26kT7oIxnW-QEh7_yPa1HN1JkuLRxwWgzK3dMAuS9CzNgVJfpicAJqaaERL" target="_blank" rel="noopener">Signal</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Purebred Kitties. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Your cart is empty. Time to find a furry friend!</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">$0</span>
+      </div>
+      <button class="btn btn-purple btn-full" id="checkoutBtn" disabled>Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
