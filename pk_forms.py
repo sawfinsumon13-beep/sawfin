@@ -81,7 +81,44 @@ ADOPTION_OMNIFORM = (
     "https://omniform1.com/forms/v1/landingPage/6377b4a600e4d27e263b56d1/65ec902d75b6cc4e1b8f7ee4"
 )
 APPOINTMENT_ROUTE = "#/pages/book-appointment"
+ADOPTION_ROUTE = "#/pages/adoption-application"
 CONTACT_EMAIL = "kittenspurebreed@gmail.com"
+
+
+def render_adoption_application_page() -> str:
+    return f"""<div class="shopify-section pk-form-page"><style>{FORM_CSS}</style>
+<div class="pk-form-card">
+<img class="pk-form-logo" src="{LOGO_URL}" alt="Purebred Kitties">
+<h1>Begin Your Kitten Adoption Journey Today!</h1>
+<p class="pk-form-intro">Take the first step toward welcoming your perfect kitten home. Complete this quick application and our adoption team will contact you at <strong>{CONTACT_EMAIL}</strong>.</p>
+<form class="pk-adoption-form" id="pk-adoption-form" action="#" method="post">
+<p class="pk-form-section">Tell Us About You</p>
+<div class="pk-form-field"><label for="pk-adopt-first">First Name</label>
+<input id="pk-adopt-first" name="first_name" type="text" autocomplete="given-name" required></div>
+<div class="pk-form-field"><label for="pk-adopt-last">Last Name</label>
+<input id="pk-adopt-last" name="last_name" type="text" autocomplete="family-name" required></div>
+<div class="pk-form-field"><label for="pk-adopt-email">Email Address</label>
+<input id="pk-adopt-email" name="email" type="email" autocomplete="email" required></div>
+<div class="pk-form-field"><label for="pk-adopt-phone">Phone Number</label>
+<input id="pk-adopt-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1" required></div>
+<div class="pk-form-field"><label for="pk-adopt-breed">Breed you are interested in (optional)</label>
+<input id="pk-adopt-breed" name="breed_interest" type="text" placeholder="e.g., Maine Coon, Bengal"></div>
+<div class="pk-form-field"><label for="pk-adopt-message">Tell us about your home and what you are looking for</label>
+<textarea id="pk-adopt-message" name="message" placeholder="Family members, other pets, experience with cats, etc." required></textarea></div>
+<label class="pk-form-check"><input type="checkbox" name="consent" value="yes" required>
+<span>I agree to be contacted about my adoption application. See our <a href="#/pages/privacy-policy">Privacy Policy</a>.</span></label>
+<div class="pk-form-actions">
+<button class="pk-form-submit pk-form-submit-email" type="button" data-pk-submit="email">Submit via Email</button>
+<button class="pk-form-submit pk-form-submit-whatsapp" type="button" data-pk-submit="whatsapp">Submit via WhatsApp</button>
+</div>
+</form>
+<div class="pk-form-success" id="pk-adoption-success">
+<h3>Thank you!</h3>
+<p>Your adoption application has been prepared. If your email app or WhatsApp did not open automatically, please contact us directly.</p>
+<p><strong>Phone / WhatsApp:</strong> +1 3475417149<br><strong>Email:</strong> {CONTACT_EMAIL}</p>
+<a class="pk-form-submit" href="#/collections/kittens-for-sale" style="display:inline-block;text-decoration:none;margin-top:16px">Browse Available Kittens</a>
+</div>
+</div></div>"""
 
 
 def render_appointment_page() -> str:
@@ -125,11 +162,16 @@ def build_form_pages() -> dict[str, dict[str, str]]:
         "title": "Book Your Call | Purebred Kitties",
         "html": render_appointment_page(),
     }
+    adoption = {
+        "title": "Adoption Application | Purebred Kitties",
+        "html": render_adoption_application_page(),
+    }
     return {
         "pages/breeder-application": {
             "title": "Breeder Application | Purebred Kitties",
             "html": render_breeder_application_page(),
         },
+        "pages/adoption-application": adoption,
         "pages/book-appointment": appointment,
         "pages/personalized-adoption-support": appointment,
     }
@@ -138,20 +180,29 @@ def build_form_pages() -> dict[str, dict[str, str]]:
 def replace_omniform_links(html: str) -> str:
     import re
 
-    route = "#/pages/breeder-application"
-    html = html.replace(BREEDER_OMNIFORM, route)
+    breeder_route = "#/pages/breeder-application"
+    adoption_route = ADOPTION_ROUTE
+    html = html.replace(BREEDER_OMNIFORM, breeder_route)
+    html = html.replace(ADOPTION_OMNIFORM, adoption_route)
     html = re.sub(
-        rf'href="{re.escape(route)}"\s*target="_blank"',
-        f'href="{route}"',
+        r"https?://omniform1\.com/forms/v1/landingPage/6377b4a600e4d27e263b56d1/(?!6403a509)[^\"'\\]+",
+        adoption_route,
         html,
         flags=re.I,
     )
-    html = re.sub(
-        rf"href='{re.escape(BREEDER_OMNIFORM)}'\s*target='_blank'",
-        f"href='{route}'",
-        html,
-        flags=re.I,
-    )
+    for route in (breeder_route, adoption_route):
+        html = re.sub(
+            rf'href="{re.escape(route)}"\s*target="_blank"',
+            f'href="{route}"',
+            html,
+            flags=re.I,
+        )
+        html = re.sub(
+            rf"href='{re.escape(route)}'\s*target='_blank'",
+            f"href='{route}'",
+            html,
+            flags=re.I,
+        )
     return html
 
 

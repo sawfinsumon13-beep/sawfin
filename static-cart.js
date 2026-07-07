@@ -113,7 +113,44 @@
     }
   }
 
+  function buildAdoptionMessage(data) {
+    return [
+      'New kitten adoption application',
+      '',
+      'First name: ' + (data.first_name || ''),
+      'Last name: ' + (data.last_name || ''),
+      'Email: ' + (data.email || ''),
+      'Phone: ' + (data.phone || ''),
+      'Breed interest: ' + (data.breed_interest || 'Not specified'),
+      '',
+      'Message:',
+      data.message || '',
+      '',
+      contactDetails(),
+      '',
+      'Page: ' + window.location.href,
+    ].join('\n');
+  }
+
+  function handleAdoptionForm(form, channel) {
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    var data = readFormData(form);
+    var message = buildAdoptionMessage(data);
+    var subject = 'Adoption Application — ' + ((data.first_name || '') + ' ' + (data.last_name || '')).trim();
+    if (channel === 'email') openEmail(subject, message);
+    else openWhatsApp('Hello! ' + message);
+    var success = document.getElementById('pk-adoption-success');
+    if (success) {
+      form.style.display = 'none';
+      success.classList.add('active');
+    }
+  }
+
   window.pkSubmitAppointmentForm = handleAppointmentForm;
+  window.pkSubmitAdoptionForm = handleAdoptionForm;
 
   function addToCart(payload) {
     var cart = readCart();
@@ -364,6 +401,22 @@
         handleAppointmentForm(form, submitBtn.getAttribute('data-pk-submit'));
         return;
       }
+      if (form && form.classList.contains('pk-adoption-form')) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        handleAdoptionForm(form, submitBtn.getAttribute('data-pk-submit'));
+        return;
+      }
+    }
+    var omniformLink = event.target.closest('a[href*="omniform1.com"]');
+    if (omniformLink) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      var href = omniformLink.getAttribute('href') || '';
+      window.location.hash = href.indexOf('6403a509') !== -1
+        ? '#/pages/breeder-application'
+        : '#/pages/adoption-application';
+      return;
     }
     var calendlyLink = event.target.closest('a[href*="calendly.com"], .callendar_btn');
     if (calendlyLink) {

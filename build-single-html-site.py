@@ -215,9 +215,9 @@ def load_product_static_sections() -> dict[str, str]:
     shipping = extract_desktop_shipping(right_bar)
     sidebar = extract_sidebar_extras(right_bar)
     return {
-        "guarantees": sanitize_product_fragment(guarantees),
-        "shipping": sanitize_product_fragment(shipping),
-        "sidebarExtras": sanitize_product_fragment(sidebar),
+        "guarantees": replace_omniform_links(sanitize_product_fragment(guarantees)),
+        "shipping": replace_omniform_links(sanitize_product_fragment(shipping)),
+        "sidebarExtras": replace_omniform_links(sanitize_product_fragment(sidebar)),
     }
 
 
@@ -1024,10 +1024,10 @@ SPA_JS = r"""
       var href=omniform.getAttribute('href')||'';
       if(href.indexOf('6403a509')!==-1 || /breeder/i.test((omniform.textContent||'')+(omniform.getAttribute('title')||''))){
         location.hash='/pages/breeder-application';
-        closeMobileMenu();
       }else{
-        window.open(href,'_blank','noopener');
+        location.hash='/pages/adoption-application';
       }
+      closeMobileMenu();
       return;
     }
     var linkChild=e.target.closest('a.link_child, a.h-link-child');
