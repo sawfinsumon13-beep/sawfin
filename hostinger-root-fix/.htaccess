@@ -1,0 +1,34 @@
+# UPLOAD THIS FILE TO public_html ROOT (NOT inside index.html folder)
+# Fixes 404 on /products/, /collections/, /cdn/ when site is in index.html/ subfolder
+
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Homepage when site files are inside index.html/ folder
+  RewriteRule ^$ index.html/index.html [L]
+
+  # Clean URLs: redirect /index.html/... to /...
+  RewriteRule ^index\.html/?(.*)$ /$1 [R=301,L]
+
+  # Serve pages from index.html/ subfolder at root URLs
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/index.html/$1 -f
+  RewriteRule ^(.+)$ index.html/$1 [L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/index.html/$1.html -f
+  RewriteRule ^(.+)$ index.html/$1.html [L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/index.html/$1/index.html -f
+  RewriteRule ^(.+)$ index.html/$1/index.html [L]
+</IfModule>
+
+AddType text/css .css
+AddType application/javascript .js

@@ -1,0 +1,11 @@
+PUREBRED KITTIES — HOSTINGER UPLOAD
+===================================
+Includes: blog image fixes, appointment + adoption forms → kittenspurebreed@gmail.com
+
+1. Hostinger → File Manager → public_html
+2. DELETE the old index.html (and any index.html/ folder if present)
+3. Upload PUREBRED-KITTIES-UPLOAD-ONE-FILE.zip
+4. Extract directly into public_html — index.html must be a FILE in public_html (not inside a subfolder)
+5. Visit yourdomain.com/
+
+Contact: kittenspurebreed@gmail.com | WhatsApp: +1 3475417149
