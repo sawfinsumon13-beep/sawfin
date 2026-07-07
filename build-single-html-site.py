@@ -586,7 +586,12 @@ body.template-blog{background:#f6f7fe}
 .pk-contact-box{background:#f9f7fc;border-radius:12px;padding:32px;line-height:2}
 .pk-contact-box a{color:#774C9D;font-weight:600}
 .pk-btn-back{color:#774C9D;margin-bottom:20px;display:inline-block;cursor:pointer}
-.pk-btn-order{display:inline-block;background:#B8E847;color:#342A41;padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-size:1rem;margin:8px 8px 8px 0}
+.pk-btn-order{display:inline-block;padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-size:1rem;margin:8px 8px 8px 0}
+.pk-btn-order-wa{background:#25D366;color:#fff}
+.pk-btn-order-email{background:#dec0fc;color:#342a41}
+.pk-cart-checkout{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+#pk-view-cart .pk-cart-list{list-style:none;padding:0;margin:0 0 20px}
+#pk-view-cart .pk-cart-list li{padding:12px 0;border-bottom:1px solid #eee;font-size:16px;color:#342a41}
 /* Product page gallery + layout helpers */
 #pk-product-root .product-gallery-wishlist{display:none}
 #pk-product-root .mySwiper_product_img .swiper-button-next,
@@ -601,23 +606,30 @@ body.template-blog{background:#f6f7fe}
 #pk-product-root .product-single__video video{width:100%;max-width:586px;display:block;border-radius:51px}
 #pk-product-root .pk-trustpilot-inline{display:flex;align-items:center;gap:8px;font-size:14px;color:#342a41;white-space:nowrap}
 #pk-product-root .pk-trustpilot-inline .stars{color:#00b67a;font-weight:700;letter-spacing:1px}
+#pk-product-root .pk-order-options{display:flex;flex-direction:column;gap:10px;width:100%;margin-top:8px}
+#pk-product-root .pk-order-options button{width:100%;border:none;border-radius:50px;padding:14px 16px;font-weight:700;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+#pk-product-root .pk-order-wa{background:#25D366;color:#fff}
+#pk-product-root .pk-order-email{background:#dec0fc;color:#342a41}
 #pk-product-root .fix_button-s{position:fixed;bottom:0;left:0;right:0;z-index:90;display:none}
 @media(max-width:767px){
   #pk-product-root .product-gallery-wishlist{display:block;left:30px;position:absolute;top:30px;z-index:6}
   #pk-product-root .mySwiper_product_img .swiper-button-prev{left:30px}
   #pk-product-root .mySwiper_product_img .swiper-button-next{right:30px}
   #pk-product-root .fix_button-s{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;box-shadow:0 -4px 20px rgba(52,42,65,.12);gap:12px}
-  #pk-product-root .fix_button-s .reserve_block{display:flex;flex:1;gap:10px}
+  #pk-product-root .fix_button-s .order-options{display:flex;flex:1;gap:8px;min-width:0}
+  #pk-product-root .fix_button-s .order-button{flex:1;border:none;border-radius:50px;padding:14px 10px;font-weight:700;font-size:13px;cursor:pointer;min-width:0}
+  #pk-product-root .fix_button-s .order-button-wa{background:#25D366;color:#fff}
+  #pk-product-root .fix_button-s .order-button-email{background:#f4ff73;color:#342a41}
+  #pk-product-root .fix_button-s .fix_button-rows{display:flex;flex-direction:column;gap:8px;width:100%}
   #pk-product-root .fix_button-s .ask-options{display:flex;flex:1;gap:8px;min-width:0}
-  #pk-product-root .fix_button-s .ask-button,#pk-product-root .fix_button-s .reserve-button{flex:1;border:none;border-radius:50px;padding:14px 10px;font-weight:700;font-size:14px;cursor:pointer;min-width:0}
+  #pk-product-root .fix_button-s .ask-button,#pk-product-root .fix_button-s .order-button{flex:1;border:none;border-radius:50px;padding:14px 10px;font-weight:700;font-size:14px;cursor:pointer;min-width:0}
   #pk-product-root .fix_button-s .ask-button-wa{background:#25D366;color:#fff}
   #pk-product-root .fix_button-s .ask-button-email{background:#dec0fc;color:#342a41}
-  #pk-product-root .fix_button-s .reserve-button{background:#f4ff73;color:#342a41;display:flex;align-items:center;justify-content:center;gap:6px}
   #pk-product-root .pk-ask-options{display:flex;flex-direction:column;gap:10px;width:100%}
   #pk-product-root .pk-ask-options button{width:100%;border:none;border-radius:50px;padding:14px 16px;font-weight:700;font-size:15px;cursor:pointer}
   #pk-product-root .pk-ask-wa{background:#25D366;color:#fff}
   #pk-product-root .pk-ask-email{background:#dec0fc;color:#342a41}
-  body.pk-spa-route-product{padding-bottom:72px}
+  body.pk-spa-route-product{padding-bottom:120px}
 }
 </style>
 """
@@ -634,7 +646,10 @@ SPA_VIEWS = """
 <p>Have questions about adopting? Message us on WhatsApp or Signal and we'll help you find your perfect kitten.</p>
 </div></div>
 <div id="pk-view-cart"><a class="pk-btn-back" href="#/">← Back</a><h2>Your Cart</h2><div id="pk-cart-root"><p>Your cart is empty. <a href="#/collections/kittens-for-sale">Browse kittens</a></p></div>
-<button class="pk-btn-order" id="pk-checkout-btn">Checkout via WhatsApp</button></div>
+<div class="pk-cart-checkout" id="pk-cart-checkout" style="display:none">
+<button class="pk-btn-order pk-btn-order-wa" id="pk-checkout-wa" type="button">Checkout via WhatsApp</button>
+<button class="pk-btn-order pk-btn-order-email" id="pk-checkout-email" type="button">Checkout via Email</button>
+</div></div>
 """
 
 SPA_JS = r"""
@@ -793,6 +808,29 @@ SPA_JS = r"""
     }).join('');
   }
 
+  function buildProductOrderMessage(p, optionLabel){
+    var msg='Hello! I would like to reserve/order:\n\nKitten: '+(p.heading||p.title)+'\n';
+    if(optionLabel) msg+='Payment option: '+optionLabel+'\n';
+    if(p.breed) msg+='Breed: '+p.breed+'\n';
+    msg+='Page: '+window.location.href+'\n\nPhone/WhatsApp: +1 3475417149\nSignal: '+SIGNAL+'\nEmail: '+EMAIL+'\n\nPlease contact me with next steps. Thank you!';
+    return msg;
+  }
+
+  function openProductOrder(p, optionLabel, channel){
+    var msg=buildProductOrderMessage(p, optionLabel);
+    var subject='Order Request — '+(p.heading||p.title||'kitten');
+    if(channel==='email') window.location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(msg);
+    else window.open('https://api.whatsapp.com/send?phone='+WHATSAPP+'&text='+encodeURIComponent(msg),'_blank');
+  }
+
+  function triggerProductOrder(root, p, channel, button){
+    var form=root.querySelector('.product-form.bottom-text')||root.querySelector('.product-form');
+    if(!form) return;
+    var option=getSelectedOption(form);
+    if(typeof window.pkHandleProductOrder==='function') window.pkHandleProductOrder(form, button, channel);
+    else openProductOrder(p, option, channel);
+  }
+
   function initProductPage(p){
     destroyProductSwipers();
     var root=document.getElementById('pk-product-root');
@@ -821,8 +859,16 @@ SPA_JS = r"""
       radio.addEventListener('change',function(){ updateSelectedPrice(root); });
     });
     updateSelectedPrice(root);
-    var reserveSticky=root.querySelector('#pk-reserve-sticky');
-    if(reserveSticky) reserveSticky.onclick=function(){ var f=root.querySelector('.product-form.bottom-text')||root.querySelector('.product-form'); if(f){ var btn=f.querySelector('.cart_btn'); openProductWhatsApp(p,getSelectedOption(f)); if(btn){btn.disabled=true;var o=btn.innerHTML;btn.innerHTML='Opening...';setTimeout(function(){btn.disabled=false;btn.innerHTML=o;},2500);} } };
+    root.querySelectorAll('[data-pk-order]').forEach(function(btn){
+      btn.onclick=function(e){
+        e.preventDefault();
+        triggerProductOrder(root, p, btn.getAttribute('data-pk-order'), btn);
+      };
+    });
+    var orderStickyWa=root.querySelector('#pk-order-sticky-wa');
+    if(orderStickyWa) orderStickyWa.onclick=function(){ triggerProductOrder(root, p, 'whatsapp', orderStickyWa); };
+    var orderStickyEmail=root.querySelector('#pk-order-sticky-email');
+    if(orderStickyEmail) orderStickyEmail.onclick=function(){ triggerProductOrder(root, p, 'email', orderStickyEmail); };
     var askStickyWa=root.querySelector('#pk-ask-sticky-wa');
     if(askStickyWa) askStickyWa.onclick=function(){ openProductWhatsApp(p,''); };
     var askStickyEmail=root.querySelector('#pk-ask-sticky-email');
@@ -918,10 +964,12 @@ SPA_JS = r"""
           '<div class="trust_review trust_review_outer"><div class="pk-trustpilot-inline"><strong>Great</strong> <span class="stars">★★★★☆</span> <span>650 reviews on Trustpilot</span></div></div>'+
         '</div>'+
         '<div class="mobile_product also_hidden">'+
-          '<div class="content_above_variant"><h3 class="wow fadeInUp">My Adoption Fee</h3><span>Please choose the payment option which is the best for you and click "Adopt Me" button</span></div>'+
+          '<div class="content_above_variant"><h3 class="wow fadeInUp">My Adoption Fee</h3><span>Choose your payment option, then order via WhatsApp or Email</span></div>'+
           '<div class="price_varient_add_to_cart"><form action="#/cart/add" method="post" class="product-form new_mobile_cart" id="'+formId+'m">'+mobileVariants+
             '<div class="selected_variant_price"><p>AMOUNT TO PAY</p><span id="selected_variant_price_placeholder"></span></div>'+
-            '<button type="submit" class="cart_btn new_cart-btn">Adopt Me</button></form></div>'+
+            '<div class="pk-order-options">'+
+            '<button type="button" class="pk-order-wa" data-pk-order="whatsapp">Order via WhatsApp</button>'+
+            '<button type="button" class="pk-order-email" data-pk-order="email">Order via Email</button></div></form></div>'+
           '<div class="product_description active_bar for_mobile"><h3 class="sub_heading about_heading">About Me</h3><div class="about_products">'+aboutHtml+'</div></div>'+
           mobileShipping+
         '</div>'+
@@ -931,10 +979,12 @@ SPA_JS = r"""
         (familyHtml?'<div class="reco_pro">'+familyHtml+'</div>':'')+
       '</div>'+
       '<div class="product_right"><div class="right_side_bar"><div class="product_desktop">'+
-        '<div class="content_above_variant"><h3>My Adoption Fee</h3><span>Choose the payment option that works best and click \'Reserve Me\'—I\'ll be snuggled in your arms before you know it!</span></div>'+
+        '<div class="content_above_variant"><h3>My Adoption Fee</h3><span>Choose your payment option, then order via WhatsApp or Email</span></div>'+
         '<div class="price_varient_add_to_cart"><form action="#/cart/add" method="post" class="product-form bottom-text" id="'+formId+'">'+desktopVariants+
           '<div class="selected_variant_price"><p>Amount Due</p><span id="selected_variant_price_placeholders"></span></div>'+
-          '<button type="submit" class="cart_btn bottom-cart-btn">Reserve Me <span><svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none"><path d="M8.5 1L10 6H15L11 9L12.5 14L8.5 11L4.5 14L6 9L2 6H7L8.5 1Z" fill="currentColor"/></svg></span></button></form></div>'+
+          '<div class="pk-order-options">'+
+          '<button type="button" class="pk-order-wa" data-pk-order="whatsapp">Order via WhatsApp</button>'+
+          '<button type="button" class="pk-order-email" data-pk-order="email">Order via Email</button></div></form></div>'+
         '<div class="btn_form"><div class="button_app pk-ask-options">'+
           '<button type="button" class="pk-ask-wa" id="pk-ask-desktop-wa">Ask via WhatsApp</button>'+
           '<button type="button" class="pk-ask-email" id="pk-ask-desktop-email">Ask via Email</button>'+
@@ -944,10 +994,13 @@ SPA_JS = r"""
       '</div>'+
       (shippingHtml?'<div class="shipping_details">'+shippingHtml+'</div>':'')+
       '</div></div></div></div>'+
-      '<div class="fix_button-s"><div class="reserve_block"><div class="ask-options">'+
-        '<button type="button" id="pk-ask-sticky-wa" class="ask-button ask-button-wa">WhatsApp</button>'+
-        '<button type="button" id="pk-ask-sticky-email" class="ask-button ask-button-email">Email</button></div>'+
-        '<button type="button" id="pk-reserve-sticky" class="reserve-button">Reserve Me</button></div></div>';
+      '<div class="fix_button-s"><div class="fix_button-rows">'+
+        '<div class="order-options">'+
+        '<button type="button" id="pk-order-sticky-wa" class="order-button order-button-wa" data-pk-order="whatsapp">Order WhatsApp</button>'+
+        '<button type="button" id="pk-order-sticky-email" class="order-button order-button-email" data-pk-order="email">Order Email</button></div>'+
+        '<div class="ask-options">'+
+        '<button type="button" id="pk-ask-sticky-wa" class="ask-button ask-button-wa">Ask WhatsApp</button>'+
+        '<button type="button" id="pk-ask-sticky-email" class="ask-button ask-button-email">Ask Email</button></div></div></div>';
     initProductPage(p);
   }
 
@@ -961,10 +1014,7 @@ SPA_JS = r"""
     else if(parts[0]==='collections'&&parts[1]){ setRoute('collection'); showCollection(parts[1]); }
     else if(parts[0]==='search'){ setRoute('search'); showGrid(document.getElementById('pk-grid-2'),decodeURIComponent((location.search.match(/q=([^&]+)/)||[])[1]||'')); }
     else if(parts[0]==='contact'){ setRoute('page'); showPage('pages/contact'); }
-    else if(parts[0]==='cart'){
-      if(PAGES.cart){ setRoute('page'); showPage('cart'); }
-      else { setRoute('cart'); renderCart(); }
-    }
+    else if(parts[0]==='cart'){ setRoute('cart'); renderCart(); }
     else { document.body.className='pk-spa'; }
     finishLoading();
     closeMobileMenu();
@@ -1029,17 +1079,35 @@ SPA_JS = r"""
   function renderCart(){
     var cart=JSON.parse(localStorage.getItem(CART_KEY)||'{"items":[]}');
     var root=document.getElementById('pk-cart-root');
-    if(!cart.items.length){ root.innerHTML='<p>Your cart is empty. <a href="#/collections/kittens-for-sale">Browse kittens</a></p>'; return; }
-    root.innerHTML='<ul>'+cart.items.map(function(i){return '<li>'+esc(i.title)+'</li>';}).join('')+'</ul>';
+    var checkoutWrap=document.getElementById('pk-cart-checkout');
+    if(!cart.items.length){
+      if(root) root.innerHTML='<p>Your cart is empty. <a href="#/collections/kittens-for-sale">Browse kittens</a></p>';
+      if(checkoutWrap) checkoutWrap.style.display='none';
+      return;
+    }
+    if(root) root.innerHTML='<ul class="pk-cart-list">'+cart.items.map(function(i){
+      return '<li><strong>'+esc(i.title)+'</strong>'+(i.variant_title?' <span>('+esc(i.variant_title)+')</span>':'')+'</li>';
+    }).join('')+'</ul>';
+    if(checkoutWrap) checkoutWrap.style.display='flex';
   }
 
-  var checkoutBtn=document.getElementById('pk-checkout-btn');
-  if(checkoutBtn) checkoutBtn.onclick=function(){
-    var cart=JSON.parse(localStorage.getItem(CART_KEY)||'{"items":[]}');
-    var msg=cart.items.length?'Hello! I would like to complete my order:\n\n'+cart.items.map(function(i,n){return (n+1)+'. '+i.title;}).join('\n'):'Hello! I would like to inquire about adopting a kitten.';
-    msg+='\n\nPhone/WhatsApp: +1 3475417149\nSignal: '+SIGNAL+'\nEmail: '+EMAIL;
-    window.open('https://api.whatsapp.com/send?phone='+WHATSAPP+'&text='+encodeURIComponent(msg),'_blank');
-  };
+  function bindCartCheckout(){
+    var checkoutWa=document.getElementById('pk-checkout-wa');
+    var checkoutEmail=document.getElementById('pk-checkout-email');
+    if(checkoutWa && !checkoutWa.dataset.pkBound){
+      checkoutWa.dataset.pkBound='1';
+      checkoutWa.onclick=function(){
+        if(typeof window.pkHandleCartCheckout==='function') window.pkHandleCartCheckout('whatsapp');
+      };
+    }
+    if(checkoutEmail && !checkoutEmail.dataset.pkBound){
+      checkoutEmail.dataset.pkBound='1';
+      checkoutEmail.onclick=function(){
+        if(typeof window.pkHandleCartCheckout==='function') window.pkHandleCartCheckout('email');
+      };
+    }
+  }
+  bindCartCheckout();
 
   document.addEventListener('click',function(e){
     var omniform=e.target.closest('a[href*="omniform1.com"]');

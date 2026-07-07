@@ -222,41 +222,46 @@
     return Promise.reject(new Error('Network unavailable'));
   };
 
-  function handleProductOrder(form, button) {
+  function buildProductOrderMessage(form) {
     var productName = getProductName();
-    var option = getSelectedOption(form);
-    var message =
+    var option = form ? getSelectedOption(form) : 'Standard option';
+    return (
       'Hello! I would like to reserve/order:\n\n' +
       'Kitten: ' + productName + '\n' +
       (option && option !== 'Standard option' ? 'Payment option: ' + option + '\n' : '') +
       'Page: ' + window.location.href + '\n\n' +
       contactDetails() + '\n\n' +
-      'Please contact me with next steps. Thank you!';
+      'Please contact me with next steps. Thank you!'
+    );
+  }
+
+  function handleProductOrder(form, button, channel) {
+    channel = channel || 'whatsapp';
+    var message = buildProductOrderMessage(form);
+    var productName = getProductName();
+    var subject = 'Order Request — ' + productName;
 
     if (button) {
       button.disabled = true;
       var original = button.innerHTML;
-      button.innerHTML = 'Opening WhatsApp...';
+      button.innerHTML = channel === 'email' ? 'Opening Email...' : 'Opening WhatsApp...';
       setTimeout(function () {
         button.disabled = false;
         button.innerHTML = original;
       }, 3000);
     }
-    openWhatsApp(message);
+    if (channel === 'email') openEmail(subject, message);
+    else openWhatsApp(message);
   }
 
-  function handleCartCheckout() {
-    var cart = readCart();
+  function buildCartCheckoutMessage(cart) {
     if (!cart.items.length) {
-      openWhatsApp(
-        'Hello! I would like to inquire about adopting a kitten.\n\n' + contactDetails()
-      );
-      return;
+      return 'Hello! I would like to inquire about adopting a kitten.\n\n' + contactDetails();
     }
     var lines = cart.items.map(function (item, i) {
       return (i + 1) + '. ' + item.title + (item.variant_title ? ' (' + item.variant_title + ')' : '') + '\n   ' + item.url;
     });
-    openWhatsApp(
+    return (
       'Hello! I would like to complete my order:\n\n' +
       lines.join('\n') +
       '\n\n' + contactDetails() +
@@ -264,12 +269,27 @@
     );
   }
 
+  function handleCartCheckout(channel) {
+    channel = channel || 'whatsapp';
+    var cart = readCart();
+    var message = buildCartCheckoutMessage(cart);
+    if (channel === 'email') {
+      openEmail('Cart Order Request', message);
+    } else {
+      openWhatsApp(message);
+    }
+  }
+
   window.pkSubmitProductWithFip = function (opts) {
     var form = opts && opts.form;
     var button = opts && opts.button;
-    if (form) handleProductOrder(form, button);
+    var channel = opts && opts.channel;
+    if (form) handleProductOrder(form, button, channel);
     return Promise.resolve(true);
   };
+
+  window.pkHandleProductOrder = handleProductOrder;
+  window.pkHandleCartCheckout = handleCartCheckout;
 
   window.pkOptimisticHeaderCartCountAdd = function (n) {
     var cart = readCart();
@@ -378,8 +398,6 @@
     if (form.classList.contains('product-form') || action.indexOf('/cart/add') !== -1) {
       event.preventDefault();
       event.stopImmediatePropagation();
-      var btn = form.querySelector('button[type="submit"], .cart_btn, .bottom-cart-btn');
-      handleProductOrder(form, btn);
     }
     if (action.indexOf('/cart') !== -1 && form.querySelector('button[name="checkout"]')) {
       var submitter = event.submitter;
@@ -392,6 +410,19 @@
   }, true);
 
   document.addEventListener('click', function (event) {
+    var orderBtn = event.target.closest('[data-pk-order]');
+    if (orderBtn) {
+      var orderForm = orderBtn.closest('form.product-form') || orderBtn.closest('#pk-product-root');
+      if (orderForm) {
+        var form = orderForm.tagName === 'FORM' ? orderForm : (orderForm.querySelector('.product-form.bottom-text') || orderForm.querySelector('.product-form'));
+        if (form) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          handleProductOrder(form, orderBtn, orderBtn.getAttribute('data-pk-order'));
+          return;
+        }
+      }
+    }
     var submitBtn = event.target.closest('[data-pk-submit]');
     if (submitBtn) {
       var form = submitBtn.closest('form');
@@ -429,13 +460,27 @@
         return;
       }
     }
+    var checkoutWa = event.target.closest('#pk-checkout-wa, [data-pk-checkout="whatsapp"]');
+    if (checkoutWa) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      handleCartCheckout('whatsapp');
+      return;
+    }
+    var checkoutEmail = event.target.closest('#pk-checkout-email, [data-pk-checkout="email"]');
+    if (checkoutEmail) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      handleCartCheckout('email');
+      return;
+    }
     var target = event.target.closest('button[name="checkout"], .cart__checkout, .cart_btn, .bottom-cart-btn, .new_cart-btn');
     if (!target) return;
     if (target.closest('form.product-form')) return;
     if (target.name === 'checkout' || target.classList.contains('cart__checkout')) {
       event.preventDefault();
       event.stopImmediatePropagation();
-      handleCartCheckout();
+      handleCartCheckout('whatsapp');
     }
   }, true);
 })();
