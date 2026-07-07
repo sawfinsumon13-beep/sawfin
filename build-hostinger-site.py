@@ -810,20 +810,26 @@ Options -Indexes
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
-RewriteRule ^index\\.html/?$ / [R=301,L]
-RewriteRule ^index\\.html/(.*)$ /$1 [R=301,L]
+
+# --- FIX: site uploaded inside public_html/index.html/ folder (Hostinger common mistake) ---
+RewriteCond %{REQUEST_URI} !^/index\\.html/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{DOCUMENT_ROOT}/index.html/$1 -f
 RewriteRule ^(.+)$ index.html/$1 [L]
+RewriteCond %{REQUEST_URI} !^/index\\.html/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{DOCUMENT_ROOT}/index.html/$1.html -f
 RewriteRule ^(.+)$ index.html/$1.html [L]
+RewriteCond %{REQUEST_URI} !^/index\\.html/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{DOCUMENT_ROOT}/index.html/$1/index.html -f
 RewriteRule ^(.+)$ index.html/$1/index.html [L]
+
+RewriteRule ^index\\.html/index\\.html/?$ / [R=301,L]
+RewriteRule ^index\\.html/(.*)$ /$1 [R=301,L]
 RewriteCond %{QUERY_STRING} (?:^|&)page=([2-9][0-9]+)
 RewriteRule ^collections/([^/]+)/?$ collections/$1/page-%1.html [L]
 RewriteCond %{QUERY_STRING} (?:^|&)page=([2-9][0-9]+)
@@ -856,8 +862,12 @@ You MUST upload to Hostinger web hosting for the site to work.
 1. Hostinger → File Manager → public_html
 2. DELETE all old files (including index.html/ folder if present)
 3. Upload PUREBRED-KITTIES-CLONE-SITE.zip
-4. Extract directly into public_html
+4. Extract directly into public_html (NOT inside an index.html folder)
 5. Visit yourdomain.com/verify.html then yourdomain.com/
+
+IF PAGES SHOW 404 BUT HOMEPAGE WORKS:
+Your files may be inside public_html/index.html/ (folder). Upload HOSTINGER-FIX-404-NOW.zip
+to public_html root and extract (overwrites .htaccess). Test a product URL again.
 
 Contact: {CONTACT_EMAIL} | Phone/WhatsApp: {CONTACT_PHONE_DISPLAY} | Signal: {SIGNAL_URL}
 """)
