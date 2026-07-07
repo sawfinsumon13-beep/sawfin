@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purrfect Pals — Premium Cats for Loving Homes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="#" class="logo">
+        <span class="logo-icon">🐾</span>
+        Purrfect Pals
+      </a>
+      <ul class="nav-links">
+        <li><a href="#cats">Our Cats</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-content">
+        <p class="hero-tag">Ethically bred · Health guaranteed</p>
+        <h1>Find your new<br><em>feline companion</em></h1>
+        <p class="hero-sub">Hand-raised kittens from champion bloodlines. Each cat comes vaccinated, microchipped, and ready to steal your heart.</p>
+        <div class="hero-actions">
+          <a href="#cats" class="btn btn-primary">Browse Cats</a>
+          <a href="#about" class="btn btn-secondary">Learn More</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">2,400+</span>
+            <span class="stat-label">Happy families</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">12</span>
+            <span class="stat-label">Breeds available</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">5★</span>
+            <span class="stat-label">Customer rating</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="filters" id="cats">
+      <div class="container">
+        <div class="section-header">
+          <h2>Meet our cats</h2>
+          <p>Every kitten is socialized, vet-checked, and comes with a 2-year health guarantee.</p>
+        </div>
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All Breeds</button>
+          <button class="filter-btn" data-filter="longhair">Longhair</button>
+          <button class="filter-btn" data-filter="shorthair">Shorthair</button>
+          <button class="filter-btn" data-filter="exotic">Exotic</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog">
+      <div class="container">
+        <div class="cat-grid" id="catGrid">
+          <!-- Cats rendered by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">💉</div>
+            <h3>Fully Vaccinated</h3>
+            <p>All kittens receive age-appropriate vaccinations before going home.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🏠</div>
+            <h3>Home Raised</h3>
+            <p>Raised in our family home, not a cage. Socialized with children and dogs.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3>Health Guarantee</h3>
+            <p>2-year genetic health guarantee with full veterinary documentation.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🚚</div>
+            <h3>Safe Delivery</h3>
+            <p>Climate-controlled transport available nationwide with live tracking.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=700&fit=crop" alt="A happy orange tabby cat">
+        </div>
+        <div class="about-text">
+          <h2>Bred with love,<br>placed with care</h2>
+          <p>Since 2010, Purrfect Pals has matched over 2,400 families with their ideal feline companions. We are a small, family-run cattery dedicated to ethical breeding practices and the wellbeing of every cat in our care.</p>
+          <p>Each kitten spends their first 12 weeks in our home, learning to trust humans, play gently, and use a litter box. We never sell to pet stores — only directly to loving families.</p>
+          <ul class="about-list">
+            <li>TICA & CFA registered breeders</li>
+            <li>Lifetime breeder support hotline</li>
+            <li>Starter kit included with every adoption</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <h2>Questions? We're here to help.</h2>
+          <p>Not sure which breed is right for you? Our team will help you find the perfect match.</p>
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <input type="text" placeholder="Your name" required>
+              <input type="email" placeholder="Email address" required>
+            </div>
+            <textarea placeholder="Tell us about your home and what you're looking for..." rows="4" required></textarea>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-icon">🐾</span>
+          Purrfect Pals
+        </a>
+        <p>Ethical cat breeding since 2010.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <a href="#cats">All Breeds</a>
+        <a href="#cats">Longhair</a>
+        <a href="#cats">Shorthair</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Health Guarantee</a>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Purrfect Pals. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Your cart is empty. Time to find a furry friend!</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">$0</span>
+      </div>
+      <button class="btn btn-primary btn-full" id="checkoutBtn" disabled>Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
