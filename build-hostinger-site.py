@@ -24,6 +24,9 @@ CONTACT_PHONE_E164 = "13475417149"
 CONTACT_EMAIL = "kittenspurebreed@gmail.com"
 SIGNAL_URL = "https://signal.me/#eu/MEs5W26kT7oIxnW-QEh7_yPa1HN1JkuLRxwWgzK3dMAuS9CzNgVJfpicAJqaaERL"
 
+# Hostinger often stores the site in public_html/index.html/ — prefix internal links when enabled
+HOSTINGER_SUBFOLDER = os.environ.get("HOSTINGER_SUBFOLDER", "/index.html")
+
 SIGNAL_FOOTER_HTML = (
     f'<div class="footer_signal foot_col"><span>'
     f'<svg fill=none height=25 viewBox="0 0 24 25"width=24 xmlns=http://www.w3.org/2000/svg>'
@@ -343,6 +346,38 @@ def fix_html_links(html: str) -> str:
 
     html = re.sub(r'(href|action)="/cart"(?![\w.-])', r'\1="/cart.html"', html)
     html = re.sub(r'(href|action)="/search"(?![\w.-])', r'\1="/search.html"', html)
+    return html
+
+
+def apply_subfolder_links(html: str) -> str:
+    """Prefix internal paths with /index.html for Hostinger subfolder deployment."""
+    prefix = HOSTINGER_SUBFOLDER.rstrip("/")
+    if not prefix or prefix == "/":
+        return html
+    marker = f'href="{prefix}/products/'
+    if marker in html:
+        return html
+
+    skip_prefixes = ("http://", "https://", "//", "#", "mailto:", "tel:", "javascript:", prefix + "/")
+
+    def add_prefix(match: re.Match[str]) -> str:
+        attr, path = match.group(1), match.group(2)
+        if any(path.startswith(s) for s in skip_prefixes):
+            return match.group(0)
+        if path in ("", "/"):
+            return f'{attr}="{prefix}/"'
+        return f'{attr}="{prefix}/{path}"'
+
+    html = re.sub(r'(href|action)="/([^"]*)"', add_prefix, html)
+    for old, new in (
+        ("'/products-index.json'", f"'{prefix}/products-index.json'"),
+        ('"/products-index.json"', f'"{prefix}/products-index.json"'),
+        ("fetch('/products-index.json'", f"fetch('{prefix}/products-index.json'"),
+        ('fetch("/products-index.json"', f'fetch("{prefix}/products-index.json"'),
+        ("url: '/products/", f"url: '{prefix}/products/"),
+        ('url: "/products/', f'url: "{prefix}/products/'),
+    ):
+        html = html.replace(old, new)
     return html
 
 
@@ -721,6 +756,7 @@ def ultra_optimize(html: str, rel: Path | None = None) -> str:
     html = inject_head(html)
     html = inject_body_scripts(html)
     html = fix_html_links(html)
+    html = apply_subfolder_links(html)
     html = fix_image_urls(html)
     html = replace_contact_info(html)
     html = inject_signal_contact(html)
@@ -757,7 +793,7 @@ def build_product_index(out: Path) -> int:
         title = m.group(1).strip() if m else handle.replace("-", " ").title()
         img_m = img_re.search(text)
         image = img_m.group(0).strip('"') if img_m else ""
-        products.append({"handle": handle, "title": title, "url": f"/products/{handle}", "image": image})
+        products.append({"handle": handle, "title": title, "url": f"{HOSTINGER_SUBFOLDER}/products/{handle}", "image": image})
     (out / "products-index.json").write_text(json.dumps(products, separators=(",", ":")), encoding="utf-8")
     return len(products)
 
