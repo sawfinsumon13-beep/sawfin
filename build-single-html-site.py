@@ -13,6 +13,7 @@ from pk_blog_posts import (
     mobile_blog_menu_html,
     render_homepage_blog_section,
 )
+from pk_forms import build_form_pages, replace_omniform_links
 
 CLONE = Path("/workspace/purebred-kitties-clone")
 OUT = Path("/workspace/SINGLE-SITE.html")
@@ -326,13 +327,19 @@ def build_pages() -> dict[str, dict]:
         for path in sorted((CLONE / folder).glob("*.html")):
             item = extract_page(path, folder)
             if item:
-                pages[item["key"]] = {"title": item["title"], "html": item["html"]}
+                pages[item["key"]] = {
+                    "title": item["title"],
+                    "html": replace_omniform_links(item["html"]),
+                }
     for name in ("cart", "search"):
         path = CLONE / f"{name}.html"
         if path.exists():
             item = extract_page(path, "root")
             if item:
-                pages[name] = {"title": item["title"], "html": item["html"]}
+                pages[name] = {
+                    "title": item["title"],
+                    "html": replace_omniform_links(item["html"]),
+                }
     return pages
 
 
@@ -858,6 +865,18 @@ SPA_JS = r"""
     if(page.title) document.title=page.title;
     root.innerHTML=page.html;
     initMobileMenu();
+    initPkForms();
+  }
+
+  function initPkForms(){
+    var breederForm=document.getElementById('pk-breeder-form');
+    if(breederForm && !breederForm.dataset.pkBound){
+      breederForm.dataset.pkBound='1';
+      breederForm.addEventListener('submit',function(e){
+        e.preventDefault();
+        if(typeof window.pkSubmitBreederForm==='function') window.pkSubmitBreederForm(breederForm);
+      });
+    }
   }
 
   function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
@@ -954,6 +973,7 @@ def build_single_html():
     print("Building static pages...")
     pages = build_pages()
     pages.update(build_blog_pages())
+    pages.update(build_form_pages())
     print(f"Pages: {len(pages)} (info pages, blogs, cart, search)")
 
     head, body = get_home_shell()
@@ -968,6 +988,7 @@ def build_single_html():
 
     body = inject_blog_menu(body)
     body = replace_homepage_blog_section(body)
+    body = replace_omniform_links(body)
     body = strip_internal_links(body)
     body = patch_inline_scripts(body)
     body = restructure_layout(body, contact_views)

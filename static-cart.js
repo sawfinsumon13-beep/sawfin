@@ -182,6 +182,48 @@
     updateHeaderCount(cart.items.length + (n || 1));
   };
 
+  function handleBreederForm(form) {
+    var data = {};
+    form.querySelectorAll('input, textarea, select').forEach(function (el) {
+      if (!el.name) return;
+      if (el.type === 'checkbox' && !el.checked) return;
+      if (el.type === 'radio' && !el.checked) return;
+      data[el.name] = el.value;
+    });
+    var lines = [
+      'Hello! New Breeder Application:',
+      '',
+      'Kittens to list: ' + (data.kitten_quantity || ''),
+      'Breed specialty: ' + (data.breed || ''),
+      'Price policy: ' + (data.price_policy || ''),
+      'Included at adoption: ' + (data.adoption_includes || ''),
+      'Experience: ' + (data.experience || ''),
+      'Cattery location: ' + (data.cattery_location || ''),
+      '',
+      'Full name: ' + (data.full_name || ''),
+      'Email: ' + (data.email || ''),
+      'Phone: ' + (data.phone || ''),
+      'Marketing consent: ' + (data.marketing_consent ? 'Yes' : 'No'),
+      '',
+      contactDetails(),
+      '',
+      'Page: ' + window.location.href,
+    ];
+    openWhatsApp(lines.join('\n'));
+    var success = document.getElementById('pk-breeder-success');
+    if (success) {
+      form.style.display = 'none';
+      success.classList.add('active');
+    }
+    var btn = form.querySelector('button[type="submit"]');
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Submitted — opening WhatsApp...';
+    }
+  }
+
+  window.pkSubmitBreederForm = handleBreederForm;
+
   function handleContactForm(form) {
     var data = {};
     form.querySelectorAll('input, textarea, select').forEach(function (el) {
@@ -231,6 +273,12 @@
       event.preventDefault();
       event.stopImmediatePropagation();
       handleContactForm(form);
+      return;
+    }
+    if (form.classList.contains('pk-breeder-form')) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      handleBreederForm(form);
       return;
     }
     if (form.classList.contains('product-form') || action.indexOf('/cart/add') !== -1) {
