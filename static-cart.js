@@ -3,8 +3,14 @@
  * Mocks Shopify cart API using localStorage; checkout opens WhatsApp.
  */
 (function () {
-  var WHATSAPP_PHONE = '13438092153';
+  var WHATSAPP_PHONE = '13475417149';
+  var CONTACT_PHONE = '+1 3475417149';
   var CONTACT_EMAIL = 'kittenspurebreed@gmail.com';
+  var SIGNAL_URL = 'https://signal.me/#eu/MEs5W26kT7oIxnW-QEh7_yPa1HN1JkuLRxwWgzK3dMAuS9CzNgVJfpicAJqaaERL';
+
+  function contactDetails() {
+    return 'Phone/WhatsApp: ' + CONTACT_PHONE + '\nSignal: ' + SIGNAL_URL + '\nEmail: ' + CONTACT_EMAIL;
+  }
   var CART_KEY = 'pk_static_cart_v1';
 
   function readCart() {
@@ -130,6 +136,7 @@
       'Kitten: ' + productName + '\n' +
       'Payment Option: ' + option + '\n' +
       'Page: ' + window.location.href + '\n\n' +
+      contactDetails() + '\n\n' +
       'Please contact me with next steps. Thank you!';
 
     if (button) {
@@ -148,7 +155,7 @@
     var cart = readCart();
     if (!cart.items.length) {
       openWhatsApp(
-        'Hello! I would like to inquire about adopting a kitten.\n\nEmail: ' + CONTACT_EMAIL
+        'Hello! I would like to inquire about adopting a kitten.\n\n' + contactDetails()
       );
       return;
     }
@@ -158,7 +165,7 @@
     openWhatsApp(
       'Hello! I would like to complete my order:\n\n' +
       lines.join('\n') +
-      '\n\nEmail: ' + CONTACT_EMAIL +
+      '\n\n' + contactDetails() +
       '\n\nPlease assist me with checkout. Thank you!'
     );
   }
@@ -190,6 +197,8 @@
       'Phone: ' + (data.phone || data[''] || ''),
       'Subject: ' + (data.subject || ''),
       'Message: ' + (data.message || ''),
+      '',
+      contactDetails(),
       '',
       'Page: ' + window.location.href,
     ];

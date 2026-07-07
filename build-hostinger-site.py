@@ -19,6 +19,28 @@ OUTPUT_ULTRA_DIR = Path("/workspace/purebred-kitties-clone")
 OUTPUT_ULTRA_ZIP = Path("/workspace/PUREBRED-KITTIES-CLONE-SITE.zip")
 MAX_ZIP_MB = 10
 
+CONTACT_PHONE_DISPLAY = "+1 3475417149"
+CONTACT_PHONE_E164 = "13475417149"
+CONTACT_EMAIL = "kittenspurebreed@gmail.com"
+SIGNAL_URL = "https://signal.me/#eu/MEs5W26kT7oIxnW-QEh7_yPa1HN1JkuLRxwWgzK3dMAuS9CzNgVJfpicAJqaaERL"
+
+SIGNAL_FOOTER_HTML = (
+    f'<div class="footer_signal foot_col"><span>'
+    f'<svg fill=none height=25 viewBox="0 0 24 25"width=24 xmlns=http://www.w3.org/2000/svg>'
+    f'<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"fill=#726A87/>'
+    f'</svg></span><a href="{SIGNAL_URL}" target="_blank" rel="noopener">Signal</a></div>'
+)
+
+CONTACT_SIGNAL_BLOCK = (
+    f'<div class="middle_four first_cont"><div class="iconss wow fadeInUp animated">'
+    f'<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">'
+    f'<circle cx="18.5859" cy="18.687" r="18" fill="#774C9D"/>'
+    f'<path d="M11 12h15v2H11v-2zm0 4h15v2H11v-2zm0 4h10v2H11v-2z" fill="white"/>'
+    f'</svg></div><div class="icon_titles"><p class="call_title wow fadeInUp animated">Signal</p>'
+    f'<p class="wow fadeInUp animated"><a href="{SIGNAL_URL}" target="_blank" rel="noopener">Message on Signal</a></p>'
+    f'</div></div>'
+)
+
 EXTERNAL_CDN = "https://purebredkitties.com"
 FAVICON_URL = EXTERNAL_CDN + "/cdn/shop/files/purebred_kitties_fav_icon_af099f12-929b-46f9-9f52-ab8077b3bd03_32x32.png?v=1707586342"
 FAVICON_TAGS = (
@@ -614,6 +636,70 @@ def compact_svgs(html: str) -> str:
     return re.sub(r"<svg[^>]*>.*?</svg>", repl, html, flags=re.DOTALL | re.I)
 
 
+def replace_contact_info(html: str) -> str:
+    replacements = (
+        ("+1 343-809-2153", CONTACT_PHONE_DISPLAY),
+        ("343-809-2153", "3475417149"),
+        ("13438092153", CONTACT_PHONE_E164),
+        ("(877) 227-3707", CONTACT_PHONE_DISPLAY),
+        ("+8772273707", f"+{CONTACT_PHONE_E164}"),
+        ("8772273707", CONTACT_PHONE_E164),
+    )
+    for old, new in replacements:
+        html = html.replace(old, new)
+
+    html = re.sub(
+        r"https://wa\.me/\d+",
+        f"https://wa.me/{CONTACT_PHONE_E164}",
+        html,
+    )
+    html = re.sub(
+        r"https://api\.whatsapp\.com/send\?phone=\d+",
+        f"https://api.whatsapp.com/send?phone={CONTACT_PHONE_E164}",
+        html,
+    )
+    html = re.sub(
+        r'href="tel:\+?\d+"',
+        f'href="tel:+{CONTACT_PHONE_E164}"',
+        html,
+    )
+    html = re.sub(
+        r'"telephone"\s*:\s*"[^"]*"',
+        f'"telephone":"{CONTACT_PHONE_DISPLAY}"',
+        html,
+    )
+    html = html.replace(
+        "texting either of these numbers +1 3475417149 or +1 3475417149",
+        f"texting {CONTACT_PHONE_DISPLAY}",
+    )
+    return html
+
+
+def inject_signal_contact(html: str) -> str:
+    if 'class="footer_signal foot_col"' not in html and 'class="footer_email foot_col"' in html:
+        html = re.sub(
+            r'(<div class="footer_email foot_col">.*?</div>)',
+            r"\1" + SIGNAL_FOOTER_HTML,
+            html,
+            count=1,
+            flags=re.DOTALL,
+        )
+    if 'Message on Signal' not in html and 'Calendly.initPopupWidget' in html:
+        html = re.sub(
+            r'(<a href="#"[^>]*onclick="Calendly\.initPopupWidget[^"]*"[^>]*class="[^"]*callendar_btn[^"]*")',
+            CONTACT_SIGNAL_BLOCK + r'\1',
+            html,
+            count=1,
+        )
+        if 'Message on Signal' not in html:
+            html = html.replace(
+                'Calendly.initPopupWidget',
+                CONTACT_SIGNAL_BLOCK + 'Calendly.initPopupWidget',
+                1,
+            )
+    return html
+
+
 def ultra_optimize(html: str, rel: Path | None = None) -> str:
     for pattern in REMOVE_PATTERNS:
         html = re.sub(pattern, "", html, flags=re.DOTALL | re.IGNORECASE)
@@ -636,6 +722,8 @@ def ultra_optimize(html: str, rel: Path | None = None) -> str:
     html = inject_body_scripts(html)
     html = fix_html_links(html)
     html = fix_image_urls(html)
+    html = replace_contact_info(html)
+    html = inject_signal_contact(html)
     html = compact_html(html, rel)
     html = compact_svgs(html)
     html = re.sub(r">\s+<", "><", html)
@@ -771,7 +859,7 @@ You MUST upload to Hostinger web hosting for the site to work.
 4. Extract directly into public_html
 5. Visit yourdomain.com/verify.html then yourdomain.com/
 
-Contact: kittenspurebreed@gmail.com | WhatsApp: +1 343-809-2153
+Contact: {CONTACT_EMAIL} | Phone/WhatsApp: {CONTACT_PHONE_DISPLAY} | Signal: {SIGNAL_URL}
 """)
 
 
