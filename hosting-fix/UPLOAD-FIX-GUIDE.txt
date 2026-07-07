@@ -1,0 +1,94 @@
+PUREBRED KITTIES - HOSTING FIX (SMALL UPLOAD - NO 3 GB RE-UPLOAD!)
+==================================================================
+
+I checked your live site: https://purebreedkittensforsale.com/
+
+TWO PROBLEMS FOUND:
+-------------------
+1. WRONG FOLDER: Your files are inside public_html/index.html/ (a folder)
+   but the website looks for them at public_html/ (root).
+   Example: CSS is at /index.html/cdn/... but HTML asks for /cdn/...
+
+2. MISSING CSS FILES: Theme CSS files (yas_css.css etc.) were saved with
+   special names like yas_css.css?v=123.css during download.
+   Hostinger often FAILS to upload files with "?" in the name.
+
+YOUR 3 GB UPLOAD IS MOSTLY OK - you only need this small fix pack!
+
+==================================================================
+STEP 1: Upload hosting-fix.zip (about 10 KB)
+==================================================================
+Extract to public_html (same place as your index.html folder).
+
+You will get:
+  - .htaccess
+  - fix-site.php
+  - UPLOAD-FIX-GUIDE.txt
+
+==================================================================
+STEP 2: Run the fix script
+==================================================================
+Open in browser:
+  https://purebreedkittensforsale.com/fix-site.php
+
+Wait until you see "Done!"
+This moves files to the correct location and fixes asset names.
+
+DELETE fix-site.php immediately after!
+
+==================================================================
+STEP 3: Upload essential-assets.zip (about 1 MB) IF CSS STILL MISSING
+==================================================================
+If the homepage still has no design after Step 2:
+
+1. Upload essential-assets.zip to public_html
+2. Extract it (creates cdn/shop/t/285/assets/ with all CSS files)
+3. Refresh homepage with Ctrl+F5
+
+==================================================================
+CORRECT FOLDER STRUCTURE (public_html)
+==================================================================
+public_html/
+├── .htaccess          <-- must be here
+├── index.html         <-- FILE (not a folder!)
+├── favicon.png
+├── cdn/               <-- folder
+├── products/
+├── collections/
+├── pages/
+└── blogs/
+
+WRONG (what you have now):
+public_html/
+└── index.html/        <-- FOLDER (wrong!)
+    ├── index.html
+    ├── cdn/
+    └── ...
+
+==================================================================
+WHY THE OLD ZIP FAILED
+==================================================================
+The old 3.4 GB ZIP had files inside a "purebredkitties-website/"
+subfolder. When extracted on Hostinger, this created wrong paths.
+The NEW fixed ZIP (purebredkitties-hosting-fixed.zip) has files at
+the root level - use this ONLY if you need to re-upload everything.
+
+==================================================================
+CONTACT INFO ON SITE
+==================================================================
+Email: kittenspurebreed@gmail.com
+WhatsApp: +1 343-809-2153
+
+==================================================================
+BENGALI / বাংলা
+==================================================================
+আপনার 3 GB আপলোড ঠিক আছে। সমস্যা হলো:
+1. ফাইলগুলো ভুল folder-এ আছে (index.html/ folder-এর ভিতরে)
+2. CSS ফাইলগুলো upload হয়নি (? চিহ্ন থাকার জন্য)
+
+সমাধান:
+1. hosting-fix.zip আপলোড করুন public_html-এ
+2. ব্রাউজারে খুলুন: fix-site.php
+3. CSS না থাকলে essential-assets.zip আপলোড করুন
+4. fix-site.php ডিলিট করুন
+5. Ctrl+F5 চাপুন

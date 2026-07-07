@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purebred Kitties - Hosting Fix Downloads</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px;
+      max-width: 640px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    h1 { font-size: 1.4rem; color: #333; margin-bottom: 8px; }
+    p { color: #666; margin-bottom: 20px; line-height: 1.6; }
+    .fix { background: #e8f5e9; border: 2px solid #4caf50; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    .fix h2 { font-size: 1.1rem; color: #2e7d32; margin-bottom: 8px; }
+    .essential { background: #fff3e0; border: 2px solid #ff9800; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    .essential h2 { font-size: 1.1rem; color: #e65100; margin-bottom: 8px; }
+    .full { background: #f8f9fa; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    a.btn {
+      display: inline-block;
+      background: #667eea;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+    a.btn.green { background: #4caf50; }
+    a.btn.orange { background: #ff9800; }
+    a.btn:hover { opacity: 0.9; }
+    ol { margin: 12px 0 0 20px; color: #444; line-height: 1.8; }
+    .size { color: #888; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hosting Fix Downloads</h1>
+    <p>Your site is broken because files are in the wrong folder and CSS files failed to upload. Use these small files — <strong>no 3 GB re-upload needed</strong>.</p>
+
+    <div class="fix">
+      <h2>Step 1: hosting-fix.zip (6 KB)</h2>
+      <p class="size">Contains .htaccess + fix-site.php + guide</p>
+      <ol>
+        <li>Upload to public_html and extract</li>
+        <li>Visit <code>/fix-site.php</code> in browser</li>
+        <li>Delete fix-site.php when done</li>
+      </ol>
+      <a class="btn green" href="/hosting-fix.zip">Download hosting-fix.zip</a>
+    </div>
+
+    <div class="essential">
+      <h2>Step 2: essential-assets.zip (200 KB) — if CSS still missing</h2>
+      <p class="size">Theme CSS/JS files Hostinger failed to upload</p>
+      <ol>
+        <li>Upload to public_html and extract</li>
+        <li>Press Ctrl+F5 on homepage</li>
+      </ol>
+      <a class="btn orange" href="/essential-assets.zip">Download essential-assets.zip</a>
+    </div>
+
+    <div class="full">
+      <h2>Full fixed site (only if starting over)</h2>
+      <p class="size">3.4 GB — correct folder structure, Apache-ready</p>
+      <a class="btn" href="/purebredkitties-hosting-fixed.zip">Download full site ZIP</a>
+    </div>
+
+    <p style="margin-top:20px;font-size:0.85rem;color:#999;">Preview working site: ask for a new preview link (tunnels expire after a few hours).</p>
+  </div>
+</body>
+</html>
