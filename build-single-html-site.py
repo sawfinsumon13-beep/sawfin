@@ -25,6 +25,39 @@ CONTACT_EMAIL = "kittenspurebreed@gmail.com"
 SIGNAL_URL = "https://signal.me/#eu/MEs5W26kT7oIxnW-QEh7_yPa1HN1JkuLRxwWgzK3dMAuS9CzNgVJfpicAJqaaERL"
 CDN = "https://purebredkitties.com"
 
+HERO_BG_IMAGE = f"{CDN}/cdn/shop/files/image_1_27d57d81-a6af-49af-9613-3f9a36af40ee.webp?v=1730999583"
+
+THEME_COLOR_MAP = {
+    "#f4ff73": "#E8A87C",
+    "#e6f06d": "#D9956A",
+    "#dec0fc": "#B8D4C8",
+    "#f6f7fe": "#FFF8F3",
+    "#f2f6fb": "#FFF0E8",
+    "#f9f9ff": "#FFF8F3",
+    "#efe3f9": "#FFE8DC",
+    "#faf8f9": "#FFF8F3",
+    "#b4f5fe": "#FFD4B8",
+    "#774c9d": "#5A8F7B",
+    "#774C9D": "#5A8F7B",
+    "#cdc7ff": "#D4E8E0",
+    "#af84d4": "#7EB8A8",
+    "#d7d3f1": "#F0DDD0",
+}
+
+
+def apply_site_theme(html: str) -> str:
+    html = re.sub(
+        r"https://purebredkitties\.com/cdn/shop/files/girl-cat-sitting-bed[^\"')\s]+",
+        HERO_BG_IMAGE,
+        html,
+        flags=re.I,
+    )
+    for old, new in THEME_COLOR_MAP.items():
+        html = html.replace(old, new)
+        html = html.replace(old.upper(), new.upper())
+        html = html.replace(old.lower(), new.lower())
+    return html
+
 TITLE_RE = re.compile(r"<title>([^<|]+)", re.I)
 DESC_RE = re.compile(r'property="og:description" content="([^"]+)"', re.I)
 IMG_RE = re.compile(r'property="og:image" content="([^"]+)"', re.I)
@@ -545,11 +578,49 @@ def get_home_shell() -> str:
     return head, body
 
 
+SITE_THEME_CSS = f"""
+<style id="pk-site-theme">
+:root{{
+  --pk-bg-page:#FFF8F3;
+  --pk-bg-section:#FFF0E8;
+  --pk-accent:#E8A87C;
+  --pk-accent-soft:#FFD4B8;
+  --pk-accent-alt:#B8D4C8;
+  --pk-text:#2D2A32;
+}}
+html,body.pk-spa{{background:var(--pk-bg-page)!important}}
+body.pk-spa{{color:var(--pk-text)}}
+#pk-content-shell,#pk-view-home,#pk-view-page,#pk-view-product,#pk-view-collection,#pk-view-search,#pk-view-cart,#pk-view-contact{{background:var(--pk-bg-page)!important}}
+#pk-product-root .product_outer{{background:var(--pk-bg-page)}}
+#pk-page-root{{background:var(--pk-bg-page)}}
+.main_banner_sec,.shopify-section.main_banner_sec{{
+  background-image:linear-gradient(135deg,rgba(45,42,50,.78) 0%,rgba(232,168,124,.42) 100%),url({HERO_BG_IMAGE})!important;
+  background-size:cover!important;
+  background-position:center!important;
+}}
+#shopify-section-template--21804439798011__71e80951-5677-4cc5-9762-e8cafc8c5e82{{
+  background-image:linear-gradient(135deg,rgba(45,42,50,.78) 0%,rgba(232,168,124,.42) 100%),url({HERO_BG_IMAGE})!important;
+  background-size:cover!important;
+  background-position:center!important;
+}}
+.hero_heading span{{color:var(--pk-accent-soft)!important}}
+.btn_yellow,.popular_form,.banner_search_form button[type="submit"],.meet_all_btn,.meet_all,.btn-primary-yas{{
+  background:var(--pk-accent)!important;color:var(--pk-text)!important}}
+.yas_header .btn_purple,.callendar_btn,.btn_form .btn_purple{{
+  background:var(--pk-accent-alt)!important;color:var(--pk-text)!important}}
+.blog_container-w,.review_section_content,.collection-sec,.global_companion-yas,.yas-global-link,.step-card-w,.faq_section{{
+  background:var(--pk-bg-section)!important}}
+.template-index main,.template-page main{{background:var(--pk-bg-page)}}
+.loading-overlay{{background:var(--pk-bg-page)!important}}
+.mobile_menu{{background:#3D3548!important}}
+</style>
+"""
+
 SPA_CSS = """
 <style id="pk-spa-styles">
 body.pk-spa{min-height:100vh}
 html:has(body.pk-spa){height:auto;min-height:100vh}
-#pk-content-shell{width:100%;background:#fff;display:block}
+#pk-content-shell{width:100%;background:#FFF8F3;display:block}
 #pk-site-footer{width:100%;position:relative;z-index:2}
 #pk-view-product,#pk-view-contact,#pk-view-cart,#pk-view-search,#pk-view-collection,#pk-view-page{display:none!important}
 .pk-spa-route-product #pk-view-product,
@@ -615,7 +686,7 @@ html:has(body.pk-spa){height:auto;min-height:100vh}
   #pk-page-root .for_mobile{display:block!important}
 }
 /* Blog posts — template-blog body class + full-height content flow */
-body.template-blog{background:#f6f7fe}
+body.template-blog{background:#FFF0E8}
 #pk-page-root .article-page-yas,#pk-page-root .pk-blog-index{display:block;width:100%}
 #pk-page-root .article-page-yas .wrapper.custom_wrapper{padding-bottom:80px}
 #pk-page-root .article-page-yas .articledesc.rte{position:relative;z-index:1}
@@ -631,19 +702,19 @@ body.template-blog{background:#f6f7fe}
 .header_menu li a.open_child+ul{display:flex!important;flex-direction:column!important}
 .pk-spa-route-product .pk-btn-back{display:none}
 .pk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
-.pk-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);text-decoration:none;color:inherit;display:block}
+.pk-card{background:#FFF8F3;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);text-decoration:none;color:inherit;display:block}
 .pk-card img{width:100%;aspect-ratio:1;object-fit:cover}
 .pk-card-body{padding:16px}
 .pk-card h3{margin:0 0 4px;font-size:1.1rem}
-.pk-card .price{color:#774C9D;font-weight:600}
+.pk-card .price{color:#5A8F7B;font-weight:600}
 #pk-search-input,#pk-search-input-2{width:100%;max-width:480px;padding:12px 16px;border:2px solid #ddd;border-radius:8px;font-size:1rem;margin-bottom:24px}
 #pk-view-contact{padding:40px 20px;max-width:900px;margin:0 auto}
-.pk-contact-box{background:#f9f7fc;border-radius:12px;padding:32px;line-height:2}
-.pk-contact-box a{color:#774C9D;font-weight:600}
-.pk-btn-back{color:#774C9D;margin-bottom:20px;display:inline-block;cursor:pointer}
+.pk-contact-box{background:#FFF0E8;border-radius:12px;padding:32px;line-height:2}
+.pk-contact-box a{color:#5A8F7B;font-weight:600}
+.pk-btn-back{color:#5A8F7B;margin-bottom:20px;display:inline-block;cursor:pointer}
 .pk-btn-order{display:inline-block;padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-size:1rem;margin:8px 8px 8px 0}
 .pk-btn-order-wa{background:#25D366;color:#fff}
-.pk-btn-order-email{background:#dec0fc;color:#342a41}
+.pk-btn-order-email{background:#B8D4C8;color:#2D2A32}
 .pk-cart-checkout{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 #pk-view-cart .pk-cart-list{list-style:none;padding:0;margin:0 0 20px}
 #pk-view-cart .pk-cart-list li{padding:12px 0;border-bottom:1px solid #eee;font-size:16px;color:#342a41}
@@ -664,7 +735,7 @@ body.template-blog{background:#f6f7fe}
 #pk-product-root .pk-order-options{display:flex;flex-direction:column;gap:10px;width:100%;margin-top:8px}
 #pk-product-root .pk-order-options button{width:100%;border:none;border-radius:50px;padding:14px 16px;font-weight:700;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
 #pk-product-root .pk-order-wa{background:#25D366;color:#fff}
-#pk-product-root .pk-order-email{background:#dec0fc;color:#342a41}
+#pk-product-root .pk-order-email{background:#B8D4C8;color:#2D2A32}
 #pk-product-root .fix_button-s{position:fixed;bottom:0;left:0;right:0;z-index:90;display:none}
 @media(max-width:767px){
   #pk-product-root .product-gallery-wishlist{display:block;left:30px;position:absolute;top:30px;z-index:6}
@@ -674,16 +745,16 @@ body.template-blog{background:#f6f7fe}
   #pk-product-root .fix_button-s .order-options{display:flex;flex:1;gap:8px;min-width:0}
   #pk-product-root .fix_button-s .order-button{flex:1;border:none;border-radius:50px;padding:14px 10px;font-weight:700;font-size:13px;cursor:pointer;min-width:0}
   #pk-product-root .fix_button-s .order-button-wa{background:#25D366;color:#fff}
-  #pk-product-root .fix_button-s .order-button-email{background:#f4ff73;color:#342a41}
+  #pk-product-root .fix_button-s .order-button-email{background:#E8A87C;color:#2D2A32}
   #pk-product-root .fix_button-s .fix_button-rows{display:flex;flex-direction:column;gap:8px;width:100%}
   #pk-product-root .fix_button-s .ask-options{display:flex;flex:1;gap:8px;min-width:0}
   #pk-product-root .fix_button-s .ask-button,#pk-product-root .fix_button-s .order-button{flex:1;border:none;border-radius:50px;padding:14px 10px;font-weight:700;font-size:14px;cursor:pointer;min-width:0}
   #pk-product-root .fix_button-s .ask-button-wa{background:#25D366;color:#fff}
-  #pk-product-root .fix_button-s .ask-button-email{background:#dec0fc;color:#342a41}
+  #pk-product-root .fix_button-s .ask-button-email{background:#B8D4C8;color:#2D2A32}
   #pk-product-root .pk-ask-options{display:flex;flex-direction:column;gap:10px;width:100%}
   #pk-product-root .pk-ask-options button{width:100%;border:none;border-radius:50px;padding:14px 16px;font-weight:700;font-size:15px;cursor:pointer}
   #pk-product-root .pk-ask-wa{background:#25D366;color:#fff}
-  #pk-product-root .pk-ask-email{background:#dec0fc;color:#342a41}
+  #pk-product-root .pk-ask-email{background:#B8D4C8;color:#2D2A32}
   body.pk-spa-route-product{padding-bottom:120px}
 }
 </style>
@@ -1224,11 +1295,12 @@ def build_single_html():
     pages.update(build_blog_pages())
     pages.update(build_form_pages())
     for key in pages:
-        pages[key]["html"] = replace_calendly_links(replace_omniform_links(pages[key]["html"]))
+        html_block = replace_calendly_links(replace_omniform_links(pages[key]["html"]))
+        pages[key]["html"] = apply_site_theme(html_block)
     print(f"Pages: {len(pages)} (info pages, blogs, cart, search)")
 
     head, body = get_home_shell()
-    head = head.replace("</head>", SPA_CSS + HEAD_ASSETS + HEAD_SCRIPTS + "</head>", 1)
+    head = head.replace("</head>", SPA_CSS + SITE_THEME_CSS + HEAD_ASSETS + HEAD_SCRIPTS + "</head>", 1)
 
     contact_views = SPA_VIEWS.format(
         phone=CONTACT_PHONE,
@@ -1244,6 +1316,7 @@ def build_single_html():
     body = strip_internal_links(body)
     body = reduce_prices_in_text(body)
     body = strip_footer_social_media(body)
+    body = apply_site_theme(body)
     body = patch_inline_scripts(body)
     body = restructure_layout(body, contact_views)
 
@@ -1268,6 +1341,7 @@ def build_single_html():
     html = replace_omniform_links(html)
     html = replace_calendly_links(html)
     html = strip_footer_social_media(html)
+    html = apply_site_theme(html)
 
     OUT.write_text(html, encoding="utf-8")
     ZIP_OUT.write_text(html, encoding="utf-8")
