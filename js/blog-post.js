@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get('id'));
-  if (!id) { window.location.href = 'blog.html'; return; }
+  if (!id) { window.location.href = '/blog'; return; }
 
   const container = document.getElementById('articleContent');
   container.innerHTML = '<div class="loading"><div class="spinner"></div>Loading article...</div>';
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     container.innerHTML = `
       <div class="article-featured">
-        <img src="${post.image}" alt="${post.title}">
+        <img src="${post.image}" alt="${post.title}" onerror="this.src='https://placehold.co/800x600/161d28/3d8fe8/png?text=BMW+Blog'">
       </div>
       <div class="article-meta">
         <span class="card-badge">${post.category}</span>
@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         <h3>Need a BMW Engine?</h3>
         <p>Browse our catalog of 3,100+ tested engines or contact our technical team for expert advice.</p>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-          <a href="engines.html" class="btn btn-primary">Browse Engines</a>
-          <a href="contact.html" class="btn btn-outline">Contact Us</a>
+          <a href="/engines" class="btn btn-primary">Browse Engines</a>
+          <a href="/contact" class="btn btn-outline">Contact Us</a>
         </div>
       </div>`;
   } catch (err) {

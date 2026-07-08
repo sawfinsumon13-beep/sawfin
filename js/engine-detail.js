@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get('id'));
-  if (!id) { window.location.href = 'engines.html'; return; }
+  if (!id) { window.location.href = '/engines'; return; }
 
   const container = document.getElementById('engineDetail');
   container.innerHTML = '<div class="loading"><div class="spinner"></div>Loading engine details...</div>';
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <tr><td>Era</td><td>${engine.era.charAt(0).toUpperCase() + engine.era.slice(1)}</td></tr>
           </table>
           <div class="detail-actions">
-            <a href="contact.html?engine=${engine.id}" class="btn btn-primary">Request Quote</a>
+            <a href="/contact?engine=${engine.id}" class="btn btn-primary">Request Quote</a>
             <a href="tel:+4917613627363" class="btn btn-outline">Call Now</a>
           </div>
           <p style="color:var(--text-secondary);font-size:0.9rem;">

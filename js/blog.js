@@ -46,9 +46,9 @@ function renderBlogs() {
     `Showing ${start + 1}–${Math.min(start + PER_PAGE, filtered.length)} of ${filtered.length} articles`;
 
   grid.innerHTML = page.map(b => `
-    <a href="blog-post.html?id=${b.id}" class="blog-card">
+    <a href="/blog-post?id=${b.id}" class="blog-card">
       <div class="card-image">
-        <img src="${b.image}" alt="${b.title}" loading="lazy">
+        <img src="${b.image}" alt="${b.title}" loading="lazy" onerror="this.src='https://placehold.co/800x600/161d28/3d8fe8/png?text=BMW+Blog'">
       </div>
       <div class="card-body">
         <span class="card-badge">${b.category}</span>

@@ -120,16 +120,40 @@ const IMAGE_SEEDS = [
   'v8-engine-1', 'v8-engine-2', 'inline6-1', 'inline6-2', 'inline6-3'
 ];
 
+// Verified working automotive / engine image URLs
+const VALID_IMAGES = [
+  'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80',
+  'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80',
+  'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80',
+  'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80',
+  'https://images.unsplash.com/photo-1619405397515-aaabb8530fcc?w=800&q=80',
+  'https://images.unsplash.com/photo-1487754180451-c7f7d4a3ee80?w=800&q=80',
+  'https://images.unsplash.com/photo-1533473355901-04d4c4eb5c1e?w=800&q=80',
+  'https://images.unsplash.com/photo-1583121274602-3e2820c50d88?w=800&q=80',
+  'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80',
+  'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80',
+  'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80',
+  'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&q=80',
+  'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80',
+  'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800&q=80',
+  'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80'
+];
+
+function getImageUrl(id, offset = 0) {
+  return VALID_IMAGES[(id + offset) % VALID_IMAGES.length];
+}
+
 function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 function pick(arr) { return arr[rand(0, arr.length - 1)]; }
 function pickN(arr, n) { const shuffled = [...arr].sort(() => 0.5 - Math.random()); return shuffled.slice(0, n); }
 
 function getEngineImages(id) {
   const count = rand(3, 6);
-  const seeds = pickN(IMAGE_SEEDS, count);
-  return seeds.map((seed, i) =>
-    `https://images.unsplash.com/photo-${1619642751034 + (id % 100) + i * 7}-765dfdf7c58e?w=800&q=80&sig=${id}-${i}`
-  );
+  const images = [];
+  for (let i = 0; i < count; i++) {
+    images.push(getImageUrl(id, i * 3));
+  }
+  return images;
 }
 
 function generateEngine(id) {
@@ -321,7 +345,7 @@ function generateBlog(id) {
     date: date.toISOString().split('T')[0],
     author: pick(['Technical Team', 'Workshop Team', 'Engine Specialist', 'Logistics Team']),
     excerpt: `Comprehensive ${category.toLowerCase()} covering ${title.toLowerCase().replace(/—.*/, '').trim()}. Expert insights from Premium BMW Engines Hamburg.`,
-    image: `https://images.unsplash.com/photo-${1619642751034 + (id % 50)}-765dfdf7c58e?w=800&q=80`,
+    image: getImageUrl(id),
     wordCount: content.wordCount,
     content: content.html
   };

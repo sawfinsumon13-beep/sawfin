@@ -99,9 +99,9 @@ function renderEngines() {
   }
 
   grid.innerHTML = page.map(e => `
-    <a href="engine-detail.html?id=${e.id}" class="engine-card">
+    <a href="/engine-detail?id=${e.id}" class="engine-card">
       <div class="card-image">
-        <img src="${e.images[0]}" alt="${e.name}" loading="lazy">
+        <img src="${e.images[0]}" alt="${e.name}" loading="lazy" onerror="this.src='https://placehold.co/800x600/161d28/3d8fe8/png?text=BMW+Engine'">
         <span class="card-badge">${e.condition}</span>
       </div>
       <div class="card-body">

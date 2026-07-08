@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const featured = engines.slice(0, 6);
 
     grid.innerHTML = featured.map(e => `
-      <a href="engine-detail.html?id=${e.id}" class="engine-card">
+      <a href="/engine-detail?id=${e.id}" class="engine-card">
         <div class="card-image">
-          <img src="${e.images[0]}" alt="${e.name}" loading="lazy">
+          <img src="${e.images[0]}" alt="${e.name}" loading="lazy" onerror="this.src='https://placehold.co/800x600/161d28/3d8fe8/png?text=BMW+Engine'">
           <span class="card-badge">${e.condition}</span>
         </div>
         <div class="card-body">
@@ -43,9 +43,9 @@ async function loadFeaturedBlogs() {
     const featured = data.posts.slice(0, 6);
 
     grid.innerHTML = featured.map(b => `
-      <a href="blog-post.html?id=${b.id}" class="blog-card">
+      <a href="/blog-post?id=${b.id}" class="blog-card">
         <div class="card-image">
-          <img src="${b.image}" alt="${b.title}" loading="lazy">
+          <img src="${b.image}" alt="${b.title}" loading="lazy" onerror="this.src='https://placehold.co/800x600/161d28/3d8fe8/png?text=BMW+Blog'">
         </div>
         <div class="card-body">
           <span class="card-badge">${b.category}</span>

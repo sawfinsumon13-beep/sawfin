@@ -9,31 +9,32 @@ const SITE = {
 };
 
 const NAV_ITEMS = [
-  { label: 'HOME', href: 'index.html' },
+  { label: 'HOME', href: '/' },
   {
     label: 'ENGINES',
-    href: 'engines.html',
+    href: '/engines',
     dropdown: [
-      { label: 'All Engines', href: 'engines.html' },
-      { label: 'Petrol Engines', href: 'engines.html?fuel=petrol' },
-      { label: 'Diesel Engines', href: 'engines.html?fuel=diesel' },
-      { label: 'M Performance', href: 'engines.html?series=M' },
-      { label: 'Classic Engines', href: 'engines.html?era=classic' },
-      { label: 'Modern Engines', href: 'engines.html?era=modern' }
+      { label: 'All Engines', href: '/engines' },
+      { label: 'Petrol Engines', href: '/engines?fuel=petrol' },
+      { label: 'Diesel Engines', href: '/engines?fuel=diesel' },
+      { label: 'M Performance', href: '/engines?series=M' },
+      { label: 'Classic Engines', href: '/engines?era=classic' },
+      { label: 'Modern Engines', href: '/engines?era=modern' }
     ]
   },
-  { label: 'M57 SWAP KITS', href: 'm57-swap-kits.html' },
-  { label: 'SERVICES', href: 'services.html' },
-  { label: 'ABOUT US', href: 'about.html' },
-  { label: 'CONTACT US', href: 'contact.html' },
-  { label: 'POLICIES', href: 'policies.html' },
-  { label: 'BLOG', href: 'blog.html' },
-  { label: 'REVIEWS', href: 'reviews.html' }
+  { label: 'M57 SWAP KITS', href: '/m57-swap-kits' },
+  { label: 'SERVICES', href: '/services' },
+  { label: 'ABOUT US', href: '/about' },
+  { label: 'CONTACT US', href: '/contact' },
+  { label: 'POLICIES', href: '/policies' },
+  { label: 'BLOG', href: '/blog' },
+  { label: 'REVIEWS', href: '/reviews' }
 ];
 
 function getActivePage() {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  return path;
+  let path = window.location.pathname.split('/').pop() || '';
+  if (!path || path === 'index.html') return '/';
+  return '/' + path.replace(/\.html$/, '');
 }
 
 function renderHeader() {
@@ -55,7 +56,7 @@ function renderHeader() {
   return `
     <header class="site-header">
       <div class="container header-inner">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
           <div class="logo-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
               <circle cx="12" cy="12" r="9"/>
@@ -71,7 +72,7 @@ function renderHeader() {
               <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
             </svg>
           </button>
-          <a href="engines.html" class="icon-btn" aria-label="Shop">
+          <a href="/engines" class="icon-btn" aria-label="Shop">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
               <line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
@@ -99,7 +100,7 @@ function renderFooter() {
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <a href="index.html" class="logo">
+            <a href="/" class="logo">
               <div class="logo-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                   <circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/>
@@ -111,24 +112,24 @@ function renderFooter() {
           </div>
           <div class="footer-col">
             <h4>Shop</h4>
-            <a href="engines.html">All Engines</a>
-            <a href="engines.html?fuel=diesel">Diesel Engines</a>
-            <a href="engines.html?series=M">M Performance</a>
-            <a href="m57-swap-kits.html">M57 Swap Kits</a>
+            <a href="/engines">All Engines</a>
+            <a href="/engines?fuel=diesel">Diesel Engines</a>
+            <a href="/engines?series=M">M Performance</a>
+            <a href="/m57-swap-kits">M57 Swap Kits</a>
           </div>
           <div class="footer-col">
             <h4>Company</h4>
-            <a href="about.html">About Us</a>
-            <a href="services.html">Services</a>
-            <a href="blog.html">Blog</a>
-            <a href="reviews.html">Reviews</a>
-            <a href="policies.html">Policies</a>
+            <a href="/about">About Us</a>
+            <a href="/services">Services</a>
+            <a href="/blog">Blog</a>
+            <a href="/reviews">Reviews</a>
+            <a href="/policies">Policies</a>
           </div>
           <div class="footer-col">
             <h4>Contact</h4>
             <a href="mailto:${SITE.email}">${SITE.email}</a>
             <a href="tel:${SITE.phone.replace(/\s/g, '')}">${SITE.phone}</a>
-            <a href="contact.html">Contact Form</a>
+            <a href="/contact">Contact Form</a>
           </div>
         </div>
         <div class="footer-bottom">
@@ -199,11 +200,11 @@ async function performSearch(query) {
 
     let html = '';
     engineResults.forEach(e => {
-      html += `<a href="engine-detail.html?id=${e.id}" class="search-result-item">
+      html += `<a href="/engine-detail?id=${e.id}" class="search-result-item">
         <strong>${e.name}</strong><span>${e.code} — €${e.price.toLocaleString()}</span></a>`;
     });
     blogResults.forEach(b => {
-      html += `<a href="blog-post.html?id=${b.id}" class="search-result-item">
+      html += `<a href="/blog-post?id=${b.id}" class="search-result-item">
         <strong>${b.title}</strong><span>${b.category}</span></a>`;
     });
 
