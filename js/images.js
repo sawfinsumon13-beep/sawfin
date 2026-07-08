@@ -1,18 +1,18 @@
-// Bavarian-style warehouse inventory photos — local sets, one gallery per product
+// Bavarian Engines warehouse inventory photos — local pallet photos, one 6-image gallery per product
 const IMAGE_MANIFEST = {
-  fallback: 'images/engines/sets/set-0001/01.jpg',
+  fallback: 'images/engines/sets/set-0114/01.webp',
   categories: {
-    N47: 'images/engines/sets/set-0014/01.jpg',
-    N57: 'images/engines/sets/set-0108/01.jpg',
-    M57: 'images/engines/sets/set-0087/01.jpg',
-    B57: 'images/engines/sets/set-0052/01.jpg',
-    B47: 'images/engines/sets/set-0061/01.jpg',
-    M54: 'images/engines/sets/set-0047/01.jpg',
-    M20: 'images/engines/sets/set-0050/01.jpg',
-    M30: 'images/engines/sets/set-0051/01.jpg',
-    M47: 'images/engines/sets/set-0038/01.jpg',
-    B58: 'images/engines/sets/set-0060/01.jpg',
-    S54: 'images/engines/sets/set-0046/01.jpg'
+    N47: 'images/engines/sets/set-0114/01.webp',
+    N57: 'images/engines/sets/set-0108/01.webp',
+    M57: 'images/engines/sets/set-0087/01.webp',
+    B57: 'images/engines/sets/set-0052/01.webp',
+    B47: 'images/engines/sets/set-0061/01.webp',
+    M54: 'images/engines/sets/set-0047/01.webp',
+    M20: 'images/engines/sets/set-0050/01.webp',
+    M30: 'images/engines/sets/set-0051/01.webp',
+    M47: 'images/engines/sets/set-0038/01.webp',
+    B58: 'images/engines/sets/set-0001/01.webp',
+    S54: 'images/engines/sets/set-0046/01.webp'
   }
 };
 
@@ -20,12 +20,12 @@ const CATEGORY_IMAGES = IMAGE_MANIFEST.categories;
 const FALLBACK_IMAGE = IMAGE_MANIFEST.fallback;
 
 const GALLERY_LABELS = [
-  'engine on pallet — main view',
-  'warehouse angle — hoses and components',
-  'workshop side view',
-  'engine block close-up',
-  'turbo and ancillaries detail',
-  'inventory floor shot'
+  'engine on pallet — main warehouse view',
+  'side angle — hoses and components',
+  'rear angle — turbo and ancillaries',
+  'close-up — engine stamp area',
+  'detail — wiring and sensors',
+  'floor shot — complete unit on pallet'
 ];
 
 function getCategoryImage(family) {
@@ -58,11 +58,11 @@ function getBlogImage(post) {
   if (family && CATEGORY_IMAGES[family]) {
     return CATEGORY_IMAGES[family];
   }
-  if (post.images && post.images[0]) {
-    return post.images[0];
+  if (post.image) {
+    return post.image;
   }
-  const setNum = String(((post.id - 1) % 120) + 1).padStart(4, '0');
-  return `images/engines/sets/set-${setNum}/01.jpg`;
+  const setNum = String(((post.id - 1) % 116) + 1).padStart(4, '0');
+  return `images/engines/sets/set-${setNum}/01.webp`;
 }
 
 function imgTag(src, alt, extra = '') {

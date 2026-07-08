@@ -164,14 +164,14 @@ const HOMEPAGE_SECTIONS = [
 ];
 
 const OLD_ENGINE_GALLERY = HOMEPAGE_GALLERY_SETS.map((setId, i) => ({
-  src: `images/engines/sets/${setId}/01.jpg`,
+  src: `images/engines/sets/${setId}/01.webp`,
   alt: `BMW engine warehouse inventory photo ${i + 1}`
 }));
 
 function renderContentSections() {
   return HOMEPAGE_SECTIONS.map((section, i) => {
     const setId = HOMEPAGE_GALLERY_SETS[i % HOMEPAGE_GALLERY_SETS.length];
-    const img = `images/engines/sets/${setId}/01.jpg`;
+    const img = `images/engines/sets/${setId}/01.webp`;
     return `
     <section class="content-block-section${i % 2 ? ' alt-bg' : ''}">
       <div class="container content-block${section.reverse ? ' reverse' : ''}">
