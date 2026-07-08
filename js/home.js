@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     grid.innerHTML = featured.map(e => `
       <a href="/engine-detail?id=${e.id}" class="engine-card">
         <div class="card-image">
-          <img src="${e.images[0]}" alt="${e.name}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+          <img src="${getEngineThumbnail(e)}" alt="${e.name}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
           <span class="card-badge">${e.condition}</span>
         </div>
         <div class="card-body">
@@ -45,7 +45,7 @@ async function loadFeaturedBlogs() {
     grid.innerHTML = featured.map(b => `
       <a href="/blog-post?id=${b.id}" class="blog-card">
         <div class="card-image">
-          <img src="${b.image}" alt="${b.title}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+          <img src="${getBlogImage(b)}" alt="${b.title}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
         </div>
         <div class="card-body">
           <span class="card-badge">${b.category}</span>

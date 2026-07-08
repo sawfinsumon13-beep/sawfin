@@ -1,32 +1,73 @@
-// Verified image URLs — all tested HTTP 200
-const OLD_ENGINE_IMAGES = [
-  'https://images.unsplash.com/photo-1688701108480-0db760644684?w=800&q=80',
-  'https://images.unsplash.com/photo-1763836223247-e44e2753883e?w=800&q=80',
-  'https://images.unsplash.com/photo-1760713174351-4e7350ff797e?w=800&q=80',
-  'https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=800&q=80',
-  'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800&q=80',
-  'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80',
-  'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80'
+// Real BMW engine inventory photos — TwinPower covers, pallet warehouse, workshop close-ups
+const ENGINE_PRODUCT_IMAGES = [
+  'https://images.unsplash.com/photo-1539285536184-4281d3ba81e0?w=900&q=80',
+  'https://images.unsplash.com/photo-1779261332300-c60f2fbe320f?w=900&q=80',
+  'https://images.unsplash.com/photo-1744223736435-be69cb546250?w=900&q=80',
+  'https://images.unsplash.com/photo-1556838656-af51dadc2c93?w=900&q=80',
+  'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=900&q=80',
+  'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=900&q=80',
+  'https://images.pexels.com/photos/34640514/pexels-photo-34640514.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/4489724/pexels-photo-4489724.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/4489702/pexels-photo-4489702.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/7568415/pexels-photo-7568415.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/279949/pexels-photo-279949.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/1149134/pexels-photo-1149134.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/29181493/pexels-photo-29181493.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/3997965/pexels-photo-3997965.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/3802508/pexels-photo-3802508.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/4489994/pexels-photo-4489994.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg?auto=compress&cs=tinysrgb&w=900'
 ];
 
-const ALL_ENGINE_IMAGES = [
-  ...OLD_ENGINE_IMAGES,
-  'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80',
-  'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80',
-  'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80',
-  'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80',
-  'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80',
-  'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&q=80',
-  'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80',
-  'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800&q=80',
-  'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80'
-];
+const CATEGORY_IMAGES = {
+  N47: 'https://images.unsplash.com/photo-1539285536184-4281d3ba81e0?w=900&q=80',
+  N57: 'https://images.pexels.com/photos/34640514/pexels-photo-34640514.jpeg?auto=compress&cs=tinysrgb&w=900',
+  M57: 'https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=900',
+  B57: 'https://images.unsplash.com/photo-1779261332300-c60f2fbe320f?w=900&q=80',
+  B47: 'https://images.unsplash.com/photo-1556838656-af51dadc2c93?w=900&q=80',
+  M54: 'https://images.pexels.com/photos/4489724/pexels-photo-4489724.jpeg?auto=compress&cs=tinysrgb&w=900',
+  M20: 'https://images.pexels.com/photos/7568415/pexels-photo-7568415.jpeg?auto=compress&cs=tinysrgb&w=900',
+  M30: 'https://images.pexels.com/photos/279949/pexels-photo-279949.jpeg?auto=compress&cs=tinysrgb&w=900',
+  M47: 'https://images.pexels.com/photos/1149134/pexels-photo-1149134.jpeg?auto=compress&cs=tinysrgb&w=900',
+  B58: 'https://images.unsplash.com/photo-1744223736435-be69cb546250?w=900&q=80',
+  S54: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=900&q=80'
+};
 
-const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80';
+const FALLBACK_IMAGE = ENGINE_PRODUCT_IMAGES[0];
 
-function getProductImage(id, offset = 0, era = 'modern') {
-  const pool = era === 'classic' ? OLD_ENGINE_IMAGES : ALL_ENGINE_IMAGES;
-  return pool[(id + offset) % pool.length];
+function getProductImage(id, offset = 0) {
+  return ENGINE_PRODUCT_IMAGES[(id + offset) % ENGINE_PRODUCT_IMAGES.length];
+}
+
+function getCategoryImage(family) {
+  return CATEGORY_IMAGES[family] || getProductImage((family || 'X').charCodeAt(0), 0);
+}
+
+function extractFamilyFromText(text) {
+  const match = (text || '').match(/\b([NSBM]\d{2,3}|M\d{2})\b/i);
+  return match ? match[1].toUpperCase() : '';
+}
+
+function getEngineThumbnail(engine) {
+  return getCategoryImage(engine.family);
+}
+
+function getEngineGalleryImages(engine) {
+  const count = engine.images?.length || 4;
+  const images = [getEngineThumbnail(engine)];
+  for (let i = 1; i < count; i++) {
+    images.push(getProductImage(engine.id, i));
+  }
+  return images;
+}
+
+function getBlogImage(post) {
+  const family = extractFamilyFromText(post.title);
+  if (family && CATEGORY_IMAGES[family]) {
+    return CATEGORY_IMAGES[family];
+  }
+  return getProductImage(post.id, 0);
 }
 
 function imgTag(src, alt, extra = '') {

@@ -1,92 +1,15 @@
 const ENGINE_CATEGORIES = [
-  {
-    title: 'N57 ENGINES',
-    badge: '3.0L DIESEL',
-  badgeType: 'diesel',
-    models: '330d · 530d · X5 · X6 torque',
-    image: 'https://images.unsplash.com/photo-1763836223247-e44e2753883e?w=900&q=80',
-    href: '/engines?family=N57'
-  },
-  {
-    title: 'N47 ENGINES',
-    badge: '2.0L DIESEL',
-    badgeType: 'diesel',
-    models: '320d · 520d · 118d · X3',
-    image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=900&q=80',
-    href: '/engines?family=N47'
-  },
-  {
-    title: 'M57 ENGINES',
-    badge: 'SWAP READY',
-    badgeType: 'swap',
-    models: 'Defender & 4x4 conversions',
-    image: 'https://images.unsplash.com/photo-1760713174351-4e7350ff797e?w=900&q=80',
-    href: '/m57-swap-kits'
-  },
-  {
-    title: 'B57 ENGINES',
-    badge: 'EURO 6',
-    badgeType: 'euro',
-    models: 'G30 530d · X5 G05',
-    image: 'https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=900&q=80',
-    href: '/engines?family=B57'
-  },
-  {
-    title: 'B47 ENGINES',
-    badge: 'EURO 6',
-    badgeType: 'euro',
-    models: 'F30 LCI · X3 · X4',
-    image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=900&q=80',
-    href: '/engines?family=B47'
-  },
-  {
-    title: 'M54 ENGINES',
-    badge: 'PETROL',
-    badgeType: 'petrol',
-    models: 'E46 330i · E39 530i · Z3',
-    image: 'https://images.unsplash.com/photo-1688701108480-0db760644684?w=900&q=80',
-    href: '/engines?family=M54'
-  },
-  {
-    title: 'M20 ENGINES',
-    badge: 'CLASSIC',
-    badgeType: 'classic',
-    models: 'E30 restoration · E21 · E28',
-    image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=900&q=80',
-    href: '/engines?family=M20&era=classic'
-  },
-  {
-    title: 'B58 ENGINES',
-    badge: 'TURBO PETROL',
-    badgeType: 'petrol',
-    models: '340i · 440i · X3 M40i',
-    image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=900&q=80',
-    href: '/engines?family=B58'
-  },
-  {
-    title: 'M30 ENGINES',
-    badge: 'OLD SIX',
-    badgeType: 'classic',
-    models: 'E28 528i · E34 535i · E24',
-    image: 'https://images.unsplash.com/photo-1760713174351-4e7350ff797e?w=900&q=80',
-    href: '/engines?family=M30&era=classic'
-  },
-  {
-    title: 'M47 ENGINES',
-    badge: 'OLD DIESEL',
-    badgeType: 'diesel',
-    models: 'E46 320d · E39 520d',
-    image: 'https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=900&q=80',
-    href: '/engines?family=M47&era=classic'
-  },
-  {
-    title: 'S54 ENGINES',
-    badge: 'M POWER',
-    badgeType: 'm',
-    models: 'E46 M3 · track builds',
-    image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&q=80',
-    href: '/engines?family=S54'
-  }
+  { title: 'N57 ENGINES', badge: '3.0L DIESEL', badgeType: 'diesel', models: '330d · 530d · X5 · X6 torque', family: 'N57', href: '/engines?family=N57' },
+  { title: 'N47 ENGINES', badge: '2.0L DIESEL', badgeType: 'diesel', models: '320d · 520d · 118d · X3', family: 'N47', href: '/engines?family=N47' },
+  { title: 'M57 ENGINES', badge: 'SWAP READY', badgeType: 'swap', models: 'Defender & 4x4 conversions', family: 'M57', href: '/m57-swap-kits' },
+  { title: 'B57 ENGINES', badge: 'EURO 6', badgeType: 'euro', models: 'G30 530d · X5 G05', family: 'B57', href: '/engines?family=B57' },
+  { title: 'B47 ENGINES', badge: 'EURO 6', badgeType: 'euro', models: 'F30 LCI · X3 · X4', family: 'B47', href: '/engines?family=B47' },
+  { title: 'M54 ENGINES', badge: 'PETROL', badgeType: 'petrol', models: 'E46 330i · E39 530i · Z3', family: 'M54', href: '/engines?family=M54' },
+  { title: 'M20 ENGINES', badge: 'CLASSIC', badgeType: 'classic', models: 'E30 restoration · E21 · E28', family: 'M20', href: '/engines?family=M20&era=classic' },
+  { title: 'M30 ENGINES', badge: 'OLD SIX', badgeType: 'classic', models: 'E28 528i · E34 535i · E24', family: 'M30', href: '/engines?family=M30&era=classic' },
+  { title: 'M47 ENGINES', badge: 'OLD DIESEL', badgeType: 'diesel', models: 'E46 320d · E39 520d', family: 'M47', href: '/engines?family=M47&era=classic' },
+  { title: 'B58 ENGINES', badge: 'TURBO PETROL', badgeType: 'petrol', models: '340i · 440i · X3 M40i', family: 'B58', href: '/engines?family=B58' },
+  { title: 'S54 ENGINES', badge: 'M POWER', badgeType: 'm', models: 'E46 M3 · track builds', family: 'S54', href: '/engines?family=S54' }
 ];
 
 const RECENT_PURCHASES = [
@@ -102,17 +25,19 @@ function renderHomepageContent() {
   const container = document.getElementById('homepageContent');
   if (!container) return;
 
-  const cards = ENGINE_CATEGORIES.map(cat => `
+  const cards = ENGINE_CATEGORIES.map(cat => {
+    const img = getCategoryImage(cat.family);
+    return `
     <a href="${cat.href}" class="category-card">
-      <img class="category-card-bg" src="${cat.image}" alt="${cat.title}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+      <img class="category-card-bg" src="${img}" alt="${cat.title}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
       <div class="category-card-overlay"></div>
       <span class="category-badge badge-${cat.badgeType}">${cat.badge}</span>
       <div class="category-card-content">
         <h3>${cat.title}</h3>
         <p>${cat.models}</p>
       </div>
-    </a>
-  `).join('');
+    </a>`;
+  }).join('');
 
   container.innerHTML = `
     <section class="category-section">
@@ -160,8 +85,8 @@ function renderHomepageContent() {
         <div class="classic-showcase-layout">
           <div class="classic-showcase-text">
             <span class="section-tag">Classic Heritage</span>
-            <h2>Old BMW Engines — Restored &amp; Ready</h2>
-            <p>From M10 and M20 classics to legendary M30 straight-sixes and S54 M Power units — we stock the old engines that keep BMW history alive. Each unit is photographed, tested, and documented with compression readings you can trust.</p>
+            <h2>Real BMW Engines — Photographed in Our Warehouse</h2>
+            <p>Every engine listing shows the actual unit you receive — TwinPower covers, complete engine blocks on pallets, and close-up component shots from our Hamburg testing facility.</p>
             <ul class="classic-list">
               <li>M10 · M20 · M30 — E21, E30, E28 restorations</li>
               <li>M50 · M52 · M54 — E36, E39, E46 daily drivers</li>
@@ -172,9 +97,9 @@ function renderHomepageContent() {
           </div>
           <div class="classic-showcase-visual">
             <div class="classic-photo-stack">
-              <img src="https://images.unsplash.com/photo-1688701108480-0db760644684?w=600&q=80" alt="Old BMW engine" loading="lazy">
-              <img src="https://images.unsplash.com/photo-1760713174351-4e7350ff797e?w=600&q=80" alt="Vintage engine" loading="lazy">
-              <img src="https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=600&q=80" alt="Classic engine parts" loading="lazy">
+              <img src="${ENGINE_PRODUCT_IMAGES[0]}" alt="BMW TwinPower engine cover" loading="lazy">
+              <img src="${ENGINE_PRODUCT_IMAGES[6]}" alt="BMW engine on pallet in warehouse" loading="lazy">
+              <img src="${ENGINE_PRODUCT_IMAGES[8]}" alt="BMW engine close-up with hoses" loading="lazy">
             </div>
           </div>
         </div>
@@ -183,22 +108,10 @@ function renderHomepageContent() {
 
     <section class="trust-section">
       <div class="container trust-grid">
-        <div class="trust-stat">
-          <strong>15,000+</strong>
-          <span>Engines Sold Since 2003</span>
-        </div>
-        <div class="trust-stat">
-          <strong>99.7%</strong>
-          <span>Customer Satisfaction</span>
-        </div>
-        <div class="trust-stat">
-          <strong>0.4%</strong>
-          <span>Return Rate</span>
-        </div>
-        <div class="trust-stat">
-          <strong>4–6 hrs</strong>
-          <span>Testing Per Engine</span>
-        </div>
+        <div class="trust-stat"><strong>15,000+</strong><span>Engines Sold Since 2003</span></div>
+        <div class="trust-stat"><strong>99.7%</strong><span>Customer Satisfaction</span></div>
+        <div class="trust-stat"><strong>0.4%</strong><span>Return Rate</span></div>
+        <div class="trust-stat"><strong>4–6 hrs</strong><span>Testing Per Engine</span></div>
       </div>
     </section>
   `;
@@ -208,25 +121,21 @@ function renderHomepageContent() {
 
 function initPurchaseToast() {
   if (document.getElementById('purchaseToast')) return;
-
   const toast = document.createElement('div');
   toast.id = 'purchaseToast';
   toast.className = 'purchase-toast';
   toast.innerHTML = '<div class="purchase-toast-inner"></div>';
   document.body.appendChild(toast);
-
   let index = 0;
   function show() {
     const p = RECENT_PURCHASES[index % RECENT_PURCHASES.length];
     toast.querySelector('.purchase-toast-inner').innerHTML = `
       <span class="purchase-dot"></span>
-      <p><strong>${p.name}</strong> from ${p.city} recently purchased <em>${p.engine}</em> for <strong>${p.price}</strong> · ${p.ago}</p>
-    `;
+      <p><strong>${p.name}</strong> from ${p.city} recently purchased <em>${p.engine}</em> for <strong>${p.price}</strong> · ${p.ago}</p>`;
     toast.classList.add('visible');
     setTimeout(() => toast.classList.remove('visible'), 5000);
     index++;
   }
-
   setTimeout(show, 4000);
   setInterval(show, 12000);
 }

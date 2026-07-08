@@ -1,10 +1,9 @@
-// Homepage content sections — 5000+ words total, each with old engine imagery
+// Homepage content sections — 5000+ words, images assigned from ENGINE_PRODUCT_IMAGES at render
 const HOMEPAGE_SECTIONS = [
   {
     tag: 'WHY CHOOSE US',
     title: "Europe's Most Trusted BMW Engine Supplier",
-    image: 'https://images.unsplash.com/photo-1688701108480-0db760644684?w=1000&q=80',
-    imageAlt: 'Old BMW engine close-up',
+    imageAlt: 'BMW TwinPower Turbo engine cover',
     reverse: false,
     paragraphs: [
       "When your BMW needs a new heart, the decision you make today determines whether you are back on the road in a week or back in the workshop in a month. At Premium BMW Engines, we have spent over two decades earning the trust of enthusiasts, independent workshops, and fleet operators across 28 European countries. Our Hamburg facility houses more than 3,100 tested BMW engines — the largest dedicated inventory on the continent — and every single unit carries documented proof of mechanical condition before it ships to your door.",
@@ -19,8 +18,7 @@ const HOMEPAGE_SECTIONS = [
   {
     tag: 'QUALITY ASSURANCE',
     title: 'Every Engine Dyno-Tested & Documented',
-    image: 'https://images.unsplash.com/photo-1763836223247-e44e2753883e?w=1000&q=80',
-    imageAlt: 'Old diesel BMW engines in workshop',
+    imageAlt: 'BMW engine on pallet in warehouse',
     reverse: true,
     paragraphs: [
       "Our testing protocol was developed over twenty years and thousands of engines. It begins the moment an engine arrives at our Hamburg facility. First, external inspection: we check for cracks in the block and head, assess sump condition, verify that all major components are present, and photograph every angle. Engines with catastrophic external damage are rejected immediately — they never enter our sales inventory.",
@@ -35,8 +33,7 @@ const HOMEPAGE_SECTIONS = [
   {
     tag: 'CLASSIC ENGINES',
     title: 'Old BMW Engines — Preserving Engineering Heritage',
-    image: 'https://images.unsplash.com/photo-1760713174351-4e7350ff797e?w=1000&q=80',
-    imageAlt: 'Rusty vintage BMW engine',
+    imageAlt: 'BMW engine close-up with hoses and components',
     reverse: false,
     paragraphs: [
       "There is something irreplaceable about a well-maintained classic BMW engine. The mechanical honesty of an M20 that revs freely to 6,500 rpm. The turbine-smooth idle of an M30 straight-six that has never been apart. The motorsport pedigree of an S14 or S38 that carried BMW's racing reputation through the 1980s and 1990s. These old engines were designed in an era when BMW engineers prioritised driving feel over emissions compliance, and their character endures decades after production ended.",
@@ -51,8 +48,7 @@ const HOMEPAGE_SECTIONS = [
   {
     tag: 'FULL RANGE',
     title: '3,100+ Engines — From M10 Classics to Modern B58',
-    image: 'https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=1000&q=80',
-    imageAlt: 'Vintage engine parts and components',
+    imageAlt: 'BMW engine block workshop inventory',
     reverse: true,
     paragraphs: [
       "Our inventory spans every significant BMW engine generation from the 1960s to the present day. Classic enthusiasts will find M10, M20, M30, and M50 units suitable for E30, E28, and E34 restorations. The M20 in particular remains one of our most requested old engines — its balance of reliability, parts availability, and tuning potential makes it the backbone of the classic BMW community. We stock M20B25 and M20B27 variants in multiple conditions, from low-mileage originals to fully rebuilt units.",
@@ -66,8 +62,7 @@ const HOMEPAGE_SECTIONS = [
   {
     tag: 'CUSTOMER TRUST',
     title: 'Why Workshops & Enthusiasts Choose Us',
-    image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1000&q=80',
-    imageAlt: 'BMW engine workshop Hamburg',
+    imageAlt: 'BMW engine workshop testing',
     reverse: false,
     paragraphs: [
       "Independent workshops across Europe recommend us because we make their lives easier. When a customer's E90 320d arrives with a seized N47, the workshop needs an engine quickly, at a fair price, with documentation that protects them if something goes wrong. We deliver all three. Our trade accounts receive priority allocation, bulk pricing, and direct access to our technical team for fitment queries. Over 200 workshops hold active accounts with us, and our repeat purchase rate among trade customers exceeds 85%.",
@@ -81,8 +76,7 @@ const HOMEPAGE_SECTIONS = [
   {
     tag: 'GET STARTED',
     title: 'Start Your BMW Engine Project Today',
-    image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=1000&q=80',
-    imageAlt: 'Old BMW engine in garage',
+    imageAlt: 'BMW engine in workshop',
     reverse: true,
     paragraphs: [
       "The path from a failed engine to a running car should be straightforward. We designed our buying process to eliminate uncertainty at every step. Begin by browsing our online catalog of 3,100+ engines. Use the filters to narrow by fuel type, engine family, era, or price range. Each listing includes multiple photographs of the actual old or modern engine you will receive, full specifications, mileage, condition grade, and pricing. When you find a candidate, contact our technical team for a free compatibility check.",
@@ -97,8 +91,7 @@ const HOMEPAGE_SECTIONS = [
   {
     tag: 'M57 SWAP KITS',
     title: 'Complete M57 Diesel Swap Solutions',
-    image: 'https://images.unsplash.com/photo-1763836223247-e44e2753883e?w=1000&q=80',
-    imageAlt: 'M57 diesel engines for swap',
+    imageAlt: 'M57 diesel engine inventory',
     reverse: false,
     paragraphs: [
       "The BMW M57 3.0-litre inline-six diesel is widely regarded as one of the finest diesel engines ever produced. Its combination of torque, reliability, and fuel efficiency has made it the engine of choice for swap conversions into older BMW platforms, Land Rover Defenders, and specialist 4x4 builds. At Premium BMW Engines, we stock over 400 M57 variants and supply complete swap kits for the most popular conversion platforms.",
@@ -112,8 +105,7 @@ const HOMEPAGE_SECTIONS = [
   {
     tag: 'DIESEL SPECIALISTS',
     title: 'BMW Diesel Engines — N47, N57, M57, B47, B57',
-    image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1000&q=80',
-    imageAlt: 'BMW diesel engine',
+    imageAlt: 'BMW diesel engine TwinPower',
     reverse: true,
     paragraphs: [
       "BMW diesel engines power millions of vehicles across Europe, and when they fail, the cost of dealer replacement can exceed the value of the vehicle. Premium BMW Engines specialises in tested diesel replacements at a fraction of dealer cost. Our diesel inventory spans every generation from the old M21 and M41 units through M47, M57, N47, N57, B47, and B57 — over 1,200 diesel engines in stock at any time.",
@@ -127,8 +119,7 @@ const HOMEPAGE_SECTIONS = [
   {
     tag: 'VALUE & PRICING',
     title: 'Transparent Pricing — Genuine Value for Every Budget',
-    image: 'https://images.unsplash.com/photo-1688701108480-0db760644684?w=1000&q=80',
-    imageAlt: 'Old engine value inspection',
+    imageAlt: 'BMW engine inspection',
     reverse: false,
     paragraphs: [
       "Engine pricing is a topic surrounded by confusion. Two suppliers may list what appears to be the same M54B30 at vastly different prices, and understanding why requires knowledge of what happens between salvage yard and your garage. At Premium BMW Engines, our pricing directly reflects the mechanical condition, mileage, testing level, and warranty coverage of each unit. We never advertise a low price and then add hidden fees at checkout.",
@@ -142,8 +133,7 @@ const HOMEPAGE_SECTIONS = [
   {
     tag: 'PERFORMANCE',
     title: 'M Power & Turbo Performance Engines',
-    image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1000&q=80',
-    imageAlt: 'BMW performance engine',
+    imageAlt: 'BMW M Power engine',
     reverse: true,
     paragraphs: [
       "BMW M Performance engines represent the pinnacle of the company's engineering capability. From the naturally aspirated S54 that powered the E46 M3 to the twin-turbo S63 in modern M5 and M8 models, these powerplants demand respect, proper maintenance, and careful sourcing when replacement becomes necessary. Premium BMW Engines maintains one of Europe's largest stocks of M Performance engines, each individually tested and documented.",
@@ -158,8 +148,7 @@ const HOMEPAGE_SECTIONS = [
   {
     tag: 'CONTACT US',
     title: 'Speak With Our BMW Engine Specialists',
-    image: 'https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=1000&q=80',
-    imageAlt: 'Contact Premium BMW Engines',
+    imageAlt: 'BMW engine components',
     reverse: false,
     paragraphs: [
       "Our technical team is available Monday through Friday, 08:00 to 18:00 Central European Time, to answer your engine questions, confirm fitment compatibility, and provide quotations. Reach us by phone at +49 176 13627363 or by email at flashkingpro202@gmail.com. We respond to all enquiries within 2 hours during business hours, and most quotation requests are fulfilled within 24 hours including compression test results and updated photographs of your selected engine.",
@@ -169,23 +158,18 @@ const HOMEPAGE_SECTIONS = [
   }
 ];
 
-const OLD_ENGINE_GALLERY = [
-  { src: 'https://images.unsplash.com/photo-1688701108480-0db760644684?w=600&q=80', alt: 'Old rusted BMW engine' },
-  { src: 'https://images.unsplash.com/photo-1760713174351-4e7350ff797e?w=600&q=80', alt: 'Vintage engine with spark plug' },
-  { src: 'https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=600&q=80', alt: 'Classic engine components' },
-  { src: 'https://images.unsplash.com/photo-1763836223247-e44e2753883e?w=600&q=80', alt: 'Old diesel engines' },
-  { src: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&q=80', alt: 'Workshop old engine' },
-  { src: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80', alt: 'Engine rebuild workshop' },
-  { src: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80', alt: 'BMW engine on bench' },
-  { src: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&q=80', alt: 'Modern BMW engine' }
-];
+const OLD_ENGINE_GALLERY = ENGINE_PRODUCT_IMAGES.slice(0, 9).map((src, i) => ({
+  src, alt: ['BMW TwinPower engine cover', 'BMW engine bay', 'BMW M Power engine', 'BMW engine close-up', 'Engine hoses and components', 'Workshop engine testing', 'BMW turbo engine', 'Engine block detail', 'BMW engine inventory'][i] || 'BMW engine'
+}));
 
 function renderContentSections() {
-  return HOMEPAGE_SECTIONS.map((section, i) => `
+  return HOMEPAGE_SECTIONS.map((section, i) => {
+    const img = ENGINE_PRODUCT_IMAGES[i % ENGINE_PRODUCT_IMAGES.length];
+    return `
     <section class="content-block-section${i % 2 ? ' alt-bg' : ''}">
       <div class="container content-block${section.reverse ? ' reverse' : ''}">
         <div class="content-block-image">
-          <img src="${section.image}" alt="${section.imageAlt}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+          <img src="${img}" alt="${section.imageAlt}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
           <span class="content-block-badge">${section.tag}</span>
         </div>
         <div class="content-block-text">
@@ -194,8 +178,8 @@ function renderContentSections() {
           ${section.paragraphs.map(p => `<p>${p}</p>`).join('')}
         </div>
       </div>
-    </section>
-  `).join('');
+    </section>`;
+  }).join('');
 }
 
 function renderEngineGallery() {

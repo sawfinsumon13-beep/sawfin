@@ -112,52 +112,32 @@ const BLOG_TOPICS = [
   'B58 BMS Tune — Before and After Results'
 ];
 
-const IMAGE_SEEDS = [
-  'bmw-engine-1', 'bmw-engine-2', 'bmw-engine-3', 'bmw-engine-4', 'bmw-engine-5',
-  'bmw-motor-1', 'bmw-motor-2', 'bmw-motor-3', 'bmw-motor-4', 'bmw-motor-5',
-  'engine-block-1', 'engine-block-2', 'engine-block-3', 'engine-block-4',
-  'turbo-engine-1', 'turbo-engine-2', 'diesel-engine-1', 'diesel-engine-2',
-  'v8-engine-1', 'v8-engine-2', 'inline6-1', 'inline6-2', 'inline6-3'
-];
+const imageData = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'engine-images.json'), 'utf8'));
+const ENGINE_PRODUCT_IMAGES = imageData.images;
+const CATEGORY_IMAGES = imageData.categories;
 
-// Verified image URLs — all tested HTTP 200
-const OLD_ENGINE_IMAGES = [
-  'https://images.unsplash.com/photo-1688701108480-0db760644684?w=800&q=80',
-  'https://images.unsplash.com/photo-1763836223247-e44e2753883e?w=800&q=80',
-  'https://images.unsplash.com/photo-1760713174351-4e7350ff797e?w=800&q=80',
-  'https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=800&q=80',
-  'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800&q=80',
-  'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80',
-  'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80'
-];
+function extractFamilyFromText(text) {
+  const match = (text || '').match(/\b([NSBM]\d{2,3}|M\d{2})\b/i);
+  return match ? match[1].toUpperCase() : '';
+}
 
-const ALL_ENGINE_IMAGES = [
-  ...OLD_ENGINE_IMAGES,
-  'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80',
-  'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80',
-  'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80',
-  'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80',
-  'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80',
-  'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&q=80',
-  'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80',
-  'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800&q=80',
-  'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80'
-];
-
-function getImageUrl(id, offset = 0, era = 'modern') {
-  const pool = era === 'classic' ? OLD_ENGINE_IMAGES : ALL_ENGINE_IMAGES;
-  return pool[(id + offset) % pool.length];
+function getImageUrl(id, offset = 0, family = '') {
+  if (offset === 0 && family && CATEGORY_IMAGES[family]) {
+    return CATEGORY_IMAGES[family];
+  }
+  return ENGINE_PRODUCT_IMAGES[(id + offset) % ENGINE_PRODUCT_IMAGES.length];
 }
 
 function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 function pick(arr) { return arr[rand(0, arr.length - 1)]; }
 function pickN(arr, n) { const shuffled = [...arr].sort(() => 0.5 - Math.random()); return shuffled.slice(0, n); }
 
-function getEngineImages(id, era) {
+function getEngineImages(id, familyCode) {
   const count = rand(3, 6);
   const images = [];
-  for (let i = 0; i < count; i++) {
-    images.push(getImageUrl(id, i, era));
+  images.push(getImageUrl(id, 0, familyCode));
+  for (let i = 1; i < count; i++) {
+    images.push(getImageUrl(id, i));
   }
   return images;
 }
@@ -199,7 +179,7 @@ function generateEngine(id) {
     condition,
     platform,
     price: Math.max(450, price),
-    images: getEngineImages(id, era),
+    images: getEngineImages(id, family.code),
     description: `Premium ${condition.toLowerCase()} condition BMW ${family.name} ${disp}L ${family.fuel} engine (${yearStart}-${yearEnd}). This ${power}hp unit has been thoroughly tested on our Hamburg dyno, with documented compression readings and leak-down results. Suitable for ${platform} platform and compatible variants. Includes engine wiring loom connectors where applicable.`
   };
 }
@@ -341,6 +321,7 @@ function generateBlog(id) {
   const suffix = id > BLOG_TOPICS.length ? ` — Part ${Math.ceil(id / BLOG_TOPICS.length)}` : '';
   const title = titleBase + suffix;
   const category = pick(BLOG_CATEGORIES);
+  const family = extractFamilyFromText(title);
   const date = new Date(2023, rand(0, 11), rand(1, 28));
   const content = generateBlogContent(title, category, id);
 
@@ -351,7 +332,7 @@ function generateBlog(id) {
     date: date.toISOString().split('T')[0],
     author: pick(['Technical Team', 'Workshop Team', 'Engine Specialist', 'Logistics Team']),
     excerpt: `Comprehensive ${category.toLowerCase()} covering ${title.toLowerCase().replace(/—.*/, '').trim()}. Expert insights from Premium BMW Engines Hamburg.`,
-    image: getImageUrl(id, 0, id % 3 === 0 ? 'modern' : 'classic'),
+    image: getImageUrl(id, 0, family),
     wordCount: content.wordCount,
     content: content.html
   };

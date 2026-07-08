@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     container.innerHTML = `
       <div class="article-featured">
-        <img src="${post.image}" alt="${post.title}" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+        <img src="${getBlogImage(post)}" alt="${post.title}" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
       </div>
       <div class="article-meta">
         <span class="card-badge">${post.category}</span>
