@@ -162,7 +162,9 @@ const OLD_ENGINE_GALLERY = [
   { src: 'https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=600&q=80', alt: 'Classic engine components' },
   { src: 'https://images.unsplash.com/photo-1763836223247-e44e2753883e?w=600&q=80', alt: 'Old diesel engines' },
   { src: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&q=80', alt: 'Workshop old engine' },
-  { src: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80', alt: 'Engine rebuild workshop' }
+  { src: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80', alt: 'Engine rebuild workshop' },
+  { src: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80', alt: 'BMW engine on bench' },
+  { src: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&q=80', alt: 'Modern BMW engine' }
 ];
 
 function renderContentSections() {
