@@ -61,6 +61,20 @@ def apply_site_theme(html: str) -> str:
         html = html.replace(old, new)
         html = html.replace(old.upper(), new.upper())
         html = html.replace(old.lower(), new.lower())
+    # Remove opaque white section backgrounds so the fixed 3D mesh layer shows through.
+    html = re.sub(
+        r"(#shopify-section[-\w]+[^}]*?)background\s*:\s*#fff(?:fff)?\s*;",
+        r"\1background:transparent;",
+        html,
+        flags=re.I | re.S,
+    )
+    html = re.sub(
+        r"(\.(?:steps-sec-outer|adoption_section|breed_section|slider-line|collection-sec)[^{]*\{[^}]*?)"
+        r"background\s*:\s*#fff(?:fff)?\s*;",
+        r"\1background:transparent;",
+        html,
+        flags=re.I | re.S,
+    )
     return html
 
 TITLE_RE = re.compile(r"<title>([^<|]+)", re.I)
@@ -565,17 +579,20 @@ def get_home_shell() -> str:
         raise SystemExit("Could not parse index.html body")
     head = index[:start]
     body = index[start:end + 7]
-    body = body.replace("<body", '<body class="pk-spa pk-premium-3d"', 1)
-    body = body.replace(
-        '<body class="pk-spa pk-premium-3d"',
-        '<body class="pk-spa pk-premium-3d">'
+    pk_3d_bg = (
         '<div id="pk-3d-bg" aria-hidden="true">'
         '<div class="pk-3d-orb pk-3d-orb-1"></div>'
         '<div class="pk-3d-orb pk-3d-orb-2"></div>'
         '<div class="pk-3d-orb pk-3d-orb-3"></div>'
         '<div class="pk-3d-orb pk-3d-orb-4"></div>'
-        '<div class="pk-3d-mesh"></div>',
-        1,
+        '<div class="pk-3d-mesh"></div></div>'
+    )
+    body = re.sub(
+        r"<body[^>]*>",
+        f'<body class="pk-spa pk-premium-3d">{pk_3d_bg}',
+        body,
+        count=1,
+        flags=re.I,
     )
     # Wrap main content for SPA views
     # Wrap only homepage main content — keep header + mobile menu always visible
@@ -601,8 +618,8 @@ SITE_THEME_CSS = f"""
   --pk-mesh-2:#f5f0ff;
   --pk-mesh-3:#e8f4ff;
   --pk-mesh-4:#fdf4ff;
-  --pk-glass:rgba(255,255,255,0.58);
-  --pk-glass-strong:rgba(255,255,255,0.78);
+  --pk-glass:rgba(255,255,255,0.42);
+  --pk-glass-strong:rgba(255,255,255,0.62);
   --pk-glass-border:rgba(255,255,255,0.92);
   --pk-shadow:0 12px 40px rgba(91,79,207,0.14);
   --pk-shadow-soft:0 4px 24px rgba(91,79,207,0.08);
@@ -625,7 +642,7 @@ SITE_THEME_CSS = f"""
     radial-gradient(ellipse 60% 45% at 85% 15%,rgba(147,197,253,0.3) 0%,transparent 50%),
     radial-gradient(ellipse 70% 55% at 50% 90%,rgba(251,207,232,0.25) 0%,transparent 55%);
 }}
-.pk-3d-orb{{position:absolute;border-radius:50%;filter:blur(72px);opacity:0.62}}
+.pk-3d-orb{{position:absolute;border-radius:50%;filter:blur(64px);opacity:0.78}}
 .pk-3d-orb-1{{width:480px;height:480px;top:-100px;right:-80px;background:radial-gradient(circle,#a78bfa 0%,transparent 68%);animation:pk-float-1 20s ease-in-out infinite}}
 .pk-3d-orb-2{{width:560px;height:560px;bottom:5%;left:-140px;background:radial-gradient(circle,#93c5fd 0%,transparent 68%);animation:pk-float-2 24s ease-in-out infinite}}
 .pk-3d-orb-3{{width:400px;height:400px;top:42%;right:12%;background:radial-gradient(circle,#f0abfc 0%,transparent 68%);animation:pk-float-3 22s ease-in-out infinite}}
@@ -643,6 +660,7 @@ body.pk-spa > *:not(#pk-3d-bg){{position:relative;z-index:1}}
 .slideshow-container,.blog_container-w,.review_section_content,.collection-sec,
 .global_companion-yas,.yas-global-link,.step-card-w,.faq_section,.expert_video-w,
 .thumb_sec,.promise-section-yas,.include_slide,.testing-page-yas .shipping_option,
+.steps-sec-outer,.steps-sec,.adoption_section,
 #pk-view-collection,#pk-view-search,#pk-view-cart,#pk-view-contact{{
   background:var(--pk-glass)!important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   border:1px solid var(--pk-glass-border);box-shadow:var(--pk-shadow);border-radius:20px}}
@@ -674,6 +692,50 @@ body.pk-spa > *:not(#pk-3d-bg){{position:relative;z-index:1}}
   background:rgba(255,255,255,0.22)!important;backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.35)!important}}
 .mobile_menu{{background:rgba(42,37,64,0.88)!important;backdrop-filter:blur(24px)}}
 #pk-site-footer{{position:relative;z-index:2}}
+</style>
+"""
+
+SITE_THEME_OVERRIDE_CSS = """
+<style id="pk-site-theme-override">
+html{
+  background:linear-gradient(145deg,var(--pk-mesh-1) 0%,var(--pk-mesh-2) 28%,var(--pk-mesh-3) 62%,var(--pk-mesh-4) 100%)!important;
+  min-height:100vh}
+#pk-view-home .shopify-section,
+#pk-view-home [id^="shopify-section-template"],
+#pk-view-home .adoption_section,
+#pk-view-home .breed_section,
+#pk-view-home .slider-line,
+#pk-view-home .steps-sec-outer,
+#pk-view-home .steps-sec,
+#pk-view-home .kittys_section,
+#pk-view-home .review_section,
+#pk-view-home .blog_section,
+#pk-view-home .faq_section,
+#pk-view-home .expert_video-w,
+#pk-view-home .promise-section-yas,
+#pk-view-home .global_companion-yas,
+#pk-page-root,
+#pk-page-root .shopify-section,
+#pk-page-root section.shopify-section,
+#pk-page-root .testing-page-yas,
+#pk-page-root .wrapper,
+#pk-page-root .custom_wrapper,
+#pk-page-root .steps-sec-outer,
+#pk-page-root .adoption_section{
+  background:transparent!important}
+#pk-view-home .step-card,
+#pk-page-root .step-card{
+  background:var(--pk-glass-strong)!important;
+  backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important;
+  box-shadow:var(--pk-shadow)!important}
+#shopify-section-template--21804439798011__71278585-4b27-4c75-baff-b73528b2890e,
+#shopify-section-template--21804439798011__slider_first_global_79iWkH,
+#shopify-section-template--21804439798011__d386879e-349b-4dcb-8f4a-4e7f41a2d38f{
+  background:transparent!important}
+.yas_header.stiky-active,
+body.template-product .yas_header.stiky-active{
+  background:rgba(255,255,255,0.78)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important}
+#pk-product-root .fix_button-s{background:#fff!important}
 </style>
 """
 
@@ -1361,7 +1423,11 @@ def build_single_html():
     print(f"Pages: {len(pages)} (info pages, blogs, cart, search)")
 
     head, body = get_home_shell()
-    head = head.replace("</head>", SPA_CSS + SITE_THEME_CSS + HEAD_ASSETS + HEAD_SCRIPTS + "</head>", 1)
+    head = head.replace(
+        "</head>",
+        SPA_CSS + SITE_THEME_CSS + HEAD_ASSETS + SITE_THEME_OVERRIDE_CSS + HEAD_SCRIPTS + "</head>",
+        1,
+    )
 
     contact_views = SPA_VIEWS.format(
         phone=CONTACT_PHONE,
