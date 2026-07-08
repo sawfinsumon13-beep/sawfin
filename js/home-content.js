@@ -97,9 +97,9 @@ function renderHomepageContent() {
           </div>
           <div class="classic-showcase-visual">
             <div class="classic-photo-stack">
-              <img src="${ENGINE_PRODUCT_IMAGES[0]}" alt="BMW TwinPower engine cover" loading="lazy">
-              <img src="${ENGINE_PRODUCT_IMAGES[6]}" alt="BMW engine on pallet in warehouse" loading="lazy">
-              <img src="${ENGINE_PRODUCT_IMAGES[8]}" alt="BMW engine close-up with hoses" loading="lazy">
+              <img src="${ENGINE_VIEWS.top_cover}" alt="BMW TwinPower engine cover in warehouse" loading="lazy">
+              <img src="${ENGINE_VIEWS.pallet_main}" alt="BMW engine on pallet in Hamburg warehouse" loading="lazy">
+              <img src="${ENGINE_VIEWS.hoses_detail}" alt="BMW engine hoses and components close-up" loading="lazy">
             </div>
           </div>
         </div>

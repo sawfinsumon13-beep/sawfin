@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     grid.innerHTML = featured.map(e => `
       <a href="/engine-detail?id=${e.id}" class="engine-card">
         <div class="card-image">
-          <img src="${getEngineThumbnail(e)}" alt="${e.name}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+          <img src="${getEngineThumbnail(e)}" alt="${getEngineImageAlt(e)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
           <span class="card-badge">${e.condition}</span>
         </div>
         <div class="card-body">

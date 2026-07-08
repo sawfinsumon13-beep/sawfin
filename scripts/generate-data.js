@@ -113,19 +113,29 @@ const BLOG_TOPICS = [
 ];
 
 const imageData = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'engine-images.json'), 'utf8'));
-const ENGINE_PRODUCT_IMAGES = imageData.images;
+const ENGINE_VIEWS = imageData.views;
+const FAMILY_GALLERIES = imageData.familyGalleries || {};
+const DEFAULT_GALLERY = imageData.defaultGallery || Object.keys(ENGINE_VIEWS);
 const CATEGORY_IMAGES = imageData.categories;
+const ENGINE_PRODUCT_IMAGES = Object.values(ENGINE_VIEWS);
 
 function extractFamilyFromText(text) {
   const match = (text || '').match(/\b([NSBM]\d{2,3}|M\d{2})\b/i);
   return match ? match[1].toUpperCase() : '';
 }
 
+function resolveGalleryKeys(familyCode) {
+  return FAMILY_GALLERIES[familyCode] || DEFAULT_GALLERY;
+}
+
+function resolveViewUrl(key) {
+  return ENGINE_VIEWS[key] || ENGINE_PRODUCT_IMAGES[0];
+}
+
 function getImageUrl(id, offset = 0, family = '') {
-  if (offset === 0 && family && CATEGORY_IMAGES[family]) {
-    return CATEGORY_IMAGES[family];
-  }
-  return ENGINE_PRODUCT_IMAGES[(id + offset) % ENGINE_PRODUCT_IMAGES.length];
+  const keys = resolveGalleryKeys(family);
+  const key = keys[(offset + (id % keys.length)) % keys.length];
+  return resolveViewUrl(key);
 }
 
 function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
@@ -133,11 +143,12 @@ function pick(arr) { return arr[rand(0, arr.length - 1)]; }
 function pickN(arr, n) { const shuffled = [...arr].sort(() => 0.5 - Math.random()); return shuffled.slice(0, n); }
 
 function getEngineImages(id, familyCode) {
-  const count = rand(3, 6);
+  const keys = resolveGalleryKeys(familyCode);
+  const count = rand(4, 6);
   const images = [];
-  images.push(getImageUrl(id, 0, familyCode));
-  for (let i = 1; i < count; i++) {
-    images.push(getImageUrl(id, i));
+  for (let i = 0; i < count; i++) {
+    const key = keys[(i + (id % keys.length)) % keys.length];
+    images.push(resolveViewUrl(key));
   }
   return images;
 }

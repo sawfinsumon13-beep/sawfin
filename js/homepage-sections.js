@@ -1,4 +1,5 @@
-// Homepage content sections — 5000+ words, images assigned from ENGINE_PRODUCT_IMAGES at render
+// Homepage content sections — 5000+ words, Bavarian-style warehouse images at render
+const HOMEPAGE_GALLERY_KEYS = ['pallet_main', 'top_cover', 'hoses_detail', 'pallet_alt', 'warehouse_a', 'components_detail', 'workshop', 'engine_bay', 'diesel_block'];
 const HOMEPAGE_SECTIONS = [
   {
     tag: 'WHY CHOOSE US',
@@ -158,13 +159,14 @@ const HOMEPAGE_SECTIONS = [
   }
 ];
 
-const OLD_ENGINE_GALLERY = ENGINE_PRODUCT_IMAGES.slice(0, 9).map((src, i) => ({
-  src, alt: ['BMW TwinPower engine cover', 'BMW engine bay', 'BMW M Power engine', 'BMW engine close-up', 'Engine hoses and components', 'Workshop engine testing', 'BMW turbo engine', 'Engine block detail', 'BMW engine inventory'][i] || 'BMW engine'
+const OLD_ENGINE_GALLERY = HOMEPAGE_GALLERY_KEYS.map((key, i) => ({
+  src: ENGINE_VIEWS[key],
+  alt: `BMW engine warehouse photo ${i + 1} — ${VIEW_LABELS[key] || 'inventory'}`
 }));
 
 function renderContentSections() {
   return HOMEPAGE_SECTIONS.map((section, i) => {
-    const img = ENGINE_PRODUCT_IMAGES[i % ENGINE_PRODUCT_IMAGES.length];
+    const img = ENGINE_VIEWS[HOMEPAGE_GALLERY_KEYS[i % HOMEPAGE_GALLERY_KEYS.length]];
     return `
     <section class="content-block-section${i % 2 ? ' alt-bg' : ''}">
       <div class="container content-block${section.reverse ? ' reverse' : ''}">

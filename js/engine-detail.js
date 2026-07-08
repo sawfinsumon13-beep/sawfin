@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       <div class="detail-layout">
         <div class="gallery">
           <div class="gallery-main">
-            <img id="mainImage" src="${galleryImages[0]}" alt="${engine.name}" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+            <img id="mainImage" src="${galleryImages[0]}" alt="${getEngineImageAlt(engine, 0)}" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
           </div>
           <div class="gallery-thumbs">
             ${galleryImages.map((img, i) => `
-              <img src="${img}" alt="${engine.name} view ${i + 1}"
+              <img src="${img}" alt="${getEngineImageAlt(engine, i)}"
                    class="${i === 0 ? 'active' : ''}"
                    onclick="document.getElementById('mainImage').src='${img}';document.querySelectorAll('.gallery-thumbs img').forEach(el=>el.classList.remove('active'));this.classList.add('active')"
                    onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
