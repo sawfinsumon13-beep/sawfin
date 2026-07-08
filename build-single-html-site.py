@@ -30,6 +30,26 @@ DESC_RE = re.compile(r'property="og:description" content="([^"]+)"', re.I)
 IMG_RE = re.compile(r'property="og:image" content="([^"]+)"', re.I)
 PRICE_RE = re.compile(r'data-price-formatted="([^"]+)"', re.I)
 H1_RE = re.compile(r"<h1[^>]*>([^<]+)", re.I)
+PRICE_IN_TEXT_RE = re.compile(r"\$([\d,]+(?:\.\d{2})?)")
+PRICE_DISCOUNT = 0.6  # 40% off → pay 60% of listed price
+
+
+def reduce_prices_in_text(text: str) -> str:
+    def repl(m: re.Match[str]) -> str:
+        num_str = m.group(1).replace(",", "")
+        val = float(num_str)
+        new_val = val * PRICE_DISCOUNT
+        if "." in num_str:
+            return f"${new_val:,.2f}"
+        return f"${round(new_val):,}"
+
+    return PRICE_IN_TEXT_RE.sub(repl, text)
+
+
+def strip_footer_social_media(html: str) -> str:
+    html = re.sub(r'<div class="footer-social">.*?</div>\s*(?=</div>|<div class="footer_img-icon"|</div></div>)', "", html, flags=re.I | re.S)
+    html = re.sub(r'<div class="coll_social_media"[^>]*>.*?</div>\s*</div>', "", html, flags=re.I | re.S)
+    return html
 
 
 def normalize_img_url(src: str) -> str:
@@ -266,6 +286,9 @@ def extract_product(path: Path) -> dict | None:
     variants = extract_product_variants(text)
     price_m = PRICE_RE.search(text)
     price = price_m.group(1).strip() if price_m else ""
+    if price:
+        price = reduce_prices_in_text(price)
+    variants = [{**v, "label": reduce_prices_in_text(v["label"])} for v in variants]
     if not variants and price:
         variants = [{"label": f"Complete Adoption Fee - {price}", "subtitle": "One Payment, Fully Yours Instantly"}]
     info_html = extract_info_html(text)
@@ -335,6 +358,7 @@ def sanitize_page_html(html: str) -> str:
     html = re.sub(r"<a\s+href\s*\n\s*=\s*\"([^\"]*)\"", r'<a href="\1"', html, flags=re.I)
     html = re.sub(r'href="\s+/pages/', 'href="#/pages/', html)
     html = strip_embedded_global_sections(html)
+    html = reduce_prices_in_text(html)
     return html
 
 
@@ -1158,6 +1182,8 @@ def build_single_html():
     body = replace_omniform_links(body)
     body = replace_calendly_links(body)
     body = strip_internal_links(body)
+    body = reduce_prices_in_text(body)
+    body = strip_footer_social_media(body)
     body = patch_inline_scripts(body)
     body = restructure_layout(body, contact_views)
 
@@ -1181,6 +1207,7 @@ def build_single_html():
     )
     html = replace_omniform_links(html)
     html = replace_calendly_links(html)
+    html = strip_footer_social_media(html)
 
     OUT.write_text(html, encoding="utf-8")
     ZIP_OUT.write_text(html, encoding="utf-8")
