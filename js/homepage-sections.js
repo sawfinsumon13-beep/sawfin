@@ -137,6 +137,21 @@ const HOMEPAGE_SECTIONS = [
       "We offer a core exchange programme that reduces the net cost of your purchase. Return your old engine — complete with block, head, and sump — and receive a credit of €150–800 depending on the family and condition. Even seized engines have value as core returns, and the programme encourages responsible recycling of engine components. Credits are applied to your account within 7 business days of core inspection.",
       "Price matching is not our policy because matching a competitor's price on an untested engine would require us to remove the testing that justifies our pricing. However, if you find a tested engine with equivalent documentation at a lower price from another European supplier, bring us the quote and we will explain the differences in testing scope, warranty terms, and included services. An informed comparison almost always confirms that our pricing represents superior value when total cost of ownership is considered."
     ]
+  },
+  {
+    tag: 'PERFORMANCE',
+    title: 'M Power & Turbo Performance Engines',
+    image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1000&q=80',
+    imageAlt: 'BMW performance engine',
+    reverse: true,
+    paragraphs: [
+      "BMW M Performance engines represent the pinnacle of the company's engineering capability. From the naturally aspirated S54 that powered the E46 M3 to the twin-turbo S63 in modern M5 and M8 models, these powerplants demand respect, proper maintenance, and careful sourcing when replacement becomes necessary. Premium BMW Engines maintains one of Europe's largest stocks of M Performance engines, each individually tested and documented.",
+      "The S54B32 remains the most sought-after naturally aspirated M engine. Its 343 hp output, 8,000 rpm redline, and motorsport-derived architecture make it the heart of the E46 M3 — widely considered the greatest M3 ever built. Rod bearing wear is the primary concern with S54 engines, and every unit in our inventory has documented bearing inspection results. We measure crankshaft end float, inspect bearing shells, and perform oil analysis to verify internal condition before listing any S54 for sale.",
+      "Turbocharged M Performance engines introduce additional complexity. The S55 in the F80 M3 and F82 M4, the S58 in current G-series M cars, and the S63 across the M5/M6/M8 range all require turbocharger condition assessment, charge air cooler inspection, and fuel system verification as part of our testing protocol. These engines produce enormous power but generate significant heat, making cooling system condition equally important to internal mechanical health.",
+      "For enthusiasts building track cars or high-performance street machines, we offer both stock and enhanced engines. Stock units provide reliable baseline performance with documented factory-specification output on our dyno. Enhanced units may include upgraded rod bearings, refreshed turbos, performance intercoolers, and ECU remapping — all documented and tested before sale. We clearly distinguish between stock and enhanced specification in every listing to prevent misunderstanding.",
+      "The N54 and N55 twin-scroll turbo engines, while not full M Power units, deserve mention in any performance discussion. These engines respond exceptionally well to tuning, with many owners achieving 400+ hp from software and bolt-on modifications alone. Our N54 and N55 stock serves both replacement buyers — those whose engines have suffered rod bearing or HPFP failure — and performance builders seeking a clean, tested base engine for modification. Each unit's compression, leak-down, and turbo condition are documented.",
+      "Investing in a performance BMW engine is a significant financial decision. Whether you are replacing a failed S55 in your F80 M3 or building an S54-powered track weapon from scratch, the engine you choose determines the reliability and performance ceiling of your entire project. Premium BMW Engines provides the testing documentation, warranty protection, and technical expertise that performance builds demand. Contact our team to discuss your M Power requirements and receive recommendations tailored to your specific application and budget."
+    ]
   }
 ];
 
