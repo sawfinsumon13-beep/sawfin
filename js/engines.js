@@ -36,6 +36,7 @@ function applyUrlFilters() {
   const fuel = params.get('fuel');
   const series = params.get('series');
   const era = params.get('era');
+  const family = params.get('family');
 
   if (fuel) {
     document.getElementById('filterFuel').value = fuel;
@@ -47,6 +48,11 @@ function applyUrlFilters() {
   if (era) {
     document.getElementById('filterEra').value = era;
     filtered = filtered.filter(e => e.era === era);
+  }
+  if (family) {
+    const el = document.getElementById('filterFamily');
+    if (el) el.value = family;
+    filtered = filtered.filter(e => e.family === family);
   }
 }
 

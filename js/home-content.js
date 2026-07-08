@@ -1,136 +1,214 @@
+const ENGINE_CATEGORIES = [
+  {
+    title: 'N57 ENGINES',
+    badge: '3.0L DIESEL',
+  badgeType: 'diesel',
+    models: '330d · 530d · X5 · X6 torque',
+    image: 'https://images.unsplash.com/photo-1763836223247-e44e2753883e?w=900&q=80',
+    href: '/engines?family=N57'
+  },
+  {
+    title: 'N47 ENGINES',
+    badge: '2.0L DIESEL',
+    badgeType: 'diesel',
+    models: '320d · 520d · 118d · X3',
+    image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=900&q=80',
+    href: '/engines?family=N47'
+  },
+  {
+    title: 'M57 ENGINES',
+    badge: 'SWAP READY',
+    badgeType: 'swap',
+    models: 'Defender & 4x4 conversions',
+    image: 'https://images.unsplash.com/photo-1760713174351-4e7350ff797e?w=900&q=80',
+    href: '/m57-swap-kits'
+  },
+  {
+    title: 'B57 ENGINES',
+    badge: 'EURO 6',
+    badgeType: 'euro',
+    models: 'G30 530d · X5 G05',
+    image: 'https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=900&q=80',
+    href: '/engines?family=B57'
+  },
+  {
+    title: 'B47 ENGINES',
+    badge: 'EURO 6',
+    badgeType: 'euro',
+    models: 'F30 LCI · X3 · X4',
+    image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=900&q=80',
+    href: '/engines?family=B47'
+  },
+  {
+    title: 'M54 ENGINES',
+    badge: 'PETROL',
+    badgeType: 'petrol',
+    models: 'E46 330i · E39 530i · Z3',
+    image: 'https://images.unsplash.com/photo-1688701108480-0db760644684?w=900&q=80',
+    href: '/engines?family=M54'
+  },
+  {
+    title: 'M20 ENGINES',
+    badge: 'CLASSIC',
+    badgeType: 'classic',
+    models: 'E30 restoration · E21 · E28',
+    image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=900&q=80',
+    href: '/engines?family=M20&era=classic'
+  },
+  {
+    title: 'B58 ENGINES',
+    badge: 'TURBO PETROL',
+    badgeType: 'petrol',
+    models: '340i · 440i · X3 M40i',
+    image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=900&q=80',
+    href: '/engines?family=B58'
+  },
+  {
+    title: 'S54 ENGINES',
+    badge: 'M POWER',
+    badgeType: 'm',
+    models: 'E46 M3 · track builds',
+    image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&q=80',
+    href: '/engines?family=S54'
+  }
+];
+
+const RECENT_PURCHASES = [
+  { name: 'Marco', city: 'Milan, Italy', engine: 'BMW X5 F15 30d N57D30B Engine', price: '€3,200', ago: '12 minutes ago' },
+  { name: 'Thomas', city: 'Hamburg, Germany', engine: 'BMW E46 330i M54B30 Engine', price: '€1,850', ago: '28 minutes ago' },
+  { name: 'James', city: 'Birmingham, UK', engine: 'BMW F30 320d N47D20C Engine', price: '€2,100', ago: '45 minutes ago' },
+  { name: 'Stefan', city: 'Vienna, Austria', engine: 'BMW E39 530d M57D30 Engine', price: '€2,650', ago: '1 hour ago' },
+  { name: 'Peter', city: 'Rotterdam, Netherlands', engine: 'BMW G30 530d B57D30 Engine', price: '€4,100', ago: '2 hours ago' },
+  { name: 'Alexandre', city: 'Lyon, France', engine: 'BMW E46 M3 S54B32 Engine', price: '€5,800', ago: '3 hours ago' }
+];
+
 function renderHomepageContent() {
   const container = document.getElementById('homepageContent');
   if (!container) return;
 
+  const cards = ENGINE_CATEGORIES.map(cat => `
+    <a href="${cat.href}" class="category-card">
+      <img class="category-card-bg" src="${cat.image}" alt="${cat.title}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+      <div class="category-card-overlay"></div>
+      <span class="category-badge badge-${cat.badgeType}">${cat.badge}</span>
+      <div class="category-card-content">
+        <h3>${cat.title}</h3>
+        <p>${cat.models}</p>
+      </div>
+    </a>
+  `).join('');
+
   container.innerHTML = `
-    <section class="home-content-section">
-      <div class="container home-content-grid">
-        <div class="home-content-image">
-          <img src="https://images.unsplash.com/photo-1688701108480-0db760644684?w=900&q=80" alt="Classic BMW engine" loading="lazy">
-        </div>
-        <div class="home-content-text">
-          <span class="section-tag">Why Choose Us</span>
-          <h2>Europe's Most Trusted BMW Engine Supplier</h2>
-          <p>When your BMW needs a new heart, the decision you make today determines whether you are back on the road in a week or back in the workshop in a month. At Premium BMW Engines, we have spent over two decades earning the trust of enthusiasts, independent workshops, and fleet operators across 28 European countries. Our Hamburg facility houses more than 3,100 tested BMW engines — the largest dedicated inventory on the continent — and every single unit carries documented proof of mechanical condition before it ships to your door.</p>
-          <p>We understand that buying an engine online requires confidence. That is why we publish compression test results, leak-down percentages, and dyno verification data for every engine in our catalog. No vague descriptions. No stock photography masquerading as your actual unit. When you purchase from Premium BMW Engines, you receive photographic evidence of your specific engine, a full test report, and a 6-month mechanical warranty that we honour without argument. Our return rate is below 0.4% — not because we make returns difficult, but because our testing protocol catches problems before they reach your garage.</p>
-          <p>Whether you are restoring a classic E30 with an M20, replacing a failed N47 diesel in your daily F30, or building a track car around an S54 or B58, our technical team provides free fitment consultation before you commit to a purchase. We have supplied engines for over 15,000 projects since 2003, from straightforward like-for-like replacements to complex swap conversions involving M57 diesels in Land Rover Defenders and B58 turbos in E36 shells. Our experience is your insurance against costly mistakes.</p>
-          <p>Unlike general salvage yards that grade engines by visual appearance alone, our procurement team sources specifically from fleet decommissioning programmes, insurance write-offs with documented mileage, and private collections where service history is verifiable. Each engine enters our facility dirty and unproven. It leaves tested, cleaned, photographed, and ready for installation. That transformation — from unknown to documented — is what separates Premium BMW Engines from every other supplier in Europe.</p>
-          <p>Our pricing reflects genuine mechanical value. A freshly painted engine with unknown internals may look attractive at a lower price point, but the true cost reveals itself when your workshop discovers scored bores, failed chain guides, or coolant contamination after installation. We would rather lose a sale to a cheaper competitor than sell an engine we cannot stand behind. Every member of our team drives BMW products. We understand the emotional and financial investment our customers make, because we make the same investments ourselves.</p>
-          <p>Located in Hamburg — one of Europe's largest automotive logistics hubs — we benefit from direct access to German fleet auctions, manufacturer service centres, and a deep network of BMW specialists across northern Europe. This geographic advantage means we see engines before our competitors do, and we can offer faster turnaround from sourcing to shipment. When a rare S38 or S85 enters our inventory, it is typically sold within 48 hours because our mailing list of collectors and specialist workshops receives immediate notification.</p>
-          <p>We also recognise that not every customer needs the newest or most powerful engine. Many of our most satisfied buyers are classic BMW owners seeking period-correct replacements that preserve the character of their vehicles. An M20B25 with 120,000 km and uniform compression readings is often a better choice for an E30 325i restoration than a modern swap that compromises originality. We stock these classic units in depth because we believe preserving BMW's engineering heritage is as important as pushing performance boundaries.</p>
-          <p>Transparency is the foundation of our business model. Every price on our website is the price you pay — no hidden handling fees, no surprise surcharges at checkout. Shipping costs are calculated upfront based on your delivery address and displayed before you confirm your order. VAT is applied correctly for EU private and business customers, and we provide all documentation needed for tax-deductible business purchases and import declarations for non-EU destinations.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-content-section alt-bg">
-      <div class="container home-content-grid reverse">
-        <div class="home-content-image">
-          <img src="https://images.unsplash.com/photo-1763836223247-e44e2753883e?w=900&q=80" alt="Old BMW diesel engines" loading="lazy">
-        </div>
-        <div class="home-content-text">
-          <span class="section-tag">Quality Assurance</span>
-          <h2>Every Engine Dyno-Tested &amp; Documented</h2>
-          <p>Our testing protocol was developed over twenty years and thousands of engines. It begins the moment an engine arrives at our Hamburg facility. First, external inspection: we check for cracks in the block and head, assess sump condition, verify that all major components are present, and photograph every angle. Engines with catastrophic external damage are rejected immediately — they never enter our sales inventory.</p>
-          <p>Compression testing follows. Each cylinder is tested warm with a calibrated gauge, and readings must fall within 10% of each other and within specification for the engine family. A single low cylinder triggers further investigation: borescope inspection, leak-down testing, and assessment of whether the issue is valve-related, ring-related, or indicative of head gasket failure. We document everything in a standardised report that accompanies your engine.</p>
-          <p>Leak-down testing measures the percentage of compressed air escaping from each cylinder over a timed period. Healthy petrol engines typically show 5–15% leak-down; diesels run higher due to tighter tolerances. Readings above 20% on any cylinder result in either rebuild or rejection, depending on the nature and location of the leak. These numbers are not estimates — they are measured values recorded on your test certificate.</p>
-          <p>The dyno run is the final gate. Your engine is mounted on our SuperFlow dynamometer, connected to fuel, cooling, and exhaust systems appropriate for its family. We verify that it starts cleanly, idles smoothly, reaches operating temperature without abnormal readings, and produces oil pressure within specification at both idle and elevated RPM. For turbocharged engines, we additionally verify boost response and check for excessive smoke under load.</p>
-          <p>This process takes 4–6 hours per engine. It is not fast, and it is not cheap to operate. But it is the reason our customers install our engines and drive away without callbacks. When a workshop calls us with a question, we can reference the specific test data for their engine — not generic assurances, but the actual numbers from their unit. That level of accountability is what premium means in the engine supply business.</p>
-          <p>Oil analysis is available as an optional add-on for customers who want additional confidence. A sample taken before shipment reveals bearing wear metals, fuel dilution, and coolant contamination that compression and leak-down tests alone might miss. Fleet operators ordering multiple units routinely request this service, and the data becomes part of their vehicle maintenance records for compliance and resale documentation.</p>
-          <p>Our workshop floor operates six days a week with three dedicated test cells. During peak season — typically September through March when owners prepare vehicles for MOT testing and winter driving — we process up to 40 engines per week through the full protocol. Despite this volume, we have never compromised the individual attention each engine receives. No engine ships without a signed test certificate from the technician who performed the verification.</p>
-          <p>For customers who wish to witness testing firsthand, we welcome visits to our Hamburg facility by appointment. Watching your engine run on the dyno before it is crated for shipment provides a level of confidence that photographs and reports alone cannot match. Several of our international customers combine engine collection with a visit to Hamburg — we are happy to assist with local accommodation recommendations and workshop tour arrangements.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-content-section">
+    <section class="category-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Our Inventory</span>
-          <h2>3,100+ Engines — Classic, Modern &amp; Performance</h2>
+          <span class="section-tag">Browse by Series</span>
+          <h2>BMW Engine Collections</h2>
+          <p>3,100+ tested engines — select your series to explore inventory, specs, and pricing.</p>
         </div>
-        <div class="home-content-text wide">
-          <p>Our inventory spans every significant BMW engine generation from the 1960s to the present day. Classic enthusiasts will find M10, M20, M30, and M50 units suitable for E30, E28, and E34 restorations. The M20 in particular remains one of our most requested engines — its balance of reliability, parts availability, and tuning potential makes it the backbone of the classic BMW community. We stock M20B25 and M20B27 variants in multiple conditions, from low-mileage originals to fully rebuilt units with new gaskets, timing components, and refreshed valve gear.</p>
-          <p>For the E36 and E46 generation, our M50, M52, and M54 inventory is unmatched. The M54B30 remains the gold standard for daily-driver reliability in the E46 platform, while the S54B32 serves the performance market with documented compression readings that give track builders confidence before installation. We also maintain substantial stock of M57 diesel engines — the legendary 3.0-litre inline-six diesel that has powered everything from E39 530d touring cars to Defender conversions and marine applications.</p>
-          <p>The N-series generation brought turbocharging to the mainstream BMW lineup, and our N54, N55, N52, N47, and N57 stock reflects the continued demand for these platforms. N54 and N55 engines are particularly popular among F-series performance enthusiasts, while N47 and N57 diesels serve the fleet and commercial market where downtime costs money. Every diesel engine in our inventory is checked for timing chain condition, injector function, and turbocharger play before listing.</p>
-          <p>Modern B-series engines represent the current state of BMW powerplant technology. Our B48, B58, and B57 inventory serves owners of current-generation 3 Series, 5 Series, X3, and X5 vehicles who face dealer replacement quotes exceeding €12,000. A tested B58 from our facility typically costs 40–60% less than dealer supply, with identical mechanical specification and our warranty backing. S55 and S58 M Performance engines cater to the F80, F82, and G-series M car market where factory power is just the starting point.</p>
-          <p>What makes our catalog unique is depth within each family. We do not stock one M54 and call it a day — we stock dozens of M54 variants across different production years, mileage brackets, and condition grades. Our online catalog allows you to filter by fuel type, engine family, era, power output, and price range. Each listing shows multiple photographs of the actual engine you will receive, not a generic stock image. When you find the engine that matches your project, our team confirms platform compatibility with your VIN before processing your order.</p>
-          <p>Classic BMW engines hold a special place in our inventory. The M10 — BMW's first modern overhead-cam four-cylinder — powers early 2002 and E21 models that are increasingly sought by collectors. The M30 single-cam inline-six served the E24, E28, and E34 ranges for decades and remains remarkably durable when properly maintained. We regularly stock M30B30 and M30B35 units with documented low mileage from elderly-owner vehicles that spent decades in heated garages. These engines represent exceptional value for restorers who refuse to compromise on originality.</p>
-          <p>Our old engine collection includes units that other suppliers overlook: M21 diesels for early E30 324d projects, M41 units for compact E36 318td conversions, and S14 four-cylinders for E30 M3 homologation builds. Each classic engine receives the same testing protocol as our modern stock, adapted where necessary for engines that cannot be dyno-run due to missing ancillaries. In these cases, we perform thorough static testing — compression, leak-down, borescope inspection, and crank rotation checks — and clearly document the scope of testing on the certificate.</p>
-          <p>Performance engines command premium prices in the market, and we believe premium prices demand premium verification. Our S54, S55, S58, S63, and S65 inventory includes documented rod bearing inspection results, VANOS function checks, and turbocharger condition assessments. For the S54 specifically — an engine notorious for rod bearing wear — we measure crank end float and inspect bearing shells on every unit before listing. This diligence protects both the buyer and our reputation in the performance community.</p>
+        <div class="category-grid">${cards}</div>
+      </div>
+    </section>
+
+    <section class="premium-strip">
+      <div class="container premium-strip-grid">
+        <div class="premium-strip-item">
+          <span class="strip-number">01</span>
+          <h3>Dyno-Tested</h3>
+          <p>Every engine compression-tested, leak-down verified, and run on our SuperFlow dynamometer before sale.</p>
         </div>
-        <div class="classic-engine-showcase">
-          <img src="https://images.unsplash.com/photo-1760713174351-4e7350ff797e?w=600&q=80" alt="Vintage BMW engine" loading="lazy">
-          <img src="https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=600&q=80" alt="Classic engine parts" loading="lazy">
-          <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&q=80" alt="Old engine workshop" loading="lazy">
-          <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80" alt="BMW engine block" loading="lazy">
+        <div class="premium-strip-item">
+          <span class="strip-number">02</span>
+          <h3>6-Month Warranty</h3>
+          <p>Comprehensive mechanical warranty on all tested units. Documented results included with every purchase.</p>
+        </div>
+        <div class="premium-strip-item">
+          <span class="strip-number">03</span>
+          <h3>EU-Wide Shipping</h3>
+          <p>Palletised delivery to 28 countries. Transit insurance, tracking, and customs documentation included.</p>
+        </div>
+        <div class="premium-strip-item">
+          <span class="strip-number">04</span>
+          <h3>Expert Support</h3>
+          <p>Free fitment consultation from certified BMW technicians. Call +49 176 13627363 for advice.</p>
         </div>
       </div>
     </section>
 
-    <section class="home-content-section alt-bg">
-      <div class="container home-content-grid">
-        <div class="home-content-text">
-          <span class="section-tag">Trusted Worldwide</span>
-          <h2>Why Workshops &amp; Enthusiasts Choose Premium BMW Engines</h2>
-          <p>Independent workshops across Europe recommend us because we make their lives easier. When a customer's E90 320d arrives with a seized N47, the workshop needs an engine quickly, at a fair price, with documentation that protects them if something goes wrong. We deliver all three. Our trade accounts receive priority allocation, bulk pricing, and direct access to our technical team for fitment queries. Over 200 workshops hold active accounts with us, and our repeat purchase rate among trade customers exceeds 85%.</p>
-          <p>Enthusiasts choose us for a different reason: expertise. Building an M57 into an E30 is not a bolt-in operation. It requires custom mounts, wiring adaptation, exhaust fabrication, and ECU programming. Our team has guided hundreds of these conversions from planning through first start. We sell complete swap kits for the most popular combinations — E30, E36, E46, E39, and Land Rover Defender — with every component needed for installation. When you buy a kit from us, you are not just buying parts; you are buying the accumulated knowledge of every swap we have completed.</p>
-          <p>Our shipping operation is built for engines, not parcels. Every engine is mounted on a custom steel transport frame, secured with rated straps, wrapped in protective sheeting, and palletised for freight collection. Transit insurance covers the full purchase value. We ship to all 28 EU member states, plus the United Kingdom, Switzerland, and Norway with full customs documentation. Standard delivery to mainland Europe takes 3–5 business days. Germany receives next-day service on most orders.</p>
-          <p>The 6-month mechanical warranty is not marketing language — it is a contractual commitment. If an internal component fails due to a pre-existing condition that our testing should have caught, we repair, replace, or refund. We have honoured over 200 warranty claims in our history, and every one was resolved to the customer's satisfaction. Extended warranty options are available for fleet operators who need 12-month coverage across multiple units.</p>
-          <p>Our blog library of 215 technical articles demonstrates the depth of knowledge behind our sales operation. These are not thin SEO pages — each article contains approximately 2,500 words of genuine technical guidance on topics ranging from N47 versus N57 selection to M57 swap wiring and Euro 6 compliance for imported diesels. We publish this content because an informed customer makes better decisions, and better decisions lead to successful projects and repeat business.</p>
-          <p>Customer reviews speak louder than any marketing claim. Our 99.7% satisfaction rate is based on post-delivery surveys sent to every customer within 30 days of engine receipt. We publish representative reviews on our website — positive and constructively critical — because authenticity matters. When a customer reports an issue, we resolve it publicly and use the feedback to improve our testing protocol. This continuous improvement cycle has reduced our warranty claim rate by 60% over the past five years.</p>
-          <p>We also invest in the BMW community beyond commerce. Our technical team contributes to forum discussions, sponsors local track days and classic car shows in northern Germany, and provides educational content for automotive training programmes. We believe that a healthy enthusiast ecosystem benefits everyone — more informed owners, more capable workshops, and more BMW vehicles kept on the road rather than scrapped prematurely due to engine failure.</p>
-          <p>Competitive pricing does not mean cutting corners. We achieve fair prices through volume purchasing, efficient workshop operations, and the elimination of middlemen. When you buy from Premium BMW Engines, you buy directly from the testing facility. There is no broker, no auction house markup, and no dealer network adding margin at each step. The savings pass directly to you, while the quality remains at the level you would expect from a specialist supplier.</p>
-        </div>
-        <div class="home-content-image">
-          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=900&q=80" alt="BMW engine workshop Hamburg" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <section class="home-content-section alt-bg">
+    <section class="classic-showcase-section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Classic Heritage</span>
-          <h2>Preserving BMW's Greatest Engines for the Next Generation</h2>
-        </div>
-        <div class="home-content-text wide">
-          <p>There is something irreplaceable about a well-maintained classic BMW engine. The mechanical honesty of an M20 that revs freely to 6,500 rpm. The turbine-smooth idle of an M30 straight-six that has never been apart. The motorsport pedigree of an S14 or S38 that carried BMW's racing reputation through the 1980s and 1990s. These engines were designed in an era when BMW engineers prioritised driving feel over emissions compliance, and their character endures decades after production ended.</p>
-          <p>At Premium BMW Engines, we are custodians of this heritage. Our classic engine inventory is not an afterthought bolted onto a modern diesel business — it is a core part of who we are. We employ technicians who learned their craft on M20 and M30 platforms before progressing to N and B series engines. Their expertise in classic BMW powerplants is available to every customer who calls our workshop, whether you are rebuilding an E21 323i or sourcing an M50 for an E30 swap.</p>
-          <p>The old engines in our warehouse tell stories. An M20B27 pulled from a 1989 E30 325i with 89,000 km and a complete service booklet. An M30B35 from an E34 535i that spent its life on Autobahn commutes between Munich and Stuttgart. An M57 306d3 from a decommissioned E39 fleet vehicle with documented oil changes every 10,000 km. Each engine carries history, and we document that history alongside our mechanical test results so you know exactly what you are buying.</p>
-          <p>Restoration projects demand patience and precision. We support that process by offering engines in multiple condition grades: tested originals for budget-conscious builds, low-mileage units for drivers who want maximum remaining life, and fully rebuilt engines for concours restorations where every component must meet factory specification. Our rebuild programme covers M20, M50, M52, M54, S54, and M57 families with new gaskets, seals, timing components, and bearings — assembled by technicians who specialise in BMW engine work.</p>
-          <p>The photographs on our website show real engines from our warehouse — old cast-iron blocks with decades of patina, aluminium heads cleaned but not over-polished, and the honest wear of components that have done their duty and are ready to serve again. We do not hide the age of our classic inventory. We celebrate it. An engine that has run 150,000 km with consistent compression readings is a testament to BMW build quality, not a liability to be disguised with fresh paint.</p>
-          <p>When you purchase a classic BMW engine from us, you join a community of enthusiasts who believe these machines deserve to keep running. We provide installation guidance specific to your platform, recommend suppliers for supporting components like clutches and radiators, and remain available for technical questions throughout your project. The relationship does not end at delivery — it begins there. That is the Premium BMW Engines promise, and it applies equally to a €800 M20 and a €12,000 S54.</p>
-          <p>The market for classic BMW engines grows stronger every year as younger enthusiasts discover the E30, E36, and E46 platforms. Values for clean examples continue to rise, and the availability of quality replacement engines decreases as donor cars are consumed. By maintaining deep stock of M20, M50, M52, M54, and S54 units, we ensure that the next generation of BMW owners can keep these iconic vehicles on the road. Investing in a documented engine today protects the value of your vehicle tomorrow.</p>
-          <p>We photograph every angle of every engine in our inventory — top, bottom, front, rear, and close-ups of critical areas like the timing cover, sump, and cylinder head mating surface. These photographs are not marketing assets; they are your pre-purchase inspection. Study them carefully, compare compression readings across similar listings, and ask our team to explain any detail you do not understand. An informed purchase is a successful purchase, and we provide the information you need to buy with complete confidence.</p>
+        <div class="classic-showcase-layout">
+          <div class="classic-showcase-text">
+            <span class="section-tag">Classic Heritage</span>
+            <h2>Old BMW Engines — Restored &amp; Ready</h2>
+            <p>From M10 and M20 classics to legendary M30 straight-sixes and S54 M Power units — we stock the old engines that keep BMW history alive. Each unit is photographed, tested, and documented with compression readings you can trust.</p>
+            <ul class="classic-list">
+              <li>M10 · M20 · M30 — E21, E30, E28 restorations</li>
+              <li>M50 · M52 · M54 — E36, E39, E46 daily drivers</li>
+              <li>M57 · M47 — diesel swaps &amp; 4x4 conversions</li>
+              <li>S14 · S38 · S50 · S54 — motorsport &amp; collector builds</li>
+            </ul>
+            <a href="/engines?era=classic" class="btn btn-primary">Browse Classic Engines</a>
+          </div>
+          <div class="classic-showcase-visual">
+            <div class="classic-photo-stack">
+              <img src="https://images.unsplash.com/photo-1688701108480-0db760644684?w=600&q=80" alt="Old BMW engine" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1760713174351-4e7350ff797e?w=600&q=80" alt="Vintage engine" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=600&q=80" alt="Classic engine parts" loading="lazy">
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="home-content-section">
-          <h2>Start Your Engine Project Today</h2>
+    <section class="trust-section">
+      <div class="container trust-grid">
+        <div class="trust-stat">
+          <strong>15,000+</strong>
+          <span>Engines Sold Since 2003</span>
         </div>
-        <div class="home-content-text wide">
-          <p>The path from a failed engine to a running car should be straightforward. We designed our buying process to eliminate uncertainty at every step. Begin by browsing our online catalog of 3,100+ engines. Use the filters to narrow by fuel type, engine family, era, or price range. Each listing includes multiple photographs, full specifications, mileage, condition grade, and pricing. When you find a candidate, note the engine ID and contact our technical team for a free compatibility check.</p>
-          <p>Our consultation takes 15 minutes and can save you thousands of euros. We verify that the engine code matches your vehicle platform, confirm that the DME generation is compatible with your body electronics, and advise on any supporting components you may need — mounts, clutch, exhaust, cooling upgrades. For swap projects, we provide a complete bill of materials and realistic labour estimate so you can budget accurately before committing.</p>
-          <p>Once you confirm your order, a 30% deposit reserves the engine. We send updated photographs and the test report within 24 hours. The balance is due before dispatch. Payment options include SEPA bank transfer, credit card, and PayPal for orders under €3,000. Trade customers with approved credit accounts may use 30-day payment terms. We issue a pro-forma invoice immediately and a final invoice upon dispatch.</p>
-          <p>Delivery is to kerbside on a standard pallet. You will need forklift access or an engine hoist at the delivery address. We provide tracking from the moment the freight carrier collects your engine. Upon delivery, inspect the packaging before signing — if damage is visible, note it on the delivery receipt and contact us immediately. Our transit insurance covers damage in shipping, though incidents are exceptionally rare.</p>
-          <p>Installation should be performed by a qualified technician following BMW repair procedures. Use the correct oil specification, torque all fasteners to specification, bleed the cooling system completely, and perform a DME alignment if required for your engine generation. Our technical team remains available throughout your installation for questions — call us at +49 176 13627363 or email flashkingpro202@gmail.com during business hours (Monday–Friday, 08:00–18:00 CET). We respond to all enquiries within 2 hours during business hours.</p>
-          <p>Your BMW deserves a powerplant that matches its engineering heritage. Whether that means a numbers-matching M20 for a concours E30, a low-mileage B58 for a daily F30, or a built S54 for a track E46 M3, Premium BMW Engines has the inventory, the testing capability, and the technical expertise to deliver. Over 15,000 satisfied customers across Europe have trusted us with their engine projects. Join them — browse our catalog, speak with our team, and let us help you find the perfect engine for your BMW.</p>
-          <p>Do not let a failed engine end your relationship with your BMW. The cost of a quality replacement engine is a fraction of the cost of replacing the entire vehicle, and it preserves the character, history, and driving experience that drew you to the marque in the first place. Every day a BMW sits immobile in a garage is a day of driving pleasure lost. Our team can typically identify, test, and ship a suitable replacement within one week of your enquiry — getting you back behind the wheel faster than dealer supply chains that quote 6–12 week lead times.</p>
-          <p>We invite you to explore our catalog of 3,100+ engines, read our 215 technical articles, and contact us with any question — no matter how specific. Whether you need a single engine for a personal project or a fleet of ten diesels for a commercial operation, Premium BMW Engines delivers the same level of care, documentation, and warranty protection. Your engine project starts with a conversation. Let us make it a successful one.</p>
-          <p>Consider the total cost of ownership when comparing engine suppliers. A cheaper engine without test documentation may cost €500 less upfront but €3,000 more when your workshop discovers internal damage during installation. Our engines cost more than untested salvage units because we invest 4–6 hours of skilled labour and expensive test equipment into every unit. That investment protects you from the hidden costs that make budget purchases the most expensive option in the long run.</p>
-          <p>Our M57 swap kits have become industry reference points for diesel conversion projects. The E30, E36, E46, and Defender kits include everything from engine mounts and adapter plates to wiring harnesses and ECU solutions. Each kit is assembled from components we have validated through our own installation experience, not sourced from unknown third-party suppliers. When you buy a swap kit from Premium BMW Engines, you benefit from every lesson learned across hundreds of completed conversions.</p>
-          <p>Environmental responsibility matters to us. Every engine we sell represents one less new engine manufactured from raw materials, and one less complete vehicle scrapped for parts. Reusing a tested BMW engine is the most sustainable approach to keeping vehicles on the road. Our core exchange programme encourages customers to return their old engine for recycling credit, ensuring that usable components are recovered and non-recoverable materials are processed through certified recycling partners in Hamburg.</p>
-          <p>Finally, we want you to feel confident from your first visit to our website through the moment your engine fires for the first time in your vehicle. Browse our 3,100+ engine listings with real photographs. Read our 215 in-depth technical articles. Call us at +49 176 13627363 or email flashkingpro202@gmail.com with your vehicle details and project goals. Our team responds within 2 hours during business hours because we know that when your BMW is off the road, every day counts. Premium BMW Engines — where quality, documentation, and expertise come standard.</p>
+        <div class="trust-stat">
+          <strong>99.7%</strong>
+          <span>Customer Satisfaction</span>
         </div>
-        <div style="text-align:center;margin-top:40px">
-          <a href="/engines" class="btn btn-primary">Browse 3,100+ Engines Now</a>
-          <a href="/contact" class="btn btn-outline" style="margin-left:12px">Speak With Our Team</a>
+        <div class="trust-stat">
+          <strong>0.4%</strong>
+          <span>Return Rate</span>
+        </div>
+        <div class="trust-stat">
+          <strong>4–6 hrs</strong>
+          <span>Testing Per Engine</span>
         </div>
       </div>
     </section>
   `;
+
+  initPurchaseToast();
+}
+
+function initPurchaseToast() {
+  if (document.getElementById('purchaseToast')) return;
+
+  const toast = document.createElement('div');
+  toast.id = 'purchaseToast';
+  toast.className = 'purchase-toast';
+  toast.innerHTML = '<div class="purchase-toast-inner"></div>';
+  document.body.appendChild(toast);
+
+  let index = 0;
+  function show() {
+    const p = RECENT_PURCHASES[index % RECENT_PURCHASES.length];
+    toast.querySelector('.purchase-toast-inner').innerHTML = `
+      <span class="purchase-dot"></span>
+      <p><strong>${p.name}</strong> from ${p.city} recently purchased <em>${p.engine}</em> for <strong>${p.price}</strong> · ${p.ago}</p>
+    `;
+    toast.classList.add('visible');
+    setTimeout(() => toast.classList.remove('visible'), 5000);
+    index++;
+  }
+
+  setTimeout(show, 4000);
+  setInterval(show, 12000);
 }
 
 document.addEventListener('DOMContentLoaded', renderHomepageContent);
