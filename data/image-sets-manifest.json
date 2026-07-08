@@ -1,0 +1,2286 @@
+{
+  "totalSets": 120,
+  "imagesPerSet": 6,
+  "sets": {
+    "set-0001": {
+      "main": "images/engines/sets/set-0001/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0001/01.jpg",
+        "images/engines/sets/set-0001/02.jpg",
+        "images/engines/sets/set-0001/03.jpg",
+        "images/engines/sets/set-0001/04.jpg",
+        "images/engines/sets/set-0001/05.jpg",
+        "images/engines/sets/set-0001/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0002": {
+      "main": "images/engines/sets/set-0002/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0002/01.jpg",
+        "images/engines/sets/set-0002/02.jpg",
+        "images/engines/sets/set-0002/03.jpg",
+        "images/engines/sets/set-0002/04.jpg",
+        "images/engines/sets/set-0002/05.jpg",
+        "images/engines/sets/set-0002/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0003": {
+      "main": "images/engines/sets/set-0003/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0003/01.jpg",
+        "images/engines/sets/set-0003/02.jpg",
+        "images/engines/sets/set-0003/03.jpg",
+        "images/engines/sets/set-0003/04.jpg",
+        "images/engines/sets/set-0003/05.jpg",
+        "images/engines/sets/set-0003/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0004": {
+      "main": "images/engines/sets/set-0004/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0004/01.jpg",
+        "images/engines/sets/set-0004/02.jpg",
+        "images/engines/sets/set-0004/03.jpg",
+        "images/engines/sets/set-0004/04.jpg",
+        "images/engines/sets/set-0004/05.jpg",
+        "images/engines/sets/set-0004/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0005": {
+      "main": "images/engines/sets/set-0005/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0005/01.jpg",
+        "images/engines/sets/set-0005/02.jpg",
+        "images/engines/sets/set-0005/03.jpg",
+        "images/engines/sets/set-0005/04.jpg",
+        "images/engines/sets/set-0005/05.jpg",
+        "images/engines/sets/set-0005/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0006": {
+      "main": "images/engines/sets/set-0006/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0006/01.jpg",
+        "images/engines/sets/set-0006/02.jpg",
+        "images/engines/sets/set-0006/03.jpg",
+        "images/engines/sets/set-0006/04.jpg",
+        "images/engines/sets/set-0006/05.jpg",
+        "images/engines/sets/set-0006/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0007": {
+      "main": "images/engines/sets/set-0007/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0007/01.jpg",
+        "images/engines/sets/set-0007/02.jpg",
+        "images/engines/sets/set-0007/03.jpg",
+        "images/engines/sets/set-0007/04.jpg",
+        "images/engines/sets/set-0007/05.jpg",
+        "images/engines/sets/set-0007/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0008": {
+      "main": "images/engines/sets/set-0008/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0008/01.jpg",
+        "images/engines/sets/set-0008/02.jpg",
+        "images/engines/sets/set-0008/03.jpg",
+        "images/engines/sets/set-0008/04.jpg",
+        "images/engines/sets/set-0008/05.jpg",
+        "images/engines/sets/set-0008/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0009": {
+      "main": "images/engines/sets/set-0009/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0009/01.jpg",
+        "images/engines/sets/set-0009/02.jpg",
+        "images/engines/sets/set-0009/03.jpg",
+        "images/engines/sets/set-0009/04.jpg",
+        "images/engines/sets/set-0009/05.jpg",
+        "images/engines/sets/set-0009/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0010": {
+      "main": "images/engines/sets/set-0010/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0010/01.jpg",
+        "images/engines/sets/set-0010/02.jpg",
+        "images/engines/sets/set-0010/03.jpg",
+        "images/engines/sets/set-0010/04.jpg",
+        "images/engines/sets/set-0010/05.jpg",
+        "images/engines/sets/set-0010/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0011": {
+      "main": "images/engines/sets/set-0011/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0011/01.jpg",
+        "images/engines/sets/set-0011/02.jpg",
+        "images/engines/sets/set-0011/03.jpg",
+        "images/engines/sets/set-0011/04.jpg",
+        "images/engines/sets/set-0011/05.jpg",
+        "images/engines/sets/set-0011/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0012": {
+      "main": "images/engines/sets/set-0012/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0012/01.jpg",
+        "images/engines/sets/set-0012/02.jpg",
+        "images/engines/sets/set-0012/03.jpg",
+        "images/engines/sets/set-0012/04.jpg",
+        "images/engines/sets/set-0012/05.jpg",
+        "images/engines/sets/set-0012/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0013": {
+      "main": "images/engines/sets/set-0013/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0013/01.jpg",
+        "images/engines/sets/set-0013/02.jpg",
+        "images/engines/sets/set-0013/03.jpg",
+        "images/engines/sets/set-0013/04.jpg",
+        "images/engines/sets/set-0013/05.jpg",
+        "images/engines/sets/set-0013/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0014": {
+      "main": "images/engines/sets/set-0014/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0014/01.jpg",
+        "images/engines/sets/set-0014/02.jpg",
+        "images/engines/sets/set-0014/03.jpg",
+        "images/engines/sets/set-0014/04.jpg",
+        "images/engines/sets/set-0014/05.jpg",
+        "images/engines/sets/set-0014/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0015": {
+      "main": "images/engines/sets/set-0015/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0015/01.jpg",
+        "images/engines/sets/set-0015/02.jpg",
+        "images/engines/sets/set-0015/03.jpg",
+        "images/engines/sets/set-0015/04.jpg",
+        "images/engines/sets/set-0015/05.jpg",
+        "images/engines/sets/set-0015/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0016": {
+      "main": "images/engines/sets/set-0016/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0016/01.jpg",
+        "images/engines/sets/set-0016/02.jpg",
+        "images/engines/sets/set-0016/03.jpg",
+        "images/engines/sets/set-0016/04.jpg",
+        "images/engines/sets/set-0016/05.jpg",
+        "images/engines/sets/set-0016/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0017": {
+      "main": "images/engines/sets/set-0017/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0017/01.jpg",
+        "images/engines/sets/set-0017/02.jpg",
+        "images/engines/sets/set-0017/03.jpg",
+        "images/engines/sets/set-0017/04.jpg",
+        "images/engines/sets/set-0017/05.jpg",
+        "images/engines/sets/set-0017/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0018": {
+      "main": "images/engines/sets/set-0018/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0018/01.jpg",
+        "images/engines/sets/set-0018/02.jpg",
+        "images/engines/sets/set-0018/03.jpg",
+        "images/engines/sets/set-0018/04.jpg",
+        "images/engines/sets/set-0018/05.jpg",
+        "images/engines/sets/set-0018/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0019": {
+      "main": "images/engines/sets/set-0019/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0019/01.jpg",
+        "images/engines/sets/set-0019/02.jpg",
+        "images/engines/sets/set-0019/03.jpg",
+        "images/engines/sets/set-0019/04.jpg",
+        "images/engines/sets/set-0019/05.jpg",
+        "images/engines/sets/set-0019/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0020": {
+      "main": "images/engines/sets/set-0020/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0020/01.jpg",
+        "images/engines/sets/set-0020/02.jpg",
+        "images/engines/sets/set-0020/03.jpg",
+        "images/engines/sets/set-0020/04.jpg",
+        "images/engines/sets/set-0020/05.jpg",
+        "images/engines/sets/set-0020/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0021": {
+      "main": "images/engines/sets/set-0021/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0021/01.jpg",
+        "images/engines/sets/set-0021/02.jpg",
+        "images/engines/sets/set-0021/03.jpg",
+        "images/engines/sets/set-0021/04.jpg",
+        "images/engines/sets/set-0021/05.jpg",
+        "images/engines/sets/set-0021/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0022": {
+      "main": "images/engines/sets/set-0022/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0022/01.jpg",
+        "images/engines/sets/set-0022/02.jpg",
+        "images/engines/sets/set-0022/03.jpg",
+        "images/engines/sets/set-0022/04.jpg",
+        "images/engines/sets/set-0022/05.jpg",
+        "images/engines/sets/set-0022/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0023": {
+      "main": "images/engines/sets/set-0023/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0023/01.jpg",
+        "images/engines/sets/set-0023/02.jpg",
+        "images/engines/sets/set-0023/03.jpg",
+        "images/engines/sets/set-0023/04.jpg",
+        "images/engines/sets/set-0023/05.jpg",
+        "images/engines/sets/set-0023/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0024": {
+      "main": "images/engines/sets/set-0024/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0024/01.jpg",
+        "images/engines/sets/set-0024/02.jpg",
+        "images/engines/sets/set-0024/03.jpg",
+        "images/engines/sets/set-0024/04.jpg",
+        "images/engines/sets/set-0024/05.jpg",
+        "images/engines/sets/set-0024/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0025": {
+      "main": "images/engines/sets/set-0025/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0025/01.jpg",
+        "images/engines/sets/set-0025/02.jpg",
+        "images/engines/sets/set-0025/03.jpg",
+        "images/engines/sets/set-0025/04.jpg",
+        "images/engines/sets/set-0025/05.jpg",
+        "images/engines/sets/set-0025/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0026": {
+      "main": "images/engines/sets/set-0026/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0026/01.jpg",
+        "images/engines/sets/set-0026/02.jpg",
+        "images/engines/sets/set-0026/03.jpg",
+        "images/engines/sets/set-0026/04.jpg",
+        "images/engines/sets/set-0026/05.jpg",
+        "images/engines/sets/set-0026/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0027": {
+      "main": "images/engines/sets/set-0027/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0027/01.jpg",
+        "images/engines/sets/set-0027/02.jpg",
+        "images/engines/sets/set-0027/03.jpg",
+        "images/engines/sets/set-0027/04.jpg",
+        "images/engines/sets/set-0027/05.jpg",
+        "images/engines/sets/set-0027/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0028": {
+      "main": "images/engines/sets/set-0028/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0028/01.jpg",
+        "images/engines/sets/set-0028/02.jpg",
+        "images/engines/sets/set-0028/03.jpg",
+        "images/engines/sets/set-0028/04.jpg",
+        "images/engines/sets/set-0028/05.jpg",
+        "images/engines/sets/set-0028/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0029": {
+      "main": "images/engines/sets/set-0029/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0029/01.jpg",
+        "images/engines/sets/set-0029/02.jpg",
+        "images/engines/sets/set-0029/03.jpg",
+        "images/engines/sets/set-0029/04.jpg",
+        "images/engines/sets/set-0029/05.jpg",
+        "images/engines/sets/set-0029/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0030": {
+      "main": "images/engines/sets/set-0030/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0030/01.jpg",
+        "images/engines/sets/set-0030/02.jpg",
+        "images/engines/sets/set-0030/03.jpg",
+        "images/engines/sets/set-0030/04.jpg",
+        "images/engines/sets/set-0030/05.jpg",
+        "images/engines/sets/set-0030/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0031": {
+      "main": "images/engines/sets/set-0031/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0031/01.jpg",
+        "images/engines/sets/set-0031/02.jpg",
+        "images/engines/sets/set-0031/03.jpg",
+        "images/engines/sets/set-0031/04.jpg",
+        "images/engines/sets/set-0031/05.jpg",
+        "images/engines/sets/set-0031/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0032": {
+      "main": "images/engines/sets/set-0032/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0032/01.jpg",
+        "images/engines/sets/set-0032/02.jpg",
+        "images/engines/sets/set-0032/03.jpg",
+        "images/engines/sets/set-0032/04.jpg",
+        "images/engines/sets/set-0032/05.jpg",
+        "images/engines/sets/set-0032/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0033": {
+      "main": "images/engines/sets/set-0033/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0033/01.jpg",
+        "images/engines/sets/set-0033/02.jpg",
+        "images/engines/sets/set-0033/03.jpg",
+        "images/engines/sets/set-0033/04.jpg",
+        "images/engines/sets/set-0033/05.jpg",
+        "images/engines/sets/set-0033/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0034": {
+      "main": "images/engines/sets/set-0034/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0034/01.jpg",
+        "images/engines/sets/set-0034/02.jpg",
+        "images/engines/sets/set-0034/03.jpg",
+        "images/engines/sets/set-0034/04.jpg",
+        "images/engines/sets/set-0034/05.jpg",
+        "images/engines/sets/set-0034/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0035": {
+      "main": "images/engines/sets/set-0035/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0035/01.jpg",
+        "images/engines/sets/set-0035/02.jpg",
+        "images/engines/sets/set-0035/03.jpg",
+        "images/engines/sets/set-0035/04.jpg",
+        "images/engines/sets/set-0035/05.jpg",
+        "images/engines/sets/set-0035/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0036": {
+      "main": "images/engines/sets/set-0036/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0036/01.jpg",
+        "images/engines/sets/set-0036/02.jpg",
+        "images/engines/sets/set-0036/03.jpg",
+        "images/engines/sets/set-0036/04.jpg",
+        "images/engines/sets/set-0036/05.jpg",
+        "images/engines/sets/set-0036/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0037": {
+      "main": "images/engines/sets/set-0037/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0037/01.jpg",
+        "images/engines/sets/set-0037/02.jpg",
+        "images/engines/sets/set-0037/03.jpg",
+        "images/engines/sets/set-0037/04.jpg",
+        "images/engines/sets/set-0037/05.jpg",
+        "images/engines/sets/set-0037/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0038": {
+      "main": "images/engines/sets/set-0038/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0038/01.jpg",
+        "images/engines/sets/set-0038/02.jpg",
+        "images/engines/sets/set-0038/03.jpg",
+        "images/engines/sets/set-0038/04.jpg",
+        "images/engines/sets/set-0038/05.jpg",
+        "images/engines/sets/set-0038/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0039": {
+      "main": "images/engines/sets/set-0039/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0039/01.jpg",
+        "images/engines/sets/set-0039/02.jpg",
+        "images/engines/sets/set-0039/03.jpg",
+        "images/engines/sets/set-0039/04.jpg",
+        "images/engines/sets/set-0039/05.jpg",
+        "images/engines/sets/set-0039/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0040": {
+      "main": "images/engines/sets/set-0040/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0040/01.jpg",
+        "images/engines/sets/set-0040/02.jpg",
+        "images/engines/sets/set-0040/03.jpg",
+        "images/engines/sets/set-0040/04.jpg",
+        "images/engines/sets/set-0040/05.jpg",
+        "images/engines/sets/set-0040/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0041": {
+      "main": "images/engines/sets/set-0041/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0041/01.jpg",
+        "images/engines/sets/set-0041/02.jpg",
+        "images/engines/sets/set-0041/03.jpg",
+        "images/engines/sets/set-0041/04.jpg",
+        "images/engines/sets/set-0041/05.jpg",
+        "images/engines/sets/set-0041/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0042": {
+      "main": "images/engines/sets/set-0042/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0042/01.jpg",
+        "images/engines/sets/set-0042/02.jpg",
+        "images/engines/sets/set-0042/03.jpg",
+        "images/engines/sets/set-0042/04.jpg",
+        "images/engines/sets/set-0042/05.jpg",
+        "images/engines/sets/set-0042/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0043": {
+      "main": "images/engines/sets/set-0043/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0043/01.jpg",
+        "images/engines/sets/set-0043/02.jpg",
+        "images/engines/sets/set-0043/03.jpg",
+        "images/engines/sets/set-0043/04.jpg",
+        "images/engines/sets/set-0043/05.jpg",
+        "images/engines/sets/set-0043/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0044": {
+      "main": "images/engines/sets/set-0044/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0044/01.jpg",
+        "images/engines/sets/set-0044/02.jpg",
+        "images/engines/sets/set-0044/03.jpg",
+        "images/engines/sets/set-0044/04.jpg",
+        "images/engines/sets/set-0044/05.jpg",
+        "images/engines/sets/set-0044/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0045": {
+      "main": "images/engines/sets/set-0045/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0045/01.jpg",
+        "images/engines/sets/set-0045/02.jpg",
+        "images/engines/sets/set-0045/03.jpg",
+        "images/engines/sets/set-0045/04.jpg",
+        "images/engines/sets/set-0045/05.jpg",
+        "images/engines/sets/set-0045/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0046": {
+      "main": "images/engines/sets/set-0046/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0046/01.jpg",
+        "images/engines/sets/set-0046/02.jpg",
+        "images/engines/sets/set-0046/03.jpg",
+        "images/engines/sets/set-0046/04.jpg",
+        "images/engines/sets/set-0046/05.jpg",
+        "images/engines/sets/set-0046/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0047": {
+      "main": "images/engines/sets/set-0047/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0047/01.jpg",
+        "images/engines/sets/set-0047/02.jpg",
+        "images/engines/sets/set-0047/03.jpg",
+        "images/engines/sets/set-0047/04.jpg",
+        "images/engines/sets/set-0047/05.jpg",
+        "images/engines/sets/set-0047/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0048": {
+      "main": "images/engines/sets/set-0048/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0048/01.jpg",
+        "images/engines/sets/set-0048/02.jpg",
+        "images/engines/sets/set-0048/03.jpg",
+        "images/engines/sets/set-0048/04.jpg",
+        "images/engines/sets/set-0048/05.jpg",
+        "images/engines/sets/set-0048/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0049": {
+      "main": "images/engines/sets/set-0049/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0049/01.jpg",
+        "images/engines/sets/set-0049/02.jpg",
+        "images/engines/sets/set-0049/03.jpg",
+        "images/engines/sets/set-0049/04.jpg",
+        "images/engines/sets/set-0049/05.jpg",
+        "images/engines/sets/set-0049/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0050": {
+      "main": "images/engines/sets/set-0050/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0050/01.jpg",
+        "images/engines/sets/set-0050/02.jpg",
+        "images/engines/sets/set-0050/03.jpg",
+        "images/engines/sets/set-0050/04.jpg",
+        "images/engines/sets/set-0050/05.jpg",
+        "images/engines/sets/set-0050/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0051": {
+      "main": "images/engines/sets/set-0051/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0051/01.jpg",
+        "images/engines/sets/set-0051/02.jpg",
+        "images/engines/sets/set-0051/03.jpg",
+        "images/engines/sets/set-0051/04.jpg",
+        "images/engines/sets/set-0051/05.jpg",
+        "images/engines/sets/set-0051/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0052": {
+      "main": "images/engines/sets/set-0052/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0052/01.jpg",
+        "images/engines/sets/set-0052/02.jpg",
+        "images/engines/sets/set-0052/03.jpg",
+        "images/engines/sets/set-0052/04.jpg",
+        "images/engines/sets/set-0052/05.jpg",
+        "images/engines/sets/set-0052/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0053": {
+      "main": "images/engines/sets/set-0053/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0053/01.jpg",
+        "images/engines/sets/set-0053/02.jpg",
+        "images/engines/sets/set-0053/03.jpg",
+        "images/engines/sets/set-0053/04.jpg",
+        "images/engines/sets/set-0053/05.jpg",
+        "images/engines/sets/set-0053/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0054": {
+      "main": "images/engines/sets/set-0054/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0054/01.jpg",
+        "images/engines/sets/set-0054/02.jpg",
+        "images/engines/sets/set-0054/03.jpg",
+        "images/engines/sets/set-0054/04.jpg",
+        "images/engines/sets/set-0054/05.jpg",
+        "images/engines/sets/set-0054/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0055": {
+      "main": "images/engines/sets/set-0055/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0055/01.jpg",
+        "images/engines/sets/set-0055/02.jpg",
+        "images/engines/sets/set-0055/03.jpg",
+        "images/engines/sets/set-0055/04.jpg",
+        "images/engines/sets/set-0055/05.jpg",
+        "images/engines/sets/set-0055/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0056": {
+      "main": "images/engines/sets/set-0056/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0056/01.jpg",
+        "images/engines/sets/set-0056/02.jpg",
+        "images/engines/sets/set-0056/03.jpg",
+        "images/engines/sets/set-0056/04.jpg",
+        "images/engines/sets/set-0056/05.jpg",
+        "images/engines/sets/set-0056/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0057": {
+      "main": "images/engines/sets/set-0057/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0057/01.jpg",
+        "images/engines/sets/set-0057/02.jpg",
+        "images/engines/sets/set-0057/03.jpg",
+        "images/engines/sets/set-0057/04.jpg",
+        "images/engines/sets/set-0057/05.jpg",
+        "images/engines/sets/set-0057/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0058": {
+      "main": "images/engines/sets/set-0058/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0058/01.jpg",
+        "images/engines/sets/set-0058/02.jpg",
+        "images/engines/sets/set-0058/03.jpg",
+        "images/engines/sets/set-0058/04.jpg",
+        "images/engines/sets/set-0058/05.jpg",
+        "images/engines/sets/set-0058/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0059": {
+      "main": "images/engines/sets/set-0059/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0059/01.jpg",
+        "images/engines/sets/set-0059/02.jpg",
+        "images/engines/sets/set-0059/03.jpg",
+        "images/engines/sets/set-0059/04.jpg",
+        "images/engines/sets/set-0059/05.jpg",
+        "images/engines/sets/set-0059/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0060": {
+      "main": "images/engines/sets/set-0060/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0060/01.jpg",
+        "images/engines/sets/set-0060/02.jpg",
+        "images/engines/sets/set-0060/03.jpg",
+        "images/engines/sets/set-0060/04.jpg",
+        "images/engines/sets/set-0060/05.jpg",
+        "images/engines/sets/set-0060/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0061": {
+      "main": "images/engines/sets/set-0061/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0061/01.jpg",
+        "images/engines/sets/set-0061/02.jpg",
+        "images/engines/sets/set-0061/03.jpg",
+        "images/engines/sets/set-0061/04.jpg",
+        "images/engines/sets/set-0061/05.jpg",
+        "images/engines/sets/set-0061/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0062": {
+      "main": "images/engines/sets/set-0062/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0062/01.jpg",
+        "images/engines/sets/set-0062/02.jpg",
+        "images/engines/sets/set-0062/03.jpg",
+        "images/engines/sets/set-0062/04.jpg",
+        "images/engines/sets/set-0062/05.jpg",
+        "images/engines/sets/set-0062/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0063": {
+      "main": "images/engines/sets/set-0063/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0063/01.jpg",
+        "images/engines/sets/set-0063/02.jpg",
+        "images/engines/sets/set-0063/03.jpg",
+        "images/engines/sets/set-0063/04.jpg",
+        "images/engines/sets/set-0063/05.jpg",
+        "images/engines/sets/set-0063/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0064": {
+      "main": "images/engines/sets/set-0064/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0064/01.jpg",
+        "images/engines/sets/set-0064/02.jpg",
+        "images/engines/sets/set-0064/03.jpg",
+        "images/engines/sets/set-0064/04.jpg",
+        "images/engines/sets/set-0064/05.jpg",
+        "images/engines/sets/set-0064/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0065": {
+      "main": "images/engines/sets/set-0065/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0065/01.jpg",
+        "images/engines/sets/set-0065/02.jpg",
+        "images/engines/sets/set-0065/03.jpg",
+        "images/engines/sets/set-0065/04.jpg",
+        "images/engines/sets/set-0065/05.jpg",
+        "images/engines/sets/set-0065/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0066": {
+      "main": "images/engines/sets/set-0066/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0066/01.jpg",
+        "images/engines/sets/set-0066/02.jpg",
+        "images/engines/sets/set-0066/03.jpg",
+        "images/engines/sets/set-0066/04.jpg",
+        "images/engines/sets/set-0066/05.jpg",
+        "images/engines/sets/set-0066/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0067": {
+      "main": "images/engines/sets/set-0067/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0067/01.jpg",
+        "images/engines/sets/set-0067/02.jpg",
+        "images/engines/sets/set-0067/03.jpg",
+        "images/engines/sets/set-0067/04.jpg",
+        "images/engines/sets/set-0067/05.jpg",
+        "images/engines/sets/set-0067/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0068": {
+      "main": "images/engines/sets/set-0068/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0068/01.jpg",
+        "images/engines/sets/set-0068/02.jpg",
+        "images/engines/sets/set-0068/03.jpg",
+        "images/engines/sets/set-0068/04.jpg",
+        "images/engines/sets/set-0068/05.jpg",
+        "images/engines/sets/set-0068/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0069": {
+      "main": "images/engines/sets/set-0069/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0069/01.jpg",
+        "images/engines/sets/set-0069/02.jpg",
+        "images/engines/sets/set-0069/03.jpg",
+        "images/engines/sets/set-0069/04.jpg",
+        "images/engines/sets/set-0069/05.jpg",
+        "images/engines/sets/set-0069/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0070": {
+      "main": "images/engines/sets/set-0070/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0070/01.jpg",
+        "images/engines/sets/set-0070/02.jpg",
+        "images/engines/sets/set-0070/03.jpg",
+        "images/engines/sets/set-0070/04.jpg",
+        "images/engines/sets/set-0070/05.jpg",
+        "images/engines/sets/set-0070/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0071": {
+      "main": "images/engines/sets/set-0071/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0071/01.jpg",
+        "images/engines/sets/set-0071/02.jpg",
+        "images/engines/sets/set-0071/03.jpg",
+        "images/engines/sets/set-0071/04.jpg",
+        "images/engines/sets/set-0071/05.jpg",
+        "images/engines/sets/set-0071/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0072": {
+      "main": "images/engines/sets/set-0072/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0072/01.jpg",
+        "images/engines/sets/set-0072/02.jpg",
+        "images/engines/sets/set-0072/03.jpg",
+        "images/engines/sets/set-0072/04.jpg",
+        "images/engines/sets/set-0072/05.jpg",
+        "images/engines/sets/set-0072/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0073": {
+      "main": "images/engines/sets/set-0073/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0073/01.jpg",
+        "images/engines/sets/set-0073/02.jpg",
+        "images/engines/sets/set-0073/03.jpg",
+        "images/engines/sets/set-0073/04.jpg",
+        "images/engines/sets/set-0073/05.jpg",
+        "images/engines/sets/set-0073/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0074": {
+      "main": "images/engines/sets/set-0074/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0074/01.jpg",
+        "images/engines/sets/set-0074/02.jpg",
+        "images/engines/sets/set-0074/03.jpg",
+        "images/engines/sets/set-0074/04.jpg",
+        "images/engines/sets/set-0074/05.jpg",
+        "images/engines/sets/set-0074/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0075": {
+      "main": "images/engines/sets/set-0075/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0075/01.jpg",
+        "images/engines/sets/set-0075/02.jpg",
+        "images/engines/sets/set-0075/03.jpg",
+        "images/engines/sets/set-0075/04.jpg",
+        "images/engines/sets/set-0075/05.jpg",
+        "images/engines/sets/set-0075/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0076": {
+      "main": "images/engines/sets/set-0076/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0076/01.jpg",
+        "images/engines/sets/set-0076/02.jpg",
+        "images/engines/sets/set-0076/03.jpg",
+        "images/engines/sets/set-0076/04.jpg",
+        "images/engines/sets/set-0076/05.jpg",
+        "images/engines/sets/set-0076/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0077": {
+      "main": "images/engines/sets/set-0077/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0077/01.jpg",
+        "images/engines/sets/set-0077/02.jpg",
+        "images/engines/sets/set-0077/03.jpg",
+        "images/engines/sets/set-0077/04.jpg",
+        "images/engines/sets/set-0077/05.jpg",
+        "images/engines/sets/set-0077/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0078": {
+      "main": "images/engines/sets/set-0078/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0078/01.jpg",
+        "images/engines/sets/set-0078/02.jpg",
+        "images/engines/sets/set-0078/03.jpg",
+        "images/engines/sets/set-0078/04.jpg",
+        "images/engines/sets/set-0078/05.jpg",
+        "images/engines/sets/set-0078/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0079": {
+      "main": "images/engines/sets/set-0079/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0079/01.jpg",
+        "images/engines/sets/set-0079/02.jpg",
+        "images/engines/sets/set-0079/03.jpg",
+        "images/engines/sets/set-0079/04.jpg",
+        "images/engines/sets/set-0079/05.jpg",
+        "images/engines/sets/set-0079/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0080": {
+      "main": "images/engines/sets/set-0080/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0080/01.jpg",
+        "images/engines/sets/set-0080/02.jpg",
+        "images/engines/sets/set-0080/03.jpg",
+        "images/engines/sets/set-0080/04.jpg",
+        "images/engines/sets/set-0080/05.jpg",
+        "images/engines/sets/set-0080/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0081": {
+      "main": "images/engines/sets/set-0081/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0081/01.jpg",
+        "images/engines/sets/set-0081/02.jpg",
+        "images/engines/sets/set-0081/03.jpg",
+        "images/engines/sets/set-0081/04.jpg",
+        "images/engines/sets/set-0081/05.jpg",
+        "images/engines/sets/set-0081/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0082": {
+      "main": "images/engines/sets/set-0082/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0082/01.jpg",
+        "images/engines/sets/set-0082/02.jpg",
+        "images/engines/sets/set-0082/03.jpg",
+        "images/engines/sets/set-0082/04.jpg",
+        "images/engines/sets/set-0082/05.jpg",
+        "images/engines/sets/set-0082/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0083": {
+      "main": "images/engines/sets/set-0083/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0083/01.jpg",
+        "images/engines/sets/set-0083/02.jpg",
+        "images/engines/sets/set-0083/03.jpg",
+        "images/engines/sets/set-0083/04.jpg",
+        "images/engines/sets/set-0083/05.jpg",
+        "images/engines/sets/set-0083/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0084": {
+      "main": "images/engines/sets/set-0084/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0084/01.jpg",
+        "images/engines/sets/set-0084/02.jpg",
+        "images/engines/sets/set-0084/03.jpg",
+        "images/engines/sets/set-0084/04.jpg",
+        "images/engines/sets/set-0084/05.jpg",
+        "images/engines/sets/set-0084/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0085": {
+      "main": "images/engines/sets/set-0085/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0085/01.jpg",
+        "images/engines/sets/set-0085/02.jpg",
+        "images/engines/sets/set-0085/03.jpg",
+        "images/engines/sets/set-0085/04.jpg",
+        "images/engines/sets/set-0085/05.jpg",
+        "images/engines/sets/set-0085/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0086": {
+      "main": "images/engines/sets/set-0086/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0086/01.jpg",
+        "images/engines/sets/set-0086/02.jpg",
+        "images/engines/sets/set-0086/03.jpg",
+        "images/engines/sets/set-0086/04.jpg",
+        "images/engines/sets/set-0086/05.jpg",
+        "images/engines/sets/set-0086/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0087": {
+      "main": "images/engines/sets/set-0087/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0087/01.jpg",
+        "images/engines/sets/set-0087/02.jpg",
+        "images/engines/sets/set-0087/03.jpg",
+        "images/engines/sets/set-0087/04.jpg",
+        "images/engines/sets/set-0087/05.jpg",
+        "images/engines/sets/set-0087/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0088": {
+      "main": "images/engines/sets/set-0088/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0088/01.jpg",
+        "images/engines/sets/set-0088/02.jpg",
+        "images/engines/sets/set-0088/03.jpg",
+        "images/engines/sets/set-0088/04.jpg",
+        "images/engines/sets/set-0088/05.jpg",
+        "images/engines/sets/set-0088/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0089": {
+      "main": "images/engines/sets/set-0089/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0089/01.jpg",
+        "images/engines/sets/set-0089/02.jpg",
+        "images/engines/sets/set-0089/03.jpg",
+        "images/engines/sets/set-0089/04.jpg",
+        "images/engines/sets/set-0089/05.jpg",
+        "images/engines/sets/set-0089/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0090": {
+      "main": "images/engines/sets/set-0090/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0090/01.jpg",
+        "images/engines/sets/set-0090/02.jpg",
+        "images/engines/sets/set-0090/03.jpg",
+        "images/engines/sets/set-0090/04.jpg",
+        "images/engines/sets/set-0090/05.jpg",
+        "images/engines/sets/set-0090/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0091": {
+      "main": "images/engines/sets/set-0091/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0091/01.jpg",
+        "images/engines/sets/set-0091/02.jpg",
+        "images/engines/sets/set-0091/03.jpg",
+        "images/engines/sets/set-0091/04.jpg",
+        "images/engines/sets/set-0091/05.jpg",
+        "images/engines/sets/set-0091/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0092": {
+      "main": "images/engines/sets/set-0092/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0092/01.jpg",
+        "images/engines/sets/set-0092/02.jpg",
+        "images/engines/sets/set-0092/03.jpg",
+        "images/engines/sets/set-0092/04.jpg",
+        "images/engines/sets/set-0092/05.jpg",
+        "images/engines/sets/set-0092/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0093": {
+      "main": "images/engines/sets/set-0093/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0093/01.jpg",
+        "images/engines/sets/set-0093/02.jpg",
+        "images/engines/sets/set-0093/03.jpg",
+        "images/engines/sets/set-0093/04.jpg",
+        "images/engines/sets/set-0093/05.jpg",
+        "images/engines/sets/set-0093/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0094": {
+      "main": "images/engines/sets/set-0094/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0094/01.jpg",
+        "images/engines/sets/set-0094/02.jpg",
+        "images/engines/sets/set-0094/03.jpg",
+        "images/engines/sets/set-0094/04.jpg",
+        "images/engines/sets/set-0094/05.jpg",
+        "images/engines/sets/set-0094/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0095": {
+      "main": "images/engines/sets/set-0095/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0095/01.jpg",
+        "images/engines/sets/set-0095/02.jpg",
+        "images/engines/sets/set-0095/03.jpg",
+        "images/engines/sets/set-0095/04.jpg",
+        "images/engines/sets/set-0095/05.jpg",
+        "images/engines/sets/set-0095/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0096": {
+      "main": "images/engines/sets/set-0096/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0096/01.jpg",
+        "images/engines/sets/set-0096/02.jpg",
+        "images/engines/sets/set-0096/03.jpg",
+        "images/engines/sets/set-0096/04.jpg",
+        "images/engines/sets/set-0096/05.jpg",
+        "images/engines/sets/set-0096/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0097": {
+      "main": "images/engines/sets/set-0097/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0097/01.jpg",
+        "images/engines/sets/set-0097/02.jpg",
+        "images/engines/sets/set-0097/03.jpg",
+        "images/engines/sets/set-0097/04.jpg",
+        "images/engines/sets/set-0097/05.jpg",
+        "images/engines/sets/set-0097/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0098": {
+      "main": "images/engines/sets/set-0098/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0098/01.jpg",
+        "images/engines/sets/set-0098/02.jpg",
+        "images/engines/sets/set-0098/03.jpg",
+        "images/engines/sets/set-0098/04.jpg",
+        "images/engines/sets/set-0098/05.jpg",
+        "images/engines/sets/set-0098/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0099": {
+      "main": "images/engines/sets/set-0099/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0099/01.jpg",
+        "images/engines/sets/set-0099/02.jpg",
+        "images/engines/sets/set-0099/03.jpg",
+        "images/engines/sets/set-0099/04.jpg",
+        "images/engines/sets/set-0099/05.jpg",
+        "images/engines/sets/set-0099/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0100": {
+      "main": "images/engines/sets/set-0100/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0100/01.jpg",
+        "images/engines/sets/set-0100/02.jpg",
+        "images/engines/sets/set-0100/03.jpg",
+        "images/engines/sets/set-0100/04.jpg",
+        "images/engines/sets/set-0100/05.jpg",
+        "images/engines/sets/set-0100/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0101": {
+      "main": "images/engines/sets/set-0101/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0101/01.jpg",
+        "images/engines/sets/set-0101/02.jpg",
+        "images/engines/sets/set-0101/03.jpg",
+        "images/engines/sets/set-0101/04.jpg",
+        "images/engines/sets/set-0101/05.jpg",
+        "images/engines/sets/set-0101/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0102": {
+      "main": "images/engines/sets/set-0102/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0102/01.jpg",
+        "images/engines/sets/set-0102/02.jpg",
+        "images/engines/sets/set-0102/03.jpg",
+        "images/engines/sets/set-0102/04.jpg",
+        "images/engines/sets/set-0102/05.jpg",
+        "images/engines/sets/set-0102/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0103": {
+      "main": "images/engines/sets/set-0103/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0103/01.jpg",
+        "images/engines/sets/set-0103/02.jpg",
+        "images/engines/sets/set-0103/03.jpg",
+        "images/engines/sets/set-0103/04.jpg",
+        "images/engines/sets/set-0103/05.jpg",
+        "images/engines/sets/set-0103/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0104": {
+      "main": "images/engines/sets/set-0104/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0104/01.jpg",
+        "images/engines/sets/set-0104/02.jpg",
+        "images/engines/sets/set-0104/03.jpg",
+        "images/engines/sets/set-0104/04.jpg",
+        "images/engines/sets/set-0104/05.jpg",
+        "images/engines/sets/set-0104/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0105": {
+      "main": "images/engines/sets/set-0105/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0105/01.jpg",
+        "images/engines/sets/set-0105/02.jpg",
+        "images/engines/sets/set-0105/03.jpg",
+        "images/engines/sets/set-0105/04.jpg",
+        "images/engines/sets/set-0105/05.jpg",
+        "images/engines/sets/set-0105/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0106": {
+      "main": "images/engines/sets/set-0106/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0106/01.jpg",
+        "images/engines/sets/set-0106/02.jpg",
+        "images/engines/sets/set-0106/03.jpg",
+        "images/engines/sets/set-0106/04.jpg",
+        "images/engines/sets/set-0106/05.jpg",
+        "images/engines/sets/set-0106/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0107": {
+      "main": "images/engines/sets/set-0107/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0107/01.jpg",
+        "images/engines/sets/set-0107/02.jpg",
+        "images/engines/sets/set-0107/03.jpg",
+        "images/engines/sets/set-0107/04.jpg",
+        "images/engines/sets/set-0107/05.jpg",
+        "images/engines/sets/set-0107/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0108": {
+      "main": "images/engines/sets/set-0108/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0108/01.jpg",
+        "images/engines/sets/set-0108/02.jpg",
+        "images/engines/sets/set-0108/03.jpg",
+        "images/engines/sets/set-0108/04.jpg",
+        "images/engines/sets/set-0108/05.jpg",
+        "images/engines/sets/set-0108/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0109": {
+      "main": "images/engines/sets/set-0109/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0109/01.jpg",
+        "images/engines/sets/set-0109/02.jpg",
+        "images/engines/sets/set-0109/03.jpg",
+        "images/engines/sets/set-0109/04.jpg",
+        "images/engines/sets/set-0109/05.jpg",
+        "images/engines/sets/set-0109/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0110": {
+      "main": "images/engines/sets/set-0110/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0110/01.jpg",
+        "images/engines/sets/set-0110/02.jpg",
+        "images/engines/sets/set-0110/03.jpg",
+        "images/engines/sets/set-0110/04.jpg",
+        "images/engines/sets/set-0110/05.jpg",
+        "images/engines/sets/set-0110/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0111": {
+      "main": "images/engines/sets/set-0111/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0111/01.jpg",
+        "images/engines/sets/set-0111/02.jpg",
+        "images/engines/sets/set-0111/03.jpg",
+        "images/engines/sets/set-0111/04.jpg",
+        "images/engines/sets/set-0111/05.jpg",
+        "images/engines/sets/set-0111/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0112": {
+      "main": "images/engines/sets/set-0112/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0112/01.jpg",
+        "images/engines/sets/set-0112/02.jpg",
+        "images/engines/sets/set-0112/03.jpg",
+        "images/engines/sets/set-0112/04.jpg",
+        "images/engines/sets/set-0112/05.jpg",
+        "images/engines/sets/set-0112/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0113": {
+      "main": "images/engines/sets/set-0113/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0113/01.jpg",
+        "images/engines/sets/set-0113/02.jpg",
+        "images/engines/sets/set-0113/03.jpg",
+        "images/engines/sets/set-0113/04.jpg",
+        "images/engines/sets/set-0113/05.jpg",
+        "images/engines/sets/set-0113/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0114": {
+      "main": "images/engines/sets/set-0114/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0114/01.jpg",
+        "images/engines/sets/set-0114/02.jpg",
+        "images/engines/sets/set-0114/03.jpg",
+        "images/engines/sets/set-0114/04.jpg",
+        "images/engines/sets/set-0114/05.jpg",
+        "images/engines/sets/set-0114/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    },
+    "set-0115": {
+      "main": "images/engines/sets/set-0115/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0115/01.jpg",
+        "images/engines/sets/set-0115/02.jpg",
+        "images/engines/sets/set-0115/03.jpg",
+        "images/engines/sets/set-0115/04.jpg",
+        "images/engines/sets/set-0115/05.jpg",
+        "images/engines/sets/set-0115/06.jpg"
+      ],
+      "labels": [
+        "diesel engine on wooden pallet",
+        "engine block on workbench",
+        "complete engine with hoses and components",
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view"
+      ]
+    },
+    "set-0116": {
+      "main": "images/engines/sets/set-0116/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0116/01.jpg",
+        "images/engines/sets/set-0116/02.jpg",
+        "images/engines/sets/set-0116/03.jpg",
+        "images/engines/sets/set-0116/04.jpg",
+        "images/engines/sets/set-0116/05.jpg",
+        "images/engines/sets/set-0116/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "engine bay components close-up",
+        "engine block side view",
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "diesel engine on wooden pallet"
+      ]
+    },
+    "set-0117": {
+      "main": "images/engines/sets/set-0117/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0117/01.jpg",
+        "images/engines/sets/set-0117/02.jpg",
+        "images/engines/sets/set-0117/03.jpg",
+        "images/engines/sets/set-0117/04.jpg",
+        "images/engines/sets/set-0117/05.jpg",
+        "images/engines/sets/set-0117/06.jpg"
+      ],
+      "labels": [
+        "complete performance engine unit",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "diesel engine on wooden pallet",
+        "engine block side view"
+      ]
+    },
+    "set-0118": {
+      "main": "images/engines/sets/set-0118/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0118/01.jpg",
+        "images/engines/sets/set-0118/02.jpg",
+        "images/engines/sets/set-0118/03.jpg",
+        "images/engines/sets/set-0118/04.jpg",
+        "images/engines/sets/set-0118/05.jpg",
+        "images/engines/sets/set-0118/06.jpg"
+      ],
+      "labels": [
+        "workshop engine detail",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "diesel engine on wooden pallet",
+        "turbo engine mechanical detail",
+        "engine parts inspection in workshop"
+      ]
+    },
+    "set-0119": {
+      "main": "images/engines/sets/set-0119/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0119/01.jpg",
+        "images/engines/sets/set-0119/02.jpg",
+        "images/engines/sets/set-0119/03.jpg",
+        "images/engines/sets/set-0119/04.jpg",
+        "images/engines/sets/set-0119/05.jpg",
+        "images/engines/sets/set-0119/06.jpg"
+      ],
+      "labels": [
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "diesel engine on wooden pallet",
+        "engine parts inspection in workshop",
+        "workshop engine detail",
+        "engine components on workbench"
+      ]
+    },
+    "set-0120": {
+      "main": "images/engines/sets/set-0120/01.jpg",
+      "gallery": [
+        "images/engines/sets/set-0120/01.jpg",
+        "images/engines/sets/set-0120/02.jpg",
+        "images/engines/sets/set-0120/03.jpg",
+        "images/engines/sets/set-0120/04.jpg",
+        "images/engines/sets/set-0120/05.jpg",
+        "images/engines/sets/set-0120/06.jpg"
+      ],
+      "labels": [
+        "engine block assembly in workshop",
+        "diesel engine on wooden pallet",
+        "engine components on workbench",
+        "warehouse motors inventory",
+        "engine block on workbench",
+        "complete engine with hoses and components"
+      ]
+    }
+  }
+}

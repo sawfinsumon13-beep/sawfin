@@ -112,45 +112,39 @@ const BLOG_TOPICS = [
   'B58 BMS Tune — Before and After Results'
 ];
 
-const imageData = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'engine-images.json'), 'utf8'));
-const ENGINE_VIEWS = imageData.views;
-const FAMILY_GALLERIES = imageData.familyGalleries || {};
-const DEFAULT_GALLERY = imageData.defaultGallery || Object.keys(ENGINE_VIEWS);
-const CATEGORY_IMAGES = imageData.categories;
-const ENGINE_PRODUCT_IMAGES = Object.values(ENGINE_VIEWS);
+const manifest = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'image-sets-manifest.json'), 'utf8'));
+const SET_IDS = Object.keys(manifest.sets).sort();
+const imageMeta = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'engine-images.json'), 'utf8'));
+const CATEGORY_IMAGES = imageMeta.categories;
+const FALLBACK_IMAGE = imageMeta.fallback;
 
 function extractFamilyFromText(text) {
   const match = (text || '').match(/\b([NSBM]\d{2,3}|M\d{2})\b/i);
   return match ? match[1].toUpperCase() : '';
 }
 
-function resolveGalleryKeys(familyCode) {
-  return FAMILY_GALLERIES[familyCode] || DEFAULT_GALLERY;
+function getEngineImageData(id) {
+  const setId = SET_IDS[(id - 1) % SET_IDS.length];
+  const gallery = manifest.sets[setId].gallery;
+  const rotate = Math.floor((id - 1) / SET_IDS.length) % gallery.length;
+  const images = [...gallery.slice(rotate), ...gallery.slice(0, rotate)];
+  return { imageSet: setId, images };
 }
 
-function resolveViewUrl(key) {
-  return ENGINE_VIEWS[key] || ENGINE_PRODUCT_IMAGES[0];
-}
-
-function getImageUrl(id, offset = 0, family = '') {
-  const keys = resolveGalleryKeys(family);
-  const key = keys[(offset + (id % keys.length)) % keys.length];
-  return resolveViewUrl(key);
+function getBlogImageUrl(id, family = '') {
+  if (family && CATEGORY_IMAGES[family]) {
+    return CATEGORY_IMAGES[family];
+  }
+  const setId = SET_IDS[(id - 1) % SET_IDS.length];
+  return manifest.sets[setId].main;
 }
 
 function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 function pick(arr) { return arr[rand(0, arr.length - 1)]; }
 function pickN(arr, n) { const shuffled = [...arr].sort(() => 0.5 - Math.random()); return shuffled.slice(0, n); }
 
-function getEngineImages(id, familyCode) {
-  const keys = resolveGalleryKeys(familyCode);
-  const count = rand(4, 6);
-  const images = [];
-  for (let i = 0; i < count; i++) {
-    const key = keys[(i + (id % keys.length)) % keys.length];
-    images.push(resolveViewUrl(key));
-  }
-  return images;
+function getEngineImages(id) {
+  return getEngineImageData(id);
 }
 
 function generateEngine(id) {
@@ -174,6 +168,8 @@ function generateEngine(id) {
   const name = `BMW ${family.name}${disp.toString().replace('.', '')}${variant} ${power}hp`;
   const code = `${family.code}${disp.toString().replace('.', '')}${variant}`;
 
+  const { imageSet, images } = getEngineImages(id);
+
   return {
     id,
     name,
@@ -190,7 +186,8 @@ function generateEngine(id) {
     condition,
     platform,
     price: Math.max(450, price),
-    images: getEngineImages(id, family.code),
+    imageSet,
+    images,
     description: `Premium ${condition.toLowerCase()} condition BMW ${family.name} ${disp}L ${family.fuel} engine (${yearStart}-${yearEnd}). This ${power}hp unit has been thoroughly tested on our Hamburg dyno, with documented compression readings and leak-down results. Suitable for ${platform} platform and compatible variants. Includes engine wiring loom connectors where applicable.`
   };
 }
@@ -343,7 +340,7 @@ function generateBlog(id) {
     date: date.toISOString().split('T')[0],
     author: pick(['Technical Team', 'Workshop Team', 'Engine Specialist', 'Logistics Team']),
     excerpt: `Comprehensive ${category.toLowerCase()} covering ${title.toLowerCase().replace(/—.*/, '').trim()}. Expert insights from Premium BMW Engines Hamburg.`,
-    image: getImageUrl(id, 0, family),
+    image: getBlogImageUrl(id, family),
     wordCount: content.wordCount,
     content: content.html
   };

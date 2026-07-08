@@ -1,5 +1,9 @@
-// Homepage content sections — 5000+ words, Bavarian-style warehouse images at render
-const HOMEPAGE_GALLERY_KEYS = ['pallet_main', 'top_cover', 'hoses_detail', 'pallet_alt', 'warehouse_a', 'components_detail', 'workshop', 'engine_bay', 'diesel_block'];
+// Homepage content sections — warehouse inventory photos from local sets
+const HOMEPAGE_GALLERY_SETS = [
+  'set-0108', 'set-0014', 'set-0087', 'set-0052', 'set-0047',
+  'set-0061', 'set-0060', 'set-0046', 'set-0050'
+];
+
 const HOMEPAGE_SECTIONS = [
   {
     tag: 'WHY CHOOSE US',
@@ -159,14 +163,15 @@ const HOMEPAGE_SECTIONS = [
   }
 ];
 
-const OLD_ENGINE_GALLERY = HOMEPAGE_GALLERY_KEYS.map((key, i) => ({
-  src: ENGINE_VIEWS[key],
-  alt: `BMW engine warehouse photo ${i + 1} — ${VIEW_LABELS[key] || 'inventory'}`
+const OLD_ENGINE_GALLERY = HOMEPAGE_GALLERY_SETS.map((setId, i) => ({
+  src: `images/engines/sets/${setId}/01.jpg`,
+  alt: `BMW engine warehouse inventory photo ${i + 1}`
 }));
 
 function renderContentSections() {
   return HOMEPAGE_SECTIONS.map((section, i) => {
-    const img = ENGINE_VIEWS[HOMEPAGE_GALLERY_KEYS[i % HOMEPAGE_GALLERY_KEYS.length]];
+    const setId = HOMEPAGE_GALLERY_SETS[i % HOMEPAGE_GALLERY_SETS.length];
+    const img = `images/engines/sets/${setId}/01.jpg`;
     return `
     <section class="content-block-section${i % 2 ? ' alt-bg' : ''}">
       <div class="container content-block${section.reverse ? ' reverse' : ''}">

@@ -7,10 +7,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     const engines = await res.json();
     const featured = engines.slice(0, 6);
 
-    grid.innerHTML = featured.map(e => `
+    grid.innerHTML = featured.map(e => {
+      const gallery = getEngineGalleryImages(e);
+      return `
       <a href="/engine-detail?id=${e.id}" class="engine-card">
         <div class="card-image">
-          <img src="${getEngineThumbnail(e)}" alt="${getEngineImageAlt(e)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+          <img src="${gallery[0]}" alt="${getEngineImageAlt(e)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+          <div class="card-thumb-row">
+            ${gallery.slice(0, 5).map((img, i) => `
+              <img src="${img}" alt="${getEngineImageAlt(e, i)}" class="card-thumb${i === 0 ? ' active' : ''}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+            `).join('')}
+          </div>
           <span class="card-badge">${e.condition}</span>
         </div>
         <div class="card-body">
@@ -26,8 +33,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             <span class="btn btn-sm btn-outline">View Details</span>
           </div>
         </div>
-      </a>
-    `).join('');
+      </a>`;
+    }).join('');
   } catch (err) {
     grid.innerHTML = '<p class="loading">Unable to load engines. Please try again.</p>';
   }
