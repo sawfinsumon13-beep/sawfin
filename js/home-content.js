@@ -64,6 +64,22 @@ const ENGINE_CATEGORIES = [
     href: '/engines?family=B58'
   },
   {
+    title: 'M30 ENGINES',
+    badge: 'OLD SIX',
+    badgeType: 'classic',
+    models: 'E28 528i · E34 535i · E24',
+    image: 'https://images.unsplash.com/photo-1760713174351-4e7350ff797e?w=900&q=80',
+    href: '/engines?family=M30&era=classic'
+  },
+  {
+    title: 'M47 ENGINES',
+    badge: 'OLD DIESEL',
+    badgeType: 'diesel',
+    models: 'E46 320d · E39 520d',
+    image: 'https://images.unsplash.com/photo-1753183514957-0e50d201a6fa?w=900&q=80',
+    href: '/engines?family=M47&era=classic'
+  },
+  {
     title: 'S54 ENGINES',
     badge: 'M POWER',
     badgeType: 'm',
@@ -109,6 +125,10 @@ function renderHomepageContent() {
         <div class="category-grid">${cards}</div>
       </div>
     </section>
+
+    ${renderEngineGallery()}
+
+    ${renderContentSections()}
 
     <section class="premium-strip">
       <div class="container premium-strip-grid">
