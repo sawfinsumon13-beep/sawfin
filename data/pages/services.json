@@ -1,22 +1,6 @@
 {
   "slug": "services",
-  "galleryTitle": "Our Hamburg Testing & Warehouse Facility",
-  "gallerySubtitle": "Real BMW engines — photographed, tested, and palletised before EU-wide dispatch.",
-  "gallerySets": [
-    "set-0025",
-    "set-0026",
-    "set-0027",
-    "set-0028",
-    "set-0029",
-    "set-0030",
-    "set-0031",
-    "set-0032",
-    "set-0033",
-    "set-0034",
-    "set-0035",
-    "set-0036"
-  ],
-  "wordCount": 1666,
+  "layout": "sections",
   "sections": [
     {
       "tag": "SOURCING",
@@ -30,7 +14,8 @@
         "Classic engine sourcing requires particular expertise. M20, M30, M50, and M54 units are increasingly scarce as donor cars are consumed by the restoration market. We maintain deep stock of period-correct old engines because preserving BMW's engineering heritage is as important as supplying modern replacements. An M20B25 with 120,000 km and uniform compression is often the right choice for an E30 restoration.",
         "Performance engine procurement follows strict criteria. S54, S55, S58, and S63 units undergo rod bearing inspection, VANOS function checks, and turbocharger condition assessment before listing. For the S54 specifically — notorious for rod bearing wear — we measure crank end float and inspect bearing shells on every unit. Performance buyers receive documentation that track builds demand.",
         "Fleet operators benefit from our volume sourcing capability. When a logistics company needs five identical N47 engines for their F10 520d fleet, we allocate units from the same production batch with consistent grading. Priority stock allocation, volume pricing, and dedicated account management are available for commercial customers running 20+ BMW vehicles."
-      ]
+      ],
+      "image": "images/engines/sets/set-0036/01.webp"
     },
     {
       "tag": "TESTING",
@@ -44,7 +29,8 @@
         "The dyno run is the final gate. Engines are mounted on our SuperFlow dynamometer with appropriate fuel, cooling, and exhaust systems. We verify clean starting, smooth idle, operating temperature without abnormal readings, and oil pressure within specification at idle and elevated RPM. Turbocharged engines additionally undergo boost response verification and smoke assessment under load.",
         "This process takes 4–6 hours per engine. During peak season we process up to 40 engines per week through the full protocol. No engine ships without a signed test certificate from the technician who performed verification. Customers may witness testing at our Hamburg facility by appointment.",
         "Optional oil analysis reveals bearing wear metals, fuel dilution, and coolant contamination that compression tests alone might miss. Fleet operators ordering multiple units routinely request this service; the data becomes part of vehicle maintenance records for compliance and resale documentation."
-      ]
+      ],
+      "image": "images/engines/sets/set-0037/01.webp"
     },
     {
       "tag": "REBUILDS",
@@ -58,7 +44,8 @@
         "Diesel rebuilds address timing chain guides, injector seals, turbocharger cartridges, and swirl flap removal or replacement depending on customer preference. M57 rebuilds include new chain, guides, tensioner, and oil pump chain. N47 rebuilds focus on the timing chain system that defines this engine's reputation — we use upgraded guide materials where available.",
         "Each rebuilt engine is dyno-tested before sale with the same protocol as tested originals. Compression readings, leak-down results, and running parameters are documented. Photographs show the assembled engine from multiple angles. Rebuilt units are clearly graded and priced relative to tested originals with equivalent documentation.",
         "Core exchange credits reduce rebuild costs. Return your old engine complete with block, head, and sump; receive credit of €150–800 depending on family and condition. Even seized engines have core value. Credits apply toward rebuild services or future purchases within 7 business days of core inspection."
-      ]
+      ],
+      "image": "images/engines/sets/set-0038/01.webp"
     },
     {
       "tag": "SHIPPING",
@@ -72,7 +59,8 @@
         "Damage in transit is exceptionally rare — less than 0.3% of shipments — but fully covered when it occurs. Inspect packaging before signing the delivery receipt; note visible damage and contact us immediately. We resolve transit claims within 5 business days with repair, replacement, or refund at our discretion.",
         "Fleet and commercial customers may arrange scheduled deliveries to workshop facilities. We coordinate with your receiving department for timed arrivals and can supply multiple engines on consolidated pallets for volume orders. Dedicated account managers handle logistics for customers ordering 5+ engines per quarter.",
         "International shipping beyond Europe is available on request. We have supplied engines to customers in Australia, South Africa, and the Middle East with appropriate export documentation. Contact our logistics team for freight quotes and lead times to your destination country."
-      ]
+      ],
+      "image": "images/engines/sets/set-0039/01.webp"
     },
     {
       "tag": "SUPPORT",
@@ -86,7 +74,8 @@
         "Workshop training programmes cover BMW engine identification, diagnostic procedures, and swap installation best practices. On-site training at your facility or remote sessions via video call. Over 200 independent workshops across Europe hold active trade accounts with us.",
         "Post-installation support remains available throughout your project. Call +49 176 13627363 or email flashkingpro202@gmail.com during business hours (Monday–Friday, 08:00–18:00 CET). Our technical team references your specific test data — not generic assurances — when troubleshooting.",
         "Core exchange, trade accounts, fleet programmes, and custom solutions are available on request. Contact our team to discuss your requirements — we handle projects from single classic restorations to fleet-wide diesel replacements across hundreds of vehicles."
-      ]
+      ],
+      "image": "images/engines/sets/set-0040/01.webp"
     },
     {
       "tag": "FLEET & TRADE",
@@ -99,7 +88,9 @@
         "Volume orders of 5+ engines qualify for consolidated pallet shipping — significant freight savings compared to individual deliveries. We coordinate scheduled arrivals with your workshop calendar and can supply engines pre-labelled with your internal fleet numbers for inventory tracking.",
         "Commercial warranty extensions to 12 months are available for fleet customers. Claims are processed with priority routing and replacement engines allocated from reserved stock to minimise vehicle downtime. Our fleet warranty claim resolution averages 3 business days from submission to resolution.",
         "Quarterly account reviews provide inventory forecasts, pricing updates, and early notification of rare engine availability. Fleet customers sourcing S55, B58, or N57 engines benefit from advance notice when desirable units enter our testing queue — often 48 hours before public listing."
-      ]
+      ],
+      "image": "images/engines/sets/set-0041/01.webp"
     }
-  ]
+  ],
+  "wordCount": 1666
 }

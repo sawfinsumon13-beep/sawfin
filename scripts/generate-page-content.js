@@ -6,25 +6,44 @@ const PAGES_DIR = path.join(DATA_DIR, 'pages');
 const manifest = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'image-sets-manifest.json'), 'utf8'));
 const SET_IDS = Object.keys(manifest.sets).sort();
 
-function pickSets(start, count) {
-  const sets = [];
+const ENGINE_SET_COUNT = 116;
+
+function allocateUniqueImages(count, startIndex = 0) {
+  const images = [];
   for (let i = 0; i < count; i++) {
-    sets.push(SET_IDS[(start + i) % SET_IDS.length]);
+    const idx = startIndex + i;
+    const setNum = (idx % ENGINE_SET_COUNT) + 1;
+    const imgNum = (Math.floor(idx / ENGINE_SET_COUNT) % 6) + 1;
+    images.push(`images/engines/sets/set-${String(setNum).padStart(4, '0')}/${String(imgNum).padStart(2, '0')}.webp`);
   }
-  return sets;
+  return images;
 }
 
-function countWords(sections) {
+const IMAGE_SEEDS = {
+  'm57-swap-kits': 25,
+  services: 35,
+  about: 45,
+  contact: 55,
+  policies: 70
+};
+
+function countWordsFromSections(sections) {
   let total = 0;
   sections.forEach(s => s.paragraphs.forEach(p => { total += p.split(/\s+/).length; }));
   return total;
 }
 
+function countWordsFromFaq(faq, introParagraphs = []) {
+  let total = 0;
+  introParagraphs.forEach(p => { total += p.split(/\s+/).length; });
+  faq.forEach(item => {
+    total += item.q.split(/\s+/).length + item.a.split(/\s+/).length;
+  });
+  return total;
+}
+
 const PAGE_DEFINITIONS = {
   'm57-swap-kits': {
-    galleryTitle: 'M57 Engines in Our Hamburg Warehouse',
-    gallerySubtitle: 'Every swap kit starts with a tested M57 diesel — photographed on pallet before dispatch.',
-    gallerySets: pickSets(12, 12),
     sections: [
       {
         tag: 'WHY M57',
@@ -99,9 +118,6 @@ const PAGE_DEFINITIONS = {
   },
 
   services: {
-    galleryTitle: 'Our Hamburg Testing & Warehouse Facility',
-    gallerySubtitle: 'Real BMW engines — photographed, tested, and palletised before EU-wide dispatch.',
-    gallerySets: pickSets(24, 12),
     sections: [
       {
         tag: 'SOURCING',
@@ -190,9 +206,6 @@ const PAGE_DEFINITIONS = {
   },
 
   about: {
-    galleryTitle: 'Inside Our Hamburg Engine Facility',
-    gallerySubtitle: 'Over 3,100 BMW engines — each photographed, tested, and ready to ship across Europe.',
-    gallerySets: pickSets(36, 12),
     sections: [
       {
         tag: 'OUR STORY',
@@ -279,112 +292,34 @@ const PAGE_DEFINITIONS = {
   },
 
   contact: {
-    galleryTitle: 'Engines Ready for Dispatch From Hamburg',
-    gallerySubtitle: 'Contact our team to reserve your engine — every unit photographed before shipment.',
-    gallerySets: pickSets(48, 12),
-    sections: [
-      {
-        tag: 'REACH US',
-        title: 'How to Contact Premium BMW Engines',
-        imageAlt: 'BMW engine warehouse contact enquiry',
-        reverse: false,
-        paragraphs: [
-          'Our technical team is available Monday through Friday, 08:00 to 18:00 Central European Time, to answer engine questions, confirm fitment compatibility, and provide quotations. Reach us by phone at +49 176 13627363 or by email at flashkingpro202@gmail.com. We respond to all enquiries within 2 hours during business hours; quotation requests are typically fulfilled within 24 hours including compression test results and updated photographs.',
-          'Email is preferred for detailed enquiries that include vehicle identification numbers, engine codes, and delivery addresses. Attach photographs of your current engine bay if planning a swap — our technicians can assess fitment feasibility from images. For urgent fleet breakdowns, phone calls receive immediate priority routing to our diesel specialist team.',
-          'Our Hamburg facility address is available upon request for scheduled visits and engine collections. We do not operate a retail showroom — all visits are by appointment to ensure a technician is available to assist you. Parking for commercial vehicles and trailers is available at our dispatch bay.',
-          'Social media enquiries are not monitored for technical support. Please use email or telephone for engine quotes, warranty claims, and fitment questions. Response times through unofficial channels cannot be guaranteed.',
-          'Languages supported: English and German fluently; French, Italian, Dutch, and Spanish with translation assistance available. Technical documentation is provided in English as standard; German documentation available on request.',
-          'Emergency fleet support outside business hours is available for established commercial accounts. Contact your account manager directly or leave a voicemail on our main line for next-morning callback priority.'
-        ]
-      },
-      {
-        tag: 'QUOTES',
-        title: 'Requesting an Engine Quote — What We Need From You',
-        imageAlt: 'BMW engine inspection for quotation',
-        reverse: true,
-        paragraphs: [
-          'Accurate quotations require specific vehicle information. Please provide: vehicle model and year, engine code if known (stamped on the engine block and visible on the VIN plate), full VIN if available, fuel type required, delivery country and postcode, and intended use (daily driver, restoration, swap, fleet replacement). This information allows our technicians to confirm compatibility and calculate shipping costs.',
-          'For swap projects, additionally describe your target platform, current engine, transmission preference (manual/automatic), and whether you need a complete kit or engine only. Photographs of the engine bay accelerate the quotation process — send to flashkingpro202@gmail.com with your enquiry reference.',
-          'Quotation response includes: recommended engine options with mileage and condition grades, compression and leak-down test results for shortlisted units, itemised pricing in Euros, shipping cost to your address, estimated dispatch date, and warranty terms. Multiple options are provided when available so you can balance budget against remaining engine life.',
-          'Quotations are valid for 7 days. Engine availability changes daily as inventory turns over. A 30% deposit reserves your selected engine; we send updated photographs and the test report within 24 hours of deposit receipt. Balance is due before dispatch.',
-          'Trade customers with approved accounts receive net pricing, 30-day payment terms, and priority stock allocation. Account application requires business registration documentation and trade references. Approval typically within 48 hours.',
-          'Price matching is not our policy — we compete on testing quality and warranty terms, not on matching untested competitors. If you have a quote from another European supplier for a tested engine with equivalent documentation, we will explain differences in testing scope and included services.'
-        ]
-      },
-      {
-        tag: 'FITMENT',
-        title: 'Free Fitment Consultation Before You Buy',
-        imageAlt: 'BMW engine compatibility check',
-        reverse: false,
-        paragraphs: [
-          'Our free 15-minute fitment consultation prevents costly mismatches. We verify that the engine code matches your vehicle platform, confirm DME generation compatibility with your body electronics, and advise on supporting components — engine mounts, clutch, flywheel, exhaust, cooling upgrades, and gearbox adapter requirements.',
-          'Common compatibility issues we catch: wrong DME generation for the vehicle year (E90 LCI vs pre-LCI differences), mismatched transmission bell housing patterns, incompatible immobiliser systems, and emissions equipment differences between markets (EU vs US specification). Each of these can add €500–2,000 in unexpected adaptation costs if not identified before purchase.',
-          'Swap feasibility assessment covers physical fitment, wiring complexity, exhaust routing, driveshaft length, differential ratio, and ECU programming requirements. We provide a realistic labour estimate and bill of materials for popular swap combinations. E30 M57, E36 M57, E46 M57, and Defender conversions have pre-documented requirements.',
-          'Classic restoration consultation addresses period-correctness. An E30 325i restoration may require an M20B25 with specific production year characteristics. We explain differences between engine variants and recommend units that preserve vehicle originality where that matters to your project.',
-          'Fleet fitment consultation ensures consistent engine grading across multiple units. When replacing five N47 engines in F10 520d vehicles, we allocate from the same production batch with matching test results. This consistency simplifies workshop installation and maintenance scheduling.',
-          'Schedule your consultation by phone or email. No obligation to purchase — we provide honest advice even when it means recommending a cheaper engine variant or advising against a swap that is technically possible but economically impractical.'
-        ]
-      },
-      {
-        tag: 'SHIPPING ENQUIRIES',
-        title: 'Shipping, Delivery & International Orders',
-        imageAlt: 'BMW engine palletised for EU shipping',
-        reverse: true,
-        paragraphs: [
-          'Shipping quotes are calculated based on destination zone, engine weight, and delivery method. Germany: €80–120 standard, next-day available. EU mainland: €120–280 standard, 3–5 business days. UK/Switzerland/Norway: €180–350, 5–7 business days with customs documentation included.',
-          'Free shipping applies to orders exceeding €5,000 within Germany. Consolidated pallet shipping is available for multiple-engine orders — significant savings for fleet and workshop customers ordering 3+ units simultaneously.',
-          'Delivery is to kerbside. You need forklift access or an engine hoist at the delivery address. Our logistics team can recommend local engine installers who accept delivery on your behalf in most European cities.',
-          'Export outside the EU requires additional documentation. We prepare commercial invoices, origin certificates, and emissions compliance paperwork. Contact us with your destination country for specific requirements and freight quotes. We have shipped to the UK post-Brexit, Switzerland, Norway, Australia, and the Middle East.',
-          'Transit insurance is included on all orders exceeding €2,000. Inspect packaging before signing the delivery receipt. Note visible damage and contact us immediately — claims are resolved within 5 business days.',
-          'Collection from our Hamburg facility is welcome by appointment. Self-collection saves shipping costs and allows pre-dispatch inspection. Bring appropriate transport — engines on pallets require trailer or van with 1.5m internal height.'
-        ]
-      },
-      {
-        tag: 'AFTER PURCHASE',
-        title: 'Support After Your Engine Arrives',
-        imageAlt: 'BMW engine installation support',
-        reverse: false,
-        paragraphs: [
-          'Technical support continues after delivery. Installation questions, torque specifications, wiring clarifications, and DME coding assistance are available throughout your project. Call +49 176 13627363 or email flashkingpro202@gmail.com — reference your invoice number for fastest routing.',
-          'Warranty claims must be submitted to flashkingpro202@gmail.com with photographic evidence, diagnostic fault codes, and compression test results. Our technical team assesses claims within 5 business days. Approved claims are resolved by repair, replacement, or refund.',
-          'Core exchange returns should be shipped to our Hamburg facility with prior notification. Include your original invoice number. Credits are issued within 7 business days of core inspection. Cores must be complete (block, head, sump) for full credit value.',
-          'We value feedback. Post-delivery surveys help us improve testing protocols and customer service. Representative reviews are published on our reviews page with customer permission. Your experience — positive or constructive — drives our continuous improvement.',
-          'Contact Premium BMW Engines today. Whether you need a quote, fitment advice, shipping information, or post-installation support, our Hamburg team is ready to help. flashkingpro202@gmail.com · +49 176 13627363 · Monday–Friday, 08:00–18:00 CET.'
-        ]
-      },
-      {
-        tag: 'FAQ',
-        title: 'Frequently Asked Questions',
-        imageAlt: 'BMW engine customer support Hamburg',
-        reverse: true,
-        paragraphs: [
-          'How quickly can you ship? In-stock engines dispatch within 24–48 hours of payment confirmation. Germany receives next-day delivery on most orders. EU mainland typically 3–5 business days. We provide tracking from the moment the freight carrier collects your engine.',
-          'Can I see my engine before buying? Yes. We send updated photographs and test reports within 24 hours of enquiry. Video calls during dyno testing are available. Facility visits are welcome by appointment at our Hamburg warehouse.',
-          'Do you ship outside the EU? Yes — UK, Switzerland, Norway, and other destinations with full customs documentation. Contact us with your country for specific requirements and freight quotes.',
-          'What if the engine does not fit? Our free fitment consultation prevents most mismatches. If we supply an engine that does not match the agreed specification, we replace or refund under our returns policy. Fitment errors due to incorrect customer information are not covered.',
-          'How does the warranty work? 6-month mechanical warranty on internal components. Submit claims to flashkingpro202@gmail.com with diagnostic evidence. We resolve approved claims within 5 business days by repair, replacement, or refund.',
-          'Do you buy engines? Our core exchange programme accepts BMW engine cores in any condition. Credits range from €150–800 depending on family and completeness. Notify us before shipping cores to our Hamburg facility.'
-        ]
-      },
-      {
-        tag: 'VISIT',
-        title: 'Visit Our Hamburg Facility',
-        imageAlt: 'Premium BMW Engines Hamburg warehouse visit',
-        reverse: false,
-        paragraphs: [
-          'Our Hamburg facility welcomes visitors by appointment Monday through Friday. Witness your engine on the dyno, inspect inventory in person, and meet the technicians who tested your unit. Contact flashkingpro202@gmail.com to schedule. Allow 60–90 minutes for a comprehensive visit including warehouse tour and technical discussion.',
-          'Facility visits are particularly valuable for high-value purchases — S54, S55, S63, and low-mileage B58 engines — where personal inspection provides confidence beyond photographs. Many customers combine facility visits with self-collection to save shipping costs.',
-          'Parking is available for cars and trailers at our dispatch bay. Loading assistance is provided for self-collection. Bring appropriate transport — engines on pallets require trailer or van with minimum 1.5m internal height.',
-          'We are located in Hamburg with access from the A7 motorway. Detailed directions provided upon appointment confirmation. Cannot visit? Video calls and additional photography are free alternatives that most remote customers find sufficient.'
-        ]
-      }
+    layout: 'contact',
+    introTitle: 'Speak With Our BMW Engine Specialists in Hamburg',
+    introParagraphs: [
+      'Our technical team answers engine quotes, fitment questions, and shipping enquiries Monday through Friday, 08:00–18:00 CET. Email flashkingpro202@gmail.com or call +49 176 13627363 — we respond within 2 hours during business hours.',
+      'Whether you need a single M54 for an E46 restoration or a fleet of N47 diesels, our Hamburg team provides the same expert attention. Facility visits are welcome by appointment.',
+      'Before contacting us, have your vehicle model, year, engine code, and delivery country ready. This allows our technicians to provide accurate compatibility advice and shipping quotes on the first response.'
+    ],
+    faq: [
+      { q: 'How do I request an engine quote?', a: 'Email flashkingpro202@gmail.com or call +49 176 13627363 with your vehicle model, year, engine code if known, VIN, delivery country, and intended use. We respond within 2 hours during business hours with engine options, compression test results, itemised pricing, and shipping costs. Quotations are valid for 7 days. For swap projects, include photographs of your engine bay — our technicians can assess fitment feasibility from images before you commit. Multiple engine options are provided when available so you can balance budget against remaining engine life.' },
+      { q: 'What information do you need for a fitment check?', a: 'Provide vehicle model, year, current engine code, and whether you need a like-for-like replacement or swap. For swaps, describe the target platform and transmission preference. Our free 15-minute consultation verifies DME compatibility, mount requirements, and supporting components before you commit. Common issues we catch include wrong DME generation for vehicle year, mismatched transmission bell housing patterns, and incompatible immobiliser systems — each can add €500–2,000 in unexpected costs if not identified before purchase.' },
+      { q: 'How quickly can you ship my engine?', a: 'In-stock engines dispatch within 24–48 hours of payment confirmation. Germany: 1–2 business days. EU mainland: 3–5 business days. UK, Switzerland, Norway: 5–7 business days with customs documentation. Tracking is provided when the freight carrier collects your engine. Express delivery is available within Germany and neighbouring countries on request. Fleet orders of 3+ engines may use consolidated pallet shipping with scheduled delivery windows.' },
+      { q: 'Can I inspect my engine before it ships?', a: 'Yes. We send updated photographs and test reports within 24 hours of enquiry. Video calls during dyno testing are available — many customers witness their engine run on our SuperFlow dynamometer before authorising dispatch. Visit our Hamburg facility by appointment to see your engine in person, meet the technician who tested it, and inspect inventory. Facility visits are especially valuable for high-value purchases such as S54, S55, S63, and low-mileage B58 engines.' },
+      { q: 'Do you ship outside the European Union?', a: 'We ship to the UK, Switzerland, Norway, and other destinations with full customs documentation including commercial invoices and origin certificates. Contact us with your country for freight quotes and import requirements. We have successfully delivered engines to Australia and the Middle East. Post-Brexit UK shipments include all customs paperwork prepared by our logistics team. Delivery is to kerbside — forklift or engine hoist access required at the delivery address.' },
+      { q: 'What are your payment terms?', a: 'A 30% deposit reserves your engine and removes it from public inventory. Balance due before dispatch. We accept SEPA bank transfer, credit cards, and PayPal for orders under €3,000. Trade accounts may apply for 30-day payment terms after credit approval — application requires business registration, EU VAT number, and two trade references. Pro-forma invoice issued on deposit; final invoice on dispatch. Deposits refundable minus 10% administration fee if cancelled before dispatch preparation begins.' },
+      { q: 'How does the 6-month warranty work?', a: 'All tested engines include a 6-month mechanical warranty covering crankshaft, connecting rods, pistons, rings, bores, camshafts, valves, timing components, oil pump, and engine-mounted water pump. Submit claims to flashkingpro202@gmail.com with invoice number, photographs, diagnostic fault codes, and compression results from a qualified workshop. We assess within 5 business days. Approved claims resolved by repair reimbursement, replacement engine, or pro-rata refund. External ancillaries carry 30-day coverage.' },
+      { q: 'What is your returns policy?', a: 'Returns accepted within 14 days if the engine has not been installed, modified, or run. Engine must be returned in original packaging on the transport frame. A 15% restocking fee applies unless the engine was materially misrepresented in our listing. Refunds processed within 10 business days of inspection at our Hamburg facility. Return shipping costs are the buyer\'s responsibility unless the return is due to our error. Rebuilt engines and custom swap kits are non-returnable unless defective.' },
+      { q: 'Do you offer a core exchange programme?', a: 'Return your old BMW engine complete with block, head, and sump for credit of €150–800 depending on engine family and core condition. Seized engines have reduced but non-zero core value. Notify us before shipping cores — we provide return instructions and expected credit range. Credits issued within 7 business days of core inspection. Credits apply toward future purchases or are refunded on request. Cores with catastrophic block or head damage may receive minimum credit.' },
+      { q: 'Can workshops open a trade account?', a: 'Yes. Over 200 independent workshops across Europe hold active trade accounts with us. Application requires business registration documentation, valid EU VAT number, and two trade references. Approved accounts receive net pricing, 30-day payment terms, priority stock allocation, and access to our trade technical hotline. Setup typically completes within 48 hours. Repeat purchase rate among trade customers exceeds 85%.' },
+      { q: 'What support is available after delivery?', a: 'Technical support continues throughout your installation project. Call +49 176 13627363 or email flashkingpro202@gmail.com with your invoice number for torque specifications, wiring clarifications, cooling system bleed procedures, and DME coding assistance. Our team references your specific test data — not generic advice — when troubleshooting. Post-installation warranty claims follow the same contact channels with photographic and diagnostic evidence required.' },
+      { q: 'How do I schedule a facility visit?', a: 'Contact flashkingpro202@gmail.com to book Monday through Friday, 08:00–18:00 CET. Allow 60–90 minutes for a warehouse tour, engine inspection, and technical discussion. Parking for cars and trailers available at our dispatch bay. Loading assistance provided for self-collection. Bring appropriate transport — engines on pallets require trailer or van with minimum 1.5m internal height. Located in Hamburg with access from the A7 motorway; detailed directions provided upon confirmation.' },
+      { q: 'What languages do you support?', a: 'English and German fluently for all technical and commercial enquiries. French, Italian, Dutch, and Spanish with translation assistance available. Technical documentation and test reports provided in English as standard; German documentation available on request. Our team handles enquiries from all 28 EU member states plus UK, Switzerland, and Norway daily.' },
+      { q: 'How do I track my order?', a: 'Tracking information is emailed when the freight carrier collects your engine from our Hamburg dispatch bay. Our logistics team can coordinate timed delivery with your workshop schedule for commercial addresses. Inspect all packaging before signing the delivery receipt — note any visible damage on the carrier\'s documentation and photograph immediately. Contact us within 24 hours of delivery for transit damage claims; insurance covers orders exceeding €2,000.' },
+      { q: 'Do you supply M57 swap kits?', a: 'Yes — complete kits for E30, E36, E46, E39, and Land Rover Defender platforms. Each kit includes tested M57 engine, custom mounts, wiring adapter, DME with immobiliser solution, and exhaust components. See our M57 Swap Kits page for pricing or contact us for custom platform quotations. Technical support and installation documentation included with every kit. First-start success rate exceeds 97% across supervised installations.' }
     ]
   },
 
   policies: {
-    galleryTitle: 'Documented Quality — Every Engine Tested & Warranted',
-    gallerySubtitle: 'Our policies protect your investment with clear terms and honest documentation.',
-    gallerySets: pickSets(60, 12),
+    layout: 'policy',
     sections: [
       {
         tag: 'WARRANTY',
@@ -470,99 +405,6 @@ const PAGE_DEFINITIONS = {
         ]
       }
     ]
-  },
-
-  blog: {
-    galleryTitle: 'Technical Articles — Illustrated With Real Engine Photos',
-    gallerySubtitle: '215 in-depth guides from our Hamburg technical team, each with warehouse photography.',
-    gallerySets: pickSets(72, 12),
-    sections: [
-      {
-        tag: 'OUR BLOG',
-        title: '215 Technical Articles From BMW Engine Specialists',
-        imageAlt: 'BMW engine technical blog photography',
-        reverse: false,
-        paragraphs: [
-          'The Premium BMW Engines technical blog is not content marketing — it is a library of workshop-tested knowledge compiled by our certified BMW technicians over two decades. Each of our 215 articles contains approximately 2,500 words of genuine technical guidance covering engine selection, installation procedures, maintenance schedules, diagnostic techniques, and European logistics.',
-          'Articles are organised across 15 categories: Buying Guide, Engine Guide, Euro 6, Conversions, Logistics, 4x4, Workshop, Maintenance, Performance, Diesel, Classic, Swap Guide, Tuning, Diagnostics, and Restoration. Whether you are researching N47 versus N57 for your E91 touring or planning an M57 Defender conversion, our blog provides the depth that forum threads and YouTube videos cannot match.',
-          'Every article is illustrated with photographs from our Hamburg warehouse — real BMW engines on pallets, hoses and wiring visible, multi-angle documentation of the same quality we provide with engine sales. We do not use stock photography or generic automotive images. The engines in our article headers are from our inventory.',
-          'Our authors are practising technicians, not freelance writers. Content reflects hands-on experience from 15,000+ engine transactions, hundreds of swap installations, and thousands of dyno tests. When we describe compression testing procedures, those are the procedures we perform daily. When we warn about N47 timing chain failure, that warning comes from engines we have inspected and rejected.',
-          'New articles are published monthly, addressing emerging topics (B58 tuning limits, B57 AdBlue systems, Euro 7 implications) and expanding classic guides (M20 restoration, S54 rod bearing replacement). Subscribe to our mailing list for new article notifications and rare engine availability alerts.',
-          'Use the search and category filters below to find articles relevant to your project. Each article links to related inventory — an M57 swap guide connects to our swap kits; an S54 rebuild article links to available S54 engines with documented bearing inspection results.'
-        ]
-      },
-      {
-        tag: 'BUYING GUIDES',
-        title: 'Engine Buying Guides — Make Informed Decisions',
-        imageAlt: 'BMW engine buying guide warehouse photo',
-        reverse: true,
-        paragraphs: [
-          'Buying a used BMW engine online requires confidence that the supplier\'s description matches reality. Our buying guide articles teach you what to inspect, what test results mean, and what questions to ask before committing. Topics include mileage interpretation, compression versus leak-down analysis, oil analysis reading, and red flags that indicate problem engines.',
-          'Platform-specific buying guides cover E46 330i engine options (M54B30 variants), F30 320d N47 selection (timing chain inspection importance), E39 530d M57 differences (306D2 vs 306D3), and G30 B58 replacement economics (dealer versus independent supply). Each guide references engines currently in our inventory with live links to catalog listings.',
-          'Diesel buying guides address the unique concerns of BMW diesel owners: timing chain condition on N47 and N20 engines, swirl flap status on M57 units, AdBlue system functionality on B57 engines, and DPF configuration for cross-border purchases. Euro 6 compliance articles explain emissions equipment differences between markets.',
-          'Classic engine buying guides help restoration enthusiasts navigate M20, M30, M50, and M54 selection for period-correct builds. We explain production year differences, VANOS versus non-VANOS variants, and when a rebuilt engine offers better value than a high-mileage original.',
-          'Performance engine guides cover S54, S55, N54, N55, and B58 selection for track and street builds. Rod bearing inspection, turbocharger condition assessment, and cooling system requirements are documented with the rigour that high-value purchases demand.',
-          'Every buying guide concludes with a checklist you can use when evaluating any BMW engine — from any supplier. We publish this information because informed customers make better decisions, even when those decisions lead them to a competitor. Honesty builds long-term trust.'
-        ]
-      },
-      {
-        tag: 'WORKSHOP GUIDES',
-        title: 'Installation, Maintenance & Diagnostic Articles',
-        imageAlt: 'BMW engine workshop guide photography',
-        reverse: false,
-        paragraphs: [
-          'Workshop articles provide step-by-step guidance for procedures our technicians perform daily. Timing chain replacement on N47 engines, valve cover gasket service on N52 units, turbocharger removal on N54 engines, and head gasket diagnosis across all families. Torque specifications, tool requirements, and common mistakes are documented from experience.',
-          'Swap guides are our most popular category. M57 into E30, E36, E46, E39, and Land Rover Defender — each with mounting requirements, wiring integration steps, exhaust routing, cooling upgrades, and DME programming procedures. These guides complement our swap kits with the knowledge that turns components into running vehicles.',
-          'Maintenance schedules differ between engine families. Our articles document oil specifications (LL-01, LL-04, LL-14FE), coolant replacement intervals, spark plug gaps, valve clearance procedures (where applicable), and turbocharger care. Following correct maintenance extends engine life and protects warranty coverage.',
-          'Diagnostic articles teach systematic fault-finding: compression testing interpretation, leak-down analysis, smoke colour diagnosis, OBD code reading with BMW-specific tools (ISTA, INPA), and electrical fault isolation. These skills save workshops hours of guesswork and prevent misdiagnosis that leads to unnecessary component replacement.',
-          'Restoration articles address concours-level engine detailing, period-correct component sourcing, and balancing originality against reliability upgrades. An E30 325i restoration may benefit from electronic ignition upgrade while maintaining visual originality — our guides explain these judgment calls.',
-          'All workshop articles include safety reminders, tool lists, and references to BMW repair procedures (RA/RD documents). We recommend professional installation for complex procedures but empower enthusiasts with knowledge to evaluate workshop work quality and communicate effectively with their technicians.'
-        ]
-      },
-      {
-        tag: 'LOGISTICS',
-        title: 'Shipping, Customs & European Engine Logistics',
-        imageAlt: 'BMW engine European shipping logistics',
-        reverse: true,
-        paragraphs: [
-          'Logistics articles address the practical challenges of moving engines across European borders. Customs documentation for UK post-Brexit imports, Swiss import procedures, Norwegian VAT handling, and intra-EU free movement rules. Our logistics team contributes directly to these articles from daily shipping experience.',
-          'Engine packaging standards are explained so customers know what to expect on delivery: steel frame construction, strap rating, VCI wrapping, and pallet dimensions. Receiving procedures — inspection before signing, damage documentation, and hoist requirements — prevent disputes and ensure safe handling.',
-          'Cost analysis articles compare total cost of ownership: dealer replacement versus independent supply, rebuild versus replace economics, shipping and installation labour budgeting, and warranty value calculation. Transparent cost discussion helps customers budget accurately for complete projects.',
-          'Fleet logistics articles address multi-engine orders: consolidated shipping, scheduled delivery, consistent grading across units, and account management for commercial customers. Fleet operators running 50+ BMW vehicles face different logistics challenges than individual enthusiasts — our articles address both audiences.',
-          'Import and export guides cover non-standard destinations: Australia, Middle East, North Africa. Emissions documentation, origin certificates, and freight forwarding recommendations based on successful past shipments.',
-          'Questions about shipping your specific order? Logistics articles provide general guidance; contact flashkingpro202@gmail.com for quotes tailored to your destination and engine weight. Our team ships engines daily and resolves logistics challenges that first-time buyers have never encountered.'
-        ]
-      },
-      {
-        tag: 'START READING',
-        title: 'Browse 215 Articles — Find Your Project Guide',
-        imageAlt: 'BMW engine blog library photography',
-        reverse: false,
-        paragraphs: [
-          'Use the filters below to search by category or keyword. Articles are sorted by publication date with the most recent guides first. Each article displays word count, category, and publication date so you can gauge depth before opening.',
-          'Popular starting points: "N47 vs N57 — Which BMW Diesel Fits Your Car?", "M57 Swap Into E30 — Complete Workshop Guide", "Buying a Used M54 — What to Inspect First", "S54 Rod Bearing Replacement Guide", and "Shipping BMW Engines Across Europe — Customs Guide".',
-          'Cannot find your topic? Contact our technical team — if your question is common enough, it becomes our next article. We write about what customers actually need, not what keyword research suggests.',
-          'Combine blog research with our free fitment consultation for the best outcome. Read the relevant guide, note your questions, and call +49 176 13627363 or email flashkingpro202@gmail.com. Our technicians reference the same knowledge base that powers these articles.',
-          'Premium BMW Engines — 215 technical articles, 3,100+ tested engines, and expert support from Hamburg. Your BMW engine project starts with knowledge. Start reading below.'
-        ]
-      },
-      {
-        tag: 'CONTRIBUTORS',
-        title: 'Written by Practising BMW Technicians',
-        imageAlt: 'BMW technical blog authors warehouse',
-        reverse: true,
-        paragraphs: [
-          'Every article is authored or reviewed by certified BMW technicians from our Hamburg facility. Author bylines link to specialist areas: diesel systems, classic engines, performance tuning, and logistics. When an article describes a procedure, the author has performed that procedure on customer engines — not merely researched it.',
-          'Technical accuracy is verified through peer review within our team. A diesel specialist reviews diesel articles; a classic engine technician reviews M20/M30 content. Corrections are published with date stamps when BMW technical bulletins or field experience reveals updated guidance.',
-          'Article illustrations use photographs from our warehouse inventory — the same Bavarian-style engine photography that appears in our product listings. Engines on pallets, hoses and wiring visible, multi-angle documentation. We never use stock photography or AI-generated images.',
-          'Reader questions submitted through our contact form frequently become new articles. If multiple customers ask the same question, we publish a comprehensive guide rather than answering individually. This feedback loop keeps our content library aligned with real customer needs.',
-          'Cite our articles freely for personal and workshop use. Commercial republication requires permission. We publish to educate the BMW community, not to gate knowledge behind paywalls or registration requirements.',
-          'Subscribe to our monthly newsletter for new article alerts and rare engine availability notifications. The newsletter contains technical content only — no promotional spam. Unsubscribe at any time. Contact flashkingpro202@gmail.com to join.',
-          'Our most-read articles this year cover N47 timing chain inspection, M57 Defender conversion planning, B58 dealer replacement economics, and S54 rod bearing assessment. These guides reflect the engines our customers buy most frequently — diesel daily drivers, swap projects, and performance replacements.',
-          'Bookmark this page and return as your project evolves. Our library grows monthly with new guides informed by customer enquiries and workshop discoveries from our Hamburg testing facility.'
-        ]
-      }
-    ]
   }
 };
 
@@ -570,18 +412,41 @@ fs.mkdirSync(PAGES_DIR, { recursive: true });
 
 let index = [];
 for (const [slug, page] of Object.entries(PAGE_DEFINITIONS)) {
-  const wordCount = countWords(page.sections);
-  const output = {
-    slug,
-    galleryTitle: page.galleryTitle,
-    gallerySubtitle: page.gallerySubtitle,
-    gallerySets: page.gallerySets,
-    wordCount,
-    sections: page.sections
-  };
+  const seed = IMAGE_SEEDS[slug] || 0;
+  let output;
+  let wordCount;
+
+  if (page.layout === 'contact') {
+    const [heroImage] = allocateUniqueImages(1, seed);
+    wordCount = countWordsFromFaq(page.faq, page.introParagraphs);
+    output = {
+      slug,
+      layout: 'contact',
+      heroImage,
+      introTitle: page.introTitle,
+      introParagraphs: page.introParagraphs,
+      faq: page.faq,
+      wordCount
+    };
+    index.push({ slug, wordCount, layout: 'contact' });
+    console.log(`  ${slug}: ${wordCount} words, ${page.faq.length} FAQ items`);
+  } else if (page.layout === 'policy') {
+    const images = allocateUniqueImages(page.sections.length, seed);
+    const sections = page.sections.map((s, i) => ({ ...s, image: images[i] }));
+    wordCount = countWordsFromSections(sections);
+    output = { slug, layout: 'policy', sections, wordCount };
+    index.push({ slug, wordCount, sections: sections.length, layout: 'policy' });
+    console.log(`  ${slug}: ${wordCount} words, ${sections.length} policy sections`);
+  } else {
+    const images = allocateUniqueImages(page.sections.length, seed);
+    const sections = page.sections.map((s, i) => ({ ...s, image: images[i] }));
+    wordCount = countWordsFromSections(sections);
+    output = { slug, layout: 'sections', sections, wordCount };
+    index.push({ slug, wordCount, sections: sections.length, layout: 'sections' });
+    console.log(`  ${slug}: ${wordCount} words, ${sections.length} sections`);
+  }
+
   fs.writeFileSync(path.join(PAGES_DIR, `${slug}.json`), JSON.stringify(output, null, 2));
-  index.push({ slug, wordCount, sections: page.sections.length, galleryImages: page.gallerySets.length });
-  console.log(`  ${slug}: ${wordCount} words, ${page.sections.length} sections`);
 }
 
 fs.writeFileSync(path.join(PAGES_DIR, 'index.json'), JSON.stringify({ pages: index }, null, 2));

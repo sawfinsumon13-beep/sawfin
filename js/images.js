@@ -18,12 +18,25 @@ const IMAGE_MANIFEST = {
 
 const CATEGORY_IMAGES = IMAGE_MANIFEST.categories;
 const FALLBACK_IMAGE = IMAGE_MANIFEST.fallback;
+const ENGINE_SET_COUNT = 116;
 
 const SHOWCASE_IMAGES = {
-  top_cover: 'images/engines/sets/set-0114/01.webp',
-  pallet_main: 'images/engines/sets/set-0108/02.webp',
-  hoses_detail: 'images/engines/sets/set-0087/03.webp'
+  top_cover: 'images/engines/sets/set-0114/02.webp',
+  pallet_main: 'images/engines/sets/set-0108/03.webp',
+  hoses_detail: 'images/engines/sets/set-0087/04.webp'
 };
+
+/** Return `count` unique warehouse image paths; `startIndex` offsets into the global pool. */
+function allocateUniqueImages(count, startIndex = 0) {
+  const images = [];
+  for (let i = 0; i < count; i++) {
+    const idx = startIndex + i;
+    const setNum = (idx % ENGINE_SET_COUNT) + 1;
+    const imgNum = (Math.floor(idx / ENGINE_SET_COUNT) % 6) + 1;
+    images.push(`images/engines/sets/set-${String(setNum).padStart(4, '0')}/${String(imgNum).padStart(2, '0')}.webp`);
+  }
+  return images;
+}
 
 const GALLERY_LABELS = [
   'engine on pallet — main warehouse view',
@@ -67,8 +80,8 @@ function getBlogImage(post) {
   if (post.image) {
     return post.image;
   }
-  const setNum = String(((post.id - 1) % 116) + 1).padStart(4, '0');
-  return `images/engines/sets/set-${setNum}/01.webp`;
+  const pool = allocateUniqueImages(1, post.id + 200);
+  return pool[0];
 }
 
 function imgTag(src, alt, extra = '') {

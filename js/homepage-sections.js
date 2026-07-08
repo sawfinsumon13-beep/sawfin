@@ -163,8 +163,12 @@ const HOMEPAGE_SECTIONS = [
   }
 ];
 
-const OLD_ENGINE_GALLERY = HOMEPAGE_GALLERY_SETS.map((setId, i) => ({
-  src: `images/engines/sets/${setId}/01.webp`,
+// Homepage — unique image per slot (gallery + sections never share a path)
+const HOMEPAGE_GALLERY_IMAGES = allocateUniqueImages(9, 0);
+const HOMEPAGE_SECTION_IMAGES = allocateUniqueImages(HOMEPAGE_SECTIONS.length, 9);
+
+const OLD_ENGINE_GALLERY = HOMEPAGE_GALLERY_IMAGES.map((src, i) => ({
+  src,
   alt: `BMW engine warehouse inventory photo ${i + 1}`
 }));
 
@@ -195,8 +199,7 @@ function renderContentIntro() {
 
 function renderContentSections() {
   return HOMEPAGE_SECTIONS.map((section, i) => {
-    const setId = HOMEPAGE_GALLERY_SETS[i % HOMEPAGE_GALLERY_SETS.length];
-    const img = `images/engines/sets/${setId}/01.webp`;
+    const img = HOMEPAGE_SECTION_IMAGES[i];
     const num = String(i + 1).padStart(2, '0');
     const [lead, ...rest] = section.paragraphs;
     return `

@@ -1,22 +1,6 @@
 {
   "slug": "m57-swap-kits",
-  "galleryTitle": "M57 Engines in Our Hamburg Warehouse",
-  "gallerySubtitle": "Every swap kit starts with a tested M57 diesel — photographed on pallet before dispatch.",
-  "gallerySets": [
-    "set-0013",
-    "set-0014",
-    "set-0015",
-    "set-0016",
-    "set-0017",
-    "set-0018",
-    "set-0019",
-    "set-0020",
-    "set-0021",
-    "set-0022",
-    "set-0023",
-    "set-0024"
-  ],
-  "wordCount": 1817,
+  "layout": "sections",
   "sections": [
     {
       "tag": "WHY M57",
@@ -30,7 +14,8 @@
         "The M57's mechanical simplicity relative to modern common-rail diesels makes it attractive for applications where electronic complexity is undesirable. Pre-2006 units use a single turbocharger with vacuum-actuated wastegate control, while later 306D3 and 306D4 variants add twin-turbo sequential charging for improved response. Our technical team advises on the optimal variant for your platform, intended use, and emissions requirements before you commit to a purchase.",
         "Torque delivery defines the M57 driving experience. Unlike petrol engines that must rev to produce meaningful output, the M57 generates peak torque from 1,750 rpm — ideal for towing, off-road crawling, and relaxed Autobahn cruising. Defender conversion customers consistently report that the M57 addresses the classic Land Rover's primary weakness: refined, effortless highway performance without sacrificing low-speed control.",
         "Our Hamburg facility photographs every M57 engine from six angles before listing — main warehouse view, side angle showing hoses and ancillaries, rear turbo detail, stamp area close-up, wiring harness, and complete floor shot on pallet. These are the actual engines in our swap programme, not stock photography. When you receive your kit, the engine matches the images in your quotation documentation."
-      ]
+      ],
+      "image": "images/engines/sets/set-0026/01.webp"
     },
     {
       "tag": "KIT CONTENTS",
@@ -44,7 +29,8 @@
         "The DME (Digital Motor Electronics) must match the engine generation and be programmed for your application. We supply remapped DME units with immobiliser solutions tested on the specific platform. E46 swaps often retain OBD-II compatibility with minimal adaptation; E30 swaps require standalone management or full EWS deletion. Our ECU programming service includes base maps optimised for your turbo configuration and fuel system.",
         "Cooling system components are platform-specific. The M57 requires a radiator with adequate capacity — we recommend aluminium upgrades for any swap producing more than 200 hp. Expansion tank routing, heater hose connections, and electric fan wiring are documented in our installation guides. Oil cooler additions are mandatory for towing applications and recommended for all Defender conversions operating in warm climates.",
         "Optional upgrades include larger intercoolers for 306D4 twin-turbo engines, upgraded fuel pumps for performance applications, stainless steel exhaust systems, and reinforced clutch assemblies rated for 500+ Nm. Our technical consultation identifies which upgrades are necessary for your intended use versus which are cosmetic — we do not upsell components that do not improve reliability or performance for your specific project."
-      ]
+      ],
+      "image": "images/engines/sets/set-0027/01.webp"
     },
     {
       "tag": "PLATFORMS",
@@ -58,7 +44,8 @@
         "E39 petrol-to-diesel conversions appeal to owners who want touring car practicality with diesel economy. The E39 engine bay accommodates M57 engines with our adapter kit, though gearbox selection is critical — the petrol Getrag 6-speed does not bolt to M57 diesels without adapter plates. We supply complete E39 diesel gearbox assemblies (ZF 5HP24 or Getrag 260) with matching propshaft and differential ratios.",
         "The Land Rover Defender conversion has transformed overland and expedition vehicle capability across Europe. Our Defender kit includes adapter plate, heavy-duty clutch, custom engine mounts, exhaust manifold routing around the chassis, and full wiring integration with the Defender's existing electrical architecture. The M57's 410+ Nm transforms off-road performance while delivering 8–10 L/100 km highway consumption — a combination no factory Defender engine achieves.",
         "Custom platforms are welcome. We have supplied M57 kits for marine applications, Unimog conversions, and specialist rally support vehicles. Contact our technical team with chassis dimensions, intended use, and power requirements. We provide a detailed bill of materials and realistic labour estimate within 24 hours of receiving your enquiry."
-      ]
+      ],
+      "image": "images/engines/sets/set-0028/01.webp"
     },
     {
       "tag": "INSTALLATION",
@@ -72,7 +59,8 @@
         "First start should occur with the vehicle secured on level ground, bonnet open, and a fire extinguisher accessible. Idle speed should stabilise within 60 seconds; hunting or rough idle indicates wiring or sensor issues requiring diagnosis before driving. Allow the engine to reach operating temperature at idle before revving — check for coolant, oil, and fuel leaks at every junction. Initial driving should be gentle for the first 500 km to allow clutch bedding and mount settling.",
         "DME adaptation and coding vary by platform. E46 installations typically require CAS alignment and instrument cluster programming. E30 standalone installations need base map verification on the dyno. We provide ISTA-compatible coding instructions and can perform remote programming sessions for customers with BMW diagnostic equipment. Our Hamburg facility offers in-house programming by appointment.",
         "Post-installation, we remain available for troubleshooting. Common first-week issues include minor coolant seepage from hose clamps (retorque after thermal cycling), exhaust gasket settling (normal for new gaskets), and occasional DME adaptation codes that clear after drive cycles. Our warranty covers the engine and kit components; installation labour is the customer's responsibility unless performed at our Hamburg facility."
-      ]
+      ],
+      "image": "images/engines/sets/set-0029/01.webp"
     },
     {
       "tag": "ORDERING",
@@ -85,7 +73,9 @@
         "Every kit ships with photographic documentation of your specific engine, compression and leak-down test results, wiring pin-out diagrams, installation guide specific to your platform, torque specification sheet, and warranty certificate. Transit insurance covers the full kit value. Delivery is to kerbside on a standard pallet — forklift or engine hoist access required.",
         "We welcome facility visits by appointment. Witnessing your engine on the dyno before kit assembly provides confidence that photographs alone cannot replicate. Our Hamburg warehouse is accessible from the A7 motorway; contact us to schedule a visit during business hours (Monday–Friday, 08:00–18:00 CET).",
         "Whether you are building a daily-driver E46 diesel replacement, a classic E30 with modern torque, or an expedition Defender, our M57 programme provides the engine, hardware, and expertise to complete your project successfully. Over 500 M57 swap kits supplied across Europe since 2008 — browse our kit listings above or contact our team for a custom quotation within 24 hours."
-      ]
+      ],
+      "image": "images/engines/sets/set-0030/01.webp"
     }
-  ]
+  ],
+  "wordCount": 1817
 }

@@ -4,8 +4,20 @@ const path = require('path');
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const TOTAL_REVIEWS = 320;
 
-const manifest = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'image-sets-manifest.json'), 'utf8'));
-const SET_IDS = Object.keys(manifest.sets).sort();
+const ENGINE_SET_COUNT = 116;
+
+function allocateUniqueImages(count, startIndex = 0) {
+  const images = [];
+  for (let i = 0; i < count; i++) {
+    const idx = startIndex + i;
+    const setNum = (idx % ENGINE_SET_COUNT) + 1;
+    const imgNum = (Math.floor(idx / ENGINE_SET_COUNT) % 6) + 1;
+    images.push(`images/engines/sets/set-${String(setNum).padStart(4, '0')}/${String(imgNum).padStart(2, '0')}.webp`);
+  }
+  return images;
+}
+
+const REVIEW_IMAGE_POOL = allocateUniqueImages(TOTAL_REVIEWS, 100);
 
 const FIRST_NAMES = [
   'Markus', 'Thomas', 'Peter', 'James', 'Alexandre', 'Stefan', 'David', 'Robert', 'Laura', 'Fabio',
@@ -103,9 +115,7 @@ function generateReview(id) {
   const date = new Date();
   date.setMonth(date.getMonth() - monthsAgo);
 
-  const setId = SET_IDS[(id - 1) % SET_IDS.length];
-  const imageIndex = (id % 6) + 1;
-  const image = `images/engines/sets/${setId}/${String(imageIndex).padStart(2, '0')}.webp`;
+  const image = REVIEW_IMAGE_POOL[id - 1];
 
   return {
     id,

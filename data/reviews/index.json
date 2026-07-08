@@ -10,12 +10,12 @@
       "city": "Munich",
       "country": "Germany",
       "stars": 5,
-      "text": "Ordered a M54B30 for my E46 330i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.1 bar across all cylinders. Running beautifully after 10 months.",
+      "text": "Ordered a M54B30 for my E46 330i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.9 bar across all cylinders. Running beautifully after 5 months.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2026-03-08",
+      "date": "2025-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0001/02.webp"
+      "image": "images/engines/sets/set-0101/01.webp"
     },
     {
       "id": 2,
@@ -26,9 +26,9 @@
       "text": "The M54B25 engine for my E46 325i was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2025-07-08",
+      "date": "2024-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0002/03.webp"
+      "image": "images/engines/sets/set-0102/01.webp"
     },
     {
       "id": 3,
@@ -39,9 +39,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The M52B28 for a customer E36 328i was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2024-08-08",
+      "date": "2024-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0003/04.webp"
+      "image": "images/engines/sets/set-0103/01.webp"
     },
     {
       "id": 4,
@@ -49,12 +49,12 @@
       "city": "Frankfurt",
       "country": "Germany",
       "stars": 5,
-      "text": "M50B25 delivered to E36 325i project within 3 days. Customs paperwork flawless. 12.4 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "M50B25 delivered to E36 325i project within 5 days. Customs paperwork flawless. 12.2 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2024-10-08",
+      "date": "2025-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0004/05.webp"
+      "image": "images/engines/sets/set-0104/01.webp"
     },
     {
       "id": 5,
@@ -65,9 +65,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone M20B25 for my E30 325i, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2025-04-08",
+      "date": "2023-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0005/06.webp"
+      "image": "images/engines/sets/set-0105/01.webp"
     },
     {
       "id": 6,
@@ -78,9 +78,9 @@
       "text": "Skeptical about buying a M30B35 online for my E34 535i restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Rev-happy petrol character preserved.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2026-05-08",
+      "date": "2024-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0006/01.webp"
+      "image": "images/engines/sets/set-0106/01.webp"
     },
     {
       "id": 7,
@@ -88,12 +88,12 @@
       "city": "Vienna",
       "country": "Austria",
       "stars": 5,
-      "text": "Fleet order of 4 S54B32 engines for our E46 M3 vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 3 S54B32 engines for our E46 M3 vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2024-01-08",
+      "date": "2023-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0007/02.webp"
+      "image": "images/engines/sets/set-0107/01.webp"
     },
     {
       "id": 8,
@@ -104,9 +104,9 @@
       "text": "Dyno test witnessed via video call before they shipped my S55B30. Engine made rated power on their SuperFlow. F80 M3 is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2024-11-08",
+      "date": "2023-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0008/03.webp"
+      "image": "images/engines/sets/set-0108/01.webp"
     },
     {
       "id": 9,
@@ -117,9 +117,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the N54B30 for my E90 335i. Smooth process from start to finish.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2026-06-08",
+      "date": "2026-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0009/04.webp"
+      "image": "images/engines/sets/set-0109/01.webp"
     },
     {
       "id": 10,
@@ -130,9 +130,9 @@
       "text": "Their blog articles helped me choose the right N55B30 for my F30 335i. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2023-08-08",
+      "date": "2026-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0010/05.webp"
+      "image": "images/engines/sets/set-0110/01.webp"
     },
     {
       "id": 11,
@@ -143,9 +143,9 @@
       "text": "Classic E90 330i restoration needed a period-correct N52B30. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2025-04-08",
+      "date": "2024-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0011/06.webp"
+      "image": "images/engines/sets/set-0111/01.webp"
     },
     {
       "id": 12,
@@ -153,12 +153,12 @@
       "city": "Paris",
       "country": "France",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 630+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 437+ km since install without issues.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2024-08-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0012/01.webp"
+      "image": "images/engines/sets/set-0112/01.webp"
     },
     {
       "id": 13,
@@ -169,9 +169,9 @@
       "text": "B58 for my F30 320i after dealer quoted €12,000+. Their tested B48B20 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2024-06-08",
+      "date": "2023-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0013/02.webp"
+      "image": "images/engines/sets/set-0113/01.webp"
     },
     {
       "id": 14,
@@ -182,9 +182,9 @@
       "text": "N47 timing chain inspected before shipping as promised. N47D20 for F30 320d arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2026-05-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0014/03.webp"
+      "image": "images/engines/sets/set-0114/01.webp"
     },
     {
       "id": 15,
@@ -195,9 +195,9 @@
       "text": "Rebuilt N57D30 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My F10 535d track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2024-04-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0015/04.webp"
+      "image": "images/engines/sets/set-0115/01.webp"
     },
     {
       "id": 16,
@@ -208,9 +208,9 @@
       "text": "Shipping to UK post-Brexit was seamless. M57D30 for E39 530d arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2026-05-08",
+      "date": "2025-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0016/05.webp"
+      "image": "images/engines/sets/set-0116/01.webp"
     },
     {
       "id": 17,
@@ -221,9 +221,9 @@
       "text": "Visited Hamburg facility to inspect M57D30 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "M57D30",
       "platform": "E46 330d",
-      "date": "2024-12-08",
+      "date": "2025-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0017/06.webp"
+      "image": "images/engines/sets/set-0001/02.webp"
     },
     {
       "id": 18,
@@ -234,9 +234,9 @@
       "text": "Trade account setup took 48 hours. Now source all B47D20 and G20 320d engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2024-02-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0018/01.webp"
+      "image": "images/engines/sets/set-0002/02.webp"
     },
     {
       "id": 19,
@@ -247,9 +247,9 @@
       "text": "Warranty claim handled without argument. B57D30 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2025-12-08",
+      "date": "2026-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0019/02.webp"
+      "image": "images/engines/sets/set-0003/02.webp"
     },
     {
       "id": 20,
@@ -260,9 +260,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The M47D20 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2025-10-08",
+      "date": "2024-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0020/03.webp"
+      "image": "images/engines/sets/set-0004/02.webp"
     },
     {
       "id": 21,
@@ -270,12 +270,12 @@
       "city": "Manchester",
       "country": "UK",
       "stars": 5,
-      "text": "Ordered a S63B44 for my F10 M5  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 11.2 bar across all cylinders. Running beautifully after 4 months.",
+      "text": "Ordered a S63B44 for my F10 M5  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.4 bar across all cylinders. Running beautifully after 5 months.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2024-07-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0021/04.webp"
+      "image": "images/engines/sets/set-0005/02.webp"
     },
     {
       "id": 22,
@@ -286,9 +286,9 @@
       "text": "The N63B44 engine for my F01 550i was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2024-03-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0022/05.webp"
+      "image": "images/engines/sets/set-0006/02.webp"
     },
     {
       "id": 23,
@@ -299,9 +299,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The M62B44 for a customer E39 M5 was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2026-05-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0023/06.webp"
+      "image": "images/engines/sets/set-0007/02.webp"
     },
     {
       "id": 24,
@@ -309,12 +309,12 @@
       "city": "Copenhagen",
       "country": "Denmark",
       "stars": 5,
-      "text": "M54B30 delivered to E46 330i project within 3 days. Customs paperwork flawless. 13.3 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "M54B30 delivered to E46 330i project within 5 days. Customs paperwork flawless. 13.4 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2024-02-08",
+      "date": "2023-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0024/01.webp"
+      "image": "images/engines/sets/set-0008/02.webp"
     },
     {
       "id": 25,
@@ -325,9 +325,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone M54B25 for my E46 325i, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2026-04-08",
+      "date": "2023-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0025/02.webp"
+      "image": "images/engines/sets/set-0009/02.webp"
     },
     {
       "id": 26,
@@ -338,9 +338,9 @@
       "text": "Skeptical about buying a M52B28 online for my E36 328i restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Rev-happy petrol character preserved.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2025-07-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0026/03.webp"
+      "image": "images/engines/sets/set-0010/02.webp"
     },
     {
       "id": 27,
@@ -348,12 +348,12 @@
       "city": "Warsaw",
       "country": "Poland",
       "stars": 5,
-      "text": "Fleet order of 4 M50B25 engines for our E36 325i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 3 M50B25 engines for our E36 325i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2024-06-08",
+      "date": "2025-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0027/04.webp"
+      "image": "images/engines/sets/set-0011/02.webp"
     },
     {
       "id": 28,
@@ -364,9 +364,9 @@
       "text": "Dyno test witnessed via video call before they shipped my M20B25. Engine made rated power on their SuperFlow. E30 325i is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2024-05-08",
+      "date": "2024-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0028/05.webp"
+      "image": "images/engines/sets/set-0012/02.webp"
     },
     {
       "id": 29,
@@ -377,9 +377,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the M30B35 for my E34 535i. Smooth process from start to finish.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2023-09-08",
+      "date": "2025-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0029/06.webp"
+      "image": "images/engines/sets/set-0013/02.webp"
     },
     {
       "id": 30,
@@ -390,9 +390,9 @@
       "text": "Their blog articles helped me choose the right S54B32 for my E46 M3. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2024-12-08",
+      "date": "2026-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0030/01.webp"
+      "image": "images/engines/sets/set-0014/02.webp"
     },
     {
       "id": 31,
@@ -403,9 +403,9 @@
       "text": "Classic F80 M3 restoration needed a period-correct S55B30. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2025-10-08",
+      "date": "2025-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0031/02.webp"
+      "image": "images/engines/sets/set-0015/02.webp"
     },
     {
       "id": 32,
@@ -413,12 +413,12 @@
       "city": "Hamburg",
       "country": "Germany",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 530+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 210+ km since install without issues.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2025-10-08",
+      "date": "2024-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0032/03.webp"
+      "image": "images/engines/sets/set-0016/02.webp"
     },
     {
       "id": 33,
@@ -429,9 +429,9 @@
       "text": "B58 for my F30 335i after dealer quoted €12,000+. Their tested N55B30 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2025-01-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0033/04.webp"
+      "image": "images/engines/sets/set-0017/02.webp"
     },
     {
       "id": 34,
@@ -442,9 +442,9 @@
       "text": "N47 timing chain inspected before shipping as promised. N52B30 for E90 330i arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2024-07-08",
+      "date": "2024-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0034/05.webp"
+      "image": "images/engines/sets/set-0018/02.webp"
     },
     {
       "id": 35,
@@ -455,9 +455,9 @@
       "text": "Rebuilt B58B30 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My F30 340i track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2025-01-08",
+      "date": "2025-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0035/06.webp"
+      "image": "images/engines/sets/set-0019/02.webp"
     },
     {
       "id": 36,
@@ -468,9 +468,9 @@
       "text": "Shipping to UK post-Brexit was seamless. B48B20 for F30 320i arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2024-12-08",
+      "date": "2023-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0036/01.webp"
+      "image": "images/engines/sets/set-0020/02.webp"
     },
     {
       "id": 37,
@@ -481,9 +481,9 @@
       "text": "Visited Hamburg facility to inspect N47D20 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2024-04-08",
+      "date": "2026-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0037/02.webp"
+      "image": "images/engines/sets/set-0021/02.webp"
     },
     {
       "id": 38,
@@ -494,9 +494,9 @@
       "text": "Trade account setup took 48 hours. Now source all N57D30 and F10 535d engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2024-02-08",
+      "date": "2025-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0038/03.webp"
+      "image": "images/engines/sets/set-0022/02.webp"
     },
     {
       "id": 39,
@@ -507,9 +507,9 @@
       "text": "Warranty claim handled without argument. M57D30 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2025-09-08",
+      "date": "2025-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0039/04.webp"
+      "image": "images/engines/sets/set-0023/02.webp"
     },
     {
       "id": 40,
@@ -520,9 +520,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The M57D30 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "M57D30",
       "platform": "E46 330d",
-      "date": "2025-08-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0040/05.webp"
+      "image": "images/engines/sets/set-0024/02.webp"
     },
     {
       "id": 41,
@@ -530,12 +530,12 @@
       "city": "Brussels",
       "country": "Belgium",
       "stars": 5,
-      "text": "Ordered a B47D20 for my G20 320d diesel replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.2 bar across all cylinders. Running beautifully after 7 months.",
+      "text": "Ordered a B47D20 for my G20 320d diesel replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 13.3 bar across all cylinders. Running beautifully after 7 months.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2026-02-08",
+      "date": "2025-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0041/06.webp"
+      "image": "images/engines/sets/set-0025/02.webp"
     },
     {
       "id": 42,
@@ -546,9 +546,9 @@
       "text": "The B57D30 engine for my G30 530d was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2025-07-08",
+      "date": "2023-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0042/01.webp"
+      "image": "images/engines/sets/set-0026/02.webp"
     },
     {
       "id": 43,
@@ -559,9 +559,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The M47D20 for a customer E46 320d was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2026-05-08",
+      "date": "2024-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0043/02.webp"
+      "image": "images/engines/sets/set-0027/02.webp"
     },
     {
       "id": 44,
@@ -569,12 +569,12 @@
       "city": "Milan",
       "country": "Italy",
       "stars": 5,
-      "text": "S63B44 delivered to F10 M5 project within 3 days. Customs paperwork flawless. 12.1 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "S63B44 delivered to F10 M5 project within 4 days. Customs paperwork flawless. 12.1 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2023-12-08",
+      "date": "2024-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0044/03.webp"
+      "image": "images/engines/sets/set-0028/02.webp"
     },
     {
       "id": 45,
@@ -585,9 +585,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone N63B44 for my F01 550i, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2024-12-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0045/04.webp"
+      "image": "images/engines/sets/set-0029/02.webp"
     },
     {
       "id": 46,
@@ -598,9 +598,9 @@
       "text": "Skeptical about buying a M62B44 online for my E39 M5 restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Rev-happy petrol character preserved.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2026-04-08",
+      "date": "2024-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0046/05.webp"
+      "image": "images/engines/sets/set-0030/02.webp"
     },
     {
       "id": 47,
@@ -608,12 +608,12 @@
       "city": "Madrid",
       "country": "Spain",
       "stars": 4,
-      "text": "Fleet order of 4 M54B30 engines for our E46 330i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 6 M54B30 engines for our E46 330i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2026-02-08",
+      "date": "2024-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0047/06.webp"
+      "image": "images/engines/sets/set-0031/02.webp"
     },
     {
       "id": 48,
@@ -624,9 +624,9 @@
       "text": "Dyno test witnessed via video call before they shipped my M54B25. Engine made rated power on their SuperFlow. E46 325i is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2025-05-08",
+      "date": "2026-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0048/01.webp"
+      "image": "images/engines/sets/set-0032/02.webp"
     },
     {
       "id": 49,
@@ -637,9 +637,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the M52B28 for my E36 328i. Smooth process from start to finish.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2025-07-08",
+      "date": "2024-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0049/02.webp"
+      "image": "images/engines/sets/set-0033/02.webp"
     },
     {
       "id": 50,
@@ -650,9 +650,9 @@
       "text": "Their blog articles helped me choose the right M50B25 for my E36 325i. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2023-09-08",
+      "date": "2024-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0050/03.webp"
+      "image": "images/engines/sets/set-0034/02.webp"
     },
     {
       "id": 51,
@@ -663,9 +663,9 @@
       "text": "Classic E30 325i restoration needed a period-correct M20B25. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2023-09-08",
+      "date": "2024-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0051/04.webp"
+      "image": "images/engines/sets/set-0035/02.webp"
     },
     {
       "id": 52,
@@ -673,12 +673,12 @@
       "city": "Dublin",
       "country": "Ireland",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 653+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 222+ km since install without issues.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2025-03-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0052/05.webp"
+      "image": "images/engines/sets/set-0036/02.webp"
     },
     {
       "id": 53,
@@ -689,9 +689,9 @@
       "text": "B58 for my E46 M3 after dealer quoted €12,000+. Their tested S54B32 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2026-03-08",
+      "date": "2024-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0053/06.webp"
+      "image": "images/engines/sets/set-0037/02.webp"
     },
     {
       "id": 54,
@@ -702,9 +702,9 @@
       "text": "N47 timing chain inspected before shipping as promised. S55B30 for F80 M3 arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2024-03-08",
+      "date": "2024-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0054/01.webp"
+      "image": "images/engines/sets/set-0038/02.webp"
     },
     {
       "id": 55,
@@ -715,9 +715,9 @@
       "text": "Rebuilt N54B30 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My E90 335i track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2026-03-08",
+      "date": "2026-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0055/02.webp"
+      "image": "images/engines/sets/set-0039/02.webp"
     },
     {
       "id": 56,
@@ -728,9 +728,9 @@
       "text": "Shipping to UK post-Brexit was seamless. N55B30 for F30 335i arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2025-08-08",
+      "date": "2025-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0057/03.webp"
+      "image": "images/engines/sets/set-0040/02.webp"
     },
     {
       "id": 57,
@@ -741,9 +741,9 @@
       "text": "Visited Hamburg facility to inspect N52B30 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2024-05-08",
+      "date": "2025-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0059/04.webp"
+      "image": "images/engines/sets/set-0041/02.webp"
     },
     {
       "id": 58,
@@ -754,9 +754,9 @@
       "text": "Trade account setup took 48 hours. Now source all B58B30 and F30 340i engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2023-12-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0060/05.webp"
+      "image": "images/engines/sets/set-0042/02.webp"
     },
     {
       "id": 59,
@@ -767,9 +767,9 @@
       "text": "Warranty claim handled without argument. B48B20 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2024-03-08",
+      "date": "2025-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0061/06.webp"
+      "image": "images/engines/sets/set-0043/02.webp"
     },
     {
       "id": 60,
@@ -780,9 +780,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The N47D20 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2025-01-08",
+      "date": "2023-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0063/01.webp"
+      "image": "images/engines/sets/set-0044/02.webp"
     },
     {
       "id": 61,
@@ -790,12 +790,12 @@
       "city": "Munich",
       "country": "Germany",
       "stars": 5,
-      "text": "Ordered a N57D30 for my F10 535d diesel replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 11.8 bar across all cylinders. Running beautifully after 8 months.",
+      "text": "Ordered a N57D30 for my F10 535d diesel replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 13.4 bar across all cylinders. Running beautifully after 4 months.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2026-02-08",
+      "date": "2024-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0065/02.webp"
+      "image": "images/engines/sets/set-0045/02.webp"
     },
     {
       "id": 62,
@@ -806,9 +806,9 @@
       "text": "The M57D30 engine for my E39 530d was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2026-02-08",
+      "date": "2024-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0067/03.webp"
+      "image": "images/engines/sets/set-0046/02.webp"
     },
     {
       "id": 63,
@@ -819,9 +819,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The M57D30 for a customer E46 330d was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "M57D30",
       "platform": "E46 330d",
-      "date": "2026-05-08",
+      "date": "2023-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0068/04.webp"
+      "image": "images/engines/sets/set-0047/02.webp"
     },
     {
       "id": 64,
@@ -829,12 +829,12 @@
       "city": "Frankfurt",
       "country": "Germany",
       "stars": 5,
-      "text": "B47D20 delivered to G20 320d project within 4 days. Customs paperwork flawless. 11.0 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "B47D20 delivered to G20 320d project within 5 days. Customs paperwork flawless. 13.5 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2024-04-08",
+      "date": "2023-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0069/05.webp"
+      "image": "images/engines/sets/set-0048/02.webp"
     },
     {
       "id": 65,
@@ -845,9 +845,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone B57D30 for my G30 530d, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2026-06-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0071/06.webp"
+      "image": "images/engines/sets/set-0049/02.webp"
     },
     {
       "id": 66,
@@ -858,9 +858,9 @@
       "text": "Skeptical about buying a M47D20 online for my E46 320d restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Smooth diesel idle character preserved.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2026-01-08",
+      "date": "2025-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0072/01.webp"
+      "image": "images/engines/sets/set-0050/02.webp"
     },
     {
       "id": 67,
@@ -868,12 +868,12 @@
       "city": "Vienna",
       "country": "Austria",
       "stars": 5,
-      "text": "Fleet order of 6 S63B44 engines for our F10 M5 vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 4 S63B44 engines for our F10 M5 vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2025-09-08",
+      "date": "2024-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0073/02.webp"
+      "image": "images/engines/sets/set-0051/02.webp"
     },
     {
       "id": 68,
@@ -884,9 +884,9 @@
       "text": "Dyno test witnessed via video call before they shipped my N63B44. Engine made rated power on their SuperFlow. F01 550i is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2025-08-08",
+      "date": "2024-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0075/03.webp"
+      "image": "images/engines/sets/set-0052/02.webp"
     },
     {
       "id": 69,
@@ -897,9 +897,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the M62B44 for my E39 M5. Smooth process from start to finish.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2026-03-08",
+      "date": "2025-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0077/04.webp"
+      "image": "images/engines/sets/set-0053/02.webp"
     },
     {
       "id": 70,
@@ -910,9 +910,9 @@
       "text": "Their blog articles helped me choose the right M54B30 for my E46 330i. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2023-07-08",
+      "date": "2023-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0078/05.webp"
+      "image": "images/engines/sets/set-0054/02.webp"
     },
     {
       "id": 71,
@@ -923,9 +923,9 @@
       "text": "Classic E46 325i restoration needed a period-correct M54B25. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2023-09-08",
+      "date": "2025-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0079/06.webp"
+      "image": "images/engines/sets/set-0055/02.webp"
     },
     {
       "id": 72,
@@ -933,12 +933,12 @@
       "city": "Paris",
       "country": "France",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 543+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 660+ km since install without issues.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2023-10-08",
+      "date": "2024-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0080/01.webp"
+      "image": "images/engines/sets/set-0056/02.webp"
     },
     {
       "id": 73,
@@ -949,9 +949,9 @@
       "text": "B58 for my E36 325i after dealer quoted €12,000+. Their tested M50B25 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2025-11-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0081/02.webp"
+      "image": "images/engines/sets/set-0057/02.webp"
     },
     {
       "id": 74,
@@ -962,9 +962,9 @@
       "text": "N47 timing chain inspected before shipping as promised. M20B25 for E30 325i arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2024-08-08",
+      "date": "2026-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0082/03.webp"
+      "image": "images/engines/sets/set-0058/02.webp"
     },
     {
       "id": 75,
@@ -975,9 +975,9 @@
       "text": "Rebuilt M30B35 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My E34 535i track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2025-09-08",
+      "date": "2024-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0083/04.webp"
+      "image": "images/engines/sets/set-0059/02.webp"
     },
     {
       "id": 76,
@@ -988,9 +988,9 @@
       "text": "Shipping to UK post-Brexit was seamless. S54B32 for E46 M3 arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2025-07-08",
+      "date": "2024-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0084/05.webp"
+      "image": "images/engines/sets/set-0060/02.webp"
     },
     {
       "id": 77,
@@ -1001,9 +1001,9 @@
       "text": "Visited Hamburg facility to inspect S55B30 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2024-05-08",
+      "date": "2025-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0085/06.webp"
+      "image": "images/engines/sets/set-0061/02.webp"
     },
     {
       "id": 78,
@@ -1014,9 +1014,9 @@
       "text": "Trade account setup took 48 hours. Now source all N54B30 and E90 335i engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2024-09-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0086/01.webp"
+      "image": "images/engines/sets/set-0062/02.webp"
     },
     {
       "id": 79,
@@ -1027,9 +1027,9 @@
       "text": "Warranty claim handled without argument. N55B30 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2026-03-08",
+      "date": "2026-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0087/02.webp"
+      "image": "images/engines/sets/set-0063/02.webp"
     },
     {
       "id": 80,
@@ -1040,9 +1040,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The N52B30 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2025-12-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0088/03.webp"
+      "image": "images/engines/sets/set-0064/02.webp"
     },
     {
       "id": 81,
@@ -1050,12 +1050,12 @@
       "city": "Manchester",
       "country": "UK",
       "stars": 5,
-      "text": "Ordered a B58B30 for my F30 340i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 13.5 bar across all cylinders. Running beautifully after 3 months.",
+      "text": "Ordered a B58B30 for my F30 340i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 11.5 bar across all cylinders. Running beautifully after 4 months.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2025-06-08",
+      "date": "2023-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0089/04.webp"
+      "image": "images/engines/sets/set-0065/02.webp"
     },
     {
       "id": 82,
@@ -1066,9 +1066,9 @@
       "text": "The B48B20 engine for my F30 320i was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2025-09-08",
+      "date": "2024-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0090/05.webp"
+      "image": "images/engines/sets/set-0066/02.webp"
     },
     {
       "id": 83,
@@ -1079,9 +1079,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The N47D20 for a customer F30 320d was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2023-07-08",
+      "date": "2025-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0091/06.webp"
+      "image": "images/engines/sets/set-0067/02.webp"
     },
     {
       "id": 84,
@@ -1089,12 +1089,12 @@
       "city": "Copenhagen",
       "country": "Denmark",
       "stars": 5,
-      "text": "N57D30 delivered to F10 535d project within 3 days. Customs paperwork flawless. 12.8 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "N57D30 delivered to F10 535d project within 4 days. Customs paperwork flawless. 11.6 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2024-03-08",
+      "date": "2025-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0092/01.webp"
+      "image": "images/engines/sets/set-0068/02.webp"
     },
     {
       "id": 85,
@@ -1105,9 +1105,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone M57D30 for my E39 530d, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2025-10-08",
+      "date": "2024-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0093/02.webp"
+      "image": "images/engines/sets/set-0069/02.webp"
     },
     {
       "id": 86,
@@ -1118,9 +1118,9 @@
       "text": "Skeptical about buying a M57D30 online for my E46 330d restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Smooth diesel idle character preserved.",
       "engine": "M57D30",
       "platform": "E46 330d",
-      "date": "2024-12-08",
+      "date": "2025-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0094/03.webp"
+      "image": "images/engines/sets/set-0070/02.webp"
     },
     {
       "id": 87,
@@ -1131,9 +1131,9 @@
       "text": "Fleet order of 3 B47D20 engines for our G20 320d vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2024-08-08",
+      "date": "2025-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0095/04.webp"
+      "image": "images/engines/sets/set-0071/02.webp"
     },
     {
       "id": 88,
@@ -1144,9 +1144,9 @@
       "text": "Dyno test witnessed via video call before they shipped my B57D30. Engine made rated power on their SuperFlow. G30 530d is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2024-02-08",
+      "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0096/05.webp"
+      "image": "images/engines/sets/set-0072/02.webp"
     },
     {
       "id": 89,
@@ -1157,9 +1157,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the M47D20 for my E46 320d. Smooth process from start to finish.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2024-10-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0097/06.webp"
+      "image": "images/engines/sets/set-0073/02.webp"
     },
     {
       "id": 90,
@@ -1170,9 +1170,9 @@
       "text": "Their blog articles helped me choose the right S63B44 for my F10 M5. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2025-01-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0098/01.webp"
+      "image": "images/engines/sets/set-0074/02.webp"
     },
     {
       "id": 91,
@@ -1183,9 +1183,9 @@
       "text": "Classic F01 550i restoration needed a period-correct N63B44. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2026-03-08",
+      "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0099/02.webp"
+      "image": "images/engines/sets/set-0075/02.webp"
     },
     {
       "id": 92,
@@ -1193,12 +1193,12 @@
       "city": "Hamburg",
       "country": "Germany",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 629+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 483+ km since install without issues.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2025-01-08",
+      "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0100/03.webp"
+      "image": "images/engines/sets/set-0076/02.webp"
     },
     {
       "id": 93,
@@ -1209,9 +1209,9 @@
       "text": "B58 for my E46 330i after dealer quoted €12,000+. Their tested M54B30 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2023-08-08",
+      "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0101/04.webp"
+      "image": "images/engines/sets/set-0077/02.webp"
     },
     {
       "id": 94,
@@ -1222,9 +1222,9 @@
       "text": "N47 timing chain inspected before shipping as promised. M54B25 for E46 325i arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2025-06-08",
+      "date": "2026-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0102/05.webp"
+      "image": "images/engines/sets/set-0078/02.webp"
     },
     {
       "id": 95,
@@ -1235,9 +1235,9 @@
       "text": "Rebuilt M52B28 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My E36 328i track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2024-07-08",
+      "date": "2025-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0103/06.webp"
+      "image": "images/engines/sets/set-0079/02.webp"
     },
     {
       "id": 96,
@@ -1248,9 +1248,9 @@
       "text": "Shipping to UK post-Brexit was seamless. M50B25 for E36 325i arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2025-03-08",
+      "date": "2023-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0104/01.webp"
+      "image": "images/engines/sets/set-0080/02.webp"
     },
     {
       "id": 97,
@@ -1261,9 +1261,9 @@
       "text": "Visited Hamburg facility to inspect M20B25 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2025-07-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0105/02.webp"
+      "image": "images/engines/sets/set-0081/02.webp"
     },
     {
       "id": 98,
@@ -1274,9 +1274,9 @@
       "text": "Trade account setup took 48 hours. Now source all M30B35 and E34 535i engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2023-10-08",
+      "date": "2023-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0106/03.webp"
+      "image": "images/engines/sets/set-0082/02.webp"
     },
     {
       "id": 99,
@@ -1287,9 +1287,9 @@
       "text": "Warranty claim handled without argument. S54B32 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2024-03-08",
+      "date": "2025-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0107/04.webp"
+      "image": "images/engines/sets/set-0083/02.webp"
     },
     {
       "id": 100,
@@ -1300,9 +1300,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The S55B30 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2024-10-08",
+      "date": "2026-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0108/05.webp"
+      "image": "images/engines/sets/set-0084/02.webp"
     },
     {
       "id": 101,
@@ -1310,12 +1310,12 @@
       "city": "Brussels",
       "country": "Belgium",
       "stars": 5,
-      "text": "Ordered a N54B30 for my E90 335i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 11.1 bar across all cylinders. Running beautifully after 8 months.",
+      "text": "Ordered a N54B30 for my E90 335i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.9 bar across all cylinders. Running beautifully after 4 months.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2025-05-08",
+      "date": "2024-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0109/06.webp"
+      "image": "images/engines/sets/set-0085/02.webp"
     },
     {
       "id": 102,
@@ -1326,9 +1326,9 @@
       "text": "The N55B30 engine for my F30 335i was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2025-05-08",
+      "date": "2025-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0110/01.webp"
+      "image": "images/engines/sets/set-0086/02.webp"
     },
     {
       "id": 103,
@@ -1339,9 +1339,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The N52B30 for a customer E90 330i was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2024-04-08",
+      "date": "2024-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0111/02.webp"
+      "image": "images/engines/sets/set-0087/02.webp"
     },
     {
       "id": 104,
@@ -1349,12 +1349,12 @@
       "city": "Milan",
       "country": "Italy",
       "stars": 5,
-      "text": "B58B30 delivered to F30 340i project within 5 days. Customs paperwork flawless. 11.0 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "B58B30 delivered to F30 340i project within 5 days. Customs paperwork flawless. 12.0 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2025-08-08",
+      "date": "2026-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0112/03.webp"
+      "image": "images/engines/sets/set-0088/02.webp"
     },
     {
       "id": 105,
@@ -1365,9 +1365,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone B48B20 for my F30 320i, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2025-10-08",
+      "date": "2025-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0113/04.webp"
+      "image": "images/engines/sets/set-0089/02.webp"
     },
     {
       "id": 106,
@@ -1378,9 +1378,9 @@
       "text": "Skeptical about buying a N47D20 online for my F30 320d restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Smooth diesel idle character preserved.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2023-12-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0114/05.webp"
+      "image": "images/engines/sets/set-0090/02.webp"
     },
     {
       "id": 107,
@@ -1388,12 +1388,12 @@
       "city": "Madrid",
       "country": "Spain",
       "stars": 5,
-      "text": "Fleet order of 6 N57D30 engines for our F10 535d vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 3 N57D30 engines for our F10 535d vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2026-03-08",
+      "date": "2025-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0115/06.webp"
+      "image": "images/engines/sets/set-0091/02.webp"
     },
     {
       "id": 108,
@@ -1404,9 +1404,9 @@
       "text": "Dyno test witnessed via video call before they shipped my M57D30. Engine made rated power on their SuperFlow. E39 530d is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2025-04-08",
+      "date": "2026-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0116/01.webp"
+      "image": "images/engines/sets/set-0092/02.webp"
     },
     {
       "id": 109,
@@ -1417,9 +1417,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the M57D30 for my E46 330d. Smooth process from start to finish.",
       "engine": "M57D30",
       "platform": "E46 330d",
-      "date": "2025-09-08",
+      "date": "2025-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0117/02.webp"
+      "image": "images/engines/sets/set-0093/02.webp"
     },
     {
       "id": 110,
@@ -1430,9 +1430,9 @@
       "text": "Their blog articles helped me choose the right B47D20 for my G20 320d. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2026-04-08",
+      "date": "2025-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0118/03.webp"
+      "image": "images/engines/sets/set-0094/02.webp"
     },
     {
       "id": 111,
@@ -1443,9 +1443,9 @@
       "text": "Classic G30 530d restoration needed a period-correct B57D30. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2023-08-08",
+      "date": "2025-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0119/04.webp"
+      "image": "images/engines/sets/set-0095/02.webp"
     },
     {
       "id": 112,
@@ -1453,12 +1453,12 @@
       "city": "Dublin",
       "country": "Ireland",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 600+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 201+ km since install without issues.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2026-04-08",
+      "date": "2026-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0120/05.webp"
+      "image": "images/engines/sets/set-0096/02.webp"
     },
     {
       "id": 113,
@@ -1469,9 +1469,9 @@
       "text": "B58 for my F10 M5 after dealer quoted €12,000+. Their tested S63B44 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2024-12-08",
+      "date": "2025-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0121/06.webp"
+      "image": "images/engines/sets/set-0097/02.webp"
     },
     {
       "id": 114,
@@ -1482,9 +1482,9 @@
       "text": "N47 timing chain inspected before shipping as promised. N63B44 for F01 550i arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2023-11-08",
+      "date": "2024-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0122/01.webp"
+      "image": "images/engines/sets/set-0098/02.webp"
     },
     {
       "id": 115,
@@ -1495,9 +1495,9 @@
       "text": "Rebuilt M62B44 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My E39 M5 track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2024-11-08",
+      "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0123/02.webp"
+      "image": "images/engines/sets/set-0099/02.webp"
     },
     {
       "id": 116,
@@ -1508,9 +1508,9 @@
       "text": "Shipping to UK post-Brexit was seamless. M54B30 for E46 330i arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2025-01-08",
+      "date": "2026-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0124/03.webp"
+      "image": "images/engines/sets/set-0100/02.webp"
     },
     {
       "id": 117,
@@ -1521,9 +1521,9 @@
       "text": "Visited Hamburg facility to inspect M54B25 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2025-03-08",
+      "date": "2024-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0001/04.webp"
+      "image": "images/engines/sets/set-0101/02.webp"
     },
     {
       "id": 118,
@@ -1534,9 +1534,9 @@
       "text": "Trade account setup took 48 hours. Now source all M52B28 and E36 328i engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2025-07-08",
+      "date": "2024-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0002/05.webp"
+      "image": "images/engines/sets/set-0102/02.webp"
     },
     {
       "id": 119,
@@ -1547,9 +1547,9 @@
       "text": "Warranty claim handled without argument. M50B25 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2025-10-08",
+      "date": "2025-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0003/06.webp"
+      "image": "images/engines/sets/set-0103/02.webp"
     },
     {
       "id": 120,
@@ -1560,9 +1560,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The M20B25 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2024-05-08",
+      "date": "2025-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0004/01.webp"
+      "image": "images/engines/sets/set-0104/02.webp"
     },
     {
       "id": 121,
@@ -1570,12 +1570,12 @@
       "city": "Munich",
       "country": "Germany",
       "stars": 5,
-      "text": "Ordered a M30B35 for my E34 535i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.2 bar across all cylinders. Running beautifully after 9 months.",
+      "text": "Ordered a M30B35 for my E34 535i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 11.1 bar across all cylinders. Running beautifully after 9 months.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2024-09-08",
+      "date": "2025-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0005/02.webp"
+      "image": "images/engines/sets/set-0105/02.webp"
     },
     {
       "id": 122,
@@ -1586,9 +1586,9 @@
       "text": "The S54B32 engine for my E46 M3 was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2024-10-08",
+      "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0006/03.webp"
+      "image": "images/engines/sets/set-0106/02.webp"
     },
     {
       "id": 123,
@@ -1599,9 +1599,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The S55B30 for a customer F80 M3 was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2024-07-08",
+      "date": "2026-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0007/04.webp"
+      "image": "images/engines/sets/set-0107/02.webp"
     },
     {
       "id": 124,
@@ -1609,12 +1609,12 @@
       "city": "Frankfurt",
       "country": "Germany",
       "stars": 5,
-      "text": "N54B30 delivered to E90 335i project within 4 days. Customs paperwork flawless. 11.8 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "N54B30 delivered to E90 335i project within 3 days. Customs paperwork flawless. 12.0 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2023-07-08",
+      "date": "2024-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0008/05.webp"
+      "image": "images/engines/sets/set-0108/02.webp"
     },
     {
       "id": 125,
@@ -1625,9 +1625,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone N55B30 for my F30 335i, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2023-11-08",
+      "date": "2026-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0009/06.webp"
+      "image": "images/engines/sets/set-0109/02.webp"
     },
     {
       "id": 126,
@@ -1638,9 +1638,9 @@
       "text": "Skeptical about buying a N52B30 online for my E90 330i restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Rev-happy petrol character preserved.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2026-01-08",
+      "date": "2025-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0010/01.webp"
+      "image": "images/engines/sets/set-0110/02.webp"
     },
     {
       "id": 127,
@@ -1651,9 +1651,9 @@
       "text": "Fleet order of 3 B58B30 engines for our F30 340i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2023-12-08",
+      "date": "2025-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0011/02.webp"
+      "image": "images/engines/sets/set-0111/02.webp"
     },
     {
       "id": 128,
@@ -1664,9 +1664,9 @@
       "text": "Dyno test witnessed via video call before they shipped my B48B20. Engine made rated power on their SuperFlow. F30 320i is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2023-07-08",
+      "date": "2025-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0012/03.webp"
+      "image": "images/engines/sets/set-0112/02.webp"
     },
     {
       "id": 129,
@@ -1677,9 +1677,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the N47D20 for my F30 320d. Smooth process from start to finish.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2025-11-08",
+      "date": "2024-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0013/04.webp"
+      "image": "images/engines/sets/set-0113/02.webp"
     },
     {
       "id": 130,
@@ -1690,9 +1690,9 @@
       "text": "Their blog articles helped me choose the right N57D30 for my F10 535d. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2024-01-08",
+      "date": "2025-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0014/05.webp"
+      "image": "images/engines/sets/set-0114/02.webp"
     },
     {
       "id": 131,
@@ -1703,9 +1703,9 @@
       "text": "Classic E39 530d restoration needed a period-correct M57D30. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2026-01-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0015/06.webp"
+      "image": "images/engines/sets/set-0115/02.webp"
     },
     {
       "id": 132,
@@ -1713,12 +1713,12 @@
       "city": "Paris",
       "country": "France",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 552+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 599+ km since install without issues.",
       "engine": "M57D30",
       "platform": "E46 330d",
       "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0016/01.webp"
+      "image": "images/engines/sets/set-0116/02.webp"
     },
     {
       "id": 133,
@@ -1729,9 +1729,9 @@
       "text": "B58 for my G20 320d after dealer quoted €12,000+. Their tested B47D20 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2025-04-08",
+      "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0017/02.webp"
+      "image": "images/engines/sets/set-0001/03.webp"
     },
     {
       "id": 134,
@@ -1742,9 +1742,9 @@
       "text": "N47 timing chain inspected before shipping as promised. B57D30 for G30 530d arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2024-08-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0018/03.webp"
+      "image": "images/engines/sets/set-0002/03.webp"
     },
     {
       "id": 135,
@@ -1755,9 +1755,9 @@
       "text": "Rebuilt M47D20 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My E46 320d track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2025-02-08",
+      "date": "2026-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0019/04.webp"
+      "image": "images/engines/sets/set-0003/03.webp"
     },
     {
       "id": 136,
@@ -1768,9 +1768,9 @@
       "text": "Shipping to UK post-Brexit was seamless. S63B44 for F10 M5 arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2024-01-08",
+      "date": "2025-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0020/05.webp"
+      "image": "images/engines/sets/set-0004/03.webp"
     },
     {
       "id": 137,
@@ -1781,9 +1781,9 @@
       "text": "Visited Hamburg facility to inspect N63B44 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2025-03-08",
+      "date": "2025-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0021/06.webp"
+      "image": "images/engines/sets/set-0005/03.webp"
     },
     {
       "id": 138,
@@ -1794,9 +1794,9 @@
       "text": "Trade account setup took 48 hours. Now source all M62B44 and E39 M5 engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2025-09-08",
+      "date": "2025-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0022/01.webp"
+      "image": "images/engines/sets/set-0006/03.webp"
     },
     {
       "id": 139,
@@ -1807,9 +1807,9 @@
       "text": "Warranty claim handled without argument. M54B30 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2024-09-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0023/02.webp"
+      "image": "images/engines/sets/set-0007/03.webp"
     },
     {
       "id": 140,
@@ -1820,9 +1820,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The M54B25 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2024-11-08",
+      "date": "2025-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0024/03.webp"
+      "image": "images/engines/sets/set-0008/03.webp"
     },
     {
       "id": 141,
@@ -1830,12 +1830,12 @@
       "city": "Manchester",
       "country": "UK",
       "stars": 4,
-      "text": "Ordered a M52B28 for my E36 328i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 11.4 bar across all cylinders. Running beautifully after 10 months.",
+      "text": "Ordered a M52B28 for my E36 328i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 11.8 bar across all cylinders. Running beautifully after 10 months.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2024-05-08",
+      "date": "2026-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0025/04.webp"
+      "image": "images/engines/sets/set-0009/03.webp"
     },
     {
       "id": 142,
@@ -1848,7 +1848,7 @@
       "platform": "E36 325i",
       "date": "2024-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0026/05.webp"
+      "image": "images/engines/sets/set-0010/03.webp"
     },
     {
       "id": 143,
@@ -1859,9 +1859,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The M20B25 for a customer E30 325i was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2023-12-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0027/06.webp"
+      "image": "images/engines/sets/set-0011/03.webp"
     },
     {
       "id": 144,
@@ -1869,12 +1869,12 @@
       "city": "Copenhagen",
       "country": "Denmark",
       "stars": 5,
-      "text": "M30B35 delivered to E34 535i project within 5 days. Customs paperwork flawless. 13.1 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "M30B35 delivered to E34 535i project within 4 days. Customs paperwork flawless. 13.2 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2025-04-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0028/01.webp"
+      "image": "images/engines/sets/set-0012/03.webp"
     },
     {
       "id": 145,
@@ -1887,7 +1887,7 @@
       "platform": "E46 M3",
       "date": "2025-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0029/02.webp"
+      "image": "images/engines/sets/set-0013/03.webp"
     },
     {
       "id": 146,
@@ -1898,9 +1898,9 @@
       "text": "Skeptical about buying a S55B30 online for my F80 M3 restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Rev-happy petrol character preserved.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2026-03-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0030/03.webp"
+      "image": "images/engines/sets/set-0014/03.webp"
     },
     {
       "id": 147,
@@ -1908,12 +1908,12 @@
       "city": "Warsaw",
       "country": "Poland",
       "stars": 5,
-      "text": "Fleet order of 4 N54B30 engines for our E90 335i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 3 N54B30 engines for our E90 335i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2023-09-08",
+      "date": "2024-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0031/04.webp"
+      "image": "images/engines/sets/set-0015/03.webp"
     },
     {
       "id": 148,
@@ -1924,9 +1924,9 @@
       "text": "Dyno test witnessed via video call before they shipped my N55B30. Engine made rated power on their SuperFlow. F30 335i is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2025-08-08",
+      "date": "2026-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0032/05.webp"
+      "image": "images/engines/sets/set-0016/03.webp"
     },
     {
       "id": 149,
@@ -1937,9 +1937,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the N52B30 for my E90 330i. Smooth process from start to finish.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2024-08-08",
+      "date": "2024-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0033/06.webp"
+      "image": "images/engines/sets/set-0017/03.webp"
     },
     {
       "id": 150,
@@ -1950,9 +1950,9 @@
       "text": "Their blog articles helped me choose the right B58B30 for my F30 340i. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2025-10-08",
+      "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0034/01.webp"
+      "image": "images/engines/sets/set-0018/03.webp"
     },
     {
       "id": 151,
@@ -1963,9 +1963,9 @@
       "text": "Classic F30 320i restoration needed a period-correct B48B20. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2024-07-08",
+      "date": "2025-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0035/02.webp"
+      "image": "images/engines/sets/set-0019/03.webp"
     },
     {
       "id": 152,
@@ -1973,12 +1973,12 @@
       "city": "Hamburg",
       "country": "Germany",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 648+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 205+ km since install without issues.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2023-09-08",
+      "date": "2025-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0036/03.webp"
+      "image": "images/engines/sets/set-0020/03.webp"
     },
     {
       "id": 153,
@@ -1989,9 +1989,9 @@
       "text": "B58 for my F10 535d after dealer quoted €12,000+. Their tested N57D30 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2023-07-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0037/04.webp"
+      "image": "images/engines/sets/set-0021/03.webp"
     },
     {
       "id": 154,
@@ -2002,9 +2002,9 @@
       "text": "N47 timing chain inspected before shipping as promised. M57D30 for E39 530d arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2026-01-08",
+      "date": "2023-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0038/05.webp"
+      "image": "images/engines/sets/set-0022/03.webp"
     },
     {
       "id": 155,
@@ -2015,9 +2015,9 @@
       "text": "Rebuilt M57D30 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My E46 330d track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "M57D30",
       "platform": "E46 330d",
-      "date": "2025-09-08",
+      "date": "2023-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0039/06.webp"
+      "image": "images/engines/sets/set-0023/03.webp"
     },
     {
       "id": 156,
@@ -2028,9 +2028,9 @@
       "text": "Shipping to UK post-Brexit was seamless. B47D20 for G20 320d arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2025-05-08",
+      "date": "2024-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0040/01.webp"
+      "image": "images/engines/sets/set-0024/03.webp"
     },
     {
       "id": 157,
@@ -2041,9 +2041,9 @@
       "text": "Visited Hamburg facility to inspect B57D30 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2025-11-08",
+      "date": "2026-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0041/02.webp"
+      "image": "images/engines/sets/set-0025/03.webp"
     },
     {
       "id": 158,
@@ -2054,9 +2054,9 @@
       "text": "Trade account setup took 48 hours. Now source all M47D20 and E46 320d engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2025-01-08",
+      "date": "2023-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0042/03.webp"
+      "image": "images/engines/sets/set-0026/03.webp"
     },
     {
       "id": 159,
@@ -2067,9 +2067,9 @@
       "text": "Warranty claim handled without argument. S63B44 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2023-10-08",
+      "date": "2025-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0043/04.webp"
+      "image": "images/engines/sets/set-0027/03.webp"
     },
     {
       "id": 160,
@@ -2080,9 +2080,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The N63B44 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2024-06-08",
+      "date": "2024-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0044/05.webp"
+      "image": "images/engines/sets/set-0028/03.webp"
     },
     {
       "id": 161,
@@ -2090,12 +2090,12 @@
       "city": "Brussels",
       "country": "Belgium",
       "stars": 5,
-      "text": "Ordered a M62B44 for my E39 M5  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 11.4 bar across all cylinders. Running beautifully after 9 months.",
+      "text": "Ordered a M62B44 for my E39 M5  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.3 bar across all cylinders. Running beautifully after 4 months.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2026-05-08",
+      "date": "2023-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0045/06.webp"
+      "image": "images/engines/sets/set-0029/03.webp"
     },
     {
       "id": 162,
@@ -2106,9 +2106,9 @@
       "text": "The M54B30 engine for my E46 330i was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2025-07-08",
+      "date": "2024-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0046/01.webp"
+      "image": "images/engines/sets/set-0030/03.webp"
     },
     {
       "id": 163,
@@ -2119,9 +2119,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The M54B25 for a customer E46 325i was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2025-10-08",
+      "date": "2024-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0047/02.webp"
+      "image": "images/engines/sets/set-0031/03.webp"
     },
     {
       "id": 164,
@@ -2129,12 +2129,12 @@
       "city": "Milan",
       "country": "Italy",
       "stars": 5,
-      "text": "M52B28 delivered to E36 328i project within 3 days. Customs paperwork flawless. 12.2 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "M52B28 delivered to E36 328i project within 3 days. Customs paperwork flawless. 13.2 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2024-03-08",
+      "date": "2025-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0048/03.webp"
+      "image": "images/engines/sets/set-0032/03.webp"
     },
     {
       "id": 165,
@@ -2145,9 +2145,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone M50B25 for my E36 325i, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2024-06-08",
+      "date": "2023-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0049/04.webp"
+      "image": "images/engines/sets/set-0033/03.webp"
     },
     {
       "id": 166,
@@ -2158,9 +2158,9 @@
       "text": "Skeptical about buying a M20B25 online for my E30 325i restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Rev-happy petrol character preserved.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2023-08-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0050/05.webp"
+      "image": "images/engines/sets/set-0034/03.webp"
     },
     {
       "id": 167,
@@ -2168,12 +2168,12 @@
       "city": "Madrid",
       "country": "Spain",
       "stars": 5,
-      "text": "Fleet order of 5 M30B35 engines for our E34 535i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 4 M30B35 engines for our E34 535i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2025-05-08",
+      "date": "2023-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0051/06.webp"
+      "image": "images/engines/sets/set-0035/03.webp"
     },
     {
       "id": 168,
@@ -2184,9 +2184,9 @@
       "text": "Dyno test witnessed via video call before they shipped my S54B32. Engine made rated power on their SuperFlow. E46 M3 is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2023-09-08",
+      "date": "2026-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0052/01.webp"
+      "image": "images/engines/sets/set-0036/03.webp"
     },
     {
       "id": 169,
@@ -2197,9 +2197,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the S55B30 for my F80 M3. Smooth process from start to finish.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2024-10-08",
+      "date": "2025-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0053/02.webp"
+      "image": "images/engines/sets/set-0037/03.webp"
     },
     {
       "id": 170,
@@ -2210,9 +2210,9 @@
       "text": "Their blog articles helped me choose the right N54B30 for my E90 335i. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2026-05-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0054/03.webp"
+      "image": "images/engines/sets/set-0038/03.webp"
     },
     {
       "id": 171,
@@ -2223,9 +2223,9 @@
       "text": "Classic F30 335i restoration needed a period-correct N55B30. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2024-03-08",
+      "date": "2025-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0055/04.webp"
+      "image": "images/engines/sets/set-0039/03.webp"
     },
     {
       "id": 172,
@@ -2233,12 +2233,12 @@
       "city": "Dublin",
       "country": "Ireland",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 371+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 511+ km since install without issues.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2024-08-08",
+      "date": "2025-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0057/05.webp"
+      "image": "images/engines/sets/set-0040/03.webp"
     },
     {
       "id": 173,
@@ -2249,9 +2249,9 @@
       "text": "B58 for my F30 340i after dealer quoted €12,000+. Their tested B58B30 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2023-12-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0059/06.webp"
+      "image": "images/engines/sets/set-0041/03.webp"
     },
     {
       "id": 174,
@@ -2262,9 +2262,9 @@
       "text": "N47 timing chain inspected before shipping as promised. B48B20 for F30 320i arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2026-01-08",
+      "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0060/01.webp"
+      "image": "images/engines/sets/set-0042/03.webp"
     },
     {
       "id": 175,
@@ -2275,9 +2275,9 @@
       "text": "Rebuilt N47D20 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My F30 320d track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2023-07-08",
+      "date": "2023-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0061/02.webp"
+      "image": "images/engines/sets/set-0043/03.webp"
     },
     {
       "id": 176,
@@ -2288,9 +2288,9 @@
       "text": "Shipping to UK post-Brexit was seamless. N57D30 for F10 535d arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2023-10-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0063/03.webp"
+      "image": "images/engines/sets/set-0044/03.webp"
     },
     {
       "id": 177,
@@ -2301,9 +2301,9 @@
       "text": "Visited Hamburg facility to inspect M57D30 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2026-01-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0065/04.webp"
+      "image": "images/engines/sets/set-0045/03.webp"
     },
     {
       "id": 178,
@@ -2316,7 +2316,7 @@
       "platform": "E46 330d",
       "date": "2025-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0067/05.webp"
+      "image": "images/engines/sets/set-0046/03.webp"
     },
     {
       "id": 179,
@@ -2327,9 +2327,9 @@
       "text": "Warranty claim handled without argument. B47D20 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2023-09-08",
+      "date": "2025-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0068/06.webp"
+      "image": "images/engines/sets/set-0047/03.webp"
     },
     {
       "id": 180,
@@ -2340,9 +2340,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The B57D30 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2024-06-08",
+      "date": "2023-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0069/01.webp"
+      "image": "images/engines/sets/set-0048/03.webp"
     },
     {
       "id": 181,
@@ -2350,12 +2350,12 @@
       "city": "Munich",
       "country": "Germany",
       "stars": 5,
-      "text": "Ordered a M47D20 for my E46 320d diesel replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 13.2 bar across all cylinders. Running beautifully after 3 months.",
+      "text": "Ordered a M47D20 for my E46 320d diesel replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 13.0 bar across all cylinders. Running beautifully after 7 months.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2025-01-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0071/02.webp"
+      "image": "images/engines/sets/set-0049/03.webp"
     },
     {
       "id": 182,
@@ -2366,9 +2366,9 @@
       "text": "The S63B44 engine for my F10 M5 was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2025-05-08",
+      "date": "2024-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0072/03.webp"
+      "image": "images/engines/sets/set-0050/03.webp"
     },
     {
       "id": 183,
@@ -2379,9 +2379,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The N63B44 for a customer F01 550i was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2025-06-08",
+      "date": "2026-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0073/04.webp"
+      "image": "images/engines/sets/set-0051/03.webp"
     },
     {
       "id": 184,
@@ -2389,12 +2389,12 @@
       "city": "Frankfurt",
       "country": "Germany",
       "stars": 5,
-      "text": "M62B44 delivered to E39 M5 project within 4 days. Customs paperwork flawless. 11.2 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "M62B44 delivered to E39 M5 project within 4 days. Customs paperwork flawless. 11.5 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2023-09-08",
+      "date": "2024-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0075/05.webp"
+      "image": "images/engines/sets/set-0052/03.webp"
     },
     {
       "id": 185,
@@ -2405,9 +2405,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone M54B30 for my E46 330i, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2023-11-08",
+      "date": "2023-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0077/06.webp"
+      "image": "images/engines/sets/set-0053/03.webp"
     },
     {
       "id": 186,
@@ -2418,9 +2418,9 @@
       "text": "Skeptical about buying a M54B25 online for my E46 325i restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Rev-happy petrol character preserved.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2026-06-08",
+      "date": "2023-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0078/01.webp"
+      "image": "images/engines/sets/set-0054/03.webp"
     },
     {
       "id": 187,
@@ -2428,12 +2428,12 @@
       "city": "Vienna",
       "country": "Austria",
       "stars": 5,
-      "text": "Fleet order of 4 M52B28 engines for our E36 328i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 5 M52B28 engines for our E36 328i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2024-07-08",
+      "date": "2026-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0079/02.webp"
+      "image": "images/engines/sets/set-0055/03.webp"
     },
     {
       "id": 188,
@@ -2444,9 +2444,9 @@
       "text": "Dyno test witnessed via video call before they shipped my M50B25. Engine made rated power on their SuperFlow. E36 325i is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2024-10-08",
+      "date": "2026-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0080/03.webp"
+      "image": "images/engines/sets/set-0056/03.webp"
     },
     {
       "id": 189,
@@ -2457,9 +2457,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the M20B25 for my E30 325i. Smooth process from start to finish.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2023-07-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0081/04.webp"
+      "image": "images/engines/sets/set-0057/03.webp"
     },
     {
       "id": 190,
@@ -2470,9 +2470,9 @@
       "text": "Their blog articles helped me choose the right M30B35 for my E34 535i. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2026-05-08",
+      "date": "2023-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0082/05.webp"
+      "image": "images/engines/sets/set-0058/03.webp"
     },
     {
       "id": 191,
@@ -2483,9 +2483,9 @@
       "text": "Classic E46 M3 restoration needed a period-correct S54B32. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2024-10-08",
+      "date": "2025-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0083/06.webp"
+      "image": "images/engines/sets/set-0059/03.webp"
     },
     {
       "id": 192,
@@ -2493,12 +2493,12 @@
       "city": "Paris",
       "country": "France",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 606+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 687+ km since install without issues.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2023-11-08",
+      "date": "2023-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0084/01.webp"
+      "image": "images/engines/sets/set-0060/03.webp"
     },
     {
       "id": 193,
@@ -2509,9 +2509,9 @@
       "text": "B58 for my E90 335i after dealer quoted €12,000+. Their tested N54B30 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2023-08-08",
+      "date": "2024-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0085/02.webp"
+      "image": "images/engines/sets/set-0061/03.webp"
     },
     {
       "id": 194,
@@ -2522,9 +2522,9 @@
       "text": "N47 timing chain inspected before shipping as promised. N55B30 for F30 335i arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2023-10-08",
+      "date": "2025-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0086/03.webp"
+      "image": "images/engines/sets/set-0062/03.webp"
     },
     {
       "id": 195,
@@ -2535,9 +2535,9 @@
       "text": "Rebuilt N52B30 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My E90 330i track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2025-07-08",
+      "date": "2025-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0087/04.webp"
+      "image": "images/engines/sets/set-0063/03.webp"
     },
     {
       "id": 196,
@@ -2548,9 +2548,9 @@
       "text": "Shipping to UK post-Brexit was seamless. B58B30 for F30 340i arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2023-07-08",
+      "date": "2025-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0088/05.webp"
+      "image": "images/engines/sets/set-0064/03.webp"
     },
     {
       "id": 197,
@@ -2561,9 +2561,9 @@
       "text": "Visited Hamburg facility to inspect B48B20 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2024-02-08",
+      "date": "2024-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0089/06.webp"
+      "image": "images/engines/sets/set-0065/03.webp"
     },
     {
       "id": 198,
@@ -2574,9 +2574,9 @@
       "text": "Trade account setup took 48 hours. Now source all N47D20 and F30 320d engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2025-03-08",
+      "date": "2025-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0090/01.webp"
+      "image": "images/engines/sets/set-0066/03.webp"
     },
     {
       "id": 199,
@@ -2587,9 +2587,9 @@
       "text": "Warranty claim handled without argument. N57D30 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2024-01-08",
+      "date": "2026-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0091/02.webp"
+      "image": "images/engines/sets/set-0067/03.webp"
     },
     {
       "id": 200,
@@ -2600,9 +2600,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The M57D30 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2023-08-08",
+      "date": "2026-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0092/03.webp"
+      "image": "images/engines/sets/set-0068/03.webp"
     },
     {
       "id": 201,
@@ -2610,12 +2610,12 @@
       "city": "Manchester",
       "country": "UK",
       "stars": 5,
-      "text": "Ordered a M57D30 for my E46 330d diesel replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.1 bar across all cylinders. Running beautifully after 6 months.",
+      "text": "Ordered a M57D30 for my E46 330d diesel replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.4 bar across all cylinders. Running beautifully after 7 months.",
       "engine": "M57D30",
       "platform": "E46 330d",
-      "date": "2025-12-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0093/04.webp"
+      "image": "images/engines/sets/set-0069/03.webp"
     },
     {
       "id": 202,
@@ -2626,9 +2626,9 @@
       "text": "The B47D20 engine for my G20 320d was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2024-08-08",
+      "date": "2026-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0094/05.webp"
+      "image": "images/engines/sets/set-0070/03.webp"
     },
     {
       "id": 203,
@@ -2639,9 +2639,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The B57D30 for a customer G30 530d was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2024-11-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0095/06.webp"
+      "image": "images/engines/sets/set-0071/03.webp"
     },
     {
       "id": 204,
@@ -2649,12 +2649,12 @@
       "city": "Copenhagen",
       "country": "Denmark",
       "stars": 5,
-      "text": "M47D20 delivered to E46 320d project within 3 days. Customs paperwork flawless. 11.6 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "M47D20 delivered to E46 320d project within 5 days. Customs paperwork flawless. 11.9 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2026-01-08",
+      "date": "2025-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0096/01.webp"
+      "image": "images/engines/sets/set-0072/03.webp"
     },
     {
       "id": 205,
@@ -2665,9 +2665,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone S63B44 for my F10 M5, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2024-02-08",
+      "date": "2025-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0097/02.webp"
+      "image": "images/engines/sets/set-0073/03.webp"
     },
     {
       "id": 206,
@@ -2678,9 +2678,9 @@
       "text": "Skeptical about buying a N63B44 online for my F01 550i restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Rev-happy petrol character preserved.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2024-04-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0098/03.webp"
+      "image": "images/engines/sets/set-0074/03.webp"
     },
     {
       "id": 207,
@@ -2688,12 +2688,12 @@
       "city": "Warsaw",
       "country": "Poland",
       "stars": 5,
-      "text": "Fleet order of 5 M62B44 engines for our E39 M5 vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 4 M62B44 engines for our E39 M5 vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2025-01-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0099/04.webp"
+      "image": "images/engines/sets/set-0075/03.webp"
     },
     {
       "id": 208,
@@ -2704,9 +2704,9 @@
       "text": "Dyno test witnessed via video call before they shipped my M54B30. Engine made rated power on their SuperFlow. E46 330i is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2025-01-08",
+      "date": "2024-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0100/05.webp"
+      "image": "images/engines/sets/set-0076/03.webp"
     },
     {
       "id": 209,
@@ -2717,9 +2717,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the M54B25 for my E46 325i. Smooth process from start to finish.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2024-12-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0101/06.webp"
+      "image": "images/engines/sets/set-0077/03.webp"
     },
     {
       "id": 210,
@@ -2730,9 +2730,9 @@
       "text": "Their blog articles helped me choose the right M52B28 for my E36 328i. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2025-10-08",
+      "date": "2024-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0102/01.webp"
+      "image": "images/engines/sets/set-0078/03.webp"
     },
     {
       "id": 211,
@@ -2743,9 +2743,9 @@
       "text": "Classic E36 325i restoration needed a period-correct M50B25. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2024-01-08",
+      "date": "2024-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0103/02.webp"
+      "image": "images/engines/sets/set-0079/03.webp"
     },
     {
       "id": 212,
@@ -2753,12 +2753,12 @@
       "city": "Hamburg",
       "country": "Germany",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 530+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 670+ km since install without issues.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2023-09-08",
+      "date": "2023-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0104/03.webp"
+      "image": "images/engines/sets/set-0080/03.webp"
     },
     {
       "id": 213,
@@ -2769,9 +2769,9 @@
       "text": "B58 for my E34 535i after dealer quoted €12,000+. Their tested M30B35 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2024-07-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0105/04.webp"
+      "image": "images/engines/sets/set-0081/03.webp"
     },
     {
       "id": 214,
@@ -2782,9 +2782,9 @@
       "text": "N47 timing chain inspected before shipping as promised. S54B32 for E46 M3 arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2025-03-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0106/05.webp"
+      "image": "images/engines/sets/set-0082/03.webp"
     },
     {
       "id": 215,
@@ -2795,9 +2795,9 @@
       "text": "Rebuilt S55B30 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My F80 M3 track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2025-01-08",
+      "date": "2026-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0107/06.webp"
+      "image": "images/engines/sets/set-0083/03.webp"
     },
     {
       "id": 216,
@@ -2808,9 +2808,9 @@
       "text": "Shipping to UK post-Brexit was seamless. N54B30 for E90 335i arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2026-03-08",
+      "date": "2024-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0108/01.webp"
+      "image": "images/engines/sets/set-0084/03.webp"
     },
     {
       "id": 217,
@@ -2821,9 +2821,9 @@
       "text": "Visited Hamburg facility to inspect N55B30 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2025-01-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0109/02.webp"
+      "image": "images/engines/sets/set-0085/03.webp"
     },
     {
       "id": 218,
@@ -2834,9 +2834,9 @@
       "text": "Trade account setup took 48 hours. Now source all N52B30 and E90 330i engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2026-04-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0110/03.webp"
+      "image": "images/engines/sets/set-0086/03.webp"
     },
     {
       "id": 219,
@@ -2847,9 +2847,9 @@
       "text": "Warranty claim handled without argument. B58B30 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2026-04-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0111/04.webp"
+      "image": "images/engines/sets/set-0087/03.webp"
     },
     {
       "id": 220,
@@ -2860,9 +2860,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The B48B20 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2026-01-08",
+      "date": "2024-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0112/05.webp"
+      "image": "images/engines/sets/set-0088/03.webp"
     },
     {
       "id": 221,
@@ -2870,12 +2870,12 @@
       "city": "Brussels",
       "country": "Belgium",
       "stars": 5,
-      "text": "Ordered a N47D20 for my F30 320d diesel replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.4 bar across all cylinders. Running beautifully after 6 months.",
+      "text": "Ordered a N47D20 for my F30 320d diesel replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.9 bar across all cylinders. Running beautifully after 8 months.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2025-04-08",
+      "date": "2024-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0113/06.webp"
+      "image": "images/engines/sets/set-0089/03.webp"
     },
     {
       "id": 222,
@@ -2886,9 +2886,9 @@
       "text": "The N57D30 engine for my F10 535d was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2026-04-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0114/01.webp"
+      "image": "images/engines/sets/set-0090/03.webp"
     },
     {
       "id": 223,
@@ -2899,9 +2899,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The M57D30 for a customer E39 530d was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2026-01-08",
+      "date": "2025-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0115/02.webp"
+      "image": "images/engines/sets/set-0091/03.webp"
     },
     {
       "id": 224,
@@ -2909,12 +2909,12 @@
       "city": "Milan",
       "country": "Italy",
       "stars": 5,
-      "text": "M57D30 delivered to E46 330d project within 5 days. Customs paperwork flawless. 12.4 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "M57D30 delivered to E46 330d project within 5 days. Customs paperwork flawless. 11.4 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "M57D30",
       "platform": "E46 330d",
-      "date": "2025-07-08",
+      "date": "2024-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0116/03.webp"
+      "image": "images/engines/sets/set-0092/03.webp"
     },
     {
       "id": 225,
@@ -2925,9 +2925,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone B47D20 for my G20 320d, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2023-12-08",
+      "date": "2025-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0117/04.webp"
+      "image": "images/engines/sets/set-0093/03.webp"
     },
     {
       "id": 226,
@@ -2938,9 +2938,9 @@
       "text": "Skeptical about buying a B57D30 online for my G30 530d restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Smooth diesel idle character preserved.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2025-12-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0118/05.webp"
+      "image": "images/engines/sets/set-0094/03.webp"
     },
     {
       "id": 227,
@@ -2948,12 +2948,12 @@
       "city": "Madrid",
       "country": "Spain",
       "stars": 5,
-      "text": "Fleet order of 6 M47D20 engines for our E46 320d vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 3 M47D20 engines for our E46 320d vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2026-04-08",
+      "date": "2026-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0119/06.webp"
+      "image": "images/engines/sets/set-0095/03.webp"
     },
     {
       "id": 228,
@@ -2964,9 +2964,9 @@
       "text": "Dyno test witnessed via video call before they shipped my S63B44. Engine made rated power on their SuperFlow. F10 M5 is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2024-02-08",
+      "date": "2025-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0120/01.webp"
+      "image": "images/engines/sets/set-0096/03.webp"
     },
     {
       "id": 229,
@@ -2977,9 +2977,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the N63B44 for my F01 550i. Smooth process from start to finish.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2026-02-08",
+      "date": "2024-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0121/02.webp"
+      "image": "images/engines/sets/set-0097/03.webp"
     },
     {
       "id": 230,
@@ -2990,9 +2990,9 @@
       "text": "Their blog articles helped me choose the right M62B44 for my E39 M5. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2023-07-08",
+      "date": "2025-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0122/03.webp"
+      "image": "images/engines/sets/set-0098/03.webp"
     },
     {
       "id": 231,
@@ -3003,9 +3003,9 @@
       "text": "Classic E46 330i restoration needed a period-correct M54B30. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2024-01-08",
+      "date": "2025-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0123/04.webp"
+      "image": "images/engines/sets/set-0099/03.webp"
     },
     {
       "id": 232,
@@ -3013,12 +3013,12 @@
       "city": "Dublin",
       "country": "Ireland",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 442+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 580+ km since install without issues.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2025-05-08",
+      "date": "2025-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0124/05.webp"
+      "image": "images/engines/sets/set-0100/03.webp"
     },
     {
       "id": 233,
@@ -3029,9 +3029,9 @@
       "text": "B58 for my E36 328i after dealer quoted €12,000+. Their tested M52B28 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2023-11-08",
+      "date": "2026-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0001/06.webp"
+      "image": "images/engines/sets/set-0101/03.webp"
     },
     {
       "id": 234,
@@ -3042,9 +3042,9 @@
       "text": "N47 timing chain inspected before shipping as promised. M50B25 for E36 325i arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2024-05-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0002/01.webp"
+      "image": "images/engines/sets/set-0102/03.webp"
     },
     {
       "id": 235,
@@ -3055,9 +3055,9 @@
       "text": "Rebuilt M20B25 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My E30 325i track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2023-12-08",
+      "date": "2025-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0003/02.webp"
+      "image": "images/engines/sets/set-0103/03.webp"
     },
     {
       "id": 236,
@@ -3068,9 +3068,9 @@
       "text": "Shipping to UK post-Brexit was seamless. M30B35 for E34 535i arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2024-10-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0004/03.webp"
+      "image": "images/engines/sets/set-0104/03.webp"
     },
     {
       "id": 237,
@@ -3081,9 +3081,9 @@
       "text": "Visited Hamburg facility to inspect S54B32 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2025-06-08",
+      "date": "2024-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0005/04.webp"
+      "image": "images/engines/sets/set-0105/03.webp"
     },
     {
       "id": 238,
@@ -3094,9 +3094,9 @@
       "text": "Trade account setup took 48 hours. Now source all S55B30 and F80 M3 engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2024-08-08",
+      "date": "2024-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0006/05.webp"
+      "image": "images/engines/sets/set-0106/03.webp"
     },
     {
       "id": 239,
@@ -3107,9 +3107,9 @@
       "text": "Warranty claim handled without argument. N54B30 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2025-10-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0007/06.webp"
+      "image": "images/engines/sets/set-0107/03.webp"
     },
     {
       "id": 240,
@@ -3120,9 +3120,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The N55B30 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2025-12-08",
+      "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0008/01.webp"
+      "image": "images/engines/sets/set-0108/03.webp"
     },
     {
       "id": 241,
@@ -3130,12 +3130,12 @@
       "city": "Munich",
       "country": "Germany",
       "stars": 5,
-      "text": "Ordered a N52B30 for my E90 330i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 11.1 bar across all cylinders. Running beautifully after 4 months.",
+      "text": "Ordered a N52B30 for my E90 330i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.2 bar across all cylinders. Running beautifully after 5 months.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2023-12-08",
+      "date": "2025-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0009/02.webp"
+      "image": "images/engines/sets/set-0109/03.webp"
     },
     {
       "id": 242,
@@ -3146,9 +3146,9 @@
       "text": "The B58B30 engine for my F30 340i was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2024-07-08",
+      "date": "2024-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0010/03.webp"
+      "image": "images/engines/sets/set-0110/03.webp"
     },
     {
       "id": 243,
@@ -3159,9 +3159,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The B48B20 for a customer F30 320i was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2025-11-08",
+      "date": "2024-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0011/04.webp"
+      "image": "images/engines/sets/set-0111/03.webp"
     },
     {
       "id": 244,
@@ -3169,12 +3169,12 @@
       "city": "Frankfurt",
       "country": "Germany",
       "stars": 5,
-      "text": "N47D20 delivered to F30 320d project within 3 days. Customs paperwork flawless. 11.4 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "N47D20 delivered to F30 320d project within 4 days. Customs paperwork flawless. 13.1 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2025-08-08",
+      "date": "2025-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0012/05.webp"
+      "image": "images/engines/sets/set-0112/03.webp"
     },
     {
       "id": 245,
@@ -3185,9 +3185,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone N57D30 for my F10 535d, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2025-07-08",
+      "date": "2023-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0013/06.webp"
+      "image": "images/engines/sets/set-0113/03.webp"
     },
     {
       "id": 246,
@@ -3198,9 +3198,9 @@
       "text": "Skeptical about buying a M57D30 online for my E39 530d restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Smooth diesel idle character preserved.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2026-02-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0014/01.webp"
+      "image": "images/engines/sets/set-0114/03.webp"
     },
     {
       "id": 247,
@@ -3211,9 +3211,9 @@
       "text": "Fleet order of 4 M57D30 engines for our E46 330d vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "M57D30",
       "platform": "E46 330d",
-      "date": "2026-01-08",
+      "date": "2025-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0015/02.webp"
+      "image": "images/engines/sets/set-0115/03.webp"
     },
     {
       "id": 248,
@@ -3224,9 +3224,9 @@
       "text": "Dyno test witnessed via video call before they shipped my B47D20. Engine made rated power on their SuperFlow. G20 320d is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2026-05-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0016/03.webp"
+      "image": "images/engines/sets/set-0116/03.webp"
     },
     {
       "id": 249,
@@ -3237,9 +3237,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the B57D30 for my G30 530d. Smooth process from start to finish.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2024-03-08",
+      "date": "2025-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0017/04.webp"
+      "image": "images/engines/sets/set-0001/04.webp"
     },
     {
       "id": 250,
@@ -3250,9 +3250,9 @@
       "text": "Their blog articles helped me choose the right M47D20 for my E46 320d. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2026-03-08",
+      "date": "2023-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0018/05.webp"
+      "image": "images/engines/sets/set-0002/04.webp"
     },
     {
       "id": 251,
@@ -3263,9 +3263,9 @@
       "text": "Classic F10 M5 restoration needed a period-correct S63B44. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2026-04-08",
+      "date": "2024-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0019/06.webp"
+      "image": "images/engines/sets/set-0003/04.webp"
     },
     {
       "id": 252,
@@ -3273,12 +3273,12 @@
       "city": "Paris",
       "country": "France",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 679+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 393+ km since install without issues.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2023-09-08",
+      "date": "2024-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0020/01.webp"
+      "image": "images/engines/sets/set-0004/04.webp"
     },
     {
       "id": 253,
@@ -3289,9 +3289,9 @@
       "text": "B58 for my E39 M5 after dealer quoted €12,000+. Their tested M62B44 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2026-03-08",
+      "date": "2024-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0021/02.webp"
+      "image": "images/engines/sets/set-0005/04.webp"
     },
     {
       "id": 254,
@@ -3302,9 +3302,9 @@
       "text": "N47 timing chain inspected before shipping as promised. M54B30 for E46 330i arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2024-01-08",
+      "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0022/03.webp"
+      "image": "images/engines/sets/set-0006/04.webp"
     },
     {
       "id": 255,
@@ -3315,9 +3315,9 @@
       "text": "Rebuilt M54B25 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My E46 325i track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2024-05-08",
+      "date": "2024-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0023/04.webp"
+      "image": "images/engines/sets/set-0007/04.webp"
     },
     {
       "id": 256,
@@ -3328,9 +3328,9 @@
       "text": "Shipping to UK post-Brexit was seamless. M52B28 for E36 328i arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2026-03-08",
+      "date": "2023-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0024/05.webp"
+      "image": "images/engines/sets/set-0008/04.webp"
     },
     {
       "id": 257,
@@ -3341,9 +3341,9 @@
       "text": "Visited Hamburg facility to inspect M50B25 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2025-09-08",
+      "date": "2024-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0025/06.webp"
+      "image": "images/engines/sets/set-0009/04.webp"
     },
     {
       "id": 258,
@@ -3354,9 +3354,9 @@
       "text": "Trade account setup took 48 hours. Now source all M20B25 and E30 325i engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2024-12-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0026/01.webp"
+      "image": "images/engines/sets/set-0010/04.webp"
     },
     {
       "id": 259,
@@ -3367,9 +3367,9 @@
       "text": "Warranty claim handled without argument. M30B35 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2026-04-08",
+      "date": "2026-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0027/02.webp"
+      "image": "images/engines/sets/set-0011/04.webp"
     },
     {
       "id": 260,
@@ -3380,9 +3380,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The S54B32 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2024-03-08",
+      "date": "2024-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0028/03.webp"
+      "image": "images/engines/sets/set-0012/04.webp"
     },
     {
       "id": 261,
@@ -3390,12 +3390,12 @@
       "city": "Manchester",
       "country": "UK",
       "stars": 5,
-      "text": "Ordered a S55B30 for my F80 M3  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.6 bar across all cylinders. Running beautifully after 5 months.",
+      "text": "Ordered a S55B30 for my F80 M3  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.1 bar across all cylinders. Running beautifully after 5 months.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2024-11-08",
+      "date": "2024-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0029/04.webp"
+      "image": "images/engines/sets/set-0013/04.webp"
     },
     {
       "id": 262,
@@ -3406,9 +3406,9 @@
       "text": "The N54B30 engine for my E90 335i was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2024-07-08",
+      "date": "2024-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0030/05.webp"
+      "image": "images/engines/sets/set-0014/04.webp"
     },
     {
       "id": 263,
@@ -3419,9 +3419,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The N55B30 for a customer F30 335i was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2023-11-08",
+      "date": "2026-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0031/06.webp"
+      "image": "images/engines/sets/set-0015/04.webp"
     },
     {
       "id": 264,
@@ -3429,12 +3429,12 @@
       "city": "Copenhagen",
       "country": "Denmark",
       "stars": 5,
-      "text": "N52B30 delivered to E90 330i project within 3 days. Customs paperwork flawless. 13.0 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "N52B30 delivered to E90 330i project within 4 days. Customs paperwork flawless. 12.8 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2023-12-08",
+      "date": "2026-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0032/01.webp"
+      "image": "images/engines/sets/set-0016/04.webp"
     },
     {
       "id": 265,
@@ -3445,9 +3445,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone B58B30 for my F30 340i, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2024-02-08",
+      "date": "2023-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0033/02.webp"
+      "image": "images/engines/sets/set-0017/04.webp"
     },
     {
       "id": 266,
@@ -3458,9 +3458,9 @@
       "text": "Skeptical about buying a B48B20 online for my F30 320i restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Rev-happy petrol character preserved.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2025-09-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0034/03.webp"
+      "image": "images/engines/sets/set-0018/04.webp"
     },
     {
       "id": 267,
@@ -3468,12 +3468,12 @@
       "city": "Warsaw",
       "country": "Poland",
       "stars": 5,
-      "text": "Fleet order of 5 N47D20 engines for our F30 320d vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 4 N47D20 engines for our F30 320d vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2026-03-08",
+      "date": "2025-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0035/04.webp"
+      "image": "images/engines/sets/set-0019/04.webp"
     },
     {
       "id": 268,
@@ -3484,9 +3484,9 @@
       "text": "Dyno test witnessed via video call before they shipped my N57D30. Engine made rated power on their SuperFlow. F10 535d is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2025-07-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0036/05.webp"
+      "image": "images/engines/sets/set-0020/04.webp"
     },
     {
       "id": 269,
@@ -3497,9 +3497,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the M57D30 for my E39 530d. Smooth process from start to finish.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2023-10-08",
+      "date": "2025-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0037/06.webp"
+      "image": "images/engines/sets/set-0021/04.webp"
     },
     {
       "id": 270,
@@ -3510,9 +3510,9 @@
       "text": "Their blog articles helped me choose the right M57D30 for my E46 330d. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "M57D30",
       "platform": "E46 330d",
-      "date": "2025-04-08",
+      "date": "2023-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0038/01.webp"
+      "image": "images/engines/sets/set-0022/04.webp"
     },
     {
       "id": 271,
@@ -3523,9 +3523,9 @@
       "text": "Classic G20 320d restoration needed a period-correct B47D20. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2024-11-08",
+      "date": "2024-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0039/02.webp"
+      "image": "images/engines/sets/set-0023/04.webp"
     },
     {
       "id": 272,
@@ -3533,12 +3533,12 @@
       "city": "Hamburg",
       "country": "Germany",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 425+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 629+ km since install without issues.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2025-05-08",
+      "date": "2026-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0040/03.webp"
+      "image": "images/engines/sets/set-0024/04.webp"
     },
     {
       "id": 273,
@@ -3549,9 +3549,9 @@
       "text": "B58 for my E46 320d after dealer quoted €12,000+. Their tested M47D20 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2026-06-08",
+      "date": "2024-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0041/04.webp"
+      "image": "images/engines/sets/set-0025/04.webp"
     },
     {
       "id": 274,
@@ -3562,9 +3562,9 @@
       "text": "N47 timing chain inspected before shipping as promised. S63B44 for F10 M5 arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2024-01-08",
+      "date": "2025-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0042/05.webp"
+      "image": "images/engines/sets/set-0026/04.webp"
     },
     {
       "id": 275,
@@ -3575,9 +3575,9 @@
       "text": "Rebuilt N63B44 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My F01 550i track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2026-04-08",
+      "date": "2025-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0043/06.webp"
+      "image": "images/engines/sets/set-0027/04.webp"
     },
     {
       "id": 276,
@@ -3588,9 +3588,9 @@
       "text": "Shipping to UK post-Brexit was seamless. M62B44 for E39 M5 arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2026-06-08",
+      "date": "2024-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0044/01.webp"
+      "image": "images/engines/sets/set-0028/04.webp"
     },
     {
       "id": 277,
@@ -3601,9 +3601,9 @@
       "text": "Visited Hamburg facility to inspect M54B30 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2025-09-08",
+      "date": "2024-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0045/02.webp"
+      "image": "images/engines/sets/set-0029/04.webp"
     },
     {
       "id": 278,
@@ -3614,9 +3614,9 @@
       "text": "Trade account setup took 48 hours. Now source all M54B25 and E46 325i engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2025-11-08",
+      "date": "2025-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0046/03.webp"
+      "image": "images/engines/sets/set-0030/04.webp"
     },
     {
       "id": 279,
@@ -3627,9 +3627,9 @@
       "text": "Warranty claim handled without argument. M52B28 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2025-12-08",
+      "date": "2023-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0047/04.webp"
+      "image": "images/engines/sets/set-0031/04.webp"
     },
     {
       "id": 280,
@@ -3640,9 +3640,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The M50B25 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2023-11-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0048/05.webp"
+      "image": "images/engines/sets/set-0032/04.webp"
     },
     {
       "id": 281,
@@ -3650,12 +3650,12 @@
       "city": "Brussels",
       "country": "Belgium",
       "stars": 5,
-      "text": "Ordered a M20B25 for my E30 325i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 13.2 bar across all cylinders. Running beautifully after 9 months.",
+      "text": "Ordered a M20B25 for my E30 325i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 11.2 bar across all cylinders. Running beautifully after 3 months.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2024-08-08",
+      "date": "2024-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0049/06.webp"
+      "image": "images/engines/sets/set-0033/04.webp"
     },
     {
       "id": 282,
@@ -3666,9 +3666,9 @@
       "text": "The M30B35 engine for my E34 535i was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2024-03-08",
+      "date": "2024-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0050/01.webp"
+      "image": "images/engines/sets/set-0034/04.webp"
     },
     {
       "id": 283,
@@ -3679,9 +3679,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The S54B32 for a customer E46 M3 was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2024-05-08",
+      "date": "2023-07-08",
       "verified": true,
-      "image": "images/engines/sets/set-0051/02.webp"
+      "image": "images/engines/sets/set-0035/04.webp"
     },
     {
       "id": 284,
@@ -3689,12 +3689,12 @@
       "city": "Milan",
       "country": "Italy",
       "stars": 5,
-      "text": "S55B30 delivered to F80 M3 project within 5 days. Customs paperwork flawless. 12.9 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "S55B30 delivered to F80 M3 project within 3 days. Customs paperwork flawless. 13.2 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2023-07-08",
+      "date": "2025-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0052/03.webp"
+      "image": "images/engines/sets/set-0036/04.webp"
     },
     {
       "id": 285,
@@ -3705,9 +3705,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone N54B30 for my E90 335i, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2024-10-08",
+      "date": "2023-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0053/04.webp"
+      "image": "images/engines/sets/set-0037/04.webp"
     },
     {
       "id": 286,
@@ -3718,9 +3718,9 @@
       "text": "Skeptical about buying a N55B30 online for my F30 335i restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Rev-happy petrol character preserved.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2026-06-08",
+      "date": "2025-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0054/05.webp"
+      "image": "images/engines/sets/set-0038/04.webp"
     },
     {
       "id": 287,
@@ -3728,12 +3728,12 @@
       "city": "Madrid",
       "country": "Spain",
       "stars": 5,
-      "text": "Fleet order of 5 N52B30 engines for our E90 330i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 3 N52B30 engines for our E90 330i vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2026-02-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0055/06.webp"
+      "image": "images/engines/sets/set-0039/04.webp"
     },
     {
       "id": 288,
@@ -3744,9 +3744,9 @@
       "text": "Dyno test witnessed via video call before they shipped my B58B30. Engine made rated power on their SuperFlow. F30 340i is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2025-10-08",
+      "date": "2023-12-08",
       "verified": true,
-      "image": "images/engines/sets/set-0057/01.webp"
+      "image": "images/engines/sets/set-0040/04.webp"
     },
     {
       "id": 289,
@@ -3757,9 +3757,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the B48B20 for my F30 320i. Smooth process from start to finish.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2024-06-08",
+      "date": "2026-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0059/02.webp"
+      "image": "images/engines/sets/set-0041/04.webp"
     },
     {
       "id": 290,
@@ -3770,9 +3770,9 @@
       "text": "Their blog articles helped me choose the right N47D20 for my F30 320d. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2023-09-08",
+      "date": "2025-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0060/03.webp"
+      "image": "images/engines/sets/set-0042/04.webp"
     },
     {
       "id": 291,
@@ -3783,9 +3783,9 @@
       "text": "Classic F10 535d restoration needed a period-correct N57D30. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2024-12-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0061/04.webp"
+      "image": "images/engines/sets/set-0043/04.webp"
     },
     {
       "id": 292,
@@ -3793,12 +3793,12 @@
       "city": "Dublin",
       "country": "Ireland",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 587+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 248+ km since install without issues.",
       "engine": "M57D30",
       "platform": "E39 530d",
       "date": "2026-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0063/05.webp"
+      "image": "images/engines/sets/set-0044/04.webp"
     },
     {
       "id": 293,
@@ -3809,9 +3809,9 @@
       "text": "B58 for my E46 330d after dealer quoted €12,000+. Their tested M57D30 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "M57D30",
       "platform": "E46 330d",
-      "date": "2023-08-08",
+      "date": "2025-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0065/06.webp"
+      "image": "images/engines/sets/set-0045/04.webp"
     },
     {
       "id": 294,
@@ -3822,9 +3822,9 @@
       "text": "N47 timing chain inspected before shipping as promised. B47D20 for G20 320d arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2025-07-08",
+      "date": "2025-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0067/01.webp"
+      "image": "images/engines/sets/set-0046/04.webp"
     },
     {
       "id": 295,
@@ -3835,9 +3835,9 @@
       "text": "Rebuilt B57D30 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My G30 530d track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2024-03-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0068/02.webp"
+      "image": "images/engines/sets/set-0047/04.webp"
     },
     {
       "id": 296,
@@ -3848,9 +3848,9 @@
       "text": "Shipping to UK post-Brexit was seamless. M47D20 for E46 320d arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2025-01-08",
+      "date": "2024-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0069/03.webp"
+      "image": "images/engines/sets/set-0048/04.webp"
     },
     {
       "id": 297,
@@ -3861,9 +3861,9 @@
       "text": "Visited Hamburg facility to inspect S63B44 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2025-07-08",
+      "date": "2024-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0071/04.webp"
+      "image": "images/engines/sets/set-0049/04.webp"
     },
     {
       "id": 298,
@@ -3874,9 +3874,9 @@
       "text": "Trade account setup took 48 hours. Now source all N63B44 and F01 550i engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "N63B44",
       "platform": "F01 550i",
-      "date": "2023-10-08",
+      "date": "2026-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0072/05.webp"
+      "image": "images/engines/sets/set-0050/04.webp"
     },
     {
       "id": 299,
@@ -3887,9 +3887,9 @@
       "text": "Warranty claim handled without argument. M62B44 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "M62B44",
       "platform": "E39 M5",
-      "date": "2025-03-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0073/06.webp"
+      "image": "images/engines/sets/set-0051/04.webp"
     },
     {
       "id": 300,
@@ -3900,9 +3900,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The M54B30 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "M54B30",
       "platform": "E46 330i",
-      "date": "2024-04-08",
+      "date": "2024-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0075/01.webp"
+      "image": "images/engines/sets/set-0052/04.webp"
     },
     {
       "id": 301,
@@ -3910,12 +3910,12 @@
       "city": "Munich",
       "country": "Germany",
       "stars": 5,
-      "text": "Ordered a M54B25 for my E46 325i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 13.0 bar across all cylinders. Running beautifully after 7 months.",
+      "text": "Ordered a M54B25 for my E46 325i  replacement. Engine arrived on a steel frame, perfectly packaged. Compression test results matched exactly what was advertised — 12.1 bar across all cylinders. Running beautifully after 7 months.",
       "engine": "M54B25",
       "platform": "E46 325i",
-      "date": "2025-06-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0077/02.webp"
+      "image": "images/engines/sets/set-0053/04.webp"
     },
     {
       "id": 302,
@@ -3926,9 +3926,9 @@
       "text": "The M52B28 engine for my E36 328i was exactly as described. Multiple warehouse photographs showed the actual unit. Test report was thorough. Installation took a weekend and fired first time. Highly recommended supplier.",
       "engine": "M52B28",
       "platform": "E36 328i",
-      "date": "2025-01-08",
+      "date": "2024-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0078/03.webp"
+      "image": "images/engines/sets/set-0054/04.webp"
     },
     {
       "id": 303,
@@ -3939,9 +3939,9 @@
       "text": "As a workshop owner, I've sourced engines from Premium BMW Engines multiple times. The M50B25 for a customer E36 325i was graded honestly, shipped fast, and the warranty documentation was clear. Our go-to supplier for BMW engines.",
       "engine": "M50B25",
       "platform": "E36 325i",
-      "date": "2025-11-08",
+      "date": "2024-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0079/04.webp"
+      "image": "images/engines/sets/set-0055/04.webp"
     },
     {
       "id": 304,
@@ -3949,12 +3949,12 @@
       "city": "Frankfurt",
       "country": "Germany",
       "stars": 5,
-      "text": "M20B25 delivered to E30 325i project within 5 days. Customs paperwork flawless. 12.6 bar compression on all cylinders. Professional communication from quote through delivery.",
+      "text": "M20B25 delivered to E30 325i project within 3 days. Customs paperwork flawless. 12.0 bar compression on all cylinders. Professional communication from quote through delivery.",
       "engine": "M20B25",
       "platform": "E30 325i",
-      "date": "2025-12-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0080/05.webp"
+      "image": "images/engines/sets/set-0056/04.webp"
     },
     {
       "id": 305,
@@ -3965,9 +3965,9 @@
       "text": "M57 swap kit enquiry led to excellent technical advice. Even though I bought a standalone M30B35 for my E34 535i, their fitment consultation saved me from ordering the wrong DME generation. Honest people who know BMW engines.",
       "engine": "M30B35",
       "platform": "E34 535i",
-      "date": "2025-04-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0081/06.webp"
+      "image": "images/engines/sets/set-0057/04.webp"
     },
     {
       "id": 306,
@@ -3978,9 +3978,9 @@
       "text": "Skeptical about buying a S54B32 online for my E46 M3 restoration. The detailed warehouse photos and compression report gave me confidence. Engine matches the images. Rev-happy petrol character preserved.",
       "engine": "S54B32",
       "platform": "E46 M3",
-      "date": "2026-04-08",
+      "date": "2025-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0082/01.webp"
+      "image": "images/engines/sets/set-0058/04.webp"
     },
     {
       "id": 307,
@@ -3988,12 +3988,12 @@
       "city": "Vienna",
       "country": "Austria",
       "stars": 5,
-      "text": "Fleet order of 5 S55B30 engines for our F80 M3 vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
+      "text": "Fleet order of 3 S55B30 engines for our F80 M3 vehicles. Consistent grading, bulk pricing fair, and dedicated account manager made the process smooth. Saved thousands versus dealer replacement.",
       "engine": "S55B30",
       "platform": "F80 M3",
-      "date": "2024-07-08",
+      "date": "2023-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0083/02.webp"
+      "image": "images/engines/sets/set-0059/04.webp"
     },
     {
       "id": 308,
@@ -4004,9 +4004,9 @@
       "text": "Dyno test witnessed via video call before they shipped my N54B30. Engine made rated power on their SuperFlow. E90 335i is back on the road with documented confidence. Exceptional attention to detail.",
       "engine": "N54B30",
       "platform": "E90 335i",
-      "date": "2023-10-08",
+      "date": "2025-10-08",
       "verified": true,
-      "image": "images/engines/sets/set-0084/03.webp"
+      "image": "images/engines/sets/set-0060/04.webp"
     },
     {
       "id": 309,
@@ -4017,9 +4017,9 @@
       "text": "Core exchange worked perfectly. Returned my seized engine, received credit within a week. Used it toward the N55B30 for my F30 335i. Smooth process from start to finish.",
       "engine": "N55B30",
       "platform": "F30 335i",
-      "date": "2024-03-08",
+      "date": "2025-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0085/04.webp"
+      "image": "images/engines/sets/set-0061/04.webp"
     },
     {
       "id": 310,
@@ -4030,9 +4030,9 @@
       "text": "Their blog articles helped me choose the right N52B30 for my E90 330i. When I called, they didn't push the expensive option — recommended based on my actual needs. Engine arrived tested and warranted.",
       "engine": "N52B30",
       "platform": "E90 330i",
-      "date": "2025-04-08",
+      "date": "2024-06-08",
       "verified": true,
-      "image": "images/engines/sets/set-0086/05.webp"
+      "image": "images/engines/sets/set-0062/04.webp"
     },
     {
       "id": 311,
@@ -4043,9 +4043,9 @@
       "text": "Classic F30 340i restoration needed a period-correct B58B30. They had three options with different mileage brackets. Chose the low-mileage unit. Compression uniform, photographs honest about cosmetic patina. Perfect for concours build.",
       "engine": "B58B30",
       "platform": "F30 340i",
-      "date": "2024-10-08",
+      "date": "2025-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0087/06.webp"
+      "image": "images/engines/sets/set-0063/04.webp"
     },
     {
       "id": 312,
@@ -4053,12 +4053,12 @@
       "city": "Paris",
       "country": "France",
       "stars": 5,
-      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 617+ km since install without issues.",
+      "text": "Defender M57 conversion kit was complete and well-documented. Every connector labelled, mounts fit perfectly. Technical team answered wiring questions promptly. 387+ km since install without issues.",
       "engine": "B48B20",
       "platform": "F30 320i",
-      "date": "2024-05-08",
+      "date": "2026-01-08",
       "verified": true,
-      "image": "images/engines/sets/set-0088/01.webp"
+      "image": "images/engines/sets/set-0064/04.webp"
     },
     {
       "id": 313,
@@ -4069,9 +4069,9 @@
       "text": "B58 for my F30 320d after dealer quoted €12,000+. Their tested N47D20 cost half that with identical specification. Independent workshop installed it. Six months and 8,000 km — flawless.",
       "engine": "N47D20",
       "platform": "F30 320d",
-      "date": "2026-06-08",
+      "date": "2024-11-08",
       "verified": true,
-      "image": "images/engines/sets/set-0089/02.webp"
+      "image": "images/engines/sets/set-0065/04.webp"
     },
     {
       "id": 314,
@@ -4082,9 +4082,9 @@
       "text": "N47 timing chain inspected before shipping as promised. N57D30 for F10 535d arrived with acoustic analysis report. Chain condition documented. Exactly what a cautious diesel buyer needs.",
       "engine": "N57D30",
       "platform": "F10 535d",
-      "date": "2023-07-08",
+      "date": "2026-02-08",
       "verified": true,
-      "image": "images/engines/sets/set-0090/03.webp"
+      "image": "images/engines/sets/set-0066/04.webp"
     },
     {
       "id": 315,
@@ -4095,9 +4095,9 @@
       "text": "Rebuilt M57D30 quality is outstanding. New gaskets, timing components, and bearings. Dyno report included. My E39 530d track car is reliable again. 12-month extended warranty purchased with confidence.",
       "engine": "M57D30",
       "platform": "E39 530d",
-      "date": "2024-01-08",
+      "date": "2025-09-08",
       "verified": true,
-      "image": "images/engines/sets/set-0091/04.webp"
+      "image": "images/engines/sets/set-0067/04.webp"
     },
     {
       "id": 316,
@@ -4108,9 +4108,9 @@
       "text": "Shipping to UK post-Brexit was seamless. M57D30 for E46 330d arrived in 6 days with all customs documents. Engine hoist at delivery point — kerbside as described. No surprises.",
       "engine": "M57D30",
       "platform": "E46 330d",
-      "date": "2026-03-08",
+      "date": "2024-04-08",
       "verified": true,
-      "image": "images/engines/sets/set-0092/05.webp"
+      "image": "images/engines/sets/set-0068/04.webp"
     },
     {
       "id": 317,
@@ -4121,9 +4121,9 @@
       "text": "Visited Hamburg facility to inspect B47D20 before purchase. Met the technician who ran the dyno test. Seeing the warehouse operation convinced me these are real tested engines, not brokers. Bought on the spot.",
       "engine": "B47D20",
       "platform": "G20 320d",
-      "date": "2024-05-08",
+      "date": "2025-08-08",
       "verified": true,
-      "image": "images/engines/sets/set-0093/06.webp"
+      "image": "images/engines/sets/set-0069/04.webp"
     },
     {
       "id": 318,
@@ -4134,9 +4134,9 @@
       "text": "Trade account setup took 48 hours. Now source all B57D30 and G30 530d engines through them. Priority allocation when stock is tight. Technical support line is genuinely useful.",
       "engine": "B57D30",
       "platform": "G30 530d",
-      "date": "2024-02-08",
+      "date": "2026-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0094/01.webp"
+      "image": "images/engines/sets/set-0070/04.webp"
     },
     {
       "id": 319,
@@ -4147,9 +4147,9 @@
       "text": "Warranty claim handled without argument. M47D20 had a sensor issue within 30 days. They shipped replacement ancillaries next day. Stood behind their product exactly as promised.",
       "engine": "M47D20",
       "platform": "E46 320d",
-      "date": "2025-06-08",
+      "date": "2026-03-08",
       "verified": true,
-      "image": "images/engines/sets/set-0095/02.webp"
+      "image": "images/engines/sets/set-0071/04.webp"
     },
     {
       "id": 320,
@@ -4160,9 +4160,9 @@
       "text": "Photographs show real warehouse inventory — engines on pallets, hoses visible, multiple angles. The S63B44 I received matches the listing images. Finally a supplier that shows what you actually get.",
       "engine": "S63B44",
       "platform": "F10 M5",
-      "date": "2024-02-08",
+      "date": "2024-05-08",
       "verified": true,
-      "image": "images/engines/sets/set-0096/03.webp"
+      "image": "images/engines/sets/set-0072/04.webp"
     }
   ]
 }

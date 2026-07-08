@@ -1,47 +1,34 @@
+const PAGE_IMAGE_SEEDS = {
+  'm57-swap-kits': 25,
+  services: 35,
+  about: 45,
+  contact: 55,
+  policies: 70
+};
+
 async function loadPageContent(slug) {
   const container = document.getElementById('pageContent');
-  if (!container) return;
+  if (!container || slug === 'blog') return;
 
   try {
     const res = await fetch(`data/pages/${slug}.json`);
     const data = await res.json();
-    container.innerHTML = renderPageGallery(data) + renderPageSections(data);
+
+    if (data.layout === 'contact') {
+      container.innerHTML = renderContactLayout(data);
+    } else if (data.layout === 'policy') {
+      container.innerHTML = renderPolicyLayout(data);
+    } else {
+      container.innerHTML = renderPageSections(data);
+    }
   } catch (err) {
     console.error('Failed to load page content:', err);
   }
 }
 
-function renderPageGallery(data) {
-  const images = (data.gallerySets || []).map((setId, i) => ({
-    src: `images/engines/sets/${setId}/01.webp`,
-    alt: `BMW engine warehouse inventory photo ${i + 1}`
-  }));
-
-  return `
-    <section class="engine-gallery-section page-gallery-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Our Warehouse</span>
-          <h2>${data.galleryTitle}</h2>
-          <p>${data.gallerySubtitle}</p>
-        </div>
-        <div class="engine-gallery-grid page-gallery-grid">
-          ${images.map(img => `
-            <div class="engine-gallery-item">
-              <img src="${img.src}" alt="${img.alt}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    </section>`;
-}
-
 function renderPageSections(data) {
-  const sets = data.gallerySets || [];
   return data.sections.map((section, i) => {
-    const setId = sets[i % sets.length] || 'set-0114';
-    const imgNum = String((i % 6) + 1).padStart(2, '0');
-    const img = `images/engines/sets/${setId}/${imgNum}.webp`;
+    const img = section.image;
     const num = String(i + 1).padStart(2, '0');
     const [lead, ...rest] = section.paragraphs;
 
@@ -62,6 +49,60 @@ function renderPageSections(data) {
       </div>
     </section>`;
   }).join('');
+}
+
+function renderContactLayout(data) {
+  const hero = data.heroImage;
+  const faq = (data.faq || []).map((item, i) => `
+    <details class="faq-item"${i === 0 ? ' open' : ''}>
+      <summary>${item.q}</summary>
+      <div class="faq-answer"><p>${item.a}</p></div>
+    </details>
+  `).join('');
+
+  return `
+    <section class="contact-hero-section">
+      <div class="container contact-hero-layout">
+        <div class="contact-hero-image">
+          <img src="${hero}" alt="BMW engines ready for dispatch from Hamburg" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+        </div>
+        <div class="contact-hero-text">
+          <span class="section-tag">Hamburg HQ</span>
+          <h2>${data.introTitle}</h2>
+          ${data.introParagraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    </section>
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Help Centre</span>
+          <h2>Frequently Asked Questions</h2>
+          <p>Quick answers about quotes, fitment, shipping, and warranty.</p>
+        </div>
+        <div class="faq-list">${faq}</div>
+      </div>
+    </section>`;
+}
+
+function renderPolicyLayout(data) {
+  return `
+    <div class="policy-premium">
+      ${data.sections.map((section, i) => `
+        <section class="policy-block${i % 2 ? ' alt-bg' : ''}">
+          <div class="container policy-block-inner">
+            <div class="policy-block-text">
+              <span class="section-tag">${section.tag}</span>
+              <h2>${section.title}</h2>
+              ${section.paragraphs.map(p => `<p>${p}</p>`).join('')}
+            </div>
+            <div class="policy-block-image">
+              <img src="${section.image}" alt="${section.imageAlt}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+            </div>
+          </div>
+        </section>
+      `).join('')}
+    </div>`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
