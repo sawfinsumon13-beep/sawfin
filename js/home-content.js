@@ -53,6 +53,8 @@ function renderHomepageContent() {
 
     ${renderEngineGallery()}
 
+    ${renderContentIntro()}
+
     ${renderContentSections()}
 
     <section class="premium-strip">
@@ -97,9 +99,9 @@ function renderHomepageContent() {
           </div>
           <div class="classic-showcase-visual">
             <div class="classic-photo-stack">
-              <img src="${ENGINE_VIEWS.top_cover}" alt="BMW TwinPower engine cover in warehouse" loading="lazy">
-              <img src="${ENGINE_VIEWS.pallet_main}" alt="BMW engine on pallet in Hamburg warehouse" loading="lazy">
-              <img src="${ENGINE_VIEWS.hoses_detail}" alt="BMW engine hoses and components close-up" loading="lazy">
+              <img src="${SHOWCASE_IMAGES.top_cover}" alt="BMW TwinPower engine cover in warehouse" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+              <img src="${SHOWCASE_IMAGES.pallet_main}" alt="BMW engine on pallet in Hamburg warehouse" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+              <img src="${SHOWCASE_IMAGES.hoses_detail}" alt="BMW engine hoses and components close-up" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
             </div>
           </div>
         </div>

@@ -19,6 +19,12 @@ const IMAGE_MANIFEST = {
 const CATEGORY_IMAGES = IMAGE_MANIFEST.categories;
 const FALLBACK_IMAGE = IMAGE_MANIFEST.fallback;
 
+const SHOWCASE_IMAGES = {
+  top_cover: 'images/engines/sets/set-0114/01.webp',
+  pallet_main: 'images/engines/sets/set-0108/02.webp',
+  hoses_detail: 'images/engines/sets/set-0087/03.webp'
+};
+
 const GALLERY_LABELS = [
   'engine on pallet — main warehouse view',
   'side angle — hoses and components',

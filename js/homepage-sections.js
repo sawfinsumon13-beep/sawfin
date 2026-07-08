@@ -168,21 +168,50 @@ const OLD_ENGINE_GALLERY = HOMEPAGE_GALLERY_SETS.map((setId, i) => ({
   alt: `BMW engine warehouse inventory photo ${i + 1}`
 }));
 
+function renderContentIntro() {
+  const wordCount = countHomepageWords();
+  const toc = HOMEPAGE_SECTIONS.map((section, i) => {
+    const num = String(i + 1).padStart(2, '0');
+    return `<a href="#content-${num}" class="content-toc-link"><span class="content-toc-num">${num}</span>${section.tag}</a>`;
+  }).join('');
+
+  return `
+    <section class="content-intro-section" id="engine-guide">
+      <div class="container">
+        <div class="content-intro-inner">
+          <span class="section-tag">Expert Knowledge</span>
+          <h2>Your Complete BMW Engine Guide</h2>
+          <p class="content-intro-lead">Everything you need to know about sourcing, testing, and installing BMW engines — from classic M20 restorations to modern B58 replacements. Written by our Hamburg technical team from two decades of hands-on experience.</p>
+          <div class="content-intro-meta">
+            <span><strong>${HOMEPAGE_SECTIONS.length}</strong> chapters</span>
+            <span><strong>${wordCount.toLocaleString()}+</strong> words</span>
+            <span><strong>3,100+</strong> engines in stock</span>
+          </div>
+          <nav class="content-toc" aria-label="Guide chapters">${toc}</nav>
+        </div>
+      </div>
+    </section>`;
+}
+
 function renderContentSections() {
   return HOMEPAGE_SECTIONS.map((section, i) => {
     const setId = HOMEPAGE_GALLERY_SETS[i % HOMEPAGE_GALLERY_SETS.length];
     const img = `images/engines/sets/${setId}/01.webp`;
+    const num = String(i + 1).padStart(2, '0');
+    const [lead, ...rest] = section.paragraphs;
     return `
-    <section class="content-block-section${i % 2 ? ' alt-bg' : ''}">
+    <section class="content-block-section${i % 2 ? ' alt-bg' : ''}" id="content-${num}">
       <div class="container content-block${section.reverse ? ' reverse' : ''}">
         <div class="content-block-image">
           <img src="${img}" alt="${section.imageAlt}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
           <span class="content-block-badge">${section.tag}</span>
+          <span class="content-block-number">${num}</span>
         </div>
         <div class="content-block-text">
           <span class="section-tag">${section.tag}</span>
           <h2>${section.title}</h2>
-          ${section.paragraphs.map(p => `<p>${p}</p>`).join('')}
+          <p class="content-lead">${lead}</p>
+          ${rest.map(p => `<p>${p}</p>`).join('')}
         </div>
       </div>
     </section>`;
