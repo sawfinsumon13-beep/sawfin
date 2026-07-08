@@ -1,0 +1,103 @@
+{
+  "slug": "about",
+  "galleryTitle": "Inside Our Hamburg Engine Facility",
+  "gallerySubtitle": "Over 3,100 BMW engines — each photographed, tested, and ready to ship across Europe.",
+  "gallerySets": [
+    "set-0037",
+    "set-0038",
+    "set-0039",
+    "set-0040",
+    "set-0041",
+    "set-0042",
+    "set-0043",
+    "set-0044",
+    "set-0045",
+    "set-0046",
+    "set-0047",
+    "set-0048"
+  ],
+  "wordCount": 1569,
+  "sections": [
+    {
+      "tag": "OUR STORY",
+      "title": "Founded in Hamburg — Two Decades of BMW Engine Excellence",
+      "imageAlt": "BMW engines warehouse inventory Hamburg",
+      "reverse": false,
+      "paragraphs": [
+        "Premium BMW Engines was founded in Hamburg in 2003 by a team of certified BMW master technicians who recognised that the used engine market lacked the transparency and testing rigour that BMW owners deserved. What began as a specialist workshop rebuilding classic M20 and M30 engines has grown into Europe's most comprehensive BMW engine supplier, with over 15,000 engines sold to customers in 28 countries.",
+        "Hamburg was chosen deliberately. As one of Europe's largest automotive logistics hubs, the city provides direct access to German fleet auctions, manufacturer service centres, and a deep network of BMW specialists across northern Europe. Our geographic advantage means we see engines before competitors do, and we offer faster turnaround from sourcing to shipment than suppliers based in rural locations.",
+        "Our 4,200 m² facility combines warehouse storage, three dedicated dyno test cells, a machine shop for rebuilds, and administrative offices. Over 40 staff work across procurement, testing, logistics, technical support, and customer service. Every member of our technical team drives BMW products — we understand the emotional and financial investment our customers make because we make the same investments ourselves.",
+        "The company philosophy has never changed: we would rather lose a sale to a cheaper competitor than sell an engine we cannot stand behind. Every engine carries documented proof of mechanical condition. Our return rate is below 0.4% — not because we make returns difficult, but because our testing protocol catches problems before they reach your garage.",
+        "Growth has been organic, driven by customer referrals and workshop partnerships rather than advertising. Over 200 independent workshops across Europe hold active trade accounts with us. Our repeat purchase rate among trade customers exceeds 85%. Enthusiasts choose us for expertise; workshops choose us because we make their lives easier.",
+        "Today we stock over 3,100 engines at any time, publish 215 technical articles, and maintain the largest dedicated BMW engine inventory on the continent. The mission remains the same as it was in 2003: provide BMW owners with quality powerplants, honest documentation, and expert guidance for every engine project."
+      ]
+    },
+    {
+      "tag": "FACILITY",
+      "title": "Our Hamburg Warehouse & Testing Facility",
+      "imageAlt": "BMW engine on pallet main warehouse view",
+      "reverse": true,
+      "paragraphs": [
+        "The Hamburg facility is purpose-built for engine handling. High-bay warehouse storage accommodates over 3,000 engines on custom steel racking, with climate control preventing condensation on machined surfaces. Each engine is photographed from six angles upon arrival and again before dispatch — the photographs in our catalog are of actual inventory, not stock images.",
+        "Three SuperFlow dynamometer test cells operate six days per week. Each cell is equipped with appropriate fuel systems, cooling circuits, and exhaust extraction for petrol and diesel engines from 75 hp M10 units through 750 hp S63 twin-turbo V8s. Test data is recorded digitally and attached to the engine's sales record permanently.",
+        "The machine shop handles boring, honing, head surfacing, crack testing, and component refurbishment. CNC equipment machines custom swap mounts and adapter plates. The shop supports our rebuild programme and M57 swap kit fabrication. Quality control inspects every machined component before assembly.",
+        "Logistics operates from a dedicated dispatch bay with forklift access, pallet wrapping equipment, and freight carrier coordination. Engines are never shipped loose — every unit is frame-mounted, strapped, wrapped, and insured. Average dispatch time from payment confirmation is 24–48 hours for in-stock engines.",
+        "Customer visits are welcome by appointment. Seeing your engine in person, witnessing the dyno test, and meeting our technical team provides confidence that remote purchasing cannot fully replicate. We host visitors from across Europe weekly — from Milan enthusiasts collecting E46 M3 S54 engines to Rotterdam workshop owners inspecting fleet diesel stock.",
+        "Environmental responsibility guides disposal practices. Engines that fail our testing protocol are dismantled for recyclable components. Core exchange programme encourages return of old engines for responsible recycling. Fluids are disposed of through licensed hazardous waste contractors."
+      ]
+    },
+    {
+      "tag": "TEAM",
+      "title": "Certified Technicians With 80+ Years Combined Experience",
+      "imageAlt": "BMW engine hoses and components close-up",
+      "reverse": false,
+      "paragraphs": [
+        "Our technical team includes eight certified BMW master technicians, three diesel specialists, two ECU programmers, and four dyno operators. Collective experience exceeds 80 years on BMW platforms from classic M10 carburetted engines through current B58 and S58 turbocharged units. Several team members learned their craft on M20 and M30 platforms before progressing to N and B series engines.",
+        "Procurement specialists evaluate incoming engines against strict acceptance criteria. Visual inspection, initial compression checks, and documentation review occur before an engine enters the testing queue. Rejection rate at intake is approximately 35% — we prefer a smaller inventory of verified engines over a large inventory of unknowns.",
+        "Customer-facing technical advisors handle fitment consultation, swap project planning, and post-installation troubleshooting. Each advisor specialises in specific engine families: classic (M10–S54), modern diesel (N47–B57), and performance (N54–S63). This specialisation ensures you speak with someone who knows your engine platform intimately.",
+        "The content team publishes 215 technical articles covering buying guides, swap tutorials, maintenance schedules, and logistics advice. Each article contains approximately 2,500 words of genuine technical guidance — not SEO filler. We publish because informed customers make better decisions, and better decisions lead to successful projects.",
+        "Continuous training keeps the team current with BMW's evolving technology. B-series engine architecture, direct injection systems, AdBlue SCR compliance, and hybrid integration are covered in quarterly internal training sessions. External courses from BMW training centres supplement in-house knowledge.",
+        "Our team's passion extends beyond business hours. Facility project cars include an E30 M57 swap, an E46 S54 track build, and a G30 B58 daily driver. These projects validate our swap kits, test our rebuild quality, and keep technical advice grounded in hands-on experience rather than theoretical knowledge."
+      ]
+    },
+    {
+      "tag": "VALUES",
+      "title": "Quality, Transparency & Customer Trust",
+      "imageAlt": "BMW TwinPower engine warehouse photo",
+      "reverse": true,
+      "paragraphs": [
+        "Quality tested means every engine dyno-verified with documented compression and leak-down results before sale. We do not sell engines that have not completed our full protocol. Cosmetic condition is documented honestly — we do not hide age or wear on classic inventory. An engine with 150,000 km and consistent compression is a testament to BMW build quality, not a liability to disguise.",
+        "Transparent pricing means no hidden fees. Test reports, photographic evidence, and warranty certificates are included in every purchase — not optional extras. Shipping is quoted before order confirmation. VAT is applied correctly for all EU transactions. We do not advertise low prices and add fees at checkout.",
+        "Customer trust is measured by our 99.7% satisfaction rate from post-delivery surveys and 0.4% return rate. When issues occur, we resolve them publicly and use feedback to improve our testing protocol. Warranty claim rate has decreased 60% over five years through continuous improvement.",
+        "Heritage preservation matters. Classic BMW engines — M20, M30, M50, S14, S38 — represent irreplaceable engineering character. We stock old engines in depth because the next generation of BMW owners deserves to keep iconic vehicles on the road. Investing in a documented old engine today protects your vehicle's value tomorrow.",
+        "Community engagement includes sponsorship of BMW club events, technical presentations at enthusiast gatherings, and free workshop advice through our blog and telephone support. We are part of the BMW community, not merely a vendor to it.",
+        "These values guide every decision from procurement through dispatch. They are why 15,000 customers across Europe trust Premium BMW Engines with their most important automotive projects."
+      ]
+    },
+    {
+      "tag": "VISIT US",
+      "title": "Visit Our Hamburg Facility or Contact Our Team",
+      "imageAlt": "BMW engine floor shot on pallet",
+      "reverse": false,
+      "paragraphs": [
+        "We welcome visitors to our Hamburg facility by appointment. Witness your engine on the dyno, inspect inventory in person, and meet the technicians who tested your unit. Contact flashkingpro202@gmail.com or +49 176 13627363 to schedule a visit during business hours (Monday–Friday, 08:00–18:00 CET).",
+        "Cannot visit in person? We provide video calls during dyno testing, updated photographs within 24 hours of enquiry, and detailed test reports before you commit. Remote purchasing from Premium BMW Engines carries the same warranty and support as in-person sales.",
+        "Trade and fleet customers may arrange dedicated account reviews at our facility. We demonstrate inventory depth, testing protocols, and logistics capabilities tailored to commercial requirements. Account setup typically completes within 48 hours of initial enquiry.",
+        "Premium BMW Engines — Europe's leading supplier of tested BMW engines. Over 3,100 in stock, 15,000+ sold since 2003, 99.7% customer satisfaction. Browse our catalog, read our technical articles, and contact our team to start your engine project today."
+      ]
+    },
+    {
+      "tag": "HERITAGE",
+      "title": "Preserving BMW Engineering Heritage Across Europe",
+      "imageAlt": "Classic BMW engine warehouse heritage",
+      "reverse": true,
+      "paragraphs": [
+        "BMW's engineering legacy spans six decades of inline-six excellence, motorsport pedigree, and diesel innovation. Premium BMW Engines exists partly to ensure that legacy remains drivable. Every M20 we sell keeps an E30 on the road. Every documented S54 preserves an E46 M3 for the next generation of enthusiasts. This is not sentiment — it is our business mission.",
+        "We sponsor BMW club events across Germany, Austria, and the Netherlands, providing technical speakers, engine display units, and workshop raffle prizes. Our technicians present at enthusiast gatherings on topics from M57 swap planning to S54 rod bearing prevention. The community we serve is the community we belong to.",
+        "Educational partnerships with automotive colleges in Hamburg provide students with hands-on exposure to BMW engine testing and diagnostics. Several of our current technicians began as apprentices through these programmes. Investing in the next generation of BMW specialists ensures the expertise pool does not shrink as electrification reshapes the industry.",
+        "Environmental responsibility extends to heritage preservation. Reusing a tested M54 with 120,000 km of remaining life prevents manufacturing emissions associated with new engine production. Our core exchange programme completes the cycle — old engines return for responsible recycling, new-to-you engines extend vehicle lifespans by years or decades.",
+        "The classic BMW market continues to appreciate. Clean E30, E36, and E46 examples command prices that justify quality engine investment. We help owners make decisions that protect vehicle value: period-correct M20 for concours builds, refreshed M54 for driver-quality E46s, documented S54 for M3 investments. Engine choice affects resale as much as body condition."
+      ]
+    }
+  ]
+}

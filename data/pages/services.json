@@ -1,0 +1,105 @@
+{
+  "slug": "services",
+  "galleryTitle": "Our Hamburg Testing & Warehouse Facility",
+  "gallerySubtitle": "Real BMW engines — photographed, tested, and palletised before EU-wide dispatch.",
+  "gallerySets": [
+    "set-0025",
+    "set-0026",
+    "set-0027",
+    "set-0028",
+    "set-0029",
+    "set-0030",
+    "set-0031",
+    "set-0032",
+    "set-0033",
+    "set-0034",
+    "set-0035",
+    "set-0036"
+  ],
+  "wordCount": 1666,
+  "sections": [
+    {
+      "tag": "SOURCING",
+      "title": "Engine Sourcing — 3,100+ Units Across Every BMW Generation",
+      "imageAlt": "BMW engines on pallets in Hamburg warehouse",
+      "reverse": false,
+      "paragraphs": [
+        "Premium BMW Engines maintains the largest dedicated BMW engine inventory in Europe. Our 4,200 m² Hamburg facility houses over 3,100 tested engines spanning every significant generation from the classic M10 through the latest B58 and S58 powerplants. This depth of stock means we can fulfil replacement requests within days rather than weeks, and rare units — S38, S85, early S14 — are often available when specialist suppliers have none.",
+        "Our procurement network extends across Germany, Austria, Switzerland, and the Netherlands. We source specifically from fleet decommissioning programmes where service history is verifiable, insurance write-offs with documented mileage, and private collections where maintenance records accompany the engine. General salvage yards grade engines by visual appearance; we reject units that fail our incoming inspection regardless of cosmetic condition.",
+        "Each engine enters our facility unproven and leaves tested, photographed, and documented. The transformation from unknown to verified is what separates Premium BMW Engines from every other supplier on the continent. Our pricing reflects genuine mechanical value — compression readings, leak-down percentages, and dyno verification — not fresh paint and marketing photography.",
+        "Classic engine sourcing requires particular expertise. M20, M30, M50, and M54 units are increasingly scarce as donor cars are consumed by the restoration market. We maintain deep stock of period-correct old engines because preserving BMW's engineering heritage is as important as supplying modern replacements. An M20B25 with 120,000 km and uniform compression is often the right choice for an E30 restoration.",
+        "Performance engine procurement follows strict criteria. S54, S55, S58, and S63 units undergo rod bearing inspection, VANOS function checks, and turbocharger condition assessment before listing. For the S54 specifically — notorious for rod bearing wear — we measure crank end float and inspect bearing shells on every unit. Performance buyers receive documentation that track builds demand.",
+        "Fleet operators benefit from our volume sourcing capability. When a logistics company needs five identical N47 engines for their F10 520d fleet, we allocate units from the same production batch with consistent grading. Priority stock allocation, volume pricing, and dedicated account management are available for commercial customers running 20+ BMW vehicles."
+      ]
+    },
+    {
+      "tag": "TESTING",
+      "title": "Dyno Testing — Every Engine Verified Before Sale",
+      "imageAlt": "BMW engine on pallet with hoses visible",
+      "reverse": true,
+      "paragraphs": [
+        "Our testing protocol was developed over twenty years and thousands of engines. It begins with external inspection: cracks in block and head, sump condition, component completeness, and photographic documentation from six angles. Engines with catastrophic external damage are rejected immediately — they never enter our sales inventory.",
+        "Compression testing follows on warm engines with calibrated gauges. Readings must fall within 10% of each other and within specification for the engine family. A single low cylinder triggers borescope inspection, leak-down testing, and assessment of whether the issue is valve-related, ring-related, or indicative of head gasket failure. Everything is documented in a standardised report accompanying your engine.",
+        "Leak-down testing measures compressed air escaping from each cylinder. Healthy petrol engines typically show 5–15% leak-down; diesels run higher due to tighter tolerances. Readings above 20% on any cylinder result in rebuild or rejection. These are measured values on your test certificate — not estimates or generic assurances.",
+        "The dyno run is the final gate. Engines are mounted on our SuperFlow dynamometer with appropriate fuel, cooling, and exhaust systems. We verify clean starting, smooth idle, operating temperature without abnormal readings, and oil pressure within specification at idle and elevated RPM. Turbocharged engines additionally undergo boost response verification and smoke assessment under load.",
+        "This process takes 4–6 hours per engine. During peak season we process up to 40 engines per week through the full protocol. No engine ships without a signed test certificate from the technician who performed verification. Customers may witness testing at our Hamburg facility by appointment.",
+        "Optional oil analysis reveals bearing wear metals, fuel dilution, and coolant contamination that compression tests alone might miss. Fleet operators ordering multiple units routinely request this service; the data becomes part of vehicle maintenance records for compliance and resale documentation."
+      ]
+    },
+    {
+      "tag": "REBUILDS",
+      "title": "Engine Rebuilds — In-House Machine Shop & Assembly",
+      "imageAlt": "BMW engine block workshop inventory",
+      "reverse": false,
+      "paragraphs": [
+        "Our rebuild programme covers M20, M50, M52, M54, S54, N54, N55, and M57 families with new gaskets, seals, timing components, and bearings. Machine work — boring, honing, head surfacing, crack testing — is performed in-house by technicians who specialise in BMW platforms. Rebuilt engines carry the same 6-month warranty as tested originals.",
+        "Rebuild versus replace economics favour replacement when labour rates exceed €80/hour. A comprehensive S54 rebuild with new rod bearings, piston rings, valve stem seals, and timing components typically costs €8,000–12,000 in parts before machining and assembly. A tested replacement unit often represents better value — our team provides honest guidance on which path suits your budget and timeline.",
+        "S54 rebuilds receive particular attention: new rod bearings (Vanos-independent or upgraded), refreshed VANOS units, valve stem seal replacement, and timing chain components. We measure crankshaft end float and inspect bearing shells before reassembly. Track-oriented customers may specify upgraded bearings and performance gaskets rated for sustained high-RPM operation.",
+        "Diesel rebuilds address timing chain guides, injector seals, turbocharger cartridges, and swirl flap removal or replacement depending on customer preference. M57 rebuilds include new chain, guides, tensioner, and oil pump chain. N47 rebuilds focus on the timing chain system that defines this engine's reputation — we use upgraded guide materials where available.",
+        "Each rebuilt engine is dyno-tested before sale with the same protocol as tested originals. Compression readings, leak-down results, and running parameters are documented. Photographs show the assembled engine from multiple angles. Rebuilt units are clearly graded and priced relative to tested originals with equivalent documentation.",
+        "Core exchange credits reduce rebuild costs. Return your old engine complete with block, head, and sump; receive credit of €150–800 depending on family and condition. Even seized engines have core value. Credits apply toward rebuild services or future purchases within 7 business days of core inspection."
+      ]
+    },
+    {
+      "tag": "SHIPPING",
+      "title": "EU-Wide Shipping — Built for Engines, Not Parcels",
+      "imageAlt": "BMW engine secured on transport pallet",
+      "reverse": true,
+      "paragraphs": [
+        "Our shipping operation is designed specifically for engine transport. Every unit is mounted on a custom steel frame, secured with rated straps, wrapped in protective sheeting, and palletised for dedicated automotive freight. Transit insurance covers the full purchase value on all orders exceeding €2,000.",
+        "Standard delivery times: Germany 1–2 business days, EU mainland 3–5 business days, UK/Switzerland/Norway 5–7 business days. Express shipping is available on request. Tracking information is provided via email upon dispatch. Free shipping applies to orders exceeding €5,000 within Germany.",
+        "Delivery is to kerbside on a standard EUR pallet. Customers need forklift access or an engine hoist at the delivery address. Our logistics team prepares full customs documentation for non-EU destinations including commercial invoices, origin certificates, and emissions compliance paperwork where required.",
+        "Damage in transit is exceptionally rare — less than 0.3% of shipments — but fully covered when it occurs. Inspect packaging before signing the delivery receipt; note visible damage and contact us immediately. We resolve transit claims within 5 business days with repair, replacement, or refund at our discretion.",
+        "Fleet and commercial customers may arrange scheduled deliveries to workshop facilities. We coordinate with your receiving department for timed arrivals and can supply multiple engines on consolidated pallets for volume orders. Dedicated account managers handle logistics for customers ordering 5+ engines per quarter.",
+        "International shipping beyond Europe is available on request. We have supplied engines to customers in Australia, South Africa, and the Middle East with appropriate export documentation. Contact our logistics team for freight quotes and lead times to your destination country."
+      ]
+    },
+    {
+      "tag": "SUPPORT",
+      "title": "Warranty, Consultation & Ongoing Technical Support",
+      "imageAlt": "BMW engine components and wiring detail",
+      "reverse": false,
+      "paragraphs": [
+        "Every tested engine includes a 6-month mechanical warranty covering internal components against pre-existing defects. External ancillaries — turbochargers, injectors, sensors — carry 30-day coverage. Extended warranty to 12 months is available for fleet and commercial customers. We have honoured over 200 warranty claims with 100% customer satisfaction on approved claims.",
+        "Free 15-minute technical consultation is available before every purchase. We verify engine code compatibility with your platform, confirm DME generation matches your body electronics, and advise on supporting components — mounts, clutch, exhaust, cooling. For swap projects we provide a complete bill of materials and realistic labour estimate.",
+        "ECU programming services include DME coding, CAS alignment, instrument cluster adaptation, and EWS deletion for track applications. Our programmers work with ISTA, INPA, and compatible aftermarket tools. Remote programming sessions are available for customers with BMW diagnostic equipment.",
+        "Workshop training programmes cover BMW engine identification, diagnostic procedures, and swap installation best practices. On-site training at your facility or remote sessions via video call. Over 200 independent workshops across Europe hold active trade accounts with us.",
+        "Post-installation support remains available throughout your project. Call +49 176 13627363 or email flashkingpro202@gmail.com during business hours (Monday–Friday, 08:00–18:00 CET). Our technical team references your specific test data — not generic assurances — when troubleshooting.",
+        "Core exchange, trade accounts, fleet programmes, and custom solutions are available on request. Contact our team to discuss your requirements — we handle projects from single classic restorations to fleet-wide diesel replacements across hundreds of vehicles."
+      ]
+    },
+    {
+      "tag": "FLEET & TRADE",
+      "title": "Fleet Programmes, Trade Accounts & Volume Supply",
+      "imageAlt": "BMW fleet engine supply warehouse",
+      "reverse": true,
+      "paragraphs": [
+        "Fleet operators running 20 or more BMW vehicles face unique engine replacement challenges. Downtime costs money, consistency matters for workshop scheduling, and pricing must reflect volume. Our fleet programme provides priority stock allocation, consistent engine grading across multiple units, volume pricing tiers, and dedicated account management with a named contact who understands your operation.",
+        "Trade account setup completes within 48 hours of application. We require business registration documentation, EU VAT number, and two trade references. Approved accounts receive net pricing, 30-day payment terms, and access to our trade technical hotline. Over 200 independent workshops across Europe hold active accounts with repeat purchase rates exceeding 85%.",
+        "Volume orders of 5+ engines qualify for consolidated pallet shipping — significant freight savings compared to individual deliveries. We coordinate scheduled arrivals with your workshop calendar and can supply engines pre-labelled with your internal fleet numbers for inventory tracking.",
+        "Commercial warranty extensions to 12 months are available for fleet customers. Claims are processed with priority routing and replacement engines allocated from reserved stock to minimise vehicle downtime. Our fleet warranty claim resolution averages 3 business days from submission to resolution.",
+        "Quarterly account reviews provide inventory forecasts, pricing updates, and early notification of rare engine availability. Fleet customers sourcing S55, B58, or N57 engines benefit from advance notice when desirable units enter our testing queue — often 48 hours before public listing."
+      ]
+    }
+  ]
+}

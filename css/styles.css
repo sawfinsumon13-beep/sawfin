@@ -948,6 +948,116 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .review-author strong { display: block; font-size: 0.9rem; }
 .review-author span { font-size: 0.8rem; color: var(--text-muted); }
 
+/* ── Reviews Page ── */
+.reviews-stats-bar {
+  padding: 32px 0;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.reviews-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.reviews-stat strong {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent-green);
+  margin-bottom: 4px;
+}
+
+.reviews-stat span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.review-card-premium {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-card-top {
+  display: flex;
+  gap: 16px;
+}
+
+.review-engine-photo {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.review-engine-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review-card-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.review-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.review-engine-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent-light);
+  background: rgba(0, 120, 255, 0.1);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.review-verified {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+.page-gallery-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.page-gallery-section {
+  padding-top: 48px;
+}
+
+@media (max-width: 900px) {
+  .reviews-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .page-gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .review-card-top { flex-direction: column; }
+  .review-engine-photo { width: 100%; height: 140px; }
+}
+
+@media (max-width: 600px) {
+  .reviews-stats-grid { grid-template-columns: 1fr; }
+  .page-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ── About ── */
 .about-content {
   display: grid;

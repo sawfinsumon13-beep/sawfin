@@ -1,0 +1,91 @@
+{
+  "slug": "m57-swap-kits",
+  "galleryTitle": "M57 Engines in Our Hamburg Warehouse",
+  "gallerySubtitle": "Every swap kit starts with a tested M57 diesel — photographed on pallet before dispatch.",
+  "gallerySets": [
+    "set-0013",
+    "set-0014",
+    "set-0015",
+    "set-0016",
+    "set-0017",
+    "set-0018",
+    "set-0019",
+    "set-0020",
+    "set-0021",
+    "set-0022",
+    "set-0023",
+    "set-0024"
+  ],
+  "wordCount": 1817,
+  "sections": [
+    {
+      "tag": "WHY M57",
+      "title": "The BMW M57 — Europe's Most Trusted Swap Diesel",
+      "imageAlt": "M57 diesel engine on pallet in warehouse",
+      "reverse": false,
+      "paragraphs": [
+        "The BMW M57 3.0-litre inline-six diesel has earned its reputation as the definitive swap engine for enthusiasts who demand torque, reliability, and refinement in a package that fits multiple platforms. Produced from 1998 through 2013 across several generations — from the early 184 hp 306D1 through the twin-turbo 286 hp 306D4 — the M57 delivers 410–520 Nm of torque across a broad rev range that transforms any vehicle it powers.",
+        "At Premium BMW Engines, our M57 swap programme is built on over 400 tested diesel units in stock at any time. Every engine destined for a swap kit undergoes enhanced inspection beyond our standard protocol: swirl flap condition assessment, turbocharger shaft play measurement, piezo injector function verification, timing chain and guide rail inspection, and EGR system evaluation. We reject engines with documented swirl flap disintegration risk or chain guide wear beyond acceptable limits.",
+        "What separates our swap kits from generic engine sales is integration expertise. We have completed hundreds of M57 conversions across E30, E36, E46, E39, and Land Rover Defender platforms. Each kit reflects lessons learned from real installations — mount geometry validated on project vehicles, wiring adapters developed with specialist ECU tuners, and exhaust routing proven on the dyno before we ship to customers.",
+        "The M57's mechanical simplicity relative to modern common-rail diesels makes it attractive for applications where electronic complexity is undesirable. Pre-2006 units use a single turbocharger with vacuum-actuated wastegate control, while later 306D3 and 306D4 variants add twin-turbo sequential charging for improved response. Our technical team advises on the optimal variant for your platform, intended use, and emissions requirements before you commit to a purchase.",
+        "Torque delivery defines the M57 driving experience. Unlike petrol engines that must rev to produce meaningful output, the M57 generates peak torque from 1,750 rpm — ideal for towing, off-road crawling, and relaxed Autobahn cruising. Defender conversion customers consistently report that the M57 addresses the classic Land Rover's primary weakness: refined, effortless highway performance without sacrificing low-speed control.",
+        "Our Hamburg facility photographs every M57 engine from six angles before listing — main warehouse view, side angle showing hoses and ancillaries, rear turbo detail, stamp area close-up, wiring harness, and complete floor shot on pallet. These are the actual engines in our swap programme, not stock photography. When you receive your kit, the engine matches the images in your quotation documentation."
+      ]
+    },
+    {
+      "tag": "KIT CONTENTS",
+      "title": "What Every Premium M57 Swap Kit Includes",
+      "imageAlt": "M57 swap kit engine components on pallet",
+      "reverse": true,
+      "paragraphs": [
+        "A complete M57 swap kit from Premium BMW Engines is not an engine on a pallet with a handshake promise. Each kit is assembled from components we have personally validated through installation on our own project vehicles. The standard kit includes: tested M57 engine with documented compression and leak-down results, custom CNC-machined engine mounts specific to your platform, wiring harness adapter with labelled connectors, DME with immobiliser solution, downpipe or exhaust manifold, intercooler piping where applicable, and clutch assembly for manual conversions.",
+        "Engine mounts are the most critical fitment component in any swap. Incorrect geometry transmits vibration, stresses exhaust flanges, and can cause sump ground contact under load. Our mounts are machined from billet aluminium with polyurethane bushings rated for diesel torque levels. Each mount design is validated on a test vehicle before entering production — we do not sell mounts that have not been physically installed and driven.",
+        "Wiring integration represents 40–60% of total swap labour on most platforms. BMW engine harnesses are model-year and market-specific, with variations in sensor count, connector types, and wire colour coding. Our adapters bridge the donor engine harness to your chassis wiring without cutting factory connectors. Every wire is labelled at both ends, and pin-out documentation is included with each kit. For E30 and E36 swaps, we provide CAS immobiliser deletion or adaptation depending on your security requirements.",
+        "The DME (Digital Motor Electronics) must match the engine generation and be programmed for your application. We supply remapped DME units with immobiliser solutions tested on the specific platform. E46 swaps often retain OBD-II compatibility with minimal adaptation; E30 swaps require standalone management or full EWS deletion. Our ECU programming service includes base maps optimised for your turbo configuration and fuel system.",
+        "Cooling system components are platform-specific. The M57 requires a radiator with adequate capacity — we recommend aluminium upgrades for any swap producing more than 200 hp. Expansion tank routing, heater hose connections, and electric fan wiring are documented in our installation guides. Oil cooler additions are mandatory for towing applications and recommended for all Defender conversions operating in warm climates.",
+        "Optional upgrades include larger intercoolers for 306D4 twin-turbo engines, upgraded fuel pumps for performance applications, stainless steel exhaust systems, and reinforced clutch assemblies rated for 500+ Nm. Our technical consultation identifies which upgrades are necessary for your intended use versus which are cosmetic — we do not upsell components that do not improve reliability or performance for your specific project."
+      ]
+    },
+    {
+      "tag": "PLATFORMS",
+      "title": "Platform-Specific M57 Conversion Guides",
+      "imageAlt": "M57 engine prepared for E46 swap",
+      "reverse": false,
+      "paragraphs": [
+        "The E46 is the most straightforward M57 swap platform. The engine bay was designed to accommodate inline-six diesels in factory 330d and 320d variants, meaning physical fitment requires minimal modification. Our E46 kit uses factory-style mount positions, OBD-compatible wiring adapters, and direct-fit downpipes for 306D2 and 306D3 engines. Installation typically requires 20–30 workshop hours for a competent technician with BMW experience.",
+        "E36 conversions demand more fabrication but reward the effort with a lighter chassis and classic proportions. The M57 fits with our custom mount kit and steering rack clearance modifications documented in our installation guide. Gearbox options include the ZF 5HP19 automatic from E39 diesel donors or the Getrag 6-speed manual with appropriate clutch and flywheel. Cooling upgrades are essential — the E36 radiator is marginal for M57 heat rejection under sustained load.",
+        "The E30 M57 swap has become a cult favourite among European enthusiasts seeking modern diesel reliability in a classic shell. Our E30 kit includes engine mounts that position the M57 correctly relative to the strut towers and steering column, a custom sump for crossmember clearance, and wiring adapters that integrate with the E30 instrument cluster where possible. Budget 40–60 hours for a first-time installer; experienced swap shops complete the work in 25–35 hours.",
+        "E39 petrol-to-diesel conversions appeal to owners who want touring car practicality with diesel economy. The E39 engine bay accommodates M57 engines with our adapter kit, though gearbox selection is critical — the petrol Getrag 6-speed does not bolt to M57 diesels without adapter plates. We supply complete E39 diesel gearbox assemblies (ZF 5HP24 or Getrag 260) with matching propshaft and differential ratios.",
+        "The Land Rover Defender conversion has transformed overland and expedition vehicle capability across Europe. Our Defender kit includes adapter plate, heavy-duty clutch, custom engine mounts, exhaust manifold routing around the chassis, and full wiring integration with the Defender's existing electrical architecture. The M57's 410+ Nm transforms off-road performance while delivering 8–10 L/100 km highway consumption — a combination no factory Defender engine achieves.",
+        "Custom platforms are welcome. We have supplied M57 kits for marine applications, Unimog conversions, and specialist rally support vehicles. Contact our technical team with chassis dimensions, intended use, and power requirements. We provide a detailed bill of materials and realistic labour estimate within 24 hours of receiving your enquiry."
+      ]
+    },
+    {
+      "tag": "INSTALLATION",
+      "title": "Installation Support & First-Start Protocol",
+      "imageAlt": "M57 engine wiring and hoses close-up",
+      "reverse": true,
+      "paragraphs": [
+        "Technical support is included with every M57 swap kit purchase. Our team provides installation documentation, torque specifications, wiring diagrams, and telephone support during the installation process. For workshops undertaking their first M57 conversion, we offer a pre-installation briefing call that walks through critical steps and common pitfalls. This support has contributed to a first-start success rate exceeding 97% across all kit installations we have supervised.",
+        "The installation sequence follows a proven protocol. Begin with mount installation and engine positioning — verify clearance at full suspension compression before final tightening. Install gearbox and propshaft, confirming alignment within BMW specifications. Route wiring harness along factory pathways, securing with appropriate clips every 30 cm. Connect cooling system components and bleed thoroughly before adding fuel.",
+        "Pre-first-start checks are non-negotiable: oil level at maximum mark with LL-04 specification oil, coolant fill with BMW-approved coolant, fuel system primed and leak-free, battery voltage above 12.6V, all ground connections clean and tight, exhaust system secured with no leaks at manifold joints. Crank the engine without starting for 10 seconds to build oil pressure, then allow 30 seconds before attempting first start.",
+        "First start should occur with the vehicle secured on level ground, bonnet open, and a fire extinguisher accessible. Idle speed should stabilise within 60 seconds; hunting or rough idle indicates wiring or sensor issues requiring diagnosis before driving. Allow the engine to reach operating temperature at idle before revving — check for coolant, oil, and fuel leaks at every junction. Initial driving should be gentle for the first 500 km to allow clutch bedding and mount settling.",
+        "DME adaptation and coding vary by platform. E46 installations typically require CAS alignment and instrument cluster programming. E30 standalone installations need base map verification on the dyno. We provide ISTA-compatible coding instructions and can perform remote programming sessions for customers with BMW diagnostic equipment. Our Hamburg facility offers in-house programming by appointment.",
+        "Post-installation, we remain available for troubleshooting. Common first-week issues include minor coolant seepage from hose clamps (retorque after thermal cycling), exhaust gasket settling (normal for new gaskets), and occasional DME adaptation codes that clear after drive cycles. Our warranty covers the engine and kit components; installation labour is the customer's responsibility unless performed at our Hamburg facility."
+      ]
+    },
+    {
+      "tag": "ORDERING",
+      "title": "How to Order Your M57 Swap Kit",
+      "imageAlt": "M57 diesel engine ready for shipping on pallet",
+      "reverse": false,
+      "paragraphs": [
+        "Ordering begins with a technical consultation. Contact us at flashkingpro202@gmail.com or +49 176 13627363 with your vehicle model, year, current engine (if applicable), intended use (daily driver, track, off-road, towing), and delivery country. Our technicians confirm platform compatibility, recommend the optimal M57 variant, and identify any supporting components you may need beyond the standard kit.",
+        "Quotation includes itemised pricing: engine with test report, mount kit, wiring adapter, DME programming, exhaust components, and optional upgrades. Shipping is quoted separately based on destination and kit weight. A 30% deposit reserves your engine and initiates kit assembly; the balance is due before dispatch. Typical lead time from deposit to shipment is 5–10 business days depending on custom component fabrication.",
+        "Every kit ships with photographic documentation of your specific engine, compression and leak-down test results, wiring pin-out diagrams, installation guide specific to your platform, torque specification sheet, and warranty certificate. Transit insurance covers the full kit value. Delivery is to kerbside on a standard pallet — forklift or engine hoist access required.",
+        "We welcome facility visits by appointment. Witnessing your engine on the dyno before kit assembly provides confidence that photographs alone cannot replicate. Our Hamburg warehouse is accessible from the A7 motorway; contact us to schedule a visit during business hours (Monday–Friday, 08:00–18:00 CET).",
+        "Whether you are building a daily-driver E46 diesel replacement, a classic E30 with modern torque, or an expedition Defender, our M57 programme provides the engine, hardware, and expertise to complete your project successfully. Over 500 M57 swap kits supplied across Europe since 2008 — browse our kit listings above or contact our team for a custom quotation within 24 hours."
+      ]
+    }
+  ]
+}
