@@ -28,20 +28,25 @@ CDN = "https://purebredkitties.com"
 HERO_BG_IMAGE = f"{CDN}/cdn/shop/files/image_1_27d57d81-a6af-49af-9613-3f9a36af40ee.webp?v=1730999583"
 
 THEME_COLOR_MAP = {
-    "#f4ff73": "#E8A87C",
-    "#e6f06d": "#D9956A",
-    "#dec0fc": "#B8D4C8",
-    "#f6f7fe": "#FFF8F3",
-    "#f2f6fb": "#FFF0E8",
-    "#f9f9ff": "#FFF8F3",
-    "#efe3f9": "#FFE8DC",
-    "#faf8f9": "#FFF8F3",
-    "#b4f5fe": "#FFD4B8",
-    "#774c9d": "#5A8F7B",
-    "#774C9D": "#5A8F7B",
-    "#cdc7ff": "#D4E8E0",
-    "#af84d4": "#7EB8A8",
-    "#d7d3f1": "#F0DDD0",
+    "#f4ff73": "#9B8CF8",
+    "#e6f06d": "#8B7CE8",
+    "#dec0fc": "#C4B5FD",
+    "#f6f7fe": "rgba(255,255,255,0.55)",
+    "#f2f6fb": "rgba(255,255,255,0.5)",
+    "#f9f9ff": "rgba(255,255,255,0.55)",
+    "#efe3f9": "rgba(255,255,255,0.45)",
+    "#faf8f9": "rgba(255,255,255,0.5)",
+    "#fff8f3": "rgba(255,255,255,0.5)",
+    "#fff0e8": "rgba(255,255,255,0.45)",
+    "#b4f5fe": "#C4B5FD",
+    "#774c9d": "#5B4FCF",
+    "#774C9D": "#5B4FCF",
+    "#cdc7ff": "#DDD6FE",
+    "#af84d4": "#8B7CF6",
+    "#d7d3f1": "rgba(255,255,255,0.6)",
+    "#e8a87c": "#9B8CF8",
+    "#b8d4c8": "#C4B5FD",
+    "#5a8f7b": "#5B4FCF",
 }
 
 
@@ -560,8 +565,19 @@ def get_home_shell() -> str:
         raise SystemExit("Could not parse index.html body")
     head = index[:start]
     body = index[start:end + 7]
+    body = body.replace("<body", '<body class="pk-spa pk-premium-3d"', 1)
+    body = body.replace(
+        '<body class="pk-spa pk-premium-3d"',
+        '<body class="pk-spa pk-premium-3d">'
+        '<div id="pk-3d-bg" aria-hidden="true">'
+        '<div class="pk-3d-orb pk-3d-orb-1"></div>'
+        '<div class="pk-3d-orb pk-3d-orb-2"></div>'
+        '<div class="pk-3d-orb pk-3d-orb-3"></div>'
+        '<div class="pk-3d-orb pk-3d-orb-4"></div>'
+        '<div class="pk-3d-mesh"></div>',
+        1,
+    )
     # Wrap main content for SPA views
-    body = body.replace("<body", '<body class="pk-spa"', 1)
     # Wrap only homepage main content — keep header + mobile menu always visible
     body = re.sub(
         r'(<main id="MainContent">)',
@@ -581,38 +597,83 @@ def get_home_shell() -> str:
 SITE_THEME_CSS = f"""
 <style id="pk-site-theme">
 :root{{
-  --pk-bg-page:#FFF8F3;
-  --pk-bg-section:#FFF0E8;
-  --pk-accent:#E8A87C;
-  --pk-accent-soft:#FFD4B8;
-  --pk-accent-alt:#B8D4C8;
-  --pk-text:#2D2A32;
+  --pk-mesh-1:#eef2ff;
+  --pk-mesh-2:#f5f0ff;
+  --pk-mesh-3:#e8f4ff;
+  --pk-mesh-4:#fdf4ff;
+  --pk-glass:rgba(255,255,255,0.58);
+  --pk-glass-strong:rgba(255,255,255,0.78);
+  --pk-glass-border:rgba(255,255,255,0.92);
+  --pk-shadow:0 12px 40px rgba(91,79,207,0.14);
+  --pk-shadow-soft:0 4px 24px rgba(91,79,207,0.08);
+  --pk-text:#2a2540;
+  --pk-accent:#7c6cf0;
+  --pk-accent-soft:#c4b5fd;
+  --pk-accent-alt:#a5b4fc;
 }}
-html,body.pk-spa{{background:var(--pk-bg-page)!important}}
-body.pk-spa{{color:var(--pk-text)}}
-#pk-content-shell,#pk-view-home,#pk-view-page,#pk-view-product,#pk-view-collection,#pk-view-search,#pk-view-cart,#pk-view-contact{{background:var(--pk-bg-page)!important}}
-#pk-product-root .product_outer{{background:var(--pk-bg-page)}}
-#pk-page-root{{background:var(--pk-bg-page)}}
+@keyframes pk-float-1{{0%,100%{{transform:translate(0,0) scale(1)}}50%{{transform:translate(28px,-22px) scale(1.06)}}}}
+@keyframes pk-float-2{{0%,100%{{transform:translate(0,0) scale(1)}}50%{{transform:translate(-24px,18px) scale(1.04)}}}}
+@keyframes pk-float-3{{0%,100%{{transform:translate(0,0) scale(1)}}50%{{transform:translate(16px,26px) scale(1.05)}}}}
+#pk-3d-bg{{
+  position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  background:linear-gradient(145deg,var(--pk-mesh-1) 0%,var(--pk-mesh-2) 28%,var(--pk-mesh-3) 62%,var(--pk-mesh-4) 100%);
+}}
+.pk-3d-mesh{{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 20%,rgba(196,181,253,0.35) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 45% at 85% 15%,rgba(147,197,253,0.3) 0%,transparent 50%),
+    radial-gradient(ellipse 70% 55% at 50% 90%,rgba(251,207,232,0.25) 0%,transparent 55%);
+}}
+.pk-3d-orb{{position:absolute;border-radius:50%;filter:blur(72px);opacity:0.62}}
+.pk-3d-orb-1{{width:480px;height:480px;top:-100px;right:-80px;background:radial-gradient(circle,#a78bfa 0%,transparent 68%);animation:pk-float-1 20s ease-in-out infinite}}
+.pk-3d-orb-2{{width:560px;height:560px;bottom:5%;left:-140px;background:radial-gradient(circle,#93c5fd 0%,transparent 68%);animation:pk-float-2 24s ease-in-out infinite}}
+.pk-3d-orb-3{{width:400px;height:400px;top:42%;right:12%;background:radial-gradient(circle,#f0abfc 0%,transparent 68%);animation:pk-float-3 22s ease-in-out infinite}}
+.pk-3d-orb-4{{width:320px;height:320px;top:18%;left:38%;background:radial-gradient(circle,#c4b5fd 0%,transparent 70%);animation:pk-float-2 26s ease-in-out infinite reverse;opacity:0.4}}
+html,body.pk-spa{{background:transparent!important;min-height:100vh}}
+body.pk-spa{{color:var(--pk-text);position:relative}}
+body.pk-spa > *:not(#pk-3d-bg){{position:relative;z-index:1}}
+#pk-content-shell,#pk-view-home,#pk-view-page,#pk-view-product,#pk-view-collection,#pk-view-search,#pk-view-cart,#pk-view-contact{{background:transparent!important}}
+#pk-product-root .product_outer,#pk-page-root{{background:transparent}}
+.template-index main,#MainContent{{background:transparent!important}}
+.loading-overlay{{background:rgba(238,242,255,0.92)!important;backdrop-filter:blur(12px)}}
+.yas_header .header-w,.yas_header{{
+  background:rgba(255,255,255,0.72)!important;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  box-shadow:var(--pk-shadow-soft)}}
+.slideshow-container,.blog_container-w,.review_section_content,.collection-sec,
+.global_companion-yas,.yas-global-link,.step-card-w,.faq_section,.expert_video-w,
+.thumb_sec,.promise-section-yas,.include_slide,.testing-page-yas .shipping_option,
+#pk-view-collection,#pk-view-search,#pk-view-cart,#pk-view-contact{{
+  background:var(--pk-glass)!important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--pk-glass-border);box-shadow:var(--pk-shadow);border-radius:20px}}
+#pk-page-root .shopify-section,#pk-page-root section.shopify-section{{
+  background:var(--pk-glass)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.75);box-shadow:var(--pk-shadow-soft);border-radius:16px;margin-bottom:12px}}
+.pk-card,.pk-contact-box{{
+  background:var(--pk-glass-strong)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid var(--pk-glass-border)!important;box-shadow:var(--pk-shadow)!important}}
+#pk-product-root .right_side_bar,#pk-product-root .product_description,#pk-product-root .meta_data,
+#pk-product-root .includes,#pk-product-root .reco_pro{{
+  background:var(--pk-glass)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-radius:16px;border:1px solid rgba(255,255,255,0.8);box-shadow:var(--pk-shadow-soft)}}
 .main_banner_sec,.shopify-section.main_banner_sec{{
-  background-image:linear-gradient(135deg,rgba(45,42,50,.78) 0%,rgba(232,168,124,.42) 100%),url({HERO_BG_IMAGE})!important;
-  background-size:cover!important;
-  background-position:center!important;
-}}
+  background-image:linear-gradient(135deg,rgba(42,37,64,0.82) 0%,rgba(91,79,207,0.55) 50%,rgba(147,197,253,0.35) 100%),url({HERO_BG_IMAGE})!important;
+  background-size:cover!important;background-position:center!important}}
 #shopify-section-template--21804439798011__71e80951-5677-4cc5-9762-e8cafc8c5e82{{
-  background-image:linear-gradient(135deg,rgba(45,42,50,.78) 0%,rgba(232,168,124,.42) 100%),url({HERO_BG_IMAGE})!important;
-  background-size:cover!important;
-  background-position:center!important;
-}}
-.hero_heading span{{color:var(--pk-accent-soft)!important}}
+  background-image:linear-gradient(135deg,rgba(42,37,64,0.82) 0%,rgba(91,79,207,0.55) 50%,rgba(147,197,253,0.35) 100%),url({HERO_BG_IMAGE})!important;
+  background-size:cover!important;background-position:center!important}}
+.hero_heading span{{color:var(--pk-accent-soft)!important;text-shadow:0 2px 20px rgba(124,108,240,0.4)}}
+.title_h2,.slideshow-container h2{{color:var(--pk-text)!important}}
 .btn_yellow,.popular_form,.banner_search_form button[type="submit"],.meet_all_btn,.meet_all,.btn-primary-yas{{
-  background:var(--pk-accent)!important;color:var(--pk-text)!important}}
+  background:linear-gradient(135deg,#9B8CF8 0%,#7c6cf0 100%)!important;color:#fff!important;
+  box-shadow:0 8px 24px rgba(124,108,240,0.35)!important;border:none!important}}
 .yas_header .btn_purple,.callendar_btn,.btn_form .btn_purple{{
-  background:var(--pk-accent-alt)!important;color:var(--pk-text)!important}}
-.blog_container-w,.review_section_content,.collection-sec,.global_companion-yas,.yas-global-link,.step-card-w,.faq_section{{
-  background:var(--pk-bg-section)!important}}
-.template-index main,.template-page main{{background:var(--pk-bg-page)}}
-.loading-overlay{{background:var(--pk-bg-page)!important}}
-.mobile_menu{{background:#3D3548!important}}
+  background:linear-gradient(135deg,#C4B5FD 0%,#a5b4fc 100%)!important;color:var(--pk-text)!important;
+  box-shadow:0 6px 20px rgba(165,180,252,0.3)!important}}
+#shopify-section-template--21804439798011__71e80951-5677-4cc5-9762-e8cafc8c5e82 form{{
+  background:rgba(255,255,255,0.22)!important;backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.35)!important}}
+.mobile_menu{{background:rgba(42,37,64,0.88)!important;backdrop-filter:blur(24px)}}
+#pk-site-footer{{position:relative;z-index:2}}
 </style>
 """
 
@@ -620,7 +681,7 @@ SPA_CSS = """
 <style id="pk-spa-styles">
 body.pk-spa{min-height:100vh}
 html:has(body.pk-spa){height:auto;min-height:100vh}
-#pk-content-shell{width:100%;background:#FFF8F3;display:block}
+#pk-content-shell{width:100%;background:transparent;display:block}
 #pk-site-footer{width:100%;position:relative;z-index:2}
 #pk-view-product,#pk-view-contact,#pk-view-cart,#pk-view-search,#pk-view-collection,#pk-view-page{display:none!important}
 .pk-spa-route-product #pk-view-product,
@@ -686,7 +747,7 @@ html:has(body.pk-spa){height:auto;min-height:100vh}
   #pk-page-root .for_mobile{display:block!important}
 }
 /* Blog posts — template-blog body class + full-height content flow */
-body.template-blog{background:#FFF0E8}
+body.template-blog{background:transparent}
 #pk-page-root .article-page-yas,#pk-page-root .pk-blog-index{display:block;width:100%}
 #pk-page-root .article-page-yas .wrapper.custom_wrapper{padding-bottom:80px}
 #pk-page-root .article-page-yas .articledesc.rte{position:relative;z-index:1}
@@ -702,19 +763,19 @@ body.template-blog{background:#FFF0E8}
 .header_menu li a.open_child+ul{display:flex!important;flex-direction:column!important}
 .pk-spa-route-product .pk-btn-back{display:none}
 .pk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
-.pk-card{background:#FFF8F3;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);text-decoration:none;color:inherit;display:block}
+.pk-card{background:rgba(255,255,255,0.78);border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(91,79,207,0.14);text-decoration:none;color:inherit;display:block;border:1px solid rgba(255,255,255,0.92)}
 .pk-card img{width:100%;aspect-ratio:1;object-fit:cover}
 .pk-card-body{padding:16px}
 .pk-card h3{margin:0 0 4px;font-size:1.1rem}
-.pk-card .price{color:#5A8F7B;font-weight:600}
+.pk-card .price{color:#5B4FCF;font-weight:600}
 #pk-search-input,#pk-search-input-2{width:100%;max-width:480px;padding:12px 16px;border:2px solid #ddd;border-radius:8px;font-size:1rem;margin-bottom:24px}
 #pk-view-contact{padding:40px 20px;max-width:900px;margin:0 auto}
-.pk-contact-box{background:#FFF0E8;border-radius:12px;padding:32px;line-height:2}
-.pk-contact-box a{color:#5A8F7B;font-weight:600}
-.pk-btn-back{color:#5A8F7B;margin-bottom:20px;display:inline-block;cursor:pointer}
+.pk-contact-box{background:rgba(255,255,255,0.65);border-radius:12px;padding:32px;line-height:2;border:1px solid rgba(255,255,255,0.9);box-shadow:0 12px 40px rgba(91,79,207,0.12)}
+.pk-contact-box a{color:#5B4FCF;font-weight:600}
+.pk-btn-back{color:#5B4FCF;margin-bottom:20px;display:inline-block;cursor:pointer}
 .pk-btn-order{display:inline-block;padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-size:1rem;margin:8px 8px 8px 0}
 .pk-btn-order-wa{background:#25D366;color:#fff}
-.pk-btn-order-email{background:#B8D4C8;color:#2D2A32}
+.pk-btn-order-email{background:#C4B5FD;color:#2a2540}
 .pk-cart-checkout{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 #pk-view-cart .pk-cart-list{list-style:none;padding:0;margin:0 0 20px}
 #pk-view-cart .pk-cart-list li{padding:12px 0;border-bottom:1px solid #eee;font-size:16px;color:#342a41}
@@ -735,7 +796,7 @@ body.template-blog{background:#FFF0E8}
 #pk-product-root .pk-order-options{display:flex;flex-direction:column;gap:10px;width:100%;margin-top:8px}
 #pk-product-root .pk-order-options button{width:100%;border:none;border-radius:50px;padding:14px 16px;font-weight:700;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
 #pk-product-root .pk-order-wa{background:#25D366;color:#fff}
-#pk-product-root .pk-order-email{background:#B8D4C8;color:#2D2A32}
+#pk-product-root .pk-order-email{background:#C4B5FD;color:#2a2540}
 #pk-product-root .fix_button-s{position:fixed;bottom:0;left:0;right:0;z-index:90;display:none}
 @media(max-width:767px){
   #pk-product-root .product-gallery-wishlist{display:block;left:30px;position:absolute;top:30px;z-index:6}
@@ -745,16 +806,16 @@ body.template-blog{background:#FFF0E8}
   #pk-product-root .fix_button-s .order-options{display:flex;flex:1;gap:8px;min-width:0}
   #pk-product-root .fix_button-s .order-button{flex:1;border:none;border-radius:50px;padding:14px 10px;font-weight:700;font-size:13px;cursor:pointer;min-width:0}
   #pk-product-root .fix_button-s .order-button-wa{background:#25D366;color:#fff}
-  #pk-product-root .fix_button-s .order-button-email{background:#E8A87C;color:#2D2A32}
+  #pk-product-root .fix_button-s .order-button-email{background:linear-gradient(135deg,#9B8CF8,#7c6cf0);color:#fff}
   #pk-product-root .fix_button-s .fix_button-rows{display:flex;flex-direction:column;gap:8px;width:100%}
   #pk-product-root .fix_button-s .ask-options{display:flex;flex:1;gap:8px;min-width:0}
   #pk-product-root .fix_button-s .ask-button,#pk-product-root .fix_button-s .order-button{flex:1;border:none;border-radius:50px;padding:14px 10px;font-weight:700;font-size:14px;cursor:pointer;min-width:0}
   #pk-product-root .fix_button-s .ask-button-wa{background:#25D366;color:#fff}
-  #pk-product-root .fix_button-s .ask-button-email{background:#B8D4C8;color:#2D2A32}
+  #pk-product-root .fix_button-s .ask-button-email{background:#C4B5FD;color:#2a2540}
   #pk-product-root .pk-ask-options{display:flex;flex-direction:column;gap:10px;width:100%}
   #pk-product-root .pk-ask-options button{width:100%;border:none;border-radius:50px;padding:14px 16px;font-weight:700;font-size:15px;cursor:pointer}
   #pk-product-root .pk-ask-wa{background:#25D366;color:#fff}
-  #pk-product-root .pk-ask-email{background:#B8D4C8;color:#2D2A32}
+  #pk-product-root .pk-ask-email{background:#C4B5FD;color:#2a2540}
   body.pk-spa-route-product{padding-bottom:120px}
 }
 </style>
