@@ -255,6 +255,34 @@ def extract_product_variants(text: str) -> list[dict]:
     return variants[:3]
 
 
+def infer_breed_from_handle(handle: str, breed: str) -> tuple[str, str]:
+    handle_l = handle.lower()
+    patterns = [
+        (r"abyssinian", "abyssinian-kitties-for-sale", "Abyssinian"),
+        (r"british-shorthair", "british-shorthair-kittens", "British Shorthair"),
+        (r"british-longhair", "british-longhair-kittens-for-sale", "British Longhair"),
+        (r"bengal", "bengal-cats-for-sale", "Bengal"),
+        (r"maine-coon", "maine-coon-kittens-for-sale", "Maine Coon"),
+        (r"sphynx", "sphynx-kittens-for-sale", "Sphynx"),
+        (r"devon-rex", "devon-rex-kittens-for-sale", "Devon Rex"),
+        (r"cornish-rex", "cornish-rex-kittens-for-sale", "Cornish Rex"),
+        (r"oriental", "oriental-kitties-for-sale", "Oriental"),
+        (r"persian", "persian-kittens-for-sale", "Persian"),
+        (r"munchkin", "munchkin-kittens-for-sale", "Munchkin"),
+        (r"scottish-fold", "scottish-fold-kittens-for-sale", "Scottish Fold"),
+        (r"scottish-straight", "scottish-straight-kittens-for-sale", "Scottish Straight"),
+        (r"russian-blue", "russian-blue-cat-for-sale", "Russian Blue"),
+        (r"ragdoll", "ragdoll-kittens-for-sale", "Ragdoll"),
+        (r"siberian", "siberian-cat-for-sale", "Siberian"),
+        (r"exotic-shorthair", "exotic-shorthair-kittens-for-sale", "Exotic Shorthair"),
+        (r"minuet", "minuet-kittens-for-sale", "Minuet"),
+    ]
+    for needle, slug, label in patterns:
+        if needle in handle_l:
+            return slug, breed or label
+    return "", breed
+
+
 def extract_product(path: Path) -> dict | None:
     text = path.read_text(encoding="utf-8", errors="ignore")
     handle = path.stem
@@ -270,6 +298,7 @@ def extract_product(path: Path) -> dict | None:
         re.I,
     )
     breed_slug = breed_m.group(1).rstrip("/") if breed_m else ""
+    breed_slug = breed_slug.replace(".html", "")
     breed = breed_m.group(2).strip() if breed_m else ""
     about_parts = re.findall(r'<div class="about_products[^"]*">\s*(.*?)\s*</div>', text, re.I | re.S)
     about = max(about_parts, key=len).strip() if about_parts else ""
@@ -291,6 +320,8 @@ def extract_product(path: Path) -> dict | None:
     variants = [{**v, "label": reduce_prices_in_text(v["label"])} for v in variants]
     if not variants and price:
         variants = [{"label": f"Complete Adoption Fee - {price}", "subtitle": "One Payment, Fully Yours Instantly"}]
+    if not breed_slug:
+        breed_slug, breed = infer_breed_from_handle(handle, breed)
     info_html = extract_info_html(text)
     family_html = extract_family_html(text)
     return {
@@ -1036,21 +1067,50 @@ SPA_JS = r"""
 
   function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
 
+  function normalizeCollectionSlug(slug){
+    return String(slug||'').replace(/\.html$/,'').replace(/\/$/,'').replace(/-page-\d+$/,'');
+  }
+
+  function normalizeBreedSlug(slug){
+    return String(slug||'').replace(/\.html$/,'').replace(/\/$/,'');
+  }
+
+  var COLLECTION_ALIASES={
+    'british-shorthair-and-british-longhair-kittens-for-sale':['british-shorthair-kittens','british-longhair-kittens-for-sale'],
+    'scottish-fold-and-scottish-straight-kittens-for-sale':['scottish-fold-kittens-for-sale','scottish-straight-kittens-for-sale'],
+    'exotic-cats-for-sale':['exotic-shorthair-kittens-for-sale']
+  };
+
   function collectionKeyword(slug){
-    slug=(slug||'').replace(/-page-\d+$/,'');
+    slug=normalizeCollectionSlug(slug);
     if(!slug || /^(kittens-for-sale|all-kittens-for-sale|kittens-in-the-united-states)$/.test(slug)) return '';
-    return slug.replace(/-(kittens?|cats?)-for-sale.*$/,'').replace(/-for-sale.*$/,'').replace(/-/g,' ');
+    slug=slug.replace(/-(kittens?|kitties|cats?)-for-sale.*$/,'')
+      .replace(/-for-sale.*$/,'')
+      .replace(/-(kittens?|kitties|cats?)$/,'');
+    return slug.replace(/-/g,' ');
+  }
+
+  function productMatchesCollection(p, slug){
+    slug=normalizeCollectionSlug(slug);
+    if(!slug || /^(kittens-for-sale|all-kittens-for-sale|kittens-in-the-united-states)$/.test(slug)) return true;
+    var breedSlug=normalizeBreedSlug(p.breedSlug||'');
+    if(breedSlug===slug) return true;
+    var aliases=COLLECTION_ALIASES[slug];
+    if(aliases && aliases.indexOf(breedSlug)!==-1) return true;
+    var kw=collectionKeyword(slug);
+    if(!kw) return true;
+    var hay=(p.title+' '+p.handle+' '+(p.breed||'')+' '+breedSlug).toLowerCase();
+    if(hay.indexOf(kw)!==-1 || hay.indexOf(kw.replace(/ /g,'-'))!==-1) return true;
+    var tokens=kw.split(/\s+/).filter(Boolean);
+    return tokens.length>0 && tokens.every(function(t){ return hay.indexOf(t)!==-1; });
   }
 
   function showCollection(slug){
+    slug=normalizeCollectionSlug(slug);
     var kw=collectionKeyword(slug);
     var titleEl=document.getElementById('pk-collection-title');
     if(titleEl) titleEl.textContent=kw?kw.replace(/\b\w/g,function(c){return c.toUpperCase();})+' Kittens':'Available Kittens';
-    collectionList=CATALOG.filter(function(p){
-      if(!kw) return true;
-      var hay=(p.title+' '+p.handle).toLowerCase();
-      return hay.indexOf(kw)!==-1 || hay.indexOf(kw.replace(/ /g,'-'))!==-1;
-    });
+    collectionList=CATALOG.filter(function(p){ return productMatchesCollection(p, slug); });
     showGrid(document.getElementById('pk-grid'), document.getElementById('pk-search-input')?document.getElementById('pk-search-input').value:'', collectionList);
   }
 
@@ -1061,7 +1121,7 @@ SPA_JS = r"""
     var list=base.filter(function(p){
       if(!q) return true;
       return (p.title+' '+p.handle).toLowerCase().indexOf(q)!==-1;
-    }).slice(0,120);
+    }).slice(0,500);
     container.innerHTML=list.map(function(p){
       return '<a class="pk-card" href="#/products/'+p.handle+'"><img src="'+esc(p.image)+'" alt="" loading="lazy"><div class="pk-card-body"><h3>'+esc(p.title)+'</h3>'+(p.price?'<div class="price">'+esc(p.price)+'</div>':'')+'</div></a>';
     }).join('');
