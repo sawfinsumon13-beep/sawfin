@@ -25,34 +25,30 @@ CONTACT_EMAIL = "kittenspurebreed@gmail.com"
 SIGNAL_URL = "https://signal.me/#eu/MEs5W26kT7oIxnW-QEh7_yPa1HN1JkuLRxwWgzK3dMAuS9CzNgVJfpicAJqaaERL"
 CDN = "https://purebredkitties.com"
 
-HERO_BG_IMAGE = f"{CDN}/cdn/shop/files/image_1_27d57d81-a6af-49af-9613-3f9a36af40ee.webp?v=1730999583"
+HERO_BG_IMAGE = f"{CDN}/cdn/shop/files/girl-cat-sitting-bed_0_1_1600x.png?v=1704462288"
+HERO_BG_MOBILE = f"{CDN}/cdn/shop/files/girl-cat-sitting-bed_0_1_1_ec69025a-ce62-42c8-9be8-d719a648467e_450x.png?v=1721985345"
 
 THEME_COLOR_MAP = {
-    "#f4ff73": "#9B8CF8",
-    "#e6f06d": "#8B7CE8",
-    "#dec0fc": "#C4B5FD",
-    "#f6f7fe": "rgba(255,255,255,0.55)",
+    "#e6f06d": "#d4c4fc",
     "#f2f6fb": "rgba(255,255,255,0.5)",
     "#f9f9ff": "rgba(255,255,255,0.55)",
-    "#efe3f9": "rgba(255,255,255,0.45)",
     "#faf8f9": "rgba(255,255,255,0.5)",
     "#fff8f3": "rgba(255,255,255,0.5)",
     "#fff0e8": "rgba(255,255,255,0.45)",
-    "#b4f5fe": "#C4B5FD",
-    "#774c9d": "#5B4FCF",
-    "#774C9D": "#5B4FCF",
-    "#cdc7ff": "#DDD6FE",
-    "#af84d4": "#8B7CF6",
+    "#774c9d": "#6b4390",
+    "#774C9D": "#6b4390",
+    "#af84d4": "#9b72c8",
     "#d7d3f1": "rgba(255,255,255,0.6)",
-    "#e8a87c": "#9B8CF8",
-    "#b8d4c8": "#C4B5FD",
-    "#5a8f7b": "#5B4FCF",
+    "#e8a87c": "#dec0fc",
+    "#b8d4c8": "#cdc7ff",
+    "#5a8f7b": "#774c9d",
 }
 
 
 def apply_site_theme(html: str) -> str:
+    # Restore original hero photo if a prior build swapped it.
     html = re.sub(
-        r"https://purebredkitties\.com/cdn/shop/files/girl-cat-sitting-bed[^\"')\s]+",
+        r"https://purebredkitties\.com/cdn/shop/files/image_1_27d57d81[^\"')\s]+",
         HERO_BG_IMAGE,
         html,
         flags=re.I,
@@ -614,19 +610,20 @@ def get_home_shell() -> str:
 SITE_THEME_CSS = f"""
 <style id="pk-site-theme">
 :root{{
-  --pk-mesh-1:#eef2ff;
-  --pk-mesh-2:#f5f0ff;
-  --pk-mesh-3:#e8f4ff;
-  --pk-mesh-4:#fdf4ff;
+  --pk-mesh-1:#f6f7fe;
+  --pk-mesh-2:#efe3f9;
+  --pk-mesh-3:#e8e4f8;
+  --pk-mesh-4:#fdf8ff;
   --pk-glass:rgba(255,255,255,0.42);
   --pk-glass-strong:rgba(255,255,255,0.62);
   --pk-glass-border:rgba(255,255,255,0.92);
-  --pk-shadow:0 12px 40px rgba(91,79,207,0.14);
-  --pk-shadow-soft:0 4px 24px rgba(91,79,207,0.08);
-  --pk-text:#2a2540;
-  --pk-accent:#7c6cf0;
-  --pk-accent-soft:#c4b5fd;
-  --pk-accent-alt:#a5b4fc;
+  --pk-shadow:0 12px 40px rgba(119,76,157,0.12);
+  --pk-shadow-soft:0 4px 24px rgba(119,76,157,0.08);
+  --pk-text:#342a41;
+  --pk-accent:#774c9d;
+  --pk-accent-soft:#b4f5fe;
+  --pk-accent-alt:#dec0fc;
+  --pk-accent-warm:#f4ff73;
 }}
 @keyframes pk-float-1{{0%,100%{{transform:translate(0,0) scale(1)}}50%{{transform:translate(28px,-22px) scale(1.06)}}}}
 @keyframes pk-float-2{{0%,100%{{transform:translate(0,0) scale(1)}}50%{{transform:translate(-24px,18px) scale(1.04)}}}}
@@ -638,22 +635,22 @@ SITE_THEME_CSS = f"""
 .pk-3d-mesh{{
   position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 80% 50% at 20% 20%,rgba(196,181,253,0.35) 0%,transparent 55%),
-    radial-gradient(ellipse 60% 45% at 85% 15%,rgba(147,197,253,0.3) 0%,transparent 50%),
-    radial-gradient(ellipse 70% 55% at 50% 90%,rgba(251,207,232,0.25) 0%,transparent 55%);
+    radial-gradient(ellipse 80% 50% at 20% 20%,rgba(222,192,252,0.38) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 45% at 85% 15%,rgba(180,245,254,0.32) 0%,transparent 50%),
+    radial-gradient(ellipse 70% 55% at 50% 90%,rgba(239,227,249,0.35) 0%,transparent 55%);
 }}
-.pk-3d-orb{{position:absolute;border-radius:50%;filter:blur(64px);opacity:0.78}}
-.pk-3d-orb-1{{width:480px;height:480px;top:-100px;right:-80px;background:radial-gradient(circle,#a78bfa 0%,transparent 68%);animation:pk-float-1 20s ease-in-out infinite}}
-.pk-3d-orb-2{{width:560px;height:560px;bottom:5%;left:-140px;background:radial-gradient(circle,#93c5fd 0%,transparent 68%);animation:pk-float-2 24s ease-in-out infinite}}
-.pk-3d-orb-3{{width:400px;height:400px;top:42%;right:12%;background:radial-gradient(circle,#f0abfc 0%,transparent 68%);animation:pk-float-3 22s ease-in-out infinite}}
-.pk-3d-orb-4{{width:320px;height:320px;top:18%;left:38%;background:radial-gradient(circle,#c4b5fd 0%,transparent 70%);animation:pk-float-2 26s ease-in-out infinite reverse;opacity:0.4}}
+.pk-3d-orb{{position:absolute;border-radius:50%;filter:blur(64px);opacity:0.72}}
+.pk-3d-orb-1{{width:480px;height:480px;top:-100px;right:-80px;background:radial-gradient(circle,#dec0fc 0%,transparent 68%);animation:pk-float-1 20s ease-in-out infinite}}
+.pk-3d-orb-2{{width:560px;height:560px;bottom:5%;left:-140px;background:radial-gradient(circle,#b4f5fe 0%,transparent 68%);animation:pk-float-2 24s ease-in-out infinite}}
+.pk-3d-orb-3{{width:400px;height:400px;top:42%;right:12%;background:radial-gradient(circle,#cdc7ff 0%,transparent 68%);animation:pk-float-3 22s ease-in-out infinite}}
+.pk-3d-orb-4{{width:320px;height:320px;top:18%;left:38%;background:radial-gradient(circle,#efe3f9 0%,transparent 70%);animation:pk-float-2 26s ease-in-out infinite reverse;opacity:0.45}}
 html,body.pk-spa{{background:transparent!important;min-height:100vh}}
 body.pk-spa{{color:var(--pk-text);position:relative}}
 body.pk-spa > *:not(#pk-3d-bg){{position:relative;z-index:1}}
 #pk-content-shell,#pk-view-home,#pk-view-page,#pk-view-product,#pk-view-collection,#pk-view-search,#pk-view-cart,#pk-view-contact{{background:transparent!important}}
 #pk-product-root .product_outer,#pk-page-root{{background:transparent}}
 .template-index main,#MainContent{{background:transparent!important}}
-.loading-overlay{{background:rgba(238,242,255,0.92)!important;backdrop-filter:blur(12px)}}
+.loading-overlay{{background:rgba(246,247,254,0.92)!important;backdrop-filter:blur(12px)}}
 .yas_header .header-w,.yas_header{{
   background:rgba(255,255,255,0.72)!important;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
   box-shadow:var(--pk-shadow-soft)}}
@@ -675,21 +672,29 @@ body.pk-spa > *:not(#pk-3d-bg){{position:relative;z-index:1}}
   background:var(--pk-glass)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   border-radius:16px;border:1px solid rgba(255,255,255,0.8);box-shadow:var(--pk-shadow-soft)}}
 .main_banner_sec,.shopify-section.main_banner_sec{{
-  background-image:linear-gradient(135deg,rgba(42,37,64,0.82) 0%,rgba(91,79,207,0.55) 50%,rgba(147,197,253,0.35) 100%),url({HERO_BG_IMAGE})!important;
+  background-image:url({HERO_BG_IMAGE})!important;
   background-size:cover!important;background-position:center!important}}
 #shopify-section-template--21804439798011__71e80951-5677-4cc5-9762-e8cafc8c5e82{{
-  background-image:linear-gradient(135deg,rgba(42,37,64,0.82) 0%,rgba(91,79,207,0.55) 50%,rgba(147,197,253,0.35) 100%),url({HERO_BG_IMAGE})!important;
+  background-image:url({HERO_BG_IMAGE})!important;
   background-size:cover!important;background-position:center!important}}
-.hero_heading span{{color:var(--pk-accent-soft)!important;text-shadow:0 2px 20px rgba(124,108,240,0.4)}}
+@media (max-width:768px){{
+  #shopify-section-template--21804439798011__71e80951-5677-4cc5-9762-e8cafc8c5e82{{
+    background-image:url({HERO_BG_MOBILE})!important;
+    background-position:top!important}}}}
+.hero_heading h2,.desc_label{{color:#fff!important}}
+.hero_heading span,.hero_heading .text-type{{color:#b4f5fe!important;text-shadow:0 2px 16px rgba(52,42,65,0.2)}}
 .title_h2,.slideshow-container h2{{color:var(--pk-text)!important}}
-.btn_yellow,.popular_form,.banner_search_form button[type="submit"],.meet_all_btn,.meet_all,.btn-primary-yas{{
-  background:linear-gradient(135deg,#9B8CF8 0%,#7c6cf0 100%)!important;color:#fff!important;
-  box-shadow:0 8px 24px rgba(124,108,240,0.35)!important;border:none!important}}
+.banner_search_form button[type="submit"]{{
+  background:#f4ff73!important;color:#342a41!important;
+  border:1px solid #f4ff73!important;box-shadow:0 6px 20px rgba(244,255,115,0.35)!important}}
+.btn_yellow,.popular_form,.meet_all_btn,.meet_all,.btn-primary-yas{{
+  background:linear-gradient(135deg,#dec0fc 0%,#af84d4 100%)!important;color:#fff!important;
+  box-shadow:0 8px 24px rgba(119,76,157,0.28)!important;border:none!important}}
 .yas_header .btn_purple,.callendar_btn,.btn_form .btn_purple{{
-  background:linear-gradient(135deg,#C4B5FD 0%,#a5b4fc 100%)!important;color:var(--pk-text)!important;
-  box-shadow:0 6px 20px rgba(165,180,252,0.3)!important}}
+  background:linear-gradient(135deg,#b4f5fe 0%,#dec0fc 100%)!important;color:var(--pk-text)!important;
+  box-shadow:0 6px 20px rgba(180,245,254,0.35)!important}}
 #shopify-section-template--21804439798011__71e80951-5677-4cc5-9762-e8cafc8c5e82 form{{
-  background:rgba(255,255,255,0.22)!important;backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.35)!important}}
+  background:rgba(215,211,241,0.6)!important;backdrop-filter:blur(10px);border:none!important}}
 .mobile_menu{{background:rgba(42,37,64,0.88)!important;backdrop-filter:blur(24px)}}
 #pk-site-footer{{position:relative;z-index:2}}
 </style>
