@@ -523,6 +523,78 @@ def replace_homepage_blog_section(body: str) -> str:
     return body[:start] + render_homepage_blog_section() + body[end:]
 
 
+MOBILE_BURGER_LABEL = (
+    '<label for="menuCheckbox" class="mobile_burger pk-mobile-menu-btn" aria-label="Open menu">'
+    '<svg class="pk-burger-icon" width="20" height="14" viewBox="0 0 20 14" fill="none" '
+    'aria-hidden="true" xmlns="http://www.w3.org/2000/svg">'
+    '<path d="M1 1H19" stroke="#f3ecec" stroke-width="2" stroke-linecap="round"/>'
+    '<path d="M1 7H19" stroke="#f3ecec" stroke-width="2" stroke-linecap="round"/>'
+    '<path d="M1 13H19" stroke="#f3ecec" stroke-width="2" stroke-linecap="round"/>'
+    "</svg></label>"
+)
+
+PK_MOBILE_MENU_CSS = """
+<style id="pk-mobile-menu-fix">
+#menuCheckbox{position:absolute;opacity:0;width:0;height:0;pointer-events:none;margin:0;padding:0}
+@media(max-width:767px){
+  .yas_header .logo .mobile_burger,
+  label.mobile_burger.pk-mobile-menu-btn{
+    display:flex!important;opacity:1!important;visibility:visible!important;
+    flex:0 0 44px!important;width:44px!important;height:44px!important;
+    min-width:44px!important;cursor:pointer!important;z-index:10003!important;
+    align-items:center!important;justify-content:center!important;
+    border-radius:100px!important;border:1px solid rgba(243,236,236,0.55)!important;
+    background:rgba(255,255,255,0.08)!important;margin:0!important;padding:0!important;
+    pointer-events:auto!important;-webkit-tap-highlight-color:transparent;
+  }
+  .header_items .mobile_burger{display:none!important}
+  .mobile_burger span{display:none!important;width:0!important;height:0!important;opacity:0!important;margin:0!important}
+  .pk-burger-icon{display:block!important;width:20px!important;height:14px!important;flex-shrink:0!important;pointer-events:none!important}
+  .pk-burger-icon path{stroke:#f3ecec!important;stroke-width:2!important}
+  #menuCheckbox:checked~.yas_header .mobile_burger{opacity:1!important}
+  .mobile_menu_sec .mobile_menu{
+    transform:translate(100%)!important;transition:transform .35s ease!important;
+    z-index:10001!important;visibility:visible!important;
+  }
+  #menuCheckbox:checked~.mobile_menu_sec .mobile_menu{transform:none!important}
+  .mobile_menu_sec .mob__overlay{display:none;cursor:pointer}
+  #menuCheckbox:checked~.mobile_menu_sec .mob__overlay{
+    display:block!important;position:fixed;inset:0;z-index:10000!important;
+    background:#000!important;opacity:.45!important;width:100vw;height:100vh;
+  }
+  .mobile_menu_sec .mob__close{cursor:pointer;z-index:10002}
+}
+@media(min-width:768px){
+  .pk-burger-icon{display:none!important}
+}
+</style>
+"""
+
+
+def patch_mobile_burger(html: str) -> str:
+    return re.sub(
+        r'<label for="menuCheckbox" class="mobile_burger">\s*<span></span>\s*<span></span>\s*<span></span>\s*</label>',
+        MOBILE_BURGER_LABEL,
+        html,
+        flags=re.I | re.S,
+    )
+
+
+def patch_header_inline_styles(html: str) -> str:
+    html = re.sub(
+        r"(\.yas_header\s*\{[^}]*?)z-index:\s*20;",
+        r"\1z-index:10000!important;",
+        html,
+        count=1,
+    )
+    html = re.sub(
+        r"body:not\(\.template-index\)\s+\.yas_header\s*\{\s*background:\s*#fff;\s*\}",
+        "body:not(.template-index) .yas_header{background:rgba(18,10,12,0.82)!important}",
+        html,
+    )
+    return html
+
+
 def patch_inline_scripts(html: str) -> str:
     """Remove/guard homepage scripts that break SPA routes."""
     html = re.sub(
@@ -946,36 +1018,6 @@ body.template-blog{background:transparent}
 .mobile_menu li a+ul{display:none!important}
 .mobile_menu li a.open_child+ul{display:flex!important;flex-direction:column!important;width:100%!important}
 .mobile_menu li li a{font-size:18px!important;text-decoration:underline;text-underline-offset:5px}
-#menuCheckbox{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
-@media(max-width:767px){
-  .yas_header .logo .mobile_burger{
-    display:flex!important;opacity:1!important;visibility:visible!important;
-    flex:0 0 44px;width:44px;height:44px;cursor:pointer;z-index:10003;
-    flex-direction:column;align-items:center;justify-content:center;gap:0;
-    border-radius:100px;border:1px solid rgba(243,236,236,0.45)!important;
-    background:rgba(255,255,255,0.06);margin:0;padding:0;
-  }
-  .header_items .mobile_burger{display:none!important}
-  .mobile_burger span{
-    display:block!important;width:18px!important;height:2px!important;
-    margin:0 0 4px!important;background:#f3ecec!important;
-    border-radius:2px!important;opacity:1!important;position:static!important;
-    transform:none!important;transition:none!important;
-  }
-  .mobile_burger span:last-child{margin-bottom:0!important}
-  #menuCheckbox:checked~.yas_header .mobile_burger{opacity:1!important}
-  .mobile_menu_sec .mobile_menu{
-    transform:translate(100%)!important;transition:transform .35s ease!important;
-    z-index:10001!important;visibility:visible!important;
-  }
-  #menuCheckbox:checked~.mobile_menu_sec .mobile_menu{transform:none!important}
-  .mobile_menu_sec .mob__overlay{display:none;cursor:pointer}
-  #menuCheckbox:checked~.mobile_menu_sec .mob__overlay{
-    display:block!important;position:fixed;inset:0;z-index:10000!important;
-    background:#000!important;opacity:.45!important;width:100vw;height:100vh;
-  }
-  .mobile_menu_sec .mob__close{cursor:pointer;z-index:10002}
-}
 .header_button a,.header_items a{position:relative;z-index:10001}
 .pk-spa-route-product .pk-btn-back{display:none}
 .pk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
@@ -1670,6 +1712,8 @@ def build_single_html():
     body = strip_footer_social_media(body)
     body = apply_site_theme(body)
     body = patch_inline_scripts(body)
+    body = patch_header_inline_styles(body)
+    body = patch_mobile_burger(body)
     body = restructure_layout(body, contact_views)
 
     catalog_json = json.dumps(catalog, separators=(",", ":"))
@@ -1694,6 +1738,8 @@ def build_single_html():
     html = replace_calendly_links(html)
     html = strip_footer_social_media(html)
     html = apply_site_theme(html)
+    html = patch_mobile_burger(html)
+    html = html.replace("</body>", PK_MOBILE_MENU_CSS + "</body>", 1)
 
     OUT.write_text(html, encoding="utf-8")
     ZIP_OUT.write_text(html, encoding="utf-8")
