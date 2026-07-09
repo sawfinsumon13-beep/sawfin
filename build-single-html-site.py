@@ -610,20 +610,21 @@ def get_home_shell() -> str:
 SITE_THEME_CSS = f"""
 <style id="pk-site-theme">
 :root{{
-  --pk-mesh-1:#f6f7fe;
-  --pk-mesh-2:#efe3f9;
-  --pk-mesh-3:#e8e4f8;
-  --pk-mesh-4:#fdf8ff;
-  --pk-glass:rgba(255,255,255,0.42);
-  --pk-glass-strong:rgba(255,255,255,0.62);
-  --pk-glass-border:rgba(255,255,255,0.92);
-  --pk-shadow:0 12px 40px rgba(119,76,157,0.12);
-  --pk-shadow-soft:0 4px 24px rgba(119,76,157,0.08);
-  --pk-text:#342a41;
-  --pk-accent:#774c9d;
-  --pk-accent-soft:#b4f5fe;
-  --pk-accent-alt:#dec0fc;
-  --pk-accent-warm:#f4ff73;
+  --pk-mesh-1:#0a0909;
+  --pk-mesh-2:#140c0e;
+  --pk-mesh-3:#1f1014;
+  --pk-mesh-4:#120809;
+  --pk-glass:rgba(24,12,16,0.72);
+  --pk-glass-strong:rgba(32,14,18,0.88);
+  --pk-glass-border:rgba(185,28,28,0.28);
+  --pk-shadow:0 12px 40px rgba(0,0,0,0.45);
+  --pk-shadow-soft:0 4px 24px rgba(127,29,29,0.22);
+  --pk-text:#f3ecec;
+  --pk-text-muted:#c9b8b8;
+  --pk-accent:#dc2626;
+  --pk-accent-soft:#f87171;
+  --pk-accent-alt:#991b1b;
+  --pk-accent-warm:#fca5a5;
 }}
 @keyframes pk-float-1{{0%,100%{{transform:translate(0,0) scale(1)}}50%{{transform:translate(28px,-22px) scale(1.06)}}}}
 @keyframes pk-float-2{{0%,100%{{transform:translate(0,0) scale(1)}}50%{{transform:translate(-24px,18px) scale(1.04)}}}}
@@ -635,25 +636,26 @@ SITE_THEME_CSS = f"""
 .pk-3d-mesh{{
   position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 80% 50% at 20% 20%,rgba(222,192,252,0.38) 0%,transparent 55%),
-    radial-gradient(ellipse 60% 45% at 85% 15%,rgba(180,245,254,0.32) 0%,transparent 50%),
-    radial-gradient(ellipse 70% 55% at 50% 90%,rgba(239,227,249,0.35) 0%,transparent 55%);
+    radial-gradient(ellipse 80% 50% at 20% 20%,rgba(153,27,27,0.42) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 45% at 85% 15%,rgba(69,10,10,0.55) 0%,transparent 50%),
+    radial-gradient(ellipse 70% 55% at 50% 90%,rgba(127,29,29,0.35) 0%,transparent 55%);
 }}
-.pk-3d-orb{{position:absolute;border-radius:50%;filter:blur(64px);opacity:0.72}}
-.pk-3d-orb-1{{width:480px;height:480px;top:-100px;right:-80px;background:radial-gradient(circle,#dec0fc 0%,transparent 68%);animation:pk-float-1 20s ease-in-out infinite}}
-.pk-3d-orb-2{{width:560px;height:560px;bottom:5%;left:-140px;background:radial-gradient(circle,#b4f5fe 0%,transparent 68%);animation:pk-float-2 24s ease-in-out infinite}}
-.pk-3d-orb-3{{width:400px;height:400px;top:42%;right:12%;background:radial-gradient(circle,#cdc7ff 0%,transparent 68%);animation:pk-float-3 22s ease-in-out infinite}}
-.pk-3d-orb-4{{width:320px;height:320px;top:18%;left:38%;background:radial-gradient(circle,#efe3f9 0%,transparent 70%);animation:pk-float-2 26s ease-in-out infinite reverse;opacity:0.45}}
+.pk-3d-orb{{position:absolute;border-radius:50%;filter:blur(64px);opacity:0.55}}
+.pk-3d-orb-1{{width:480px;height:480px;top:-100px;right:-80px;background:radial-gradient(circle,#991b1b 0%,transparent 68%);animation:pk-float-1 20s ease-in-out infinite}}
+.pk-3d-orb-2{{width:560px;height:560px;bottom:5%;left:-140px;background:radial-gradient(circle,#450a0a 0%,transparent 68%);animation:pk-float-2 24s ease-in-out infinite}}
+.pk-3d-orb-3{{width:400px;height:400px;top:42%;right:12%;background:radial-gradient(circle,#b91c1c 0%,transparent 68%);animation:pk-float-3 22s ease-in-out infinite}}
+.pk-3d-orb-4{{width:320px;height:320px;top:18%;left:38%;background:radial-gradient(circle,#7f1d1d 0%,transparent 70%);animation:pk-float-2 26s ease-in-out infinite reverse;opacity:0.4}}
 html,body.pk-spa{{background:transparent!important;min-height:100vh}}
 body.pk-spa{{color:var(--pk-text);position:relative}}
 body.pk-spa > *:not(#pk-3d-bg){{position:relative;z-index:1}}
 #pk-content-shell,#pk-view-home,#pk-view-page,#pk-view-product,#pk-view-collection,#pk-view-search,#pk-view-cart,#pk-view-contact{{background:transparent!important}}
 #pk-product-root .product_outer,#pk-page-root{{background:transparent}}
 .template-index main,#MainContent{{background:transparent!important}}
-.loading-overlay{{background:rgba(246,247,254,0.92)!important;backdrop-filter:blur(12px)}}
+.loading-overlay{{background:rgba(10,9,9,0.94)!important;backdrop-filter:blur(12px)}}
 .yas_header .header-w,.yas_header{{
-  background:rgba(255,255,255,0.72)!important;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
-  box-shadow:var(--pk-shadow-soft)}}
+  background:rgba(18,10,12,0.82)!important;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  box-shadow:var(--pk-shadow-soft);border-bottom:1px solid rgba(185,28,28,0.2)}}
+.yas_header .header_menu a,.yas_header .header_menu .h-link-child{{color:var(--pk-text)!important}}
 .slideshow-container,.blog_container-w,.review_section_content,.collection-sec,
 .global_companion-yas,.yas-global-link,.step-card-w,.faq_section,.expert_video-w,
 .thumb_sec,.promise-section-yas,.include_slide,.testing-page-yas .shipping_option,
@@ -663,14 +665,15 @@ body.pk-spa > *:not(#pk-3d-bg){{position:relative;z-index:1}}
   border:1px solid var(--pk-glass-border);box-shadow:var(--pk-shadow);border-radius:20px}}
 #pk-page-root .shopify-section,#pk-page-root section.shopify-section{{
   background:var(--pk-glass)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,0.75);box-shadow:var(--pk-shadow-soft);border-radius:16px;margin-bottom:12px}}
-.pk-card,.pk-contact-box{{
-  background:var(--pk-glass-strong)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border:1px solid var(--pk-glass-border)!important;box-shadow:var(--pk-shadow)!important}}
+  border:1px solid var(--pk-glass-border);box-shadow:var(--pk-shadow-soft);border-radius:16px;margin-bottom:12px;color:var(--pk-text)}}
+#pk-page-root,#pk-view-collection,#pk-view-search,#pk-view-cart,#pk-view-contact,#pk-view-product,#pk-view-page{{
+  color:var(--pk-text)}}
+#pk-page-root p,#pk-page-root li,#pk-page-root .shipping_option p,#pk-view-home p,#pk-view-home .step-card p{{
+  color:var(--pk-text-muted)}}
 #pk-product-root .right_side_bar,#pk-product-root .product_description,#pk-product-root .meta_data,
 #pk-product-root .includes,#pk-product-root .reco_pro{{
   background:var(--pk-glass)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-radius:16px;border:1px solid rgba(255,255,255,0.8);box-shadow:var(--pk-shadow-soft)}}
+  border-radius:16px;border:1px solid var(--pk-glass-border);box-shadow:var(--pk-shadow-soft);color:var(--pk-text)}}
 .main_banner_sec,.shopify-section.main_banner_sec{{
   background-image:url({HERO_BG_IMAGE})!important;
   background-size:cover!important;background-position:center!important}}
@@ -682,21 +685,29 @@ body.pk-spa > *:not(#pk-3d-bg){{position:relative;z-index:1}}
     background-image:url({HERO_BG_MOBILE})!important;
     background-position:top!important}}}}
 .hero_heading h2,.desc_label{{color:#fff!important}}
-.hero_heading span,.hero_heading .text-type{{color:#b4f5fe!important;text-shadow:0 2px 16px rgba(52,42,65,0.2)}}
-.title_h2,.slideshow-container h2{{color:var(--pk-text)!important}}
+.hero_heading span,.hero_heading .text-type{{color:#fca5a5!important;text-shadow:0 2px 16px rgba(0,0,0,0.45)}}
+.title_h2,.slideshow-container h2,#pk-view-home .title_h2,#pk-page-root .title_h2,#pk-page-root h1,#pk-page-root h2,#pk-page-root h3{{
+  color:var(--pk-text)!important}}
+.step-card .heading_four{{color:var(--pk-text)!important}}
 .banner_search_form button[type="submit"]{{
-  background:#f4ff73!important;color:#342a41!important;
-  border:1px solid #f4ff73!important;box-shadow:0 6px 20px rgba(244,255,115,0.35)!important}}
+  background:linear-gradient(135deg,#dc2626 0%,#991b1b 100%)!important;color:#fff!important;
+  border:1px solid #b91c1c!important;box-shadow:0 6px 20px rgba(220,38,38,0.35)!important}}
 .btn_yellow,.popular_form,.meet_all_btn,.meet_all,.btn-primary-yas{{
-  background:linear-gradient(135deg,#dec0fc 0%,#af84d4 100%)!important;color:#fff!important;
-  box-shadow:0 8px 24px rgba(119,76,157,0.28)!important;border:none!important}}
+  background:linear-gradient(135deg,#dc2626 0%,#991b1b 100%)!important;color:#fff!important;
+  box-shadow:0 8px 24px rgba(127,29,29,0.4)!important;border:none!important}}
 .yas_header .btn_purple,.callendar_btn,.btn_form .btn_purple{{
-  background:linear-gradient(135deg,#b4f5fe 0%,#dec0fc 100%)!important;color:var(--pk-text)!important;
-  box-shadow:0 6px 20px rgba(180,245,254,0.35)!important}}
+  background:linear-gradient(135deg,#450a0a 0%,#7f1d1d 100%)!important;color:#fff!important;
+  box-shadow:0 6px 20px rgba(69,10,10,0.45)!important}}
+.yas_header .btn_yellow{{
+  background:linear-gradient(135deg,#dc2626 0%,#b91c1c 100%)!important;color:#fff!important}}
 #shopify-section-template--21804439798011__71e80951-5677-4cc5-9762-e8cafc8c5e82 form{{
-  background:rgba(215,211,241,0.6)!important;backdrop-filter:blur(10px);border:none!important}}
-.mobile_menu{{background:rgba(42,37,64,0.88)!important;backdrop-filter:blur(24px)}}
-#pk-site-footer{{position:relative;z-index:2}}
+  background:rgba(24,12,16,0.72)!important;backdrop-filter:blur(10px);border:1px solid rgba(185,28,28,0.35)!important}}
+.pk-card,.pk-contact-box{{
+  background:var(--pk-glass-strong)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid var(--pk-glass-border)!important;box-shadow:var(--pk-shadow)!important;color:var(--pk-text)}}
+.mobile_menu{{background:rgba(10,6,7,0.94)!important;backdrop-filter:blur(24px)}}
+#pk-site-footer{{position:relative;z-index:2;background:rgba(12,8,9,0.92)!important;color:var(--pk-text-muted)}}
+#pk-site-footer a{{color:var(--pk-text)!important}}
 </style>
 """
 
@@ -747,8 +758,9 @@ html{{
   background-color:transparent!important}}
 .yas_header.stiky-active,
 body.template-product .yas_header.stiky-active{{
-  background:rgba(255,255,255,0.78)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important}}
-#pk-product-root .fix_button-s{{background:#fff!important}}
+  background:rgba(18,10,12,0.92)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important}}
+#pk-product-root .fix_button-s{{background:#1a1012!important;color:var(--pk-text)!important}}
+#pk-view-collection .pk-card h3,#pk-view-search .pk-card h3{{color:var(--pk-text)!important}}
 </style>
 """
 
