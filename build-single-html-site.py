@@ -536,6 +536,12 @@ def patch_inline_scripts(html: str) -> str:
         "typeof Typed!=='undefined'&&new Typed(",
         html,
     )
+    html = re.sub(
+        r"<script>\s*\(function \(\) \{\s*const finishLoading[\s\S]*?\}\)\(\);\s*</script>",
+        "<script>/* pk: legacy auto-loader disabled; cat intro handles site entry */</script>",
+        html,
+        count=1,
+    )
     return html
 
 
@@ -590,6 +596,13 @@ def get_home_shell() -> str:
         count=1,
         flags=re.I,
     )
+    body = re.sub(
+        r'<div class="loading-overlay">.*?</div>',
+        CAT_INTRO_HTML,
+        body,
+        count=1,
+        flags=re.S,
+    )
     # Wrap main content for SPA views
     # Wrap only homepage main content — keep header + mobile menu always visible
     body = re.sub(
@@ -605,6 +618,42 @@ def get_home_shell() -> str:
         count=1,
     )
     return head, body
+
+
+CAT_INTRO_HTML = """<div id="pk-cat-intro" class="pk-cat-intro loading-overlay" role="dialog" aria-modal="true" aria-label="Welcome to Purebred Kitties">
+  <div class="pk-cat-intro__glow" aria-hidden="true"></div>
+  <div class="pk-cat-intro__content">
+    <div class="pk-cat-intro__track" aria-hidden="true">
+      <svg class="pk-cat-intro__cat" viewBox="0 0 140 110" xmlns="http://www.w3.org/2000/svg">
+        <ellipse class="pk-cat-shadow" cx="70" cy="98" rx="34" ry="7" fill="rgba(0,0,0,0.35)"/>
+        <g class="pk-cat-body">
+          <path d="M38 58c0-18 12-30 32-30s32 12 32 30v18c0 8-6 14-14 14H52c-8 0-14-6-14-14V58z" fill="#c4b5fd"/>
+          <path d="M42 30 L34 8 L48 26 Z" fill="#c4b5fd"/>
+          <path d="M98 30 L106 8 L92 26 Z" fill="#c4b5fd"/>
+          <path class="pk-cat-tail" d="M102 62 C128 48 138 72 118 88 C108 96 98 92 96 78" fill="#a78bfa"/>
+          <circle cx="56" cy="52" r="5" fill="#1a1012"/>
+          <circle cx="84" cy="52" r="5" fill="#1a1012"/>
+          <circle class="pk-cat-eye-shine" cx="58" cy="50" r="1.6" fill="#fff"/>
+          <circle class="pk-cat-eye-shine" cx="86" cy="50" r="1.6" fill="#fff"/>
+          <path d="M68 58 L70 62 L72 58" stroke="#1a1012" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M64 66 Q70 70 76 66" stroke="#dc2626" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <line class="pk-cat-whisker" x1="48" y1="60" x2="28" y2="56" stroke="#f3ecec" stroke-width="1.2" stroke-linecap="round"/>
+          <line class="pk-cat-whisker" x1="48" y1="64" x2="26" y2="64" stroke="#f3ecec" stroke-width="1.2" stroke-linecap="round"/>
+          <line class="pk-cat-whisker" x1="92" y1="60" x2="112" y2="56" stroke="#f3ecec" stroke-width="1.2" stroke-linecap="round"/>
+          <line class="pk-cat-whisker" x1="92" y1="64" x2="114" y2="64" stroke="#f3ecec" stroke-width="1.2" stroke-linecap="round"/>
+        </g>
+        <g class="pk-cat-legs">
+          <rect class="pk-cat-leg pk-cat-leg--1" x="50" y="74" width="10" height="18" rx="5" fill="#a78bfa"/>
+          <rect class="pk-cat-leg pk-cat-leg--2" x="66" y="74" width="10" height="18" rx="5" fill="#a78bfa"/>
+          <rect class="pk-cat-leg pk-cat-leg--3" x="64" y="74" width="10" height="18" rx="5" fill="#9370db"/>
+          <rect class="pk-cat-leg pk-cat-leg--4" x="80" y="74" width="10" height="18" rx="5" fill="#9370db"/>
+        </g>
+      </svg>
+    </div>
+    <p class="pk-cat-intro__brand">Purebred Kitties</p>
+    <p class="pk-cat-intro__tap">Click anywhere to enter</p>
+  </div>
+</div>"""
 
 
 SITE_THEME_CSS = f"""
@@ -652,6 +701,40 @@ body.pk-spa > *:not(#pk-3d-bg){{position:relative;z-index:1}}
 #pk-product-root .product_outer,#pk-page-root{{background:transparent}}
 .template-index main,#MainContent{{background:transparent!important}}
 .loading-overlay{{background:rgba(10,9,9,0.94)!important;backdrop-filter:blur(12px)}}
+#pk-cat-intro.pk-cat-intro{{
+  position:fixed;inset:0;z-index:999999;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 50% 40%,#2a1218 0%,#0a0909 55%,#000 100%)!important;
+  cursor:pointer;overflow:hidden;transition:opacity .65s ease,visibility .65s ease}}
+#pk-cat-intro.pk-cat-intro--out{{opacity:0;visibility:hidden;pointer-events:none}}
+html.pk-cat-intro-active{{overflow:hidden}}
+html.pk-cat-intro-active body{{overflow:hidden}}
+.pk-cat-intro__glow{{
+  position:absolute;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(220,38,38,0.35) 0%,transparent 70%);
+  animation:pk-cat-glow 2.4s ease-in-out infinite}}
+.pk-cat-intro__content{{
+  position:relative;z-index:2;text-align:center;padding:24px;max-width:92vw}}
+.pk-cat-intro__track{{
+  width:min(280px,72vw);margin:0 auto 18px;animation:pk-cat-walk-in 1.1s cubic-bezier(.22,1,.28,1) forwards}}
+.pk-cat-intro__cat{{width:100%;height:auto;display:block;animation:pk-cat-bounce 1.8s ease-in-out .9s infinite}}
+.pk-cat-tail{{transform-origin:96px 78px;animation:pk-cat-tail 1.2s ease-in-out infinite}}
+.pk-cat-leg--1,.pk-cat-leg--3{{transform-origin:center top;animation:pk-cat-step .55s ease-in-out infinite alternate}}
+.pk-cat-leg--2,.pk-cat-leg--4{{transform-origin:center top;animation:pk-cat-step .55s ease-in-out .275s infinite alternate-reverse}}
+.pk-cat-eye-shine{{animation:pk-cat-blink 3.5s infinite}}
+.pk-cat-intro__brand{{
+  margin:0 0 8px;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:#f3ecec;letter-spacing:.02em;
+  opacity:0;animation:pk-cat-fade-up .7s ease .55s forwards}}
+.pk-cat-intro__tap{{
+  margin:0;font-size:clamp(.9rem,2.5vw,1rem);color:#fca5a5;opacity:0;
+  animation:pk-cat-fade-up .7s ease .85s forwards,pk-cat-pulse 1.6s ease-in-out 1.4s infinite}}
+@keyframes pk-cat-walk-in{{from{{transform:translateX(-120vw) scale(.85);opacity:0}}to{{transform:translateX(0) scale(1);opacity:1}}}}
+@keyframes pk-cat-bounce{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-8px)}}}}
+@keyframes pk-cat-tail{{0%,100%{{transform:rotate(-6deg)}}50%{{transform:rotate(14deg)}}}}
+@keyframes pk-cat-step{{from{{transform:rotate(-10deg) translateY(0)}}to{{transform:rotate(8deg) translateY(-2px)}}}}
+@keyframes pk-cat-blink{{0%,46%,48%,100%{{opacity:1}}47%{{opacity:0}}}}
+@keyframes pk-cat-glow{{0%,100%{{transform:scale(1);opacity:.75}}50%{{transform:scale(1.08);opacity:1}}}}
+@keyframes pk-cat-fade-up{{from{{opacity:0;transform:translateY(14px)}}to{{opacity:1;transform:translateY(0)}}}}
+@keyframes pk-cat-pulse{{0%,100%{{opacity:.75}}50%{{opacity:1}}}}
 .yas_header .header-w,.yas_header{{
   background:rgba(18,10,12,0.82)!important;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
   box-shadow:var(--pk-shadow-soft);border-bottom:1px solid rgba(185,28,28,0.2)}}
@@ -1007,9 +1090,33 @@ SPA_JS = r"""
 
   function finishLoading(){
     document.documentElement.classList.add('is-loaded');
-    document.documentElement.classList.remove('wait-breed-mc-loader');
-    var overlay=document.querySelector('.loading-overlay');
-    if(overlay) overlay.style.display='none';
+    document.documentElement.classList.remove('wait-breed-mc-loader','pk-cat-intro-active');
+    var overlay=document.getElementById('pk-cat-intro')||document.querySelector('.loading-overlay');
+    if(overlay){
+      overlay.classList.add('pk-cat-intro--out');
+      setTimeout(function(){ overlay.style.display='none'; }, 650);
+    }
+  }
+
+  var catIntroDone=false;
+  function initCatIntro(){
+    if(catIntroDone) return;
+    var intro=document.getElementById('pk-cat-intro');
+    if(!intro){ finishLoading(); return; }
+    document.documentElement.classList.add('pk-cat-intro-active');
+    intro.classList.add('pk-cat-intro--playing');
+    var dismissed=false;
+    function dismiss(){
+      if(dismissed) return;
+      dismissed=true;
+      catIntroDone=true;
+      finishLoading();
+    }
+    intro.addEventListener('click', dismiss);
+    intro.addEventListener('keydown', function(e){
+      if(e.key==='Enter' || e.key===' ' || e.key==='Escape') dismiss();
+    });
+    setTimeout(dismiss, 5000);
   }
 
   function parseParts(){
@@ -1257,7 +1364,6 @@ SPA_JS = r"""
     else if(parts[0]==='contact'){ setRoute('page'); showPage('pages/contact'); }
     else if(parts[0]==='cart'){ setRoute('cart'); renderCart(); }
     else { document.body.className='pk-spa'; }
-    finishLoading();
     closeMobileMenu();
     window.scrollTo(0,0);
   }
@@ -1419,6 +1525,7 @@ SPA_JS = r"""
   initMobileMenu();
   window.addEventListener('hashchange', route);
   route();
+  initCatIntro();
 })();
 """
 
