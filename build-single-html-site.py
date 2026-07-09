@@ -60,14 +60,14 @@ def apply_site_theme(html: str) -> str:
     # Remove opaque white section backgrounds so the fixed 3D mesh layer shows through.
     html = re.sub(
         r"(#shopify-section[-\w]+[^}]*?)background\s*:\s*#fff(?:fff)?\s*;",
-        r"\1background:transparent;",
+        r"\1background-color:transparent;",
         html,
         flags=re.I | re.S,
     )
     html = re.sub(
         r"(\.(?:steps-sec-outer|adoption_section|breed_section|slider-line|collection-sec)[^{]*\{[^}]*?)"
         r"background\s*:\s*#fff(?:fff)?\s*;",
-        r"\1background:transparent;",
+        r"\1background-color:transparent;",
         html,
         flags=re.I | re.S,
     )
@@ -700,13 +700,13 @@ body.pk-spa > *:not(#pk-3d-bg){{position:relative;z-index:1}}
 </style>
 """
 
-SITE_THEME_OVERRIDE_CSS = """
+SITE_THEME_OVERRIDE_CSS = f"""
 <style id="pk-site-theme-override">
-html{
+html{{
   background:linear-gradient(145deg,var(--pk-mesh-1) 0%,var(--pk-mesh-2) 28%,var(--pk-mesh-3) 62%,var(--pk-mesh-4) 100%)!important;
-  min-height:100vh}
-#pk-view-home .shopify-section,
-#pk-view-home [id^="shopify-section-template"],
+  min-height:100vh}}
+#pk-view-home .shopify-section:not(.main_banner_sec),
+#pk-view-home [id^="shopify-section-template"]:not(.main_banner_sec),
 #pk-view-home .adoption_section,
 #pk-view-home .breed_section,
 #pk-view-home .slider-line,
@@ -726,21 +726,29 @@ html{
 #pk-page-root .wrapper,
 #pk-page-root .custom_wrapper,
 #pk-page-root .steps-sec-outer,
-#pk-page-root .adoption_section{
-  background:transparent!important}
+#pk-page-root .adoption_section{{
+  background-color:transparent!important}}
+#pk-view-home .main_banner_sec,
+#shopify-section-template--21804439798011__71e80951-5677-4cc5-9762-e8cafc8c5e82{{
+  background-color:transparent!important;
+  background-image:url({HERO_BG_IMAGE})!important;
+  background-size:cover!important;background-position:center!important}}
+@media (max-width:768px){{
+  #shopify-section-template--21804439798011__71e80951-5677-4cc5-9762-e8cafc8c5e82{{
+    background-image:url({HERO_BG_MOBILE})!important;background-position:top!important}}}}
 #pk-view-home .step-card,
-#pk-page-root .step-card{
+#pk-page-root .step-card{{
   background:var(--pk-glass-strong)!important;
   backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important;
-  box-shadow:var(--pk-shadow)!important}
+  box-shadow:var(--pk-shadow)!important}}
 #shopify-section-template--21804439798011__71278585-4b27-4c75-baff-b73528b2890e,
 #shopify-section-template--21804439798011__slider_first_global_79iWkH,
-#shopify-section-template--21804439798011__d386879e-349b-4dcb-8f4a-4e7f41a2d38f{
-  background:transparent!important}
+#shopify-section-template--21804439798011__d386879e-349b-4dcb-8f4a-4e7f41a2d38f{{
+  background-color:transparent!important}}
 .yas_header.stiky-active,
-body.template-product .yas_header.stiky-active{
-  background:rgba(255,255,255,0.78)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important}
-#pk-product-root .fix_button-s{background:#fff!important}
+body.template-product .yas_header.stiky-active{{
+  background:rgba(255,255,255,0.78)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important}}
+#pk-product-root .fix_button-s{{background:#fff!important}}
 </style>
 """
 
