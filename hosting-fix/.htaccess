@@ -1,0 +1,60 @@
+# Purebred Kitties - Apache Hosting Configuration
+# Upload this file to your public_html root (same folder as index.html)
+
+DirectoryIndex index.html
+
+Options -Indexes
+
+# Gzip compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# Browser caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 0) Redirect wrong index.html/ folder URL to site root
+  RewriteRule ^index\.html/?$ / [R=301,L]
+
+  # 1) HTML pages without .html extension (products, collections, pages, blogs)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+
+  # 2) Wget-style CSS: file.css?v=HASH.css on disk
+  RewriteCond %{QUERY_STRING} ^(.+)$
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}?%{QUERY_STRING}.css -f
+  RewriteRule ^(.+\.css)$ $1?%{QUERY_STRING}.css [L]
+
+  # 3) Wget-style JS: file.js?v=HASH.js on disk
+  RewriteCond %{QUERY_STRING} ^(.+)$
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}?%{QUERY_STRING}.js -f
+  RewriteRule ^(.+\.js)$ $1?%{QUERY_STRING}.js [L]
+
+  # 4) Wget-style images/assets: file.ext?v=HASH on disk
+  RewriteCond %{QUERY_STRING} ^(.+)$
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}?%{QUERY_STRING} -f
+  RewriteRule ^(.+)$ $1?%{QUERY_STRING} [L]
+</IfModule>
+
+# Correct MIME types
+AddType text/css .css
+AddType application/javascript .js
+AddType image/svg+xml .svg
+AddType image/webp .webp

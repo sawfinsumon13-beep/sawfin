@@ -1,0 +1,16 @@
+HOSTINGER 404 FIX — 2 MINUTE UPLOAD
+===================================
+
+Your site files are inside public_html/index.html/ (folder)
+but URLs like /products/... look at public_html/ (root).
+
+THIS FIXES IT WITHOUT RE-UPLOADING THE WHOLE SITE.
+
+STEPS:
+1. Hostinger → File Manager → public_html  (NOT inside index.html folder)
+2. Upload THIS .htaccess file to public_html
+3. If asked to overwrite, click YES
+4. Test: yourdomain.com/products/male-bengal-kitten-urban
+
+PERMANENT FIX (recommended later):
+Move all files from public_html/index.html/ up into public_html/
