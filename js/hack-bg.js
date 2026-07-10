@@ -71,7 +71,7 @@
       const radius = 120 + row * 38 * p.scale;
       const alpha = Math.max(0, 0.55 - row / HEX_ROWS * 0.5) * p.scale;
 
-      ctx.strokeStyle = `rgba(0, 229, 255, ${alpha * 0.45})`;
+      ctx.strokeStyle = `rgba(100, 170, 255, ${alpha * 0.45})`;
       ctx.lineWidth = 1;
 
       for (let i = 0; i < 6; i++) {
@@ -97,7 +97,7 @@
         const y = Math.sin(a) * radius * 0.35 + row * 8;
         const near = project(x, y, z);
         const far = project(x * 0.2, y * 0.2, z + 110);
-        ctx.strokeStyle = `rgba(0, 255, 136, ${alpha * 0.2})`;
+        ctx.strokeStyle = `rgba(212, 183, 106, ${alpha * 0.22})`;
         ctx.beginPath();
         ctx.moveTo(near.x, near.y);
         ctx.lineTo(far.x, far.y);
@@ -121,9 +121,9 @@
       const p1 = transformed[a];
       const p2 = transformed[b];
       const alpha = 0.75 * Math.min(p1.scale, p2.scale);
-      ctx.strokeStyle = `rgba(0, 255, 136, ${alpha})`;
+      ctx.strokeStyle = `rgba(120, 180, 255, ${alpha})`;
       ctx.lineWidth = 1.4;
-      ctx.shadowColor = '#00ff88';
+      ctx.shadowColor = '#6aa8ff';
       ctx.shadowBlur = 8;
       ctx.beginPath();
       ctx.moveTo(p1.x, p1.y);
@@ -133,7 +133,7 @@
     });
 
     transformed.forEach(p => {
-      ctx.fillStyle = `rgba(0, 255, 200, ${0.9 * p.scale})`;
+      ctx.fillStyle = `rgba(212, 183, 106, ${0.9 * p.scale})`;
       ctx.beginPath();
       ctx.arc(p.x, p.y, 3 * p.scale, 0, Math.PI * 2);
       ctx.fill();
@@ -156,7 +156,7 @@
         points.push(project(rot[0], rot[1], rot[2]));
       }
 
-      ctx.strokeStyle = `rgba(0, 200, 255, ${0.18 + r * 0.06})`;
+      ctx.strokeStyle = `rgba(140, 190, 255, ${0.18 + r * 0.06})`;
       ctx.lineWidth = 1;
       ctx.beginPath();
       points.forEach((p, i) => {
@@ -180,13 +180,13 @@
 
       const p = project((s.x - w / 2) * 1.6, (s.y - h / 2) * 0.8, s.z, 1100);
       const alpha = Math.min(1, (1200 - s.z) / 900) * 0.55 * p.scale;
-      ctx.fillStyle = `rgba(0, 255, 136, ${alpha})`;
+      ctx.fillStyle = `rgba(140, 190, 255, ${alpha})`;
       ctx.fillText(s.chars, p.x, p.y);
 
       // trail
       for (let t = 1; t < 5; t++) {
         const tp = project((s.x - w / 2) * 1.6, (s.y - h / 2) * 0.8, s.z + t * 28, 1100);
-        ctx.fillStyle = `rgba(0, 255, 136, ${alpha * (1 - t / 5) * 0.4})`;
+        ctx.fillStyle = `rgba(212, 183, 106, ${alpha * (1 - t / 5) * 0.35})`;
         ctx.fillText(s.chars.slice(0, 8), tp.x, tp.y);
       }
     });
@@ -196,13 +196,13 @@
     const sweep = (Math.sin(time * 0.008) * 0.5 + 0.5) * w;
     const grad = ctx.createLinearGradient(sweep - 120, 0, sweep + 120, 0);
     grad.addColorStop(0, 'rgba(0, 255, 136, 0)');
-    grad.addColorStop(0.5, 'rgba(0, 255, 200, 0.06)');
+    grad.addColorStop(0.5, 'rgba(140, 190, 255, 0.07)');
     grad.addColorStop(1, 'rgba(0, 255, 136, 0)');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
 
     const hline = h * 0.46 + Math.sin(time * 0.012) * 40;
-    ctx.strokeStyle = 'rgba(0, 229, 255, 0.08)';
+    ctx.strokeStyle = 'rgba(140, 190, 255, 0.1)';
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.moveTo(0, hline);
@@ -212,7 +212,7 @@
 
   function drawHUD() {
     ctx.font = '11px "Share Tech Mono", monospace';
-    ctx.fillStyle = 'rgba(0, 229, 255, 0.18)';
+    ctx.fillStyle = 'rgba(212, 183, 106, 0.2)';
     const lines = [
       '// BAVARIAN.ENGINE.EXCHANGE :: SECURE',
       `// HEX.TUNNEL.ACTIVE | CORE.SPIN ${Math.floor(time / 60)}`,
@@ -223,7 +223,7 @@
 
   function frame() {
     time++;
-    ctx.fillStyle = 'rgba(2, 6, 10, 0.28)';
+    ctx.fillStyle = 'rgba(10, 18, 40, 0.26)';
     ctx.fillRect(0, 0, w, h);
 
     drawHexTunnel();

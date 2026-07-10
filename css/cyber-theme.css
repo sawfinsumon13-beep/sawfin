@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@500;700;800&display=swap');
 
 :root {
-  --bg-primary: #020608;
-  --bg-secondary: rgba(4, 12, 16, 0.75);
-  --bg-card: rgba(6, 18, 22, 0.82);
-  --bg-card-hover: rgba(8, 28, 32, 0.9);
+  --bg-primary: #0a1224;
+  --bg-secondary: rgba(14, 24, 46, 0.82);
+  --bg-card: rgba(18, 32, 58, 0.88);
+  --bg-card-hover: rgba(24, 40, 68, 0.92);
   --accent: #00ff88;
   --accent-light: #5dffc0;
   --accent-cyan: #00e5ff;
@@ -51,7 +51,12 @@ body > *:not(#hack-bg):not(.whatsapp-float):not(#site-header) {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 0%, #041820 0%, #020608 45%, #000000 100%);
+  background:
+    radial-gradient(ellipse 120% 85% at 18% -8%, rgba(56, 110, 210, 0.38) 0%, transparent 52%),
+    radial-gradient(ellipse 90% 65% at 88% 12%, rgba(201, 169, 98, 0.14) 0%, transparent 48%),
+    radial-gradient(ellipse 75% 55% at 50% 105%, rgba(88, 52, 140, 0.22) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 40% at 60% 40%, rgba(30, 80, 160, 0.12) 0%, transparent 50%),
+    linear-gradient(168deg, #0e1a38 0%, #0a1228 32%, #08101f 58%, #050a14 100%);
 }
 
 #hack-bg-canvas {
@@ -79,7 +84,8 @@ body > *:not(#hack-bg):not(.whatsapp-float):not(#site-header) {
 .hack-vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.65) 100%);
+  background:
+    radial-gradient(ellipse at center, transparent 35%, rgba(5, 10, 24, 0.55) 75%, rgba(2, 4, 12, 0.82) 100%);
   z-index: 3;
 }
 
@@ -217,14 +223,11 @@ body > *:not(#hack-bg):not(.whatsapp-float):not(#site-header) {
 .hack-grid-hex {
   background-image: none !important;
   background:
-    radial-gradient(circle at 50% 45%, rgba(0, 229, 255, 0.04) 0%, transparent 55%),
-  repeating-conic-gradient(from 30deg at 50% 50%, rgba(0, 255, 136, 0.02) 0deg 60deg, transparent 60deg 120deg) !important;
-  background-size: 100% 100%, 64px 64px !important;
-  opacity: 0.6;
-}
-
-#hack-bg {
-  background: radial-gradient(ellipse at 50% 20%, #061820 0%, #020608 50%, #000000 100%) !important;
+    radial-gradient(circle at 50% 45%, rgba(100, 160, 255, 0.06) 0%, transparent 55%),
+    radial-gradient(circle at 20% 70%, rgba(212, 183, 106, 0.04) 0%, transparent 40%),
+    repeating-conic-gradient(from 30deg at 50% 50%, rgba(90, 140, 220, 0.03) 0deg 60deg, transparent 60deg 120deg) !important;
+  background-size: 100% 100%, 100% 100%, 64px 64px !important;
+  opacity: 0.7;
 }
 
 .hero-badge {

@@ -2214,6 +2214,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .engine-gallery-grid { grid-template-columns: 1fr; }
   .purchase-toast { left: 16px; right: 16px; max-width: none; }
   .whatsapp-float { right: 16px; bottom: 16px; width: 52px; height: 52px; }
+  .hero-highlights { grid-template-columns: 1fr; }
+  .hero-subbrand { letter-spacing: 0.08em; }
+  .hero-lead { font-size: 1rem; }
 }
 
 @media (max-width: 1200px) {
