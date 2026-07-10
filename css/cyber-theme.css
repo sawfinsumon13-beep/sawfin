@@ -149,6 +149,22 @@ body > *:not(#hack-bg):not(.whatsapp-float) {
   box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
 }
 
+.hero-trustpilot {
+  background: rgba(2, 6, 8, 0.78) !important;
+  border-color: rgba(0, 182, 122, 0.45) !important;
+  box-shadow: 0 0 28px rgba(0, 182, 122, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+.hero-trustpilot:hover {
+  border-color: rgba(0, 255, 136, 0.65) !important;
+  box-shadow: 0 0 36px rgba(0, 182, 122, 0.25) !important;
+}
+
+.hero-trustpilot-rating {
+  font-family: var(--font-display) !important;
+  text-shadow: 0 0 20px rgba(0, 182, 122, 0.35);
+}
+
 /* ── Buttons ── */
 .btn-primary {
   background: linear-gradient(135deg, #00cc6a, #00ff88) !important;
