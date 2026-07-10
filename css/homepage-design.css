@@ -13,8 +13,6 @@
 .page-home #hack-bg { display: none !important; }
 
 .page-home .home-hero {
-  min-height: auto;
-  padding: 32px 0 0;
   align-items: center;
 }
 
@@ -28,8 +26,6 @@
   gap: 0;
   max-width: 1200px;
 }
-
-.page-home .hero-car-stage { display: none !important; }
 
 .page-home .hero-content {
   max-width: none;
