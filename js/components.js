@@ -130,6 +130,7 @@ function renderFooter() {
             <h4>Contact</h4>
             <a href="mailto:${SITE.email}">${SITE.email}</a>
             <a href="tel:${SITE.phone.replace(/\s/g, '')}">${SITE.phone}</a>
+            <a href="https://wa.me/${SITE.whatsapp}" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a>
             <a href="/contact">Contact Form</a>
           </div>
         </div>

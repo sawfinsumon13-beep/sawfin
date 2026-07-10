@@ -1710,7 +1710,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: fixed;
   right: 24px;
   bottom: 24px;
-  z-index: 9999;
+  z-index: 99999 !important;
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -1719,8 +1719,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 4px 20px rgba(37, 255, 102, 0.55), 0 0 0 3px rgba(0, 255, 136, 0.25);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: whatsapp-pulse 2.5s ease-in-out infinite;
+  pointer-events: auto;
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.55), 0 0 0 3px rgba(0, 255, 136, 0.25); }
+  50% { box-shadow: 0 4px 28px rgba(37, 211, 102, 0.75), 0 0 0 8px rgba(0, 255, 136, 0.15); }
 }
 
 .whatsapp-float svg {
@@ -1729,9 +1736,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+  transform: scale(1.1);
+  box-shadow: 0 6px 32px rgba(37, 211, 102, 0.8), 0 0 0 6px rgba(0, 255, 136, 0.35) !important;
   color: #fff;
+  animation: none;
 }
 
 /* ── Homepage Content Blocks (5000+ words) ── */
