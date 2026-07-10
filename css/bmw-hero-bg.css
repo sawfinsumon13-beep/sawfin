@@ -1,0 +1,184 @@
+/* Real BMW hero background — warehouse photos + brand color motion (stable content) */
+
+.page-home .home-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(480px, 68vh, 680px);
+  padding: 56px 0 72px;
+  display: flex;
+  align-items: center;
+}
+
+.page-home .home-hero .hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #0a1628;
+}
+
+.hero-bmw-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Animated BMW brand color mesh */
+.hero-bmw-bg__colors {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(ellipse 55% 45% at 15% 25%, rgba(28, 105, 212, 0.75), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 85% 20%, rgba(111, 186, 247, 0.55), transparent 50%),
+    radial-gradient(ellipse 45% 50% at 70% 85%, rgba(231, 34, 46, 0.22), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 30% 75%, rgba(28, 105, 212, 0.45), transparent 50%),
+    linear-gradient(135deg, #0a1628 0%, #0f2847 40%, #1c4f9c 70%, #0a1628 100%);
+  animation: bmw-color-drift 18s ease-in-out infinite alternate;
+}
+
+.hero-bmw-bg__colors::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 25%,
+    transparent 50%,
+    rgba(111, 186, 247, 0.12) 75%,
+    transparent 100%
+  );
+  animation: bmw-light-sweep 8s ease-in-out infinite;
+}
+
+/* Real engine photo slides */
+.hero-bmw-bg__slides {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-bmw-bg__slide {
+  position: absolute;
+  inset: -8%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.08);
+  animation: bmw-photo-kenburns 24s ease-in-out infinite;
+  filter: saturate(1.15) contrast(1.05);
+}
+
+.hero-bmw-bg__slide:nth-child(1) { animation-delay: 0s; }
+.hero-bmw-bg__slide:nth-child(2) { animation-delay: 6s; }
+.hero-bmw-bg__slide:nth-child(3) { animation-delay: 12s; }
+.hero-bmw-bg__slide:nth-child(4) { animation-delay: 18s; }
+
+/* M-stripe accent */
+.hero-bmw-bg__stripes {
+  position: absolute;
+  right: -5%;
+  top: 15%;
+  width: 38%;
+  height: 70%;
+  opacity: 0.18;
+  background: repeating-linear-gradient(
+    -12deg,
+    #6fbaf7 0px,
+    #6fbaf7 3px,
+    transparent 3px,
+    transparent 18px,
+    #1c69d4 18px,
+    #1c69d4 21px,
+    transparent 21px,
+    transparent 36px,
+    #e7222e 36px,
+    #e7222e 39px,
+    transparent 39px,
+    transparent 54px
+  );
+  animation: bmw-stripe-shift 12s linear infinite;
+  mask-image: linear-gradient(90deg, transparent, #000 30%, #000 70%, transparent);
+}
+
+.hero-bmw-bg__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10, 22, 40, 0.92) 0%, rgba(10, 22, 40, 0.55) 45%, rgba(10, 22, 40, 0.35) 100%),
+    linear-gradient(180deg, rgba(10, 22, 40, 0.3) 0%, transparent 40%, rgba(10, 22, 40, 0.5) 100%);
+}
+
+@keyframes bmw-color-drift {
+  0% { transform: scale(1) translate(0, 0); filter: hue-rotate(0deg); }
+  100% { transform: scale(1.06) translate(-2%, 1%); filter: hue-rotate(8deg); }
+}
+
+@keyframes bmw-light-sweep {
+  0%, 100% { opacity: 0.4; transform: translateX(-10%); }
+  50% { opacity: 1; transform: translateX(10%); }
+}
+
+@keyframes bmw-photo-kenburns {
+  0%, 22% { opacity: 0; transform: scale(1.12); }
+  28%, 47% { opacity: 0.55; transform: scale(1.02); }
+  53%, 100% { opacity: 0; transform: scale(1.0); }
+}
+
+@keyframes bmw-stripe-shift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-54px); }
+}
+
+/* Stable hero content — NO spin */
+.page-home .hero-layout {
+  position: relative;
+  z-index: 2;
+}
+
+.page-home .hero-content {
+  animation: none !important;
+  transform: none !important;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.page-home .hero-trustpilot {
+  z-index: 5;
+  animation: none !important;
+  transform: none !important;
+}
+
+.page-home .home-stats,
+.page-home #homepageContent > section,
+.page-home .home-section {
+  animation: none !important;
+  transform: none !important;
+}
+
+.page-home .hero-subbrand,
+.page-home .hero-lead,
+.page-home .hero-tagline {
+  color: var(--home-muted);
+}
+
+@media (max-width: 768px) {
+  .page-home .home-hero {
+    min-height: auto;
+    padding: 32px 0 48px;
+  }
+
+  .hero-bmw-bg__stripes { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bmw-bg__colors,
+  .hero-bmw-bg__colors::after,
+  .hero-bmw-bg__slide,
+  .hero-bmw-bg__stripes {
+    animation: none !important;
+  }
+
+  .hero-bmw-bg__slide:first-child {
+    opacity: 0.45;
+  }
+}

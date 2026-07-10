@@ -6,8 +6,8 @@ const HOMEPAGE_GALLERY_SETS = [
 
 const HOMEPAGE_SECTIONS = [
   {
-    tag: 'WHY US',
-    title: 'Europe\'s Largest Used BMW Engine Inventory',
+    tag: 'ABOUT US',
+    title: 'Why Buy Used BMW Engines From bmwusedengines',
     imageAlt: 'BMW TwinPower Turbo engine cover',
     reverse: false,
     paragraphs: [
@@ -21,8 +21,8 @@ const HOMEPAGE_SECTIONS = [
     ]
   },
   {
-    tag: 'QUALITY CONTROL',
-    title: 'Every Unit Bench-Tested Before Dispatch',
+    tag: 'TESTING',
+    title: 'How We Test Every Used BMW Engine',
     imageAlt: 'BMW engine on pallet in warehouse',
     reverse: true,
     paragraphs: [
@@ -36,8 +36,8 @@ const HOMEPAGE_SECTIONS = [
     ]
   },
   {
-    tag: 'CLASSIC ENGINES',
-    title: 'Old BMW Engines — Preserving Engineering Heritage',
+    tag: 'CLASSICS',
+    title: 'Classic & Vintage BMW Engines in Stock',
     imageAlt: 'BMW engine close-up with hoses and components',
     reverse: false,
     paragraphs: [
@@ -51,8 +51,8 @@ const HOMEPAGE_SECTIONS = [
     ]
   },
   {
-    tag: 'FULL RANGE',
-    title: '3,100+ Engines — From M10 Classics to Modern B58',
+    tag: 'CATALOG',
+    title: '3,100+ Used BMW Engines — Full Range',
     imageAlt: 'BMW engine block workshop inventory',
     reverse: true,
     paragraphs: [
@@ -65,8 +65,8 @@ const HOMEPAGE_SECTIONS = [
     ]
   },
   {
-    tag: 'CUSTOMER TRUST',
-    title: 'Why Workshops & Enthusiasts Choose Us',
+    tag: 'TRUST',
+    title: 'Why Garages and Drivers Trust bmwusedengines',
     imageAlt: 'BMW engine workshop testing',
     reverse: false,
     paragraphs: [
@@ -79,8 +79,8 @@ const HOMEPAGE_SECTIONS = [
     ]
   },
   {
-    tag: 'GET STARTED',
-    title: 'Start Your BMW Engine Project Today',
+    tag: 'ORDER NOW',
+    title: 'How to Order Your Used BMW Engine',
     imageAlt: 'BMW engine in workshop',
     reverse: true,
     paragraphs: [
@@ -94,8 +94,8 @@ const HOMEPAGE_SECTIONS = [
     ]
   },
   {
-    tag: 'M57 SWAP KITS',
-    title: 'M57 Diesel Swap Kits — Built & Tested by bmwusedengines',
+    tag: 'M57 KITS',
+    title: 'M57 Diesel Engine Swap Kits',
     imageAlt: 'M57 diesel engine inventory',
     reverse: false,
     paragraphs: [
@@ -108,8 +108,8 @@ const HOMEPAGE_SECTIONS = [
     ]
   },
   {
-    tag: 'DIESEL SPECIALISTS',
-    title: 'BMW Diesel Engines — N47, N57, M57, B47, B57',
+    tag: 'DIESEL',
+    title: 'Used BMW Diesel Engines — N47, N57, M57, B47, B57',
     imageAlt: 'BMW diesel engine TwinPower',
     reverse: true,
     paragraphs: [
@@ -122,8 +122,8 @@ const HOMEPAGE_SECTIONS = [
     ]
   },
   {
-    tag: 'VALUE & PRICING',
-    title: 'Transparent Pricing — Genuine Value for Every Budget',
+    tag: 'PRICING',
+    title: 'Fair Prices on Tested Used BMW Engines',
     imageAlt: 'BMW engine inspection',
     reverse: false,
     paragraphs: [
@@ -136,8 +136,8 @@ const HOMEPAGE_SECTIONS = [
     ]
   },
   {
-    tag: 'PERFORMANCE',
-    title: 'M Power & Turbo Performance Engines',
+    tag: 'M POWER',
+    title: 'Used BMW M Performance & Turbo Engines',
     imageAlt: 'BMW M Power engine',
     reverse: true,
     paragraphs: [
@@ -151,8 +151,8 @@ const HOMEPAGE_SECTIONS = [
     ]
   },
   {
-    tag: 'CONTACT US',
-    title: 'Speak With Our BMW Engine Specialists',
+    tag: 'CONTACT',
+    title: 'Talk to a BMW Engine Specialist',
     imageAlt: 'BMW engine components',
     reverse: false,
     paragraphs: [
@@ -183,9 +183,9 @@ function renderContentIntro() {
     <section class="content-intro-section" id="engine-guide">
       <div class="container">
         <div class="content-intro-inner">
-          <span class="section-tag">Engine Guide</span>
-          <h2>Used BMW Engines — The Complete Buyer's Guide</h2>
-          <p class="content-intro-lead">Everything you need to know about buying, testing, and fitting used BMW engines — from classic M20 restorations to modern B58 replacements. Written by the bmwusedengines technical team from two decades of hands-on experience.</p>
+          <span class="section-tag">Buyer Guide</span>
+          <h2>Everything About Buying Used BMW Engines</h2>
+          <p class="content-intro-lead">A complete guide to choosing, testing, and fitting used BMW engines — written by the bmwusedengines team from 20+ years of hands-on workshop experience in Hamburg.</p>
           <div class="content-intro-meta">
             <span><strong>${HOMEPAGE_SECTIONS.length}</strong> chapters</span>
             <span><strong>${wordCount.toLocaleString()}+</strong> words</span>
@@ -227,8 +227,8 @@ function renderEngineGallery() {
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Our Warehouse</span>
-          <h2>Real Used BMW Engines — Photographed in Hamburg</h2>
-          <p>Every image below is from the bmwusedengines warehouse. These are the actual engines we test and ship.</p>
+          <h2>Real Used BMW Engines — Hamburg Warehouse Photos</h2>
+          <p>These are actual engines from the bmwusedengines warehouse — photographed, tested, and ready to ship to your garage.</p>
         </div>
         <div class="engine-gallery-grid">
           ${OLD_ENGINE_GALLERY.map(img => `

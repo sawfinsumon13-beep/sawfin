@@ -113,7 +113,7 @@ function renderFooter() {
               </div>
               <span class="logo-text">BMWUSEDENGINES</span>
             </a>
-            <p>Europe's go-to source for tested used BMW engines. 3,100+ units in stock — petrol, diesel, classic, and modern — shipped with warranty.</p>
+            <p>Europe's dedicated supplier of tested used BMW engines. 3,100+ units — classic straight-sixes to modern turbos — shipped with warranty.</p>
           </div>
           <div class="footer-col">
             <h4>Shop</h4>

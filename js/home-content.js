@@ -43,9 +43,9 @@ function renderHomepageContent() {
     <section class="category-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Shop by Code</span>
-          <h2>Browse Used BMW Engines by Family</h2>
-          <p>Find the right used engine for your BMW — every listing includes real photos, test data, and pricing.</p>
+          <span class="section-tag">Engine Families</span>
+          <h2>Shop Used BMW Engines by Code</h2>
+          <p>Pick your engine family below — N47, M57, B58, S54, and more. Every listing shows real warehouse photos and test results.</p>
         </div>
         <div class="category-grid">${cards}</div>
       </div>
@@ -61,23 +61,23 @@ function renderHomepageContent() {
       <div class="container premium-strip-grid">
         <div class="premium-strip-item">
           <span class="strip-number">01</span>
-          <h3>Dyno-Tested</h3>
-          <p>Every engine compression-tested, leak-down verified, and run on our SuperFlow dynamometer before sale.</p>
+          <h3>Tested Before Sale</h3>
+          <p>Every used BMW engine gets compression, leak-down, and live-run checks in our Hamburg test lab.</p>
         </div>
         <div class="premium-strip-item">
           <span class="strip-number">02</span>
-          <h3>6-Month Warranty</h3>
-          <p>Comprehensive mechanical warranty on all tested units. Documented results included with every purchase.</p>
+          <h3>Warranty Included</h3>
+          <p>Six months of mechanical cover on all tested units — certificate and report shipped with your engine.</p>
         </div>
         <div class="premium-strip-item">
           <span class="strip-number">03</span>
-          <h3>EU-Wide Shipping</h3>
-          <p>Palletised delivery to 28 countries. Transit insurance, tracking, and customs documentation included.</p>
+          <h3>Fast EU Shipping</h3>
+          <p>Pallet delivery to 28 countries with tracking, insurance, and customs documents handled for you.</p>
         </div>
         <div class="premium-strip-item">
           <span class="strip-number">04</span>
-          <h3>Expert Support</h3>
-          <p>Free fitment consultation from certified BMW technicians. Call +49 176 13627363 for advice.</p>
+          <h3>Workshop Support</h3>
+          <p>Free fitment advice from BMW specialists — call +49 176 13627363 or email before you order.</p>
         </div>
       </div>
     </section>
@@ -86,16 +86,16 @@ function renderHomepageContent() {
       <div class="container">
         <div class="classic-showcase-layout">
           <div class="classic-showcase-text">
-            <span class="section-tag">Classic Heritage</span>
-            <h2>Used BMW Engines — Real Photos, Real Stock</h2>
-            <p>Every bmwusedengines listing shows the actual unit you receive — TwinPower covers, complete blocks on pallets, and close-up shots from our Hamburg testing bay.</p>
+            <span class="section-tag">Warehouse Stock</span>
+            <h2>See the Actual Engine Before You Buy</h2>
+            <p>bmwusedengines lists only real stock — TwinPower covers, pallet-mounted blocks, and close-up inspection shots from Hamburg.</p>
             <ul class="classic-list">
-              <li>M10 · M20 · M30 — E21, E30, E28 restorations</li>
-              <li>M50 · M52 · M54 — E36, E39, E46 daily drivers</li>
-              <li>M57 · M47 — diesel swaps &amp; 4x4 conversions</li>
-              <li>S14 · S38 · S50 · S54 — motorsport &amp; collector builds</li>
+              <li>M10 · M20 · M30 — classic E21, E30, E28 rebuilds</li>
+              <li>M50 · M52 · M54 — E36, E39, E46 daily-driver swaps</li>
+              <li>M57 · M47 · N47 — diesel replacements and 4x4 conversions</li>
+              <li>S54 · S55 · B58 — performance and modern turbo builds</li>
             </ul>
-            <a href="${pageUrl('/engines?era=classic')}" class="btn btn-primary">Browse Classic Engines</a>
+            <a href="${pageUrl('/engines?era=classic')}" class="btn btn-primary">View Classic Stock</a>
           </div>
           <div class="classic-showcase-visual">
             <div class="classic-photo-stack">
@@ -110,10 +110,10 @@ function renderHomepageContent() {
 
     <section class="trust-section">
       <div class="container trust-grid">
-        <div class="trust-stat"><strong>15,000+</strong><span>Engines Sold Since 2003</span></div>
-        <div class="trust-stat"><strong>99.7%</strong><span>Customer Satisfaction</span></div>
+        <div class="trust-stat"><strong>15,000+</strong><span>Engines Delivered</span></div>
+        <div class="trust-stat"><strong>99.7%</strong><span>Happy Customers</span></div>
         <div class="trust-stat"><strong>0.4%</strong><span>Return Rate</span></div>
-        <div class="trust-stat"><strong>4–6 hrs</strong><span>Testing Per Engine</span></div>
+        <div class="trust-stat"><strong>4–6 hrs</strong><span>Lab Test Per Unit</span></div>
       </div>
     </section>
   `;
