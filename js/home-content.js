@@ -43,9 +43,9 @@ function renderHomepageContent() {
     <section class="category-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Shop by Platform</span>
-          <h2>Engine Families in Stock</h2>
-          <p>Browse verified BMW engines by series — each listing includes test data, photos, and pricing.</p>
+          <span class="section-tag">Shop by Code</span>
+          <h2>Browse Used BMW Engines by Family</h2>
+          <p>Find the right used engine for your BMW — every listing includes real photos, test data, and pricing.</p>
         </div>
         <div class="category-grid">${cards}</div>
       </div>
@@ -87,8 +87,8 @@ function renderHomepageContent() {
         <div class="classic-showcase-layout">
           <div class="classic-showcase-text">
             <span class="section-tag">Classic Heritage</span>
-            <h2>Real BMW Engines — Photographed in Our Warehouse</h2>
-            <p>Every engine listing shows the actual unit you receive — TwinPower covers, complete engine blocks on pallets, and close-up component shots from our Hamburg testing facility.</p>
+            <h2>Used BMW Engines — Real Photos, Real Stock</h2>
+            <p>Every bmwusedengines listing shows the actual unit you receive — TwinPower covers, complete blocks on pallets, and close-up shots from our Hamburg testing bay.</p>
             <ul class="classic-list">
               <li>M10 · M20 · M30 — E21, E30, E28 restorations</li>
               <li>M50 · M52 · M54 — E36, E39, E46 daily drivers</li>

@@ -68,7 +68,7 @@ body > *:not(#hack-bg):not(.whatsapp-float):not(#site-header) {
   font-family: var(--font) !important;
   color: var(--text-primary) !important;
   text-shadow: none !important;
-  font-size: 0.78rem !important;
+  font-size: 0.68rem !important;
   letter-spacing: 0.06em !important;
 }
 

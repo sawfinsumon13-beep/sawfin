@@ -1,8 +1,8 @@
 /* Shared components — header, footer, navigation */
 
 const SITE = {
-  name: 'Bavarian Engine Exchange',
-  domain: 'bavarianengineexchange.org',
+  name: 'bmwusedengines',
+  domain: 'bmwusedengines.com',
   email: 'flashkingpro202@gmail.com',
   phone: '+49 176 13627363',
   whatsapp: '4917613627363',
@@ -66,7 +66,7 @@ function renderHeader() {
               <path d="M4 4h7v7H4zM13 13h7v7h-7z" fill="#1c69d4" opacity="0.85"/>
             </svg>
           </div>
-          <span class="logo-text">BAVARIAN ENGINE EXCHANGE</span>
+          <span class="logo-text">BMWUSEDENGINES</span>
         </a>
         <nav class="main-nav" id="mainNav">${navLinks}</nav>
         <div class="header-actions">
@@ -111,9 +111,9 @@ function renderFooter() {
                   <path d="M4 4h7v7H4zM13 13h7v7h-7z" fill="#1c69d4" opacity="0.85"/>
                 </svg>
               </div>
-              <span class="logo-text">BAVARIAN ENGINE EXCHANGE</span>
+              <span class="logo-text">BMWUSEDENGINES</span>
             </a>
-            <p>Europe's specialist supplier of verified BMW engines. Over 3,100 tested units — from classic straight-sixes to modern turbo powerplants.</p>
+            <p>Europe's go-to source for tested used BMW engines. 3,100+ units in stock — petrol, diesel, classic, and modern — shipped with warranty.</p>
           </div>
           <div class="footer-col">
             <h4>Shop</h4>
@@ -147,7 +147,7 @@ function renderFooter() {
 }
 
 function renderWhatsAppButton() {
-  const message = encodeURIComponent('Hello Bavarian Engine Exchange, I would like to enquire about a BMW engine.');
+  const message = encodeURIComponent('Hello bmwusedengines, I would like to enquire about a BMW engine.');
   return `
     <a href="https://wa.me/${SITE.whatsapp}?text=${message}" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
