@@ -162,6 +162,35 @@ body > *:not(#hack-bg):not(.whatsapp-float):not(#site-header) {
   text-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
 }
 
+.hero-brand {
+  font-family: var(--font-display) !important;
+  background: linear-gradient(90deg, #e8fff4 0%, #00ff88 40%, #00e5ff 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  filter: drop-shadow(0 0 30px rgba(0, 255, 136, 0.35));
+  animation: hero-brand-glow 4s ease-in-out infinite;
+}
+
+@keyframes hero-brand-glow {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.25)); }
+  50% { filter: drop-shadow(0 0 36px rgba(0, 229, 255, 0.45)); }
+}
+
+.hack-grid-hex {
+  background-image: none !important;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(0, 229, 255, 0.04) 0%, transparent 55%),
+  repeating-conic-gradient(from 30deg at 50% 50%, rgba(0, 255, 136, 0.02) 0deg 60deg, transparent 60deg 120deg) !important;
+  background-size: 100% 100%, 64px 64px !important;
+  opacity: 0.6;
+}
+
+#hack-bg {
+  background: radial-gradient(ellipse at 50% 20%, #061820 0%, #020608 50%, #000000 100%) !important;
+}
+
 .hero-badge {
   background: rgba(0, 255, 136, 0.08) !important;
   border-color: rgba(0, 255, 136, 0.35) !important;

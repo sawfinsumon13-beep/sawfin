@@ -1,192 +1,239 @@
-/* Hacking-style 3D background — matrix rain + wireframe grid + neural network */
+/* 3D hacking background — hex tunnel, wireframe core, orbital rings, data streams */
 (function () {
-  const MATRIX_CHARS = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEF<>{}[]/\\|_#@$&';
-  const NODE_COUNT = 48;
-  const GRID_SIZE = 24;
-  const GRID_DEPTH = 18;
+  const HEX_ROWS = 14;
+  const HEX_COLS = 22;
+  const RING_COUNT = 4;
+  const STREAM_COUNT = 36;
 
-  let canvas, ctx, w, h, animId;
-  let matrixDrops = [];
-  let nodes = [];
-  let gridOffset = 0;
-  let time = 0;
+  let canvas, ctx, w, h, time = 0;
+  let streams = [];
+  let cubeVerts = [];
+  let cubeEdges = [];
 
   function resize() {
     w = canvas.width = window.innerWidth;
     h = canvas.height = window.innerHeight;
-    initMatrix();
-    initNodes();
+    initStreams();
+    initCube();
   }
 
-  function initMatrix() {
-    const cols = Math.ceil(w / 18);
-    matrixDrops = Array.from({ length: cols }, (_, i) => ({
-      x: i * 18,
+  function initStreams() {
+    streams = Array.from({ length: STREAM_COUNT }, () => ({
+      x: Math.random() * w,
       y: Math.random() * h,
-      speed: 1 + Math.random() * 2.5,
-      len: 8 + Math.floor(Math.random() * 20),
-      chars: Array.from({ length: 30 }, () => MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)])
+      z: Math.random() * 1200 + 200,
+      speed: 2 + Math.random() * 4,
+      chars: Array.from({ length: 16 }, () => (Math.random() > 0.5 ? '1' : '0')).join('')
     }));
   }
 
-  function initNodes() {
-    nodes = Array.from({ length: NODE_COUNT }, () => ({
-      x: (Math.random() - 0.5) * w * 1.4,
-      y: (Math.random() - 0.5) * h * 0.8,
-      z: Math.random() * 800 + 200,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.3,
-      vz: (Math.random() - 0.5) * 0.8,
-      pulse: Math.random() * Math.PI * 2
-    }));
+  function initCube() {
+    const s = 90;
+    cubeVerts = [
+      [-s, -s, -s], [s, -s, -s], [s, s, -s], [-s, s, -s],
+      [-s, -s, s], [s, -s, s], [s, s, s], [-s, s, s]
+    ];
+    cubeEdges = [
+      [0, 1], [1, 2], [2, 3], [3, 0],
+      [4, 5], [5, 6], [6, 7], [7, 4],
+      [0, 4], [1, 5], [2, 6], [3, 7]
+    ];
   }
 
-  function project(x, y, z) {
-    const fov = 500;
-    const scale = fov / (fov + z);
+  function project(x, y, z, camZ = 900) {
+    const scale = camZ / (camZ + z);
     return {
-      x: w / 2 + x * scale,
-      y: h / 2 + y * scale,
+      x: w * 0.5 + x * scale,
+      y: h * 0.46 + y * scale,
       scale,
       z
     };
   }
 
-  function drawMatrix() {
-    ctx.font = '14px "Share Tech Mono", monospace';
-    matrixDrops.forEach(col => {
-      for (let i = 0; i < col.len; i++) {
-        const y = col.y - i * 18;
-        if (y < -20 || y > h + 20) continue;
-        const alpha = Math.max(0, 1 - i / col.len);
-        const char = col.chars[(Math.floor(col.y / 18) + i) % col.chars.length];
-        ctx.fillStyle = i === 0
-          ? `rgba(0, 255, 136, ${0.95 * alpha})`
-          : `rgba(0, 240, 180, ${0.35 * alpha})`;
-        ctx.fillText(char, col.x, y);
-      }
-      col.y += col.speed;
-      if (col.y > h + col.len * 18) {
-        col.y = -col.len * 18;
-        col.speed = 1 + Math.random() * 2.5;
-      }
-    });
+  function rotateY(x, y, z, a) {
+    const c = Math.cos(a), s = Math.sin(a);
+    return [x * c + z * s, y, -x * s + z * c];
   }
 
-  function drawGrid3D() {
-    gridOffset += 0.6;
-    const horizon = h * 0.42;
+  function rotateX(x, y, z, a) {
+    const c = Math.cos(a), s = Math.sin(a);
+    return [x, y * c - z * s, y * s + z * c];
+  }
 
-    for (let z = 0; z < GRID_DEPTH; z++) {
-      const depth = z * GRID_SIZE + (gridOffset % GRID_SIZE);
-      const p1 = project(0, 0, depth * 8);
-      const alpha = Math.max(0, 0.45 - z / GRID_DEPTH * 0.4) * p1.scale;
+  function drawHexTunnel() {
+    const scroll = (time * 1.4) % 52;
+    const horizon = h * 0.38;
 
-      ctx.strokeStyle = `rgba(0, 255, 200, ${alpha * 0.35})`;
+    for (let row = 0; row < HEX_ROWS; row++) {
+      const depth = row * 52 + scroll;
+      const z = depth * 2.2;
+      const p = project(0, 0, z);
+      const radius = 120 + row * 38 * p.scale;
+      const alpha = Math.max(0, 0.55 - row / HEX_ROWS * 0.5) * p.scale;
+
+      ctx.strokeStyle = `rgba(0, 229, 255, ${alpha * 0.45})`;
       ctx.lineWidth = 1;
 
-      // horizontal lines
-      for (let x = -GRID_SIZE * 2; x <= GRID_SIZE * 2; x++) {
-        const left = project(x * GRID_SIZE * 2, 80, depth * 8);
-        const right = project((x + 1) * GRID_SIZE * 2, 80, depth * 8);
-        if (left.y < horizon) continue;
+      for (let i = 0; i < 6; i++) {
+        const a1 = (i / 6) * Math.PI * 2 + time * 0.0008;
+        const a2 = ((i + 1) / 6) * Math.PI * 2 + time * 0.0008;
+        const x1 = Math.cos(a1) * radius;
+        const y1 = Math.sin(a1) * radius * 0.35 + row * 8;
+        const x2 = Math.cos(a2) * radius;
+        const y2 = Math.sin(a2) * radius * 0.35 + row * 8;
+        const p1 = project(x1, y1, z);
+        const p2 = project(x2, y2, z);
+        if (p1.y < horizon && p2.y < horizon) continue;
         ctx.beginPath();
-        ctx.moveTo(left.x, left.y);
-        ctx.lineTo(right.x, right.y);
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+      }
+
+      // radial spokes
+      for (let i = 0; i < 6; i++) {
+        const a = (i / 6) * Math.PI * 2;
+        const x = Math.cos(a) * radius;
+        const y = Math.sin(a) * radius * 0.35 + row * 8;
+        const near = project(x, y, z);
+        const far = project(x * 0.2, y * 0.2, z + 110);
+        ctx.strokeStyle = `rgba(0, 255, 136, ${alpha * 0.2})`;
+        ctx.beginPath();
+        ctx.moveTo(near.x, near.y);
+        ctx.lineTo(far.x, far.y);
         ctx.stroke();
       }
     }
+  }
 
-    // vertical perspective lines
-    for (let x = -GRID_SIZE * 2; x <= GRID_SIZE * 2; x++) {
-      const near = project(x * GRID_SIZE * 2, 80, 20);
-      const far = project(x * GRID_SIZE * 2, 80, GRID_DEPTH * 8);
-      ctx.strokeStyle = 'rgba(0, 200, 255, 0.12)';
+  function drawWireCore() {
+    const ax = time * 0.0016;
+    const ay = time * 0.0011;
+    const az = time * 0.0007;
+    const transformed = cubeVerts.map(([x, y, z]) => {
+      let p = rotateX(x, y, z, ax);
+      p = rotateY(p[0], p[1], p[2], ay);
+      p = rotateX(p[0], p[1], p[2], az);
+      return project(p[0], p[1] - 30, p[2] + 180, 700);
+    });
+
+    cubeEdges.forEach(([a, b]) => {
+      const p1 = transformed[a];
+      const p2 = transformed[b];
+      const alpha = 0.75 * Math.min(p1.scale, p2.scale);
+      ctx.strokeStyle = `rgba(0, 255, 136, ${alpha})`;
+      ctx.lineWidth = 1.4;
+      ctx.shadowColor = '#00ff88';
+      ctx.shadowBlur = 8;
       ctx.beginPath();
-      ctx.moveTo(near.x, near.y);
-      ctx.lineTo(far.x, far.y);
+      ctx.moveTo(p1.x, p1.y);
+      ctx.lineTo(p2.x, p2.y);
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+    });
+
+    transformed.forEach(p => {
+      ctx.fillStyle = `rgba(0, 255, 200, ${0.9 * p.scale})`;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 3 * p.scale, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function drawOrbitalRings() {
+    for (let r = 0; r < RING_COUNT; r++) {
+      const tilt = 0.35 + r * 0.22;
+      const radius = 160 + r * 55;
+      const spin = time * (0.0012 + r * 0.0004);
+      const points = [];
+
+      for (let i = 0; i <= 48; i++) {
+        const t = (i / 48) * Math.PI * 2;
+        let x = Math.cos(t + spin) * radius;
+        let y = Math.sin(t + spin) * radius * Math.sin(tilt);
+        let z = Math.sin(t + spin) * radius * Math.cos(tilt) + 320 + r * 40;
+        const rot = rotateY(x, y, z, time * 0.0005);
+        points.push(project(rot[0], rot[1], rot[2]));
+      }
+
+      ctx.strokeStyle = `rgba(0, 200, 255, ${0.18 + r * 0.06})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      points.forEach((p, i) => {
+        if (i === 0) ctx.moveTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+      });
+      ctx.closePath();
       ctx.stroke();
     }
   }
 
-  function drawNetwork() {
-    nodes.forEach(n => {
-      n.x += n.vx;
-      n.y += n.vy;
-      n.z += n.vz;
-      n.pulse += 0.04;
-
-      if (Math.abs(n.x) > w) n.vx *= -1;
-      if (Math.abs(n.y) > h * 0.5) n.vy *= -1;
-      if (n.z < 100 || n.z > 900) n.vz *= -1;
-
-      n.x += Math.sin(time * 0.001 + n.pulse) * 0.15;
-      n.y += Math.cos(time * 0.0012 + n.pulse) * 0.1;
-    });
-
-    const projected = nodes.map(n => ({ ...n, p: project(n.x, n.y - 40, n.z) }));
-
-    for (let i = 0; i < projected.length; i++) {
-      for (let j = i + 1; j < projected.length; j++) {
-        const a = projected[i];
-        const b = projected[j];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        const dz = a.z - b.z;
-        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-        if (dist < 220) {
-          const alpha = (1 - dist / 220) * 0.35 * Math.min(a.p.scale, b.p.scale);
-          ctx.strokeStyle = `rgba(0, 255, 136, ${alpha})`;
-          ctx.lineWidth = 0.8;
-          ctx.beginPath();
-          ctx.moveTo(a.p.x, a.p.y);
-          ctx.lineTo(b.p.x, b.p.y);
-          ctx.stroke();
-        }
+  function drawDataStreams() {
+    ctx.font = '12px "Share Tech Mono", monospace';
+    streams.forEach(s => {
+      s.z -= s.speed;
+      if (s.z < 50) {
+        s.z = 1200 + Math.random() * 400;
+        s.x = Math.random() * w;
+        s.y = Math.random() * h * 0.6;
       }
-    }
 
-    projected.forEach(n => {
-      const r = 2 + Math.sin(n.pulse) * 1.2;
-      const glow = ctx.createRadialGradient(n.p.x, n.p.y, 0, n.p.x, n.p.y, r * 4);
-      glow.addColorStop(0, `rgba(0, 255, 200, ${0.9 * n.p.scale})`);
-      glow.addColorStop(1, 'rgba(0, 255, 200, 0)');
-      ctx.fillStyle = glow;
-      ctx.beginPath();
-      ctx.arc(n.p.x, n.p.y, r * 4 * n.p.scale, 0, Math.PI * 2);
-      ctx.fill();
+      const p = project((s.x - w / 2) * 1.6, (s.y - h / 2) * 0.8, s.z, 1100);
+      const alpha = Math.min(1, (1200 - s.z) / 900) * 0.55 * p.scale;
+      ctx.fillStyle = `rgba(0, 255, 136, ${alpha})`;
+      ctx.fillText(s.chars, p.x, p.y);
 
-      ctx.fillStyle = `rgba(200, 255, 240, ${0.95 * n.p.scale})`;
-      ctx.beginPath();
-      ctx.arc(n.p.x, n.p.y, r * n.p.scale, 0, Math.PI * 2);
-      ctx.fill();
+      // trail
+      for (let t = 1; t < 5; t++) {
+        const tp = project((s.x - w / 2) * 1.6, (s.y - h / 2) * 0.8, s.z + t * 28, 1100);
+        ctx.fillStyle = `rgba(0, 255, 136, ${alpha * (1 - t / 5) * 0.4})`;
+        ctx.fillText(s.chars.slice(0, 8), tp.x, tp.y);
+      }
     });
+  }
+
+  function drawScanBeams() {
+    const sweep = (Math.sin(time * 0.008) * 0.5 + 0.5) * w;
+    const grad = ctx.createLinearGradient(sweep - 120, 0, sweep + 120, 0);
+    grad.addColorStop(0, 'rgba(0, 255, 136, 0)');
+    grad.addColorStop(0.5, 'rgba(0, 255, 200, 0.06)');
+    grad.addColorStop(1, 'rgba(0, 255, 136, 0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+
+    const hline = h * 0.46 + Math.sin(time * 0.012) * 40;
+    ctx.strokeStyle = 'rgba(0, 229, 255, 0.08)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(0, hline);
+    ctx.lineTo(w, hline);
+    ctx.stroke();
   }
 
   function drawHUD() {
     ctx.font = '11px "Share Tech Mono", monospace';
-    ctx.fillStyle = 'rgba(0, 255, 136, 0.15)';
+    ctx.fillStyle = 'rgba(0, 229, 255, 0.18)';
     const lines = [
-      '// SYS.BMW.ENGINE.INVENTORY',
-      `// NODES: ${NODE_COUNT} | GRID: ACTIVE`,
-      `// T+${Math.floor(time / 60)}ms`
+      '// BAVARIAN.ENGINE.EXCHANGE :: SECURE',
+      `// HEX.TUNNEL.ACTIVE | CORE.SPIN ${Math.floor(time / 60)}`,
+      '// 3D.HACK.LAYER.ONLINE'
     ];
-    lines.forEach((line, i) => {
-      ctx.fillText(line, 20, h - 60 + i * 16);
-    });
+    lines.forEach((line, i) => ctx.fillText(line, 20, h - 68 + i * 16));
   }
 
   function frame() {
     time++;
-    ctx.fillStyle = 'rgba(2, 6, 8, 0.22)';
+    ctx.fillStyle = 'rgba(2, 6, 10, 0.28)';
     ctx.fillRect(0, 0, w, h);
 
-    drawGrid3D();
-    drawMatrix();
-    drawNetwork();
+    drawHexTunnel();
+    drawOrbitalRings();
+    drawDataStreams();
+    drawWireCore();
+    drawScanBeams();
     drawHUD();
 
-    animId = requestAnimationFrame(frame);
+    requestAnimationFrame(frame);
   }
 
   function init() {
@@ -198,7 +245,7 @@
       <canvas id="hack-bg-canvas" aria-hidden="true"></canvas>
       <div class="hack-scanlines" aria-hidden="true"></div>
       <div class="hack-vignette" aria-hidden="true"></div>
-      <div class="hack-grid-overlay" aria-hidden="true"></div>`;
+      <div class="hack-grid-overlay hack-grid-hex" aria-hidden="true"></div>`;
     document.body.prepend(wrap);
 
     canvas = document.getElementById('hack-bg-canvas');
