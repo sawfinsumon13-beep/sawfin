@@ -1,7 +1,17 @@
 /* Trustpilot Animation System */
 .hero-trustpilot {
+  background: #fff !important;
+  border-color: rgba(0, 182, 122, 0.28) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.hero-trustpilot-rating {
+  animation: none;
+  color: #152033;
+}
+
+.hero-trustpilot.tp-anim-ready {
   animation: tp-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-  overflow: hidden;
 }
 
 .hero-trustpilot::before {

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const res = await fetch(`data/blogs/post-${String(id).padStart(3, '0')}.json`);
     const post = await res.json();
 
-    document.title = `${post.title} | Premium BMW Engines Blog`;
+    document.title = `${post.title} | Bavarian Engine Exchange Blog`;
     document.getElementById('breadcrumbTitle').textContent = post.title;
 
     container.innerHTML = `

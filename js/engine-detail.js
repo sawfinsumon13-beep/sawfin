@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       return;
     }
 
-    document.title = `${engine.name} | Premium BMW Engines`;
+    document.title = `${engine.name} | Bavarian Engine Exchange`;
     document.getElementById('breadcrumbName').textContent = engine.name;
 
     const galleryImages = getEngineGalleryImages(engine);

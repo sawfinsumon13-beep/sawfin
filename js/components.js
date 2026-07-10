@@ -1,8 +1,8 @@
 /* Shared components — header, footer, navigation */
 
 const SITE = {
-  name: 'Premium BMW Engines',
-  domain: 'premiumbmwengines.com',
+  name: 'Bavarian Engine Exchange',
+  domain: 'bavarianengineexchange.org',
   email: 'flashkingpro202@gmail.com',
   phone: '+49 176 13627363',
   whatsapp: '4917613627363',
@@ -58,13 +58,15 @@ function renderHeader() {
     <header class="site-header">
       <div class="container header-inner">
         <a href="${pageUrl('/')}" class="logo">
-          <div class="logo-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M12 3v18M3 12h18"/>
+          <div class="logo-icon logo-icon--bmw">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#1c69d4" stroke="#0f4fa8" stroke-width="0.5"/>
+              <path d="M12 2v20M2 12h20" stroke="#fff" stroke-width="0.6" opacity="0.5"/>
+              <path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" fill="#fff" opacity="0.9"/>
+              <path d="M4 4h7v7H4zM13 13h7v7h-7z" fill="#1c69d4" opacity="0.85"/>
             </svg>
           </div>
-          <span class="logo-text">PREMIUM BMW ENGINES</span>
+          <span class="logo-text">BAVARIAN ENGINE EXCHANGE</span>
         </a>
         <nav class="main-nav" id="mainNav">${navLinks}</nav>
         <div class="header-actions">
@@ -102,14 +104,16 @@ function renderFooter() {
         <div class="footer-grid">
           <div class="footer-brand">
             <a href="${pageUrl('/')}" class="logo">
-              <div class="logo-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                  <circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/>
+              <div class="logo-icon logo-icon--bmw">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" fill="#1c69d4" stroke="#0f4fa8" stroke-width="0.5"/>
+                  <path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" fill="#fff" opacity="0.9"/>
+                  <path d="M4 4h7v7H4zM13 13h7v7h-7z" fill="#1c69d4" opacity="0.85"/>
                 </svg>
               </div>
-              <span class="logo-text">PREMIUM BMW ENGINES</span>
+              <span class="logo-text">BAVARIAN ENGINE EXCHANGE</span>
             </a>
-            <p>Europe's leading supplier of premium BMW engines. Over 3,000 tested units in stock — from classic M20 to modern B58 powerplants.</p>
+            <p>Europe's specialist supplier of verified BMW engines. Over 3,100 tested units — from classic straight-sixes to modern turbo powerplants.</p>
           </div>
           <div class="footer-col">
             <h4>Shop</h4>
@@ -143,7 +147,7 @@ function renderFooter() {
 }
 
 function renderWhatsAppButton() {
-  const message = encodeURIComponent('Hello Premium BMW Engines, I would like to enquire about a BMW engine.');
+  const message = encodeURIComponent('Hello Bavarian Engine Exchange, I would like to enquire about a BMW engine.');
   return `
     <a href="https://wa.me/${SITE.whatsapp}?text=${message}" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

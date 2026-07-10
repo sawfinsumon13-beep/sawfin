@@ -1,7 +1,7 @@
 {
   "name": "premium-bmw-engines",
   "version": "1.0.0",
-  "description": "Premium BMW Engines website — premiumbmwengines.com",
+  "description": "Bavarian Engine Exchange — bavarianengineexchange.org",
   "scripts": {
     "generate": "node scripts/generate-data.js",
     "generate:pages": "node scripts/generate-page-content.js",

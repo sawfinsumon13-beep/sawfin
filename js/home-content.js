@@ -43,9 +43,9 @@ function renderHomepageContent() {
     <section class="category-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Browse by Series</span>
-          <h2>BMW Engine Collections</h2>
-          <p>3,100+ tested engines — select your series to explore inventory, specs, and pricing.</p>
+          <span class="section-tag">Shop by Platform</span>
+          <h2>Engine Families in Stock</h2>
+          <p>Browse verified BMW engines by series — each listing includes test data, photos, and pricing.</p>
         </div>
         <div class="category-grid">${cards}</div>
       </div>
