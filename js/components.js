@@ -2,7 +2,7 @@
 
 const SITE = {
   name: 'bmwusedengines',
-  domain: 'bmwusedengines.com',
+  domain: 'bmwusedengines.org',
   email: 'flashkingpro202@gmail.com',
   phone: '+49 176 13627363',
   whatsapp: '4917613627363',
