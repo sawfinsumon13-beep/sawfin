@@ -1,0 +1,33 @@
+{
+  "pages": [
+    {
+      "slug": "m57-swap-kits",
+      "wordCount": 1817,
+      "sections": 5,
+      "layout": "sections"
+    },
+    {
+      "slug": "services",
+      "wordCount": 1666,
+      "sections": 6,
+      "layout": "sections"
+    },
+    {
+      "slug": "about",
+      "wordCount": 1569,
+      "sections": 6,
+      "layout": "sections"
+    },
+    {
+      "slug": "contact",
+      "wordCount": 709,
+      "layout": "contact"
+    },
+    {
+      "slug": "policies",
+      "wordCount": 1506,
+      "sections": 6,
+      "layout": "policy"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Technical BMW Engine Guides | Bavarian Engine Exchange</title>
+  <meta name="description" content="215 technical articles on BMW engines — buying guides, swap tutorials, maintenance, and logistics from Hamburg experts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <span>Blog</span></div>
+      <h1>Technical Blog</h1>
+      <p><span id="totalBlogs">215</span> technical articles — buying guides, platform comparisons, workshop advice, and logistics from Hamburg.</p>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px">
+    <div class="container">
+      <div class="filters-bar">
+        <div class="filter-group search-box">
+          <label>Search Articles</label>
+          <input type="text" id="filterSearch" placeholder="Search by title...">
+        </div>
+        <div class="filter-group">
+          <label>Category</label>
+          <select id="filterCategory">
+            <option value="">All Categories</option>
+            <option value="BUYING GUIDE">Buying Guide</option>
+            <option value="ENGINE GUIDE">Engine Guide</option>
+            <option value="EURO 6">Euro 6</option>
+            <option value="CONVERSIONS">Conversions</option>
+            <option value="LOGISTICS">Logistics</option>
+            <option value="4x4">4x4</option>
+            <option value="WORKSHOP">Workshop</option>
+            <option value="MAINTENANCE">Maintenance</option>
+            <option value="PERFORMANCE">Performance</option>
+            <option value="DIESEL">Diesel</option>
+            <option value="CLASSIC">Classic</option>
+            <option value="SWAP GUIDE">Swap Guide</option>
+            <option value="TUNING">Tuning</option>
+            <option value="DIAGNOSTICS">Diagnostics</option>
+            <option value="RESTORATION">Restoration</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="results-info">
+        <span id="showingBlogs">Loading...</span>
+      </div>
+
+      <div class="card-grid" id="blogGrid">
+        <div class="loading"><div class="spinner"></div>Loading articles...</div>
+      </div>
+
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="js/images.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/blog.js"></script>
+</body>
+</html>
