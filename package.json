@@ -6,6 +6,7 @@
     "generate": "node scripts/generate-data.js",
     "generate:pages": "node scripts/generate-page-content.js",
     "generate:reviews": "node scripts/generate-reviews.js",
+    "generate:videos": "bash scripts/generate-testimonial-videos.sh",
     "generate:all": "node scripts/generate-data.js && node scripts/generate-page-content.js && node scripts/generate-reviews.js",
     "serve": "npx --yes serve . -l 3000"
   }
