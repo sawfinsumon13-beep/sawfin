@@ -11,11 +11,12 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/homepage-design.css">
 </head>
-<body>
+<body class="page-home">
   <div id="site-header"></div>
 
-  <section class="hero">
+  <section class="hero home-hero">
     <div class="hero-bg"></div>
     <a
       href="https://www.trustpilot.com/review/premiumbmwengines.com"
@@ -74,7 +75,7 @@
     </div>
   </section>
 
-  <section class="stats-bar">
+  <section class="stats-bar home-stats">
     <div class="container stats-grid">
       <div>
         <div class="stat-number">3,100+</div>
@@ -97,7 +98,7 @@
 
   <div id="homepageContent"></div>
 
-  <section class="section" style="padding-top:0">
+  <section class="section home-section home-section--tight home-section--light">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Featured Inventory</span>
@@ -107,13 +108,13 @@
       <div class="card-grid" id="featuredEngines">
         <div class="loading"><div class="spinner"></div>Loading engines...</div>
       </div>
-      <div style="text-align:center;margin-top:40px">
+      <div class="home-section-action">
         <a href="engines.html" class="btn btn-primary">View All 3,100+ Engines</a>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background:var(--bg-secondary)">
+  <section class="section home-section home-section--muted">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Our Services</span>
@@ -153,7 +154,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section home-section home-section--light">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Technical Blog</span>
@@ -163,18 +164,18 @@
       <div class="card-grid" id="featuredBlogs">
         <div class="loading"><div class="spinner"></div>Loading articles...</div>
       </div>
-      <div style="text-align:center;margin-top:40px">
+      <div class="home-section-action">
         <a href="blog.html" class="btn btn-primary">Read All Articles</a>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background:var(--bg-secondary)">
+  <section class="section home-section home-section--muted">
     <div class="container">
       <div class="cta-banner">
         <h3>Ready to Find Your Engine?</h3>
         <p>Contact our technical team for personalised recommendations. We respond within 2 hours during business hours.</p>
-        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <div class="home-cta-actions">
           <a href="mailto:flashkingpro202@gmail.com" class="btn btn-primary">flashkingpro202@gmail.com</a>
           <a href="tel:+4917613627363" class="btn btn-outline">+49 176 13627363</a>
         </div>
