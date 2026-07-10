@@ -116,8 +116,19 @@
 
 .page-home .home-stats {
   margin-top: -40px;
-  padding-bottom: 64px;
+  padding-bottom: 32px;
   background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.page-home .bmw-car-slideshow-section {
+  position: relative;
+  z-index: 1;
+}
+
+.page-home .bmw-car-slideshow-section .section-header h2 {
+  font-family: var(--font-display);
 }
 
 .page-home .home-stats .stats-grid > div {

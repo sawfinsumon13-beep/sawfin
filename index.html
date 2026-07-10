@@ -12,6 +12,7 @@
   <link rel="apple-touch-icon" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/bmw-hero-bg.css">
+  <link rel="stylesheet" href="css/bmw-car-slideshow.css">
   <link rel="stylesheet" href="css/homepage-design.css">
 </head>
 <body class="page-home">
@@ -106,6 +107,29 @@
     </div>
   </section>
 
+  <section class="bmw-car-slideshow-section" aria-label="BMW car gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">BMW Gallery</span>
+        <h2>Original BMW Cars — Engine Donor Models</h2>
+        <p>Every engine we sell comes from real BMW vehicles like these — photographed, tested, and ready for your project.</p>
+      </div>
+      <div class="bmw-slideshow" id="bmwCarSlideshow">
+        <div class="bmw-slideshow__viewport">
+          <div class="bmw-slideshow__track"></div>
+          <button class="bmw-slideshow__btn bmw-slideshow__btn--prev" type="button" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="bmw-slideshow__btn bmw-slideshow__btn--next" type="button" aria-label="Next slide">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+        <div class="bmw-slideshow__dots"></div>
+        <div class="bmw-slideshow__thumbs"></div>
+      </div>
+    </div>
+  </section>
+
   <div id="homepageContent"></div>
 
   <section class="section home-section home-section--tight home-section--light">
@@ -196,6 +220,7 @@
   <div id="site-footer"></div>
   <script src="js/images.js"></script>
   <script src="js/bmw-hero-bg.js"></script>
+  <script src="js/bmw-car-slideshow.js"></script>
   <script src="js/trustpilot-anim.js"></script>
   <script src="js/routes.js"></script>
   <script src="js/components.js"></script>

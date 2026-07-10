@@ -1,0 +1,171 @@
+/* BMW car photo slideshow */
+.bmw-car-slideshow-section {
+  padding: 48px 0 64px;
+  background: linear-gradient(180deg, rgba(238, 241, 246, 0.5) 0%, #eef1f6 100%);
+}
+
+.bmw-car-slideshow-section .section-header {
+  margin-bottom: 32px;
+}
+
+.bmw-slideshow {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bmw-slideshow__viewport {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  background: #0a1628;
+  aspect-ratio: 16 / 7;
+}
+
+.bmw-slideshow__track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bmw-slideshow__slide {
+  flex: 0 0 100%;
+  position: relative;
+  height: 100%;
+}
+
+.bmw-slideshow__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bmw-slideshow__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 48px 28px 24px;
+  background: linear-gradient(180deg, transparent, rgba(10, 22, 40, 0.88));
+  color: #fff;
+}
+
+.bmw-slideshow__caption strong {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.bmw-slideshow__caption span {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.bmw-slideshow__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(10, 22, 40, 0.55);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.bmw-slideshow__btn:hover {
+  background: rgba(28, 105, 212, 0.85);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.bmw-slideshow__btn--prev { left: 16px; }
+.bmw-slideshow__btn--next { right: 16px; }
+
+.bmw-slideshow__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.bmw-slideshow__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(28, 105, 212, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.bmw-slideshow__dot.active {
+  background: var(--accent);
+  transform: scale(1.15);
+}
+
+.bmw-slideshow__thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+}
+
+.bmw-slideshow__thumb {
+  flex: 0 0 88px;
+  height: 56px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.2s, border-color 0.2s;
+  padding: 0;
+  background: none;
+}
+
+.bmw-slideshow__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bmw-slideshow__thumb.active,
+.bmw-slideshow__thumb:hover {
+  opacity: 1;
+  border-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .bmw-car-slideshow-section { padding: 32px 0 48px; }
+
+  .bmw-slideshow__viewport { aspect-ratio: 16 / 10; }
+
+  .bmw-slideshow__btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .bmw-slideshow__btn--prev { left: 10px; }
+  .bmw-slideshow__btn--next { right: 10px; }
+
+  .bmw-slideshow__thumb { flex-basis: 72px; height: 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bmw-slideshow__track { transition: none; }
+}
