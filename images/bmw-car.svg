@@ -1,0 +1,81 @@
+<svg class="bmw-car-svg" viewBox="0 0 520 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="bmwBody" x1="0" y1="0" x2="520" y2="0">
+      <stop offset="0%" stop-color="#1c4f9c" stop-opacity="0.15"/>
+      <stop offset="40%" stop-color="#8eb8f0" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#c9a962" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="bmwGlass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8eb8f0" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#1c4f9c" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="bmwGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ground reflection -->
+  <ellipse cx="260" cy="158" rx="210" ry="12" fill="url(#bmwBody)" opacity="0.35"/>
+
+  <!-- speed lines -->
+  <g class="bmw-speed-lines" opacity="0.5">
+    <line x1="20" y1="95" x2="90" y2="95" stroke="#c9a962" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="5" y1="110" x2="70" y2="110" stroke="#8eb8f0" stroke-width="1" stroke-linecap="round"/>
+    <line x1="30" y1="125" x2="100" y2="125" stroke="#c9a962" stroke-width="1" stroke-linecap="round"/>
+  </g>
+
+  <!-- car body -->
+  <g class="bmw-car-body" filter="url(#bmwGlow)">
+    <!-- lower body -->
+    <path d="M55 118 Q80 108 130 104 L175 100 Q230 96 310 98 L400 102 Q460 106 485 118 L490 128 L45 128 Z" fill="url(#bmwBody)" stroke="#c9a962" stroke-width="1.2" stroke-opacity="0.7"/>
+    <!-- side skirt -->
+    <path d="M70 128 L455 128" stroke="#8eb8f0" stroke-width="0.8" stroke-opacity="0.5"/>
+    <!-- cabin -->
+    <path d="M155 104 Q175 72 230 64 L310 62 Q365 64 385 88 L395 104 Z" fill="url(#bmwGlass)" stroke="#8eb8f0" stroke-width="1" stroke-opacity="0.6"/>
+    <!-- roof -->
+    <path d="M195 72 Q250 58 310 60" stroke="#e8eef7" stroke-width="1.2" stroke-opacity="0.4" fill="none"/>
+    <!-- hood line -->
+    <path d="M130 104 Q155 90 175 100" stroke="#c9a962" stroke-width="0.8" stroke-opacity="0.5" fill="none"/>
+    <!-- trunk -->
+    <path d="M385 88 Q420 82 455 95" stroke="#c9a962" stroke-width="0.8" stroke-opacity="0.4" fill="none"/>
+    <!-- grille hint -->
+    <rect x="68" y="108" width="18" height="14" rx="2" fill="none" stroke="#8eb8f0" stroke-width="0.8" opacity="0.6"/>
+    <line x1="77" y1="108" x2="77" y2="122" stroke="#8eb8f0" stroke-width="0.6" opacity="0.5"/>
+    <!-- window frame -->
+    <path d="M175 104 L195 72 L305 70 L385 88 L395 104" stroke="#c9a962" stroke-width="0.7" stroke-opacity="0.45" fill="none"/>
+    <!-- headlight -->
+    <path class="bmw-headlight" d="M52 112 Q48 118 52 124 Q62 122 68 118 Q64 112 52 112" fill="#e8eef7" opacity="0.9"/>
+    <!-- taillight -->
+    <path d="M478 112 Q484 118 478 124 Q468 122 462 118 Q466 112 478 112" fill="#c94a4a" opacity="0.75"/>
+    <!-- mirror -->
+    <ellipse cx="168" cy="92" rx="5" ry="3" fill="#8eb8f0" opacity="0.5"/>
+  </g>
+
+  <!-- wheels -->
+  <g class="bmw-wheel bmw-wheel--front">
+    <circle cx="145" cy="128" r="22" fill="#0a1628" stroke="#c9a962" stroke-width="2"/>
+    <circle cx="145" cy="128" r="14" fill="none" stroke="#8eb8f0" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <circle cx="145" cy="128" r="5" fill="#c9a962" opacity="0.8"/>
+    <g class="bmw-wheel-spokes">
+      <line x1="145" y1="106" x2="145" y2="150" stroke="#8eb8f0" stroke-width="1"/>
+      <line x1="123" y1="128" x2="167" y2="128" stroke="#8eb8f0" stroke-width="1"/>
+      <line x1="129" y1="112" x2="161" y2="144" stroke="#8eb8f0" stroke-width="0.8"/>
+      <line x1="161" y1="112" x2="129" y2="144" stroke="#8eb8f0" stroke-width="0.8"/>
+    </g>
+  </g>
+  <g class="bmw-wheel bmw-wheel--rear">
+    <circle cx="385" cy="128" r="22" fill="#0a1628" stroke="#c9a962" stroke-width="2"/>
+    <circle cx="385" cy="128" r="14" fill="none" stroke="#8eb8f0" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <circle cx="385" cy="128" r="5" fill="#c9a962" opacity="0.8"/>
+    <g class="bmw-wheel-spokes">
+      <line x1="385" y1="106" x2="385" y2="150" stroke="#8eb8f0" stroke-width="1"/>
+      <line x1="363" y1="128" x2="407" y2="128" stroke="#8eb8f0" stroke-width="1"/>
+      <line x1="369" y1="112" x2="401" y2="144" stroke="#8eb8f0" stroke-width="0.8"/>
+      <line x1="401" y1="112" x2="369" y2="144" stroke="#8eb8f0" stroke-width="0.8"/>
+    </g>
+  </g>
+
+  <!-- headlight beam -->
+  <path class="bmw-beam" d="M20 118 L52 118 L48 124 L20 124 Z" fill="url(#bmwBody)" opacity="0.4"/>
+</svg>
