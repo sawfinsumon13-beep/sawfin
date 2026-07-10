@@ -1705,6 +1705,35 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .purchase-toast-inner strong { color: var(--accent-green); }
 .purchase-toast-inner em { color: var(--text-primary); font-style: normal; }
 
+/* ── WhatsApp Float ── */
+.whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+  color: #fff;
+}
+
 /* ── Homepage Content Blocks (5000+ words) ── */
 .content-intro-section {
   padding: 88px 0 64px;
@@ -1961,6 +1990,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .trust-grid { grid-template-columns: 1fr; }
   .engine-gallery-grid { grid-template-columns: 1fr; }
   .purchase-toast { left: 16px; right: 16px; max-width: none; }
+  .whatsapp-float { right: 16px; bottom: 16px; width: 52px; height: 52px; }
 }
 
 @media (max-width: 1200px) {
