@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         <h3>Need a BMW Engine?</h3>
         <p>Browse our catalog of 3,100+ tested engines or contact our technical team for expert advice.</p>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-          <a href="/engines" class="btn btn-primary">Browse Engines</a>
-          <a href="/contact" class="btn btn-outline">Contact Us</a>
+          <a href="${pageUrl('/engines')}" class="btn btn-primary">Browse Engines</a>
+          <a href="${pageUrl('/contact')}" class="btn btn-outline">Contact Us</a>
         </div>
       </div>`;
   } catch (err) {

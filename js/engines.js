@@ -107,7 +107,7 @@ function renderEngines() {
   grid.innerHTML = page.map(e => {
     const gallery = getEngineGalleryImages(e);
   return `
-    <a href="/engine-detail?id=${e.id}" class="engine-card">
+    <a href="${pageUrl(`/engine-detail?id=${e.id}`)}" class="engine-card">
       <div class="card-image">
         <img src="${gallery[0]}" alt="${getEngineImageAlt(e)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
         <div class="card-thumb-row">

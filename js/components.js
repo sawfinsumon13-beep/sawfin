@@ -44,12 +44,12 @@ function renderHeader() {
     const isActive = active === item.href || (item.dropdown && item.dropdown.some(d => active === d.href.split('?')[0]));
     const dropdownHtml = item.dropdown ? `
       <div class="dropdown">
-        ${item.dropdown.map(d => `<a href="${d.href}">${d.label}</a>`).join('')}
+        ${item.dropdown.map(d => `<a href="${pageUrl(d.href)}">${d.label}</a>`).join('')}
       </div>` : '';
     const arrow = item.dropdown ? '<svg viewBox="0 0 10 6" fill="currentColor"><path d="M1 1l4 4 4-4"/></svg>' : '';
     return `
       <div class="nav-item">
-        <a href="${item.href}" class="nav-link${isActive ? ' active' : ''}">${item.label}${arrow}</a>
+        <a href="${pageUrl(item.href)}" class="nav-link${isActive ? ' active' : ''}">${item.label}${arrow}</a>
         ${dropdownHtml}
       </div>`;
   }).join('');
@@ -57,7 +57,7 @@ function renderHeader() {
   return `
     <header class="site-header">
       <div class="container header-inner">
-        <a href="/" class="logo">
+        <a href="${pageUrl('/')}" class="logo">
           <div class="logo-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
               <circle cx="12" cy="12" r="9"/>
@@ -68,22 +68,22 @@ function renderHeader() {
         </a>
         <nav class="main-nav" id="mainNav">${navLinks}</nav>
         <div class="header-actions">
-          <button class="icon-btn" id="searchBtn" aria-label="Search">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
-            </svg>
-          </button>
-          <a href="/engines" class="icon-btn" aria-label="Shop">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-              <line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
-            </svg>
-          </a>
           <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
               <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
             </svg>
           </button>
+          <button class="icon-btn" id="searchBtn" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </button>
+          <a href="${pageUrl('/engines')}" class="icon-btn" aria-label="Shop">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+          </a>
         </div>
       </div>
     </header>
@@ -101,7 +101,7 @@ function renderFooter() {
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <a href="/" class="logo">
+            <a href="${pageUrl('/')}" class="logo">
               <div class="logo-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                   <circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/>
@@ -113,25 +113,25 @@ function renderFooter() {
           </div>
           <div class="footer-col">
             <h4>Shop</h4>
-            <a href="/engines">All Engines</a>
-            <a href="/engines?fuel=diesel">Diesel Engines</a>
-            <a href="/engines?series=M">M Performance</a>
-            <a href="/m57-swap-kits">M57 Swap Kits</a>
+            <a href="${pageUrl('/engines')}">All Engines</a>
+            <a href="${pageUrl('/engines?fuel=diesel')}">Diesel Engines</a>
+            <a href="${pageUrl('/engines?series=M')}">M Performance</a>
+            <a href="${pageUrl('/m57-swap-kits')}">M57 Swap Kits</a>
           </div>
           <div class="footer-col">
             <h4>Company</h4>
-            <a href="/about">About Us</a>
-            <a href="/services">Services</a>
-            <a href="/blog">Blog</a>
-            <a href="/reviews">Reviews</a>
-            <a href="/policies">Policies</a>
+            <a href="${pageUrl('/about')}">About Us</a>
+            <a href="${pageUrl('/services')}">Services</a>
+            <a href="${pageUrl('/blog')}">Blog</a>
+            <a href="${pageUrl('/reviews')}">Reviews</a>
+            <a href="${pageUrl('/policies')}">Policies</a>
           </div>
           <div class="footer-col">
             <h4>Contact</h4>
             <a href="mailto:${SITE.email}">${SITE.email}</a>
             <a href="tel:${SITE.phone.replace(/\s/g, '')}">${SITE.phone}</a>
             <a href="https://wa.me/${SITE.whatsapp}" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a>
-            <a href="/contact">Contact Form</a>
+            <a href="${pageUrl('/contact')}">Contact Form</a>
           </div>
         </div>
         <div class="footer-bottom">
@@ -163,7 +163,16 @@ function initLayout() {
   }
 
   document.getElementById('mobileToggle')?.addEventListener('click', () => {
-    document.getElementById('mainNav')?.classList.toggle('mobile-open');
+    const nav = document.getElementById('mainNav');
+    const isOpen = nav?.classList.toggle('mobile-open');
+    document.body.classList.toggle('nav-open', Boolean(isOpen));
+  });
+
+  document.getElementById('mainNav')?.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      document.getElementById('mainNav')?.classList.remove('mobile-open');
+      document.body.classList.remove('nav-open');
+    }
   });
 
   const searchModal = document.getElementById('searchModal');
@@ -216,11 +225,11 @@ async function performSearch(query) {
 
     let html = '';
     engineResults.forEach(e => {
-      html += `<a href="/engine-detail?id=${e.id}" class="search-result-item">
+      html += `<a href="${pageUrl(`/engine-detail?id=${e.id}`)}" class="search-result-item">
         <strong>${e.name}</strong><span>${e.code} — €${e.price.toLocaleString()}</span></a>`;
     });
     blogResults.forEach(b => {
-      html += `<a href="/blog-post?id=${b.id}" class="search-result-item">
+      html += `<a href="${pageUrl(`/blog-post?id=${b.id}`)}" class="search-result-item">
         <strong>${b.title}</strong><span>${b.category}</span></a>`;
     });
 

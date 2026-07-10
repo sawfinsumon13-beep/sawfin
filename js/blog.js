@@ -46,7 +46,7 @@ function renderBlogs() {
     `Showing ${start + 1}–${Math.min(start + PER_PAGE, filtered.length)} of ${filtered.length} articles`;
 
   grid.innerHTML = page.map(b => `
-    <a href="/blog-post?id=${b.id}" class="blog-card">
+    <a href="${pageUrl(`/blog-post?id=${b.id}`)}" class="blog-card">
       <div class="card-image">
         <img src="${getBlogImage(b)}" alt="${b.title}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
       </div>

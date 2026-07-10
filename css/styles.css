@@ -57,7 +57,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 10001;
   height: var(--header-height);
   background: rgba(10, 14, 20, 0.92);
   backdrop-filter: blur(16px);
@@ -199,6 +199,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   justify-content: center;
   color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10002;
 }
 
 /* ── Hero ── */
@@ -2111,7 +2117,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 @media (max-width: 1200px) {
   .main-nav { display: none; }
-  .mobile-toggle { display: flex; }
+  .mobile-toggle { display: flex !important; }
 
   .main-nav.mobile-open {
     display: flex;
@@ -2125,7 +2131,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     padding: 24px;
     gap: 4px;
     overflow-y: auto;
-    z-index: 999;
+    z-index: 10001;
   }
 
   .main-nav.mobile-open .nav-link {
@@ -2142,6 +2148,30 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     border: none;
     padding-left: 16px;
   }
+}
+
+@media (max-width: 768px) {
+  .logo-text { display: none; }
+  .header-inner { gap: 12px; }
+  .header-actions .icon-btn[aria-label="Shop"] { display: none; }
+  .mobile-toggle {
+    display: flex !important;
+    min-width: 40px;
+    min-height: 40px;
+    box-shadow: 0 0 16px rgba(0, 255, 136, 0.25);
+  }
+}
+
+body.nav-open::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 8, 0.65);
+  z-index: 10000;
+}
+
+body.nav-open .main-nav.mobile-open {
+  z-index: 10002;
 }
 
 @media (max-width: 900px) {

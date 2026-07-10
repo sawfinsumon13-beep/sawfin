@@ -28,7 +28,7 @@ function renderHomepageContent() {
   const cards = ENGINE_CATEGORIES.map(cat => {
     const img = getCategoryImage(cat.family);
     return `
-    <a href="${cat.href}" class="category-card">
+    <a href="${pageUrl(cat.href)}" class="category-card">
       <img class="category-card-bg" src="${img}" alt="${cat.title}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
       <div class="category-card-overlay"></div>
       <span class="category-badge badge-${cat.badgeType}">${cat.badge}</span>
@@ -95,7 +95,7 @@ function renderHomepageContent() {
               <li>M57 · M47 — diesel swaps &amp; 4x4 conversions</li>
               <li>S14 · S38 · S50 · S54 — motorsport &amp; collector builds</li>
             </ul>
-            <a href="/engines?era=classic" class="btn btn-primary">Browse Classic Engines</a>
+            <a href="${pageUrl('/engines?era=classic')}" class="btn btn-primary">Browse Classic Engines</a>
           </div>
           <div class="classic-showcase-visual">
             <div class="classic-photo-stack">

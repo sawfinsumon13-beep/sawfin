@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <tr><td>Era</td><td>${engine.era.charAt(0).toUpperCase() + engine.era.slice(1)}</td></tr>
           </table>
           <div class="detail-actions">
-            <a href="/contact?engine=${engine.id}" class="btn btn-primary">Request Quote</a>
+            <a href="${pageUrl(`/contact?engine=${engine.id}`)}" class="btn btn-primary">Request Quote</a>
             <a href="tel:+4917613627363" class="btn btn-outline">Call Now</a>
           </div>
           <p style="color:var(--text-secondary);font-size:0.9rem;">

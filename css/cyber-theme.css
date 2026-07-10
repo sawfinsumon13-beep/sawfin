@@ -29,9 +29,19 @@ body {
   position: relative;
 }
 
-body > *:not(#hack-bg):not(.whatsapp-float) {
+body > *:not(#hack-bg):not(.whatsapp-float):not(#site-header) {
   position: relative;
   z-index: 1;
+}
+
+#site-header {
+  position: relative;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+#site-header * {
+  pointer-events: auto;
 }
 
 /* ── 3D Hack Background layers ── */
@@ -49,6 +59,7 @@ body > *:not(#hack-bg):not(.whatsapp-float) {
   inset: 0;
   width: 100%;
   height: 100%;
+  pointer-events: none;
 }
 
 .hack-scanlines {
@@ -123,6 +134,16 @@ body > *:not(#hack-bg):not(.whatsapp-float) {
 .icon-btn:hover {
   color: var(--accent) !important;
   box-shadow: 0 0 16px rgba(0, 255, 136, 0.2);
+}
+
+.mobile-toggle {
+  color: var(--accent) !important;
+  border-color: rgba(0, 255, 136, 0.35) !important;
+  background: rgba(0, 255, 136, 0.08) !important;
+}
+
+.mobile-toggle svg {
+  stroke: currentColor;
 }
 
 /* ── Hero ── */
