@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Reviews | Bavarian Engine Exchange</title>
+  <meta name="description" content="320+ customer reviews for Bavarian Engine Exchange. Trusted by enthusiasts and workshops across 28 European countries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <meta name="theme-color" content="#0e1a38">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <span>Reviews</span></div>
+      <h1>Customer Reviews</h1>
+      <p><span id="totalReviews">320</span> verified reviews from enthusiasts, workshops, and fleet operators across Europe.</p>
+    </div>
+  </div>
+
+  <section class="reviews-stats-bar">
+    <div class="container reviews-stats-grid">
+      <div class="reviews-stat">
+        <strong id="avgRating">4.9</strong>
+        <span>Average Rating</span>
+      </div>
+      <div class="reviews-stat">
+        <strong id="satisfactionRate">99.7%</strong>
+        <span>Satisfaction Rate</span>
+      </div>
+      <div class="reviews-stat">
+        <strong>15,000+</strong>
+        <span>Engines Sold</span>
+      </div>
+      <div class="reviews-stat">
+        <strong>28</strong>
+        <span>EU Countries</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:48px" id="reviewsGrid">
+    <div class="container">
+      <div class="filters-bar">
+        <div class="filter-group search-box">
+          <label>Search Reviews</label>
+          <input type="text" id="filterSearch" placeholder="Search by engine, city, or keyword...">
+        </div>
+        <div class="filter-group">
+          <label>Rating</label>
+          <select id="filterStars">
+            <option value="">All Ratings</option>
+            <option value="5">5 Stars</option>
+            <option value="4">4 Stars</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="results-info">
+        <span id="showingReviews">Loading...</span>
+      </div>
+
+      <div class="reviews-grid" id="reviewsGridInner"></div>
+
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="js/images.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/reviews.js"></script>
+</body>
+</html>
