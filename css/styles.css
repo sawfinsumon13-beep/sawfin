@@ -2231,42 +2231,48 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 @media (max-width: 1200px) {
   .main-nav {
-    display: none;
-    pointer-events: none;
+    display: none !important;
   }
 
   .mobile-toggle { display: flex !important; }
 
-  .main-nav.mobile-open {
-    display: flex;
+  .mobile-nav-panel {
+    display: none;
     flex-direction: column;
     position: fixed;
     top: var(--header-height);
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%;
     background: var(--bg-secondary);
     padding: 16px 20px 32px;
     gap: 4px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     z-index: 10051;
-    pointer-events: auto;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
   }
 
-  .main-nav.mobile-open .nav-item {
-    width: 100%;
+  .mobile-nav-panel.mobile-open {
+    display: flex;
   }
 
-  .main-nav.mobile-open .nav-link {
+  .mobile-nav-panel .nav-item {
+    width: 100%;
+    display: block;
+  }
+
+  .mobile-nav-panel .nav-link {
     font-size: 0.9rem;
     padding: 14px 16px;
     width: 100%;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
-  .main-nav.mobile-open .dropdown {
+  .mobile-nav-panel .dropdown {
     position: static;
     display: none;
     opacity: 1;
@@ -2280,14 +2286,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     background: transparent;
   }
 
-  .main-nav.mobile-open .nav-item.dropdown-open .dropdown,
-  .main-nav.mobile-open .nav-item:focus-within .dropdown {
+  .mobile-nav-panel .nav-item.dropdown-open .dropdown {
     display: block;
   }
 
-  .main-nav.mobile-open .dropdown a {
+  .mobile-nav-panel .dropdown a {
     padding: 12px 16px;
     font-size: 0.85rem;
+    display: block;
   }
 }
 
