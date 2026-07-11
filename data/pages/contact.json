@@ -1,0 +1,73 @@
+{
+  "slug": "contact",
+  "layout": "contact",
+  "heroImage": "images/engines/sets/set-0056/01.webp",
+  "introTitle": "Speak With Our BMW Engine Specialists in Hamburg",
+  "introParagraphs": [
+    "Our technical team answers engine quotes, fitment questions, and shipping enquiries Monday through Friday, 08:00–18:00 CET. Email flashkingpro202@gmail.com or call +49 176 13627363 — we respond within 2 hours during business hours.",
+    "Whether you need a single M54 for an E46 restoration or a fleet of N47 diesels, our Hamburg team provides the same expert attention. Facility visits are welcome by appointment."
+  ],
+  "faq": [
+    {
+      "q": "How do I request an engine quote?",
+      "a": "Email flashkingpro202@gmail.com or call +49 176 13627363 with your vehicle model, year, engine code if known, VIN, delivery country, and intended use. We respond within 2 hours during business hours with engine options, compression test results, itemised pricing, and shipping costs. Quotations are valid for 7 days. For swap projects, include photographs of your engine bay — our technicians can assess fitment feasibility from images before you commit."
+    },
+    {
+      "q": "What information do you need for a fitment check?",
+      "a": "Provide vehicle model, year, current engine code, and whether you need a like-for-like replacement or swap. For swaps, describe the target platform and transmission preference. Our free 15-minute consultation verifies DME compatibility, mount requirements, and supporting components before you commit to a purchase."
+    },
+    {
+      "q": "How quickly can you ship my engine?",
+      "a": "In-stock engines dispatch within 24–48 hours of payment confirmation. Germany: 1–2 business days. EU mainland: 3–5 business days. UK, Switzerland, Norway: 5–7 business days with customs documentation. Tracking is provided when the freight carrier collects your engine."
+    },
+    {
+      "q": "Can I inspect my engine before it ships?",
+      "a": "Yes. We send updated photographs and test reports within 24 hours of enquiry. Video calls during dyno testing are available. Visit our Hamburg facility by appointment to see your engine in person and meet the technician who tested it."
+    },
+    {
+      "q": "Do you ship outside the European Union?",
+      "a": "We ship to the UK, Switzerland, Norway, and other destinations with full customs documentation. Contact us with your country for freight quotes and import requirements. We have successfully delivered engines to Australia and the Middle East."
+    },
+    {
+      "q": "What are your payment terms?",
+      "a": "A 30% deposit reserves your engine. Balance due before dispatch. We accept SEPA bank transfer, credit cards, and PayPal under €3,000. Trade accounts may apply for 30-day payment terms after credit approval."
+    },
+    {
+      "q": "How does the 6-month warranty work?",
+      "a": "All tested engines include a 6-month mechanical warranty on internal components. Submit claims to flashkingpro202@gmail.com with invoice number, photographs, fault codes, and compression results. We assess within 5 business days and resolve by repair, replacement, or refund."
+    },
+    {
+      "q": "What is your returns policy?",
+      "a": "Returns accepted within 14 days if the engine has not been installed or run. Engine must be in original packaging on the transport frame. A 15% restocking fee applies unless the engine was misrepresented. Refunds processed within 10 business days of inspection."
+    },
+    {
+      "q": "Do you offer a core exchange programme?",
+      "a": "Return your old BMW engine (block, head, sump complete) for credit of €150–800 depending on family and condition. Notify us before shipping. Credits issued within 7 business days of core inspection at our Hamburg facility."
+    },
+    {
+      "q": "Can workshops open a trade account?",
+      "a": "Yes. Application requires business registration, EU VAT number, and two trade references. Approved accounts receive net pricing, 30-day terms, and priority stock allocation. Setup typically completes within 48 hours."
+    },
+    {
+      "q": "What support is available after delivery?",
+      "a": "Technical support continues through installation. Call or email with your invoice number for torque specs, wiring help, and DME coding guidance. Our team references your specific test data when troubleshooting."
+    },
+    {
+      "q": "How do I schedule a facility visit?",
+      "a": "Contact flashkingpro202@gmail.com to book Monday–Friday. Allow 60–90 minutes for a warehouse tour, engine inspection, and technical discussion. Parking for trailers available at our dispatch bay. Self-collection saves shipping costs."
+    },
+    {
+      "q": "What languages do you support?",
+      "a": "English and German fluently. French, Italian, Dutch, and Spanish with translation assistance. Technical documentation provided in English; German available on request."
+    },
+    {
+      "q": "How do I track my order?",
+      "a": "Tracking information is emailed when the freight carrier collects your engine. Our logistics team can coordinate timed delivery with your workshop. Inspect packaging before signing — note damage on the carrier receipt and contact us within 24 hours."
+    },
+    {
+      "q": "Do you supply M57 swap kits?",
+      "a": "Yes — complete kits for E30, E36, E46, E39, and Land Rover Defender. See our M57 Swap Kits page or contact us for custom platform quotations. Technical support is included with every kit purchase."
+    }
+  ],
+  "wordCount": 709
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMW Engine Catalog | 3,100+ Tested Engines | Bavarian Engine Exchange</title>
+  <meta name="description" content="Browse 3,100+ tested BMW engines. Classic M-series, modern B58, diesel M57 and more. Filter by fuel type, era, and family.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <meta name="theme-color" content="#0e1a38">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <span>Engines</span></div>
+      <h1>Engine Catalog</h1>
+      <p><span id="totalCount">3,100</span>+ verified BMW power units — filter by fuel type, era, and engine family.</p>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px">
+    <div class="container">
+      <div class="filters-bar">
+        <div class="filter-group search-box">
+          <label>Search</label>
+          <input type="text" id="filterSearch" placeholder="Search by name or code...">
+        </div>
+        <div class="filter-group">
+          <label>Fuel Type</label>
+          <select id="filterFuel">
+            <option value="">All Fuels</option>
+            <option value="petrol">Petrol</option>
+            <option value="diesel">Diesel</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Era</label>
+          <select id="filterEra">
+            <option value="">All Eras</option>
+            <option value="classic">Classic (pre-2000)</option>
+            <option value="modern">Modern (2000+)</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Family</label>
+          <select id="filterFamily">
+            <option value="">All Families</option>
+            <option value="M10">M10</option>
+            <option value="M20">M20</option>
+            <option value="M30">M30</option>
+            <option value="M50">M50</option>
+            <option value="M52">M52</option>
+            <option value="M54">M54</option>
+            <option value="M57">M57</option>
+            <option value="M62">M62</option>
+            <option value="N47">N47</option>
+            <option value="N52">N52</option>
+            <option value="N54">N54</option>
+            <option value="N55">N55</option>
+            <option value="N57">N57</option>
+            <option value="B47">B47</option>
+            <option value="B48">B48</option>
+            <option value="B58">B58</option>
+            <option value="S54">S54</option>
+            <option value="S55">S55</option>
+            <option value="S58">S58</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Sort By</label>
+          <select id="filterSort">
+            <option value="default">Default</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="power-desc">Power: High to Low</option>
+            <option value="mileage-asc">Mileage: Low to High</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="results-info">
+        <span id="showingCount">Loading...</span>
+      </div>
+
+      <div class="card-grid" id="engineGrid">
+        <div class="loading"><div class="spinner"></div>Loading engine catalog...</div>
+      </div>
+
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="js/images.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/engines.js"></script>
+</body>
+</html>

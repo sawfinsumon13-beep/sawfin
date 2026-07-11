@@ -1,0 +1,208 @@
+/* BMW car hero animation */
+.hero-car-stage {
+  position: absolute;
+  right: 0;
+  bottom: 8%;
+  width: min(52vw, 620px);
+  height: 220px;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-road {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.5), transparent);
+}
+
+.hero-road::before,
+.hero-road::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(142, 184, 240, 0.35) 0,
+    rgba(142, 184, 240, 0.35) 24px,
+    transparent 24px,
+    transparent 48px
+  );
+  animation: road-scroll 1.2s linear infinite;
+}
+
+.hero-road::after {
+  bottom: -12px;
+  opacity: 0.4;
+  animation-duration: 1.8s;
+}
+
+.bmw-car-anim {
+  position: absolute;
+  inset: 0;
+  animation: bmw-drive-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) both, bmw-float 4.5s ease-in-out 1.4s infinite;
+}
+
+.bmw-car-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.45));
+}
+
+.bmw-wheel--front {
+  transform-origin: 145px 128px;
+  transform-box: fill-box;
+  animation: bmw-wheel-spin 1.4s linear infinite;
+}
+
+.bmw-wheel--rear {
+  transform-origin: 385px 128px;
+  transform-box: fill-box;
+  animation: bmw-wheel-spin 1.4s linear infinite;
+}
+
+.bmw-wheel-spokes {
+  animation: none;
+}
+
+.bmw-headlight {
+  animation: bmw-headlight-pulse 2s ease-in-out infinite;
+}
+
+.bmw-beam {
+  animation: bmw-beam-pulse 2s ease-in-out infinite;
+  transform-origin: 52px 121px;
+}
+
+.bmw-speed-lines line {
+  animation: bmw-speed-dash 0.8s ease-in-out infinite alternate;
+}
+
+.bmw-speed-lines line:nth-child(2) { animation-delay: 0.15s; }
+.bmw-speed-lines line:nth-child(3) { animation-delay: 0.3s; }
+
+.bmw-car-glow {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 10px;
+  height: 40px;
+  background: radial-gradient(ellipse, rgba(201, 169, 98, 0.2), transparent 70%);
+  animation: bmw-glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes bmw-drive-in {
+  from {
+    opacity: 0;
+    transform: translateX(80px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes bmw-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes bmw-wheel-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bmw-headlight-pulse {
+  0%, 100% { opacity: 0.7; filter: drop-shadow(0 0 4px #e8eef7); }
+  50% { opacity: 1; filter: drop-shadow(0 0 14px #8eb8f0); }
+}
+
+@keyframes bmw-beam-pulse {
+  0%, 100% { opacity: 0.25; transform: scaleX(0.9); }
+  50% { opacity: 0.55; transform: scaleX(1.1); }
+}
+
+@keyframes bmw-speed-dash {
+  from { opacity: 0.2; transform: translateX(0); }
+  to { opacity: 0.8; transform: translateX(-12px); }
+}
+
+@keyframes road-scroll {
+  from { background-position: 0 0; }
+  to { background-position: -48px 0; }
+}
+
+@keyframes bmw-glow-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Homepage layout integration */
+.page-home .home-hero {
+  overflow: hidden;
+}
+
+.page-home .hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 42%);
+  gap: 24px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-home .hero-layout .hero-content {
+  margin-top: 24px;
+  max-width: none;
+}
+
+.page-home .hero-car-stage {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  height: 240px;
+  align-self: end;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 1100px) {
+  .page-home .hero-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .page-home .hero-car-stage {
+    height: 180px;
+    max-width: 480px;
+    margin: 0 auto 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-home .hero-car-stage {
+    height: 140px;
+    max-width: 360px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bmw-car-anim,
+  .bmw-wheel-spokes,
+  .bmw-headlight,
+  .bmw-beam,
+  .bmw-speed-lines line,
+  .hero-road::before,
+  .hero-road::after,
+  .bmw-car-glow {
+    animation: none !important;
+  }
+}

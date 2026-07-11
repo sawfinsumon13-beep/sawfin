@@ -1,0 +1,17 @@
+{
+  "description": "Bavarian Engines warehouse inventory photos only — BMW engines on pallets, multi-angle galleries",
+  "fallback": "images/engines/sets/set-0114/01.webp",
+  "categories": {
+    "N47": "images/engines/sets/set-0114/01.webp",
+    "N57": "images/engines/sets/set-0108/01.webp",
+    "M57": "images/engines/sets/set-0087/01.webp",
+    "B57": "images/engines/sets/set-0052/01.webp",
+    "B47": "images/engines/sets/set-0061/01.webp",
+    "M54": "images/engines/sets/set-0047/01.webp",
+    "M20": "images/engines/sets/set-0050/01.webp",
+    "M30": "images/engines/sets/set-0051/01.webp",
+    "M47": "images/engines/sets/set-0038/01.webp",
+    "B58": "images/engines/sets/set-0001/01.webp",
+    "S54": "images/engines/sets/set-0046/01.webp"
+  }
+}
