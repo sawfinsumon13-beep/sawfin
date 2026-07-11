@@ -106,6 +106,8 @@ function renderEngines() {
 
   grid.innerHTML = page.map(e => {
     const gallery = getEngineGalleryImages(e);
+    const title = formatEngineTitle(e);
+    const platforms = getEnginePlatformInfo(e);
   return `
     <a href="${pageUrl(`/engine-detail?id=${e.id}`)}" class="engine-card">
       <div class="card-image">
@@ -118,17 +120,17 @@ function renderEngines() {
         <span class="card-badge">${e.condition}</span>
       </div>
       <div class="card-body">
-        <h3>${e.name}</h3>
-        <p>${e.description.substring(0, 100)}...</p>
+        <h3>${title}</h3>
+        <p>${platforms.primary} · ${e.code} · ${e.mileage.toLocaleString()} km</p>
         <div class="card-specs">
           <span class="spec-tag">${e.family}</span>
           <span class="spec-tag">${e.power} hp</span>
           <span class="spec-tag">${e.fuel}</span>
-          <span class="spec-tag">${e.mileage.toLocaleString()} km</span>
+          <span class="spec-tag">${e.displacement}L</span>
         </div>
         <div class="card-meta">
           <span class="card-price">${formatPrice(e.price)}</span>
-          <span class="btn btn-sm btn-outline">Details</span>
+          <span class="btn btn-sm btn-outline">View &amp; Buy</span>
         </div>
       </div>
     </a>`;

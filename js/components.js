@@ -3,9 +3,9 @@
 const SITE = {
   name: 'bmwusedengines',
   domain: 'bmwusedengines.org',
-  email: 'flashkingpro202@gmail.com',
-  phone: '+49 176 13627363',
-  whatsapp: '4917613627363',
+  email: 'originalbavarianengine@gmail.com',
+  phone: '+49 15510 030835',
+  whatsapp: '4915510030835',
   location: 'Hamburg, Germany'
 };
 

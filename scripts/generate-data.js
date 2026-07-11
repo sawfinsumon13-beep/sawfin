@@ -63,6 +63,24 @@ const ENGINE_FAMILIES = {
 const CONDITIONS = ['Excellent', 'Very Good', 'Good', 'Rebuilt', 'Low Mileage', 'Tested'];
 const VEHICLE_PLATFORMS = ['E30', 'E36', 'E46', 'E90', 'E92', 'F30', 'F32', 'G20', 'G30', 'E39', 'E60', 'F10', 'G30', 'E53', 'E70', 'F15', 'G05', 'E83', 'F25', 'G01', 'E87', 'F20', 'G20', 'Z3', 'Z4', 'E85', 'G29'];
 
+const FAMILY_PLATFORMS = {
+  M10: ['E21', 'E30'], M20: ['E30', 'E28', 'E21'], M30: ['E28', 'E34', 'E24'],
+  M40: ['E30', 'E36'], M42: ['E36'], M44: ['E36', 'Z3'], M50: ['E36', 'E34'],
+  M52: ['E36', 'E39', 'E46', 'Z3'], M54: ['E46', 'E39', 'E53', 'Z3'],
+  M21: ['E28', 'E30'], M41: ['E36', 'E34'], M47: ['E46', 'E39', 'E83'],
+  M57: ['E39', 'E46', 'E60', 'E90', 'E53', 'E70'], M60: ['E34', 'E32'],
+  M62: ['E39', 'E38', 'E53'], M67: ['E38', 'E65'], S14: ['E30'], S38: ['E34'],
+  S50: ['E36', 'Z3'], S52: ['E36', 'Z3'], S54: ['E46', 'Z4'],
+  N13: ['F20', 'F30'], N20: ['F30', 'F10', 'E84'], N26: ['F30', 'F10'],
+  N43: ['E90', 'E60'], N46: ['E90', 'E87', 'E83'], N47: ['E90', 'F30', 'F20', 'F10'],
+  N52: ['E90', 'E60', 'E83'], N53: ['E90', 'E60'], N54: ['E90', 'E82', 'F10'],
+  N55: ['F30', 'F10', 'F20'], N57: ['F10', 'F30', 'E70', 'F15'], N63: ['F10', 'F06', 'G30'],
+  N74: ['F01', 'G11'], B38: ['F20', 'F30', 'G20'], B46: ['F30', 'G20', 'F48'],
+  B47: ['F30', 'G20', 'F48'], B48: ['F30', 'G20', 'F32'], B58: ['F30', 'G20', 'F32', 'G01'],
+  B57: ['G30', 'G05', 'G11'], S55: ['F80', 'F82'], S58: ['G80', 'G82'],
+  S63: ['F10', 'F06', 'G30'], S65: ['E90', 'E92'], S85: ['E60', 'E63']
+};
+
 const BLOG_CATEGORIES = [
   'BUYING GUIDE', 'ENGINE GUIDE', 'EURO 6', 'CONVERSIONS', 'LOGISTICS',
   '4x4', 'WORKSHOP', 'MAINTENANCE', 'PERFORMANCE', 'DIESEL', 'CLASSIC',
@@ -156,7 +174,8 @@ function generateEngine(id) {
   const power = rand(family.power[0], family.power[1]);
   const mileage = era === 'classic' ? rand(50000, 250000) : rand(20000, 180000);
   const condition = pick(CONDITIONS);
-  const platform = pick(VEHICLE_PLATFORMS);
+  const platformList = FAMILY_PLATFORMS[family.name] || VEHICLE_PLATFORMS;
+  const platform = platformList[(id - 1) % platformList.length];
   const variant = ['TU', 'TÜ', 'TÜ2', 'TÜ3', 'OL', 'UL', 'TOP', 'D25', 'D30', 'D35'][rand(0, 9)];
 
   const basePrice = family.fuel === 'diesel' ? 1200 : 1500;
@@ -282,7 +301,7 @@ function generateBlogContent(title, category, id) {
       heading: 'Conclusion and Recommendations',
       paragraphs: [
         `Selecting and installing a BMW engine is a significant undertaking that rewards careful planning and quality components. The information in this guide reflects our team's collective experience across thousands of engine transactions, installations, and rebuilds. While every project has unique variables, the principles of thorough inspection, correct specification, and professional installation apply universally.`,
-        `We encourage prospective buyers to contact our technical team before purchasing. A 15-minute consultation can prevent costly mismatches and ensure your selected engine aligns with your vehicle platform, emissions requirements, and performance goals. Reach us at flashkingpro202@gmail.com or +49 176 13627363 during business hours (Monday-Friday, 08:00-18:00 CET).`,
+        `We encourage prospective buyers to contact our technical team before purchasing. A 15-minute consultation can prevent costly mismatches and ensure your selected engine aligns with your vehicle platform, emissions requirements, and performance goals. Reach us at originalbavarianengine@gmail.com or +49 15510 030835 during business hours (Monday-Friday, 08:00-18:00 CET).`,
         `Our Hamburg facility welcomes visitors by appointment for engine inspection and dyno witnessing. Seeing your engine run on our SuperFlow dynamometer before shipment provides confidence that cannot be replicated by photographs alone. We ship throughout the European Union, United Kingdom, Switzerland, and Norway with full customs documentation support.`,
         `The BMW engine ecosystem continues to evolve as electrification reshapes the automotive landscape. Internal combustion engines — particularly well-maintained BMW units with documented history — represent increasingly valuable assets for enthusiasts committed to preserving driving engagement. Whether you are maintaining a classic E30, building a track-focused E46, or replacing a failed engine in your daily F30, Premium BMW Engines is your partner for quality powerplants and expert guidance.`,
         `Thank you for reading this ${category.toLowerCase()} article. Explore our inventory of 3,100+ tested engines, browse related guides in our blog section, and contact us with any technical questions. Your next BMW engine project starts here.`
