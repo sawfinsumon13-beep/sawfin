@@ -1,0 +1,1660 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Original Bavarian Engine | Premium Old BMW Engines</title>
+    <meta
+      name="description"
+      content="Buy original old BMW engines with premium restoration quality and worldwide delivery."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111111'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%232E5BFF' stroke-width='2'/%3E%3Cpath d='M10 15h12M10 19h12' stroke='%23C8C8C8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"
+      type="image/svg+xml"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='36' fill='%23111111'/%3E%3Ccircle cx='90' cy='90' r='56' fill='none' stroke='%232E5BFF' stroke-width='8'/%3E%3Cpath d='M56 84h68M56 102h68' stroke='%23C8C8C8' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <meta name="theme-color" content="#111111" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              matte: "#111111",
+              graphite: "#1F1F1F",
+              silver: "#C8C8C8",
+              accent: "#2E5BFF",
+              cloud: "#F7F7F7"
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :root {
+        --bg: #111111;
+        --bg-elevated: #1f1f1f;
+        --text: #f7f7f7;
+        --muted: #c8c8c8;
+        --border: rgba(200, 200, 200, 0.24);
+        --accent: #2e5bff;
+      }
+      html.light-mode {
+        --bg: #f7f7f7;
+        --bg-elevated: #ffffff;
+        --text: #111111;
+        --muted: #555555;
+        --border: rgba(17, 17, 17, 0.15);
+      }
+      body {
+        font-family: Inter, system-ui, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 12% -4%, rgba(224, 58, 58, 0.5), transparent 36%),
+          radial-gradient(circle at 86% 10%, rgba(200, 40, 110, 0.34), transparent 40%),
+          radial-gradient(circle at 52% 78%, rgba(146, 36, 96, 0.24), transparent 48%),
+          linear-gradient(168deg, #030408 0%, #080a12 48%, #06070e 100%);
+        min-height: 100vh;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.78;
+        background-image:
+          repeating-linear-gradient(112deg, rgba(255, 72, 72, 0.34) 0 3px, transparent 3px 56px),
+          repeating-linear-gradient(24deg, rgba(92, 126, 255, 0.28) 0 2px, transparent 2px 74px),
+          linear-gradient(rgba(168, 56, 56, 0.11) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(168, 56, 56, 0.11) 1px, transparent 1px);
+        background-size: 300px 300px, 360px 360px, 32px 32px, 32px 32px;
+        mix-blend-mode: screen;
+        animation: laserSweep 12s linear infinite, laserFlicker 3.5s ease-in-out infinite;
+      }
+      h1, h2, h3, h4 { font-family: "Playfair Display", Georgia, serif; letter-spacing: .02em; }
+      .glass {
+        border: 1px solid var(--border);
+        background: linear-gradient(150deg, rgba(255,255,255,.12), rgba(17,17,17,.4));
+        backdrop-filter: blur(14px);
+        box-shadow: 0 24px 60px rgba(0,0,0,.4);
+      }
+      .btn-primary { background: linear-gradient(120deg, #2e5bff, #2148db); color: #f7f7f7; }
+      .btn-secondary { border: 1px solid var(--border); color: var(--text); background: rgba(255,255,255,.03); }
+      .chip { border: 1px solid var(--border); background: rgba(255,255,255,.04); }
+      .value-3d-card {
+        position: relative;
+        border: 1px solid var(--border);
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(12, 20, 44, 0.55));
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.34);
+        overflow: hidden;
+      }
+      .value-3d-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(130deg, rgba(255, 255, 255, 0.16), transparent 45%, rgba(46, 91, 255, 0.2));
+        opacity: 0.55;
+      }
+      .icon-token {
+        width: 2.75rem;
+        height: 2.75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        border: 1px solid rgba(46, 91, 255, 0.45);
+        background: radial-gradient(circle at 30% 30%, rgba(122, 151, 255, 0.42), rgba(46, 91, 255, 0.1));
+        color: #f7f7f7;
+      }
+      .comparison-shell {
+        border: 1px solid var(--border);
+        background: linear-gradient(170deg, rgba(255, 255, 255, 0.1), rgba(12, 18, 36, 0.52));
+      }
+      .comparison-cell {
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .depth-ribbon {
+        border: 1px solid var(--border);
+        background: linear-gradient(120deg, rgba(46, 91, 255, 0.24), rgba(255, 255, 255, 0.06));
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
+      }
+      .view { display: none; }
+      .view.active { display: block; }
+      .reveal { opacity: 0; transform: translateY(18px); transition: .6s ease; }
+      .reveal.show { opacity: 1; transform: translateY(0); }
+      #siteHeader {
+        transition: .3s ease;
+      }
+      #siteHeader.scrolled {
+        background: rgba(10, 14, 30, .84);
+        border-bottom: 1px solid var(--border);
+      }
+      html.light-mode #siteHeader.scrolled {
+        background: rgba(247,247,247,.86);
+      }
+      .hero {
+        background:
+          linear-gradient(110deg, rgba(12, 8, 8, 0.92), rgba(95, 20, 20, 0.44)),
+          url("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/hero-home.webp") center/cover;
+        position: relative;
+        isolation: isolate;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 18% 30%, rgba(255, 82, 82, 0.35), transparent 42%),
+          radial-gradient(circle at 83% 14%, rgba(102, 123, 255, 0.25), transparent 40%);
+        mix-blend-mode: screen;
+        z-index: -1;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          repeating-linear-gradient(118deg, rgba(255, 86, 86, 0.3) 0 2px, transparent 2px 52px),
+          repeating-linear-gradient(34deg, rgba(86, 119, 255, 0.22) 0 1px, transparent 1px 76px);
+        opacity: 0.7;
+        animation: laserPulse 2.8s ease-in-out infinite, beamSlide 7s linear infinite;
+        z-index: -1;
+      }
+      .three-card {
+        transform-style: preserve-3d;
+        transition: transform .24s ease;
+      }
+      .faq-body { max-height: 0; overflow: hidden; transition: max-height .32s ease; }
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .orbit {
+        position: absolute; border-radius: 999px; border: 1px solid rgba(200,200,200,.3);
+        animation: spin 18s linear infinite;
+      }
+      .orbit::before {
+        content: ""; position: absolute; top: 50%; left: 50%; width: 12px; height: 12px; border-radius: 999px;
+        background: var(--accent); transform: translate(-50%,-50%) translateX(120px); box-shadow: 0 0 22px rgba(46,91,255,.8);
+      }
+      @keyframes spin { to { transform: rotate(360deg);} }
+      @keyframes laserSweep {
+        0% { transform: translate3d(0, 0, 0) scale(1); }
+        50% { transform: translate3d(-24px, -16px, 0) scale(1.04); }
+        100% { transform: translate3d(0, 0, 0) scale(1); }
+      }
+      @keyframes laserPulse {
+        0%, 100% { opacity: 0.52; }
+        50% { opacity: 0.88; }
+      }
+      @keyframes beamSlide {
+        0% { transform: translate3d(0, 0, 0); }
+        50% { transform: translate3d(16px, -10px, 0); }
+        100% { transform: translate3d(0, 0, 0); }
+      }
+      @keyframes laserFlicker {
+        0%, 100% { opacity: 0.72; }
+        35% { opacity: 0.85; }
+        65% { opacity: 0.62; }
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <header id="siteHeader" class="fixed top-0 z-50 w-full border-b border-transparent bg-transparent backdrop-blur-xl">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
+        <a href="#home" class="inline-flex items-center gap-3">
+          <svg width="36" height="36" viewBox="0 0 120 120" aria-hidden="true">
+            <rect x="4" y="4" width="112" height="112" rx="24" fill="#111" stroke="#2E5BFF" stroke-width="4"></rect>
+            <circle cx="60" cy="60" r="28" fill="none" stroke="#C8C8C8" stroke-width="4"></circle>
+            <path d="M42 55h36m-36 10h36" stroke="#2E5BFF" stroke-width="4" stroke-linecap="round"></path>
+          </svg>
+          <span class="text-sm font-semibold tracking-[0.18em] text-[var(--text)]">ORIGINAL BAVARIAN ENGINE</span>
+        </a>
+        <nav class="hidden items-center gap-4 text-xs lg:flex">
+          <a href="#home" class="hover:text-accent">Home</a>
+          <a href="#collection" class="hover:text-accent">Engines</a>
+          <a href="#collection" class="hover:text-accent">M57 Swap Kits</a>
+          <a href="#details" class="hover:text-accent">Engine Details</a>
+          <a href="#services" class="hover:text-accent">Services</a>
+          <a href="#about" class="hover:text-accent">About</a>
+          <a href="#contact" class="hover:text-accent">Contact</a>
+          <a href="#policies" class="hover:text-accent">Policies</a>
+          <a href="#blog" class="hover:text-accent">Blog</a>
+          <a href="#reviews" class="hover:text-accent">Reviews</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <form id="globalSearchForm" class="hidden lg:block">
+            <input id="globalSearchInput" type="search" placeholder="Search engine code..." class="w-52 rounded-full border border-[var(--border)] bg-black/20 px-4 py-2 text-xs outline-none" />
+          </form>
+          <button id="themeToggle" class="rounded-full border border-[var(--border)] p-2" aria-label="Toggle theme">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg>
+          </button>
+          <button id="mobileMenuToggle" class="rounded-full border border-[var(--border)] p-2 lg:hidden" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="hidden border-t border-[var(--border)] bg-[var(--bg)]/95 px-4 py-4 lg:hidden">
+        <form id="globalSearchFormMobile" class="mb-4">
+          <input id="globalSearchInputMobile" type="search" placeholder="Search engine code..." class="w-full rounded-full border border-[var(--border)] bg-black/20 px-4 py-2 text-sm outline-none" />
+        </form>
+        <nav class="grid gap-2 text-sm" aria-label="Mobile Menu">
+          <a href="#home" class="rounded-lg px-2 py-1 hover:text-accent">Home</a>
+          <a href="#collection" class="rounded-lg px-2 py-1 hover:text-accent">Engines</a>
+          <a href="#collection" class="rounded-lg px-2 py-1 hover:text-accent">M57 Swap Kits</a>
+          <a href="#details" class="rounded-lg px-2 py-1 hover:text-accent">Engine Details</a>
+          <a href="#services" class="rounded-lg px-2 py-1 hover:text-accent">Services</a>
+          <a href="#about" class="rounded-lg px-2 py-1 hover:text-accent">About</a>
+          <a href="#contact" class="rounded-lg px-2 py-1 hover:text-accent">Contact</a>
+          <a href="#policies" class="rounded-lg px-2 py-1 hover:text-accent">Policies</a>
+          <a href="#blog" class="rounded-lg px-2 py-1 hover:text-accent">Blog</a>
+          <a href="#reviews" class="rounded-lg px-2 py-1 hover:text-accent">Reviews</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-24">
+      <section id="view-home" class="view active">
+        <section class="hero relative min-h-[82vh] overflow-hidden px-4 pb-20 pt-12 md:px-8">
+          <div class="orbit left-1/2 top-16 h-[280px] w-[280px] -translate-x-1/2 opacity-75"></div>
+          <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div class="space-y-8">
+              <p class="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-cloud">Original Bavarian Engine • Germany</p>
+              <h1 class="max-w-3xl text-4xl leading-tight text-cloud md:text-6xl">Original BMW Engines. Restoring Performance Since Generations.</h1>
+              <p class="max-w-2xl text-base leading-relaxed text-silver md:text-lg">
+                Premium vintage and classic BMW engines sourced and delivered worldwide with documented fitment support.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <a href="#collection" class="btn-primary rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em]">Browse Engines</a>
+                <a href="#contact" class="btn-secondary rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em]">Request Engine</a>
+              </div>
+              <ul class="grid gap-2 text-xs uppercase tracking-[0.16em] text-silver sm:grid-cols-3">
+                <li class="chip rounded-full px-4 py-2 text-center">VIN Matching</li>
+                <li class="chip rounded-full px-4 py-2 text-center">Crated Shipping</li>
+                <li class="chip rounded-full px-4 py-2 text-center">Specialist Support</li>
+              </ul>
+            </div>
+            <article class="glass three-card rounded-3xl p-7" data-tilt>
+              <p class="text-xs uppercase tracking-[0.2em] text-silver">Instant Matching Desk</p>
+              <h2 class="mt-3 text-2xl text-cloud">Share VIN or Engine Stamp</h2>
+              <p class="mt-2 text-sm text-silver">We cross-check compatibility before invoice to keep your purchase safe.</p>
+              <form class="mt-5 space-y-3" id="heroLeadForm">
+                <input type="text" placeholder="VIN / Engine code" class="w-full rounded-xl border border-white/25 bg-black/35 px-4 py-3 text-sm" />
+                <input type="email" placeholder="Email" class="w-full rounded-xl border border-white/25 bg-black/35 px-4 py-3 text-sm" />
+                <button type="submit" class="btn-primary w-full rounded-xl px-4 py-3 text-sm uppercase tracking-[0.12em]">Check Availability</button>
+              </form>
+              <div class="mt-4 grid grid-cols-2 gap-3 text-center text-xs uppercase tracking-[0.12em] text-silver">
+                <p class="rounded-xl border border-white/20 px-3 py-2">560+ Units</p>
+                <p class="rounded-xl border border-white/20 px-3 py-2">34 Countries</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="px-4 pb-16 md:px-8">
+          <div class="mx-auto max-w-7xl">
+            <article class="glass rounded-[2rem] p-7 md:p-10">
+              <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Buy With Confidence</p>
+              <h2 class="mt-3 text-3xl md:text-4xl">We earn trust before asking for payment.</h2>
+              <p class="mt-4 max-w-4xl text-sm leading-relaxed text-[var(--muted)]">
+                Old-engine purchases are serious decisions. We provide compatibility checks, documentation-first listing clarity,
+                and direct support before and after delivery so customers can buy with confidence.
+              </p>
+              <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Compatibility before invoice</p>
+                <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Real warehouse engine photos</p>
+                <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Written warranty guidance</p>
+                <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Direct post-delivery support</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="px-4 pb-20 md:px-8">
+          <div class="mx-auto max-w-7xl">
+            <div class="mb-7 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Why Old Engine Buyers Choose Us</p>
+                <h2 class="mt-2 text-3xl md:text-4xl">Not Just a Purchase. A Safer Restoration Decision.</h2>
+              </div>
+            </div>
+            <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+              <article data-tilt class="value-3d-card rounded-3xl p-6">
+                <span class="icon-token">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 3 7.5 12 12l9-4.5L12 3Z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5 12 21l9-4.5"/></svg>
+                </span>
+                <h3 class="mt-4 text-xl text-[var(--text)]">Original BMW Character</h3>
+                <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+                  Authentic old engines maintain period-correct performance feel and mechanical identity.
+                </p>
+              </article>
+              <article data-tilt class="value-3d-card rounded-3xl p-6">
+                <span class="icon-token">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M7 4v6m10-6v6M5 11h14l-1 9H6l-1-9Z"/></svg>
+                </span>
+                <h3 class="mt-4 text-xl text-[var(--text)]">Collector Confidence</h3>
+                <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+                  Original units support stronger restoration value than mismatched replacement options.
+                </p>
+              </article>
+              <article data-tilt class="value-3d-card rounded-3xl p-6">
+                <span class="icon-token">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg>
+                </span>
+                <h3 class="mt-4 text-xl text-[var(--text)]">Lower Fitment Risk</h3>
+                <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+                  VIN and code matching reduce expensive installation surprises for clients and workshops.
+                </p>
+              </article>
+              <article data-tilt class="value-3d-card rounded-3xl p-6">
+                <span class="icon-token">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 16V9m5 7V5m5 11v-4"/></svg>
+                </span>
+                <h3 class="mt-4 text-xl text-[var(--text)]">Better Budget Outcome</h3>
+                <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+                  Verified old-engine sourcing can be a smarter path than costly full remanufacture.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="px-4 pb-20 md:px-8">
+          <div class="mx-auto max-w-7xl">
+            <article class="comparison-shell rounded-[2rem] p-7 md:p-10">
+              <div class="mb-6">
+                <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Client Clarity Framework</p>
+                <h2 class="mt-2 text-3xl md:text-4xl">How We Make Old-Engine Buying Clear and Safe</h2>
+                <p class="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+                  People buy when they feel confident, informed, and protected. This is the exact process we follow to earn that trust.
+                </p>
+              </div>
+              <div class="grid gap-4 md:grid-cols-3">
+                <div class="comparison-cell rounded-2xl p-5">
+                  <p class="text-xs uppercase tracking-[0.18em] text-accent">01</p>
+                  <h3 class="mt-2 text-xl text-[var(--text)]">Technical Matching</h3>
+                  <p class="mt-2 text-sm text-[var(--muted)]">We review VIN and engine code first so you do not buy blind.</p>
+                </div>
+                <div class="comparison-cell rounded-2xl p-5">
+                  <p class="text-xs uppercase tracking-[0.18em] text-accent">02</p>
+                  <h3 class="mt-2 text-xl text-[var(--text)]">Evidence-Based Listing</h3>
+                  <p class="mt-2 text-sm text-[var(--muted)]">Real old-engine images, condition context, and availability are presented clearly.</p>
+                </div>
+                <div class="comparison-cell rounded-2xl p-5">
+                  <p class="text-xs uppercase tracking-[0.18em] text-accent">03</p>
+                  <h3 class="mt-2 text-xl text-[var(--text)]">Protected Purchase</h3>
+                  <p class="mt-2 text-sm text-[var(--muted)]">Shipping, handling, and support expectations are documented before dispatch.</p>
+                </div>
+              </div>
+              <div class="depth-ribbon mt-6 rounded-2xl px-5 py-4">
+                <p class="text-sm leading-relaxed text-[var(--text)]">
+                  <span class="font-semibold">Bottom line:</span> You are not buying a random used unit. You are buying a verified original old engine through a process designed to protect your restoration and your money.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="px-4 pb-20 md:px-8">
+          <div class="mx-auto max-w-7xl">
+            <article class="glass rounded-[2rem] p-7 md:p-10">
+              <div class="grid gap-7 lg:grid-cols-[1.15fr_0.85fr]">
+                <div>
+                  <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Why Clients Trust Us</p>
+                  <h2 class="mt-3 text-3xl md:text-4xl">Your used BMW engine purchase is protected at every stage.</h2>
+                  <p class="mt-4 text-sm leading-relaxed text-[var(--muted)]">
+                    Buying a used BMW engine can feel risky when details are unclear. We solve that with transparency before payment,
+                    technical validation before dispatch, and real support after delivery. This is why collectors and workshops choose us
+                    when the project matters and mistakes are expensive.
+                  </p>
+                  <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                    <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Verified engine code + VIN fitment review</p>
+                    <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Real condition notes, not sales-only wording</p>
+                    <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Written inclusion and warranty clarity</p>
+                    <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Crated shipping and live tracking updates</p>
+                    <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">WhatsApp and email response by specialists</p>
+                    <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">After-delivery guidance for installation teams</p>
+                  </div>
+                  <a href="#collection" class="btn-primary mt-6 inline-flex rounded-full px-6 py-3 text-sm font-medium">
+                    View Verified Used BMW Engines
+                  </a>
+                </div>
+                <div class="grid gap-4">
+                  <article class="glass rounded-2xl p-5">
+                    <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Before You Pay</p>
+                    <h3 class="mt-2 text-2xl text-[var(--text)]">No Guesswork</h3>
+                    <p class="mt-2 text-sm text-[var(--muted)]">We help you confirm compatibility and condition first, then you decide with confidence.</p>
+                  </article>
+                  <article class="glass rounded-2xl p-5">
+                    <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">After Delivery</p>
+                    <h3 class="mt-2 text-2xl text-[var(--text)]">No Silence</h3>
+                    <p class="mt-2 text-sm text-[var(--muted)]">Our team stays available for practical support so your workshop can move faster.</p>
+                  </article>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="px-4 pb-20 md:px-8">
+          <div class="mx-auto max-w-7xl">
+            <div class="mb-8 flex items-end justify-between gap-4">
+              <div>
+                <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Featured Inventory</p>
+                <h2 class="mt-2 text-3xl md:text-4xl">Curated Original Engines</h2>
+              </div>
+              <a href="#collection" class="btn-secondary rounded-full px-5 py-2 text-sm">View Collection</a>
+            </div>
+            <div id="featuredGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+          </div>
+        </section>
+
+        <section class="px-4 pb-20 md:px-8">
+          <div class="mx-auto max-w-7xl">
+            <div class="mb-7">
+              <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Customer Reviews</p>
+              <h2 class="mt-2 text-3xl md:text-4xl">Trusted by Collectors & Workshops</h2>
+            </div>
+            <div id="homeReviewGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+          </div>
+        </section>
+
+        <section class="px-4 pb-24 md:px-8">
+          <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+            <article class="glass rounded-3xl p-7">
+              <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Need a Specific Engine?</p>
+              <h2 class="mt-3 text-3xl">Tell us your code and destination.</h2>
+              <p class="mt-3 text-sm leading-relaxed text-[var(--muted)]">We verify stock and respond with compatible options and shipping path.</p>
+              <a href="#contact" class="btn-primary mt-6 inline-flex rounded-full px-6 py-3 text-sm uppercase tracking-[0.14em]">Request Sourcing</a>
+            </article>
+            <div>
+              <h2 class="mb-4 text-2xl">FAQ</h2>
+              <div id="homeFaqList" class="space-y-3"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="view-collection" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-7 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Inventory</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">BMW Engine Collection (500+)</h1>
+          <p class="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">Explore original old BMW engine listings with clear documentation and compatibility support.</p>
+          <div class="mt-7 grid gap-4 md:grid-cols-3">
+            <div class="md:col-span-2">
+              <label for="collectionSearch" class="mb-2 block text-xs uppercase tracking-[0.16em] text-[var(--muted)]">Search</label>
+              <input id="collectionSearch" type="search" placeholder="Search by code, model, year..." class="w-full rounded-full border border-[var(--border)] bg-transparent px-5 py-3 text-sm outline-none" />
+            </div>
+            <div>
+              <label for="categoryFilter" class="mb-2 block text-xs uppercase tracking-[0.16em] text-[var(--muted)]">Category</label>
+              <select id="categoryFilter" class="w-full rounded-full border border-[var(--border)] bg-[var(--bg)] px-5 py-3 text-sm"></select>
+            </div>
+          </div>
+          <p id="collectionMeta" class="mt-5 text-sm text-[var(--muted)]"></p>
+        </section>
+        <section class="mx-auto mt-10 max-w-7xl">
+          <div class="grid gap-4 md:grid-cols-6">
+            <a href="#collection" class="group relative overflow-hidden rounded-3xl border border-[var(--border)] md:col-span-3">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp" alt="N57 engines family cover" class="h-56 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+              <h3 class="absolute bottom-4 left-4 text-2xl font-semibold text-white">N57 Engines</h3>
+            </a>
+            <a href="#collection" class="group relative overflow-hidden rounded-3xl border border-[var(--border)] md:col-span-3">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp" alt="N47 engines family cover" class="h-56 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+              <h3 class="absolute bottom-4 left-4 text-2xl font-semibold text-white">N47 Engines</h3>
+            </a>
+            <a href="#collection" class="group relative overflow-hidden rounded-3xl border border-[var(--border)] md:col-span-2">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp" alt="M57 engines family cover" class="h-52 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+              <h3 class="absolute bottom-4 left-4 text-xl font-semibold text-white">M57 Engines</h3>
+            </a>
+            <a href="#collection" class="group relative overflow-hidden rounded-3xl border border-[var(--border)] md:col-span-2">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b57.webp" alt="B57 engines family cover" class="h-52 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+              <h3 class="absolute bottom-4 left-4 text-xl font-semibold text-white">B57 Engines</h3>
+            </a>
+            <a href="#collection" class="group relative overflow-hidden rounded-3xl border border-[var(--border)] md:col-span-2">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp" alt="B47 engines family cover" class="h-52 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+              <h3 class="absolute bottom-4 left-4 text-xl font-semibold text-white">B47 Engines</h3>
+            </a>
+          </div>
+        </section>
+        <section class="mx-auto mt-10 max-w-7xl">
+          <article class="glass rounded-3xl p-7">
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">M57 Swap Kits</p>
+            <h2 class="mt-3 text-3xl">Conversion Support for 4x4 and Workshop Projects</h2>
+            <p class="mt-3 text-sm leading-relaxed text-[var(--muted)]">The M57 menu option is fully supported with swap-oriented sourcing guidance, inclusion clarity, and freight planning.</p>
+          </article>
+        </section>
+        <section class="mx-auto mt-10 max-w-7xl">
+          <div id="collectionGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+          <div id="collectionPagination" class="mt-8 flex justify-center"></div>
+        </section>
+      </section>
+
+      <section id="view-details" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl">
+          <p id="detailCategory" class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]"></p>
+          <h1 id="detailTitle" class="mt-3 text-4xl md:text-5xl"></h1>
+          <p id="detailPrice" class="mt-2 text-2xl text-accent"></p>
+        </section>
+        <section class="mx-auto mt-8 grid max-w-7xl gap-7 lg:grid-cols-[1.2fr_0.8fr]">
+          <div class="space-y-4">
+            <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+              <img id="detailMainImage" src="" alt="Engine image" class="h-[440px] w-full object-cover" />
+            </figure>
+            <div id="detailThumbs" class="grid grid-cols-3 gap-3"></div>
+          </div>
+          <aside class="glass rounded-3xl p-6">
+            <h2 class="text-xl">Condition Summary</h2>
+            <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
+              <div><dt class="text-xs uppercase text-[var(--muted)]">Code</dt><dd id="detailCode"></dd></div>
+              <div><dt class="text-xs uppercase text-[var(--muted)]">Mileage</dt><dd id="detailMileage"></dd></div>
+              <div><dt class="text-xs uppercase text-[var(--muted)]">Year</dt><dd id="detailYear"></dd></div>
+              <div><dt class="text-xs uppercase text-[var(--muted)]">Availability</dt><dd id="detailAvailability"></dd></div>
+            </dl>
+            <div id="detailsActions" class="mt-5 flex flex-wrap gap-2"></div>
+          </aside>
+        </section>
+        <section class="mx-auto mt-8 grid max-w-7xl gap-7 lg:grid-cols-2">
+          <article class="glass rounded-3xl p-6">
+            <h2 class="text-2xl">Specifications</h2>
+            <table class="mt-4 w-full border-collapse">
+              <tbody id="specTable"></tbody>
+            </table>
+          </article>
+          <article class="glass rounded-3xl p-6">
+            <h2 class="text-2xl">Compatibility</h2>
+            <ul id="compatibilityList" class="mt-4 space-y-2"></ul>
+          </article>
+        </section>
+      </section>
+
+      <section id="view-about" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2">
+          <article class="space-y-5">
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">About</p>
+            <h1 class="text-4xl md:text-5xl">Preserving Original Bavarian Engineering</h1>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">
+              We are focused exclusively on original BMW old-engine supply for serious restorations, collector projects,
+              and workshop replacement operations across Europe and global export routes.
+            </p>
+            <div class="grid gap-3 text-xs uppercase tracking-[0.16em] text-[var(--muted)] sm:grid-cols-2">
+              <p class="chip rounded-full px-4 py-2 text-center">Original Units Only</p>
+              <p class="chip rounded-full px-4 py-2 text-center">No Generic Substitutes</p>
+              <p class="chip rounded-full px-4 py-2 text-center">VIN Matching Desk</p>
+              <p class="chip rounded-full px-4 py-2 text-center">Workshop-Grade Support</p>
+            </div>
+          </article>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp" alt="Original BMW engine heritage visual" class="h-full min-h-[360px] w-full object-cover" loading="lazy" />
+          </figure>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp" alt="BMW workshop heritage visual N47" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b57.webp" alt="BMW warehouse heritage visual B57" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp" alt="BMW restoration visual M57" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+        </section>
+      </section>
+
+      <section id="view-contact" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Contact</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">Talk to an Engine Specialist</h1>
+          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--muted)]">Send your engine code, VIN, and destination. We respond with matching options and shipping clarity.</p>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-7 lg:grid-cols-[1fr_1.2fr]">
+          <article class="glass rounded-3xl p-6">
+            <h2 class="text-2xl">Direct Contact</h2>
+            <ul class="mt-5 space-y-3 text-sm text-[var(--muted)]">
+              <li class="rounded-xl border border-[var(--border)] p-4">Phone: +49 15510 030835</li>
+              <li class="rounded-xl border border-[var(--border)] p-4">Email: originalbavarianengine@gmail.com</li>
+              <li class="rounded-xl border border-[var(--border)] p-4">Mon-Sat: 08:00 - 19:00 CET</li>
+            </ul>
+          </article>
+          <article class="glass rounded-3xl p-6">
+            <h2 class="text-2xl">Premium Contact Form</h2>
+            <form id="contactForm" class="mt-5 grid gap-4 md:grid-cols-2">
+              <input required placeholder="Full Name" class="rounded-xl border border-[var(--border)] bg-transparent px-4 py-3 text-sm" />
+              <input type="email" required placeholder="Email" class="rounded-xl border border-[var(--border)] bg-transparent px-4 py-3 text-sm" />
+              <input placeholder="Phone" class="rounded-xl border border-[var(--border)] bg-transparent px-4 py-3 text-sm" />
+              <input placeholder="Desired Engine Code" class="rounded-xl border border-[var(--border)] bg-transparent px-4 py-3 text-sm" />
+              <textarea rows="5" required placeholder="Project details..." class="md:col-span-2 rounded-xl border border-[var(--border)] bg-transparent px-4 py-3 text-sm"></textarea>
+              <button type="submit" class="btn-primary md:col-span-2 rounded-full px-8 py-3 text-sm uppercase tracking-[0.14em]">Send Request</button>
+            </form>
+            <p id="contactFormStatus" class="mt-3 text-sm text-accent"></p>
+          </article>
+        </section>
+        <section class="mx-auto mt-10 max-w-7xl">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="assets/images/map-placeholder.svg" alt="Original Bavarian Engine map placeholder" class="h-[320px] w-full object-cover" loading="lazy" />
+          </figure>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
+          <article class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Before You Enquire</p>
+            <h3 class="mt-2 text-xl">Share VIN & Code</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]">This helps us prevent compatibility mistakes before quoting.</p>
+          </article>
+          <article class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Fast Response</p>
+            <h3 class="mt-2 text-xl">Specialist Contact</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]">WhatsApp and email support for private buyers and garages.</p>
+          </article>
+          <article class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">After Ordering</p>
+            <h3 class="mt-2 text-xl">Dispatch Guidance</h3>
+            <p class="mt-2 text-sm text-[var(--muted)]">Crate, tracking, and documentation details are shared clearly.</p>
+          </article>
+        </section>
+      </section>
+
+      <section id="view-services" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Services</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">Complete Engine Sourcing Services</h1>
+          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">Technical matching, inventory sourcing, freight planning, and after-delivery support from one desk.</p>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp" alt="Service visual for N57 sourcing" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp" alt="Service visual for M57 swaps" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b57.webp" alt="Service visual for B57 logistics" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">VIN & Code Matching</h2><p class="mt-2 text-sm text-[var(--muted)]">Suffix-level compatibility review before invoice.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Inventory Sourcing</h2><p class="mt-2 text-sm text-[var(--muted)]">Access to diesel and petrol families with real stock context.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">M57 Swap Packages</h2><p class="mt-2 text-sm text-[var(--muted)]">Conversion pathway support for Defender and 4x4 builds.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Condition Documentation</h2><p class="mt-2 text-sm text-[var(--muted)]">Image-backed notes and listing clarity for buyers.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Worldwide Freight</h2><p class="mt-2 text-sm text-[var(--muted)]">Crated and tracked shipping with export support.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Post-Delivery Support</h2><p class="mt-2 text-sm text-[var(--muted)]">Direct support after dispatch and arrival.</p></article>
+        </section>
+      </section>
+
+      <section id="view-policies" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Policies</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">Order, Shipping, Warranty, Returns</h1>
+          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">Policy clarity is part of our trust model. We define fitment, freight, and warranty expectations before payment.</p>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-2">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp" alt="Policy visual for compatibility checks" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp" alt="Policy visual for shipping and warranty terms" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-6 lg:grid-cols-2">
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Compatibility Policy</h2><p class="mt-2 text-sm text-[var(--muted)]">VIN + code verification is recommended before order confirmation.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Shipping Policy</h2><p class="mt-2 text-sm text-[var(--muted)]">Engines ship via protected crate or pallet with tracking workflow.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Warranty Policy</h2><p class="mt-2 text-sm text-[var(--muted)]">Written coverage terms are shared in order documents before payment.</p></article>
+          <article class="glass rounded-3xl p-6"><h2 class="text-2xl">Returns Policy</h2><p class="mt-2 text-sm text-[var(--muted)]">Case handling follows documented conditions agreed during checkout.</p></article>
+        </section>
+      </section>
+
+      <section id="view-blog" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Blog</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">BMW Engine Knowledge Center</h1>
+        </section>
+
+        <section id="blog-featured" class="mx-auto mt-10 max-w-7xl">
+          <article class="glass rounded-3xl p-6 md:p-10">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Featured Guide — 2,000+ Words</p>
+            <h2 class="mt-3 text-2xl md:text-4xl">The Definitive Guide to Buying Original Old BMW Engines in Europe</h2>
+            <figure class="mt-6 overflow-hidden rounded-2xl border border-[var(--border)]">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp" alt="Original old BMW engine buying guide" class="h-72 w-full object-cover" loading="lazy" />
+            </figure>
+            <div class="mt-8 space-y-4 text-sm leading-relaxed text-[var(--muted)]">
+              <p>Replacing a BMW engine is one of the most consequential decisions an owner or workshop can make. The difference between a successful restoration and an expensive failure often comes down to what happens before money changes hands: compatibility verification, condition evidence, logistics planning, and realistic budgeting. This guide distils decades of old-engine supply experience into a practical framework you can apply whether you are sourcing an M20 for an E30 restoration, an M57 for a Defender conversion, or an N57 diesel for a daily F-series BMW.</p>
+              <p>Across Europe, demand for original BMW engines continues to rise as classic values increase and modern diesel platforms age into replacement cycles. The market offers everything from meticulously documented specialist inventory to vague salvage listings with stock photography. Learning to separate professional suppliers from opportunistic traders protects your budget, your timeline, and the mechanical character of your vehicle.</p>
+              <h3 class="text-xl text-[var(--text)]">Why Engine Replacement Makes Financial Sense</h3>
+              <p>When an engine fails, owners typically evaluate repair, replacement, or vehicle sale. Internal damage on N47, N20, or N63 platforms often makes comprehensive repair uneconomical compared with a tested replacement unit. Labour hours accumulate quickly when head removal, chain replacement, turbo inspection, and injector servicing are all required on a compromised block.</p>
+              <p>For classic E30, E36, and E46 models with rising collector values, scrapping a sound chassis because of engine failure wastes both money and heritage. A documented M54 or period-correct M50 preserves originality and protects asset value. Fleet operators running F-series diesels face downtime costs that dwarf engine purchase price — a reliable N57 delivered within a week pays for itself the moment the vehicle returns to service.</p>
+              <p>Dealer replacement quotes for modern B58 and B48 engines routinely exceed twelve thousand euros. Independent workshops sourcing tested units from specialist suppliers typically complete the same job for forty to sixty percent less, with identical mechanical specification when compatibility is verified correctly.</p>
+              <h3 class="text-xl text-[var(--text)]">Understanding BMW Engine Families</h3>
+              <p>Classic M-series engines — M10, M20, M30, M50, M52 — represent mechanically straightforward powerplants with well-documented service procedures and strong parts availability. The M54 generation introduced electronic throttle control and more complex emissions equipment while remaining popular for E46 daily drivers. S54 engines demand scrutiny for rod bearing condition and VANOS function but deliver exceptional performance when sourced with documented test data.</p>
+              <p>N-series engines brought turbocharging to mainstream BMW petrol and diesel lineups. N54 and N55 units offer tuning potential but require attention to high-pressure fuel pumps and cooling capacity. N47 and N57 diesels power millions of European BMWs; timing chain maintenance is critical on early N47 units, while N57 engines remain prized for swap conversions due to torque delivery and broad community knowledge.</p>
+              <p>Modern B-series modular engines share design philosophy across petrol and diesel variants. Purchasing B48 or B58 units requires careful attention to DME generation, immobiliser coding, and compatibility with vehicle electronics — a donor engine from a different generation may not communicate with your body module without adaptation.</p>
+              <h3 class="text-xl text-[var(--text)]">What to Inspect Before You Buy</h3>
+              <p>Visual inspection alone is insufficient. A freshly cleaned engine may conceal scored bores, coolant contamination, or bearing damage. Professional suppliers publish compression test results, leak-down percentages, and photographs of sump interiors, timing covers, and cylinder head mating surfaces.</p>
+              <p>Compression readings should fall within ten percent across all cylinders. A single low cylinder suggests valve or head gasket issues; uniformly low readings indicate ring wear or bore damage. Leak-down testing quantifies air escape percentage — readings below fifteen percent indicate excellent condition; above twenty percent warrants investigation before purchase.</p>
+              <p>Oil analysis reveals bearing wear metals, fuel dilution, and coolant contamination. Elevated iron suggests cylinder or ring wear; lead and copper indicate bearing degradation; sodium and potassium point to coolant ingress through head gasket or oil cooler failure.</p>
+              <h3 class="text-xl text-[var(--text)]">Verifying Supplier Credibility</h3>
+              <p>Credibility indicators include published test protocols, photographs of the actual engine you will receive, transparent warranty terms, and responsive technical support. Suppliers who cannot explain their testing procedure, who use stock photography, or who refuse compression data should be avoided regardless of price.</p>
+              <p>Warranty coverage demonstrates confidence in testing. Six-month mechanical warranty on internal components against pre-existing defects is standard among professional operations. Read exclusions carefully — installation labour and incorrect oil specification are typically excluded, which is reasonable.</p>
+              <p>Logistics capability matters for heavy freight. Engines require palletised transport on dedicated carriers with transit insurance covering full purchase value. Cross-border shipments to the UK, Switzerland, and Norway need correct customs documentation to avoid border delays.</p>
+              <h3 class="text-xl text-[var(--text)]">Installation and First-Start Discipline</h3>
+              <p>Confirm mount compatibility, exhaust flange alignment, cooling hose routing, and wiring loom requirements before the engine arrives. Use correct oil grade and coolant type for your engine family — incorrect specification causes failures incorrectly blamed on engine quality.</p>
+              <p>First-start protocol: verify oil level, complete coolant bleed, confirm fuel pressure, check battery voltage above 12.4 volts, ensure DME coding matches the installed engine. Limit initial running to idle for fifteen minutes while monitoring oil pressure, temperature, and leaks at every junction.</p>
+              <p>Post-installation service includes oil and filter change at five hundred to one thousand kilometres. Inspect fasteners after the first heat cycle. Document installation with photographs and service records for warranty and resale value.</p>
+              <h3 class="text-xl text-[var(--text)]">Cost Planning Beyond the Invoice</h3>
+              <p>Budget for shipping, installation labour, supporting components, fluids, programming, and a fifteen to twenty percent contingency. Rebuild versus replace economics favour replacement for most families when labour exceeds eighty euros per hour. Mileage matters less than measured mechanical condition — a well-maintained engine with one hundred eighty thousand kilometres often outperforms a neglected low-mileage unit.</p>
+              <h3 class="text-xl text-[var(--text)]">Diesel-Specific Considerations</h3>
+              <p>Old BMW diesel purchases require suffix-level code verification, not just family name matching. N47, N57, M57, B47, and B57 variants differ in injector generation, emissions hardware, turbo configuration, and ECU strategy. Request donor chassis context, observed cold-start behaviour, smoke profile notes, and injector balance data where available. Turbo shaft play, variable geometry response, and high-pressure pump condition should be documented before dispatch. Diesel projects fail most often when buyers treat family labels as interchangeable rather than verifying generation-specific architecture against the receiving vehicle.</p>
+              <p>Emissions compliance adds another layer for imported diesels. Euro 4, Euro 5, and Euro 6 standards impose different requirements on particulate filters, SCR systems, and EGR configurations. An engine sourced from a different regulatory market may require component adaptation or registration consultation before road use. Professional suppliers disclose emissions package context and advise on common registration pathways for your destination country rather than treating compliance as the buyer's problem after delivery.</p>
+              <h3 class="text-xl text-[var(--text)]">Petrol and Heritage Engine Strategy</h3>
+              <p>Petrol and M heritage purchases blend emotional value with technical risk. Decide early whether your project demands code-correct originality or reliable road character with selective modernization. Compression balance, cylinder head thermal history, VANOS function, and throttle actuator condition all influence long-term satisfaction. Heritage builds should demand stamp visibility, donor documentation, and honest disclosure of any replaced components during donor life. Authenticity markets reward clarity — hidden substitutions reduce resale trust even when drivability appears acceptable at first start.</p>
+              <p>First-start commissioning for petrol units should progress through idle stabilization, thermal monitoring, and measured load increases rather than immediate aggressive operation. Intake leaks, weak grounds, and aging sensor behaviour frequently mimic engine faults when the core hardware is sound. Establish mechanical and electrical baselines before tuning or modification. A disciplined commissioning window protects bearing surfaces, turbo cartridges, and valvetrain interfaces during the vulnerable first operating hours.</p>
+              <h3 class="text-xl text-[var(--text)]">Freight, Storage, and Handover Protocol</h3>
+              <p>Engine quality can be compromised after selection if packaging and storage are neglected. Require crate standards that protect mounting points, exposed ports, and sensor faces. Ask for bracing photos before dispatch and transit insurance covering full replacement value. Upon arrival, document crate condition immediately, compare delivered stamp and accessories against invoice records, and capture intake photographs before installation begins. Delayed discrepancy reporting weakens resolution quality — professional buyers treat arrival inspection as a formal project milestone, not an afterthought.</p>
+              <p>Storage between delivery and installation should be dry, clean, and organized. Cover open ports, avoid unnecessary handling stress, and inspect periodically if installation is delayed. Workshops benefit from a written prep checklist covering seals, fluids, belts, sensors, and accessory brackets before the engine enters the bay. Preventive preparation during open access is almost always cheaper than corrective work after full assembly.</p>
+              <h3 class="text-xl text-[var(--text)]">Working With Workshops and Suppliers</h3>
+              <p>The strongest outcomes emerge when owner, workshop, and supplier communicate through completion rather than only until payment clears. Keep channels open for code verification questions, documentation clarification, and compatibility checks if unexpected details appear during installation. Suppliers who provide fifteen-minute pre-purchase consultations prevent costly mismatches that no discount can offset. Workshops should receive torque specifications, oil grade requirements, and coding notes alongside the physical engine so first-start discipline is shared rather than assumed.</p>
+              <p>Define warranty expectations in writing before payment: what internal components are covered, what evidence is required for claims, and what timelines apply for reporting arrival issues. Vague promises create friction; documented terms create confidence. In international transactions, written clarity is operational risk control — not optional paperwork.</p>
+              <h3 class="text-xl text-[var(--text)]">Practical Pre-Purchase Checklist</h3>
+              <p>Before committing funds, confirm engine stamp visibility, donor model reference, observed startup behaviour, smoke characteristics, fluid contamination notes, included accessory list, and crating standard in writing. Clarify who provides coding guidance, what warranty process applies, and how claims are documented if issues appear at arrival or during early run phases. Request a project timeline map covering freight windows, workshop intake, preventive service scope, first-start target, and road validation milestones. This checklist converts negotiation into structured technical responsibility and reduces assumptions that later become expensive disputes.</p>
+              <p>Compare at least two supplier options using the same criteria rather than price alone. Evaluate response quality, specificity of answers, willingness to share test data, and clarity of inclusions. A slightly higher price from a supplier who documents condition thoroughly often costs less in total than a discounted unit with unknown internals. Old BMW engine commerce rewards buyers who treat sourcing as engineering procurement — measured, documented, and deliberate — rather than impulse purchasing based on photographs and adjectives.</p>
+              <h3 class="text-xl text-[var(--text)]">Conclusion</h3>
+              <p>Buying an original old BMW engine is a technical procurement decision, not a commodity purchase. Verify mechanical condition through documented testing, choose suppliers with proven protocols and meaningful warranty, and invest in correct installation. The European market offers excellent inventory for every platform from classic M20 restorations to modern B58 replacements — the challenge is navigating that market with knowledge.</p>
+              <p>At Original Bavarian Engine, we help buyers confirm compatibility before invoice, provide image-backed condition context, and support crated worldwide delivery with direct post-dispatch communication. Browse the article library below for thirty-four additional technical guides, or contact our team with your VIN and engine code for a free fitment review. Your BMW deserves a powerplant matched to its engineering heritage — and with the right preparation, that powerplant is closer than you might expect.</p>
+              <p>Whether you are restoring a classic E30, replacing a failed diesel in a daily F30, or building a Defender conversion around an M57, the same principles apply: verify identity, demand evidence, plan logistics, budget completely, and partner with suppliers who communicate in specifics. The old BMW engine market is deep and capable of excellent outcomes when navigated with discipline. Process-driven buyers consistently achieve stronger reliability, lower total cost, and greater long-term satisfaction than those who chase the lowest headline price without technical validation.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="mx-auto mt-12 max-w-7xl">
+          <div class="mb-7 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Article Library</p>
+              <h2 class="mt-2 text-3xl md:text-4xl"><span id="blogCardCount">34</span> Technical Guides &amp; Workshop Articles</h2>
+              <p class="mt-2 max-w-2xl text-sm text-[var(--muted)]">Filter by topic or search by engine code, platform, or keyword.</p>
+            </div>
+            <input id="blogSearch" type="search" placeholder="Search articles..." class="w-full max-w-xs rounded-full border border-[var(--border)] bg-transparent px-5 py-3 text-sm outline-none md:w-72" />
+          </div>
+          <p id="blogMeta" class="mb-5 text-sm text-[var(--muted)]"></p>
+          <div id="blogCardGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+        </section>
+
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp" alt="BMW blog graphic N47 engine" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp" alt="BMW blog graphic N57 engine" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp" alt="BMW blog graphic B58 engine" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+        </section>
+        <section class="mx-auto mt-10 max-w-7xl space-y-8">
+          <article class="glass rounded-3xl p-6 md:p-8">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Long Form Guide - 1500+ Words</p>
+            <h2 class="mt-3 text-2xl md:text-3xl">Complete Buyer Blueprint for Old BMW Diesel Engines: N47, N57, and M57</h2>
+            <figure class="mt-5 overflow-hidden rounded-2xl border border-[var(--border)]">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp" alt="Old BMW diesel buying guide image" class="h-72 w-full object-cover" loading="lazy" />
+            </figure>
+            <div class="mt-6 space-y-4 text-sm leading-relaxed text-[var(--muted)]">
+              <p>Buying an old BMW diesel engine is never only about price, and serious buyers already know that the cheapest listing often becomes the most expensive story once labor, freight, coding, and downtime enter the equation. A correct old-engine purchase is really a systems decision that includes mechanical condition, injector history, turbo health, ECU generation, gearbox communication, DPF strategy, and the practical skill level of the workshop that will install the unit. If your target is a dependable and authentic restoration outcome, you need to treat the engine as part of a complete drivetrain ecosystem. That is why experienced buyers start with compatibility architecture first, then condition evidence, then logistics planning, and only then payment and dispatch timing.</p>
+              <p>The first discipline is identity verification. On BMW diesels, many purchase failures happen because people match a family label but ignore suffix-level details. A listing that says N57 or M57 is not enough. You must request and confirm the full stamp, donor chassis context, and generation notes that explain injector type, emissions package, and accessory arrangement. The goal is to prevent hidden conversion work that appears after the crate arrives. In practical terms, this means checking block code, intake layout, EGR arrangement, turbo setup, and sensor ports against your receiving vehicle and its control strategy. When the supplier provides matching photos, compression context, and continuity notes, your risk drops dramatically.</p>
+              <p>The second discipline is use-case clarity. Not every old diesel should be purchased for the same mission. If you are restoring an original daily vehicle, you often prioritize smooth start behavior, stable idle, and lower smoke profile. If you are building a highway-focused tow setup, thermal stability and long-load durability become central. If the project is for collector authenticity, matching period-correct architecture can matter more than chasing aggressive power targets. A professional supplier will ask these use-case questions before recommending a specific stock unit. When no one asks, you should ask yourself, because your use case dictates what test evidence and preparation level you should demand from the seller.</p>
+              <p>Condition reporting must be evidence-based, not adjective-based. Terms like excellent, clean, strong, and tested mean very little without details. Ask for cold-start behavior notes, warm idle behavior, smoke profile observations, oil cap pressure comments, visible seepage context, and injector correction balance where available. Ask whether the engine was run under load, whether only idle testing was completed, or whether the unit was removed as a known running donor with timestamped dismantling documentation. The more concrete the condition file, the less you rely on optimistic interpretation. Every missing data point becomes a budget reserve item that your workshop may later discover and bill as a surprise correction.</p>
+              <p>Turbo and fuel-system context is especially important on old BMW diesels. Buyers often focus on the long block and underestimate peripheral cost exposure. A healthy block paired with weak injector condition or uncertain high-pressure pump behavior can still create a complex install cycle. Clarify whether injectors are included, whether they are coded from donor context, and whether return-flow behavior raised concerns before dismantling. For turbo systems, verify shaft play notes, housing condition, vane response on variable geometry setups, and whether the unit was preserved correctly in storage. These details convert uncertainty into planning. Without them, a low purchase price can be erased by immediate component replacement.</p>
+              <p>Cooling and lubrication history matters more than many first-time buyers expect. Old diesels can survive high mileage when cooling integrity and oil service discipline were maintained. They can also deteriorate early when coolant management or oil intervals were neglected. Ask about visible sludge indicators under valve cover areas, coolant contamination signs, and whether donor history indicates overheating incidents. Even if you cannot access complete service records, supplier observation notes can still help. During pre-install preparation, many workshops replace key seals, check water pump and thermostat condition, and clean oil-feed pathways before first ignition. The supplier should be honest about what was observed and what remains advisory work.</p>
+              <p>Transmission and electronics compatibility must be checked before freight booking. On modern BMW diesel platforms, drivability quality depends on more than mechanical fit. ECU strategy, sensor calibration, immobilizer workflow, and gearbox communication may require coding alignment. If your project uses original ECU and harness architecture, confirm sensor mapping parity and connector compatibility with the purchased engine. If your project is a swap, define early whether you are aiming for factory-style integration or simplified standalone logic. A clear electronics plan avoids the common trap where the engine physically fits but the project stalls for weeks because software and communication assumptions were made too late.</p>
+              <p>Freight discipline is part of engine quality. A correctly selected old engine can still arrive compromised if packaging is careless. Require crate standards that protect mounting points, exposed lines, and sensor faces. Ask how the engine is braced, whether accessory protrusions are buffered, and how moisture control is handled for sea or long-route transit. Demand photo proof of crating before dispatch and request tracking workflow that includes milestone updates, not only final destination notice. Professional logistics reduces not just physical damage risk but also scheduling uncertainty for your workshop. This is why experienced buyers evaluate freight communication quality as a sign of overall supplier maturity.</p>
+              <p>Budget planning should include three layers: purchase value, preventive preparation, and installation contingencies. The purchase value is the invoice you see. Preventive preparation includes seals, fluids, filters, and selected wear items your workshop may replace proactively. Contingency includes unknowns that can appear during adaptation, coding, or first road validation. Buyers who budget only the invoice amount often misjudge total cost and then blame the wrong stage of the process. A transparent supplier can help by clarifying inclusions and exclusions in writing, so you can estimate true project cost before payment. This financial clarity is one of the strongest trust markers in old-engine commerce.</p>
+              <p>When comparing N47, N57, and M57 routes, think in lifecycle terms. N47 options can suit projects where efficiency and packaging constraints matter, but chain history and generation specifics require careful validation. N57 units offer strong torque potential with modern diesel refinement when matched correctly, yet they demand disciplined compatibility checks because variant differences can affect integration. M57 routes remain popular for robustness and broad enthusiast knowledge, especially in swap communities, but still require honest condition evidence and realistic supporting-component planning. None of these families is universally best. The best option is the one that matches your chassis, mission, budget ceiling, and workshop execution level.</p>
+              <p>Documentation quality is your protection contract before money moves. Request a clear written summary covering engine code, donor context, condition observations, included components, known limitations, and freight method. Ask for confirmation on warranty process, claim timeline expectations, and what evidence is needed if a dispute appears after delivery. Reputable suppliers are comfortable with documented clarity because it reduces friction for both sides. Vague language creates room for misunderstanding that usually hurts the buyer first. In international transactions especially, written detail is not optional administration; it is operational risk control. A high-trust purchase is always a documented purchase.</p>
+              <p>Once the engine arrives, your workshop handover process should be systematic. Before installation begins, confirm crate condition, compare delivered code and accessories against invoice documentation, and capture arrival photos. Rotate the engine by hand where appropriate, inspect obvious sealing areas, and review harness and sensor points for transit impact. This intake protocol protects both buyer and seller by establishing objective arrival condition. If discrepancies exist, they should be reported immediately with visual evidence. Delayed reporting weakens resolution quality and can create avoidable conflict. A professional delivery inspection routine is one of the easiest ways to protect project timeline and financial control.</p>
+              <p>Finally, remember that buying an old BMW diesel engine is a decision about outcome confidence, not only inventory availability. The right supplier behaves like a technical partner, not a listing board. They help you narrow the engine family, verify compatibility detail, disclose realistic condition context, and plan freight and after-delivery support with clarity. If a seller resists detailed questions, that resistance itself is useful data. Serious projects deserve serious process. When you treat sourcing as a structured engineering workflow, you gain a better engine, a cleaner install, and a far stronger chance of preserving the mechanical character that made old BMW diesels worth restoring in the first place.</p>
+              <p>A practical final checklist for diesel buyers should include written confirmation of engine stamp visibility, donor model reference, observed startup behavior, visible smoke notes, fluid contamination observations, included accessory list, and crating standard. It should also include who is responsible for coding guidance, what is covered under warranty process, and how claims are documented if an issue appears at arrival or early run phase. This checklist turns negotiation into a professional transfer of technical responsibility. Buyers who use checklists usually experience fewer disputes because assumptions are reduced. The checklist does not remove all risk, but it converts unknowns into managed decisions with clearer budget and scheduling consequences.</p>
+              <p>Another advanced step is to request a project timeline map before dispatch. This map should define estimated freight windows, workshop intake date, preventive service scope, first-start target, and first road validation milestone. Mapping these steps before payment reduces idle time after delivery and helps workshops reserve labor intelligently. It also improves buyer confidence because the engine becomes part of a controlled plan rather than a standalone shipment. Old BMW diesel projects succeed when sourcing, logistics, and installation are managed as one timeline. The more integrated the plan, the higher the chance of getting a strong, dependable, and authentic outcome without repeated rework.</p>
+            </div>
+          </article>
+
+          <article class="glass rounded-3xl p-6 md:p-8">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Long Form Guide - 1500+ Words</p>
+            <h2 class="mt-3 text-2xl md:text-3xl">Old BMW Petrol Engines and M Heritage Units: Authentic Restoration Strategy from Purchase to First Drive</h2>
+            <figure class="mt-5 overflow-hidden rounded-2xl border border-[var(--border)]">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp" alt="Old BMW petrol restoration guide image" class="h-72 w-full object-cover" loading="lazy" />
+            </figure>
+            <div class="mt-6 space-y-4 text-sm leading-relaxed text-[var(--muted)]">
+              <p>Old BMW petrol engines are emotional purchases as much as technical ones, because buyers are not just restoring mobility; they are restoring response, sound character, and the analog relationship between throttle input and chassis movement that defined an era. This emotional value is exactly why technical discipline matters so much. A heritage engine that looks correct in photos can still become an expensive compromise if compression balance is weak, timing components are worn beyond service tolerance, or accessory architecture does not match the target chassis. The difference between a joyful restoration and a frustrating one is rarely luck. It is almost always the quality of sourcing process before the crate is ever booked.</p>
+              <p>The first strategic question is authenticity depth. Some clients want visual authenticity only, while others want code-correct drivetrain identity that aligns with production-era expectations. You should decide this early, because it changes your acceptance criteria during purchase. Code-correct projects often require stricter block and head verification, period-consistent ancillary layout, and stronger insistence on donor documentation. Visual-authenticity projects may allow broader internal updating while preserving external presentation. Neither route is wrong, but confusion between the two creates conflict between buyer expectations and workshop execution. A seller who understands restoration goals can help filter inventory choices according to your chosen authenticity level.</p>
+              <p>Compression integrity and oil control behavior are core concerns for old petrol units. Ask for meaningful condition notes beyond cosmetic appearance. Clarify whether the engine was running before removal, whether cold-start and warm-start behaviors were observed, and whether smoke characteristics changed after stabilization. If leak-down data is unavailable, ask for qualitative observations that still have diagnostic value, including idle smoothness, abnormal top-end noise, and visible contamination under oil cap surfaces. None of these observations replaces a full rebuild report, but together they create a practical confidence profile that helps buyers avoid engines with obvious early warning signs hidden behind polished photography.</p>
+              <p>Cylinder head condition deserves specific attention on old petrol platforms, especially when overheating history is uncertain. A flat-running donor can still hide previous thermal stress that appears later during sustained load. Ask whether the seller observed any coolant-oil cross-contamination, repeated coolant loss patterns, or signs of prior gasket work. During workshop intake, pressure testing and careful thermal-cycle monitoring can prevent downstream surprises. If your project budget allows, proactive head inspection and refresh planning often costs less than emergency corrective labor after installation. The key is to treat uncertainty as something to price in early, not something to discover when timeline pressure is already high.</p>
+              <p>Fuel delivery and ignition context also shape restoration success. On old BMW petrol engines, age-related issues frequently emerge in injectors, seals, coil pathways, and vacuum integrity. Clarify what is included with the engine and what should be considered service advisory rather than ready-to-run. A trustworthy supplier explains these boundaries clearly. Buyers should welcome this honesty because it improves planning realism. If a listing implies everything is perfect without any mention of age-sensitive systems, caution is appropriate. High-trust suppliers do not promise impossibly flawless old units; they provide a practical map of known condition and sensible preparation steps before first road load.</p>
+              <p>Manual and automatic drivetrain pairing should be part of pre-purchase planning, not post-delivery improvisation. Even when the long block is compatible, differences in ancillary brackets, harness provisions, and ECU assumptions can slow integration. If the project is a period-correct restoration with original transmission architecture, verify mounting and signal expectations in advance. If the project blends heritage engine character with modern drivability goals, define where adaptation work will occur and who is responsible. The earlier these responsibilities are documented, the smoother your workshop timeline becomes. Ambiguity at this stage is one of the most common reasons restoration budgets drift and delivery promises slip.</p>
+              <p>Authentic sound and throttle response are major reasons people choose old BMW petrol engines, yet these qualities depend heavily on calibration and peripheral condition, not only the engine core. Intake leaks, tired sensor behavior, and aging ignition components can flatten response and create unstable idle patterns that buyers mistakenly attribute to the engine itself. Include baseline service items in your project plan and treat first-start calibration as an essential phase, not optional tuning. A correctly prepared and correctly calibrated old petrol unit can feel vivid, progressive, and period-correct. A partially prepared one can feel inconsistent, even if the core hardware is fundamentally healthy.</p>
+              <p>For M heritage builds or M-inspired period projects, documentation standards should be even higher because buyer sensitivity to originality is higher. Ask for stamp visibility, donor context, and photos that support claims about specification and authenticity. If specific components are known to have been replaced during donor life, that should be disclosed as part of transparent valuation. Authenticity markets reward clarity. Hidden substitutions and vague claims may not fail immediately in driving terms, but they reduce long-term confidence and can damage resale trust later. In collector-oriented restoration, truthful specification narrative is as valuable as mechanical condition itself.</p>
+              <p>Freight and storage planning is sometimes underestimated for petrol engines, especially when buyers are excited to move quickly. However, careful transit preparation helps preserve seals, ports, and external components, and reduces contamination risk during long routes. Ask how open points are protected, how the unit is stabilized inside the crate, and whether moisture-control measures are used for climate-variable transit. Once delivered, keep storage clean, dry, and organized until installation starts. The gap between delivery and install often exposes engines to accidental handling damage. A disciplined handoff chain, from supplier crate standard to workshop intake protocol, protects value created by careful sourcing.</p>
+              <p>Budget strategy for old petrol projects should include authenticity choices explicitly. If your aim is concours-style correctness, expect greater investment in matching details, documentation, and period-consistent component decisions. If your aim is reliable road enjoyment with classic character, you may prioritize mechanical confidence and selective modernization where invisible. What matters is that the budget reflects the chosen philosophy. Too many projects stall because buyers fund a driver-level plan but demand concours-level outcomes. A transparent supplier plus a realistic workshop plan can align expectation and spend from the beginning, preventing emotional disappointment and repeated scope corrections during execution.</p>
+              <p>During first start and early road validation, patience protects the investment. Let lubrication stabilize, monitor temperatures carefully, and confirm fuel and ignition behavior under progressive load rather than immediate aggressive operation. Old engines respond well to measured recommissioning routines that respect dormant periods and uncertain recent usage cycles. Document early behavior, capture any deviations, and correct small issues quickly before they cascade into major repairs. This commissioning mindset separates professional restorations from rushed ones. The objective is not only to make the car run today, but to establish a stable reliability foundation for months and years of confident driving.</p>
+              <p>In the end, buying an old BMW petrol or M heritage engine should feel like engineering stewardship, not parts gambling. You are preserving a driving language from an earlier period, and that requires matching emotion with process. Ask better questions, demand clearer documentation, plan for preparation work, and partner with suppliers who communicate in specifics rather than slogans. When sourcing, logistics, workshop intake, and commissioning are managed as one connected system, the outcome is exactly what enthusiasts are searching for: an authentic, responsive, and trustworthy old BMW powertrain that rewards every kilometer with character that modern replacements rarely replicate.</p>
+              <p>Owners should also define parts strategy before installation starts: which components must remain period-correct for authenticity, which can be modernized for reliability, and which items should be kept as documented originals for collector value. This strategy prevents emotional decision changes in the middle of assembly when costs and time pressure are highest. A clear parts policy keeps the build coherent and improves resale narrative later because documentation shows intentional choices rather than random substitutions. In heritage restoration, consistency is value. A well-documented combination of original architecture and carefully justified updates often performs better in both ownership satisfaction and market credibility.</p>
+              <p>Finally, treat test-driving as diagnostic validation rather than celebration only. The first kilometers should be structured around controlled load increments, cooling behavior checks, idle recovery observations, and drivability consistency across temperature ranges. Capture notes after each cycle and resolve deviations early while access is easier and context is fresh. This method creates a feedback loop that protects the engine and improves the final tune of the whole vehicle. Restoration is complete only when repeatability is proven. A single good drive is encouraging, but a series of stable drives is what confirms that the old BMW petrol powertrain has truly been returned to dependable life.</p>
+              <p>When this disciplined approach is followed, the result is a machine that feels honest to its era yet dependable in modern use. The steering, throttle transition, and acoustic profile all feel connected because the engine was sourced correctly, prepared carefully, and commissioned professionally. That is what buyers are really paying for when they choose an original old BMW engine: not just hardware, but a trustworthy restoration story supported by evidence and method. In a market full of vague promises, process-driven sourcing and execution remain the clearest path to long-term ownership confidence.</p>
+            </div>
+          </article>
+
+          <article class="glass rounded-3xl p-6 md:p-8">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Long Form Guide - 1500+ Words</p>
+            <h2 class="mt-3 text-2xl md:text-3xl">Long-Term Survival Manual for Old BMW Engines: Storage, Startup, Break-In, and Reliability Planning</h2>
+            <figure class="mt-5 overflow-hidden rounded-2xl border border-[var(--border)]">
+              <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp" alt="Old BMW engine reliability guide image" class="h-72 w-full object-cover" loading="lazy" />
+            </figure>
+            <div class="mt-6 space-y-4 text-sm leading-relaxed text-[var(--muted)]">
+              <p>Owning an old BMW engine is not only about choosing the right unit at purchase; long-term success is determined by what happens in storage, installation prep, startup routines, and maintenance discipline afterward. Many engines that could have delivered years of reliable service fail early because these phases are rushed or treated as secondary. A buyer can spend significant money on an authentic unit and still lose performance confidence if recommissioning is careless. The strongest projects are those where the owner and workshop adopt a lifecycle mindset from day one. That means every stage, from crate opening to post-install monitoring, is planned as part of reliability engineering.</p>
+              <p>Storage is your first reliability checkpoint. If an engine sits in humid or dirty conditions, corrosion and contamination risk rises immediately. Keep the unit in a dry indoor area, away from direct weather exposure and high condensation zones. Protect open ports and connectors from dust ingress and avoid unnecessary handling that can stress external points. If installation is delayed, inspect the storage environment regularly instead of assuming everything remains unchanged. Simple discipline at this stage prevents many later mysteries. Buyers sometimes focus on advanced tuning plans while overlooking storage basics, yet those basics often have a larger impact on first-start behavior and long-term sealing health.</p>
+              <p>Before installation, build a documented prep checklist with your workshop. This should include fluid pathway inspection, seal-condition review, hose and belt strategy, sensor integrity check, and accessory bracket verification. Replace age-sensitive consumables proactively when practical, especially if service history is incomplete. The objective is to reduce avoidable labor repetition after the engine is already in the bay. Preventive preparation is not wasted money; it is cost control. Every component replaced in open access conditions is usually cheaper than replacing it after complete assembly. Good workshops plan this stage transparently and explain what is mandatory, recommended, and optional according to project goals.</p>
+              <p>Lubrication priming is one of the most critical startup protections on old BMW engines. Never assume immediate crank-and-fire is acceptable after prolonged storage or unknown downtime. Ensure oil pathways are filled and pressure expectations are respected before asking the engine for load response. This reduces dry-contact risk and helps protect bearings and valvetrain interfaces during the first cycles. If your workshop has established priming protocols, follow them rigorously and document what was done. A careful first-start routine may feel slow, but it directly protects the core mechanical value you paid for. Speed at this point offers little benefit and significant downside risk.</p>
+              <p>Cooling-system validation should happen before and during initial run cycles. Old engines are especially sensitive to trapped air, weak hoses, and overlooked thermal management details. Use a methodical bleed process, confirm fan logic where applicable, and monitor warm-up behavior with attention instead of relying on quick visual assumptions. If temperature behavior appears unstable, pause and diagnose before proceeding. Overheating during first commissioning can undo weeks of careful sourcing and preparation. Reliable restorations are built on early caution, not early bravado. Treat abnormal heat behavior as a hard stop signal until the root cause is clearly identified and corrected.</p>
+              <p>Fuel-system confidence is another startup pillar. On both petrol and diesel old BMW platforms, stale lines, aged seals, and uncertain injector condition can produce unstable operation in the first run window. Confirm fuel cleanliness, check for leaks under pressure, and avoid aggressive throttle input until baseline stability is proven. If idle quality is inconsistent, diagnose systematically rather than immediately chasing software complexity. Mechanical and vacuum integrity issues are common in old systems and can mimic calibration problems. Establish a stable mechanical baseline first, then proceed to any tuning or adaptation steps. This sequence saves time and prevents misdiagnosis that leads to unnecessary parts replacement.</p>
+              <p>Electrical integrity often decides whether a restored engine feels reliable or unpredictable. Ground quality, connector health, and harness routing all influence sensor accuracy and ignition or injection behavior. During installation, verify key grounds, inspect brittle insulation, and secure routing away from heat stress and abrasion points. A mechanically strong engine can still deliver poor drivability if electrical fundamentals are weak. Owners sometimes interpret these symptoms as deep engine faults, when the root cause is simple connection quality. A careful electrical baseline is one of the highest-value investments in old-engine projects because it reduces intermittent issues that are expensive to trace after full reassembly.</p>
+              <p>Break-in and adaptation strategy should be realistic and progressive. Even when an engine is used rather than freshly rebuilt, the recommissioned system needs gentle load progression while fluids, seals, and thermal behavior stabilize in its new environment. Avoid immediate high-load operation and monitor for leaks, unusual sounds, and temperature deviations during early cycles. Keep detailed notes on behavior changes across the first days and weeks. Data beats memory in troubleshooting. A disciplined break-in window builds confidence and helps catch small issues before they become major failures. Owners who skip this phase often discover preventable problems only after more expensive damage has already occurred.</p>
+              <p>After-delivery support from the supplier should remain active beyond payment and shipping. High-trust suppliers understand that old-engine projects are dynamic and may need clarification during installation. Keep communication channels open for code verification, documentation questions, and compatibility checks if unexpected details appear. This support can shorten diagnostic time and prevent unnecessary replacement decisions. If a supplier disappears after dispatch, that is a process weakness buyers should remember for future sourcing. Reliable projects are built by teams that communicate through completion, not only until invoice clearance. Ongoing technical dialogue is part of professional old-engine commerce.</p>
+              <p>Maintenance planning after installation must be intentional. Old BMW engines reward owners who monitor fluids, filter quality, and thermal behavior consistently. Define service intervals with your workshop based on real usage patterns, not generic assumptions. Track oil condition trends, observe startup behavior changes, and respond early to small leaks or noise shifts. Preventive attention is far cheaper than reactive repair. Enthusiasts who treat maintenance as a continuation of restoration usually enjoy longer reliability and better drivability consistency. In contrast, owners who relax discipline after the first successful drive often face repeated downtime that could have been avoided with routine observation and timely corrective action.</p>
+              <p>If performance upgrades are planned, sequence them only after baseline reliability is proven. It is tempting to modify immediately, but stacking variables too early makes diagnostics difficult and can mask foundational issues. Confirm that the engine runs cleanly in stock or near-stock condition first, with stable temperatures, predictable idle, and consistent load response. Once baseline confidence is established, upgrades can be introduced one layer at a time with measurable validation after each step. This method protects both budget and engine health. Structured modification is not less exciting; it is simply the professional way to keep an old platform dependable under evolving performance goals.</p>
+              <p>Ultimately, the longevity of an old BMW engine depends on process quality more than on luck. Good sourcing gives you a strong starting point, but long-term success comes from disciplined storage, thoughtful preparation, careful commissioning, and consistent maintenance culture. Owners who treat the engine as a living system rather than a one-time purchase decision achieve better reliability, lower lifecycle cost, and greater driving satisfaction. When these principles are applied, old BMW engines do exactly what enthusiasts want: they deliver character, torque, response, and historical authenticity in a package that remains trustworthy long after installation day. That is the true value of doing the fundamentals correctly.</p>
+              <p>For long-term project stability, create a maintenance logbook from day one. Record fluid brand and grade, replacement dates, filter references, observed startup behavior, and any temperature anomalies. Include photos of key service milestones and notes from the workshop about wear indicators. This history becomes a diagnostic asset when symptoms appear because you can identify change patterns instead of guessing. It also becomes a value asset if you later sell the vehicle, because documented stewardship builds buyer trust. Old BMW ownership rewards evidence. The more structured your records, the easier it is to make correct maintenance decisions and avoid expensive trial-and-error repairs.</p>
+              <p>Another often-missed factor is seasonal adaptation. Engines that run perfectly in mild weather may expose weak battery, fuel, or sensor behavior in colder months, while hot climates can stress cooling margins that seemed adequate during winter commissioning. Plan preventive checks ahead of season changes and adjust service timing accordingly. This proactive approach avoids emergency troubleshooting when conditions are already extreme. Reliability is not one fixed state; it is an ongoing response to usage and environment. Owners who respect seasonal dynamics typically experience fewer roadside failures and preserve engine health more effectively across the full year.</p>
+              <p>Most importantly, keep the relationship between owner, workshop, and supplier alive after project completion. Questions will appear over time, and timely guidance can prevent small uncertainties from becoming major faults. A restoration network that shares data and responds quickly is a powerful reliability tool. Old BMW engines remain highly rewarding when supported by this collaborative mindset. They can run with strong consistency for years, but only when mechanical discipline is paired with communication discipline. In practical terms, long-term success comes from the same principle as purchase success: clear information, clear process, and clear accountability at every stage.</p>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section id="view-reviews" class="view px-4 pb-24 md:px-8">
+        <section class="mx-auto max-w-7xl rounded-[2rem] border border-[var(--border)] bg-[var(--bg-elevated)]/60 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Reviews</p>
+          <h1 class="mt-3 text-4xl md:text-5xl">Trusted by Workshops and Collectors</h1>
+          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">Client feedback consistently highlights our fitment accuracy, listing transparency, and support quality.</p>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp" alt="Review visual N57 engine delivery" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp" alt="Review visual M57 conversion support" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+          <figure class="overflow-hidden rounded-3xl border border-[var(--border)]">
+            <img src="https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp" alt="Review visual B47 collector purchase" class="h-52 w-full object-cover" loading="lazy" />
+          </figure>
+        </section>
+        <section class="mx-auto mt-10 grid max-w-7xl gap-4 md:grid-cols-3">
+          <article class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Technical Confidence</p>
+            <h2 class="mt-2 text-xl">Accurate Matching</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Buyers value code-level review before committing to purchase.</p>
+          </article>
+          <article class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Communication Quality</p>
+            <h2 class="mt-2 text-xl">Fast Response</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Clients mention quick answers on WhatsApp and email.</p>
+          </article>
+          <article class="glass rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Delivery Experience</p>
+            <h2 class="mt-2 text-xl">Secure Dispatch</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Tracking and packing standards are repeatedly praised.</p>
+          </article>
+        </section>
+        <section class="mx-auto mt-10 max-w-7xl">
+          <div id="reviewGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+        </section>
+      </section>
+    </main>
+
+    <a
+      href="https://wa.me/4915510030835"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-20 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-xl transition hover:scale-105"
+      aria-label="Chat on WhatsApp"
+    >WhatsApp</a>
+
+    <footer class="mt-16 border-t border-[var(--border)] bg-[var(--bg-elevated)]/75">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-3 md:px-8">
+        <div>
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Original Bavarian Engine</p>
+          <h2 class="mt-3 text-2xl">Only Original BMW Old Engines</h2>
+          <p class="mt-3 text-sm text-[var(--muted)]">Single-file edition for easy one-click hosting upload.</p>
+        </div>
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.16em]">Quick Links</h3>
+          <ul class="mt-3 space-y-2 text-sm text-[var(--muted)]">
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.16em]">Contact</h3>
+          <ul class="mt-3 space-y-2 text-sm text-[var(--muted)]">
+            <li>+49 15510 030835</li>
+            <li>originalbavarianengine@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const STORAGE_KEYS = { theme: "obe_single_theme", wishlist: "obe_single_wishlist", compare: "obe_single_compare" };
+      const state = {
+        wishlist: new Set(loadJSON(STORAGE_KEYS.wishlist)),
+        compare: new Set(loadJSON(STORAGE_KEYS.compare))
+      };
+
+      const FAMILY_DEFS = [
+        {
+          slug: "n57",
+          category: "N57 Engines",
+          codeRoot: "N57D30",
+          count: 90,
+          basePrice: 6400,
+          yearBase: 2008,
+          yearSpan: 8,
+          displacement: "3.0L Diesel",
+          power: "258-313 hp",
+          torque: "560-630 Nm",
+          fuelSystem: "Common Rail Diesel",
+          models: ["BMW 330d", "BMW 530d", "BMW X5", "BMW X6"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-330d-e90-n57d30a-lci-engine-2011/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-330d-f30-n57d30a-engine-2014/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f10-530d-n57d30a-engine-2015/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f01-730d-n57d30a-engine-2010/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp"
+          ]
+        },
+        {
+          slug: "n47",
+          category: "N47 Engines",
+          codeRoot: "N47D20",
+          count: 90,
+          basePrice: 5200,
+          yearBase: 2007,
+          yearSpan: 10,
+          displacement: "2.0L Diesel",
+          power: "143-218 hp",
+          torque: "320-450 Nm",
+          fuelSystem: "Common Rail Diesel",
+          models: ["BMW 320d", "BMW 520d", "BMW 118d", "BMW X3"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-125d-f20-n47d20d-engine-2012/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f10-520d-n47d20c-engine-2012/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f30-320d-n47d20c-engine-2014/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e90-320d-n47d20c-engine-2011/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp"
+          ]
+        },
+        {
+          slug: "m57",
+          category: "M57 Engines",
+          codeRoot: "M57D30",
+          count: 90,
+          basePrice: 6100,
+          yearBase: 2001,
+          yearSpan: 10,
+          displacement: "3.0L Diesel",
+          power: "184-286 hp",
+          torque: "390-580 Nm",
+          fuelSystem: "Bosch Common Rail",
+          models: ["BMW E60", "BMW E90", "BMW X5 E70", "BMW 730d"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-330d-231hp-m57-2009-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e60-m57n-272hp-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-e90-335d-m57-2011-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-x5-e53-3-0d-m57-engine-2006/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp"
+          ]
+        },
+        {
+          slug: "b57",
+          category: "B57 Engines",
+          codeRoot: "B57D30",
+          count: 78,
+          basePrice: 8600,
+          yearBase: 2016,
+          yearSpan: 7,
+          displacement: "3.0L Diesel",
+          power: "265-400 hp",
+          torque: "620-760 Nm",
+          fuelSystem: "Common Rail Diesel",
+          models: ["BMW G30 530d", "BMW X5 G05", "BMW 740d", "BMW 840d"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/540d-740d-640d-840d-3-0-b57d30b-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/730d-xdrive-g11-g12-2019-b57d30a/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/740d-xdrive-2018-g11-b57d30b-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-x6-g06-m50d-b57d30s-engine-2019/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b57.webp"
+          ]
+        },
+        {
+          slug: "b47",
+          category: "B47 Engines",
+          codeRoot: "B47D20",
+          count: 78,
+          basePrice: 6900,
+          yearBase: 2015,
+          yearSpan: 8,
+          displacement: "2.0L Diesel",
+          power: "150-231 hp",
+          torque: "330-500 Nm",
+          fuelSystem: "Common Rail Diesel",
+          models: ["BMW F30 LCI", "BMW X3 G01", "BMW X4", "BMW 320d"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmwx3-x4-b47d20a-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/f30-b47d20a-320d-2017-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/520d-f10-2014-euro6-b47d20a-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/b47c20b-x1-f48-2018-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp"
+          ]
+        },
+        {
+          slug: "b58",
+          category: "B58 Engines",
+          codeRoot: "B58B30",
+          count: 78,
+          basePrice: 9800,
+          yearBase: 2016,
+          yearSpan: 8,
+          displacement: "3.0L Petrol",
+          power: "326-382 hp",
+          torque: "450-500 Nm",
+          fuelSystem: "Direct Injection Turbo",
+          models: ["BMW 340i", "BMW 440i", "BMW M140i", "BMW Supra A90"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-f32-440i-engine-2017/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/z4-b58b30c-3-0-2021-engine/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp"
+          ]
+        },
+        {
+          slug: "m57-swap",
+          category: "M57 Swap Kits",
+          codeRoot: "M57SWAP",
+          count: 24,
+          basePrice: 12400,
+          yearBase: 2004,
+          yearSpan: 10,
+          displacement: "3.0L Swap Package",
+          power: "218-286 hp",
+          torque: "500-580 Nm",
+          fuelSystem: "Diesel Conversion Package",
+          models: ["Defender Conversion", "Overland Builds", "Workshop Projects"],
+          images: [
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/home-m57-swap.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/images/bmw-m57-to-300tdi-r380-conversion-kit/main.webp",
+            "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp"
+          ]
+        }
+      ];
+
+      const CONDITION_ROTATION = [
+        "Factory Original, Compression Tested",
+        "Original Block, Re-sealed",
+        "Workshop Inspected, Bore Scope Verified",
+        "Collector Grade, Documentation Archived"
+      ];
+      const AVAILABILITY_ROTATION = ["In Stock", "In Stock", "Limited", "Reserved"];
+
+      function buildReviews() {
+        const reviewerNames = [
+          "Markus T.",
+          "Oliver J.",
+          "Leonard C.",
+          "Sofia A.",
+          "James O.",
+          "Luc V.",
+          "Daniel R.",
+          "Patrick M.",
+          "Emil K.",
+          "Nicolas D.",
+          "Adrian B.",
+          "Thomas F.",
+          "Sebastian W.",
+          "Milan Z.",
+          "Victor H.",
+          "Jan P.",
+          "Robert L.",
+          "Kacper N.",
+          "Henri G.",
+          "Stefan E."
+        ];
+        const reviewerLocations = [
+          "Stuttgart, Germany",
+          "Manchester, UK",
+          "Zurich, Switzerland",
+          "Stockholm, Sweden",
+          "Dublin, Ireland",
+          "Brussels, Belgium",
+          "Hamburg, Germany",
+          "Munich, Germany",
+          "Vienna, Austria",
+          "Copenhagen, Denmark",
+          "Oslo, Norway",
+          "Amsterdam, Netherlands",
+          "Paris, France",
+          "Milan, Italy",
+          "Warsaw, Poland",
+          "Prague, Czech Republic",
+          "Lisbon, Portugal",
+          "Barcelona, Spain",
+          "Bucharest, Romania",
+          "Helsinki, Finland"
+        ];
+        const reviewMessages = [
+          "The engine arrived exactly as documented, and our workshop confirmed code and compression data without mismatch.",
+          "Communication was fast, technical, and clear. We received fitment guidance before payment, which reduced project risk.",
+          "Crate quality was excellent. Delivery updates were consistent, and the unit matched listing photos and mileage notes.",
+          "Very professional process from enquiry to dispatch. Support team answered every compatibility question in practical detail.",
+          "We purchased for a client restoration and the engine installed smoothly. Documentation quality saved us workshop time.",
+          "Best used BMW engine sourcing experience we have had. Real stock transparency and no confusion on included components.",
+          "VIN verification was completed quickly, and the exact engine family match prevented expensive fitment mistakes.",
+          "Packaging and export handling were excellent. We received the engine in clean condition with clear dispatch tracking.",
+          "Our private collector order was handled like a workshop account. Strong support before and after delivery.",
+          "The listing was honest and technically accurate. What arrived is exactly what was described in the order notes."
+        ];
+        const reviews = [];
+        for (let i = 0; i < 60; i += 1) {
+          reviews.push({
+            name: reviewerNames[i % reviewerNames.length],
+            location: reviewerLocations[i % reviewerLocations.length],
+            text: reviewMessages[i % reviewMessages.length],
+            rating: 5
+          });
+        }
+        return reviews;
+      }
+
+      const REVIEWS = buildReviews();
+
+      const FAQS = [
+        { question: "Are these engines original BMW units?", answer: "Yes. We sell only original BMW old-engine and powertrain stock." },
+        { question: "How many engines are in your inventory?", answer: "More than 500 listings across core BMW diesel and petrol families." },
+        { question: "Do you ship internationally?", answer: "Yes. We support European and worldwide shipping with tracked freight." },
+        { question: "Can I verify compatibility before payment?", answer: "Yes. Share VIN + engine code and we confirm matching options." }
+      ];
+
+      function buildProducts() {
+        const products = [];
+        FAMILY_DEFS.forEach((family) => {
+          let previousImage = "";
+          for (let i = 1; i <= family.count; i += 1) {
+            const suffix = ["A", "B", "C", "D"][i % 4];
+            const codeNum = String(1000 + i);
+            const code = family.codeRoot === "M57SWAP" ? `${family.codeRoot}-${codeNum}` : `${family.codeRoot}${suffix}`;
+            let image = family.images[(i - 1) % family.images.length];
+            if (image === previousImage) image = family.images[i % family.images.length];
+            previousImage = image;
+            const gallery = [image, family.images[(i + 1) % family.images.length], family.images[(i + 2) % family.images.length]];
+
+            products.push({
+              id: `${family.slug}-${codeNum}`,
+              category: family.category,
+              code,
+              title: `BMW ${family.models[i % family.models.length]} Original ${code}`,
+              condition: CONDITION_ROTATION[i % CONDITION_ROTATION.length],
+              mileage: `${new Intl.NumberFormat("en-DE").format(62000 + ((i * 1377) % 158000))} km`,
+              year: String(family.yearBase + (i % family.yearSpan)),
+              availability: AVAILABILITY_ROTATION[i % AVAILABILITY_ROTATION.length],
+              priceEur: family.basePrice + (i % 18) * 170 + Math.floor(i / 7) * 30,
+              image,
+              gallery,
+              displacement: family.displacement,
+              power: family.power,
+              torque: family.torque,
+              fuelSystem: family.fuelSystem,
+              compatibility: [
+                `${family.models[i % family.models.length]} platform verified`,
+                `${family.category} family restoration builds`,
+                "VIN confirmation recommended before invoice"
+              ]
+            });
+          }
+        });
+        return products;
+      }
+
+      
+      const BLOG_POSTS = [
+        { id: 1, title: "M57 Swap Into E30 — Complete Workshop Guide", category: "SWAP GUIDE", date: "2025-01-01", words: 1950, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp", excerpt: "Expert guide covering m57 swap into e30 — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 2, title: "N57 vs N47 — Which BMW Diesel Fits Your Car?", category: "DIESEL", date: "2025-02-02", words: 1951, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp", excerpt: "Expert guide covering n57 vs n47 — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 3, title: "Buying a Used M54 — What to Inspect First", category: "BUYING GUIDE", date: "2025-03-03", words: 1952, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp", excerpt: "Expert guide covering buying a used m54 — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 4, title: "B58 vs N55 — Modern BMW Turbo Comparison", category: "PERFORMANCE", date: "2025-04-04", words: 1953, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp", excerpt: "Expert guide covering b58 vs n55 — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 5, title: "Euro 6 Compliance for Imported BMW Diesels", category: "EURO 6", date: "2025-05-05", words: 1954, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp", excerpt: "Expert guide covering euro 6 compliance for imported bmw diesels — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 6, title: "M20 to M50 Swap — Wiring and Mounting Guide", category: "SWAP GUIDE", date: "2025-06-06", words: 1955, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp", excerpt: "Expert guide covering m20 to m50 swap — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 7, title: "S54 Rebuild Costs — Full Breakdown", category: "RESTORATION", date: "2025-07-07", words: 1956, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp", excerpt: "Expert guide covering s54 rebuild costs — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 8, title: "N54 Twin-Turbo Maintenance Schedule", category: "MAINTENANCE", date: "2025-08-08", words: 1957, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp", excerpt: "Expert guide covering n54 twin-turbo maintenance schedule — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 9, title: "Shipping BMW Engines Across Europe — Customs Guide", category: "LOGISTICS", date: "2025-09-09", words: 1958, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp", excerpt: "Expert guide covering shipping bmw engines across europe — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 10, title: "M47 Timing Chain Failure — Prevention Tips", category: "DIAGNOSTICS", date: "2025-10-10", words: 1959, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp", excerpt: "Expert guide covering m47 timing chain failure — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 11, title: "E46 330i Engine Options Compared", category: "ENGINE GUIDE", date: "2025-11-11", words: 1960, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp", excerpt: "Expert guide covering e46 330i engine options compared — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 12, title: "B47 Diesel — Common Issues and Solutions", category: "DIESEL", date: "2025-12-12", words: 1961, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp", excerpt: "Expert guide covering b47 diesel — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 13, title: "Classic M30 Restoration — Step by Step", category: "CLASSIC", date: "2025-01-13", words: 1962, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp", excerpt: "Expert guide covering classic m30 restoration — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 14, title: "N52 Valve Cover Gasket — DIY Guide", category: "WORKSHOP", date: "2025-02-14", words: 1963, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp", excerpt: "Expert guide covering n52 valve cover gasket — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 15, title: "M57 306d3 vs 306d4 — Power Differences", category: "DIESEL", date: "2025-03-15", words: 1964, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp", excerpt: "Expert guide covering m57 306d3 vs 306d4 — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 16, title: "F30 320d Engine Replacement Options", category: "BUYING GUIDE", date: "2025-04-16", words: 1965, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp", excerpt: "Expert guide covering f30 320d engine replacement options — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 17, title: "S55 Cooling System Upgrades", category: "PERFORMANCE", date: "2025-05-17", words: 1966, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp", excerpt: "Expert guide covering s55 cooling system upgrades — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 18, title: "B58 Stage 1 Tuning — Safe Power Limits", category: "TUNING", date: "2025-06-18", words: 1967, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp", excerpt: "Expert guide covering b58 stage 1 tuning — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 19, title: "Importing BMW Engines from Germany to UK", category: "LOGISTICS", date: "2025-07-19", words: 1968, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp", excerpt: "Expert guide covering importing bmw engines from germany to uk — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 20, title: "N20 Timing Chain — Early Warning Signs", category: "DIAGNOSTICS", date: "2025-08-20", words: 1969, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n47.webp", excerpt: "Expert guide covering n20 timing chain — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 21, title: "M62 V8 Oil Consumption — Causes and Fixes", category: "MAINTENANCE", date: "2025-09-21", words: 1970, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp", excerpt: "Expert guide covering m62 v8 oil consumption — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 22, title: "E90 335i N54 vs N55 Engine Choice", category: "ENGINE GUIDE", date: "2025-10-22", words: 1971, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp", excerpt: "Expert guide covering e90 335i n54 vs n55 engine choice — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 23, title: "Diesel Particulate Filter Delete — Legal Overview", category: "EURO 6", date: "2025-11-23", words: 1972, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp", excerpt: "Expert guide covering diesel particulate filter delete — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 24, title: "M50 Vanos Rebuild — Tools and Procedure", category: "WORKSHOP", date: "2025-12-24", words: 1973, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp", excerpt: "Expert guide covering m50 vanos rebuild — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 25, title: "S38 M5 Engine — Collector Market Analysis", category: "CLASSIC", date: "2025-01-25", words: 1974, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp", excerpt: "Expert guide covering s38 m5 engine — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 26, title: "N57 381hp — Tuning Potential Explored", category: "TUNING", date: "2025-02-26", words: 1975, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp", excerpt: "Expert guide covering n57 381hp — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 27, title: "B48 xDrive Engine Fitment Guide", category: "ENGINE GUIDE", date: "2025-03-27", words: 1976, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b47.webp", excerpt: "Expert guide covering b48 xdrive engine fitment guide — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 28, title: "E39 M5 S62 — Rebuild vs Replace Decision", category: "RESTORATION", date: "2025-04-28", words: 1977, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp", excerpt: "Expert guide covering e39 m5 s62 — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 29, title: "Workshop Tools for BMW Engine Swaps", category: "WORKSHOP", date: "2025-05-01", words: 1978, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp", excerpt: "Expert guide covering workshop tools for bmw engine swaps — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 30, title: "M57 into Land Rover Defender — 4x4 Conversion", category: "4x4", date: "2025-06-02", words: 1979, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/m57.webp", excerpt: "Expert guide covering m57 into land rover defender — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 31, title: "N63 Twin-Turbo — Common Failure Points", category: "DIAGNOSTICS", date: "2025-07-03", words: 1980, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/n57.webp", excerpt: "Expert guide covering n63 twin-turbo — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 32, title: "E36 328i Engine Upgrade Path", category: "PERFORMANCE", date: "2025-08-04", words: 1981, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp", excerpt: "Expert guide covering e36 328i engine upgrade path — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 33, title: "B57 Diesel — AdBlue System Explained", category: "DIESEL", date: "2025-09-05", words: 1982, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b57.webp", excerpt: "Expert guide covering b57 diesel — compatibility, condition checks, and workshop advice from Original Bavarian Engine." },
+        { id: 34, title: "S54 Rod Bearing Replacement Guide", category: "MAINTENANCE", date: "2025-10-06", words: 1983, image: "https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/catalog/covers/b58.webp", excerpt: "Expert guide covering s54 rod bearing replacement guide — compatibility, condition checks, and workshop advice from Original Bavarian Engine." }
+      ];
+
+      const DATA = { products: buildProducts(), reviews: REVIEWS, faqs: FAQS, blogPosts: BLOG_POSTS };
+      let collectionVisibleLimit = 24;
+
+      document.addEventListener("DOMContentLoaded", init);
+
+      function init() {
+        initTheme();
+        initHeader();
+        initMobileMenu();
+        initRouter();
+        initGlobalSearch();
+        initFaqClicks();
+        initTilt();
+        initForms();
+        renderHomeContent();
+        renderBlogContent();
+      }
+
+      function initHeader() {
+        const header = document.getElementById("siteHeader");
+        const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 10);
+        onScroll();
+        window.addEventListener("scroll", onScroll);
+      }
+
+      function initMobileMenu() {
+        const toggle = document.getElementById("mobileMenuToggle");
+        const menu = document.getElementById("mobileMenu");
+        if (!toggle || !menu) return;
+
+        toggle.addEventListener("click", () => {
+          const expanded = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!expanded));
+          menu.classList.toggle("hidden");
+        });
+
+        menu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            menu.classList.add("hidden");
+            toggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+
+      function initTheme() {
+        const theme = localStorage.getItem(STORAGE_KEYS.theme) || "dark";
+        setTheme(theme);
+        document.getElementById("themeToggle").addEventListener("click", () => {
+          setTheme(document.documentElement.classList.contains("light-mode") ? "dark" : "light");
+        });
+      }
+
+      function setTheme(theme) {
+        document.documentElement.classList.toggle("light-mode", theme === "light");
+        localStorage.setItem(STORAGE_KEYS.theme, theme);
+      }
+
+      function initRouter() {
+        window.addEventListener("hashchange", route);
+        route();
+      }
+
+      function route() {
+        const parsed = parseHash();
+        const view = parsed.view;
+        document.querySelectorAll(".view").forEach((node) => node.classList.remove("active"));
+        const activeView = document.getElementById(`view-${view}`) || document.getElementById("view-home");
+        activeView.classList.add("active");
+
+        if (view === "collection") {
+          renderCollection(parsed.params);
+        } else if (view === "details") {
+          renderDetails(parsed.params.get("id"));
+        } else if (view === "reviews") {
+          renderReviews(document.getElementById("reviewGrid"));
+        }
+
+        revealVisible();
+      }
+
+      function parseHash() {
+        const raw = (window.location.hash || "#home").slice(1);
+        const [view, query = ""] = raw.split("?");
+        return { view: view || "home", params: new URLSearchParams(query) };
+      }
+
+      
+      function renderBlogContent() {
+        const grid = document.getElementById("blogCardGrid");
+        const meta = document.getElementById("blogMeta");
+        const search = document.getElementById("blogSearch");
+        const countEl = document.getElementById("blogCardCount");
+        if (!grid) return;
+
+        const render = () => {
+          const q = (search?.value || "").trim().toLowerCase();
+          const filtered = DATA.blogPosts.filter((post) => {
+            if (!q) return true;
+            return `${post.title} ${post.category} ${post.excerpt}`.toLowerCase().includes(q);
+          });
+          if (countEl) countEl.textContent = String(DATA.blogPosts.length);
+          if (meta) meta.textContent = `Showing ${filtered.length} of ${DATA.blogPosts.length} articles`;
+          grid.innerHTML = filtered.map((post) => `
+            <article class="glass reveal overflow-hidden rounded-3xl">
+              <a href="#blog-featured" class="block">
+                <img src="${post.image}" alt="${post.title}" class="h-48 w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
+              </a>
+              <div class="space-y-3 p-5">
+                <span class="inline-block rounded-full border border-[var(--border)] px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-accent">${post.category}</span>
+                <h3 class="text-lg font-semibold leading-snug text-[var(--text)]">${post.title}</h3>
+                <p class="line-clamp-2 text-sm text-[var(--muted)]">${post.excerpt}</p>
+                <p class="text-xs text-[var(--muted)]">${post.date} · ${post.words.toLocaleString()} words</p>
+                <a href="#blog-featured" class="btn-secondary inline-flex rounded-full px-4 py-2 text-xs">Read Guide</a>
+              </div>
+            </article>
+          `).join("");
+          revealVisible();
+        };
+
+        if (search) search.oninput = render;
+        render();
+      }
+
+
+      function renderHomeContent() {
+        const featuredGrid = document.getElementById("featuredGrid");
+        const seen = new Set();
+        const featured = DATA.products.filter((p) => {
+          if (seen.has(p.category)) return false;
+          seen.add(p.category);
+          return true;
+        }).slice(0, 6);
+        featuredGrid.innerHTML = featured.map((p) => buildCard(p)).join("");
+
+        renderReviews(document.getElementById("homeReviewGrid"));
+        renderFaqs(document.getElementById("homeFaqList"));
+        bindCardActions(document);
+        revealVisible();
+      }
+
+      function renderCollection(params) {
+        const grid = document.getElementById("collectionGrid");
+        const meta = document.getElementById("collectionMeta");
+        const search = document.getElementById("collectionSearch");
+        const filter = document.getElementById("categoryFilter");
+        const pagination = document.getElementById("collectionPagination");
+
+        const categories = [...new Set(DATA.products.map((p) => p.category))];
+        filter.innerHTML = `<option value="all">All Categories</option>` + categories.map((c) => `<option value="${c}">${c}</option>`).join("");
+
+        const q = params.get("query") || "";
+        const cat = params.get("category") || "all";
+        search.value = q;
+        filter.value = categories.includes(cat) ? cat : "all";
+
+        const render = () => {
+          const query = search.value.trim().toLowerCase();
+          const selectedCategory = filter.value;
+          const filtered = DATA.products.filter((p) => {
+            const cMatch = selectedCategory === "all" || p.category === selectedCategory;
+            const qMatch = !query || `${p.code} ${p.title} ${p.condition} ${p.year}`.toLowerCase().includes(query);
+            return cMatch && qMatch;
+          });
+          const visible = filtered.slice(0, collectionVisibleLimit);
+          grid.innerHTML = visible.map((p) => buildCard(p)).join("");
+          meta.textContent = `${filtered.length} original engines found`;
+
+          if (filtered.length > collectionVisibleLimit) {
+            pagination.innerHTML = `<button id="loadMore" class="btn-secondary rounded-full px-6 py-2.5 text-sm">Load More (${filtered.length - collectionVisibleLimit} remaining)</button>`;
+            document.getElementById("loadMore").addEventListener("click", () => {
+              collectionVisibleLimit += 24;
+              render();
+            });
+          } else {
+            pagination.innerHTML = `<p class="text-sm text-[var(--muted)]">Showing all matching inventory records.</p>`;
+          }
+
+          bindCardActions(grid);
+          revealVisible();
+        };
+
+        search.oninput = () => {
+          collectionVisibleLimit = 24;
+          render();
+        };
+        filter.onchange = () => {
+          collectionVisibleLimit = 24;
+          render();
+        };
+        render();
+      }
+
+      function renderDetails(id) {
+        const product = DATA.products.find((p) => p.id === id) || DATA.products[0];
+        setText("detailCategory", product.category);
+        setText("detailTitle", product.title);
+        setText("detailPrice", formatPrice(product.priceEur));
+        setText("detailCode", product.code);
+        setText("detailMileage", product.mileage);
+        setText("detailYear", product.year);
+        setText("detailAvailability", product.availability);
+
+        const main = document.getElementById("detailMainImage");
+        main.src = product.gallery[0];
+        main.alt = product.title;
+
+        const thumbs = document.getElementById("detailThumbs");
+        thumbs.innerHTML = product.gallery
+          .map((img, i) => `<button data-gallery="${img}" class="overflow-hidden rounded-xl border ${i === 0 ? "border-accent" : "border-[var(--border)]"}"><img src="${img}" class="h-20 w-full object-cover" /></button>`)
+          .join("");
+        thumbs.querySelectorAll("[data-gallery]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            main.src = btn.getAttribute("data-gallery");
+            thumbs.querySelectorAll("button").forEach((b) => b.classList.remove("border-accent"));
+            btn.classList.add("border-accent");
+          });
+        });
+
+        document.getElementById("specTable").innerHTML = [
+          ["Engine Code", product.code],
+          ["Displacement", product.displacement],
+          ["Power", product.power],
+          ["Torque", product.torque],
+          ["Fuel System", product.fuelSystem],
+          ["Mileage", product.mileage],
+          ["Year", product.year]
+        ].map(([k,v]) => `<tr class="border-b border-[var(--border)]"><th class="px-3 py-2 text-left text-sm text-[var(--muted)]">${k}</th><td class="px-3 py-2 text-sm">${v}</td></tr>`).join("");
+
+        document.getElementById("compatibilityList").innerHTML = product.compatibility.map((c) => `<li class="rounded-xl border border-[var(--border)] px-4 py-2 text-sm">${c}</li>`).join("");
+        document.getElementById("detailsActions").innerHTML = `
+          <button data-action="wishlist" data-id="${product.id}" class="btn-secondary rounded-full px-5 py-2 text-sm">${state.wishlist.has(product.id) ? "Wishlisted" : "Add to Wishlist"}</button>
+          <button data-action="compare" data-id="${product.id}" class="btn-primary rounded-full px-5 py-2 text-sm">${state.compare.has(product.id) ? "Added to Compare" : "Compare Engine"}</button>
+        `;
+        bindCardActions(document.getElementById("detailsActions"));
+      }
+
+      function buildCard(product) {
+        return `
+          <article class="glass reveal overflow-hidden rounded-3xl">
+            <div class="relative">
+              <img src="${product.image}" alt="${product.title}" class="h-52 w-full object-cover" loading="lazy" />
+              <span class="absolute left-4 top-4 rounded-full border border-[var(--border)] bg-black/60 px-3 py-1 text-xs">${product.category}</span>
+              <span class="absolute right-4 top-4 rounded-full border border-white/40 bg-black/55 px-3 py-1 text-[10px] uppercase tracking-[0.14em]">Original Unit</span>
+            </div>
+            <div class="space-y-3 p-5">
+              <div class="flex items-center justify-between gap-4">
+                <h3 class="text-lg font-semibold">${product.code}</h3>
+                <p class="text-sm font-medium text-accent">${formatPrice(product.priceEur)}</p>
+              </div>
+              <p class="line-clamp-2 text-sm text-[var(--muted)]">${product.title}</p>
+              <dl class="grid grid-cols-2 gap-2 text-xs text-[var(--muted)]">
+                <div><dt class="font-medium uppercase">Condition</dt><dd>${product.condition}</dd></div>
+                <div><dt class="font-medium uppercase">Mileage</dt><dd>${product.mileage}</dd></div>
+                <div><dt class="font-medium uppercase">Year</dt><dd>${product.year}</dd></div>
+                <div><dt class="font-medium uppercase">Availability</dt><dd>${product.availability}</dd></div>
+              </dl>
+              <div class="grid grid-cols-2 gap-2 pt-2">
+                <button data-action="wishlist" data-id="${product.id}" class="btn-secondary rounded-full px-3 py-2 text-xs">${state.wishlist.has(product.id) ? "Wishlisted" : "Wishlist"}</button>
+                <button data-action="compare" data-id="${product.id}" class="btn-secondary rounded-full px-3 py-2 text-xs">${state.compare.has(product.id) ? "Added" : "Compare"}</button>
+                <a href="#details?id=${encodeURIComponent(product.id)}" class="btn-primary col-span-2 inline-flex justify-center rounded-full px-3 py-2 text-xs">View Details</a>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      function bindCardActions(scope) {
+        scope.querySelectorAll("[data-action]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const id = button.getAttribute("data-id");
+            const action = button.getAttribute("data-action");
+            if (action === "wishlist") toggleSet(state.wishlist, id);
+            if (action === "compare") {
+              if (state.compare.has(id)) state.compare.delete(id);
+              else if (state.compare.size < 3) state.compare.add(id);
+            }
+            localStorage.setItem(STORAGE_KEYS.wishlist, JSON.stringify([...state.wishlist]));
+            localStorage.setItem(STORAGE_KEYS.compare, JSON.stringify([...state.compare]));
+            document.querySelectorAll(`[data-action="wishlist"][data-id="${id}"]`).forEach((b) => (b.textContent = state.wishlist.has(id) ? "Wishlisted" : "Wishlist"));
+            document.querySelectorAll(`[data-action="compare"][data-id="${id}"]`).forEach((b) => (b.textContent = state.compare.has(id) ? "Added" : "Compare"));
+          });
+        });
+      }
+
+      function renderReviews(target) {
+        if (!target) return;
+        const reviewItems = target.id === "homeReviewGrid" ? DATA.reviews.slice(0, 6) : DATA.reviews;
+        target.innerHTML = reviewItems.map((r) => `
+          <article class="glass reveal rounded-3xl p-6">
+            <p class="text-sm text-[var(--muted)]">${"★".repeat(r.rating)} <span class="ml-2">Verified Buyer</span></p>
+            <p class="mt-4 text-sm text-[var(--text)]">${r.text}</p>
+            <p class="mt-4 text-sm font-medium">${r.name}</p>
+            <p class="text-xs uppercase tracking-[0.14em] text-[var(--muted)]">${r.location}</p>
+          </article>
+        `).join("");
+      }
+
+      function renderFaqs(target) {
+        if (!target) return;
+        target.innerHTML = DATA.faqs.map((f, i) => `
+          <article class="glass">
+            <button data-faq-toggle="${i}" class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-medium">
+              ${f.question}<span data-faq-icon="${i}" class="text-lg text-accent">+</span>
+            </button>
+            <div id="faqBody${i}" class="faq-body px-5"><p class="pb-4 text-sm text-[var(--muted)]">${f.answer}</p></div>
+          </article>
+        `).join("");
+        initFaqClicks();
+      }
+
+      function initFaqClicks() {
+        document.querySelectorAll("[data-faq-toggle]").forEach((btn) => {
+          btn.onclick = () => {
+            const id = btn.getAttribute("data-faq-toggle");
+            const body = document.getElementById(`faqBody${id}`);
+            const icon = document.querySelector(`[data-faq-icon="${id}"]`);
+            const open = body.style.maxHeight && body.style.maxHeight !== "0px";
+            body.style.maxHeight = open ? "0" : `${body.scrollHeight + 2}px`;
+            if (icon) icon.textContent = open ? "+" : "−";
+          };
+        });
+      }
+
+      function initForms() {
+        const contactForm = document.getElementById("contactForm");
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          document.getElementById("contactFormStatus").textContent = "Message submitted. Our specialists will respond shortly.";
+          contactForm.reset();
+        });
+        document.getElementById("heroLeadForm").addEventListener("submit", (e) => {
+          e.preventDefault();
+          window.location.hash = "#contact";
+        });
+      }
+
+      function initGlobalSearch() {
+        const bindSearch = (formId, inputId) => {
+          const form = document.getElementById(formId);
+          const input = document.getElementById(inputId);
+          if (!form || !input) return;
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const query = input.value.trim();
+            window.location.hash = query ? `#collection?query=${encodeURIComponent(query)}` : "#collection";
+          });
+        };
+
+        bindSearch("globalSearchForm", "globalSearchInput");
+        bindSearch("globalSearchFormMobile", "globalSearchInputMobile");
+      }
+
+      function initTilt() {
+        document.querySelectorAll("[data-tilt]").forEach((card) => {
+          card.addEventListener("mousemove", (event) => {
+            const r = card.getBoundingClientRect();
+            const x = (event.clientX - r.left) / r.width;
+            const y = (event.clientY - r.top) / r.height;
+            const rx = (0.5 - y) * 10;
+            const ry = (x - 0.5) * 10;
+            card.style.transform = `rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-3px)`;
+          });
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "";
+          });
+        });
+      }
+
+      function revealVisible() {
+        document.querySelectorAll(".reveal").forEach((node) => node.classList.add("show"));
+      }
+
+      function toggleSet(set, id) { if (set.has(id)) set.delete(id); else set.add(id); }
+      function loadJSON(key) {
+        try { const v = JSON.parse(localStorage.getItem(key) || "[]"); return Array.isArray(v) ? v : []; }
+        catch (_e) { return []; }
+      }
+      function setText(id, v) { const el = document.getElementById(id); if (el) el.textContent = v; }
+      function formatPrice(v) { return new Intl.NumberFormat("en-DE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(v); }
+    </script>
+  </body>
+</html>
