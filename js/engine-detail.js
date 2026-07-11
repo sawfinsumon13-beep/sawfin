@@ -101,12 +101,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       </div>`;
 
     document.getElementById('buyEmailBtn')?.addEventListener('click', (ev) => {
-      ev.preventDefault();
-      openEnginePurchaseEmail(engine);
+      if (!ev.currentTarget.href || ev.currentTarget.href === '#') {
+        ev.preventDefault();
+        openEnginePurchaseEmail(engine);
+      }
     });
     document.getElementById('buyWhatsAppBtn')?.addEventListener('click', (ev) => {
-      ev.preventDefault();
-      openEnginePurchaseWhatsApp(engine);
+      if (!ev.currentTarget.href || ev.currentTarget.href === '#') {
+        ev.preventDefault();
+        openEnginePurchaseWhatsApp(engine);
+      }
     });
   } catch (err) {
     console.error('Engine detail load failed:', err);
