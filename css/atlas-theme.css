@@ -1,5 +1,5 @@
 /* Forge Night — full site redesign theme */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
   --bg-primary: #080c12;
@@ -22,8 +22,8 @@
   --warning: #f59e0b;
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.55);
-  --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-display: 'Syne', 'DM Sans', sans-serif;
+  --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-mono: 'DM Sans', monospace;
   --radius: 14px;
   --radius-sm: 8px;
@@ -94,25 +94,17 @@ body > *:not(#hack-bg):not(.whatsapp-float):not(#site-header):not(.mobile-nav-pa
 }
 
 .logo-text {
-  font-family: var(--font-display) !important;
+  font-family: var(--font-body) !important;
   color: var(--text-primary) !important;
-  text-shadow: none !important;
-  font-size: 0.72rem !important;
-  letter-spacing: 0.14em !important;
-  font-weight: 700 !important;
 }
 
 .nav-link {
   color: var(--text-secondary) !important;
-  font-family: var(--font) !important;
-  letter-spacing: 0.06em !important;
-  font-size: 0.68rem !important;
 }
 
 .nav-link:hover, .nav-link.active {
   color: var(--text-primary) !important;
   background: rgba(28, 105, 212, 0.15) !important;
-  text-shadow: none !important;
 }
 
 .dropdown {

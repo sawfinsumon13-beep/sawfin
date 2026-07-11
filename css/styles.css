@@ -1,5 +1,6 @@
 /* bmwusedengines — Forge Night Design System */
 @import url('atlas-theme.css');
+@import url('typography.css');
 @import url('trustpilot-anim.css');
 :root {
   --bg-primary: #080c12;
@@ -22,7 +23,7 @@
   --radius-sm: 8px;
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.55);
-  --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --header-height: 72px;
 }
@@ -288,29 +289,28 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .hero-brand {
   display: block;
-  font-size: clamp(2rem, 4.8vw, 3.6rem);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 600;
   line-height: 1.05;
-  letter-spacing: -0.01em;
-  text-transform: lowercase;
-  background: linear-gradient(90deg, #e8fff4 0%, #00ff88 45%, #00e5ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  background: none;
+  color: var(--text-primary);
   text-shadow: none;
-  filter: drop-shadow(0 0 24px rgba(0, 255, 136, 0.25));
-  margin-bottom: 10px;
+  filter: none;
+  margin-bottom: 0.75rem;
 }
 
 .hero-subbrand {
   display: block;
-  font-size: clamp(1rem, 2.2vw, 1.35rem);
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  opacity: 0.92;
-  line-height: 1.4;
+  font-family: var(--font-body);
+  font-size: 1.1875rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-secondary);
+  line-height: 1.45;
 }
 
 .hero-lead {
@@ -327,21 +327,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .hero-highlights {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px 20px;
-  margin-bottom: 22px;
-  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+  max-width: 34rem;
 }
 
 .hero-highlights li {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.82rem;
-  font-weight: 600;
+  gap: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--text-primary);
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
+  padding: 0.65rem 0.9rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
 }
 
 .hero-highlights svg {
@@ -2349,7 +2353,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     display: flex !important;
     min-width: 40px;
     min-height: 40px;
-    box-shadow: 0 0 16px rgba(0, 255, 136, 0.25);
+    box-shadow: 0 0 20px rgba(28, 105, 212, 0.35);
   }
 }
 
