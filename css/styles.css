@@ -2267,18 +2267,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     position: fixed;
     inset: 0;
     background: rgba(10, 22, 40, 0.55);
-    z-index: 100001;
+    z-index: 100001 !important;
     touch-action: manipulation;
   }
 
   .mobile-nav-backdrop.mobile-open {
-    display: block;
+    display: block !important;
   }
 
   .mobile-nav-panel {
     display: none;
     flex-direction: column;
-    position: fixed;
+    position: fixed !important;
     top: var(--header-height);
     left: 0;
     right: 0;
@@ -2292,7 +2292,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    z-index: 100002;
+    z-index: 100002 !important;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
     touch-action: manipulation;
   }

@@ -37,7 +37,7 @@ body {
 
 #hack-bg { display: none !important; }
 
-body > *:not(#hack-bg):not(.whatsapp-float):not(#site-header) {
+body > *:not(#hack-bg):not(.whatsapp-float):not(#site-header):not(.mobile-nav-panel):not(.mobile-nav-backdrop) {
   position: relative;
   z-index: 1;
 }
