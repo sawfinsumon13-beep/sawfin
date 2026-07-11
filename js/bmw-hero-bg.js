@@ -4,12 +4,12 @@
     if (!container || container.childElementCount) return;
 
     const photos = [
-      'images/engines/sets/set-0108/01.webp',
-      'images/engines/sets/set-0114/02.webp',
-      'images/engines/sets/set-0087/03.webp',
-      'images/engines/sets/set-0052/04.webp',
-      'images/engines/sets/set-0047/01.webp',
-      'images/engines/sets/set-0061/02.webp'
+      'images/engines/sets/set-0108/03.webp',
+      'images/engines/sets/set-0114/01.webp',
+      'images/engines/sets/set-0061/04.webp',
+      'images/engines/sets/set-0052/02.webp',
+      'images/engines/sets/set-0046/03.webp',
+      'images/engines/sets/set-0087/01.webp'
     ];
 
     photos.forEach((src, i) => {

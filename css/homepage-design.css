@@ -66,6 +66,25 @@
   min-height: 400px;
 }
 
+.page-home .hero-trustpilot--right {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  left: auto;
+  z-index: 10;
+  margin: 0 !important;
+  align-self: auto;
+}
+
+.page-home .hero-trustpilot {
+  position: relative;
+  top: auto;
+  right: auto;
+  align-self: flex-start;
+  margin-bottom: 0;
+  z-index: 4;
+}
+
 .page-home .hero-visual .hero-bmw-bg {
   position: absolute;
   inset: 0;
@@ -101,7 +120,7 @@
 }
 
 .page-home .hero-trustpilot {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .page-home .hero-badge-row {

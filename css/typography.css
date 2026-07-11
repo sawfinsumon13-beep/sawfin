@@ -199,6 +199,14 @@ strong { font-weight: 600; color: var(--text-primary); }
   border-radius: var(--radius) !important;
 }
 
+.page-home .hero-trustpilot--right {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  left: auto;
+  z-index: 10;
+}
+
 .page-home .hero-trustpilot-rating {
   font-size: var(--text-sm) !important;
   font-weight: 600 !important;
