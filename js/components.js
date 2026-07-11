@@ -145,6 +145,7 @@ function renderFooter() {
             <a href="tel:${SITE.phone.replace(/\s/g, '')}">${SITE.phone}</a>
             <a href="https://wa.me/${SITE.whatsapp}" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a>
             <a href="${pageUrl('/contact')}">Contact Form</a>
+            <a href="${pageUrl('/download')}">Download Site</a>
           </div>
         </div>
         <div class="footer-bottom">

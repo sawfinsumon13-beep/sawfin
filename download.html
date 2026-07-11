@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Full Site | bmwusedengines</title>
+  <meta name="description" content="Download the complete bmwusedengines website as one ZIP file — all HTML, CSS, JS, engine data, and images.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg: #080c12;
+      --card: #141b26;
+      --text: #f0f4fa;
+      --muted: #9aa8bc;
+      --accent: #1c69d4;
+      --accent-light: #4d9fff;
+      --green: #25d366;
+      --border: rgba(255,255,255,0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 20% 0%, rgba(28,105,212,0.15), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 100% 100%, rgba(37,211,102,0.06), transparent 50%);
+    }
+    .wrap { width: 100%; max-width: 560px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(28,105,212,0.12);
+      border: 1px solid rgba(28,105,212,0.25);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .lead {
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+    }
+    .download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 20px 28px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), #0a3d8f);
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(28,105,212,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(28,105,212,0.5);
+    }
+    .download-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .meta-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .meta-item strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--accent-light);
+      margin-bottom: 4px;
+    }
+    .meta-item span { font-size: 0.8rem; color: var(--muted); }
+    .includes {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .includes h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .includes ul {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+    .includes li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding-left: 20px;
+      position: relative;
+    }
+    .includes li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+    .note {
+      margin-top: 20px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 24px;
+      color: var(--accent-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back:hover { text-decoration: underline; }
+    .status {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      min-height: 1.2em;
+    }
+    .status.error { color: #f87171; }
+    .status.ok { color: var(--green); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <span class="badge">Full site package</span>
+      <h1>Download the complete bmwusedengines website</h1>
+      <p class="lead">
+        One click downloads a ZIP with every file — all pages, styles, scripts,
+        3,100+ engine listings, blog posts, and warehouse photos. Unzip and upload to any web host.
+      </p>
+
+      <a id="downloadBtn" class="download-btn" href="#" download="bmwusedengines-full-site.zip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download Full Site (ZIP)
+      </a>
+
+      <p class="status" id="status" aria-live="polite"></p>
+
+      <div class="meta">
+        <div class="meta-item">
+          <strong>~108 MB</strong>
+          <span>Compressed ZIP</span>
+        </div>
+        <div class="meta-item">
+          <strong>1,100+ files</strong>
+          <span>Ready to deploy</span>
+        </div>
+      </div>
+
+      <div class="includes">
+        <h2>What's included</h2>
+        <ul>
+          <li>All HTML pages (home, engines, product details, blog, contact)</li>
+          <li>CSS, JavaScript, favicon, and images</li>
+          <li>3,100+ engine JSON data and 215 blog articles</li>
+          <li>.htaccess for clean URLs on Apache hosts</li>
+        </ul>
+      </div>
+
+      <p class="note">
+        After download: unzip the folder and upload everything to your hosting
+        <code style="color:var(--accent-light)">public_html</code> directory.
+        Open <code style="color:var(--accent-light)">index.html</code> or your domain to view the site.
+      </p>
+
+      <a class="back" href="/">← Back to website</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var RELEASE_URL = 'https://github.com/sawfinsumon13-beep/sawfin/releases/download/website-download-v20/bmwusedengines-full-site.zip';
+      var LOCAL_URL = 'downloads/bmwusedengines-full-site.zip';
+      var btn = document.getElementById('downloadBtn');
+      var status = document.getElementById('status');
+
+      function setLink(url) {
+        btn.href = url;
+        btn.setAttribute('download', 'bmwusedengines-full-site.zip');
+      }
+
+      // Prefer local copy when served from this site; fall back to GitHub release.
+      fetch(LOCAL_URL, { method: 'HEAD' }).then(function (res) {
+        if (res.ok) {
+          setLink(LOCAL_URL);
+          status.textContent = 'Ready — click the button to download.';
+          status.className = 'status ok';
+        } else {
+          setLink(RELEASE_URL);
+          status.textContent = 'Downloading from GitHub release.';
+          status.className = 'status ok';
+        }
+      }).catch(function () {
+        setLink(RELEASE_URL);
+        status.textContent = 'Downloading from GitHub release.';
+        status.className = 'status ok';
+      });
+
+      btn.addEventListener('click', function () {
+        status.textContent = 'Starting download…';
+        status.className = 'status ok';
+      });
+    })();
+  </script>
+</body>
+</html>
