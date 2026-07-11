@@ -1,38 +1,38 @@
 const WORKSHOP_SLIDES = [
   {
+    src: 'images/workshop/tech-01.jpg',
+    title: 'BMW Engine Specialist',
+    caption: 'Our Hamburg technicians inspect and test every BMW engine before it enters our sales inventory'
+  },
+  {
+    src: 'images/workshop/tech-02.jpg',
+    title: 'Workshop Team',
+    caption: 'Experienced mechanics with decades of BMW platform expertise — M20 classics to modern B-series'
+  },
+  {
     src: 'images/engines/sets/set-0108/03.webp',
     title: 'Engine Inspection Bay',
-    caption: 'Our technicians inspect every BMW engine on arrival — external condition, sump, and component checklist'
+    caption: 'Every unit checked on arrival — external condition, sump, and full component verification'
   },
   {
     src: 'images/engines/sets/set-0114/02.webp',
     title: 'Compression Testing',
-    caption: 'Calibrated compression and leak-down tests on each cylinder before any engine is listed for sale'
-  },
-  {
-    src: 'images/engines/sets/set-0087/04.webp',
-    title: 'Component Verification',
-    caption: 'Hoses, sensors, and ancillaries checked by hand — nothing ships without a signed test certificate'
-  },
-  {
-    src: 'images/engines/sets/set-0052/01.webp',
-    title: 'Warehouse Preparation',
-    caption: 'Engines cleaned, photographed from every angle, and palletised for safe EU-wide delivery'
+    caption: 'Calibrated compression and leak-down tests on each cylinder before listing'
   },
   {
     src: 'images/engines/sets/set-0061/03.webp',
     title: 'Dyno Verification',
-    caption: 'Live-run testing on our SuperFlow dynamometer — oil pressure, idle stability, and boost response verified'
+    caption: 'Live-run testing on our SuperFlow dynamometer — oil pressure and idle stability verified'
   },
   {
     src: 'images/engines/sets/set-0047/02.webp',
-    title: 'Quality Control',
-    caption: 'Senior technicians sign off every unit — 4–6 hours of testing per engine, no shortcuts'
+    title: 'Quality Sign-Off',
+    caption: 'Senior technicians sign off every engine — 4–6 hours of testing, no shortcuts'
   },
   {
     src: 'images/engines/sets/set-0060/05.webp',
     title: 'Ready to Ship',
-    caption: 'Tested, documented, and installation-ready — shipped from our Hamburg facility across 28 EU countries'
+    caption: 'Tested, documented, and palletised — shipped across 28 EU countries from Hamburg'
   }
 ];
 
