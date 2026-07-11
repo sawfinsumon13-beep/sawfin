@@ -2234,6 +2234,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     display: none !important;
   }
 
+  .site-header {
+    overflow: visible;
+  }
+
+  #site-header {
+    overflow: visible;
+  }
+
   .mobile-toggle { display: flex !important; }
 
   .mobile-nav-panel {

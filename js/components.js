@@ -70,7 +70,7 @@ function renderHeader() {
         </a>
         <nav class="main-nav" id="mainNav" aria-label="Main navigation">${navLinks}</nav>
         <div class="header-actions">
-          <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+          <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNavPanel">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
               <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
             </svg>
@@ -88,8 +88,8 @@ function renderHeader() {
           </a>
         </div>
       </div>
-      <nav class="mobile-nav-panel" id="mobileNavPanel" aria-label="Mobile navigation" hidden>${navLinks}</nav>
     </header>
+    <nav class="mobile-nav-panel" id="mobileNavPanel" aria-label="Mobile navigation" hidden>${navLinks}</nav>
     <div class="search-modal" id="searchModal">
       <div class="search-modal-inner">
         <input type="text" id="searchInput" placeholder="Search engines, blog posts, services..." autocomplete="off">
