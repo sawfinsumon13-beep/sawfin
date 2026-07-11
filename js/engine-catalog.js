@@ -74,8 +74,8 @@ function getEnginePlatformInfo(engine) {
 function buildEnginePurchaseEmail(engine) {
   const title = formatEngineTitle(engine);
   const platforms = getEnginePlatformInfo(engine);
-  const subject = encodeURIComponent(`Buy Engine — ${title} (ID ${engine.id})`);
-  const body = encodeURIComponent(
+  const subject = `Buy Engine — ${title} (ID ${engine.id})`;
+  const body =
     `Hello,\n\nI would like to buy this engine:\n\n` +
     `Engine: ${title}\n` +
     `Code: ${engine.code}\n` +
@@ -84,15 +84,14 @@ function buildEnginePurchaseEmail(engine) {
     `Platform: ${platforms.primary}\n` +
     `Mileage: ${engine.mileage.toLocaleString()} km\n` +
     `Condition: ${engine.condition}\n\n` +
-    `Please confirm availability, shipping cost, and payment details.\n\nThank you`
-  );
-  return `mailto:${SITE.email}?subject=${subject}&body=${body}`;
+    `Please confirm availability, shipping cost, and payment details.\n\nThank you`;
+  return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 function buildEnginePurchaseWhatsApp(engine) {
   const title = formatEngineTitle(engine);
   const platforms = getEnginePlatformInfo(engine);
-  const text = encodeURIComponent(
+  const text =
     `Hello, I would like to buy this BMW engine:\n\n` +
     `${title}\n` +
     `Code: ${engine.code}\n` +
@@ -100,9 +99,16 @@ function buildEnginePurchaseWhatsApp(engine) {
     `Price: ${formatPrice(engine.price)}\n` +
     `Platform: ${platforms.primary}\n` +
     `Mileage: ${engine.mileage.toLocaleString()} km\n\n` +
-    `Please confirm availability.`
-  );
-  return `https://wa.me/${SITE.whatsapp}?text=${text}`;
+    `Please confirm availability.`;
+  return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`;
+}
+
+function openEnginePurchaseEmail(engine) {
+  window.location.href = buildEnginePurchaseEmail(engine);
+}
+
+function openEnginePurchaseWhatsApp(engine) {
+  window.open(buildEnginePurchaseWhatsApp(engine), '_blank', 'noopener,noreferrer');
 }
 
 function getTelHref() {

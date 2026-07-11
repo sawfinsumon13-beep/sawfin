@@ -607,6 +607,42 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: all var(--transition);
 }
 
+a.engine-card-media {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+a.engine-card-media:hover {
+  color: inherit;
+}
+
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 0 16px 16px;
+}
+
+.card-actions .btn {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 8px;
+  font-size: 0.72rem;
+}
+
+.card-actions .btn-whatsapp {
+  background: #25d366;
+  color: #fff;
+  border: 1px solid #1ebe57;
+}
+
+.card-actions .btn-whatsapp:hover {
+  background: #1ebe57;
+  color: #fff;
+}
+
 .engine-card:hover, .blog-card:hover, .service-card:hover, .kit-card:hover {
   transform: translateY(-4px);
   border-color: var(--border-light);
