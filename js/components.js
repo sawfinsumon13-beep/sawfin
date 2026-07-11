@@ -70,7 +70,7 @@ function renderHeader() {
         </a>
         <nav class="main-nav" id="mainNav">${navLinks}</nav>
         <div class="header-actions">
-          <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+          <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
               <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
             </svg>
@@ -166,18 +166,7 @@ function initLayout() {
     document.body.insertAdjacentHTML('beforeend', renderWhatsAppButton());
   }
 
-  document.getElementById('mobileToggle')?.addEventListener('click', () => {
-    const nav = document.getElementById('mainNav');
-    const isOpen = nav?.classList.toggle('mobile-open');
-    document.body.classList.toggle('nav-open', Boolean(isOpen));
-  });
-
-  document.getElementById('mainNav')?.addEventListener('click', (e) => {
-    if (e.target.closest('a')) {
-      document.getElementById('mainNav')?.classList.remove('mobile-open');
-      document.body.classList.remove('nav-open');
-    }
-  });
+  initMobileNav();
 
   const searchModal = document.getElementById('searchModal');
   const searchBtn = document.getElementById('searchBtn');
@@ -200,6 +189,75 @@ function initLayout() {
   searchInput?.addEventListener('input', (e) => {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(() => performSearch(e.target.value), 300);
+  });
+}
+
+function initMobileNav() {
+  const toggle = document.getElementById('mobileToggle');
+  const nav = document.getElementById('mainNav');
+  if (!toggle || !nav) return;
+
+  const isMobile = () => window.matchMedia('(max-width: 1200px)').matches;
+
+  const closeNav = () => {
+    nav.classList.remove('mobile-open');
+    document.body.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+    nav.querySelectorAll('.nav-item.dropdown-open').forEach(item => item.classList.remove('dropdown-open'));
+  };
+
+  const openNav = () => {
+    nav.classList.add('mobile-open');
+    document.body.classList.add('nav-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close menu');
+  };
+
+  const handleToggle = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (nav.classList.contains('mobile-open')) closeNav();
+    else openNav();
+  };
+
+  toggle.addEventListener('click', handleToggle);
+
+  document.body.addEventListener('click', (e) => {
+    if (!document.body.classList.contains('nav-open')) return;
+    if (e.target.closest('#mainNav') || e.target.closest('#mobileToggle')) return;
+    closeNav();
+  });
+
+  nav.querySelectorAll('.nav-item').forEach(item => {
+    const dropdown = item.querySelector('.dropdown');
+    const link = item.querySelector(':scope > .nav-link');
+    if (!dropdown || !link) return;
+
+    link.addEventListener('click', (e) => {
+      if (!isMobile()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const wasOpen = item.classList.contains('dropdown-open');
+      nav.querySelectorAll('.nav-item.dropdown-open').forEach(i => i.classList.remove('dropdown-open'));
+      if (!wasOpen) item.classList.add('dropdown-open');
+    });
+  });
+
+  nav.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    if (link.closest('.dropdown') || !link.closest('.nav-item')?.querySelector('.dropdown')) {
+      closeNav();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('nav-open')) closeNav();
+  });
+
+  window.addEventListener('resize', () => {
+    if (!isMobile()) closeNav();
   });
 }
 
