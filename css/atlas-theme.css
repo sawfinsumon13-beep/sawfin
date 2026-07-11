@@ -1,0 +1,234 @@
+/* Atlas Precision — site-wide redesign theme */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-primary: #eef1f6;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --accent: #1c69d4;
+  --accent-light: #2b7de9;
+  --accent-glow: rgba(28, 105, 212, 0.18);
+  --text-primary: #152033;
+  --text-secondary: #4b5d73;
+  --text-muted: #7a8a9e;
+  --border: rgba(21, 32, 51, 0.08);
+  --border-light: rgba(21, 32, 51, 0.14);
+  --success: #0d9f6e;
+  --accent-green: #0d9f6e;
+  --accent-green-dim: rgba(13, 159, 110, 0.1);
+  --warning: #d97706;
+  --shadow: 0 8px 30px rgba(21, 32, 51, 0.08);
+  --shadow-lg: 0 20px 50px rgba(21, 32, 51, 0.12);
+  --font: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Libre Baskerville', Georgia, serif;
+  --font-mono: 'Outfit', monospace;
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+body {
+  background:
+    radial-gradient(ellipse 80% 50% at 0% 0%, rgba(28, 105, 212, 0.07), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(13, 159, 110, 0.05), transparent 45%),
+    linear-gradient(180deg, #f3f6fa 0%, #eef1f6 100%) !important;
+  color: var(--text-primary);
+}
+
+#hack-bg { display: none !important; }
+
+body > *:not(#hack-bg):not(.whatsapp-float):not(#site-header):not(.mobile-nav-panel):not(.mobile-nav-backdrop) {
+  position: relative;
+  z-index: 1;
+}
+
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10050;
+  pointer-events: auto;
+  min-height: var(--header-height, 76px);
+}
+
+#site-header * { pointer-events: auto; }
+
+.mobile-nav-panel,
+.mobile-nav-backdrop {
+  pointer-events: auto;
+}
+
+/* ── Header ── */
+.site-header {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  z-index: auto !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: 0 4px 24px rgba(21, 32, 51, 0.06) !important;
+  backdrop-filter: blur(16px);
+}
+
+.logo-icon {
+  background: linear-gradient(145deg, #1c69d4, #0f4fa8) !important;
+  box-shadow: 0 4px 16px rgba(28, 105, 212, 0.35) !important;
+  border: 2px solid #fff !important;
+}
+
+.logo-text {
+  font-family: var(--font) !important;
+  color: var(--text-primary) !important;
+  text-shadow: none !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.06em !important;
+}
+
+.nav-link {
+  color: var(--text-secondary) !important;
+  font-family: var(--font) !important;
+  letter-spacing: 0.04em !important;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent) !important;
+  background: rgba(28, 105, 212, 0.08) !important;
+  text-shadow: none !important;
+}
+
+.dropdown {
+  background: #fff !important;
+  border-color: var(--border-light) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.mobile-toggle {
+  color: var(--accent) !important;
+  border-color: var(--border-light) !important;
+  background: #fff !important;
+}
+
+/* ── Hero ── */
+.hero-bg {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(238,243,250,0.85) 100%) !important;
+}
+
+.hero h1, .page-header h1, .section-header h2 {
+  font-family: var(--font-display) !important;
+  color: var(--text-primary) !important;
+  text-shadow: none !important;
+}
+
+.hero-badge {
+  background: rgba(28, 105, 212, 0.08) !important;
+  border-color: rgba(28, 105, 212, 0.2) !important;
+  color: var(--accent) !important;
+  font-family: var(--font) !important;
+  box-shadow: none !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #1c69d4, #2b7de9) !important;
+  color: #fff !important;
+  font-family: var(--font) !important;
+  box-shadow: 0 8px 24px rgba(28, 105, 212, 0.3) !important;
+  border: none !important;
+}
+
+.btn-outline {
+  border-color: var(--border-light) !important;
+  color: var(--text-primary) !important;
+  background: #fff !important;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  background: rgba(28, 105, 212, 0.05) !important;
+}
+
+/* ── Cards & sections ── */
+.engine-card, .blog-card, .service-card, .review-card, .kit-card,
+.category-card, .content-block-section {
+  background: var(--bg-card) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.engine-card:hover, .blog-card:hover, .service-card:hover, .category-card:hover {
+  border-color: rgba(28, 105, 212, 0.25) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.section-tag {
+  color: var(--accent) !important;
+  font-family: var(--font) !important;
+}
+
+.stats-bar, .page-header {
+  background: #fff !important;
+  border-color: var(--border) !important;
+}
+
+.stat-number {
+  color: var(--accent) !important;
+  font-family: var(--font-display) !important;
+}
+
+.site-footer {
+  background: #152033 !important;
+  color: #c8d3e0 !important;
+  border-top: none !important;
+}
+
+.site-footer .logo-text { color: #fff !important; }
+.site-footer a:hover { color: #fff !important; }
+
+.filters-bar, .search-modal input, .search-results {
+  background: #fff !important;
+  border-color: var(--border-light) !important;
+}
+
+.cta-banner {
+  background: linear-gradient(135deg, #1c69d4, #0f4fa8) !important;
+  border: none !important;
+  color: #fff !important;
+}
+
+.cta-banner h3, .cta-banner p { color: #fff !important; }
+.cta-banner .btn-primary { background: #fff !important; color: var(--accent) !important; }
+.cta-banner .btn-outline { border-color: rgba(255,255,255,0.5) !important; color: #fff !important; background: transparent !important; }
+
+.whatsapp-float {
+  background: #25d366 !important;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4) !important;
+}
+
+.premium-strip {
+  background: #fff !important;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block-section.alt-bg {
+  background: rgba(255, 255, 255, 0.6) !important;
+}
+
+.content-toc {
+  background: #fff !important;
+  border-color: var(--border) !important;
+}
+
+.hero-trustpilot {
+  background: #fff !important;
+  border-color: rgba(0, 182, 122, 0.3) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.card-badge, .engine-card .card-badge {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
