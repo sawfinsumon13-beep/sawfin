@@ -214,6 +214,21 @@
         35% { opacity: 0.85; }
         65% { opacity: 0.62; }
       }
+      .trustpilot-widget {
+        border: 1px solid var(--border);
+        background: linear-gradient(160deg, rgba(255,255,255,.1), rgba(0,182,122,.08));
+        transition: transform .24s ease, box-shadow .24s ease;
+      }
+      .trustpilot-widget:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 48px rgba(0, 182, 122, 0.18);
+      }
+      .home-longform h3 {
+        font-size: 1.2rem;
+        margin-top: 1.75rem;
+        margin-bottom: 0.75rem;
+        color: var(--text);
+      }
     </style>
   </head>
   <body class="antialiased">
@@ -274,7 +289,7 @@
       <section id="view-home" class="view active">
         <section class="hero relative min-h-[82vh] overflow-hidden px-4 pb-20 pt-12 md:px-8">
           <div class="orbit left-1/2 top-16 h-[280px] w-[280px] -translate-x-1/2 opacity-75"></div>
-          <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div class="mx-auto grid max-w-7xl items-start gap-6 lg:grid-cols-[1.05fr_0.72fr_0.48fr]">
             <div class="space-y-8">
               <p class="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-cloud">Original Bavarian Engine • Germany</p>
               <h1 class="max-w-3xl text-4xl leading-tight text-cloud md:text-6xl">Original BMW Engines. Restoring Performance Since Generations.</h1>
@@ -305,6 +320,25 @@
                 <p class="rounded-xl border border-white/20 px-3 py-2">34 Countries</p>
               </div>
             </article>
+            <a
+              href="https://www.trustpilot.com/review/enginesbavarian.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="trustpilot-widget glass flex h-full min-h-[280px] flex-col items-center justify-center rounded-3xl p-6 text-center lg:min-h-[420px]"
+              aria-label="Read our reviews on Trustpilot"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126 31" class="h-8 w-auto" role="img" aria-hidden="true">
+                <path fill="#00B67A" d="M15.5 0l3.9 11.9H31l-10.2 7.4 3.9 11.9L15.5 23.8 1.8 31.2l3.9-11.9L0 11.9h11.6z"/>
+                <path fill="currentColor" d="M38.2 22.4V8.6h3.1l7.2 9.8V8.6h2.9v13.8h-3.1l-7.2-9.9v9.9zm21.8 0l-5.6-13.8h3.3l3.4 9.2 3.4-9.2h3.2l-5.6 13.8zm11.1 0V8.6h8.5v2.6h-5.6v2.5h5.2v2.5h-5.2v2.2h5.7v2.6zm16.2 0V8.6h3.1l4.6 9.1 4.6-9.1h3.1v13.8h-2.8v-9.4l-4.3 8.4h-1.8l-4.3-8.4v9.4zm24.1 0l-5.6-13.8h3.3l3.4 9.2 3.4-9.2h3.2l-5.6 13.8zm11.1 0V8.6h8.5v2.6h-5.6v2.5h5.2v2.5h-5.2v2.2h5.7v2.6z"/>
+              </svg>
+              <p class="mt-5 text-xs uppercase tracking-[0.22em] text-[var(--muted)]">Verified Reviews</p>
+              <p class="mt-2 text-2xl font-semibold text-[var(--text)]">Excellent</p>
+              <div class="mt-3 flex gap-1 text-[#00B67A]" aria-hidden="true">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p class="mt-4 text-sm leading-relaxed text-[var(--muted)]">Read what collectors and workshops say about our engine matching, documentation, and worldwide delivery.</p>
+              <span class="btn-secondary mt-5 inline-flex rounded-full px-5 py-2 text-xs uppercase tracking-[0.12em]">View on Trustpilot</span>
+            </a>
           </div>
         </section>
 
@@ -322,6 +356,49 @@
                 <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Real warehouse engine photos</p>
                 <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Written warranty guidance</p>
                 <p class="chip rounded-xl px-4 py-3 text-sm text-[var(--muted)]">Direct post-delivery support</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="px-4 pb-20 md:px-8">
+          <div class="mx-auto max-w-7xl">
+            <article class="glass home-longform rounded-[2rem] p-7 md:p-10">
+              <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">About Our Mission — 1,500+ Words</p>
+              <h2 class="mt-3 text-3xl md:text-4xl">Original Bavarian Engine: Preserving BMW Mechanical Heritage Worldwide</h2>
+              <div class="mt-6 space-y-4 text-sm leading-relaxed text-[var(--muted)]">
+                <p>Original Bavarian Engine was founded on a simple conviction: the BMW driving experience depends on powertrains that retain their authentic mechanical character. When an engine fails, owners face a choice between generic replacements that erase history and carefully sourced original units that preserve the soul of the vehicle. We exist to make the second path accessible, documented, and trustworthy for collectors, enthusiasts, and professional workshops across Europe and global export routes.</p>
+                <p>Our operation focuses exclusively on original old BMW engines — not remanufactured substitutes dressed to look period-correct, and not unverified salvage units sold on vague assurances. Every listing in our inventory represents a real engine photographed in our warehouse, with condition context that helps buyers make informed decisions before payment. This documentation-first approach distinguishes professional old-engine commerce from commodity trading where appearance replaces evidence.</p>
+                <h3>Why Original Engines Matter</h3>
+                <p>BMW engineered distinct personalities into each generation of powerplant. An M20 delivers a mechanical honesty that modern turbocharged units cannot replicate. An M57 diesel provides torque delivery prized by swap builders and overland enthusiasts. An S54 rewards careful maintenance with motorsport-grade response that defined an era of naturally aspirated performance. Replacing these engines with mismatched alternatives changes throttle feel, acoustic character, and often resale narrative in ways that matter to serious owners.</p>
+                <p>Collector markets increasingly reward documented originality. A restoration supported by verifiable engine provenance commands stronger values than one built on undocumented substitutions. Workshops serving concours clients understand that stamp visibility, donor context, and condition transparency are not administrative details — they are core components of project credibility. We structure our supply operation to support these standards rather than undermine them with anonymous inventory.</p>
+                <h3>Our Sourcing Philosophy</h3>
+                <p>We procure engines from fleet decommissioning programmes, insurance write-offs with documented mileage, and private collections where service history is verifiable. Each unit enters our facility unproven and leaves with photographic evidence, compatibility notes, and condition observations that accompany the sale. We reject engines with catastrophic external damage or undisclosed internal concerns because our reputation depends on what happens after installation, not only on what appears in listing photographs.</p>
+                <p>Depth within engine families separates our catalogue from superficial inventories. We do not stock one M54 and call it a day — we maintain dozens of variants across production years, mileage brackets, and condition grades. Diesel families including N47, N57, M57, B47, and B57 are represented with suffix-level detail because compatibility failures on BMW diesels almost always trace to ignored generation differences rather than fundamental unsuitability of the engine family itself.</p>
+                <h3>Technical Matching Before Invoice</h3>
+                <p>Our Instant Matching Desk exists because the most expensive mistake in old-engine purchasing is buying the wrong unit. VIN and engine code review before invoice confirmation prevents mismatches that surface only after the crate arrives. We cross-check block stamps, donor chassis context, ECU generation assumptions, and accessory architecture against your target vehicle. When adaptation work is required, we say so clearly so your workshop can budget and schedule realistically.</p>
+                <p>This consultation is not a sales obstacle — it is risk reduction. Buyers who share their VIN, engine code, and destination country receive guidance that can save thousands in wrong purchases, customs delays, or unexpected conversion labour. We would rather decline a sale that cannot be supported with confidence than process a transaction likely to produce dispute and disappointment.</p>
+                <h3>Condition Transparency</h3>
+                <p>Terms like excellent, clean, or strong mean little without supporting detail. We provide observed startup behaviour where available, smoke profile notes, visible seepage context, and honest disclosure of age-sensitive systems that may require preventive replacement during installation. Old engines are not new engines, and trustworthy suppliers communicate realistic preparation expectations rather than implying zero additional work.</p>
+                <p>Photographs show actual inventory units from multiple angles — top, front, sump area, timing cover, and accessory layout. Buyers use these images as pre-purchase inspection material. When questions arise about specific details, our team responds with specifics rather than deflection. In international transactions where physical inspection before purchase is impractical, this transparency is the foundation of trust.</p>
+                <h3>Worldwide Logistics</h3>
+                <p>Engine freight is not parcel shipping. We crate units on reinforced pallets with rated securing, protective wrapping, and moisture control appropriate for sea and long-route transit. Tracking workflows include milestone updates, and transit insurance covers full purchase value on qualifying orders. We ship throughout the European Union, United Kingdom, Switzerland, Norway, and selected global export destinations with customs documentation prepared as part of the service.</p>
+                <p>Delivery expectations are documented before dispatch: kerbside pallet delivery, forklift or hoist requirements at destination, and inspection protocol upon arrival. Buyers who follow systematic intake procedures — photographing crate condition, verifying stamp against invoice, reporting discrepancies immediately — protect both themselves and the integrity of the transaction. Professional logistics paired with professional receiving practices produces the smoothest project outcomes.</p>
+                <h3>Support Beyond Dispatch</h3>
+                <p>Our responsibility does not end when the freight carrier departs. Post-delivery support covers practical questions during installation, clarification of documentation, and guidance on coding or compatibility details that emerge during workshop intake. Collectors and independent garages consistently cite communication quality as a deciding factor in repeat purchases — we invest in that continuity because old-engine projects are dynamic and rarely proceed without questions.</p>
+                <p>Warranty terms are shared in writing before payment. Coverage scope, claim procedures, and required evidence are defined clearly so both parties understand obligations. We honour documented commitments because long-term reputation in a specialist market depends on resolution quality, not on making returns difficult when legitimate issues arise.</p>
+                <h3>Who We Serve</h3>
+                <p>Our clients include classic BMW restorers seeking period-correct M20 and M30 units, daily drivers replacing failed N47 or N57 diesels, performance builders sourcing S54 and B58 platforms, and swap specialists integrating M57 engines into Defender and 4x4 conversions. Each use case demands different acceptance criteria, and our team adjusts recommendations accordingly rather than pushing inventory that fits our warehouse but not your project.</p>
+                <p>Workshop trade accounts receive responsive fitment support because downtime costs money in commercial environments. Collectors receive patience and documentation depth because authenticity decisions cannot be rushed. Export clients receive customs clarity because border delays destroy project timelines. The common thread is respect for the technical seriousness of every enquiry.</p>
+                <h3>Start Your Project With Confidence</h3>
+                <p>Whether you are researching your first old BMW engine purchase or sourcing your twentieth unit for a workshop pipeline, the process begins the same way: share your requirements, verify compatibility, review condition evidence, and plan logistics before committing funds. Browse our engine collection, explore the technical blog library, read verified Trustpilot reviews, or contact our team directly with your VIN and engine code.</p>
+                <p>Original Bavarian Engine exists because BMW mechanical heritage deserves suppliers who treat sourcing as engineering stewardship. We combine authentic inventory, documented condition context, worldwide delivery capability, and specialist support into a single operation designed for buyers who refuse to gamble on the heart of their vehicle. Your restoration, daily driver, or conversion project starts with the right engine sourced the right way — and we are here to help you find it.</p>
+                <h3>Engine Families We Supply</h3>
+                <p>Our catalogue spans classic petrol platforms including M10, M20, M30, M50, M52, and M54 units favoured by E30, E36, and E46 restorers. Diesel inventory covers M57 workhorses prized for swap conversions, N47 and N57 families serving F-series replacements, and modern B47 and B57 units for current-generation BMW diesels. Performance-oriented clients source S54, S55, N54, N55, and B58 engines with condition notes appropriate to their build targets. Each family carries distinct compatibility requirements, and our team helps narrow selection before you commit.</p>
+                <p>M57 swap kits and conversion guidance support Defender, 4x4, and workshop projects where torque and reliability matter more than factory originality. Petrol heritage builds demand stricter documentation when concours correctness is the goal. Daily-driver replacements prioritise smooth startup, stable idle, and verified service context. We adjust our recommendation logic to your stated mission rather than treating every enquiry as identical.</p>
+                <h3>Building Long-Term Trust</h3>
+                <p>Trust is earned through repeated positive outcomes, not marketing language. Our clients return because engines arrive as described, documentation matches delivered units, and support continues through installation questions that inevitably arise. Verified Trustpilot reviews reflect this experience — buyers highlight accurate matching, responsive communication, and secure dispatch as reasons they recommend our operation to other collectors and garages.</p>
+                <p>We invite you to verify our reputation independently, browse real warehouse photography in our engine collection, and speak with our technical desk before placing an order. Old BMW engines represent significant investment in your vehicle's future. Original Bavarian Engine provides the process, transparency, and specialist knowledge that serious buyers expect when that investment must be right the first time.</p>
               </div>
             </article>
           </div>
@@ -1345,11 +1422,19 @@
         document.querySelectorAll(".view").forEach((node) => node.classList.remove("active"));
         const activeView = document.getElementById(`view-${view}`) || document.getElementById("view-home");
         activeView.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "auto" });
 
         if (view === "collection") {
           renderCollection(parsed.params);
         } else if (view === "details") {
           renderDetails(parsed.params.get("id"));
+        } else if (view === "blog") {
+          renderBlogContent();
+          if (parsed.anchor) {
+            requestAnimationFrame(() => {
+              document.getElementById(parsed.anchor)?.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+          }
         } else if (view === "reviews") {
           renderReviews(document.getElementById("reviewGrid"));
         }
@@ -1359,8 +1444,14 @@
 
       function parseHash() {
         const raw = (window.location.hash || "#home").slice(1);
-        const [view, query = ""] = raw.split("?");
-        return { view: view || "home", params: new URLSearchParams(query) };
+        const [path, query = ""] = raw.split("?");
+        let view = path || "home";
+        let anchor = null;
+        if (view.startsWith("blog-")) {
+          anchor = view;
+          view = "blog";
+        }
+        return { view, anchor, params: new URLSearchParams(query) };
       }
 
       
