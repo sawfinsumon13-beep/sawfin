@@ -1,10 +1,25 @@
-document.addEventListener('DOMContentLoaded', async () => {
+function getEngineDetailId() {
   const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get('id'), 10);
+  const fromQuery = parseInt(params.get('id'), 10);
+  if (fromQuery > 0) return fromQuery;
+
+  const hashMatch = window.location.hash.match(/(?:^|[?&]id=)(\d+)/);
+  if (hashMatch) {
+    const fromHash = parseInt(hashMatch[1], 10);
+    if (fromHash > 0) return fromHash;
+  }
+
+  return getRememberedEngineDetailId();
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const id = getEngineDetailId();
   if (!id) {
     window.location.href = pageUrl('/engines');
     return;
   }
+
+  rememberEngineDetailId(id);
 
   const container = document.getElementById('engineDetail');
   container.innerHTML = '<div class="loading"><div class="spinner"></div>Loading engine details...</div>';

@@ -317,7 +317,7 @@ async function performSearch(query) {
 
     let html = '';
     engineResults.forEach(e => {
-      html += `<a href="${pageUrl(`/engine-detail?id=${e.id}`)}" class="search-result-item">
+      html += `<a href="${pageUrl(`/engine-detail?id=${e.id}`)}" class="search-result-item" onclick="rememberEngineDetailId(${e.id})">
         <strong>${e.name}</strong><span>${e.code} — €${e.price.toLocaleString()}</span></a>`;
     });
     blogResults.forEach(b => {

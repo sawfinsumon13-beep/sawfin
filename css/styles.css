@@ -599,6 +599,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   gap: 24px;
 }
 
+.engine-card {
+  position: relative;
+}
+
 .engine-card, .blog-card, .service-card, .review-card, .kit-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -626,8 +630,9 @@ a.engine-card-media:hover {
   gap: 8px;
   padding: 0 16px 16px;
   position: relative;
-  z-index: 5;
+  z-index: 20;
   pointer-events: auto;
+  isolation: isolate;
 }
 
 .card-actions a,

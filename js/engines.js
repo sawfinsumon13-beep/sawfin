@@ -90,6 +90,21 @@ function applyFilters() {
   renderEngines();
 }
 
+function bindDetailLinks(root) {
+  if (!root || root.dataset.detailBound === '1') return;
+  root.dataset.detailBound = '1';
+  root.addEventListener('click', (event) => {
+    const link = event.target.closest('[data-detail-link]');
+    if (!link) return;
+    const url = link.getAttribute('href');
+    if (!url || url === '#') return;
+    event.preventDefault();
+    event.stopPropagation();
+    const engineId = link.dataset.engineId;
+    navigateTo(url, engineId);
+  });
+}
+
 function renderEngines() {
   const grid = document.getElementById('engineGrid');
   const start = (currentPage - 1) * PER_PAGE;
@@ -113,7 +128,7 @@ function renderEngines() {
     const whatsappBuyHref = buildEnginePurchaseWhatsApp(e);
   return `
     <article class="engine-card">
-      <a href="${detailUrl}" class="engine-card-media">
+      <a href="${detailUrl}" class="engine-card-media" data-detail-link data-engine-id="${e.id}">
         <div class="card-image">
           <img src="${gallery[0]}" alt="${getEngineImageAlt(e)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
           <div class="card-thumb-row">
@@ -138,12 +153,14 @@ function renderEngines() {
         </div>
       </a>
       <div class="card-actions">
-        <a href="${detailUrl}" class="btn btn-sm btn-outline">Details</a>
+        <a href="${detailUrl}" class="btn btn-sm btn-outline" data-detail-link data-engine-id="${e.id}">Details</a>
         <a href="${emailBuyHref}" class="btn btn-sm btn-primary">Email to Buy</a>
         <a href="${whatsappBuyHref}" class="btn btn-sm btn-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
     </article>`;
   }).join('');
+
+  bindDetailLinks(grid);
 
   renderPagination(currentPage, totalPages, (page) => {
     currentPage = page;

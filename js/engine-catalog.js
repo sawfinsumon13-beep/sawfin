@@ -118,7 +118,7 @@ function getTelHref() {
 function goToEngineDetail(id) {
   const engineId = parseInt(id, 10);
   if (!engineId) return;
-  window.location.href = pageUrl(`/engine-detail?id=${engineId}`);
+  navigateTo(pageUrl(`/engine-detail?id=${engineId}`), engineId);
 }
 
 window.goToEngineDetail = goToEngineDetail;
