@@ -113,7 +113,7 @@ function renderEngines() {
     const whatsappBuyHref = buildEnginePurchaseWhatsApp(e);
   return `
     <article class="engine-card">
-      <a href="${detailUrl}" class="engine-card-media" data-engine-id="${e.id}" data-action="detail">
+      <a href="${detailUrl}" class="engine-card-media" onclick="goToEngineDetail(${e.id})">
         <div class="card-image">
           <img src="${gallery[0]}" alt="${getEngineImageAlt(e)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
           <div class="card-thumb-row">
@@ -138,14 +138,12 @@ function renderEngines() {
         </div>
       </a>
       <div class="card-actions">
-        <a href="${detailUrl}" class="btn btn-sm btn-outline" data-engine-id="${e.id}" data-action="detail">Details</a>
+        <a href="${detailUrl}" class="btn btn-sm btn-outline" onclick="goToEngineDetail(${e.id})">Details</a>
         <a href="${emailBuyHref}" class="btn btn-sm btn-primary">Email to Buy</a>
         <a href="${whatsappBuyHref}" class="btn btn-sm btn-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
     </article>`;
   }).join('');
-
-  initEngineCardActions(grid);
 
   renderPagination(currentPage, totalPages, (page) => {
     currentPage = page;
