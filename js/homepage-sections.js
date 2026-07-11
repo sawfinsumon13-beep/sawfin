@@ -163,9 +163,13 @@ const HOMEPAGE_SECTIONS = [
   }
 ];
 
+const ALL_HOMEPAGE_SECTIONS = HOMEPAGE_SECTIONS.concat(
+  typeof HOMEPAGE_SEO_SECTIONS !== 'undefined' ? HOMEPAGE_SEO_SECTIONS : []
+);
+
 // Homepage — unique image per slot (gallery + sections never share a path)
 const HOMEPAGE_GALLERY_IMAGES = allocateUniqueImages(9, 0);
-const HOMEPAGE_SECTION_IMAGES = allocateUniqueImages(HOMEPAGE_SECTIONS.length, 9);
+const HOMEPAGE_SECTION_IMAGES = allocateUniqueImages(ALL_HOMEPAGE_SECTIONS.length, 9);
 
 const OLD_ENGINE_GALLERY = HOMEPAGE_GALLERY_IMAGES.map((src, i) => ({
   src,
@@ -174,7 +178,7 @@ const OLD_ENGINE_GALLERY = HOMEPAGE_GALLERY_IMAGES.map((src, i) => ({
 
 function renderContentIntro() {
   const wordCount = countHomepageWords();
-  const toc = HOMEPAGE_SECTIONS.map((section, i) => {
+  const toc = ALL_HOMEPAGE_SECTIONS.map((section, i) => {
     const num = String(i + 1).padStart(2, '0');
     return `<a href="#content-${num}" class="content-toc-link"><span class="content-toc-num">${num}</span>${section.tag}</a>`;
   }).join('');
@@ -187,7 +191,7 @@ function renderContentIntro() {
           <h2>Everything About Buying Used BMW Engines</h2>
           <p class="content-intro-lead">A complete guide to choosing, testing, and fitting used BMW engines — written by the bmwusedengines team from 20+ years of hands-on workshop experience in Hamburg.</p>
           <div class="content-intro-meta">
-            <span><strong>${HOMEPAGE_SECTIONS.length}</strong> chapters</span>
+            <span><strong>${ALL_HOMEPAGE_SECTIONS.length}</strong> chapters</span>
             <span><strong>${wordCount.toLocaleString()}+</strong> words</span>
             <span><strong>3,100+</strong> engines in stock</span>
           </div>
@@ -198,7 +202,7 @@ function renderContentIntro() {
 }
 
 function renderContentSections() {
-  return HOMEPAGE_SECTIONS.map((section, i) => {
+  return ALL_HOMEPAGE_SECTIONS.map((section, i) => {
     const img = HOMEPAGE_SECTION_IMAGES[i];
     const num = String(i + 1).padStart(2, '0');
     const [lead, ...rest] = section.paragraphs;
@@ -244,8 +248,8 @@ function renderEngineGallery() {
 
 function countHomepageWords() {
   let total = 0;
-  HOMEPAGE_SECTIONS.forEach(s => {
-    s.paragraphs.forEach(p => { total += p.split(/\s+/).length; });
+  ALL_HOMEPAGE_SECTIONS.forEach(s => {
+    s.paragraphs.forEach(p => { total += p.split(/\s+/).filter(Boolean).length; });
   });
   return total;
 }
