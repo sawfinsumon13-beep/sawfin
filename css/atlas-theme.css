@@ -49,9 +49,15 @@ body > *:not(#hack-bg):not(.whatsapp-float):not(#site-header) {
   right: 0;
   z-index: 10050;
   pointer-events: auto;
+  min-height: var(--header-height, 76px);
 }
 
 #site-header * { pointer-events: auto; }
+
+.mobile-nav-panel,
+.mobile-nav-backdrop {
+  pointer-events: auto;
+}
 
 /* ── Header ── */
 .site-header {

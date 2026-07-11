@@ -216,6 +216,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   z-index: 10052;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.mobile-toggle svg {
+  pointer-events: none;
 }
 
 /* ── Hero ── */
@@ -2236,13 +2243,37 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
   .site-header {
     overflow: visible;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   #site-header {
     overflow: visible;
+    min-height: var(--header-height);
+    isolation: isolate;
+  }
+
+  .header-actions,
+  .mobile-toggle {
+    position: relative;
+    z-index: 100003;
+    pointer-events: auto !important;
   }
 
   .mobile-toggle { display: flex !important; }
+
+  .mobile-nav-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 22, 40, 0.55);
+    z-index: 100001;
+    touch-action: manipulation;
+  }
+
+  .mobile-nav-backdrop.mobile-open {
+    display: block;
+  }
 
   .mobile-nav-panel {
     display: none;
@@ -2253,17 +2284,21 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     right: 0;
     bottom: 0;
     width: 100%;
+    max-height: calc(100vh - var(--header-height));
+    max-height: calc(100dvh - var(--header-height));
     background: var(--bg-secondary);
     padding: 16px 20px 32px;
     gap: 4px;
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    z-index: 10051;
+    z-index: 100002;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+    touch-action: manipulation;
   }
 
   .mobile-nav-panel.mobile-open {
-    display: flex;
+    display: flex !important;
   }
 
   .mobile-nav-panel .nav-item {
@@ -2321,18 +2356,9 @@ body.nav-open {
   overflow: hidden;
 }
 
-body.nav-open::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: rgba(10, 22, 40, 0.55);
-  z-index: 10040;
-  pointer-events: auto;
-}
-
 body.nav-open .site-header,
 body.nav-open #site-header {
-  z-index: 10050;
+  z-index: 100003;
 }
 
 @media (max-width: 900px) {

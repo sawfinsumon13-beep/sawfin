@@ -70,7 +70,7 @@ function renderHeader() {
         </a>
         <nav class="main-nav" id="mainNav" aria-label="Main navigation">${navLinks}</nav>
         <div class="header-actions">
-          <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNavPanel">
+          <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNavPanel" onclick="window.toggleMobileNav && window.toggleMobileNav(event)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
               <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
             </svg>
@@ -198,39 +198,57 @@ function initMobileNav() {
   const panel = document.getElementById('mobileNavPanel');
   if (!toggle || !panel) return;
 
+  let backdrop = document.getElementById('mobileNavBackdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.id = 'mobileNavBackdrop';
+    backdrop.className = 'mobile-nav-backdrop';
+    backdrop.setAttribute('aria-hidden', 'true');
+    backdrop.setAttribute('hidden', '');
+    backdrop.addEventListener('click', () => window.closeMobileNav && window.closeMobileNav());
+    document.body.appendChild(backdrop);
+  }
+
+  if (panel.parentElement !== document.body) {
+    document.body.appendChild(panel);
+  }
+
   const isMobile = () => window.matchMedia('(max-width: 1200px)').matches;
 
-  const closeNav = () => {
+  window.closeMobileNav = () => {
     panel.classList.remove('mobile-open');
-    panel.hidden = true;
+    panel.setAttribute('aria-hidden', 'true');
+    panel.setAttribute('hidden', '');
+    backdrop.classList.remove('mobile-open');
+    backdrop.setAttribute('aria-hidden', 'true');
+    backdrop.setAttribute('hidden', '');
     document.body.classList.remove('nav-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
     panel.querySelectorAll('.nav-item.dropdown-open').forEach(item => item.classList.remove('dropdown-open'));
   };
 
-  const openNav = () => {
-    panel.hidden = false;
+  window.openMobileNav = () => {
+    panel.removeAttribute('hidden');
+    panel.setAttribute('aria-hidden', 'false');
     panel.classList.add('mobile-open');
+    backdrop.removeAttribute('hidden');
+    backdrop.setAttribute('aria-hidden', 'false');
+    backdrop.classList.add('mobile-open');
     document.body.classList.add('nav-open');
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Close menu');
   };
 
-  const handleToggle = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (panel.classList.contains('mobile-open')) closeNav();
-    else openNav();
+  window.toggleMobileNav = (e) => {
+    if (!isMobile()) return;
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    if (panel.classList.contains('mobile-open')) window.closeMobileNav();
+    else window.openMobileNav();
   };
-
-  toggle.addEventListener('click', handleToggle);
-
-  document.body.addEventListener('click', (e) => {
-    if (!document.body.classList.contains('nav-open')) return;
-    if (e.target.closest('#mobileNavPanel') || e.target.closest('#mobileToggle')) return;
-    closeNav();
-  });
 
   panel.querySelectorAll('.nav-item').forEach(item => {
     const dropdown = item.querySelector('.dropdown');
@@ -251,16 +269,16 @@ function initMobileNav() {
     const link = e.target.closest('a');
     if (!link) return;
     if (link.closest('.dropdown') || !link.closest('.nav-item')?.querySelector('.dropdown')) {
-      closeNav();
+      window.closeMobileNav();
     }
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && document.body.classList.contains('nav-open')) closeNav();
+    if (e.key === 'Escape' && document.body.classList.contains('nav-open')) window.closeMobileNav();
   });
 
   window.addEventListener('resize', () => {
-    if (!isMobile()) closeNav();
+    if (!isMobile()) window.closeMobileNav();
   });
 }
 
