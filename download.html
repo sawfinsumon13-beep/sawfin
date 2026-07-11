@@ -166,8 +166,8 @@
       <span class="badge">Full site package</span>
       <h1>Download the complete bmwusedengines website</h1>
       <p class="lead">
-        One click downloads a ZIP with every file — all pages, styles, scripts,
-        3,100+ engine listings, blog posts, and warehouse photos. Unzip and upload to any web host.
+        One click downloads a ZIP with every file — plain HTML pages that work on any host.
+        No compile step. Unzip, upload to <strong>public_html</strong>, and all pages work.
       </p>
 
       <a id="downloadBtn" class="download-btn" href="#" download="bmwusedengines-full-site.zip">
@@ -195,7 +195,8 @@
       <div class="includes">
         <h2>What's included</h2>
         <ul>
-          <li>All HTML pages (home, engines, product details, blog, contact)</li>
+          <li>Plain HTML — every page uses <code>.html</code> links (no compile step)</li>
+          <li>START-HERE.html guide with links to all pages</li>
           <li>CSS, JavaScript, favicon, and images</li>
           <li>3,100+ engine JSON data and 215 blog articles</li>
           <li>.htaccess for clean URLs on Apache hosts</li>
@@ -203,18 +204,17 @@
       </div>
 
       <p class="note">
-        After download: unzip the folder and upload everything to your hosting
-        <code style="color:var(--accent-light)">public_html</code> directory.
-        Open <code style="color:var(--accent-light)">index.html</code> or your domain to view the site.
+        After download: unzip, upload everything to <code style="color:var(--accent-light)">public_html</code>,
+        then open <code style="color:var(--accent-light)">START-HERE.html</code> or <code style="color:var(--accent-light)">index.html</code> in your browser.
       </p>
 
-      <a class="back" href="/">← Back to website</a>
+      <a class="back" href="index.html">← Back to website</a>
     </div>
   </div>
 
   <script>
     (function () {
-      var RELEASE_URL = 'https://github.com/sawfinsumon13-beep/sawfin/releases/download/website-download-v20/bmwusedengines-full-site.zip';
+      var RELEASE_URL = 'https://github.com/sawfinsumon13-beep/sawfin/releases/download/website-download-v21/bmwusedengines-full-site.zip';
       var LOCAL_URL = 'downloads/bmwusedengines-full-site.zip';
       var btn = document.getElementById('downloadBtn');
       var status = document.getElementById('status');
