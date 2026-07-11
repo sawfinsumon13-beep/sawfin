@@ -1,7 +1,7 @@
-/* BMW car photo slideshow */
+/* BMW car photo slideshow — Forge Night */
 .bmw-car-slideshow-section {
   padding: 48px 0 64px;
-  background: linear-gradient(180deg, rgba(238, 241, 246, 0.5) 0%, #eef1f6 100%);
+  background: var(--bg-primary);
 }
 
 .bmw-car-slideshow-section .section-header {
@@ -16,11 +16,11 @@
 
 .bmw-slideshow__viewport {
   position: relative;
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-light);
   box-shadow: var(--shadow-lg);
-  background: #0a1628;
+  background: #080c12;
   aspect-ratio: 16 / 7;
 }
 
@@ -49,7 +49,7 @@
   right: 0;
   bottom: 0;
   padding: 48px 28px 24px;
-  background: linear-gradient(180deg, transparent, rgba(10, 22, 40, 0.88));
+  background: linear-gradient(180deg, transparent, rgba(4, 8, 14, 0.92));
   color: #fff;
 }
 
@@ -58,6 +58,7 @@
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 4px;
+  font-family: var(--font-display);
 }
 
 .bmw-slideshow__caption span {
@@ -73,8 +74,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(10, 22, 40, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(8, 12, 18, 0.7);
   color: #fff;
   cursor: pointer;
   display: flex;
@@ -85,8 +86,8 @@
 }
 
 .bmw-slideshow__btn:hover {
-  background: rgba(28, 105, 212, 0.85);
-  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(28, 105, 212, 0.9);
+  border-color: rgba(77, 159, 255, 0.6);
 }
 
 .bmw-slideshow__btn--prev { left: 16px; }
@@ -104,14 +105,14 @@
   height: 10px;
   border-radius: 50%;
   border: none;
-  background: rgba(28, 105, 212, 0.25);
+  background: rgba(77, 159, 255, 0.2);
   cursor: pointer;
   padding: 0;
   transition: background 0.2s, transform 0.2s;
 }
 
 .bmw-slideshow__dot.active {
-  background: var(--accent);
+  background: var(--accent-light);
   transform: scale(1.15);
 }
 
@@ -127,11 +128,11 @@
 .bmw-slideshow__thumb {
   flex: 0 0 88px;
   height: 56px;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   border: 2px solid transparent;
   cursor: pointer;
-  opacity: 0.55;
+  opacity: 0.5;
   transition: opacity 0.2s, border-color 0.2s;
   padding: 0;
   background: none;
@@ -147,22 +148,15 @@
 .bmw-slideshow__thumb.active,
 .bmw-slideshow__thumb:hover {
   opacity: 1;
-  border-color: var(--accent);
+  border-color: var(--accent-light);
 }
 
 @media (max-width: 768px) {
   .bmw-car-slideshow-section { padding: 32px 0 48px; }
-
   .bmw-slideshow__viewport { aspect-ratio: 16 / 10; }
-
-  .bmw-slideshow__btn {
-    width: 36px;
-    height: 36px;
-  }
-
+  .bmw-slideshow__btn { width: 36px; height: 36px; }
   .bmw-slideshow__btn--prev { left: 10px; }
   .bmw-slideshow__btn--next { right: 10px; }
-
   .bmw-slideshow__thumb { flex-basis: 72px; height: 48px; }
 }
 

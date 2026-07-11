@@ -1,10 +1,10 @@
-/* Homepage layout — Atlas Precision light design */
+/* Forge Night — homepage layout */
 .page-home {
-  --home-accent: #1c69d4;
-  --home-accent-soft: rgba(28, 105, 212, 0.08);
-  --home-surface: #ffffff;
-  --home-ink: #152033;
-  --home-muted: #5c6d82;
+  --home-accent: #4d9fff;
+  --home-accent-soft: rgba(28, 105, 212, 0.12);
+  --home-surface: #141b26;
+  --home-ink: #f0f4fa;
+  --home-muted: #9aa8bc;
 }
 
 .page-home::before,
@@ -12,8 +12,14 @@
 
 .page-home #hack-bg { display: none !important; }
 
+/* ── Hero split layout ── */
 .page-home .home-hero {
-  align-items: center;
+  align-items: stretch;
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
+  margin-top: var(--header-height);
+  padding: 0;
+  overflow: hidden;
 }
 
 .page-home .home-hero .hero-bg {
@@ -22,28 +28,61 @@
 
 .page-home .hero-layout {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 0;
-  max-width: 1200px;
+  max-width: none;
+  width: 100%;
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
 }
 
 .page-home .hero-content {
   max-width: none;
   margin: 0;
-  padding: 56px 48px;
-  background: var(--home-surface);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  box-shadow: var(--shadow-lg);
-  backdrop-filter: none;
+  padding: 64px 56px 64px max(24px, calc((100vw - 1400px) / 2 + 24px));
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
 }
 
-.page-home .hero-content::before,
-.page-home .hero-content::after { display: none; }
+.page-home .hero-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #080c12 0%, rgba(8, 12, 18, 0.97) 70%, rgba(8, 12, 18, 0.4) 100%);
+  z-index: -1;
+}
+
+.page-home .hero-visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.page-home .hero-visual .hero-bmw-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.page-home .hero-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 12, 18, 0.85) 0%, transparent 40%);
+  z-index: 2;
+  pointer-events: none;
+}
 
 .page-home .hero-brand {
-  font-family: var(--font) !important;
-  font-size: clamp(2.6rem, 6vw, 4.5rem) !important;
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.8rem, 5.5vw, 5rem) !important;
   font-weight: 800 !important;
   text-transform: lowercase !important;
   background: none !important;
@@ -51,9 +90,10 @@
   -webkit-text-fill-color: unset !important;
   filter: none !important;
   animation: none !important;
-  line-height: 1 !important;
-  letter-spacing: -0.03em !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.04em !important;
   display: block !important;
+  margin-bottom: 16px !important;
 }
 
 .page-home .hero-brand-bmw {
@@ -69,36 +109,51 @@
 .page-home .hero-subbrand {
   font-family: var(--font) !important;
   color: var(--home-muted) !important;
-  letter-spacing: 0.06em !important;
-  font-size: 0.95rem !important;
+  letter-spacing: 0.02em !important;
+  font-size: clamp(1rem, 2vw, 1.2rem) !important;
   text-transform: none !important;
   font-weight: 500 !important;
   opacity: 1 !important;
+  line-height: 1.5 !important;
+  max-width: 520px;
 }
 
 .page-home .hero-lead {
   color: var(--home-muted);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  max-width: 540px;
 }
 
 .page-home .hero-lead strong {
   color: var(--home-accent) !important;
 }
 
+.page-home .hero-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 520px;
+}
+
 .page-home .hero-highlights li {
-  background: var(--home-accent-soft);
-  border-color: rgba(28, 105, 212, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
   color: var(--home-ink);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
 }
 
 .page-home .hero-highlights svg {
   color: var(--home-accent) !important;
   filter: none !important;
+  flex-shrink: 0;
 }
 
 .page-home .hero-tagline {
-  border-left-color: var(--home-accent);
+  border-left: 3px solid var(--home-accent);
+  padding-left: 16px;
   color: var(--home-muted);
+  font-size: 0.9rem;
 }
 
 .page-home .hero-tagline em {
@@ -109,36 +164,91 @@
 }
 
 .page-home .hero-badge-alt {
-  background: rgba(13, 159, 110, 0.08) !important;
-  border-color: rgba(13, 159, 110, 0.2) !important;
-  color: #0d9f6e !important;
+  background: rgba(34, 197, 94, 0.1) !important;
+  border-color: rgba(34, 197, 94, 0.25) !important;
+  color: #4ade80 !important;
 }
 
+.page-home .hero-actions {
+  margin-top: 8px;
+}
+
+.page-home .hero-trustpilot {
+  position: relative;
+  top: auto;
+  right: auto;
+  align-self: flex-start;
+  margin-bottom: 28px;
+  z-index: 4;
+}
+
+.page-home .hero-m-stripe {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.page-home .hero-m-stripe span {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.page-home .hero-m-stripe span:nth-child(1) { width: 32px; background: #6bb8ff; }
+.page-home .hero-m-stripe span:nth-child(2) { width: 32px; background: #1c69d4; }
+.page-home .hero-m-stripe span:nth-child(3) { width: 32px; background: #e7222e; }
+
+/* ── Stats ribbon ── */
 .page-home .home-stats {
-  margin-top: -40px;
-  padding-bottom: 32px;
-  background: transparent;
+  margin-top: 0;
+  padding: 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   position: relative;
   z-index: 2;
 }
 
-.page-home .bmw-car-slideshow-section {
-  position: relative;
-  z-index: 1;
-}
-
-.page-home .bmw-car-slideshow-section .section-header h2 {
-  font-family: var(--font-display);
+.page-home .home-stats .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
 }
 
 .page-home .home-stats .stats-grid > div {
-  background: #fff;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border);
+  box-shadow: none;
+  border-radius: 0;
+  padding: 32px 24px;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.page-home .home-stats .stats-grid > div:last-child {
+  border-right: none;
+}
+
+.page-home .home-stats .stats-grid > div:hover {
+  background: rgba(28, 105, 212, 0.06);
 }
 
 .page-home .stat-number {
   color: var(--home-accent);
+  font-size: 2.2rem;
+}
+
+/* ── Sections ── */
+.page-home .bmw-car-slideshow-section {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-primary);
+  padding: 80px 0;
+}
+
+.page-home .bmw-car-slideshow-section .section-header h2 {
+  font-family: var(--font-display);
 }
 
 .page-home .section-header {
@@ -150,33 +260,55 @@
 
 .page-home .section-header h2 {
   font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+}
+
+.page-home .section-header p {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 12px auto 0;
 }
 
 .page-home .home-section {
-  padding: 80px 0;
+  padding: 88px 0;
 }
 
 .page-home .home-section--muted {
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--bg-secondary);
 }
 
 .page-home .home-section--light {
-  background: transparent;
+  background: var(--bg-primary);
+}
+
+.page-home .service-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.page-home .service-card:hover {
+  border-color: rgba(28, 105, 212, 0.35) !important;
+  transform: translateY(-4px);
 }
 
 .page-home .service-card::before {
   background: linear-gradient(90deg, var(--home-accent), transparent);
+  height: 3px;
 }
 
 .page-home .service-icon {
   background: var(--home-accent-soft);
   color: var(--home-accent);
+  border-radius: 12px;
 }
 
 .page-home .cta-banner {
   text-align: center;
   display: block;
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
+  padding: 56px 40px;
 }
 
 .page-home .cta-banner h3,
@@ -191,33 +323,31 @@
 }
 
 .page-home .category-card-overlay {
-  background: linear-gradient(180deg, rgba(21,32,51,0.05) 0%, rgba(21,32,51,0.75) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(4, 8, 14, 0.9) 100%);
 }
 
-@media (max-width: 768px) {
-  .page-home .hero-content { padding: 32px 24px; }
-  .page-home .home-stats { margin-top: -24px; }
+.page-home .home-section-action {
+  text-align: center;
+  margin-top: 40px;
 }
 
-/* Content block redesign — bmwusedengines */
+/* ── Content blocks ── */
 .page-home .content-intro-section {
-  padding: 72px 0 56px;
-  background: linear-gradient(180deg, rgba(28, 105, 212, 0.06) 0%, transparent 100%);
-  border-bottom: none;
+  padding: 80px 0 64px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
 }
 
 .page-home .content-intro-inner {
-  background: #fff;
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   padding: 48px 40px;
   box-shadow: var(--shadow);
   max-width: 900px;
 }
 
-.page-home .content-intro-meta strong {
-  color: var(--home-accent);
-}
+.page-home .content-intro-meta strong { color: var(--home-accent); }
 
 .page-home .content-toc-link:hover {
   color: var(--home-accent);
@@ -225,29 +355,25 @@
   background: var(--home-accent-soft);
 }
 
-.page-home .content-toc-num {
-  color: var(--home-accent);
-}
+.page-home .content-toc-num { color: var(--home-accent); }
 
-.page-home .content-block-section {
-  padding: 64px 0;
-}
+.page-home .content-block-section { padding: 72px 0; }
 
 .page-home .content-block-section.alt-bg {
-  background: transparent;
+  background: var(--bg-secondary);
 }
 
 .page-home .content-block {
-  background: #fff;
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   padding: 40px;
   box-shadow: var(--shadow);
   gap: 40px;
 }
 
 .page-home .content-block-image {
-  border-radius: 16px;
+  border-radius: var(--radius);
   box-shadow: none;
   border: 1px solid var(--border);
   aspect-ratio: 4/3;
@@ -256,7 +382,7 @@
 }
 
 .page-home .content-block-image::after {
-  background: linear-gradient(180deg, transparent 60%, rgba(21, 32, 51, 0.35) 100%);
+  background: linear-gradient(180deg, transparent 60%, rgba(4, 8, 14, 0.7) 100%);
 }
 
 .page-home .content-block-badge {
@@ -274,24 +400,52 @@
 .page-home .content-block-text .content-lead {
   border-left-color: var(--home-accent);
   font-weight: 500;
+  color: var(--text-secondary);
 }
 
 .page-home .engine-gallery-section {
-  background: transparent;
+  background: var(--bg-primary);
   border: none;
 }
 
 .page-home .premium-strip {
-  background: linear-gradient(135deg, #1c69d4 0%, #0f4fa8 100%);
+  background: linear-gradient(135deg, #0f141c 0%, #141b26 100%);
   color: #fff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .page-home .premium-strip-item h3,
 .page-home .premium-strip-item p,
-.page-home .strip-number {
-  color: #fff;
+.page-home .strip-number { color: #fff; }
+
+.page-home .strip-number { opacity: 0.4; }
+
+@media (max-width: 1024px) {
+  .page-home .hero-layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .page-home .hero-visual {
+    min-height: 320px;
+    order: -1;
+  }
+
+  .page-home .hero-content {
+    padding: 40px 24px 56px;
+  }
+
+  .page-home .hero-content::before {
+    background: linear-gradient(180deg, transparent 0%, #080c12 30%);
+  }
 }
 
-.page-home .strip-number {
-  opacity: 0.5;
+@media (max-width: 768px) {
+  .page-home .hero-content { padding: 32px 20px 48px; }
+  .page-home .home-stats .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .page-home .home-stats .stats-grid > div:nth-child(2) { border-right: none; }
+  .page-home .home-stats .stats-grid > div { border-bottom: 1px solid var(--border); }
+  .page-home .home-stats .stats-grid > div:nth-last-child(-n+2) { border-bottom: none; }
+  .page-home .home-section { padding: 64px 0; }
 }

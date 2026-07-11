@@ -70,6 +70,7 @@ function renderHeader() {
         </a>
         <nav class="main-nav" id="mainNav" aria-label="Main navigation">${navLinks}</nav>
         <div class="header-actions">
+          <a href="${pageUrl('/contact')}" class="header-cta">Get Quote</a>
           <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNavPanel" onclick="window.toggleMobileNav && window.toggleMobileNav(event)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
               <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
@@ -114,7 +115,14 @@ function renderFooter() {
               </div>
               <span class="logo-text">BMWUSEDENGINES</span>
             </a>
-            <p>Europe's dedicated supplier of tested used BMW engines. 3,100+ units — classic straight-sixes to modern turbos — shipped with warranty.</p>
+            <p>Europe's dedicated supplier of tested used BMW engines. 3,100+ units — from classic straight-sixes to modern turbos — shipped with warranty from Hamburg.</p>
+            <div class="footer-trust">
+              <span>Hamburg, Germany</span>
+              <span>·</span>
+              <span>Est. 2003</span>
+              <span>·</span>
+              <span>28 EU Countries</span>
+            </div>
           </div>
           <div class="footer-col">
             <h4>Shop</h4>

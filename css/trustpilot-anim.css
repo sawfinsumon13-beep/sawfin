@@ -1,13 +1,13 @@
-/* Trustpilot Animation System */
+/* Trustpilot — Forge Night */
 .hero-trustpilot {
-  background: #fff !important;
-  border-color: rgba(0, 182, 122, 0.28) !important;
+  background: rgba(15, 20, 28, 0.95) !important;
+  border-color: rgba(34, 197, 94, 0.25) !important;
   box-shadow: var(--shadow-lg) !important;
 }
 
 .hero-trustpilot-rating {
   animation: none;
-  color: #152033;
+  color: var(--text-primary) !important;
 }
 
 .hero-trustpilot.tp-anim-ready {
@@ -106,7 +106,7 @@
 .tp-logo-text {
   font-size: 0.82rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: 0.01em;
 }
 
