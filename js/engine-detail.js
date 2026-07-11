@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     const chunkNum = String(Math.ceil(id / 50)).padStart(3, '0');
-    const res = await fetch(`data/engines/chunk-${chunkNum}.json`);
+    const dataUrl = new URL(`data/engines/chunk-${chunkNum}.json`, window.location.href).href;
+    const res = await fetch(dataUrl);
+    if (!res.ok) throw new Error(`Could not load engine data (${res.status})`);
     const engines = await res.json();
     const engine = engines.find(e => e.id === id);
 
@@ -107,6 +109,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       openEnginePurchaseWhatsApp(engine);
     });
   } catch (err) {
-    container.innerHTML = '<p class="loading">Failed to load engine details.</p>';
+    console.error('Engine detail load failed:', err);
+    container.innerHTML = `
+      <p class="loading">Failed to load engine details.</p>
+      <p style="color:var(--text-secondary);margin-top:12px;">${err.message || 'Please refresh the page or browse the catalog again.'}</p>
+      <p style="margin-top:16px;"><a href="${pageUrl('/engines')}" class="btn btn-outline">Back to Catalog</a></p>`;
   }
 });

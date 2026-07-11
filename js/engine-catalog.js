@@ -114,3 +114,24 @@ function openEnginePurchaseWhatsApp(engine) {
 function getTelHref() {
   return `tel:${SITE.phone.replace(/\s/g, '')}`;
 }
+
+function goToEngineDetail(id) {
+  const engineId = parseInt(id, 10);
+  if (!engineId) return;
+  window.location.assign(pageUrl(`/engine-detail?id=${engineId}`));
+}
+
+function initEngineCardActions(root = document.getElementById('engineGrid')) {
+  if (!root || root.dataset.actionsBound === '1') return;
+  root.dataset.actionsBound = '1';
+
+  root.addEventListener('click', (event) => {
+    const trigger = event.target.closest('[data-engine-id][data-action="detail"]');
+    if (!trigger) return;
+    event.preventDefault();
+    event.stopPropagation();
+    goToEngineDetail(trigger.dataset.engineId);
+  });
+}
+
+window.goToEngineDetail = goToEngineDetail;

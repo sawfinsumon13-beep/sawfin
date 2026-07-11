@@ -611,6 +611,9 @@ a.engine-card-media {
   display: block;
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
 a.engine-card-media:hover {
@@ -622,6 +625,17 @@ a.engine-card-media:hover {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 8px;
   padding: 0 16px 16px;
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.card-actions a,
+.card-actions button {
+  position: relative;
+  z-index: 6;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .card-actions .btn {
