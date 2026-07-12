@@ -117,13 +117,16 @@
     </div>
 
     <div class="steps">
-      <h2>How to deploy</h2>
+      <h2>How to deploy on Hostinger (IMPORTANT)</h2>
       <ol>
-        <li>Unzip the folder on your computer.</li>
-        <li>Upload <strong>all files and folders</strong> to your hosting <code>public_html</code> (keep the same structure).</li>
-        <li>Open your domain — start with <code>index.html</code> or <code>yourdomain.com</code>.</li>
-        <li>All links use plain <code>.html</code> files — no build tools required.</li>
+        <li>Unzip on your computer — you should see <code>index.html</code>, <code>engines.html</code>, <code>css/</code>, <code>js/</code>, <code>data/</code> in <strong>one folder</strong>.</li>
+        <li>In Hostinger → <strong>File Manager</strong> → open <code>public_html</code>.</li>
+        <li><strong>Delete everything</strong> inside <code>public_html</code> (old broken upload).</li>
+        <li>Upload <strong>all files directly into public_html</strong> — NOT inside a subfolder called <code>index.html</code>.</li>
+        <li><code>index.html</code> must be a <strong>file</strong> at <code>public_html/index.html</code>, not a folder.</li>
+        <li>Open <code>https://yourdomain.com</code> — then test <code>engines.html</code> and click Details on any engine.</li>
       </ol>
+      <p style="margin-top:16px;color:#f87171;font-size:0.9rem;"><strong>If your URL shows /index.html/ in the address bar, the upload is wrong. Fix step 3–5.</strong></p>
     </div>
   </div>
 </body>

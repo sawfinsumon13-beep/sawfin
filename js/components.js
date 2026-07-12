@@ -177,6 +177,7 @@ function initLayout() {
   }
 
   initMobileNav();
+  if (typeof showDeployWarningIfNeeded === 'function') showDeployWarningIfNeeded();
 
   const searchModal = document.getElementById('searchModal');
   const searchBtn = document.getElementById('searchBtn');

@@ -1,0 +1,71 @@
+================================================================================
+  BMW ENGINES WEBSITE — HOSTINGER UPLOAD FIX (READ THIS FIRST)
+================================================================================
+
+YOUR SITE IS BROKEN BECAUSE FILES WERE UPLOADED TO THE WRONG PLACE.
+
+Wrong (what you have now):
+  public_html/index.html/engines.html   <-- index.html is a FOLDER
+  URL: bmwengines.de/index.html/        <-- WRONG
+  bmwengines.de/engines                 <-- 404 ERROR
+
+Correct (what you need):
+  public_html/index.html                <-- index.html is a FILE
+  public_html/engines.html
+  public_html/css/
+  public_html/js/
+  public_html/data/
+  URL: bmwengines.de/                   <-- CORRECT
+  bmwengines.de/engines.html            <-- WORKS
+
+--------------------------------------------------------------------------------
+STEP-BY-STEP FIX ON HOSTINGER
+--------------------------------------------------------------------------------
+
+1. Log in to Hostinger → hPanel → File Manager
+
+2. Open folder: public_html
+
+3. DELETE everything inside public_html
+   (including the "index.html" folder if it exists as a folder)
+
+4. On your computer: unzip bmwusedengines-full-site.zip
+
+5. Select ALL files and folders inside the unzipped folder:
+   - index.html          (must be a FILE, not a folder)
+   - engines.html
+   - engine-detail.html
+   - contact.html
+   - about.html
+   - blog.html
+   - css/   (folder)
+   - js/    (folder)
+   - data/  (folder)
+   - images/ (folder)
+   - .htaccess
+   - etc.
+
+6. Upload them DIRECTLY into public_html
+   (drag and drop — do NOT create a new subfolder)
+
+7. Wait for upload to finish (may take 10–20 minutes — site is ~108 MB)
+
+8. Open in browser: https://bmwengines.de/
+   (should NOT show /index.html/ in the URL)
+
+9. Test these pages:
+   - https://bmwengines.de/engines.html
+   - https://bmwengines.de/engine-detail.html?id=1
+   - Click menu: ENGINES, CONTACT, BLOG
+
+--------------------------------------------------------------------------------
+STILL NOT WORKING?
+--------------------------------------------------------------------------------
+
+- Clear browser cache: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
+- In Hostinger: clear CDN cache (hPanel → Performance → Clear cache)
+- Make sure .htaccess was uploaded (enable "show hidden files" in File Manager)
+
+Contact: originalbavarianengine@gmail.com
+
+================================================================================
