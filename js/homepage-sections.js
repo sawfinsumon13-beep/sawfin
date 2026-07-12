@@ -88,9 +88,9 @@ const HOMEPAGE_SECTIONS = [
       "Our consultation takes 15 minutes and can save you thousands of euros. We verify that the engine code matches your vehicle platform, confirm that the DME generation is compatible with your body electronics, and advise on any supporting components you may need — mounts, clutch, exhaust, cooling upgrades. For swap projects, we provide a complete bill of materials and realistic labour estimate so you can budget accurately before committing.",
       "Once you confirm your order, a 30% deposit reserves the engine. We send updated photographs and the test report within 24 hours. The balance is due before dispatch. Payment options include SEPA bank transfer, credit card, and PayPal for orders under €3,000. Trade customers with approved credit accounts may use 30-day payment terms. We issue a pro-forma invoice immediately and a final invoice upon dispatch.",
       "Delivery is to kerbside on a standard pallet. You will need forklift access or an engine hoist at the delivery address. We provide tracking from the moment the freight carrier collects your engine. Upon delivery, inspect the packaging before signing — if damage is visible, note it on the delivery receipt and contact us immediately. Our transit insurance covers damage in shipping, though incidents are exceptionally rare.",
-      "Installation should be performed by a qualified technician following BMW repair procedures. Use the correct oil specification, torque all fasteners to specification, bleed the cooling system completely, and perform a DME alignment if required for your engine generation. Our technical team remains available throughout your installation — call +49 176 13627363 or email flashkingpro202@gmail.com during business hours (Monday–Friday, 08:00–18:00 CET).",
+      "Installation should be performed by a qualified technician following BMW repair procedures. Use the correct oil specification, torque all fasteners to specification, bleed the cooling system completely, and perform a DME alignment if required for your engine generation. Our technical team remains available throughout your installation — call +49 15510 030835 or email originalbavarianengine@gmail.com during business hours (Monday–Friday, 08:00–18:00 CET).",
       "Your BMW deserves a powerplant that matches its engineering heritage. Whether that means a numbers-matching M20 for a concours E30, a low-mileage B58 for a daily F30, or a built S54 for a track E46 M3, bmwusedengines has the inventory, the testing capability, and the technical expertise to deliver. Over 15,000 satisfied customers across Europe have trusted us with their engine projects. Browse our catalog, speak with our team, and let us help you find the perfect engine for your BMW today.",
-      "Do not let a failed engine end your relationship with your BMW. The cost of a quality replacement engine is a fraction of the cost of replacing the entire vehicle, and it preserves the character, history, and driving experience that drew you to the marque in the first place. Every day a BMW sits immobile in a garage is a day of driving pleasure lost. Our team can typically identify, test, and ship a suitable replacement within one week of your enquiry. Contact us at flashkingpro202@gmail.com or +49 176 13627363 — your engine project starts here."
+      "Do not let a failed engine end your relationship with your BMW. The cost of a quality replacement engine is a fraction of the cost of replacing the entire vehicle, and it preserves the character, history, and driving experience that drew you to the marque in the first place. Every day a BMW sits immobile in a garage is a day of driving pleasure lost. Our team can typically identify, test, and ship a suitable replacement within one week of your enquiry. Contact us at originalbavarianengine@gmail.com or +49 15510 030835 — your engine project starts here."
     ]
   },
   {
@@ -156,16 +156,20 @@ const HOMEPAGE_SECTIONS = [
     imageAlt: 'BMW engine components',
     reverse: false,
     paragraphs: [
-      "Our technical team is available Monday through Friday, 08:00 to 18:00 Central European Time, to answer your engine questions, confirm fitment compatibility, and provide quotations. Reach us by phone at +49 176 13627363 or by email at flashkingpro202@gmail.com. We respond to all enquiries within 2 hours during business hours, and most quotation requests are fulfilled within 24 hours including compression test results and updated photographs of your selected engine.",
+      "Our technical team is available Monday through Friday, 08:00 to 18:00 Central European Time, to answer your engine questions, confirm fitment compatibility, and provide quotations. Reach us by phone at +49 15510 030835 or by email at originalbavarianengine@gmail.com. We respond to all enquiries within 2 hours during business hours, and most quotation requests are fulfilled within 24 hours including compression test results and updated photographs of your selected engine.",
       "When contacting us, please provide your vehicle model, year, engine code if known, VIN if available, and your delivery country. This information allows our technicians to confirm compatibility, calculate shipping costs, and identify the best engine options for your budget and requirements. For swap projects, describe your target platform and intended use — daily driver, track car, off-road conversion — so we can recommend the most suitable powerplant and supporting components.",
       "We welcome visitors to our Hamburg facility by appointment. Seeing your engine in person, witnessing the dyno test, and meeting our technical team provides confidence that no photograph or report can fully replicate. Whether you are across the street or across the continent, bmwusedengines is your partner for quality BMW engines, old and new, tested and warranted, delivered to your door. Browse our 3,100+ engine catalog today and discover why over 15,000 European customers trust us with their most important automotive projects."
     ]
   }
 ];
 
+const ALL_HOMEPAGE_SECTIONS = HOMEPAGE_SECTIONS.concat(
+  typeof HOMEPAGE_SEO_SECTIONS !== 'undefined' ? HOMEPAGE_SEO_SECTIONS : []
+);
+
 // Homepage — unique image per slot (gallery + sections never share a path)
 const HOMEPAGE_GALLERY_IMAGES = allocateUniqueImages(9, 0);
-const HOMEPAGE_SECTION_IMAGES = allocateUniqueImages(HOMEPAGE_SECTIONS.length, 9);
+const HOMEPAGE_SECTION_IMAGES = allocateUniqueImages(ALL_HOMEPAGE_SECTIONS.length, 9);
 
 const OLD_ENGINE_GALLERY = HOMEPAGE_GALLERY_IMAGES.map((src, i) => ({
   src,
@@ -174,7 +178,7 @@ const OLD_ENGINE_GALLERY = HOMEPAGE_GALLERY_IMAGES.map((src, i) => ({
 
 function renderContentIntro() {
   const wordCount = countHomepageWords();
-  const toc = HOMEPAGE_SECTIONS.map((section, i) => {
+  const toc = ALL_HOMEPAGE_SECTIONS.map((section, i) => {
     const num = String(i + 1).padStart(2, '0');
     return `<a href="#content-${num}" class="content-toc-link"><span class="content-toc-num">${num}</span>${section.tag}</a>`;
   }).join('');
@@ -187,7 +191,7 @@ function renderContentIntro() {
           <h2>Everything About Buying Used BMW Engines</h2>
           <p class="content-intro-lead">A complete guide to choosing, testing, and fitting used BMW engines — written by the bmwusedengines team from 20+ years of hands-on workshop experience in Hamburg.</p>
           <div class="content-intro-meta">
-            <span><strong>${HOMEPAGE_SECTIONS.length}</strong> chapters</span>
+            <span><strong>${ALL_HOMEPAGE_SECTIONS.length}</strong> chapters</span>
             <span><strong>${wordCount.toLocaleString()}+</strong> words</span>
             <span><strong>3,100+</strong> engines in stock</span>
           </div>
@@ -198,7 +202,7 @@ function renderContentIntro() {
 }
 
 function renderContentSections() {
-  return HOMEPAGE_SECTIONS.map((section, i) => {
+  return ALL_HOMEPAGE_SECTIONS.map((section, i) => {
     const img = HOMEPAGE_SECTION_IMAGES[i];
     const num = String(i + 1).padStart(2, '0');
     const [lead, ...rest] = section.paragraphs;
@@ -244,8 +248,8 @@ function renderEngineGallery() {
 
 function countHomepageWords() {
   let total = 0;
-  HOMEPAGE_SECTIONS.forEach(s => {
-    s.paragraphs.forEach(p => { total += p.split(/\s+/).length; });
+  ALL_HOMEPAGE_SECTIONS.forEach(s => {
+    s.paragraphs.forEach(p => { total += p.split(/\s+/).filter(Boolean).length; });
   });
   return total;
 }

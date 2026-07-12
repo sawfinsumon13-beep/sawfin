@@ -90,6 +90,21 @@ function applyFilters() {
   renderEngines();
 }
 
+function bindDetailLinks(root) {
+  if (!root || root.dataset.detailBound === '1') return;
+  root.dataset.detailBound = '1';
+  root.addEventListener('click', (event) => {
+    const link = event.target.closest('[data-detail-link]');
+    if (!link) return;
+    const url = link.getAttribute('href');
+    if (!url || url === '#') return;
+    event.preventDefault();
+    event.stopPropagation();
+    const engineId = link.dataset.engineId;
+    navigateTo(url, engineId);
+  });
+}
+
 function renderEngines() {
   const grid = document.getElementById('engineGrid');
   const start = (currentPage - 1) * PER_PAGE;
@@ -106,33 +121,46 @@ function renderEngines() {
 
   grid.innerHTML = page.map(e => {
     const gallery = getEngineGalleryImages(e);
+    const title = formatEngineTitle(e);
+    const platforms = getEnginePlatformInfo(e);
+    const detailUrl = pageUrl(`/engine-detail?id=${e.id}`);
+    const emailBuyHref = buildEnginePurchaseEmail(e);
+    const whatsappBuyHref = buildEnginePurchaseWhatsApp(e);
   return `
-    <a href="${pageUrl(`/engine-detail?id=${e.id}`)}" class="engine-card">
-      <div class="card-image">
-        <img src="${gallery[0]}" alt="${getEngineImageAlt(e)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
-        <div class="card-thumb-row">
-          ${gallery.slice(0, 5).map((img, i) => `
-            <img src="${img}" alt="${getEngineImageAlt(e, i)}" class="card-thumb${i === 0 ? ' active' : ''}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
-          `).join('')}
+    <article class="engine-card">
+      <a href="${detailUrl}" class="engine-card-media" data-detail-link data-engine-id="${e.id}">
+        <div class="card-image">
+          <img src="${gallery[0]}" alt="${getEngineImageAlt(e)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+          <div class="card-thumb-row">
+            ${gallery.slice(0, 5).map((img, i) => `
+              <img src="${img}" alt="${getEngineImageAlt(e, i)}" class="card-thumb${i === 0 ? ' active' : ''}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+            `).join('')}
+          </div>
+          <span class="card-badge">${e.condition}</span>
         </div>
-        <span class="card-badge">${e.condition}</span>
+        <div class="card-body">
+          <h3>${title}</h3>
+          <p>${platforms.primary} · ${e.code} · ${e.mileage.toLocaleString()} km</p>
+          <div class="card-specs">
+            <span class="spec-tag">${e.family}</span>
+            <span class="spec-tag">${e.power} hp</span>
+            <span class="spec-tag">${e.fuel}</span>
+            <span class="spec-tag">${e.displacement}L</span>
+          </div>
+          <div class="card-meta">
+            <span class="card-price">${formatPrice(e.price)}</span>
+          </div>
+        </div>
+      </a>
+      <div class="card-actions">
+        <a href="${detailUrl}" class="btn btn-sm btn-outline" data-detail-link data-engine-id="${e.id}">Details</a>
+        <a href="${emailBuyHref}" class="btn btn-sm btn-primary">Email to Buy</a>
+        <a href="${whatsappBuyHref}" class="btn btn-sm btn-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
-      <div class="card-body">
-        <h3>${e.name}</h3>
-        <p>${e.description.substring(0, 100)}...</p>
-        <div class="card-specs">
-          <span class="spec-tag">${e.family}</span>
-          <span class="spec-tag">${e.power} hp</span>
-          <span class="spec-tag">${e.fuel}</span>
-          <span class="spec-tag">${e.mileage.toLocaleString()} km</span>
-        </div>
-        <div class="card-meta">
-          <span class="card-price">${formatPrice(e.price)}</span>
-          <span class="btn btn-sm btn-outline">Details</span>
-        </div>
-      </div>
-    </a>`;
+    </article>`;
   }).join('');
+
+  bindDetailLinks(grid);
 
   renderPagination(currentPage, totalPages, (page) => {
     currentPage = page;

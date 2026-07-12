@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Guide | bmwengines.de</title>
+  <style>
+    :root { --bg:#080c12; --card:#141b26; --text:#f0f4fa; --muted:#9aa8bc; --green:#25d366; --red:#f87171; --blue:#4d9fff; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family: system-ui, sans-serif; background:var(--bg); color:var(--text); line-height:1.6; padding:32px 20px 64px; }
+    .wrap { max-width:720px; margin:0 auto; }
+    h1 { font-size:1.8rem; margin-bottom:8px; }
+    .sub { color:var(--muted); margin-bottom:32px; }
+    .alert { background:#7f1d1d; border:1px solid var(--red); border-radius:12px; padding:16px 20px; margin-bottom:28px; }
+    .step { background:var(--card); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:24px; margin-bottom:16px; }
+    .step h2 { font-size:1rem; color:var(--blue); margin-bottom:10px; }
+    .step ol { padding-left:20px; color:var(--muted); }
+    .step li { margin-bottom:8px; }
+    .step strong, .step code { color:var(--text); }
+    code { background:rgba(255,255,255,0.08); padding:2px 8px; border-radius:6px; font-size:0.9em; }
+    a.btn { display:inline-block; margin-top:12px; padding:14px 24px; background:#1c69d4; color:#fff; text-decoration:none; border-radius:10px; font-weight:700; }
+    a.btn:hover { background:#1557b0; }
+    .ok { color:var(--green); font-weight:700; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>bmwengines.de — Upload Fix</h1>
+    <p class="sub">Your site shows 404 because <strong>no files are in public_html</strong>. Follow these steps exactly.</p>
+
+    <div class="alert">
+      <strong>Current status:</strong> bmwengines.de is EMPTY (403/404 on all pages). Files were deleted but the full site was not uploaded successfully.
+    </div>
+
+    <div class="step">
+      <h2>STEP 1 — Test upload first (2 KB file)</h2>
+      <ol>
+        <li>Download the tiny test ZIP: <a href="https://github.com/sawfinsumon13-beep/sawfin/releases/download/hostinger-test-v1/hostinger-upload-test.zip" style="color:#4d9fff">hostinger-upload-test.zip</a></li>
+        <li>Hostinger → hPanel → <strong>File Manager</strong> → open <code>public_html</code></li>
+        <li>Upload <code>index.html</code> from the test ZIP into <code>public_html</code></li>
+        <li>Open <code>https://bmwengines.de/</code> — you should see <span class="ok">"Upload works!"</span> in green</li>
+      </ol>
+      <p style="color:var(--muted);margin-top:10px;">If you still see 404, you are uploading to the <strong>wrong folder</strong>. Ask Hostinger support which folder is the document root for bmwengines.de.</p>
+    </div>
+
+    <div class="step">
+      <h2>STEP 2 — Upload full site via FileZilla (recommended)</h2>
+      <ol>
+        <li>Download full site: <a href="https://github.com/sawfinsumon13-beep/sawfin/releases/download/website-download-v24/bmwusedengines-full-site.zip" style="color:#4d9fff">bmwusedengines-full-site.zip</a> (~108 MB)</li>
+        <li>Unzip on your computer</li>
+        <li>Hostinger → hPanel → <strong>FTP Accounts</strong> → copy hostname, username, password</li>
+        <li>Open <strong>FileZilla</strong> → connect → go to <code>public_html</code></li>
+        <li>Delete the test <code>index.html</code></li>
+        <li>Drag <strong>ALL files and folders</strong> from unzipped folder into <code>public_html</code></li>
+        <li>Wait until upload is 100% complete (15–30 min)</li>
+      </ol>
+      <a class="btn" href="https://github.com/sawfinsumon13-beep/sawfin/releases/download/website-download-v24/bmwusedengines-full-site.zip">Download Full Site ZIP</a>
+    </div>
+
+    <div class="step">
+      <h2>STEP 3 — Test these URLs</h2>
+      <ol>
+        <li><code>https://bmwengines.de/</code></li>
+        <li><code>https://bmwengines.de/engines.html</code></li>
+        <li><code>https://bmwengines.de/contact.html</code></li>
+        <li><code>https://bmwengines.de/engine-detail.html?id=1</code></li>
+      </ol>
+    </div>
+
+    <div class="step">
+      <h2>Files that MUST be in public_html</h2>
+      <p style="color:var(--muted);font-family:monospace;font-size:0.85rem;line-height:1.8;">
+        index.html<br>engines.html<br>contact.html<br>engine-detail.html<br>about.html<br>blog.html<br>css/<br>js/<br>data/<br>images/
+      </p>
+    </div>
+  </div>
+</body>
+</html>

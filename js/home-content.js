@@ -77,7 +77,7 @@ function renderHomepageContent() {
         <div class="premium-strip-item">
           <span class="strip-number">04</span>
           <h3>Workshop Support</h3>
-          <p>Free fitment advice from BMW specialists — call +49 176 13627363 or email before you order.</p>
+          <p>Free fitment advice from BMW specialists — email or WhatsApp +49 15510 030835 before you order.</p>
         </div>
       </div>
     </section>

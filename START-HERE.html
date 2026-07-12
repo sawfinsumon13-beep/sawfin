@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Here | bmwusedengines</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"><style>
+    :root {
+      --bg: #080c12;
+      --card: #141b26;
+      --text: #f0f4fa;
+      --muted: #9aa8bc;
+      --accent: #1c69d4;
+      --accent-light: #4d9fff;
+      --border: rgba(255,255,255,0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 32px 20px 64px;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(28,105,212,0.18), transparent 60%);
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    .hero {
+      text-align: center;
+      padding: 48px 24px 40px;
+      margin-bottom: 32px;
+    }
+    .logo {
+      width: 56px; height: 56px; margin: 0 auto 20px;
+      background: linear-gradient(145deg, #1c69d4, #0a3d8f);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.1rem; color: #fff;
+      box-shadow: 0 8px 32px rgba(28,105,212,0.35);
+    }
+    h1 { font-size: 2rem; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .lead { color: var(--muted); font-size: 1.05rem; max-width: 520px; margin: 0 auto 28px; }
+    .cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 32px; background: var(--accent); color: #fff;
+      text-decoration: none; border-radius: 12px; font-weight: 700;
+      box-shadow: 0 8px 28px rgba(28,105,212,0.4);
+      transition: transform 0.2s;
+    }
+    .cta:hover { transform: translateY(-2px); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .card {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      border-color: rgba(28,105,212,0.4);
+      transform: translateY(-2px);
+    }
+    .card strong { display: block; font-size: 1rem; margin-bottom: 4px; }
+    .card span { font-size: 0.82rem; color: var(--muted); }
+    .steps {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .steps h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .steps ol { padding-left: 20px; color: var(--muted); }
+    .steps li { margin-bottom: 10px; }
+    .steps code {
+      background: rgba(255,255,255,0.06);
+      padding: 2px 8px; border-radius: 6px;
+      color: var(--accent-light); font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="logo">BMW</div>
+      <h1>bmwusedengines</h1>
+      <p class="lead">Your complete static website — no compile step. Upload these files to any web host and every page works.</p>
+      <a href="index.html" class="cta">Open Homepage →</a>
+    </div>
+
+    <div class="grid">
+      <a href="index.html" class="card"><strong>Home</strong><span>Main landing page</span></a>
+      <a href="engines.html" class="card"><strong>Engines</strong><span>3,100+ catalog</span></a>
+      <a href="engine-detail.html?id=1" class="card"><strong>Sample Product</strong><span>Engine detail page</span></a>
+      <a href="contact.html" class="card"><strong>Contact</strong><span>Email &amp; WhatsApp</span></a>
+      <a href="about.html" class="card"><strong>About</strong><span>Company info</span></a>
+      <a href="services.html" class="card"><strong>Services</strong><span>What we offer</span></a>
+      <a href="m57-swap-kits.html" class="card"><strong>M57 Kits</strong><span>Swap packages</span></a>
+      <a href="blog.html" class="card"><strong>Blog</strong><span>215 articles</span></a>
+      <a href="reviews.html" class="card"><strong>Reviews</strong><span>Customer feedback</span></a>
+      <a href="policies.html" class="card"><strong>Policies</strong><span>Warranty &amp; shipping</span></a>
+    </div>
+
+    <div class="steps">
+      <h2>How to deploy on Hostinger (IMPORTANT)</h2>
+      <ol>
+        <li>Unzip on your computer — you should see <code>index.html</code>, <code>engines.html</code>, <code>css/</code>, <code>js/</code>, <code>data/</code> in <strong>one folder</strong>.</li>
+        <li>In Hostinger → <strong>File Manager</strong> → open <code>public_html</code>.</li>
+        <li><strong>Delete everything</strong> inside <code>public_html</code> (old broken upload).</li>
+        <li>Upload <strong>all files directly into public_html</strong> — NOT inside a subfolder called <code>index.html</code>.</li>
+        <li><code>index.html</code> must be a <strong>file</strong> at <code>public_html/index.html</code>, not a folder.</li>
+        <li>Open <code>https://yourdomain.com</code> — then test <code>engines.html</code> and click Details on any engine.</li>
+      </ol>
+      <p style="margin-top:16px;color:#f87171;font-size:0.9rem;"><strong>If your URL shows /index.html/ in the address bar, the upload is wrong. Fix step 3–5.</strong></p>
+    </div>
+  </div>
+</body>
+</html>

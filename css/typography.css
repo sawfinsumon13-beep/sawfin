@@ -1,0 +1,359 @@
+/* Premium typography system — bmwusedengines */
+
+:root {
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-5xl: 3.75rem;
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.45;
+  --leading-normal: 1.65;
+  --leading-relaxed: 1.75;
+
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-label: 0.06em;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  font-weight: 400;
+  letter-spacing: var(--tracking-normal);
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+p {
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+}
+
+strong { font-weight: 600; color: var(--text-primary); }
+
+/* ── Labels & meta ── */
+.section-tag,
+.hero-badge,
+.stat-label,
+.card-badge,
+.content-block-badge,
+.content-toc-link {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-xs) !important;
+  font-weight: 600 !important;
+  letter-spacing: var(--tracking-label) !important;
+  text-transform: uppercase !important;
+  line-height: 1.3 !important;
+}
+
+/* ── Navigation ── */
+.logo-text {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+.nav-link {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-xs) !important;
+  font-weight: 600 !important;
+  letter-spacing: var(--tracking-label) !important;
+  text-transform: uppercase !important;
+}
+
+.dropdown a {
+  font-size: var(--text-sm) !important;
+  font-weight: 500 !important;
+  letter-spacing: var(--tracking-normal) !important;
+  text-transform: none !important;
+}
+
+.mobile-nav-panel .nav-link {
+  font-size: var(--text-base) !important;
+  letter-spacing: var(--tracking-normal) !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+}
+
+.header-cta,
+.btn {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 600 !important;
+  letter-spacing: var(--tracking-normal) !important;
+}
+
+/* ── Hero ── */
+.hero h1 {
+  font-family: var(--font-display);
+  margin-bottom: 1.25rem;
+}
+
+.page-home .hero-brand {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.5rem, 5vw, 4.25rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.03em !important;
+  text-transform: none !important;
+  background: none !important;
+  color: var(--text-primary) !important;
+  -webkit-text-fill-color: unset !important;
+  filter: none !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.page-home .hero-brand-bmw {
+  color: var(--accent-light) !important;
+  -webkit-text-fill-color: var(--accent-light) !important;
+  font-weight: 700 !important;
+}
+
+.page-home .hero-brand-rest {
+  color: var(--text-primary) !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  font-weight: 500 !important;
+}
+
+.page-home .hero-subbrand {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-lg) !important;
+  font-weight: 500 !important;
+  line-height: var(--leading-snug) !important;
+  letter-spacing: var(--tracking-normal) !important;
+  text-transform: none !important;
+  color: var(--text-secondary) !important;
+  max-width: 32rem;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.page-home .hero-lead {
+  font-size: var(--text-md) !important;
+  line-height: var(--leading-relaxed) !important;
+  color: var(--text-secondary) !important;
+  margin: 1.5rem 0 1.25rem !important;
+  max-width: 34rem;
+}
+
+.page-home .hero-lead strong {
+  color: var(--accent-light) !important;
+  font-weight: 600 !important;
+}
+
+.page-home .hero-highlights li {
+  font-size: var(--text-sm) !important;
+  font-weight: 500 !important;
+  letter-spacing: var(--tracking-normal) !important;
+  line-height: var(--leading-snug) !important;
+  color: var(--text-primary) !important;
+}
+
+.page-home .hero-tagline {
+  font-size: var(--text-sm) !important;
+  line-height: var(--leading-normal) !important;
+  color: var(--text-muted) !important;
+  border-left: 2px solid var(--accent);
+  padding-left: 1rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.page-home .hero-tagline em {
+  font-style: normal !important;
+  font-weight: 600 !important;
+  color: var(--accent-light) !important;
+  display: inline !important;
+}
+
+.page-home .hero-badge {
+  font-size: var(--text-xs) !important;
+  padding: 0.4rem 0.9rem !important;
+}
+
+/* ── Trustpilot (compact, clean) ── */
+.page-home .hero-trustpilot {
+  padding: 0.875rem 1.125rem !important;
+  gap: 0.35rem !important;
+  max-width: 11rem !important;
+  border-radius: var(--radius) !important;
+}
+
+.page-home .hero-trustpilot--right {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  left: auto;
+  z-index: 10;
+}
+
+.page-home .hero-trustpilot-rating {
+  font-size: var(--text-sm) !important;
+  font-weight: 600 !important;
+  letter-spacing: var(--tracking-normal) !important;
+}
+
+.page-home .hero-trustpilot-meta {
+  font-size: 0.75rem !important;
+  line-height: 1.35 !important;
+}
+
+.page-home .hero-trustpilot-logo-wrap {
+  margin-top: 0.15rem !important;
+}
+
+.page-home .tp-logo-text {
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+}
+
+/* ── Section headers ── */
+.section-header h2,
+.page-header h1 {
+  font-family: var(--font-display) !important;
+  font-weight: 600 !important;
+  letter-spacing: var(--tracking-tight) !important;
+}
+
+.section-header h2 {
+  font-size: clamp(1.75rem, 3vw, 2.375rem) !important;
+  line-height: var(--leading-tight) !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.section-header p {
+  font-size: var(--text-md) !important;
+  line-height: var(--leading-relaxed) !important;
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-header h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem) !important;
+  font-weight: 600 !important;
+}
+
+.page-header p {
+  font-size: var(--text-md) !important;
+  line-height: var(--leading-relaxed) !important;
+}
+
+/* ── Stats ── */
+.stat-number {
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.75rem, 3vw, 2.25rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: var(--tracking-tight) !important;
+  line-height: 1 !important;
+}
+
+.stat-label {
+  font-size: 0.75rem !important;
+  letter-spacing: var(--tracking-label) !important;
+  margin-top: 0.35rem;
+}
+
+/* ── Cards ── */
+.card-body h3,
+.service-card h3 {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-lg) !important;
+  font-weight: 600 !important;
+  letter-spacing: var(--tracking-normal) !important;
+  line-height: var(--leading-snug) !important;
+}
+
+.card-body p,
+.service-card p {
+  font-size: var(--text-sm) !important;
+  line-height: var(--leading-relaxed) !important;
+}
+
+/* ── Long-form content ── */
+.content-intro-inner h2,
+.content-block-text h2 {
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.625rem, 2.5vw, 2.125rem) !important;
+  font-weight: 600 !important;
+  line-height: var(--leading-tight) !important;
+  letter-spacing: var(--tracking-tight) !important;
+}
+
+.content-intro-lead,
+.content-block-text .content-lead {
+  font-size: var(--text-md) !important;
+  line-height: var(--leading-relaxed) !important;
+  color: var(--text-secondary) !important;
+}
+
+.content-block-text p {
+  font-size: var(--text-base) !important;
+  line-height: 1.8 !important;
+  color: var(--text-secondary) !important;
+  margin-bottom: 1.125rem;
+  max-width: 42rem;
+}
+
+.content-toc-link {
+  font-size: 0.75rem !important;
+}
+
+/* ── Footer ── */
+.site-footer p {
+  font-size: var(--text-sm) !important;
+  line-height: var(--leading-relaxed) !important;
+  color: var(--text-muted) !important;
+}
+
+.site-footer h4 {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 700 !important;
+  letter-spacing: var(--tracking-label) !important;
+  text-transform: uppercase !important;
+}
+
+.site-footer a {
+  font-size: var(--text-sm) !important;
+}
+
+.footer-trust {
+  font-size: 0.75rem !important;
+  letter-spacing: var(--tracking-wide) !important;
+}
+
+/* ── CTA ── */
+.cta-banner h3 {
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.5rem, 2.5vw, 2rem) !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.75rem;
+}
+
+.cta-banner p {
+  font-size: var(--text-md) !important;
+  line-height: var(--leading-relaxed) !important;
+  max-width: 36rem;
+  margin: 0 auto 1.5rem;
+}

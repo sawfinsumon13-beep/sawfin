@@ -3,9 +3,9 @@
 const SITE = {
   name: 'bmwusedengines',
   domain: 'bmwusedengines.org',
-  email: 'flashkingpro202@gmail.com',
-  phone: '+49 176 13627363',
-  whatsapp: '4917613627363',
+  email: 'originalbavarianengine@gmail.com',
+  phone: '+49 15510 030835',
+  whatsapp: '4915510030835',
   location: 'Hamburg, Germany'
 };
 
@@ -70,6 +70,7 @@ function renderHeader() {
         </a>
         <nav class="main-nav" id="mainNav" aria-label="Main navigation">${navLinks}</nav>
         <div class="header-actions">
+          <a href="${pageUrl('/contact')}" class="header-cta">Get Quote</a>
           <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNavPanel" onclick="window.toggleMobileNav && window.toggleMobileNav(event)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
               <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
@@ -114,7 +115,14 @@ function renderFooter() {
               </div>
               <span class="logo-text">BMWUSEDENGINES</span>
             </a>
-            <p>Europe's dedicated supplier of tested used BMW engines. 3,100+ units — classic straight-sixes to modern turbos — shipped with warranty.</p>
+            <p>Europe's dedicated supplier of tested used BMW engines. 3,100+ units — from classic straight-sixes to modern turbos — shipped with warranty from Hamburg.</p>
+            <div class="footer-trust">
+              <span>Hamburg, Germany</span>
+              <span>·</span>
+              <span>Est. 2003</span>
+              <span>·</span>
+              <span>28 EU Countries</span>
+            </div>
           </div>
           <div class="footer-col">
             <h4>Shop</h4>
@@ -137,6 +145,7 @@ function renderFooter() {
             <a href="tel:${SITE.phone.replace(/\s/g, '')}">${SITE.phone}</a>
             <a href="https://wa.me/${SITE.whatsapp}" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a>
             <a href="${pageUrl('/contact')}">Contact Form</a>
+            <a href="${pageUrl('/download')}">Download Site</a>
           </div>
         </div>
         <div class="footer-bottom">
@@ -308,7 +317,7 @@ async function performSearch(query) {
 
     let html = '';
     engineResults.forEach(e => {
-      html += `<a href="${pageUrl(`/engine-detail?id=${e.id}`)}" class="search-result-item">
+      html += `<a href="${pageUrl(`/engine-detail?id=${e.id}`)}" class="search-result-item" onclick="rememberEngineDetailId(${e.id})">
         <strong>${e.name}</strong><span>${e.code} — €${e.price.toLocaleString()}</span></a>`;
     });
     blogResults.forEach(b => {
