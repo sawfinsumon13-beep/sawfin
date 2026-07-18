@@ -17,6 +17,20 @@
     compare: new Set(loadJSON(STORAGE_KEYS.compare))
   };
 
+  const isSpa = () => document.body.dataset.spa === "true";
+
+  const SEO_TITLES = {
+    home: "Original Bavarian Engine | Bavarian Engine for Sale | Original BMW Engine & Old BMW Engine",
+    collection: "Bavarian Engine for Sale | BMW Engine Collection | Original Bavarian Engine",
+    details: "BMW Engine Details | Original BMW Engine | Original Bavarian Engine",
+    about: "About Original Bavarian Engine | Bavarian Engine & Old BMW Engine Specialists",
+    contact: "Contact Original Bavarian Engine | Bavarian Engine for Sale VIN Desk",
+    services: "BMW Engine Services | Old BMW Engine Sourcing | Original Bavarian Engine",
+    policies: "Bavarian Engine Policies | Warranty & Shipping | Original Bavarian Engine",
+    blog: "Bavarian Engine for Sale Guides | Original Bavarian Engine Buyer’s Guide",
+    reviews: "Bavarian Engine Reviews | Original BMW Engine Customer Feedback"
+  };
+
   document.addEventListener("DOMContentLoaded", init);
 
   function init() {
@@ -37,9 +51,79 @@
     initNewsletterForms();
     initGsapAnimations();
     initContactForm();
-    routePageFeatures();
+    if (isSpa()) {
+      initSpaRouter();
+    } else {
+      routePageFeatures();
+    }
     updateCounterBadges();
     refreshCompareDrawer();
+  }
+
+  function parseSpaHash() {
+    const raw = (window.location.hash || "#home").replace(/^#/, "");
+    const [viewPart, query = ""] = raw.split("?");
+    const view = viewPart || "home";
+    return { view, params: new URLSearchParams(query) };
+  }
+
+  function spaHref(href) {
+    if (!isSpa()) return href;
+    const value = String(href || "");
+    if (!value || value.startsWith("#") || value.startsWith("http") || value.startsWith("mailto:") || value.startsWith("tel:") || value.startsWith("https://wa.me")) {
+      return value;
+    }
+    const [path, query = ""] = value.split("?");
+    const page = path.replace(/^\.\//, "").replace(/\.html$/, "");
+    const map = {
+      index: "home",
+      collection: "collection",
+      "engine-details": "details",
+      details: "details",
+      about: "about",
+      contact: "contact",
+      services: "services",
+      policies: "policies",
+      blog: "blog",
+      reviews: "reviews"
+    };
+    const view = map[page] || page || "home";
+    return query ? `#${view}?${query}` : `#${view}`;
+  }
+
+  function showSpaView(view) {
+    const target = view || "home";
+    document.querySelectorAll(".spa-view").forEach((node) => {
+      const match = node.dataset.spaView === target;
+      node.classList.toggle("active", match);
+      if (match) node.removeAttribute("hidden");
+      else node.setAttribute("hidden", "");
+    });
+    document.body.dataset.page = target;
+    document.title = SEO_TITLES[target] || SEO_TITLES.home;
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
+  function initSpaRouter() {
+    const apply = () => {
+      const { view, params } = parseSpaHash();
+      showSpaView(view);
+      document.body.dataset.spaQuery = params.toString();
+      // Mirror hash query into search params so existing collection/details readers keep working
+      const url = new URL(window.location.href);
+      ["id", "category", "query"].forEach((key) => {
+        if (params.get(key)) url.searchParams.set(key, params.get(key));
+        else url.searchParams.delete(key);
+      });
+      window.history.replaceState({}, "", `${url.pathname}${url.search}${window.location.hash || "#home"}`);
+      routePageFeatures();
+      renderNavbar();
+    };
+    window.addEventListener("hashchange", apply);
+    if (!window.location.hash) {
+      window.history.replaceState({}, "", `${window.location.pathname}${window.location.search}#home`);
+    }
+    apply();
   }
 
   function routePageFeatures() {
@@ -66,10 +150,24 @@
     }
   }
 
+  function findMount(id) {
+    if (isSpa()) {
+      const active = document.querySelector(".spa-view.active");
+      if (active) {
+        const local =
+          active.querySelector(`#${id}`) ||
+          active.querySelector(`[id$="-${id}"]`) ||
+          active.querySelector(`#${CSS.escape(id)}`);
+        if (local) return local;
+      }
+    }
+    return document.getElementById(id);
+  }
+
   function renderBlogCrateBlocks() {
-    const mount = document.getElementById("blogCrateMount");
-    const indexMount = document.getElementById("blogCrateIndex");
-    const countEl = document.getElementById("blogCrateCount");
+    const mount = findMount("blogCrateMount");
+    const indexMount = findMount("blogCrateIndex");
+    const countEl = findMount("blogCrateCount");
     const blocks = Array.isArray(window.OBE_BLOG_BLOCKS) ? window.OBE_BLOG_BLOCKS : [];
     if (countEl) {
       countEl.textContent = String(blocks.length);
@@ -144,37 +242,38 @@
 
     const page = document.body.dataset.page || "home";
     const engineLinks = [
-      { href: "collection.html", label: "All Engines" },
-      { href: "collection.html?category=N57%20Engines", label: "N57 Engines" },
-      { href: "collection.html?category=N47%20Engines", label: "N47 Engines" },
-      { href: "collection.html?category=M57%20Engines", label: "M57 Engines" },
-      { href: "collection.html?category=B57%20Engines", label: "B57 Engines" },
-      { href: "collection.html?category=B47%20Engines", label: "B47 Engines" },
-      { href: "collection.html?category=B58%20Engines", label: "B58 Engines" }
+      { href: spaHref("collection.html"), label: "All Engines" },
+      { href: spaHref("collection.html?category=N57%20Engines"), label: "N57 Engines" },
+      { href: spaHref("collection.html?category=N47%20Engines"), label: "N47 Engines" },
+      { href: spaHref("collection.html?category=M57%20Engines"), label: "M57 Engines" },
+      { href: spaHref("collection.html?category=B57%20Engines"), label: "B57 Engines" },
+      { href: spaHref("collection.html?category=B47%20Engines"), label: "B47 Engines" },
+      { href: spaHref("collection.html?category=B58%20Engines"), label: "B58 Engines" }
     ];
     const links = [
-      { href: "index.html", label: "Home", key: "home" },
-      { href: "collection.html?category=M57%20Swap%20Kits", label: "M57 Swap Kits", key: "collection" },
-      { href: "services.html", label: "Services", key: "services" },
-      { href: "about.html", label: "About Us", key: "about" },
-      { href: "contact.html", label: "Contact Us", key: "contact" },
-      { href: "policies.html", label: "Policies", key: "policies" },
-      { href: "blog.html", label: "Buyer's Guide", key: "blog" },
-      { href: "reviews.html", label: "Reviews", key: "reviews" }
+      { href: spaHref("index.html"), label: "Home", key: "home" },
+      { href: spaHref("collection.html?category=M57%20Swap%20Kits"), label: "M57 Swap Kits", key: "collection" },
+      { href: spaHref("services.html"), label: "Services", key: "services" },
+      { href: spaHref("about.html"), label: "About Us", key: "about" },
+      { href: spaHref("contact.html"), label: "Contact Us", key: "contact" },
+      { href: spaHref("policies.html"), label: "Policies", key: "policies" },
+      { href: spaHref("blog.html"), label: "Buyer's Guide", key: "blog" },
+      { href: spaHref("reviews.html"), label: "Reviews", key: "reviews" }
     ];
     const enginesActive = page === "collection" || page === "details";
+    const homeHref = spaHref("index.html");
 
     mount.innerHTML = `
       <header id="siteHeader" class="fixed top-0 z-50 w-full border-b border-transparent bg-transparent backdrop-blur-xl">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
-          <a href="index.html" data-transition class="group inline-flex items-center gap-3">
-            <img src="assets/images/logo-mark.svg" width="36" height="36" alt="Original Bavarian Engine logo" />
+          <a href="${homeHref}" data-transition class="group inline-flex items-center gap-3">
+            <img src="assets/images/logo-mark.svg" width="36" height="36" alt="Original Bavarian Engine logo — Bavarian Engine for Sale" />
             <span class="text-sm font-semibold tracking-[0.18em] text-[var(--text)]">ORIGINAL BAVARIAN ENGINE</span>
           </a>
 
           <nav class="hidden items-center gap-6 lg:flex" aria-label="Primary">
             <div class="group relative">
-              <a href="collection.html" data-transition class="inline-flex items-center gap-1 text-xs tracking-wide transition hover:text-[var(--accent-blue)] ${enginesActive ? "text-[var(--accent-blue)]" : "text-[var(--text)]"}" aria-label="Open engine collection">
+              <a href="${spaHref("collection.html")}" data-transition class="inline-flex items-center gap-1 text-xs tracking-wide transition hover:text-[var(--accent-blue)] ${enginesActive ? "text-[var(--accent-blue)]" : "text-[var(--text)]"}" aria-label="Open BMW Engine collection">
                 Engines
                 <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m6 9 6 6 6-6"/></svg>
               </a>
@@ -289,7 +388,11 @@
         event.preventDefault();
         const input = form.querySelector("[data-global-search-input]");
         const query = input ? input.value.trim() : "";
-        const target = query ? `collection.html?query=${encodeURIComponent(query)}` : "collection.html";
+        const target = spaHref(query ? `collection.html?query=${encodeURIComponent(query)}` : "collection.html");
+        if (isSpa() && String(target).startsWith("#")) {
+          window.location.hash = target;
+          return;
+        }
         window.location.href = target;
       });
     });
@@ -307,10 +410,10 @@
       <footer class="mt-20 border-t border-[var(--border)] bg-[var(--bg-elevated)]/75">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-4 md:px-8">
           <div class="md:col-span-2">
-            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Original Bavarian Engine</p>
-            <h2 class="mt-3 text-2xl font-semibold text-[var(--text)]">Preserving BMW heritage with verified original engines.</h2>
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Original Bavarian Engine · Bavarian Engine for Sale</p>
+            <h2 class="mt-3 text-2xl font-semibold text-[var(--text)]">Bavarian Engine, Original BMW Engine &amp; Old BMW Engine stock — verified.</h2>
             <p class="mt-4 max-w-xl text-sm leading-relaxed text-[var(--muted)]">
-              We source and deliver only original old BMW engines and vintage Bavarian powertrain components with documented provenance, condition reporting, and protected international shipping.
+              Original Bavarian Engine sources and delivers Bavarian Engine and BMW Engine inventory — Original BMW Engine and Old BMW Engine units with documented provenance, condition reporting, and protected international shipping.
             </p>
             <ul class="mt-4 grid gap-2 text-xs uppercase tracking-[0.16em] text-[var(--muted)] sm:grid-cols-3">
               <li class="rounded-full border border-[var(--border)] px-3 py-2 text-center">VIN Matching</li>
@@ -327,12 +430,12 @@
           <div>
             <h3 class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--text)]">Quick Links</h3>
             <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
-              <li><a data-transition href="collection.html" class="transition hover:text-[var(--accent-blue)]">Browse Collection</a></li>
-              <li><a data-transition href="services.html" class="transition hover:text-[var(--accent-blue)]">Services</a></li>
-              <li><a data-transition href="engine-details.html" class="transition hover:text-[var(--accent-blue)]">Engine Details</a></li>
-              <li><a data-transition href="about.html" class="transition hover:text-[var(--accent-blue)]">Our Story</a></li>
-              <li><a data-transition href="reviews.html" class="transition hover:text-[var(--accent-blue)]">Reviews</a></li>
-              <li><a data-transition href="contact.html" class="transition hover:text-[var(--accent-blue)]">Contact</a></li>
+              <li><a data-transition href="${spaHref("collection.html")}" class="transition hover:text-[var(--accent-blue)]">Browse Collection</a></li>
+              <li><a data-transition href="${spaHref("services.html")}" class="transition hover:text-[var(--accent-blue)]">Services</a></li>
+              <li><a data-transition href="${spaHref("engine-details.html")}" class="transition hover:text-[var(--accent-blue)]">Engine Details</a></li>
+              <li><a data-transition href="${spaHref("about.html")}" class="transition hover:text-[var(--accent-blue)]">Our Story</a></li>
+              <li><a data-transition href="${spaHref("reviews.html")}" class="transition hover:text-[var(--accent-blue)]">Reviews</a></li>
+              <li><a data-transition href="${spaHref("contact.html")}" class="transition hover:text-[var(--accent-blue)]">Contact</a></li>
             </ul>
           </div>
           <div>
@@ -412,7 +515,7 @@
   }
 
   function renderFeaturedProducts() {
-    const mount = document.getElementById("featuredGrid");
+    const mount = findMount("featuredGrid");
     if (!mount) return;
 
     const seen = new Set();
@@ -431,9 +534,9 @@
       window.OBE_BUILD_STORY_SECTORS();
     }
 
-    const mount = document.getElementById("storySectorMount");
-    const nav = document.getElementById("storySectorNav");
-    const totalEl = document.getElementById("storySectorTotal");
+    const mount = findMount("storySectorMount");
+    const nav = findMount("storySectorNav");
+    const totalEl = findMount("storySectorTotal");
     const sectors = (window.OBE_DATA && window.OBE_DATA.storySectors) || window.OBE_STORY_SECTORS || [];
     if (!mount || !sectors.length) return;
 
@@ -637,11 +740,11 @@
   }
 
   function renderContentLibrary() {
-    const grid = document.getElementById("contentLibraryGrid");
-    const tabs = document.getElementById("contentSectorTabs");
-    const stats = document.getElementById("contentSectorStats");
-    const countEl = document.getElementById("contentLibraryCount");
-    const pagination = document.getElementById("contentLibraryPagination");
+    const grid = findMount("contentLibraryGrid");
+    const tabs = findMount("contentSectorTabs");
+    const stats = findMount("contentSectorStats");
+    const countEl = findMount("contentLibraryCount");
+    const pagination = findMount("contentLibraryPagination");
     const library = Array.isArray(data.contentLibrary) ? data.contentLibrary : [];
     if (!grid || !tabs || !library.length) return;
 
@@ -943,11 +1046,11 @@
   }
 
   function renderCollectionPage() {
-    const mount = document.getElementById("collectionGrid");
-    const searchInput = document.getElementById("collectionSearch");
-    const categoryFilter = document.getElementById("categoryFilter");
-    const resultMeta = document.getElementById("collectionMeta");
-    const paginationMount = document.getElementById("collectionPagination");
+    const mount = findMount("collectionGrid");
+    const searchInput = findMount("collectionSearch");
+    const categoryFilter = findMount("categoryFilter");
+    const resultMeta = findMount("collectionMeta");
+    const paginationMount = findMount("collectionPagination");
     if (!mount || !searchInput || !categoryFilter || !resultMeta) return;
 
     const uniqueCategories = [...new Set(data.products.map((product) => product.category))];
@@ -1019,7 +1122,7 @@
   }
 
   function renderDetailsPage() {
-    const title = document.getElementById("detailTitle");
+    const title = findMount("detailTitle");
     if (!title) return;
 
     const params = new URLSearchParams(window.location.search);
@@ -1134,7 +1237,7 @@
   }
 
   function renderReviews() {
-    const mount = document.getElementById("reviewGrid");
+    const mount = findMount("reviewGrid") || findMount("homeReviewGrid");
     if (!mount) return;
     const page = (document.body.dataset.page || "").toLowerCase();
     const reviewItems = page === "reviews" ? data.reviews : data.reviews.slice(0, 6);
@@ -1158,7 +1261,7 @@
   }
 
   function renderFaqs() {
-    const mount = document.getElementById("faqList");
+    const mount = findMount("faqList") || findMount("homeFaqList");
     if (!mount) return;
     mount.innerHTML = data.faqs
       .map(
@@ -1291,17 +1394,34 @@
   }
 
   function initPageTransitions() {
-    document.querySelectorAll("a[data-transition]").forEach((anchor) => {
-      anchor.addEventListener("click", function (event) {
-        const href = anchor.getAttribute("href");
-        if (!href || href.startsWith("#") || anchor.target === "_blank") return;
-        if (/^(mailto:|tel:|https?:\/\/)/.test(href)) return;
-        event.preventDefault();
-        document.body.classList.add("page-leave");
-        window.setTimeout(function () {
-          window.location.href = href;
-        }, 210);
-      });
+    document.body.addEventListener("click", function (event) {
+      const anchor = event.target.closest("a[data-transition], a[href]");
+      if (!anchor || anchor.target === "_blank") return;
+      let href = anchor.getAttribute("href");
+      if (!href || /^(mailto:|tel:|https?:\/\/|https:\/\/wa\.me)/.test(href)) return;
+
+      if (isSpa()) {
+        const mapped = spaHref(href);
+        if (mapped.startsWith("#")) {
+          event.preventDefault();
+          if (window.location.hash !== mapped) window.location.hash = mapped;
+          else {
+            // force re-apply for same hash with new query
+            window.dispatchEvent(new HashChangeEvent("hashchange"));
+          }
+          const mobile = document.getElementById("mobileMenu");
+          if (mobile) mobile.classList.add("hidden");
+          return;
+        }
+      }
+
+      if (href.startsWith("#")) return;
+      if (!anchor.hasAttribute("data-transition")) return;
+      event.preventDefault();
+      document.body.classList.add("page-leave");
+      window.setTimeout(function () {
+        window.location.href = href;
+      }, 210);
     });
   }
 
@@ -1492,7 +1612,7 @@
           <div class="grid grid-cols-2 gap-2 pt-2">
             <button type="button" data-action="wishlist" data-id="${product.id}" class="btn-secondary rounded-full px-3 py-2 text-xs">${state.wishlist.has(product.id) ? "Wishlisted" : "Wishlist"}</button>
             <button type="button" data-action="compare" data-id="${product.id}" class="btn-secondary rounded-full px-3 py-2 text-xs">${state.compare.has(product.id) ? "Added" : "Compare"}</button>
-            <a href="engine-details.html?id=${encodeURIComponent(product.id)}" data-transition class="btn-primary col-span-2 inline-flex justify-center rounded-full px-3 py-2 text-xs">View Details</a>
+            <a href="${spaHref(`engine-details.html?id=${encodeURIComponent(product.id)}`)}" data-transition class="btn-primary col-span-2 inline-flex justify-center rounded-full px-3 py-2 text-xs">View Details</a>
           </div>
         </div>
       </article>
@@ -1514,7 +1634,7 @@
   }
 
   function setText(id, value) {
-    const element = document.getElementById(id);
+    const element = findMount(id);
     if (element) element.textContent = value;
   }
 

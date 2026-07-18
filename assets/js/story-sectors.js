@@ -7,7 +7,7 @@
     {
       key: "dealer-vs-verified",
       eyebrow: "Why buyers purchase from Original Bavarian Engine",
-      headline: "Bavarian Engine for Sale — Save vs Dealer Crates Without Mystery BMW Engine Risk.",
+      headline: "Save Against Dealer Crate Prices — Without Gambling on a Mystery Engine.",
       intro:
         "Most BMW owners are not hunting theory. They need a cost-saving path that cuts downtime, protects residual value, and starts with VIN-matched stock documented from Germany.",
       dealerTitle: "Typical dealer path",
@@ -38,14 +38,14 @@
       ],
       image: `${SECTOR_IMAGE_BASE}/sector-01-hamburg-stock.webp`,
       imageTag: "Germany — Documented Stock",
-      caption: "Original Bavarian Engine path: VIN-matched Bavarian Engine / Original BMW Engine / Old BMW Engine crates.",
+      caption: "From quote-check to a VIN-matched crate — the purchase path buyers actually need.",
       primaryCta: { href: "collection.html", label: "Shop engines now" },
       secondaryCta: { href: "contact.html", label: "Check my VIN" }
     },
     {
       key: "export-crating",
       eyebrow: "Logistics sector for serious buyers",
-      headline: "Export Crating That Protects the Bavarian Engine / BMW Engine You Just Verified.",
+      headline: "Export Crating That Protects the Engine You Just Verified.",
       intro:
         "A correct code match means nothing if freight damages the unit. This sector focuses on bracing, sealing, and tracked handoff so workshops receive installable stock.",
       dealerTitle: "Typical freight path",
@@ -83,7 +83,7 @@
     {
       key: "stamp-codes",
       eyebrow: "Code verification sector",
-      headline: "Original BMW Engine Stamp Matching Beats Brochure Guesswork.",
+      headline: "Stamp-Level Matching Beats Brochure Guesswork.",
       intro:
         "Lookalike codes create expensive installs. This sector trains buyers to demand stamp photos, decode prefixes, and refuse ambiguous listings.",
       dealerTitle: "Guesswork path",
@@ -159,7 +159,7 @@
     {
       key: "live-inventory",
       eyebrow: "Live stock sector",
-      headline: "Shop Bavarian Engine for Sale That Exists — Not Waiting-List Promises.",
+      headline: "Shop Engines That Exist — Not Waiting-List Promises.",
       intro:
         "Availability language should mean a unit you can reserve. This sector organizes inventory-style notes so buyers can move quickly on real stock.",
       dealerTitle: "Allocation path",
