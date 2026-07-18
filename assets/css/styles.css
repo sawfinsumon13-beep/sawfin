@@ -63,7 +63,7 @@ body::before {
 }
 
 body::after {
-  content: "01001111 01000010 01000101  >_ ACCESS // ENGINE_CORE // VIN_MATCH // CRATE_READY";
+  content: "01001111 01000010 01000101  >_ ACCESS // ENGINE_CORE // VIN_MATCH // CRATE_READY\A 10110010 11001101 00110101  >_ TRACE_ROUTE // STOCK_SYNC // FREIGHT_LOCK\A 00011100 11100011 01010101  >_ ROOT_SHELL // HASH_VERIFY // BAY_READY";
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -383,15 +383,17 @@ html.light-mode .heading-accent {
 }
 
 html.light-mode #siteHeader.nav-scrolled {
-  background: rgba(247, 247, 247, 0.86);
+  background: rgba(0, 0, 0, 0.94);
 }
 
 .hero-cinematic {
-  background: linear-gradient(105deg, rgba(10, 6, 6, 0.92), rgba(90, 20, 20, 0.45)),
-    url("https://bavarianengine.com/wp-content/themes/bavarian-engines/assets/home/hero-home.webp")
-      center/cover;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0, 255, 102, 0.14), transparent 38%),
+    radial-gradient(circle at 85% 10%, rgba(0, 180, 80, 0.1), transparent 42%),
+    linear-gradient(180deg, #000000 0%, #020805 48%, #000000 100%);
   position: relative;
   isolation: isolate;
+  border-bottom: 1px solid rgba(0, 255, 102, 0.2);
 }
 
 .hero-cinematic::before {
@@ -399,23 +401,30 @@ html.light-mode #siteHeader.nav-scrolled {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(circle at 18% 30%, rgba(255, 82, 82, 0.35), transparent 42%),
-    radial-gradient(circle at 83% 14%, rgba(102, 123, 255, 0.25), transparent 40%);
-  mix-blend-mode: screen;
+  background-image:
+    linear-gradient(rgba(0, 255, 102, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 102, 0.09) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle at center, black 20%, transparent 85%);
   z-index: -1;
 }
 
 .hero-cinematic::after {
-  content: "";
+  content: "root@obe:~# decrypt --engine --vin --crate\n0x4F 0x42 0x45 ACCESS_GRANTED\n>>> MATCHING_DESK ONLINE\n>>> STOCK_ARCHIVE SYNCED\n>>> EXPORT_CHANNEL SECURE";
   position: absolute;
   inset: 0;
   pointer-events: none;
+  white-space: pre-wrap;
+  padding: 1.5rem;
+  color: rgba(0, 255, 102, 0.18);
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
   background:
-    repeating-linear-gradient(118deg, rgba(255, 86, 86, 0.3) 0 2px, transparent 2px 52px),
-    repeating-linear-gradient(34deg, rgba(86, 119, 255, 0.22) 0 1px, transparent 1px 76px);
-  opacity: 0.7;
-  animation: laserPulse 2.8s ease-in-out infinite, beamSlide 7s linear infinite;
+    repeating-linear-gradient(0deg, rgba(0, 255, 102, 0.04) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.55));
+  animation: hackFlicker 3.2s ease-in-out infinite;
   z-index: -1;
 }
 
