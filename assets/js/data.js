@@ -251,7 +251,7 @@ function buildInventory() {
         id: `${template.slug}-${sequenceCode.toLowerCase()}`,
         category: template.category,
         code,
-        title: `BMW ${model} Original ${code}`,
+        title: `Bavarian Engine ${model} Original BMW Engine ${code}`,
         condition: CONDITION_ROTATION[i % CONDITION_ROTATION.length],
         mileage: `${new Intl.NumberFormat("en-DE").format(mileageValue)} km`,
         year,
@@ -269,9 +269,9 @@ function buildInventory() {
           "VIN confirmation recommended before invoice"
         ],
         shipping:
-          "Crated export shipping with impact-controlled palletization, documentation support, and tracked worldwide dispatch.",
+          "Bavarian Engine crated export shipping with impact-controlled palletization, Original Bavarian Engine documentation support, and tracked worldwide BMW Engine dispatch.",
         conditionReport:
-          "Mechanical inspection log completed. Additional visual evidence and verification notes available upon request."
+          "Original Bavarian Engine inspection log completed for this BMW Engine / Old BMW Engine unit. Additional Original BMW Engine evidence available upon request."
       });
     }
   });
@@ -332,7 +332,7 @@ function buildReviews() {
     "Crate quality was excellent. Delivery updates were consistent, and the unit matched listing photos and mileage notes.",
     "Very professional process from enquiry to dispatch. Support team answered every compatibility question in practical detail.",
     "We purchased for a client restoration and the engine installed smoothly. Documentation quality saved us workshop time.",
-    "Best used BMW engine sourcing experience we have had. Real stock transparency and no confusion on included components.",
+    "Best Bavarian Engine for Sale experience we have had with Original Bavarian Engine. Real stock transparency and no confusion on included components.",
     "VIN verification was completed quickly, and the exact engine family match prevented expensive fitment mistakes.",
     "Packaging and export handling were excellent. We received the engine in clean condition with clear dispatch tracking.",
     "Our private collector order was handled like a workshop account. Strong support before and after delivery.",
@@ -782,7 +782,7 @@ function buildContentLibrary() {
         sector: sector.label,
         sectorKey: sector.key,
         title: `${titleBase} #${String(i + 1).padStart(3, "0")}`,
-        summary: `${summaryBase} Focus: ${focus} guidance for BMW old-engine buyers.`,
+        summary: `${summaryBase} Original Bavarian Engine note for Bavarian Engine for Sale, BMW Engine, Original BMW Engine, and Old BMW Engine buyers. Focus: ${focus}.`,
         image,
         tag,
         noteIndex: i + 1
@@ -799,34 +799,35 @@ window.OBE_DATA = {
   contentLibrary: buildContentLibrary(),
   faqs: [
     {
-      question: "Are these engines original BMW units?",
+      question: "What is Original Bavarian Engine?",
       answer:
-        "Yes. We sell only original BMW engine and powertrain stock with code-level verification and listing documentation."
+        "Original Bavarian Engine is a Bavarian Engine for Sale specialist offering VIN-matched BMW Engine, Original BMW Engine, and Old BMW Engine stock with documented crates."
     },
     {
-      question: "How many engines are in your inventory?",
+      question: "Can I buy a Bavarian Engine for Sale online?",
       answer:
-        "Our live inventory contains more than 500 listed engine and swap-kit records across core BMW families."
+        "Yes. Browse Bavarian Engine inventory, confirm VIN match, then order a crated BMW Engine with tracking from Original Bavarian Engine."
     },
     {
-      question: "Do you ship internationally?",
+      question: "Are these an Original BMW Engine or replica units?",
       answer:
-        "Yes. We support European and worldwide shipping with crated packaging and tracked freight coordination."
+        "We sell Original BMW Engine and Old BMW Engine units only — stamp-verified Bavarian Engine stock, not replica long blocks."
     },
     {
-      question: "Can private buyers order directly?",
+      question: "Do you ship Old BMW Engine units internationally?",
       answer:
-        "Yes. Private collectors and owners can order directly, and we also work closely with independent workshops."
+        "Yes. Original Bavarian Engine supports European and worldwide tracked freight for every Bavarian Engine order."
     },
     {
-      question: "Can I verify compatibility before payment?",
+      question: "How do I match the right BMW Engine before payment?",
       answer:
-        "Absolutely. Share your VIN and engine code, and we confirm matching options before invoice."
+        "Share your VIN and engine code with Original Bavarian Engine. We confirm Bavarian Engine suffix fitment before invoice."
     },
     {
-      question: "Do you offer M57 swap kits?",
+      question: "Why choose Original Bavarian Engine for a BMW Engine purchase?",
       answer:
-        "Yes. M57 swap kit inventory is available and can be filtered directly in the collection."
+        "You get Bavarian Engine for Sale transparency: stamp photos, inclusion lists, warranty language, and WhatsApp support after delivery."
     }
   ]
 };
+
