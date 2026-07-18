@@ -784,7 +784,8 @@ function buildContentLibrary() {
         title: `${titleBase} #${String(i + 1).padStart(3, "0")}`,
         summary: `${summaryBase} Focus: ${focus} guidance for BMW old-engine buyers.`,
         image,
-        tag
+        tag,
+        noteIndex: i + 1
       });
     }
   });

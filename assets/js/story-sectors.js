@@ -845,11 +845,82 @@
         title: `${sector.headline.split("—")[0].trim()} ${titleBit} #${String(i).padStart(4, "0")}`,
         summary: `${summaryBit} Focus: ${focus} guidance inside the ${sector.key.replace(/-/g, " ")} sector.`,
         image,
-        tag: focus
+        tag: focus,
+        noteIndex: i
       });
     }
 
     return items;
+  }
+
+  function buildNoteBody(item, sector, minWords) {
+    const target = minWords || 1500;
+    const families = ["N47", "N57", "M57", "B47", "B57", "B58"];
+    const models = ["320d", "520d", "530d", "X3", "X5", "335d", "740d", "M340d"];
+    const checkpoints = [
+      "stamp photography",
+      "VIN alignment",
+      "mileage context",
+      "crate bracing",
+      "inclusions list",
+      "dispatch photos",
+      "cooling readiness",
+      "first-start fluids",
+      "sensor generation checks",
+      "workshop bay timing"
+    ];
+    const paragraphs = [];
+    let guard = 0;
+    const noteNo = item.noteIndex || Number(String(item.id).split("-").pop()) || 1;
+    const sectorRef = sector || {
+      eyebrow: item.sectorLabel || "Engine knowledge sector",
+      headline: item.title,
+      caption: item.summary,
+      ourPoints: [item.summary],
+      dealerPoints: ["Buying from photos alone"],
+      seo: [{ headline: item.title, body: item.summary }]
+    };
+
+    while (countWords(paragraphs.join(" ")) < target && guard < 90) {
+      guard += 1;
+      const family = families[(noteNo + guard) % families.length];
+      const model = models[(noteNo * 2 + guard) % models.length];
+      const checkpoint = checkpoints[(noteNo + guard * 3) % checkpoints.length];
+      const ourPoint = (sectorRef.ourPoints || [item.summary])[guard % (sectorRef.ourPoints || [item.summary]).length];
+      const risk = (sectorRef.dealerPoints || ["Skipping verification"])[guard % (sectorRef.dealerPoints || ["Skipping verification"]).length];
+      const seo = (sectorRef.seo || [{ headline: item.title, body: item.summary }])[guard % (sectorRef.seo || [{ headline: item.title, body: item.summary }]).length];
+
+      paragraphs.push(
+        `Note ${String(noteNo).padStart(4, "0")} opens the full reading path for “${item.title}”. This is not the card summary. It is the long-form guidance buyers expected when they clicked the option in the ${sectorRef.eyebrow || "sector"} library. The focus tag is ${item.tag}, and the practical job of this article is to turn that tag into a usable decision sequence for ${family} and ${model} projects. Start with ${checkpoint}. If that evidence is missing, pause the purchase even when the listing photos look premium.`
+      );
+
+      paragraphs.push(
+        `Original Bavarian Engine treats every opened note as a workshop briefing. ${ourPoint} That sentence is the positive path. The failure path is familiar: ${risk}. Between those two paths sits the buyer’s real week — a car on stands, a bay reservation, freight lead time, and a residual-value calculation that punishes mystery engines. Use this note to write a cleaner enquiry: share VIN, target code, destination, and install window in one message. Ask for stamp images, inclusions, and condition language before you negotiate price.`
+      );
+
+      paragraphs.push(
+        `${seo.headline} ${seo.body} Carry that idea into the next operational layer. Confirm whether the unit is live stock. Confirm whether accessories in photos are included. Confirm whether export crating protects open ports and mounts. Confirm whether your workshop already has seals, fluids, and torque tools staged. Beautiful imagery from the card should support diligence, not replace it. When the note mentions ${item.tag} guidance, translate it into one verifiable artifact you can archive with the order dossier.`
+      );
+
+      paragraphs.push(
+        `Private owners and trade accounts can read the same article differently and still leave with the same checklist. A private ${model} owner may care most about downtime and dealer-crate price shock. A workshop may care most about loom generation, flywheel compatibility, and first-idle risk. Both still need code clarity, freight discipline, and a support route after payment. This note keeps returning to those constants while rotating examples across ${families.join(", ")} so the advice stays portable across the catalog.`
+      );
+
+      paragraphs.push(
+        `If you opened this card because the short teaser felt incomplete, that is expected. The grid is designed for scanning; the modal is designed for depth. Read the next actions aloud before you close the panel: request ${checkpoint}; reject unclear stamps; keep communication technical; align delivery with bay capacity; log the first idle after install. ${sectorRef.caption || item.summary} Repeat that rule when a seller rushes you, when a forum thread sounds confident, and when a low price arrives without paperwork. Depth is how trust scales in used BMW engine procurement.`
+      );
+
+      paragraphs.push(
+        `Close this note only after you can restate the purchase gate in your own words. You are not buying a photograph. You are buying a verified mechanical unit, a crated logistics event, and a support conversation that must remain precise under pressure. Keep Note ${String(noteNo).padStart(4, "0")} in your shortlist comments if the unit remains a candidate. If evidence is weak, move on without guilt — another documented option in the sector library will open with the same depth and a clearer path to a crate you can trust.`
+      );
+    }
+
+    const text = paragraphs.join("\n\n");
+    return {
+      title: item.title,
+      text,
+      wordCount: countWords(text)
+    };
   }
 
   function sectorImagesFallback(sector) {
@@ -965,5 +1036,44 @@
   }
 
   window.OBE_BUILD_STORY_SECTORS = attachStorySectors;
+  window.OBE_BUILD_NOTE_BODY = function (item) {
+    const sectors = (window.OBE_DATA && window.OBE_DATA.storySectors) || window.OBE_STORY_SECTORS || [];
+    let sector = sectors.find((entry) => entry.key === item.sectorKey) || null;
+    if (!sector) {
+      sector = {
+        eyebrow: item.sector || item.sectorLabel || "Knowledge library",
+        headline: item.title,
+        caption: item.summary,
+        ourPoints: [
+          "Verify code and VIN before invoice",
+          "Request live photos and inclusions",
+          "Align freight with workshop timing"
+        ],
+        dealerPoints: [
+          "Buying from photos alone",
+          "Ignoring stamp-level matching",
+          "Accepting vague delivery windows"
+        ],
+        seo: [
+          {
+            headline: item.title,
+            body: item.summary || "Open this note for the full operational reading path."
+          }
+        ]
+      };
+    }
+    return buildNoteBody(item, sector, 1500);
+  };
+
+  window.OBE_FIND_STORY_NOTE = function (noteId) {
+    const sectors = (window.OBE_DATA && window.OBE_DATA.storySectors) || window.OBE_STORY_SECTORS || [];
+    for (let i = 0; i < sectors.length; i += 1) {
+      const match = (sectors[i].items || []).find((item) => item.id === noteId);
+      if (match) return match;
+    }
+    const library = (window.OBE_DATA && window.OBE_DATA.contentLibrary) || [];
+    return library.find((item) => item.id === noteId) || null;
+  };
+
   attachStorySectors();
 })();

@@ -476,7 +476,7 @@
                 ${visibleItems
                   .map(
                     (item) => `
-                  <article class="content-note-card overflow-hidden rounded-2xl">
+                  <button type="button" class="content-note-card content-note-card--openable overflow-hidden rounded-2xl text-left" data-open-note="${escapeHtml(item.id)}" aria-label="Open full note ${escapeHtml(item.id)}">
                     <div class="content-note-media">
                       <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" width="640" height="400" />
                     </div>
@@ -487,8 +487,9 @@
                       </div>
                       <h4 class="mt-2 text-sm font-semibold leading-snug text-[var(--text)]">${escapeHtml(item.title)}</h4>
                       <p class="mt-2 text-xs leading-relaxed text-[var(--muted)]">${escapeHtml(item.summary)}</p>
+                      <p class="content-note-open-label mt-3">Open full note · 1,500+ words</p>
                     </div>
-                  </article>
+                  </button>
                 `
                   )
                   .join("")}
@@ -520,6 +521,7 @@
         });
       });
 
+      bindNoteCardOpeners(mount);
       initRevealOnScroll();
     };
 
@@ -589,7 +591,7 @@
       grid.innerHTML = visible
         .map(
           (item) => `
-          <article class="content-note-card reveal overflow-hidden rounded-2xl">
+          <button type="button" class="content-note-card content-note-card--openable reveal overflow-hidden rounded-2xl text-left" data-open-note="${escapeHtml(item.id)}" aria-label="Open full note ${escapeHtml(item.id)}">
             <div class="content-note-media">
               <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" width="640" height="400" />
             </div>
@@ -600,8 +602,9 @@
               </div>
               <h3 class="mt-2 text-base font-semibold leading-snug text-[var(--text)]">${escapeHtml(item.title)}</h3>
               <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">${escapeHtml(item.summary)}</p>
+              <p class="content-note-open-label mt-3">Open full note · 1,500+ words</p>
             </div>
-          </article>
+          </button>
         `
         )
         .join("");
@@ -628,6 +631,7 @@
         }
       }
 
+      bindNoteCardOpeners(grid);
       initRevealOnScroll();
     };
 
@@ -650,6 +654,96 @@
       .filter(Boolean)
       .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
       .join("");
+  }
+
+  function ensureNoteReaderModal() {
+    let modal = document.getElementById("noteReaderModal");
+    if (modal) return modal;
+
+    modal = document.createElement("div");
+    modal.id = "noteReaderModal";
+    modal.className = "note-reader-modal";
+    modal.hidden = true;
+    modal.innerHTML = `
+      <div class="note-reader-backdrop" data-close-note-reader></div>
+      <div class="note-reader-panel" role="dialog" aria-modal="true" aria-labelledby="noteReaderTitle">
+        <div class="note-reader-top">
+          <div>
+            <p id="noteReaderMeta" class="note-reader-meta"></p>
+            <h2 id="noteReaderTitle" class="note-reader-title"></h2>
+          </div>
+          <button type="button" class="note-reader-close" data-close-note-reader aria-label="Close full note">×</button>
+        </div>
+        <div class="note-reader-hero">
+          <img id="noteReaderImage" alt="" width="1200" height="675" />
+        </div>
+        <div id="noteReaderBody" class="note-reader-body"></div>
+      </div>
+    `;
+    document.body.append(modal);
+
+    modal.querySelectorAll("[data-close-note-reader]").forEach((el) => {
+      el.addEventListener("click", closeNoteReader);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !modal.hidden) closeNoteReader();
+    });
+
+    return modal;
+  }
+
+  function openNoteReader(noteId) {
+    const item =
+      (typeof window.OBE_FIND_STORY_NOTE === "function" && window.OBE_FIND_STORY_NOTE(noteId)) ||
+      null;
+    if (!item) return;
+
+    const body =
+      typeof window.OBE_BUILD_NOTE_BODY === "function"
+        ? window.OBE_BUILD_NOTE_BODY(item)
+        : { title: item.title, text: item.summary, wordCount: 0 };
+
+    const modal = ensureNoteReaderModal();
+    const titleEl = document.getElementById("noteReaderTitle");
+    const metaEl = document.getElementById("noteReaderMeta");
+    const imageEl = document.getElementById("noteReaderImage");
+    const bodyEl = document.getElementById("noteReaderBody");
+
+    if (titleEl) titleEl.textContent = body.title || item.title;
+    if (metaEl) {
+      metaEl.textContent = `${item.sector || item.sectorLabel || "Sector note"} · ${item.tag || "Guide"} · ${Number(
+        body.wordCount || 0
+      ).toLocaleString("en-US")} words · Note ${String(item.id).split("-").pop()}`;
+    }
+    if (imageEl) {
+      imageEl.src = item.image;
+      imageEl.alt = item.title;
+    }
+    if (bodyEl) bodyEl.innerHTML = essayToParagraphs(body.text);
+
+    modal.hidden = false;
+    document.body.classList.add("note-reader-open");
+    const panel = modal.querySelector(".note-reader-panel");
+    if (panel) panel.scrollTop = 0;
+  }
+
+  function closeNoteReader() {
+    const modal = document.getElementById("noteReaderModal");
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.classList.remove("note-reader-open");
+  }
+
+  function bindNoteCardOpeners(root) {
+    const scope = root || document;
+    scope.querySelectorAll("[data-open-note]").forEach((button) => {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        const noteId = button.getAttribute("data-open-note");
+        if (noteId) openNoteReader(noteId);
+      });
+    });
   }
 
   function renderCollectionPage() {
