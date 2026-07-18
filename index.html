@@ -42,10 +42,11 @@
         }
       };
     </script>
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260718a" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260718b" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="assets/js/data.js?v=20260718a" defer></script>
-    <script src="assets/js/main.js?v=20260718a" defer></script>
+    <script src="assets/js/data.js?v=20260718b" defer></script>
+    <script src="assets/js/story-sectors.js?v=20260718b" defer></script>
+    <script src="assets/js/main.js?v=20260718b" defer></script>
   </head>
   <body data-page="home" class="page-shell home-color-3d antialiased">
     <div id="pageLoader" class="loader-overlay">
@@ -415,6 +416,21 @@
             <a href="collection.html" data-transition class="btn-secondary rounded-full px-5 py-2.5 text-sm font-medium transition">View full collection</a>
           </div>
           <div id="featuredGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+        </div>
+      </section>
+
+      <section id="storySectors" class="px-4 pb-10 md:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-8 text-center">
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--accent-blue)]">Twenty purchase sectors</p>
+            <h2 class="heading-accent mt-3 text-3xl md:text-5xl">20 Image-Led Sectors · 1,500 Notes Each</h2>
+            <p class="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+              Comparison-driven homepage sectors with cinematic imagery and 30,000 shortened content pieces total — organized so buyers can scan, filter, and load more without noise.
+            </p>
+            <p id="storySectorTotal" class="mt-4 text-sm uppercase tracking-[0.18em] text-[var(--muted)]">30,000 content pieces</p>
+          </div>
+          <div id="storySectorNav" class="story-sector-nav mb-10 flex gap-2 overflow-x-auto pb-2"></div>
+          <div id="storySectorMount" class="space-y-16"></div>
         </div>
       </section>
 

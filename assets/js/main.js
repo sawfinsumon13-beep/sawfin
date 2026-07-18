@@ -44,6 +44,7 @@
     const page = document.body.dataset.page;
     if (page === "home") {
       renderFeaturedProducts();
+      renderStorySectors();
       renderContentLibrary();
       renderReviews();
       renderFaqs();
@@ -347,6 +348,166 @@
     mount.innerHTML = featured.map((product) => buildProductCard(product)).join("");
     bindProductActions(mount);
     initRevealOnScroll();
+  }
+
+  function renderStorySectors() {
+    if (typeof window.OBE_BUILD_STORY_SECTORS === "function") {
+      window.OBE_BUILD_STORY_SECTORS();
+    }
+
+    const mount = document.getElementById("storySectorMount");
+    const nav = document.getElementById("storySectorNav");
+    const totalEl = document.getElementById("storySectorTotal");
+    const sectors = (window.OBE_DATA && window.OBE_DATA.storySectors) || window.OBE_STORY_SECTORS || [];
+    if (!mount || !sectors.length) return;
+
+    const visibleBySector = {};
+    sectors.forEach((sector) => {
+      visibleBySector[sector.key] = 12;
+    });
+
+    if (totalEl) {
+      const total = sectors.reduce((sum, sector) => sum + (sector.items ? sector.items.length : 0), 0);
+      totalEl.textContent = `${total.toLocaleString("en-US")} content pieces across ${sectors.length} sectors`;
+    }
+
+    if (nav) {
+      nav.innerHTML = sectors
+        .map(
+          (sector) => `
+          <a href="#story-sector-${escapeHtml(sector.key)}" class="story-sector-chip whitespace-nowrap rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.14em]">
+            ${String(sector.index).padStart(2, "0")}. ${escapeHtml(sector.imageTag.split("—")[0].trim())}
+          </a>
+        `
+        )
+        .join("");
+    }
+
+    const ctaAttrs = function (href) {
+      if (/^https?:/i.test(href)) {
+        return `href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"`;
+      }
+      return `href="${escapeHtml(href)}" data-transition`;
+    };
+
+    const render = function () {
+      mount.innerHTML = sectors
+        .map((sector) => {
+          const visibleLimit = visibleBySector[sector.key] || 12;
+          const items = sector.items || [];
+          const visibleItems = items.slice(0, visibleLimit);
+          const remaining = Math.max(items.length - visibleLimit, 0);
+
+          return `
+          <article id="story-sector-${escapeHtml(sector.key)}" class="story-sector reveal">
+            <div class="mx-auto max-w-4xl text-center">
+              <p class="story-sector-eyebrow">${escapeHtml(sector.eyebrow)}</p>
+              <h2 class="mt-4 text-3xl leading-tight text-[var(--text)] md:text-5xl">${escapeHtml(sector.headline)}</h2>
+              <p class="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-[var(--muted)] md:text-base">${escapeHtml(sector.intro)}</p>
+            </div>
+
+            <div class="mt-10 grid gap-5 lg:grid-cols-2">
+              <div class="story-compare-card rounded-2xl p-6 md:p-8">
+                <h3 class="text-lg text-[var(--text)]">${escapeHtml(sector.dealerTitle)}</h3>
+                <ul class="mt-5 space-y-3 text-sm text-[var(--muted)]">
+                  ${sector.dealerPoints.map((point) => `<li class="story-compare-point">${escapeHtml(point)}</li>`).join("")}
+                </ul>
+              </div>
+              <div class="story-compare-card story-compare-card--accent rounded-2xl p-6 md:p-8">
+                <h3 class="text-lg text-[var(--text)]">${escapeHtml(sector.ourTitle)}</h3>
+                <ul class="mt-5 space-y-3 text-sm text-[var(--muted)]">
+                  ${sector.ourPoints.map((point) => `<li class="story-compare-point story-compare-point--check">${escapeHtml(point)}</li>`).join("")}
+                </ul>
+                <div class="mt-7 flex flex-wrap gap-3">
+                  <a ${ctaAttrs(sector.primaryCta.href)} class="btn-primary rounded-full px-5 py-2.5 text-sm font-semibold">${escapeHtml(sector.primaryCta.label)}</a>
+                  <a ${ctaAttrs(sector.secondaryCta.href)} class="btn-secondary rounded-full px-5 py-2.5 text-sm font-semibold">${escapeHtml(sector.secondaryCta.label)}</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mx-auto mt-12 max-w-4xl space-y-8">
+              ${sector.seo
+                .map(
+                  (block) => `
+                <div>
+                  <h3 class="text-2xl text-[var(--text)] md:text-3xl">${escapeHtml(block.headline)}</h3>
+                  <p class="mt-3 text-sm leading-relaxed text-[var(--muted)] md:text-base">${escapeHtml(block.body)}</p>
+                </div>
+              `
+                )
+                .join("")}
+              <div class="flex flex-wrap gap-3">
+                <a ${ctaAttrs(sector.primaryCta.href)} class="btn-primary rounded-full px-5 py-2.5 text-sm font-semibold">${escapeHtml(sector.primaryCta.label === "Shop engines now" ? "Start with live stock" : sector.primaryCta.label)}</a>
+                <a href="blog.html" data-transition class="btn-secondary rounded-full px-5 py-2.5 text-sm font-semibold">Read the long buyer's guide</a>
+              </div>
+            </div>
+
+            <figure class="story-sector-figure mt-10 overflow-hidden rounded-2xl">
+              <img src="${escapeHtml(sector.image)}" alt="${escapeHtml(sector.headline)}" loading="lazy" decoding="async" width="1600" height="900" />
+              <figcaption class="story-sector-tag">${escapeHtml(sector.imageTag)}</figcaption>
+            </figure>
+            <p class="mt-4 text-center text-xs uppercase tracking-[0.18em] text-[var(--muted)]">${escapeHtml(sector.caption)}</p>
+
+            <div class="mt-10">
+              <div class="mb-4 flex flex-wrap items-end justify-between gap-3">
+                <div>
+                  <p class="text-[10px] uppercase tracking-[0.2em] text-[var(--muted)]">Sector content library</p>
+                  <h3 class="mt-1 text-xl text-[var(--text)]">1,500 shortened notes with images</h3>
+                </div>
+                <p class="text-sm text-[var(--muted)]">${items.length.toLocaleString("en-US")} pieces</p>
+              </div>
+              <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                ${visibleItems
+                  .map(
+                    (item) => `
+                  <article class="content-note-card overflow-hidden rounded-2xl">
+                    <div class="content-note-media">
+                      <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" width="640" height="400" />
+                    </div>
+                    <div class="p-4">
+                      <div class="flex items-center justify-between gap-2">
+                        <p class="text-[10px] uppercase tracking-[0.16em] text-[var(--muted)]">Note ${escapeHtml(item.id.split("-").pop())}</p>
+                        <span class="content-note-tag">${escapeHtml(item.tag)}</span>
+                      </div>
+                      <h4 class="mt-2 text-sm font-semibold leading-snug text-[var(--text)]">${escapeHtml(item.title)}</h4>
+                      <p class="mt-2 text-xs leading-relaxed text-[var(--muted)]">${escapeHtml(item.summary)}</p>
+                    </div>
+                  </article>
+                `
+                  )
+                  .join("")}
+              </div>
+              <div class="mt-6 flex flex-wrap items-center justify-between gap-3">
+                <p class="text-sm text-[var(--muted)]">Showing ${visibleItems.length.toLocaleString("en-US")} of ${items.length.toLocaleString("en-US")}</p>
+                ${
+                  remaining
+                    ? `<button type="button" class="btn-secondary rounded-full px-5 py-2.5 text-sm" data-load-story-sector="${escapeHtml(sector.key)}">Load more in this sector (${remaining.toLocaleString("en-US")} remaining)</button>`
+                    : `<p class="text-sm text-[var(--muted)]">All 1,500 notes loaded for this sector.</p>`
+                }
+              </div>
+            </div>
+          </article>
+        `;
+        })
+        .join("");
+
+      mount.querySelectorAll("[data-load-story-sector]").forEach((button) => {
+        button.addEventListener("click", function () {
+          const key = button.getAttribute("data-load-story-sector");
+          visibleBySector[key] = (visibleBySector[key] || 12) + 24;
+          render();
+          const anchor = document.getElementById(`story-sector-${key}`);
+          if (anchor) {
+            const library = anchor.querySelector(".mt-10:last-child") || anchor;
+            library.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }
+        });
+      });
+
+      initRevealOnScroll();
+    };
+
+    render();
   }
 
   function renderContentLibrary() {
