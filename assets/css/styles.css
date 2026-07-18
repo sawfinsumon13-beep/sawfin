@@ -1319,3 +1319,12 @@ section,
     gap: 1.75rem;
   }
 }
+
+
+.site-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 999px;
+  filter: drop-shadow(0 0 10px rgba(40, 140, 255, 0.45));
+}

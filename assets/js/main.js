@@ -267,7 +267,7 @@
       <header id="siteHeader" class="fixed top-0 z-50 w-full border-b border-transparent bg-transparent backdrop-blur-xl">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
           <a href="${homeHref}" data-transition class="group inline-flex items-center gap-3">
-            <img src="assets/images/logo-mark.svg" width="36" height="36" alt="Original Bavarian Engine logo — Bavarian Engine for Sale" />
+            <img src="assets/images/logo-bmw.png?v=20260718n" width="42" height="42" class="site-logo" alt="Original Bavarian Engine logo — Bavarian Engine for Sale" />
             <span class="text-sm font-semibold tracking-[0.18em] text-[var(--text)]">ORIGINAL BAVARIAN ENGINE</span>
           </a>
 
