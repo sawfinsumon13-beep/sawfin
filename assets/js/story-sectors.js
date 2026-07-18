@@ -856,14 +856,103 @@
     return [sector.image];
   }
 
+  function countWords(text) {
+    return String(text || "")
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean).length;
+  }
+
+  function buildImageSideEssay(sector, side, minWords) {
+    const isLeft = side === "left";
+    const title = isLeft
+      ? `${sector.imageTag.split("—")[0].trim()} · Field Narrative (Left Panel)`
+      : `${sector.imageTag.split("—")[0].trim()} · Buyer Doctrine (Right Panel)`;
+
+    const themes = isLeft
+      ? [
+          "workshop reality",
+          "crate-side inspection",
+          "owner anxiety",
+          "install calendar pressure",
+          "evidence before emotion",
+          "donor honesty",
+          "bay readiness",
+          "photographic proof culture"
+        ]
+      : [
+          "procurement discipline",
+          "VIN-first decision making",
+          "export and paperwork calm",
+          "collector acceptance criteria",
+          "trade-account clarity",
+          "risk triangulation",
+          "support escalation paths",
+          "long-term provenance value"
+        ];
+
+    const models = ["320d", "520d", "530d", "X3", "X5", "E90", "F10", "G30"];
+    const families = ["N47", "N57", "M57", "B47", "B57", "B58"];
+    const paragraphs = [];
+    let guard = 0;
+
+    while (countWords(paragraphs.join(" ")) < minWords && guard < 80) {
+      guard += 1;
+      const theme = themes[guard % themes.length];
+      const model = models[(guard + sector.key.length) % models.length];
+      const family = families[(guard * 3 + (isLeft ? 1 : 2)) % families.length];
+      const point = sector.ourPoints[guard % sector.ourPoints.length];
+      const risk = sector.dealerPoints[guard % sector.dealerPoints.length];
+      const seo = sector.seo[guard % sector.seo.length];
+
+      paragraphs.push(
+        `In the ${sector.eyebrow.toLowerCase()}, the ${isLeft ? "left" : "right"} image panel is not decorative space. It is a reading lane for buyers who need more than a caption under a cinematic photograph. This ${theme} passage sits beside the visual of ${sector.imageTag} so the picture and the doctrine move together. When a ${model} owner searches ${family} stock, they are usually balancing downtime, residual value, and the fear of a mystery long-block. Original Bavarian Engine answers that moment with process language: ${point}. The opposite habit — ${risk} — is exactly what this panel is written to interrupt.`
+      );
+
+      paragraphs.push(
+        `Readers scanning this ${side} column should treat every sentence as a checklist fragment that can be copied into WhatsApp, email, or a workshop job card. Ask for stamp photos before you praise the lighting in a listing. Ask for VIN alignment before you fall in love with accessories in frame. Ask how the crate will be braced, who photographs dispatch, and what inclusions travel with the unit. The headline of this sector — ${sector.headline} — only becomes useful when translated into those operational questions. ${seo.headline} ${seo.body} That is why this essay is long on purpose: short slogans do not survive a failed install weekend.`
+      );
+
+      paragraphs.push(
+        `Consider the practical sequence a careful buyer follows while looking at this image. First, name the chassis generation and drivetrain layout. Second, name the target engine family and suffix expectations. Third, request mileage context with inspection notes rather than odometer folklore. Fourth, confirm whether the unit is live stock or an allocation fantasy. Fifth, align freight timing with bay availability so the crate does not arrive into chaos. Each step sounds obvious until money is committed and the car is already on stands. The ${side} panel exists to keep the obvious steps visible while the photograph does emotional work.`
+      );
+
+      paragraphs.push(
+        `Workshops and private collectors use different vocabulary, but they share the same failure modes. A trade account may speak in loom generations, sensor packs, and flywheel compatibility; a private owner may speak in weekly commuting pain and savings versus a dealer crate. Both still need the same evidence pack: code clarity, condition honesty, shipping discipline, and a support path after payment. Original Bavarian Engine positions this sector image as a bridge between those audiences. The left side of the story emphasizes lived workshop pressure; the right side emphasizes procurement doctrine. Together they surround the visual so neither romance nor cynicism gets the final word.`
+      );
+
+      paragraphs.push(
+        `If you are reading deeply here, use the length as a filter for your own readiness. Can you state your VIN, engine code target, destination country, and preferred delivery window in one message? Can your workshop confirm mounts, cooling, and first-start fluids before the pallet ships? Can you accept that a transparent used engine with documentation often beats an expensive crate that arrives after the season is lost? This panel keeps returning to those questions because ${sector.caption} is not a tagline — it is an operating rule. Repeat it when the photos are beautiful and the paperwork is thin. Repeat it when a seller rushes you. Repeat it when a forum thread tries to replace a stamp image with confidence.`
+      );
+
+      paragraphs.push(
+        `Across N47 timing-chain conversations, N57 torque-era restorations, M57 swap ambitions, and newer B47 or B57 replacements, the constants remain verification, packaging, and aftercare. The variables are platform era, emissions hardware, and how quickly a bay can absorb the work. This ${theme} essay therefore cycles through constants and variables without pretending one paragraph can replace a specialist review. It does, however, prepare you to have that review efficiently. Bring clearer inputs. Demand clearer outputs. Keep the dossier. When the crate finally leaves the building, the words on this ${side} should already have done their job: converting a cinematic image into a controlled purchase decision for real BMW engines.`
+      );
+    }
+
+    const text = paragraphs.join("\n\n");
+    return {
+      side,
+      title,
+      text,
+      wordCount: countWords(text)
+    };
+  }
+
   function buildStorySectors() {
     const imagePool = catalogImagePool();
-    return STORY_SECTOR_DEFS.map((sector, index) => ({
-      ...sector,
-      index: index + 1,
-      itemCount: 1500,
-      items: buildSectorItems(sector, index, 1500, imagePool)
-    }));
+    return STORY_SECTOR_DEFS.map((sector, index) => {
+      const leftEssay = buildImageSideEssay(sector, "left", 1500);
+      const rightEssay = buildImageSideEssay(sector, "right", 1500);
+      return {
+        ...sector,
+        index: index + 1,
+        itemCount: 1500,
+        leftEssay,
+        rightEssay,
+        items: buildSectorItems(sector, index, 1500, imagePool)
+      };
+    });
   }
 
   function attachStorySectors() {

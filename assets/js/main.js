@@ -442,10 +442,26 @@
               </div>
             </div>
 
-            <figure class="story-sector-figure mt-10 overflow-hidden rounded-2xl">
-              <img src="${escapeHtml(sector.image)}" alt="${escapeHtml(sector.headline)}" loading="lazy" decoding="async" width="1600" height="900" />
-              <figcaption class="story-sector-tag">${escapeHtml(sector.imageTag)}</figcaption>
-            </figure>
+            <div class="story-sector-visual mt-10 overflow-hidden rounded-2xl">
+              <aside class="story-side-essay story-side-essay--left" aria-label="Left image essay">
+                <p class="story-side-kicker">Left panel · ${Number(sector.leftEssay && sector.leftEssay.wordCount).toLocaleString("en-US")} words</p>
+                <h3 class="story-side-title">${escapeHtml((sector.leftEssay && sector.leftEssay.title) || "Left narrative")}</h3>
+                <div class="story-side-scroll">
+                  ${essayToParagraphs(sector.leftEssay && sector.leftEssay.text)}
+                </div>
+              </aside>
+              <figure class="story-sector-figure">
+                <img src="${escapeHtml(sector.image)}" alt="${escapeHtml(sector.headline)}" loading="lazy" decoding="async" width="1600" height="900" />
+                <figcaption class="story-sector-tag">${escapeHtml(sector.imageTag)}</figcaption>
+              </figure>
+              <aside class="story-side-essay story-side-essay--right" aria-label="Right image essay">
+                <p class="story-side-kicker">Right panel · ${Number(sector.rightEssay && sector.rightEssay.wordCount).toLocaleString("en-US")} words</p>
+                <h3 class="story-side-title">${escapeHtml((sector.rightEssay && sector.rightEssay.title) || "Right doctrine")}</h3>
+                <div class="story-side-scroll">
+                  ${essayToParagraphs(sector.rightEssay && sector.rightEssay.text)}
+                </div>
+              </aside>
+            </div>
             <p class="mt-4 text-center text-xs uppercase tracking-[0.18em] text-[var(--muted)]">${escapeHtml(sector.caption)}</p>
 
             <div class="mt-10">
@@ -626,6 +642,14 @@
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#39;");
+  }
+
+  function essayToParagraphs(text) {
+    return String(text || "")
+      .split(/\n\n+/)
+      .filter(Boolean)
+      .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+      .join("");
   }
 
   function renderCollectionPage() {
