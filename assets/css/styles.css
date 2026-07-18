@@ -1,26 +1,28 @@
 :root {
-  --matte-black: #111111;
-  --deep-graphite: #1f1f1f;
-  --silver-metallic: #c8c8c8;
-  --accent-blue: #2e5bff;
-  --white-soft: #f7f7f7;
-  --bg: #111111;
-  --bg-elevated: #1f1f1f;
-  --text: #f7f7f7;
-  --muted: #c8c8c8;
-  --border: rgba(200, 200, 200, 0.25);
-  --glass: rgba(255, 255, 255, 0.06);
-  --shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  --matte-black: #000000;
+  --deep-graphite: #0a0f0a;
+  --silver-metallic: #9aa89a;
+  --accent-blue: #00ff66;
+  --white-soft: #e8ffe8;
+  --bg: #000000;
+  --bg-elevated: #050805;
+  --text: #d7ffd7;
+  --muted: #7f9a7f;
+  --border: rgba(0, 255, 102, 0.22);
+  --glass: rgba(0, 255, 102, 0.05);
+  --shadow: 0 24px 64px rgba(0, 0, 0, 0.75);
+  --hack-green: #00ff66;
+  --hack-dim: rgba(0, 255, 102, 0.12);
 }
 
 html.light-mode {
-  --bg: #f7f7f7;
-  --bg-elevated: #ffffff;
-  --text: #111111;
-  --muted: #444444;
-  --border: rgba(17, 17, 17, 0.12);
-  --glass: rgba(17, 17, 17, 0.06);
-  --shadow: 0 24px 64px rgba(17, 17, 17, 0.12);
+  --bg: #061006;
+  --bg-elevated: #0b160b;
+  --text: #d7ffd7;
+  --muted: #7f9a7f;
+  --border: rgba(0, 255, 102, 0.22);
+  --glass: rgba(0, 255, 102, 0.05);
+  --shadow: 0 24px 64px rgba(0, 0, 0, 0.65);
 }
 
 * {
@@ -28,23 +30,20 @@ html.light-mode {
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Share Tech Mono", "Courier New", ui-monospace, monospace;
   background:
-    radial-gradient(circle at 12% -5%, rgba(224, 58, 58, 0.5), transparent 36%),
-    radial-gradient(circle at 88% 8%, rgba(200, 40, 110, 0.34), transparent 40%),
-    radial-gradient(circle at 50% 78%, rgba(146, 36, 96, 0.24), transparent 48%),
-    linear-gradient(165deg, #030408 0%, #080a12 52%, #06070e 100%);
+    radial-gradient(circle at 12% 0%, rgba(0, 255, 102, 0.16), transparent 34%),
+    radial-gradient(circle at 88% 18%, rgba(0, 180, 80, 0.1), transparent 40%),
+    linear-gradient(180deg, #000000 0%, #020402 45%, #000000 100%);
   color: var(--text);
   min-height: 100vh;
 }
 
 body.home-color-3d {
   background:
-    radial-gradient(circle at 14% 16%, rgba(228, 42, 42, 0.52), transparent 42%),
-    radial-gradient(circle at 84% 20%, rgba(216, 52, 120, 0.4), transparent 42%),
-    radial-gradient(circle at 73% 78%, rgba(148, 28, 98, 0.32), transparent 45%),
-    radial-gradient(circle at 28% 82%, rgba(200, 200, 200, 0.07), transparent 48%),
-    linear-gradient(168deg, #06070b 0%, #090b14 48%, #070910 100%);
+    radial-gradient(circle at 18% 12%, rgba(0, 255, 102, 0.18), transparent 38%),
+    radial-gradient(circle at 82% 22%, rgba(0, 160, 70, 0.12), transparent 42%),
+    linear-gradient(180deg, #000000 0%, #031003 50%, #000000 100%);
 }
 
 body::before {
@@ -52,52 +51,54 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.46;
+  opacity: 0.55;
   background-image:
-    conic-gradient(from 210deg at 30% 20%, rgba(255, 74, 74, 0.26), transparent 32%, rgba(88, 114, 255, 0.18) 58%, transparent 86%),
-    linear-gradient(130deg, rgba(255, 120, 120, 0.16), transparent 36%, rgba(88, 114, 255, 0.12) 70%, transparent 100%),
-    url("../images/industrial-texture.svg");
-  background-size: cover, cover, 320px 320px;
+    repeating-linear-gradient(0deg, rgba(0, 255, 102, 0.05) 0 1px, transparent 1px 3px),
+    linear-gradient(rgba(0, 255, 102, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 102, 0.08) 1px, transparent 1px);
+  background-size: 100% 4px, 28px 28px, 28px 28px;
   mix-blend-mode: screen;
-  animation: laserNebula 16s ease-in-out infinite;
+  animation: hackScan 8s linear infinite;
   z-index: -1;
 }
 
 body::after {
-  content: "";
+  content: "01001111 01000010 01000101  >_ ACCESS // ENGINE_CORE // VIN_MATCH // CRATE_READY";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.78;
+  opacity: 0.08;
+  color: #00ff66;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  white-space: pre-wrap;
+  padding: 2rem;
   background-image:
-    repeating-linear-gradient(112deg, rgba(255, 72, 72, 0.34) 0 3px, transparent 3px 56px),
-    repeating-linear-gradient(24deg, rgba(92, 126, 255, 0.28) 0 2px, transparent 2px 74px),
-    linear-gradient(rgba(168, 56, 56, 0.11) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(168, 56, 56, 0.11) 1px, transparent 1px);
-  background-size: 300px 300px, 360px 360px, 32px 32px, 32px 32px;
-  mix-blend-mode: screen;
-  animation: laserSweep 12s linear infinite, laserFlicker 3.5s ease-in-out infinite;
+    radial-gradient(circle at 20% 20%, rgba(0, 255, 102, 0.14), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(0, 255, 102, 0.1), transparent 34%);
+  animation: hackFlicker 3.2s ease-in-out infinite;
 }
 
 html.light-mode body {
   background:
-    radial-gradient(circle at 20% 0%, rgba(180, 40, 40, 0.12), transparent 40%),
-    radial-gradient(circle at 85% 22%, rgba(150, 34, 34, 0.08), transparent 42%),
-    #f3f3f4;
+    radial-gradient(circle at 20% 0%, rgba(0, 255, 102, 0.12), transparent 40%),
+    #000000;
 }
 
 html.light-mode body::after {
-  opacity: 0.28;
-  animation: none;
+  opacity: 0.1;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: "Playfair Display", Georgia, serif;
-  letter-spacing: 0.02em;
+  font-family: "Share Tech Mono", "Courier New", ui-monospace, monospace;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 18px rgba(0, 255, 102, 0.22);
 }
 
 .glass-card {
@@ -340,23 +341,25 @@ html.light-mode .heading-accent {
 }
 
 .btn-primary {
-  background: linear-gradient(120deg, #2e5bff, #1f46db);
-  color: #f7f7f7;
+  background: linear-gradient(120deg, #00ff66, #00b84a);
+  color: #001406;
+  text-shadow: none;
+  box-shadow: 0 0 18px rgba(0, 255, 102, 0.25);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 0 0 4px rgba(46, 91, 255, 0.2), 0 12px 34px rgba(46, 91, 255, 0.45);
+  box-shadow: 0 0 0 4px rgba(0, 255, 102, 0.18), 0 12px 34px rgba(0, 255, 102, 0.35);
 }
 
 .btn-secondary {
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(0, 255, 102, 0.04);
   color: var(--text);
 }
 
 .btn-secondary:hover {
-  border-color: rgba(46, 91, 255, 0.75);
-  box-shadow: 0 0 0 4px rgba(46, 91, 255, 0.12);
+  border-color: rgba(0, 255, 102, 0.75);
+  box-shadow: 0 0 0 4px rgba(0, 255, 102, 0.12);
 }
 
 .hover-glow {
@@ -594,6 +597,28 @@ body.page-leave .page-shell {
   }
   50% {
     transform: translate3d(12px, -8px, 0) scale(1.02);
+  }
+}
+
+@keyframes hackScan {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 120px, 0 0, 0 0;
+  }
+}
+
+@keyframes hackFlicker {
+  0%,
+  100% {
+    opacity: 0.07;
+  }
+  40% {
+    opacity: 0.11;
+  }
+  70% {
+    opacity: 0.05;
   }
 }
 

@@ -2,7 +2,7 @@
   "use strict";
 
   const data = window.OBE_DATA || { products: [], reviews: [], faqs: [] };
-  const WHATSAPP_NUMBER = "4915510030835";
+  const WHATSAPP_NUMBER = "4917613627363";
   const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     "Hello Original Bavarian Engine, I need help choosing the right old BMW engine."
   )}`;
@@ -261,9 +261,8 @@
           <div>
             <h3 class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--text)]">Direct Contact</h3>
             <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
-              <li><a href="tel:+4915510030835" class="transition hover:text-[var(--accent-blue)]">+49 15510 030835</a></li>
-              <li><a href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" class="transition hover:text-[var(--accent-blue)]">WhatsApp Chat</a></li>
-              <li><a href="mailto:originalbavarianengine@gmail.com" class="transition hover:text-[var(--accent-blue)]">originalbavarianengine@gmail.com</a></li>
+              <li>Email: <a href="mailto:flashkingpro202@gmail.com" class="transition hover:text-[var(--accent-blue)]">flashkingpro202@gmail.com</a></li>
+              <li>WhatsApp: <a href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" class="transition hover:text-[var(--accent-blue)]">+49 176 13627363</a></li>
               <li>Worldwide shipping from Germany</li>
             </ul>
           </div>

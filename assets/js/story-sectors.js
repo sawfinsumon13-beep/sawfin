@@ -154,7 +154,7 @@
       imageTag: "VIN — Match First",
       caption: "Compatibility is a document workflow, not a hope.",
       primaryCta: { href: "contact.html", label: "Check my VIN" },
-      secondaryCta: { href: "https://wa.me/4915510030835", label: "WhatsApp fitment" }
+      secondaryCta: { href: "https://wa.me/4917613627363", label: "WhatsApp fitment" }
     },
     {
       key: "live-inventory",
@@ -686,7 +686,7 @@
       imageTag: "Support — Specialist Desk",
       caption: "Ask early. Ask precisely. Get a technical answer.",
       primaryCta: { href: "contact.html", label: "Contact specialists" },
-      secondaryCta: { href: "https://wa.me/4915510030835", label: "Open WhatsApp" }
+      secondaryCta: { href: "https://wa.me/4917613627363", label: "Open WhatsApp" }
     },
     {
       key: "market-velocity",
