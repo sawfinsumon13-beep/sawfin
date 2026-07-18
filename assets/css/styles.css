@@ -1328,3 +1328,30 @@ section,
   border-radius: 999px;
   filter: drop-shadow(0 0 10px rgba(40, 140, 255, 0.45));
 }
+
+
+.btn-buy-email {
+  color: #001406 !important;
+  background: linear-gradient(120deg, #00ff66, #00b84a);
+  border: 1px solid rgba(0, 255, 102, 0.55);
+  box-shadow: 0 0 18px rgba(0, 255, 102, 0.28);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-buy-email:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.btn-buy-whatsapp {
+  color: #ffffff !important;
+  background: #25d366;
+  border: 1px solid rgba(37, 211, 102, 0.65);
+  box-shadow: 0 0 18px rgba(37, 211, 102, 0.28);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-buy-whatsapp:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
