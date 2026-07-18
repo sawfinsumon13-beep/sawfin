@@ -33,7 +33,7 @@
         }
       };
     </script>
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260718o" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260718p" />
     <style>
       .spa-view[hidden] { display: none !important; }
       .spa-view.active { display: block; }
@@ -51,9 +51,9 @@
     }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="assets/js/data.js?v=20260718o" defer></script>
+    <script src="assets/js/data.js?v=20260718p" defer></script>
     <script src="assets/js/story-sectors.js?v=20260718m" defer></script>
-    <script src="assets/js/blog-blocks.js?v=20260718m" defer></script>
+    <script src="assets/js/blog-blocks.js?v=20260718p" defer></script>
     <script src="assets/js/matrix-rain.js?v=20260718o" defer></script>
     <script src="assets/js/main.js?v=20260718o" defer></script>
   </head>
@@ -70,13 +70,18 @@
     <main id="spaRoot">
 <section id="view-home" class="spa-view active" data-spa-view="home">
 <section class="hero-cinematic fine-grid-bg relative min-h-screen overflow-hidden px-4 pb-20 pt-32 md:px-8">
+        <div id="heroCarSlideshow" class="hero-car-slideshow" aria-hidden="true">
+          <div class="hero-slide-track" data-hero-slides></div>
+          <div class="hero-slide-veil"></div>
+          <div class="hero-slide-dots" data-hero-dots></div>
+        </div>
         <div class="color-3d-layer layer-a left-[4%] top-[18%]"></div>
         <div class="color-3d-layer layer-b right-[8%] top-[26%]"></div>
         <div class="color-3d-layer layer-c right-[14%] bottom-[8%]"></div>
         <div class="pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-accent/30 blur-3xl" data-parallax="0.03"></div>
         <div class="pointer-events-none absolute -right-24 bottom-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" data-parallax="0.05"></div>
         <div class="three-d-orbit pointer-events-none left-1/2 top-24 h-[320px] w-[320px] -translate-x-1/2 opacity-70"></div>
-        <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <div class="relative z-[3] mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div class="space-y-8">
             <p data-gsap-hero class="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-cloud">
               Original Bavarian Engine • Germany

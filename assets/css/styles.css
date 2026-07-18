@@ -1355,3 +1355,102 @@ section,
   transform: translateY(-1px);
   filter: brightness(1.06);
 }
+
+/* Hero BMW car slideshow */
+.hero-car-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-slide-track {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 1.35s ease, transform 6.5s ease;
+  will-change: opacity, transform;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.hero-slide-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(105deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.55) 42%, rgba(0, 0, 0, 0.42) 68%, rgba(0, 0, 0, 0.62) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.2) 35%, rgba(0, 0, 0, 0.72) 100%),
+    radial-gradient(ellipse at 70% 40%, rgba(0, 255, 102, 0.08), transparent 55%);
+}
+
+.hero-slide-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 1.15rem;
+  z-index: 4;
+  display: flex;
+  gap: 0.4rem;
+  transform: translateX(-50%);
+  pointer-events: auto;
+}
+
+.hero-slide-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 255, 102, 0.45);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0;
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.hero-slide-dot.is-active {
+  width: 1.35rem;
+  background: #00ff66;
+  border-color: rgba(0, 255, 102, 0.9);
+  box-shadow: 0 0 12px rgba(0, 255, 102, 0.45);
+}
+
+.hero-cinematic {
+  background-color: #000000;
+}
+
+.hero-cinematic > .color-3d-layer,
+.hero-cinematic > .three-d-orbit {
+  z-index: 1;
+  opacity: 0.35;
+}
+
+@media (max-width: 768px) {
+  .hero-slide-dots {
+    bottom: 0.75rem;
+  }
+
+  .hero-slide-veil {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.55) 45%, rgba(0, 0, 0, 0.82) 100%),
+      radial-gradient(ellipse at center, rgba(0, 255, 102, 0.06), transparent 60%);
+  }
+}

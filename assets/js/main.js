@@ -38,6 +38,7 @@
     renderFooter();
     renderGlobalWidgets();
     if (typeof window.OBE_INIT_MATRIX_RAIN === "function") window.OBE_INIT_MATRIX_RAIN();
+    if (typeof window.OBE_INIT_HERO_SLIDESHOW === "function") window.OBE_INIT_HERO_SLIDESHOW();
     initNoteCardDelegation();
     initTheme();
     initLoader();
@@ -129,6 +130,7 @@
   function routePageFeatures() {
     const page = document.body.dataset.page;
     if (page === "home") {
+      if (typeof window.OBE_INIT_HERO_SLIDESHOW === "function") window.OBE_INIT_HERO_SLIDESHOW();
       renderFeaturedProducts();
       renderStorySectors();
       renderContentLibrary();
@@ -1206,11 +1208,40 @@
     const quoteCode = document.getElementById("quoteEngineCode");
     if (quoteCode) quoteCode.value = product.code;
 
-    const detailsActions = document.getElementById("detailsActions");
+    const detailsActions = findMount("detailsActions");
     if (detailsActions) {
+      const buyMessage = [
+        "Hello Original Bavarian Engine,",
+        "I want to buy this product:",
+        `Code: ${product.code}`,
+        `Title: ${product.title}`,
+        `Price: ${price}`,
+        `Year: ${product.year}`,
+        `Mileage: ${product.mileage}`,
+        `Condition: ${product.condition}`,
+        `Product ID: ${product.id}`,
+        "Please confirm availability and payment steps."
+      ].join("\n");
+      const emailHref = `mailto:flashkingpro202@gmail.com?subject=${encodeURIComponent(
+        `Buy ${product.code} — ${product.title}`
+      )}&body=${encodeURIComponent(buyMessage)}`;
+      const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buyMessage)}`;
+
       detailsActions.innerHTML = `
-        <button type="button" data-action="wishlist" data-id="${product.id}" class="btn-secondary rounded-full px-5 py-2 text-sm">${state.wishlist.has(product.id) ? "Wishlisted" : "Add to Wishlist"}</button>
-        <button type="button" data-action="compare" data-id="${product.id}" class="btn-primary rounded-full px-5 py-2 text-sm">${state.compare.has(product.id) ? "Added to Compare" : "Compare Engine"}</button>
+        <div class="flex w-full flex-col gap-3">
+          <a href="${emailHref}" class="btn-buy-email inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold uppercase tracking-[0.08em]">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            Buy the product via email
+          </a>
+          <a href="${whatsappHref}" target="_blank" rel="noopener noreferrer" class="btn-buy-whatsapp inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold uppercase tracking-[0.08em]">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.15 6.4 2.15 11.82c0 1.96.52 3.87 1.51 5.56L2 22l4.79-1.57a9.9 9.9 0 0 0 5.25 1.48h.01c5.46 0 9.89-4.4 9.89-9.82S17.5 2 12.04 2zm5.72 13.95c-.24.67-1.4 1.23-1.93 1.31-.49.07-1.11.1-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.7-4.1-4.84-4.29-.14-.19-1.14-1.51-1.14-2.88 0-1.37.72-2.04.98-2.32.26-.28.56-.35.75-.35h.54c.17 0 .4-.06.62.48.24.58.81 2 .88 2.15.07.14.12.31.02.5-.1.19-.14.31-.28.48-.14.17-.3.37-.43.5-.14.14-.29.29-.12.56.17.28.75 1.23 1.61 1.99 1.11.98 2.04 1.28 2.33 1.42.28.14.45.12.62-.07.17-.19.71-.82.9-1.1.19-.28.38-.23.64-.14.26.1 1.67.79 1.96.93.28.14.47.21.54.33.07.12.07.69-.17 1.36z"/></svg>
+            Buy the product via WhatsApp
+          </a>
+          <div class="mt-1 flex flex-wrap gap-3">
+            <button type="button" data-action="wishlist" data-id="${product.id}" class="btn-secondary rounded-full px-5 py-2 text-sm">${state.wishlist.has(product.id) ? "Wishlisted" : "Add to Wishlist"}</button>
+            <button type="button" data-action="compare" data-id="${product.id}" class="btn-primary rounded-full px-5 py-2 text-sm">${state.compare.has(product.id) ? "Added to Compare" : "Compare Engine"}</button>
+          </div>
+        </div>
       `;
       bindProductActions(detailsActions);
     }
