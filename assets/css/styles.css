@@ -681,10 +681,12 @@ body.page-leave .page-shell {
   transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
 }
 
-.story-sector-chip:hover {
-  border-color: rgba(46, 91, 255, 0.5);
-  color: var(--text);
-  background: rgba(46, 91, 255, 0.12);
+.story-sector-chip:hover,
+.story-sector-chip.is-active {
+  border-color: rgba(0, 255, 102, 0.75);
+  color: #d7ffd7;
+  background: rgba(0, 255, 102, 0.16);
+  box-shadow: 0 0 16px rgba(0, 255, 102, 0.18);
 }
 
 .story-sector-eyebrow {
@@ -1023,9 +1025,42 @@ body.note-reader-open {
   background: rgba(255, 255, 255, 0.04);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .hero-cinematic::after {
     font-size: 0.65rem;
+  }
+
+  /* Prevent invisible content on mobile when tall sectors never reach reveal thresholds */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  #storySectorMount {
+    min-height: 50vh;
+  }
+
+  .story-sector {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .story-sector-visual {
+    min-height: 0;
+  }
+
+  .story-side-scroll {
+    max-height: 240px;
+  }
+
+  .story-sector-nav {
+    position: sticky;
+    top: 4.5rem;
+    z-index: 30;
+    padding-top: 0.35rem;
+    padding-bottom: 0.55rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.72));
   }
 }
 

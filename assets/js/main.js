@@ -366,23 +366,38 @@
     sectors.forEach((sector) => {
       visibleBySector[sector.key] = 12;
     });
+    let activeSectorKey = sectors[0] ? sectors[0].key : "";
+    const isMobileView = function () {
+      return window.innerWidth < 900;
+    };
 
     if (totalEl) {
       const total = sectors.reduce((sum, sector) => sum + (sector.items ? sector.items.length : 0), 0);
       totalEl.textContent = `${total.toLocaleString("en-US")} content pieces across ${sectors.length} sectors`;
     }
 
-    if (nav) {
+    const renderNav = function () {
+      if (!nav) return;
       nav.innerHTML = sectors
-        .map(
-          (sector) => `
-          <a href="#story-sector-${escapeHtml(sector.key)}" class="story-sector-chip whitespace-nowrap rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.14em]">
+        .map((sector) => {
+          const active = sector.key === activeSectorKey;
+          return `
+          <button type="button" data-story-sector-tab="${escapeHtml(sector.key)}" class="story-sector-chip whitespace-nowrap rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.14em] ${active ? "is-active" : ""}">
             ${String(sector.index).padStart(2, "0")}. ${escapeHtml(sector.imageTag.split("—")[0].trim())}
-          </a>
-        `
-        )
+          </button>
+        `;
+        })
         .join("");
-    }
+
+      nav.querySelectorAll("[data-story-sector-tab]").forEach((button) => {
+        button.addEventListener("click", function () {
+          activeSectorKey = button.getAttribute("data-story-sector-tab") || activeSectorKey;
+          renderNav();
+          render();
+          mount.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    };
 
     const ctaAttrs = function (href) {
       if (/^https?:/i.test(href)) {
@@ -392,7 +407,11 @@
     };
 
     const render = function () {
-      mount.innerHTML = sectors
+      const sectorsToRender = isMobileView()
+        ? sectors.filter((sector) => sector.key === activeSectorKey)
+        : sectors;
+
+      mount.innerHTML = sectorsToRender
         .map((sector) => {
           const visibleLimit = visibleBySector[sector.key] || 12;
           const items = sector.items || [];
@@ -526,7 +545,20 @@
       initRevealOnScroll();
     };
 
+    renderNav();
     render();
+    let wasMobile = isMobileView();
+    window.addEventListener(
+      "resize",
+      function () {
+        const nowMobile = isMobileView();
+        if (nowMobile === wasMobile) return;
+        wasMobile = nowMobile;
+        renderNav();
+        render();
+      },
+      { passive: true }
+    );
   }
 
   function renderContentLibrary() {
@@ -1229,20 +1261,31 @@
   }
 
   function initRevealOnScroll() {
-    const elements = document.querySelectorAll(".reveal");
+    const elements = document.querySelectorAll(".reveal:not(.reveal-visible)");
     if (!elements.length) return;
+
+    // Tall mobile sections can never reach a high threshold; use near-zero visibility.
     const observer = new IntersectionObserver(
       function (entries) {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting || entry.intersectionRatio > 0) {
             entry.target.classList.add("reveal-visible");
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0, rootMargin: "120px 0px 120px 0px" }
     );
-    elements.forEach((element) => observer.observe(element));
+
+    elements.forEach((element) => {
+      const rect = element.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight + 120 && rect.bottom > -120;
+      if (inView || window.innerWidth < 900) {
+        element.classList.add("reveal-visible");
+      } else {
+        observer.observe(element);
+      }
+    });
   }
 
   function initParallax() {

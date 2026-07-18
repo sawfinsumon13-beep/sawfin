@@ -347,6 +347,13 @@
       body.note-reader-open { overflow:hidden; }
 
       html, body { background-color: #000 !important; }
+      @media (max-width: 900px) {
+        .reveal { opacity: 1 !important; transform: none !important; }
+        .story-sector { display:block !important; visibility:visible !important; opacity:1 !important; }
+        #storySectorMount { min-height: 50vh; }
+        .story-sector-nav { position: sticky; top: 4.5rem; z-index: 30; background: rgba(0,0,0,.9); }
+        .story-sector-chip.is-active { border-color: rgba(0,255,102,.75); background: rgba(0,255,102,.16); color:#d7ffd7; }
+      }
       .glass, .value-3d-card, .comparison-shell, .comparison-cell, .depth-ribbon,
       .content-note-card, .story-compare-card, .story-sector-visual, .note-reader-panel, .chip {
         background-image: none !important;
@@ -3240,180 +3247,210 @@ function buildContentLibrary() {
       }
 
       function renderStorySectors() {
-          if (typeof window.OBE_BUILD_STORY_SECTORS === "function") {
-            window.OBE_BUILD_STORY_SECTORS();
-          }
-      
-          const mount = document.getElementById("storySectorMount");
-          const nav = document.getElementById("storySectorNav");
-          const totalEl = document.getElementById("storySectorTotal");
-          const sectors = (DATA && DATA.storySectors) || window.OBE_STORY_SECTORS || [];
-          if (!mount || !sectors.length) return;
-      
-          const visibleBySector = {};
-          sectors.forEach((sector) => {
-            visibleBySector[sector.key] = 12;
+        if (typeof window.OBE_BUILD_STORY_SECTORS === "function") {
+          window.OBE_BUILD_STORY_SECTORS();
+        }
+
+        const mount = document.getElementById("storySectorMount");
+        const nav = document.getElementById("storySectorNav");
+        const totalEl = document.getElementById("storySectorTotal");
+        const sectors = (window.OBE_DATA && window.OBE_DATA.storySectors) || window.OBE_STORY_SECTORS || [];
+        if (!mount || !sectors.length) return;
+
+        const visibleBySector = {};
+        sectors.forEach((sector) => {
+          visibleBySector[sector.key] = 12;
+        });
+        let activeSectorKey = sectors[0] ? sectors[0].key : "";
+        const isMobileView = function () {
+          return window.innerWidth < 900;
+        };
+
+        if (totalEl) {
+          const total = sectors.reduce((sum, sector) => sum + (sector.items ? sector.items.length : 0), 0);
+          totalEl.textContent = `${total.toLocaleString("en-US")} content pieces across ${sectors.length} sectors`;
+        }
+
+        const renderNav = function () {
+          if (!nav) return;
+          nav.innerHTML = sectors
+            .map((sector) => {
+              const active = sector.key === activeSectorKey;
+              return `
+              <button type="button" data-story-sector-tab="${escapeHtml(sector.key)}" class="story-sector-chip whitespace-nowrap rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.14em] ${active ? "is-active" : ""}">
+                ${String(sector.index).padStart(2, "0")}. ${escapeHtml(sector.imageTag.split("—")[0].trim())}
+              </button>
+            `;
+            })
+            .join("");
+
+          nav.querySelectorAll("[data-story-sector-tab]").forEach((button) => {
+            button.addEventListener("click", function () {
+              activeSectorKey = button.getAttribute("data-story-sector-tab") || activeSectorKey;
+              renderNav();
+              render();
+              mount.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
           });
-      
-          if (totalEl) {
-            const total = sectors.reduce((sum, sector) => sum + (sector.items ? sector.items.length : 0), 0);
-            totalEl.textContent = `${total.toLocaleString("en-US")} content pieces across ${sectors.length} sectors`;
+        };
+
+        const ctaAttrs = function (href) {
+          if (/^https?:/i.test(href)) {
+            return `href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"`;
           }
-      
-          if (nav) {
-            nav.innerHTML = sectors
-              .map(
-                (sector) => `
-                <a href="#story-sector-${escapeHtml(sector.key)}" class="story-sector-chip whitespace-nowrap rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.14em]">
-                  ${String(sector.index).padStart(2, "0")}. ${escapeHtml(sector.imageTag.split("—")[0].trim())}
-                </a>
-              `
-              )
-              .join("");
-          }
-      
-          const ctaAttrs = function (href) {
-            if (/^https?:/i.test(href)) {
-              return `href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"`;
-            }
-            return `href="${escapeHtml(href)}" `;
-          };
-      
-          const render = function () {
-            mount.innerHTML = sectors
-              .map((sector) => {
-                const visibleLimit = visibleBySector[sector.key] || 12;
-                const items = sector.items || [];
-                const visibleItems = items.slice(0, visibleLimit);
-                const remaining = Math.max(items.length - visibleLimit, 0);
-      
-                return `
-                <article id="story-sector-${escapeHtml(sector.key)}" class="story-sector reveal">
-                  <div class="mx-auto max-w-4xl text-center">
-                    <p class="story-sector-eyebrow">${escapeHtml(sector.eyebrow)}</p>
-                    <h2 class="mt-4 text-3xl leading-tight text-[var(--text)] md:text-5xl">${escapeHtml(sector.headline)}</h2>
-                    <p class="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-[var(--muted)] md:text-base">${escapeHtml(sector.intro)}</p>
+          return `href="${escapeHtml(href)}" data-transition`;
+        };
+
+        const render = function () {
+          const sectorsToRender = isMobileView()
+            ? sectors.filter((sector) => sector.key === activeSectorKey)
+            : sectors;
+
+          mount.innerHTML = sectorsToRender
+            .map((sector) => {
+              const visibleLimit = visibleBySector[sector.key] || 12;
+              const items = sector.items || [];
+              const visibleItems = items.slice(0, visibleLimit);
+              const remaining = Math.max(items.length - visibleLimit, 0);
+
+              return `
+              <article id="story-sector-${escapeHtml(sector.key)}" class="story-sector reveal">
+                <div class="mx-auto max-w-4xl text-center">
+                  <p class="story-sector-eyebrow">${escapeHtml(sector.eyebrow)}</p>
+                  <h2 class="mt-4 text-3xl leading-tight text-[var(--text)] md:text-5xl">${escapeHtml(sector.headline)}</h2>
+                  <p class="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-[var(--muted)] md:text-base">${escapeHtml(sector.intro)}</p>
+                </div>
+
+                <div class="mt-10 grid gap-5 lg:grid-cols-2">
+                  <div class="story-compare-card rounded-2xl p-6 md:p-8">
+                    <h3 class="text-lg text-[var(--text)]">${escapeHtml(sector.dealerTitle)}</h3>
+                    <ul class="mt-5 space-y-3 text-sm text-[var(--muted)]">
+                      ${sector.dealerPoints.map((point) => `<li class="story-compare-point">${escapeHtml(point)}</li>`).join("")}
+                    </ul>
                   </div>
-      
-                  <div class="mt-10 grid gap-5 lg:grid-cols-2">
-                    <div class="story-compare-card rounded-2xl p-6 md:p-8">
-                      <h3 class="text-lg text-[var(--text)]">${escapeHtml(sector.dealerTitle)}</h3>
-                      <ul class="mt-5 space-y-3 text-sm text-[var(--muted)]">
-                        ${sector.dealerPoints.map((point) => `<li class="story-compare-point">${escapeHtml(point)}</li>`).join("")}
-                      </ul>
-                    </div>
-                    <div class="story-compare-card story-compare-card--accent rounded-2xl p-6 md:p-8">
-                      <h3 class="text-lg text-[var(--text)]">${escapeHtml(sector.ourTitle)}</h3>
-                      <ul class="mt-5 space-y-3 text-sm text-[var(--muted)]">
-                        ${sector.ourPoints.map((point) => `<li class="story-compare-point story-compare-point--check">${escapeHtml(point)}</li>`).join("")}
-                      </ul>
-                      <div class="mt-7 flex flex-wrap gap-3">
-                        <a ${ctaAttrs(sector.primaryCta.href)} class="btn-primary rounded-full px-5 py-2.5 text-sm font-semibold">${escapeHtml(sector.primaryCta.label)}</a>
-                        <a ${ctaAttrs(sector.secondaryCta.href)} class="btn-secondary rounded-full px-5 py-2.5 text-sm font-semibold">${escapeHtml(sector.secondaryCta.label)}</a>
-                      </div>
+                  <div class="story-compare-card story-compare-card--accent rounded-2xl p-6 md:p-8">
+                    <h3 class="text-lg text-[var(--text)]">${escapeHtml(sector.ourTitle)}</h3>
+                    <ul class="mt-5 space-y-3 text-sm text-[var(--muted)]">
+                      ${sector.ourPoints.map((point) => `<li class="story-compare-point story-compare-point--check">${escapeHtml(point)}</li>`).join("")}
+                    </ul>
+                    <div class="mt-7 flex flex-wrap gap-3">
+                      <a ${ctaAttrs(sector.primaryCta.href)} class="btn-primary rounded-full px-5 py-2.5 text-sm font-semibold">${escapeHtml(sector.primaryCta.label)}</a>
+                      <a ${ctaAttrs(sector.secondaryCta.href)} class="btn-secondary rounded-full px-5 py-2.5 text-sm font-semibold">${escapeHtml(sector.secondaryCta.label)}</a>
                     </div>
                   </div>
-      
-                  <div class="mx-auto mt-12 max-w-4xl space-y-8">
-                    ${sector.seo
+                </div>
+
+                <div class="mx-auto mt-12 max-w-4xl space-y-8">
+                  ${sector.seo
+                    .map(
+                      (block) => `
+                    <div>
+                      <h3 class="text-2xl text-[var(--text)] md:text-3xl">${escapeHtml(block.headline)}</h3>
+                      <p class="mt-3 text-sm leading-relaxed text-[var(--muted)] md:text-base">${escapeHtml(block.body)}</p>
+                    </div>
+                  `
+                    )
+                    .join("")}
+                  <div class="flex flex-wrap gap-3">
+                    <a ${ctaAttrs(sector.primaryCta.href)} class="btn-primary rounded-full px-5 py-2.5 text-sm font-semibold">${escapeHtml(sector.primaryCta.label === "Shop engines now" ? "Start with live stock" : sector.primaryCta.label)}</a>
+                    <a href="blog.html" data-transition class="btn-secondary rounded-full px-5 py-2.5 text-sm font-semibold">Read the long buyer's guide</a>
+                  </div>
+                </div>
+
+                <div class="story-sector-visual mt-10 overflow-hidden rounded-2xl">
+                  <aside class="story-side-essay story-side-essay--left" aria-label="Left image essay">
+                    <p class="story-side-kicker">Left panel · ${Number(sector.leftEssay && sector.leftEssay.wordCount).toLocaleString("en-US")} words</p>
+                    <h3 class="story-side-title">${escapeHtml((sector.leftEssay && sector.leftEssay.title) || "Left narrative")}</h3>
+                    <div class="story-side-scroll">
+                      ${essayToParagraphs(sector.leftEssay && sector.leftEssay.text)}
+                    </div>
+                  </aside>
+                  <figure class="story-sector-figure">
+                    <img src="${escapeHtml(sector.image)}" alt="${escapeHtml(sector.headline)}" loading="lazy" decoding="async" width="1600" height="900" />
+                    <figcaption class="story-sector-tag">${escapeHtml(sector.imageTag)}</figcaption>
+                  </figure>
+                  <aside class="story-side-essay story-side-essay--right" aria-label="Right image essay">
+                    <p class="story-side-kicker">Right panel · ${Number(sector.rightEssay && sector.rightEssay.wordCount).toLocaleString("en-US")} words</p>
+                    <h3 class="story-side-title">${escapeHtml((sector.rightEssay && sector.rightEssay.title) || "Right doctrine")}</h3>
+                    <div class="story-side-scroll">
+                      ${essayToParagraphs(sector.rightEssay && sector.rightEssay.text)}
+                    </div>
+                  </aside>
+                </div>
+                <p class="mt-4 text-center text-xs uppercase tracking-[0.18em] text-[var(--muted)]">${escapeHtml(sector.caption)}</p>
+
+                <div class="mt-10">
+                  <div class="mb-4 flex flex-wrap items-end justify-between gap-3">
+                    <div>
+                      <p class="text-[10px] uppercase tracking-[0.2em] text-[var(--muted)]">Sector content library</p>
+                      <h3 class="mt-1 text-xl text-[var(--text)]">1,500 shortened notes with images</h3>
+                    </div>
+                    <p class="text-sm text-[var(--muted)]">${items.length.toLocaleString("en-US")} pieces</p>
+                  </div>
+                  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    ${visibleItems
                       .map(
-                        (block) => `
-                      <div>
-                        <h3 class="text-2xl text-[var(--text)] md:text-3xl">${escapeHtml(block.headline)}</h3>
-                        <p class="mt-3 text-sm leading-relaxed text-[var(--muted)] md:text-base">${escapeHtml(block.body)}</p>
-                      </div>
+                        (item) => `
+                      <button type="button" class="content-note-card content-note-card--openable overflow-hidden rounded-2xl text-left" data-open-note="${escapeHtml(item.id)}" aria-label="Open full note ${escapeHtml(item.id)}">
+                        <div class="content-note-media">
+                          <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" width="640" height="400" />
+                        </div>
+                        <div class="p-4">
+                          <div class="flex items-center justify-between gap-2">
+                            <p class="text-[10px] uppercase tracking-[0.16em] text-[var(--muted)]">Note ${escapeHtml(item.id.split("-").pop())}</p>
+                            <span class="content-note-tag">${escapeHtml(item.tag)}</span>
+                          </div>
+                          <h4 class="mt-2 text-sm font-semibold leading-snug text-[var(--text)]">${escapeHtml(item.title)}</h4>
+                          <p class="mt-2 text-xs leading-relaxed text-[var(--muted)]">${escapeHtml(item.summary)}</p>
+                          <p class="content-note-open-label mt-3">Open full note · 1,500+ words</p>
+                        </div>
+                      </button>
                     `
                       )
                       .join("")}
-                    <div class="flex flex-wrap gap-3">
-                      <a ${ctaAttrs(sector.primaryCta.href)} class="btn-primary rounded-full px-5 py-2.5 text-sm font-semibold">${escapeHtml(sector.primaryCta.label === "Shop engines now" ? "Start with live stock" : sector.primaryCta.label)}</a>
-                      <a href="#blog"  class="btn-secondary rounded-full px-5 py-2.5 text-sm font-semibold">Read the long buyer's guide</a>
-                    </div>
                   </div>
-      
-                  <div class="story-sector-visual mt-10 overflow-hidden rounded-2xl">
-              <aside class="story-side-essay story-side-essay--left" aria-label="Left image essay">
-                <p class="story-side-kicker">Left panel · ${Number(sector.leftEssay && sector.leftEssay.wordCount).toLocaleString("en-US")} words</p>
-                <h3 class="story-side-title">${escapeHtml((sector.leftEssay && sector.leftEssay.title) || "Left narrative")}</h3>
-                <div class="story-side-scroll">
-                  ${essayToParagraphs(sector.leftEssay && sector.leftEssay.text)}
-                </div>
-              </aside>
-              <figure class="story-sector-figure">
-                <img src="${escapeHtml(sector.image)}" alt="${escapeHtml(sector.headline)}" loading="lazy" decoding="async" width="1600" height="900" />
-                <figcaption class="story-sector-tag">${escapeHtml(sector.imageTag)}</figcaption>
-              </figure>
-              <aside class="story-side-essay story-side-essay--right" aria-label="Right image essay">
-                <p class="story-side-kicker">Right panel · ${Number(sector.rightEssay && sector.rightEssay.wordCount).toLocaleString("en-US")} words</p>
-                <h3 class="story-side-title">${escapeHtml((sector.rightEssay && sector.rightEssay.title) || "Right doctrine")}</h3>
-                <div class="story-side-scroll">
-                  ${essayToParagraphs(sector.rightEssay && sector.rightEssay.text)}
-                </div>
-              </aside>
-            </div>
-                  <p class="mt-4 text-center text-xs uppercase tracking-[0.18em] text-[var(--muted)]">${escapeHtml(sector.caption)}</p>
-      
-                  <div class="mt-10">
-                    <div class="mb-4 flex flex-wrap items-end justify-between gap-3">
-                      <div>
-                        <p class="text-[10px] uppercase tracking-[0.2em] text-[var(--muted)]">Sector content library</p>
-                        <h3 class="mt-1 text-xl text-[var(--text)]">1,500 shortened notes with images</h3>
-                      </div>
-                      <p class="text-sm text-[var(--muted)]">${items.length.toLocaleString("en-US")} pieces</p>
-                    </div>
-                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                      ${visibleItems
-                        .map(
-                          (item) => `
-                        <button type="button" class="content-note-card content-note-card--openable overflow-hidden rounded-2xl text-left" data-open-note="${escapeHtml(item.id)}" aria-label="Open full note ${escapeHtml(item.id)}">
-                          <div class="content-note-media">
-                            <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" width="640" height="400" />
-                          </div>
-                          <div class="p-4">
-                            <div class="flex items-center justify-between gap-2">
-                              <p class="text-[10px] uppercase tracking-[0.16em] text-[var(--muted)]">Note ${escapeHtml(item.id.split("-").pop())}</p>
-                              <span class="content-note-tag">${escapeHtml(item.tag)}</span>
-                            </div>
-                            <h4 class="mt-2 text-sm font-semibold leading-snug text-[var(--text)]">${escapeHtml(item.title)}</h4>
-                            <p class="mt-2 text-xs leading-relaxed text-[var(--muted)]">${escapeHtml(item.summary)}</p><p class="content-note-open-label mt-3">Open full note · 1,500+ words</p></div></button>
-                      `
-                        )
-                        .join("")}
-                    </div>
-                    <div class="mt-6 flex flex-wrap items-center justify-between gap-3">
-                      <p class="text-sm text-[var(--muted)]">Showing ${visibleItems.length.toLocaleString("en-US")} of ${items.length.toLocaleString("en-US")}</p>
-                      ${
-                        remaining
-                          ? `<button type="button" class="btn-secondary rounded-full px-5 py-2.5 text-sm" data-load-story-sector="${escapeHtml(sector.key)}">Load more in this sector (${remaining.toLocaleString("en-US")} remaining)</button>`
-                          : `<p class="text-sm text-[var(--muted)]">All 1,500 notes loaded for this sector.</p>`
-                      }
-                    </div>
+                  <div class="mt-6 flex flex-wrap items-center justify-between gap-3">
+                    <p class="text-sm text-[var(--muted)]">Showing ${visibleItems.length.toLocaleString("en-US")} of ${items.length.toLocaleString("en-US")}</p>
+                    ${
+                      remaining
+                        ? `<button type="button" class="btn-secondary rounded-full px-5 py-2.5 text-sm" data-load-story-sector="${escapeHtml(sector.key)}">Load more in this sector (${remaining.toLocaleString("en-US")} remaining)</button>`
+                        : `<p class="text-sm text-[var(--muted)]">All 1,500 notes loaded for this sector.</p>`
+                    }
                   </div>
-                </article>
-              `;
-              })
-              .join("");
-      
-            mount.querySelectorAll("[data-load-story-sector]").forEach((button) => {
-              button.addEventListener("click", function () {
-                const key = button.getAttribute("data-load-story-sector");
-                visibleBySector[key] = (visibleBySector[key] || 12) + 24;
-                render();
-                const anchor = document.getElementById(`story-sector-${key}`);
-                if (anchor) {
-                  const library = anchor.querySelector(".mt-10:last-child") || anchor;
-                  library.scrollIntoView({ behavior: "smooth", block: "nearest" });
-                }
-              });
-            });
+                </div>
+              </article>
+            `;
+            })
+            .join("");
 
-            bindNoteCardOpeners(mount);
-            revealVisible();
-          };
-      
-          render();
-        }
-      
+          mount.querySelectorAll("[data-load-story-sector]").forEach((button) => {
+            button.addEventListener("click", function () {
+              const key = button.getAttribute("data-load-story-sector");
+              visibleBySector[key] = (visibleBySector[key] || 12) + 24;
+              render();
+              const anchor = document.getElementById(`story-sector-${key}`);
+              if (anchor) {
+                const library = anchor.querySelector(".mt-10:last-child") || anchor;
+                library.scrollIntoView({ behavior: "smooth", block: "nearest" });
+              }
+            });
+          });
+
+          bindNoteCardOpeners(mount);
+          revealVisible();
+        };
+
+        renderNav();
+        render();
+        window.addEventListener(
+          "resize",
+          function () {
+            renderNav();
+            render();
+          },
+          { passive: true }
+        );
+      }
 
       function renderHomeContent() {
         const featuredGrid = document.getElementById("featuredGrid");
@@ -3662,7 +3699,24 @@ function buildContentLibrary() {
       }
 
       function revealVisible() {
-        document.querySelectorAll(".reveal").forEach((node) => node.classList.add("show"));
+        document.querySelectorAll(".reveal").forEach((el) => el.classList.add("reveal-visible", "show"));
+        const elements = document.querySelectorAll(".reveal:not(.reveal-visible)");
+        if (!elements.length) return;
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              entry.target.classList.add("reveal-visible", "show");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0, rootMargin: "120px 0px 120px 0px" });
+        elements.forEach((element) => {
+          if (window.innerWidth < 900) {
+            element.classList.add("reveal-visible", "show");
+          } else {
+            observer.observe(element);
+          }
+        });
       }
 
       function toggleSet(set, id) { if (set.has(id)) set.delete(id); else set.add(id); }
