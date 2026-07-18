@@ -84,7 +84,7 @@
       { href: "about.html", label: "About Us", key: "about" },
       { href: "contact.html", label: "Contact Us", key: "contact" },
       { href: "policies.html", label: "Policies", key: "policies" },
-      { href: "blog.html", label: "Blog", key: "blog" },
+      { href: "blog.html", label: "Buyer's Guide", key: "blog" },
       { href: "reviews.html", label: "Reviews", key: "reviews" }
     ];
     const enginesActive = page === "collection" || page === "details";
