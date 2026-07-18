@@ -981,7 +981,48 @@ body.note-reader-open {
 }
 
 @media (max-width: 768px) {
-  .hero-cinematic {
-    background-position: 65% center;
+  .hero-cinematic::after {
+    font-size: 0.65rem;
   }
+}
+
+/* === FULL-SITE HACKING THEME LOCK === */
+html,
+body {
+  background-color: #000000 !important;
+}
+
+main,
+section,
+.view,
+.view.active {
+  background-color: transparent;
+}
+
+.glass-card,
+.section-shell,
+.metallic-card,
+.three-d-panel,
+.heart-trust-card,
+.value-3d-card,
+.comparison-shell,
+.comparison-cell,
+.depth-ribbon,
+.content-note-card,
+.story-compare-card,
+.story-sector-visual,
+.note-reader-panel {
+  background-image: none !important;
+  background-color: rgba(0, 8, 2, 0.82) !important;
+  border-color: rgba(0, 255, 102, 0.22) !important;
+  box-shadow: 0 0 0 1px rgba(0, 255, 102, 0.08), 0 18px 40px rgba(0, 0, 0, 0.55) !important;
+}
+
+.heading-accent,
+.text-glow {
+  text-shadow: 0 0 18px rgba(0, 255, 102, 0.35) !important;
+}
+
+.loader-overlay {
+  background: #000000 !important;
 }
