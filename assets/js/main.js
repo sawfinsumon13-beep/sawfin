@@ -24,6 +24,7 @@
     renderFooter();
     renderGlobalWidgets();
     if (typeof window.OBE_INIT_MATRIX_RAIN === "function") window.OBE_INIT_MATRIX_RAIN();
+    initNoteCardDelegation();
     initTheme();
     initLoader();
     initStickyHeader();
@@ -693,16 +694,77 @@
     return modal;
   }
 
-  function openNoteReader(noteId) {
-    const item =
-      (typeof window.OBE_FIND_STORY_NOTE === "function" && window.OBE_FIND_STORY_NOTE(noteId)) ||
-      null;
-    if (!item) return;
+  function findNoteById(noteId) {
+    if (typeof window.OBE_FIND_STORY_NOTE === "function") {
+      const found = window.OBE_FIND_STORY_NOTE(noteId);
+      if (found) return found;
+    }
 
-    const body =
-      typeof window.OBE_BUILD_NOTE_BODY === "function"
-        ? window.OBE_BUILD_NOTE_BODY(item)
-        : { title: item.title, text: item.summary, wordCount: 0 };
+    const sectors = (window.OBE_DATA && window.OBE_DATA.storySectors) || window.OBE_STORY_SECTORS || [];
+    for (let i = 0; i < sectors.length; i += 1) {
+      const match = (sectors[i].items || []).find((entry) => entry.id === noteId);
+      if (match) return match;
+    }
+
+    const library = (window.OBE_DATA && window.OBE_DATA.contentLibrary) || [];
+    return library.find((entry) => entry.id === noteId) || null;
+  }
+
+  function noteFromCardElement(noteId, triggerEl) {
+    if (!triggerEl) return null;
+    const titleEl = triggerEl.querySelector("h3, h4");
+    const summaryEl = triggerEl.querySelector("p:not(.content-note-open-label):not(.content-note-tag)");
+    const imageEl = triggerEl.querySelector("img");
+    const tagEl = triggerEl.querySelector(".content-note-tag");
+    const metaEl = triggerEl.querySelector(".text-\\[10px\\], [class*='tracking']");
+    return {
+      id: noteId,
+      title: titleEl ? titleEl.textContent.trim() : "Engine note",
+      summary: summaryEl ? summaryEl.textContent.trim() : "Full note content",
+      image: imageEl ? imageEl.getAttribute("src") : "",
+      tag: tagEl ? tagEl.textContent.trim() : "Guide",
+      sectorLabel: metaEl ? metaEl.textContent.trim() : "Sector note",
+      sector: metaEl ? metaEl.textContent.trim() : "Sector note",
+      noteIndex: Number(String(noteId).split("-").pop()) || 1
+    };
+  }
+
+  function openNoteReader(noteId, triggerEl) {
+    let item = findNoteById(noteId) || noteFromCardElement(noteId, triggerEl);
+    if (!item) {
+      console.warn("Note not found:", noteId);
+      return;
+    }
+
+    let body;
+    try {
+      body =
+        typeof window.OBE_BUILD_NOTE_BODY === "function"
+          ? window.OBE_BUILD_NOTE_BODY(item)
+          : { title: item.title, text: item.summary || "", wordCount: 0 };
+    } catch (error) {
+      console.warn("Note body build failed", error);
+      body = {
+        title: item.title,
+        text: `${item.summary || ""}\n\nThis note could not expand fully. Please try another card or refresh the page.`,
+        wordCount: 0
+      };
+    }
+
+    if (!body.text || body.wordCount < 200) {
+      const fallback =
+        typeof window.OBE_BUILD_NOTE_BODY === "function"
+          ? window.OBE_BUILD_NOTE_BODY({
+              ...item,
+              title: item.title,
+              summary: item.summary || item.title,
+              tag: item.tag || "Guide",
+              sectorKey: item.sectorKey || "support",
+              noteIndex: item.noteIndex || 1
+            })
+          : null;
+      if (fallback && fallback.text) body = fallback;
+    }
 
     const modal = ensureNoteReaderModal();
     const titleEl = document.getElementById("noteReaderTitle");
@@ -717,12 +779,14 @@
       ).toLocaleString("en-US")} words · Note ${String(item.id).split("-").pop()}`;
     }
     if (imageEl) {
-      imageEl.src = item.image;
-      imageEl.alt = item.title;
+      imageEl.src = item.image || "";
+      imageEl.alt = item.title || "Note image";
     }
     if (bodyEl) bodyEl.innerHTML = essayToParagraphs(body.text);
 
     modal.hidden = false;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("note-reader-open");
     const panel = modal.querySelector(".note-reader-panel");
     if (panel) panel.scrollTop = 0;
@@ -732,17 +796,42 @@
     const modal = document.getElementById("noteReaderModal");
     if (!modal) return;
     modal.hidden = true;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("note-reader-open");
   }
 
+  function initNoteCardDelegation() {
+    if (document.documentElement.dataset.noteDelegation === "1") return;
+    document.documentElement.dataset.noteDelegation = "1";
+    ensureNoteReaderModal();
+    document.addEventListener(
+      "click",
+      function (event) {
+        const closeEl = event.target.closest("[data-close-note-reader]");
+        if (closeEl) {
+          event.preventDefault();
+          closeNoteReader();
+          return;
+        }
+
+        const button = event.target.closest("[data-open-note]");
+        if (!button) return;
+        event.preventDefault();
+        event.stopPropagation();
+        const noteId = button.getAttribute("data-open-note");
+        if (noteId) openNoteReader(noteId, button);
+      },
+      true
+    );
+  }
+
   function bindNoteCardOpeners(root) {
+    initNoteCardDelegation();
     const scope = root || document;
     scope.querySelectorAll("[data-open-note]").forEach((button) => {
-      button.addEventListener("click", function (event) {
-        event.preventDefault();
-        const noteId = button.getAttribute("data-open-note");
-        if (noteId) openNoteReader(noteId);
-      });
+      button.setAttribute("type", "button");
+      button.style.cursor = "pointer";
     });
   }
 

@@ -55,15 +55,13 @@ body.home-color-3d {
 
 header,
 main,
-footer,
-.loader-overlay,
-#noteReaderModal {
+footer {
   position: relative;
   z-index: 2;
 }
 
-.loader-overlay,
-#noteReaderModal {
+.loader-overlay {
+  position: fixed;
   z-index: 120;
 }
 
@@ -896,16 +894,21 @@ body.page-leave .page-shell {
 }
 
 .note-reader-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 120;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 400 !important;
   display: grid;
   place-items: center;
   padding: 1rem;
+  pointer-events: auto;
 }
 
 .note-reader-modal[hidden] {
   display: none !important;
+}
+
+.note-reader-modal.is-open {
+  display: grid !important;
 }
 
 .note-reader-backdrop {
