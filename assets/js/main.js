@@ -61,6 +61,81 @@
       renderReviews();
       renderFaqs();
     }
+    if (page === "blog") {
+      renderBlogCrateBlocks();
+    }
+  }
+
+  function renderBlogCrateBlocks() {
+    const mount = document.getElementById("blogCrateMount");
+    const indexMount = document.getElementById("blogCrateIndex");
+    const countEl = document.getElementById("blogCrateCount");
+    const blocks = Array.isArray(window.OBE_BLOG_BLOCKS) ? window.OBE_BLOG_BLOCKS : [];
+    if (countEl) {
+      countEl.textContent = String(blocks.length);
+    }
+    if (indexMount) {
+      indexMount.innerHTML = blocks
+        .map(
+          (block, i) =>
+            `<a href="#blog-block-${block.slug}">${String(i + 1).padStart(2, "0")}. ${escapeHtml(block.title)}</a>`
+        )
+        .join("");
+    }
+    if (!mount) return;
+    if (!blocks.length) {
+      mount.innerHTML = `<p class="text-sm text-[var(--muted)]">Blog blocks are loading…</p>`;
+      return;
+    }
+
+    mount.innerHTML = blocks
+      .map((block) => {
+        const paragraphs = String(block.body || "")
+          .split(/\n\n+/)
+          .filter(Boolean)
+          .map((p) => `<p>${escapeHtml(p)}</p>`)
+          .join("");
+        const points = (block.points || [])
+          .map((point) => {
+            const safe = escapeHtml(point).replace(
+              /policies page/gi,
+              `<a href="policies.html" data-transition>policies page</a>`
+            );
+            return `<li>${safe}</li>`;
+          })
+          .join("");
+        const primaryHref = escapeHtml(block.primaryCta?.href || "collection.html");
+        const secondaryHref = escapeHtml(block.secondaryCta?.href || "contact.html");
+        const externalPrimary = primaryHref.startsWith("http");
+        const externalSecondary = secondaryHref.startsWith("http");
+        return `
+          <article class="blog-crate-block reveal" id="blog-block-${escapeHtml(block.slug)}">
+            <p class="blog-crate-meta">${escapeHtml(block.eyebrow || "Buyer’s Guide")} · ${block.wordCount || 1000}+ words</p>
+            <div class="blog-crate-layout">
+              <div>
+                <h2 class="blog-crate-title">${escapeHtml(block.title)}</h2>
+                <div class="blog-crate-rule" aria-hidden="true"></div>
+                <p class="blog-crate-intro">${escapeHtml(block.intro)}</p>
+                <ul class="blog-crate-points">${points}</ul>
+                <div class="blog-crate-actions">
+                  <a href="${primaryHref}" ${externalPrimary ? 'target="_blank" rel="noopener"' : 'data-transition'} class="btn-crate-primary">${escapeHtml(block.primaryCta?.label || "See live listings")}</a>
+                  <a href="${secondaryHref}" ${externalSecondary ? 'target="_blank" rel="noopener"' : 'data-transition'} class="btn-crate-secondary">${escapeHtml(block.secondaryCta?.label || "Learn more")}</a>
+                </div>
+              </div>
+              <div>
+                <h3 class="blog-crate-right-title">${escapeHtml(block.rightTitle)}</h3>
+                <div class="blog-crate-body">${paragraphs}</div>
+              </div>
+            </div>
+            <figure class="blog-crate-visual">
+              <img src="${escapeHtml(block.image)}" alt="${escapeHtml(block.imageAlt || block.title)}" loading="lazy" />
+              <span class="blog-crate-badge">${escapeHtml(block.badge || "CRATED • TRACKED")}</span>
+            </figure>
+            <p class="blog-crate-caption">${escapeHtml(block.caption || "")}</p>
+          </article>
+        `;
+      })
+      .join("");
   }
 
   function renderNavbar() {
