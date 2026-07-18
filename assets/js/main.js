@@ -44,6 +44,7 @@
     const page = document.body.dataset.page;
     if (page === "home") {
       renderFeaturedProducts();
+      renderContentLibrary();
       renderReviews();
       renderFaqs();
     }
@@ -346,6 +347,124 @@
     mount.innerHTML = featured.map((product) => buildProductCard(product)).join("");
     bindProductActions(mount);
     initRevealOnScroll();
+  }
+
+  function renderContentLibrary() {
+    const grid = document.getElementById("contentLibraryGrid");
+    const tabs = document.getElementById("contentSectorTabs");
+    const stats = document.getElementById("contentSectorStats");
+    const countEl = document.getElementById("contentLibraryCount");
+    const pagination = document.getElementById("contentLibraryPagination");
+    const library = Array.isArray(data.contentLibrary) ? data.contentLibrary : [];
+    if (!grid || !tabs || !library.length) return;
+
+    const sectors = [...new Set(library.map((item) => item.sector))];
+    let activeSector = "all";
+    let visibleLimit = 48;
+
+    if (countEl) {
+      countEl.textContent = library.length.toLocaleString("en-US");
+    }
+
+    if (stats) {
+      stats.innerHTML = sectors
+        .map((sector) => {
+          const total = library.filter((item) => item.sector === sector).length;
+          return `
+            <article class="content-sector-stat reveal rounded-2xl px-4 py-3">
+              <p class="text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">${escapeHtml(sector)}</p>
+              <p class="mt-1 text-xl font-semibold text-[var(--text)]">${total.toLocaleString("en-US")}</p>
+            </article>
+          `;
+        })
+        .join("");
+    }
+
+    const renderTabs = function () {
+      const options = ["all", ...sectors];
+      tabs.innerHTML = options
+        .map((sector) => {
+          const label = sector === "all" ? "All Sectors" : sector;
+          const active = sector === activeSector;
+          return `
+            <button type="button" data-content-sector="${escapeHtml(sector)}" class="content-sector-tab ${active ? "is-active" : ""} rounded-full px-4 py-2 text-xs uppercase tracking-[0.14em] whitespace-nowrap">
+              ${escapeHtml(label)}
+            </button>
+          `;
+        })
+        .join("");
+
+      tabs.querySelectorAll("[data-content-sector]").forEach((button) => {
+        button.addEventListener("click", function () {
+          activeSector = button.getAttribute("data-content-sector") || "all";
+          visibleLimit = 48;
+          renderTabs();
+          renderGrid();
+        });
+      });
+    };
+
+    const renderGrid = function () {
+      const filtered =
+        activeSector === "all" ? library : library.filter((item) => item.sector === activeSector);
+      const visible = filtered.slice(0, visibleLimit);
+
+      grid.innerHTML = visible
+        .map(
+          (item) => `
+          <article class="content-note-card reveal overflow-hidden rounded-2xl">
+            <div class="content-note-media">
+              <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" width="640" height="400" />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center justify-between gap-2">
+                <p class="text-[10px] uppercase tracking-[0.16em] text-[var(--muted)]">${escapeHtml(item.sector)}</p>
+                <span class="content-note-tag">${escapeHtml(item.tag)}</span>
+              </div>
+              <h3 class="mt-2 text-base font-semibold leading-snug text-[var(--text)]">${escapeHtml(item.title)}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">${escapeHtml(item.summary)}</p>
+            </div>
+          </article>
+        `
+        )
+        .join("");
+
+      if (pagination) {
+        if (filtered.length > visibleLimit) {
+          pagination.innerHTML = `
+            <p class="text-sm text-[var(--muted)]">Showing ${visible.length.toLocaleString("en-US")} of ${filtered.length.toLocaleString("en-US")} notes</p>
+            <button id="loadMoreContent" type="button" class="btn-secondary rounded-full px-6 py-2.5 text-sm">
+              Load More Content (${(filtered.length - visibleLimit).toLocaleString("en-US")} remaining)
+            </button>
+          `;
+          const loadMore = document.getElementById("loadMoreContent");
+          if (loadMore) {
+            loadMore.addEventListener("click", function () {
+              visibleLimit += 48;
+              renderGrid();
+            });
+          }
+        } else {
+          pagination.innerHTML = `
+            <p class="text-sm text-[var(--muted)]">Showing all ${filtered.length.toLocaleString("en-US")} notes in this view.</p>
+          `;
+        }
+      }
+
+      initRevealOnScroll();
+    };
+
+    renderTabs();
+    renderGrid();
+  }
+
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
   }
 
   function renderCollectionPage() {

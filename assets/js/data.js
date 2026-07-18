@@ -351,9 +351,451 @@ function buildReviews() {
   return reviews;
 }
 
+function buildContentLibrary() {
+  const sectors = [
+    {
+      key: "engine-families",
+      label: "Engine Families",
+      titles: [
+        "N57 diesel family overview",
+        "N47 timing-chain era notes",
+        "M57 torque-era essentials",
+        "B57 modern diesel context",
+        "B47 compact diesel map"
+      ],
+      summaries: [
+        "Short family brief covering platform range, power bands, and restoration fit.",
+        "Condensed guidance on common wear points and buyer checkpoints.",
+        "Compact notes for workshops matching donor engines to chassis codes.",
+        "Quick lineage summary for collectors comparing generation upgrades.",
+        "Practical snapshot of displacement, fuel system, and service focus."
+      ],
+      tags: ["N57", "N47", "M57", "B57", "B47"]
+    },
+    {
+      key: "code-verification",
+      label: "Code Verification",
+      titles: [
+        "VIN-to-engine code match",
+        "Stamped code photography tips",
+        "Prefix suffix decoding quicksheet",
+        "Cross-check against build sheet",
+        "Avoid lookalike code traps"
+      ],
+      summaries: [
+        "Confirm engine code against VIN before invoice to prevent fitment miss.",
+        "Capture clear stamp photos and archive them with the order record.",
+        "Decode family prefixes so buyers can filter inventory with confidence.",
+        "Use documentation cross-checks when chassis and engine eras diverge.",
+        "Spot near-identical codes that belong to incompatible power variants."
+      ],
+      tags: ["VIN", "Codes", "Docs", "Match", "Audit"]
+    },
+    {
+      key: "condition-notes",
+      label: "Condition Notes",
+      titles: [
+        "Compression snapshot guide",
+        "Bore-scope highlight reel",
+        "Seal and gasket visual cues",
+        "Oil residue reading basics",
+        "Collector-grade condition tags"
+      ],
+      summaries: [
+        "Short condition language that keeps listings honest and scannable.",
+        "Key visual cues workshops look for before committing to install.",
+        "Surface evidence that helps buyers judge maintenance history fast.",
+        "Mileage context paired with inspection language for clearer risk.",
+        "Grade labels that separate workshop units from collector stock."
+      ],
+      tags: ["Inspect", "Mileage", "Seals", "Bore", "Grade"]
+    },
+    {
+      key: "logistics-crating",
+      label: "Logistics & Crating",
+      titles: [
+        "Export crate checklist",
+        "Impact-control packing notes",
+        "Freight tracking milestones",
+        "Port handoff readiness",
+        "Workshop delivery windows"
+      ],
+      summaries: [
+        "Crate design and bracing notes for long-haul engine freight safety.",
+        "Protect mounting points and open ports before sealed dispatch.",
+        "Track each logistics milestone from pickup to destination handoff.",
+        "Prepare documents and photos so customs clearance stays smooth.",
+        "Align delivery windows with workshop install schedules."
+      ],
+      tags: ["Crate", "Freight", "Export", "Track", "Delivery"]
+    },
+    {
+      key: "workshop-fitment",
+      label: "Workshop Fitment",
+      titles: [
+        "Mount and accessory map",
+        "Harness and ECU notes",
+        "Cooling circuit prep",
+        "Exhaust flange alignment",
+        "First-start workshop protocol"
+      ],
+      summaries: [
+        "Fitment notes that reduce install surprises on common BMW platforms.",
+        "Electrical and sensor checkpoints before the first crank cycle.",
+        "Cooling and sealing prep that protects both donor and chassis.",
+        "Alignment cues for manifolds, mounts, and related hard points.",
+        "Short first-start checklist for professional workshop teams."
+      ],
+      tags: ["Fitment", "ECU", "Cooling", "Mounts", "Start"]
+    },
+    {
+      key: "m57-swap",
+      label: "M57 Swap Kits",
+      titles: [
+        "M57 swap kit essentials",
+        "Adapter and mount pairing",
+        "Wiring loom swap notes",
+        "Cooling upgrade shortlist",
+        "Donor selection for swaps"
+      ],
+      summaries: [
+        "Compact kit guidance for builders planning an M57 conversion path.",
+        "Match adapters, mounts, and hardware to the target chassis family.",
+        "Keep loom and sensor strategy clear before cutting or splicing.",
+        "Cooling capacity notes for higher-torque diesel swap builds.",
+        "Choose donor engines with documentation that supports the swap plan."
+      ],
+      tags: ["Swap", "M57", "Kit", "Loom", "Donor"]
+    },
+    {
+      key: "buying-guides",
+      label: "Buying Guides",
+      titles: [
+        "Private buyer decision ladder",
+        "Workshop procurement brief",
+        "Budget vs risk balance",
+        "Photo evidence checklist",
+        "Pre-payment question set"
+      ],
+      summaries: [
+        "A shortened buying path from enquiry to confirmed invoice.",
+        "Procurement notes for shops sourcing engines for client vehicles.",
+        "Balance price, documentation quality, and install readiness.",
+        "Request the right photos before committing to purchase.",
+        "Ask precise technical questions that reveal true compatibility."
+      ],
+      tags: ["Buy", "Budget", "Photos", "Risk", "Questions"]
+    },
+    {
+      key: "restoration",
+      label: "Restoration Notes",
+      titles: [
+        "Collector restoration cadence",
+        "Parts sequencing for rebuilds",
+        "Period-correct engine choices",
+        "Finish and presentation standards",
+        "Archive your restoration trail"
+      ],
+      summaries: [
+        "Short restoration notes for keeping projects on a clean timeline.",
+        "Sequence parts and donor decisions to avoid costly rework loops.",
+        "Choose engines that respect platform authenticity goals.",
+        "Presentation standards for collector-facing project handovers.",
+        "Keep a simple archive of codes, photos, and install decisions."
+      ],
+      tags: ["Restore", "Parts", "Period", "Finish", "Archive"]
+    },
+    {
+      key: "compatibility",
+      label: "Compatibility Maps",
+      titles: [
+        "Chassis-to-family matrix",
+        "Year-range compatibility cues",
+        "Transmission pairing notes",
+        "Drivetrain layout checks",
+        "Sensor generation mismatches"
+      ],
+      summaries: [
+        "Map engine families to chassis generations in one short view.",
+        "Year-range cues that catch silent incompatibility early.",
+        "Transmission and flywheel pairing notes for smoother installs.",
+        "Confirm drivetrain layout before ordering long-distance freight.",
+        "Watch sensor generations that look similar but behave differently."
+      ],
+      tags: ["Chassis", "Years", "Gearbox", "AWD", "Sensors"]
+    },
+    {
+      key: "documentation",
+      label: "Documentation",
+      titles: [
+        "Order documentation pack",
+        "Inspection log essentials",
+        "Invoice and export papers",
+        "Photo evidence indexing",
+        "Client handover dossier"
+      ],
+      summaries: [
+        "Keep every order backed by clean, scannable documentation.",
+        "Inspection logs that travel with the engine through install.",
+        "Export paperwork that supports smooth international clearance.",
+        "Index photos so buyers can review condition without confusion.",
+        "Handover dossiers that workshops and collectors can archive."
+      ],
+      tags: ["Docs", "Logs", "Invoice", "Photos", "Handover"]
+    },
+    {
+      key: "compression",
+      label: "Compression Insights",
+      titles: [
+        "Compression reading basics",
+        "Cylinder balance signals",
+        "Cold vs warm test context",
+        "Leakdown companion notes",
+        "When numbers need photos"
+      ],
+      summaries: [
+        "Short compression literacy for buyers comparing used diesel units.",
+        "Balance cues that matter more than a single peak number.",
+        "Test context that prevents misreading healthy engines as weak.",
+        "Pair compression notes with leakdown when risk is higher.",
+        "Request supporting media when readings look incomplete."
+      ],
+      tags: ["Compression", "Cylinders", "Leakdown", "Tests", "Media"]
+    },
+    {
+      key: "fuel-turbo",
+      label: "Fuel & Turbo Systems",
+      titles: [
+        "Common-rail health cues",
+        "Turbo shaft play watchlist",
+        "Injector wear language",
+        "Intake tract cleanliness",
+        "Boost path inspection notes"
+      ],
+      summaries: [
+        "Fuel-system cues that help buyers judge diesel service history.",
+        "Turbo inspection points that matter before long-distance shipping.",
+        "Injector language that stays clear without overclaiming condition.",
+        "Intake cleanliness notes for engines with known carbon patterns.",
+        "Boost path checks that protect install timelines after delivery."
+      ],
+      tags: ["Fuel", "Turbo", "Injectors", "Intake", "Boost"]
+    },
+    {
+      key: "export",
+      label: "Export Compliance",
+      titles: [
+        "HS code preparation notes",
+        "Destination document set",
+        "Declared value clarity",
+        "Inspection photo for customs",
+        "Broker-ready packing list"
+      ],
+      summaries: [
+        "Export notes that keep international engine shipments moving.",
+        "Destination paperwork checklists for common buyer regions.",
+        "Clear declared values reduce avoidable clearance friction.",
+        "Photo packs that support customs review when requested.",
+        "Packing lists written for brokers, workshops, and collectors."
+      ],
+      tags: ["Export", "Customs", "HS", "Broker", "Papers"]
+    },
+    {
+      key: "collector",
+      label: "Collector Standards",
+      titles: [
+        "Collector acceptance criteria",
+        "Originality vs usability balance",
+        "Presentation photo standards",
+        "Provenance language shortform",
+        "Storage before install"
+      ],
+      summaries: [
+        "Standards collectors use when judging premium used BMW engines.",
+        "Balance originality goals with real-world install practicality.",
+        "Photo standards that communicate condition without hype.",
+        "Provenance notes kept short, factual, and verifiable.",
+        "Storage guidance for engines waiting on chassis readiness."
+      ],
+      tags: ["Collector", "Original", "Photos", "Provenance", "Storage"]
+    },
+    {
+      key: "mileage",
+      label: "Mileage Context",
+      titles: [
+        "Reading mileage with condition",
+        "High-mileage diesel realities",
+        "Low-mileage caution notes",
+        "Service history triangulation",
+        "Mileage vs documentation quality"
+      ],
+      summaries: [
+        "Mileage only makes sense when paired with inspection context.",
+        "High-mileage diesels can still be strong with transparent notes.",
+        "Low mileage is not automatic proof of superior mechanical health.",
+        "Triangulate odometer claims with service and visual evidence.",
+        "Prefer clear documentation over optimistic mileage storytelling."
+      ],
+      tags: ["Mileage", "Service", "Context", "Diesel", "Evidence"]
+    },
+    {
+      key: "install-prep",
+      label: "Installation Prep",
+      titles: [
+        "Pre-install parts basket",
+        "Fluids and seal kit shortlist",
+        "Bay clearance checklist",
+        "Torque tool readiness",
+        "Post-install break-in notes"
+      ],
+      summaries: [
+        "Prep lists that keep install days productive and predictable.",
+        "Seal and fluid shortlists commonly needed around engine swaps.",
+        "Bay clearance checks before the donor unit arrives on site.",
+        "Tool readiness notes for torque-critical fastening sequences.",
+        "Break-in observations workshops should log after first runs."
+      ],
+      tags: ["Install", "Seals", "Bay", "Torque", "Break-in"]
+    },
+    {
+      key: "platform",
+      label: "Platform Matching",
+      titles: [
+        "E-series platform match notes",
+        "F-series diesel pairing cues",
+        "G-series modern diesel map",
+        "X-drive platform considerations",
+        "Touring and coupe fit notes"
+      ],
+      summaries: [
+        "Platform match notes that keep chassis and engine eras aligned.",
+        "F-series cues for diesel family selection and accessory fit.",
+        "G-series mapping for newer diesel buyers and workshops.",
+        "xDrive considerations that affect mounts, shafts, and clearances.",
+        "Body-style notes where touring and coupe packaging differs."
+      ],
+      tags: ["E-Series", "F-Series", "G-Series", "xDrive", "Body"]
+    },
+    {
+      key: "quality",
+      label: "Quality Control",
+      titles: [
+        "Incoming QC gate checklist",
+        "Photo QC before listing",
+        "Code stamp clarity score",
+        "Crate QC before dispatch",
+        "Final release verification"
+      ],
+      summaries: [
+        "QC gates that keep inventory listings accurate and trustworthy.",
+        "Photo QC standards applied before engines go live online.",
+        "Stamp clarity scoring that protects buyers from ambiguous codes.",
+        "Crate QC before freight leaves the warehouse floor.",
+        "Final release verification closing the order documentation loop."
+      ],
+      tags: ["QC", "Listing", "Stamps", "Crate", "Release"]
+    },
+    {
+      key: "support",
+      label: "Warranty & Support",
+      titles: [
+        "Pre-sale support channels",
+        "WhatsApp fitment triage",
+        "Post-delivery question path",
+        "Workshop escalation notes",
+        "Support response standards"
+      ],
+      summaries: [
+        "Support paths designed for high-trust engine purchases.",
+        "WhatsApp triage that answers fitment questions before payment.",
+        "Post-delivery routes for workshops needing clarifying detail.",
+        "Escalation notes when install teams need deeper technical help.",
+        "Response standards that keep private and trade buyers informed."
+      ],
+      tags: ["Support", "WhatsApp", "Warranty", "Trade", "Help"]
+    },
+    {
+      key: "market",
+      label: "Market Insights",
+      titles: [
+        "Demand by engine family",
+        "Seasonal sourcing patterns",
+        "Collector vs workshop demand",
+        "Pricing transparency notes",
+        "Stock velocity signals"
+      ],
+      summaries: [
+        "Short market notes that explain why certain families move faster.",
+        "Seasonal patterns that affect sourcing and shipping timelines.",
+        "Demand differences between collectors and professional workshops.",
+        "Transparent pricing language without inflated urgency tactics.",
+        "Stock velocity cues that help buyers act with better timing."
+      ],
+      tags: ["Market", "Demand", "Season", "Pricing", "Stock"]
+    }
+  ];
+
+  const imagePool = uniqueList([
+    ...SHARED_OLD_ENGINE_IMAGES,
+    ...N57_IMAGE_POOL,
+    ...N47_IMAGE_POOL,
+    ...M57_IMAGE_POOL,
+    ...B57_IMAGE_POOL,
+    ...B47_IMAGE_POOL,
+    ...B58_IMAGE_POOL,
+    ...M57_SWAP_IMAGE_POOL
+  ]);
+
+  const focusWords = [
+    "verified",
+    "documented",
+    "workshop-ready",
+    "collector-safe",
+    "export-ready",
+    "code-matched",
+    "photo-backed",
+    "crate-protected",
+    "platform-checked",
+    "install-focused"
+  ];
+
+  const total = 5000;
+  const perSector = Math.floor(total / sectors.length);
+  const items = [];
+  let previousImage = "";
+
+  sectors.forEach((sector, sectorIndex) => {
+    for (let i = 0; i < perSector; i += 1) {
+      const globalIndex = items.length + 1;
+      const titleBase = sector.titles[i % sector.titles.length];
+      const summaryBase = sector.summaries[i % sector.summaries.length];
+      const tag = sector.tags[i % sector.tags.length];
+      const focus = focusWords[(sectorIndex + i) % focusWords.length];
+      let image = imagePool[(globalIndex + sectorIndex * 17) % imagePool.length];
+      if (image === previousImage) {
+        image = imagePool[(globalIndex + 3) % imagePool.length];
+      }
+      previousImage = image;
+
+      items.push({
+        id: `cl-${String(globalIndex).padStart(4, "0")}`,
+        sector: sector.label,
+        sectorKey: sector.key,
+        title: `${titleBase} #${String(i + 1).padStart(3, "0")}`,
+        summary: `${summaryBase} Focus: ${focus} guidance for BMW old-engine buyers.`,
+        image,
+        tag
+      });
+    }
+  });
+
+  return items;
+}
+
 window.OBE_DATA = {
   products: buildInventory(),
   reviews: buildReviews(),
+  contentLibrary: buildContentLibrary(),
   faqs: [
     {
       question: "Are these engines original BMW units?",

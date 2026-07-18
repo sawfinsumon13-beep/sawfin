@@ -42,10 +42,10 @@
         }
       };
     </script>
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260624c" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260718a" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="assets/js/data.js?v=20260624c" defer></script>
-    <script src="assets/js/main.js?v=20260624c" defer></script>
+    <script src="assets/js/data.js?v=20260718a" defer></script>
+    <script src="assets/js/main.js?v=20260718a" defer></script>
   </head>
   <body data-page="home" class="page-shell home-color-3d antialiased">
     <div id="pageLoader" class="loader-overlay">
@@ -415,6 +415,29 @@
             <a href="collection.html" data-transition class="btn-secondary rounded-full px-5 py-2.5 text-sm font-medium transition">View full collection</a>
           </div>
           <div id="featuredGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+        </div>
+      </section>
+
+      <section id="contentLibrary" class="px-4 pb-20 md:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-8 flex flex-wrap items-end justify-between gap-5">
+            <div>
+              <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Knowledge Library</p>
+              <h2 class="heading-accent mt-2 text-3xl md:text-4xl">5,000 Short Content Notes Across Sectors</h2>
+              <p class="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+                Beautifully shortened engine knowledge cards with images — organized by sector so buyers can scan verification, fitment,
+                logistics, swaps, and restoration guidance without noise.
+              </p>
+            </div>
+            <div class="text-right">
+              <p id="contentLibraryCount" class="text-2xl font-semibold text-[var(--text)]">0</p>
+              <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Total notes</p>
+            </div>
+          </div>
+          <div id="contentSectorStats" class="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"></div>
+          <div id="contentSectorTabs" class="content-sector-tabs mb-6 flex gap-2 overflow-x-auto pb-2"></div>
+          <div id="contentLibraryGrid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+          <div id="contentLibraryPagination" class="mt-8 flex flex-wrap items-center justify-between gap-4"></div>
         </div>
       </section>
 
