@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 56" role="img" aria-label="Trustpilot Reviews">
+  <defs>
+    <linearGradient id="tpBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00B67A"/>
+      <stop offset="100%" stop-color="#008F5D"/>
+    </linearGradient>
+  </defs>
+  <rect width="220" height="56" rx="14" fill="url(#tpBg)"/>
+  <rect x="1" y="1" width="218" height="54" rx="13" fill="none" stroke="#ffffff" stroke-opacity="0.22"/>
+  <g transform="translate(14,10)">
+    <path fill="#fff" d="M12 1.8l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 16.5 6.2 19.7l1.1-6.5L2.6 8.6l6.5-.9L12 1.8z"/>
+    <text x="30" y="14" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700">Trustpilot</text>
+    <g transform="translate(30,22)">
+      <rect width="12" height="12" rx="2" fill="#fff"/>
+      <rect x="14" width="12" height="12" rx="2" fill="#fff"/>
+      <rect x="28" width="12" height="12" rx="2" fill="#fff"/>
+      <rect x="42" width="12" height="12" rx="2" fill="#fff"/>
+      <rect x="56" width="12" height="12" rx="2" fill="#73E2B4"/>
+      <path transform="translate(1.5,1.2) scale(0.55)" fill="#00B67A" d="M12 2.2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16.1 6.6 19l1-6.1L3.2 8.6l6.1-.9L12 2.2z"/>
+      <path transform="translate(15.5,1.2) scale(0.55)" fill="#00B67A" d="M12 2.2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16.1 6.6 19l1-6.1L3.2 8.6l6.1-.9L12 2.2z"/>
+      <path transform="translate(29.5,1.2) scale(0.55)" fill="#00B67A" d="M12 2.2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16.1 6.6 19l1-6.1L3.2 8.6l6.1-.9L12 2.2z"/>
+      <path transform="translate(43.5,1.2) scale(0.55)" fill="#00B67A" d="M12 2.2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16.1 6.6 19l1-6.1L3.2 8.6l6.1-.9L12 2.2z"/>
+      <path transform="translate(57.5,1.2) scale(0.55)" fill="#00B67A" d="M12 2.2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16.1 6.6 19l1-6.1L3.2 8.6l6.1-.9L12 2.2z"/>
+    </g>
+  </g>
+  <text x="150" y="33" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700">See reviews</text>
+</svg>

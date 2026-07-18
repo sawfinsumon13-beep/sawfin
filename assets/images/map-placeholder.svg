@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" role="img" aria-label="Map placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F1F1F" />
+      <stop offset="100%" stop-color="#111111" />
+    </linearGradient>
+    <linearGradient id="road" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8C8C8" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#C8C8C8" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="700" fill="url(#bg)" />
+  <g stroke="url(#road)" stroke-width="6" fill="none" opacity="0.7">
+    <path d="M0 120C180 160 280 80 450 130C700 210 780 90 980 140C1180 190 1330 80 1600 130" />
+    <path d="M0 380C180 340 280 430 450 400C700 360 780 460 980 400C1180 330 1330 420 1600 370" />
+    <path d="M140 0C180 160 180 320 140 700" />
+    <path d="M620 0C660 160 660 320 620 700" />
+    <path d="M1060 0C1100 160 1100 320 1060 700" />
+  </g>
+  <circle cx="840" cy="330" r="86" fill="#2E5BFF" opacity="0.22" />
+  <path d="M840 220c-56 0-102 46-102 102 0 78 102 198 102 198s102-120 102-198c0-56-46-102-102-102Zm0 147a45 45 0 1 1 0-90 45 45 0 0 1 0 90Z" fill="#2E5BFF" />
+  <rect x="545" y="560" width="590" height="72" rx="36" fill="#111111" stroke="#C8C8C8" stroke-opacity="0.45" />
+  <text x="840" y="605" text-anchor="middle" fill="#F7F7F7" font-family="Inter, Arial, sans-serif" font-size="28" letter-spacing="2">
+    GOOGLE MAPS PLACEHOLDER
+  </text>
+</svg>
