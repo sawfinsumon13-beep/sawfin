@@ -47,45 +47,41 @@
         --muted: #7f9a7f;
         --border: rgba(0, 255, 102, 0.22);
       }
+
       body {
         font-family: "Share Tech Mono", "Courier New", ui-monospace, monospace;
+        background: #000000;
         color: var(--text);
-        background:
-          radial-gradient(circle at 12% 0%, rgba(0, 255, 102, 0.16), transparent 34%),
-          radial-gradient(circle at 88% 18%, rgba(0, 180, 80, 0.1), transparent 40%),
-          linear-gradient(180deg, #000000 0%, #020402 45%, #000000 100%);
         min-height: 100vh;
+        overflow-x: hidden;
       }
+      .matrix-rain-canvas {
+        position: fixed; inset: 0; width: 100%; height: 100%;
+        z-index: 0; pointer-events: none; opacity: 0.48; mix-blend-mode: screen;
+      }
+      header, main, footer { position: relative; z-index: 2; }
       body::before {
         content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: -1;
-        opacity: 0.55;
+        position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.9;
         background-image:
-          repeating-linear-gradient(0deg, rgba(0, 255, 102, 0.05) 0 1px, transparent 1px 3px),
-          linear-gradient(rgba(0, 255, 102, 0.08) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0, 255, 102, 0.08) 1px, transparent 1px);
-        background-size: 100% 4px, 28px 28px, 28px 28px;
-        mix-blend-mode: screen;
-        animation: hackScan 8s linear infinite;
+          repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,.28) 3px, rgba(0,0,0,0) 4px),
+          repeating-linear-gradient(90deg, rgba(0,255,102,.05) 0 1px, transparent 1px 48px),
+          repeating-linear-gradient(0deg, rgba(0,255,102,.04) 0 1px, transparent 1px 48px),
+          radial-gradient(circle at center, transparent 35%, rgba(0,0,0,.82) 100%);
+        background-size: auto, 48px 48px, 48px 48px, auto;
+        animation: hackScan 7s linear infinite;
       }
       body::after {
-        content: "01001111 01000010 01000101  >_ ACCESS // ENGINE_CORE // VIN_MATCH // CRATE_READY";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: -1;
-        opacity: 0.08;
-        color: #00ff66;
-        font-family: "Share Tech Mono", "Courier New", monospace;
-        font-size: 13px;
-        line-height: 1.9;
-        letter-spacing: 0.08em;
-        white-space: pre-wrap;
-        padding: 2rem;
-        animation: hackFlicker 3.2s ease-in-out infinite;
+        content: ">_ ROOT@OBE // INTRUSION_SIM // ENGINE_CORE_UNLOCKED\A 0xDEAD 0xBEEF 0xC0DE  HASH=OK  VIN=MATCH  CRATE=SECURE\A 01001111 01000010 01000101  >>> BREACH_CHANNEL_OPEN";
+        position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.14;
+        color: #00ff66; font-family: "Share Tech Mono", monospace;
+        font-size: clamp(11px, 1.2vw, 14px); line-height: 2; letter-spacing: .12em;
+        white-space: pre-wrap; padding: 5rem 1.25rem 1.25rem;
+        text-shadow: 0 0 8px rgba(0,255,102,.45);
+        background:
+          linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.55)),
+          repeating-linear-gradient(120deg, rgba(0,255,102,.04) 0 2px, transparent 2px 14px);
+        animation: hackFlicker 2.4s steps(2, end) infinite;
       }
       h1, h2, h3, h4 { font-family: "Share Tech Mono", "Courier New", monospace; letter-spacing: .04em; text-shadow: 0 0 18px rgba(0,255,102,.22); }
       @keyframes hackScan { 0% { background-position: 0 0, 0 0, 0 0; } 100% { background-position: 0 120px, 0 0, 0 0; } }
@@ -154,25 +150,15 @@
       }
       .hero {
         background:
-          radial-gradient(circle at 15% 20%, rgba(0, 255, 102, 0.14), transparent 38%),
-          radial-gradient(circle at 85% 10%, rgba(0, 180, 80, 0.1), transparent 42%),
-          linear-gradient(180deg, #000000 0%, #020805 48%, #000000 100%);
-        position: relative;
-        isolation: isolate;
-        border-bottom: 1px solid rgba(0, 255, 102, 0.2);
+          linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.72)),
+          repeating-linear-gradient(90deg, rgba(0,255,102,.07) 0 1px, transparent 1px 22px),
+          repeating-linear-gradient(0deg, rgba(0,255,102,.05) 0 1px, transparent 1px 22px),
+          #000;
+        position: relative; isolation: isolate;
+        border-bottom: 1px solid rgba(0,255,102,.28);
+        box-shadow: inset 0 0 80px rgba(0,255,102,.08);
       }
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background-image:
-          linear-gradient(rgba(0, 255, 102, 0.09) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0, 255, 102, 0.09) 1px, transparent 1px);
-        background-size: 36px 36px;
-        mask-image: radial-gradient(circle at center, black 20%, transparent 85%);
-        z-index: -1;
-      }
+      .hero::before, .hero::after { content: none !important; display: none !important; }
       .hero::after {
         content: "root@obe:~# decrypt --engine --vin --crate\A 0x4F 0x42 0x45 ACCESS_GRANTED\A >>> MATCHING_DESK ONLINE";
         position: absolute;
@@ -3596,5 +3582,84 @@ function buildContentLibrary() {
       function setText(id, v) { const el = document.getElementById(id); if (el) el.textContent = v; }
       function formatPrice(v) { return new Intl.NumberFormat("en-DE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(v); }
     </script>
-  </body>
+  
+    <script>
+(function () {
+  "use strict";
+
+  function initMatrixRain() {
+    if (document.getElementById("matrixRainCanvas")) return;
+
+    const canvas = document.createElement("canvas");
+    canvas.id = "matrixRainCanvas";
+    canvas.className = "matrix-rain-canvas";
+    canvas.setAttribute("aria-hidden", "true");
+    document.body.prepend(canvas);
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const glyphs = "01アイウエオカキクケコｻｼｽｾｿABCDEFGHIJKLMNOPQRSTUVWXYZ$#*<>[]{}|/\\";
+    const fontSize = 14;
+    let columns = [];
+    let width = 0;
+    let height = 0;
+    let frame = 0;
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+      const colCount = Math.ceil(width / fontSize);
+      columns = Array.from({ length: colCount }, () => Math.random() * -40);
+    }
+
+    function draw() {
+      frame += 1;
+      ctx.fillStyle = "rgba(0, 0, 0, 0.12)";
+      ctx.fillRect(0, 0, width, height);
+      ctx.font = `${fontSize}px "Share Tech Mono", monospace`;
+
+      for (let i = 0; i < columns.length; i += 1) {
+        const x = i * fontSize;
+        const y = columns[i] * fontSize;
+        const char = glyphs[Math.floor(Math.random() * glyphs.length)];
+        const head = Math.random() > 0.965;
+        ctx.fillStyle = head ? "#c8ffd8" : `rgba(0, 255, 102, ${0.28 + Math.random() * 0.45})`;
+        ctx.fillText(char, x, y);
+
+        if (y > height && Math.random() > 0.975) {
+          columns[i] = 0;
+        } else {
+          columns[i] += 0.85 + (i % 5) * 0.05;
+        }
+      }
+
+      if (frame % 180 === 0) {
+        ctx.fillStyle = "rgba(0, 255, 102, 0.03)";
+        ctx.fillRect(0, Math.random() * height, width, 2 + Math.random() * 8);
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    resize();
+    window.addEventListener("resize", resize);
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, width, height);
+    draw();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMatrixRain, { once: true });
+  } else {
+    initMatrixRain();
+  }
+
+  window.OBE_INIT_MATRIX_RAIN = initMatrixRain;
+})();
+
+    </script>
+</body>
 </html>

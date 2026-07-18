@@ -23,6 +23,7 @@
     renderNavbar();
     renderFooter();
     renderGlobalWidgets();
+    if (typeof window.OBE_INIT_MATRIX_RAIN === "function") window.OBE_INIT_MATRIX_RAIN();
     initTheme();
     initLoader();
     initStickyHeader();
