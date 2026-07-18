@@ -33,7 +33,7 @@
         }
       };
     </script>
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260718p" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260718q" />
     <style>
       .spa-view[hidden] { display: none !important; }
       .spa-view.active { display: block; }
@@ -51,12 +51,12 @@
     }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="assets/js/data.js?v=20260718p" defer></script>
-    <script src="assets/js/story-sectors.js?v=20260718p" defer></script>
-    <script src="assets/js/blog-blocks.js?v=20260718p" defer></script>
-    <script src="assets/js/hero-slideshow.js?v=20260718p" defer></script>
-    <script src="assets/js/matrix-rain.js?v=20260718p" defer></script>
-    <script src="assets/js/main.js?v=20260718p" defer></script>
+    <script src="assets/js/data.js?v=20260718q" defer></script>
+    <script src="assets/js/story-sectors.js?v=20260718q" defer></script>
+    <script src="assets/js/blog-blocks.js?v=20260718q" defer></script>
+    <script src="assets/js/hero-slideshow.js?v=20260718q" defer></script>
+    <script src="assets/js/matrix-rain.js?v=20260718q" defer></script>
+    <script src="assets/js/main.js?v=20260718q" defer></script>
   </head>
   <body data-page="home" data-spa="true" class="page-shell home-color-3d antialiased">
     <div id="pageLoader" class="loader-overlay">
@@ -95,9 +95,19 @@
               VIN-matched <strong>Original BMW Engine</strong> and <strong>Old BMW Engine</strong> units (N47, N57, B47, B57, B58 &amp; M57)
               with documented mileage, warranty support, and crated shipping. Free VIN &amp; engine-code check before you pay.
             </p>
-            <div data-gsap-hero class="flex flex-wrap gap-4">
+            <div data-gsap-hero class="flex flex-wrap items-center gap-4">
               <a href="#collection" data-transition class="btn-primary rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition">Shop Bavarian Engine</a>
               <a href="#contact" data-transition class="btn-secondary rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition">Check VIN Free</a>
+              <a
+                href="https://www.trustpilot.com/review/originalbavarianengines.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="trustpilot-badge trustpilot-badge--lg"
+                aria-label="Read Original Bavarian Engine reviews on Trustpilot"
+              >
+                <img src="assets/images/trustpilot-badge.svg?v=20260718q" alt="Trustpilot" width="200" height="52" />
+                <span class="trustpilot-badge__label">Read our Trustpilot reviews</span>
+              </a>
             </div>
             <ul data-gsap-hero class="grid gap-2 text-xs uppercase tracking-[0.14em] text-silver sm:grid-cols-2 lg:grid-cols-4">
               <li class="trust-pill rounded-full px-4 py-2 text-center">VIN &amp; Code Verified</li>
@@ -413,10 +423,22 @@
       </section>
 <section class="px-4 pb-20 md:px-8">
         <div class="mx-auto max-w-7xl">
-          <div class="mb-10">
-            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Client Trust</p>
-            <h2 class="mt-2 text-3xl text-[var(--text)] md:text-4xl">Customer Reviews</h2>
-            <p class="mt-2 max-w-2xl text-sm text-[var(--muted)]">Verified feedback from private collectors and professional workshops across Europe.</p>
+          <div class="mb-10 flex flex-wrap items-end justify-between gap-5">
+            <div>
+              <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Client Trust</p>
+              <h2 class="mt-2 text-3xl text-[var(--text)] md:text-4xl">Customer Reviews</h2>
+              <p class="mt-2 max-w-2xl text-sm text-[var(--muted)]">Verified feedback from private collectors and professional workshops across Europe.</p>
+            </div>
+            <a
+              href="https://www.trustpilot.com/review/originalbavarianengines.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="trustpilot-badge trustpilot-badge--lg"
+              aria-label="Open Trustpilot reviews for Original Bavarian Engine"
+            >
+              <img src="assets/images/trustpilot-badge.svg?v=20260718q" alt="Trustpilot" width="200" height="52" />
+              <span class="trustpilot-badge__label">See all reviews on Trustpilot</span>
+            </a>
           </div>
           <div id="reviewGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
         </div>
