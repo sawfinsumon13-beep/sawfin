@@ -316,9 +316,19 @@
       '<div class="footer-contact-col">' +
       '<a href="index.html" class="footer-logo">Apex <span>Bioreagents</span></a>' +
       '<p class="footer-contact-lines">' +
-      "ph: <a href=\"tel:+18667530747\">866.753.0747</a><br>" +
-      "fax: 678.753.0746<br>" +
-      'e: <a href="mailto:sales@apexbio.example">sales@apexbio.example</a>' +
+      "ph: <a href=\"" +
+      (window.SiteContact ? SiteContact.telHref() : "tel:+17867086594") +
+      '">' +
+      (window.SiteContact ? SiteContact.PHONE_DISPLAY : "+1 (786) 708-6594") +
+      "</a><br>" +
+      'e: <a href="' +
+      (window.SiteContact ? SiteContact.mailHref() : "mailto:sales@researchpeptidesbio.com") +
+      '">' +
+      (window.SiteContact ? SiteContact.EMAIL : "sales@researchpeptidesbio.com") +
+      "</a><br>" +
+      '<a href="' +
+      (window.SiteContact ? SiteContact.whatsappHref("Hello, I want to buy research peptides.") : "https://wa.me/17867086594") +
+      '" target="_blank" rel="noopener">WhatsApp orders</a>' +
       "</p>" +
       '<div class="footer-social" aria-label="Social links">' +
       '<a href="#" aria-label="LinkedIn">in</a>' +

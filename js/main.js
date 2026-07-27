@@ -192,8 +192,25 @@
       '<p class="checkout-total"><span>Estimated subtotal</span><strong>' +
       CartStore.formatMoney(sub) +
       "</strong></p>" +
-      '<div class="product-actions-row"><a href="checkout.html" class="btn btn-primary btn-lg">Proceed to checkout</a>' +
-      '<a href="products.html" class="btn btn-secondary">Continue shopping</a></div>';
+      '<div class="buy-contact-actions">' +
+      '<p class="buy-contact-note">To buy these products, send your order via <strong>Email</strong> or <strong>WhatsApp</strong>:</p>' +
+      '<div class="product-actions-row">' +
+      '<a class="btn btn-primary btn-lg" href="' +
+      SiteContact.mailHref("Order request — cart", SiteContact.cartMessage(cart)) +
+      '">Email to buy</a>' +
+      '<a class="btn btn-whatsapp btn-lg" href="' +
+      SiteContact.whatsappHref(SiteContact.cartMessage(cart)) +
+      '" target="_blank" rel="noopener">WhatsApp to buy</a>' +
+      '<a href="products.html" class="btn btn-secondary">Continue shopping</a></div>' +
+      '<p class="buy-contact-meta">Phone: <a href="' +
+      SiteContact.telHref() +
+      '">' +
+      SiteContact.PHONE_DISPLAY +
+      '</a> · Email: <a href="' +
+      SiteContact.mailHref() +
+      '">' +
+      SiteContact.EMAIL +
+      "</a></p></div>";
 
     root.querySelectorAll(".cart-remove").forEach(function (btn) {
       btn.addEventListener("click", function () {

@@ -16,6 +16,27 @@
     };
   }
 
+  function currentOrderProduct(product) {
+    var sizeEl = document.getElementById("size");
+    var qtyEl = document.getElementById("qty");
+    return {
+      slug: product.slug,
+      name: product.name,
+      sku: product.sku,
+      price: product.price,
+      size: sizeEl ? sizeEl.value : null,
+      qty: qtyEl ? parseInt(qtyEl.value, 10) || 1 : 1,
+    };
+  }
+
+  function refreshBuyLinks(product) {
+    var wrap = document.getElementById("buy-contact-wrap");
+    if (!wrap || !window.SiteContact) return;
+    wrap.innerHTML = SiteContact.buyButtonsHtml(currentOrderProduct(product), {
+      includeCart: true,
+    });
+  }
+
   function initProduct() {
     var slug = qs("slug");
     window.SITE_ACTIVE = "products";
@@ -41,7 +62,7 @@
           return;
         }
 
-        document.title = product.name + " | Apex Bioreagents";
+        document.title = product.name + " | Research Peptides Bio";
 
         var sizes =
           product.sizes && product.sizes.length
@@ -65,8 +86,8 @@
         var cats = product.categories
           .map(function (c) {
             return (
-              '<a href="products.html?category=' +
-              encodeURIComponent(c.slug) +
+              '<a href="' +
+              (window.sectionHref ? window.sectionHref(c.slug) : "products.html?category=" + encodeURIComponent(c.slug)) +
               '">' +
               c.name +
               "</a>"
@@ -101,16 +122,13 @@
           '<p class="stock ' +
           (product.in_stock ? "in-stock" : "out-stock") +
           '">' +
-          (product.in_stock ? "In stock — ready to ship" : "Contact us for availability") +
+          (product.in_stock ? "In stock — order via Email or WhatsApp" : "Contact us for availability") +
           "</p>" +
           '<form id="add-to-cart" class="add-to-cart">' +
           sizes +
           '<div class="form-group"><label for="qty">Quantity</label><input type="number" id="qty" name="qty" min="1" value="1"></div>' +
-          '<div class="product-actions-row">' +
-          '<button type="submit" class="btn btn-primary">Add to cart</button>' +
-          '<button type="button" id="buy-now" class="btn btn-secondary">Buy now</button>' +
-          '<a href="cart.html" class="btn btn-secondary">View cart</a>' +
-          "</div></form>" +
+          '<div id="buy-contact-wrap"></div>' +
+          "</form>" +
           "</div></div>" +
           '<section class="product-description section-tight">' +
           "<h2>Overview</h2>" +
@@ -120,7 +138,18 @@
           (product.description && product.description !== product.short
             ? "<h3>Details</h3><p>" + product.description + "</p>"
             : "") +
+          '<p class="buy-contact-meta">Questions? Call <a href="' +
+          SiteContact.telHref() +
+          '">' +
+          SiteContact.PHONE_DISPLAY +
+          '</a> or email <a href="' +
+          SiteContact.mailHref() +
+          '">' +
+          SiteContact.EMAIL +
+          "</a>.</p>" +
           "</section>";
+
+        refreshBuyLinks(product);
 
         var form = document.getElementById("add-to-cart");
         form.addEventListener("submit", function (e) {
@@ -129,10 +158,16 @@
           window.location.href = "cart.html";
         });
 
-        document.getElementById("buy-now").addEventListener("click", function () {
-          CartStore.setCart([]);
-          CartStore.addToCart(cartItemFromForm(product));
-          window.location.href = "checkout.html";
+        ["size", "qty"].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) {
+            el.addEventListener("change", function () {
+              refreshBuyLinks(product);
+            });
+            el.addEventListener("input", function () {
+              refreshBuyLinks(product);
+            });
+          }
         });
       });
   }

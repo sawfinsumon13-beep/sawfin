@@ -65,7 +65,7 @@
 
   function catUrl(slug) {
     if (window.sectionHref) return window.sectionHref(slug);
-    return catUrl(slug);
+    return "products.html?category=" + encodeURIComponent(slug);
   }
 
   function qs(name) {
@@ -145,9 +145,10 @@
     var top = findTopParent(state.category);
     document.querySelectorAll(".category-bar a").forEach(function (a) {
       var href = a.getAttribute("href") || "";
-      var match = href.match(/category=([^&]+)/);
-      var slug = match ? decodeURIComponent(match[1]) : "";
-      a.classList.toggle("active", top === slug || state.category === slug);
+      var active = false;
+      if (top && window.sectionHref && href.indexOf(window.sectionHref(top)) !== -1) active = true;
+      if (href.indexOf(state.category) !== -1) active = true;
+      a.classList.toggle("active", active);
     });
   }
 
@@ -322,7 +323,7 @@
       '">' +
       (p.in_stock ? "In stock" : "Request quote") +
       "</span></div>" +
-      '<span class="shop-btn-gold">Buy / view</span>' +
+      '<span class="shop-btn-gold">Buy via Email / WhatsApp</span>' +
       "</div></a></article>"
     );
   }
@@ -338,8 +339,8 @@
     bar.innerHTML = kids
       .map(function (c) {
         return (
-          '<a href="products.html?category=' +
-          encodeURIComponent(c.slug) +
+          '<a href="' +
+          catUrl(c.slug) +
           '"' +
           (state.category === c.slug ? ' class="active"' : "") +
           ">" +
