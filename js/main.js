@@ -215,7 +215,7 @@
             CartStore.formatMoney((item.unitPrice || 0) * item.qty) +
             '</td><td><button type="button" data-idx="' +
             idx +
-            '" class="cart-remove">Remove</button></td></tr>"
+            '" class="cart-remove">Remove</button></td></tr>'
           );
         })
         .join("") +
