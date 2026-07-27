@@ -60,54 +60,95 @@
       })
       .then(function (catalog) {
         var grid = document.getElementById("home-categories");
-        if (!grid) return;
-        grid.innerHTML = catalog.categories
-          .map(function (c) {
-            var img = c.image
-              ? '<img src="' + c.image + '" alt="" loading="lazy">'
-              : '<span class="cat-fallback">' + c.name.charAt(0) + "</span>";
+        if (grid && !grid.children.length) {
+          grid.innerHTML = catalog.categories
+            .map(function (c) {
+              var img = c.image
+                ? '<img src="' + c.image + '" alt="" loading="lazy">'
+                : '<span class="cat-fallback">' + c.name.charAt(0) + "</span>";
+              return (
+                '<a class="category-card category-card-rich" href="products.html?category=' +
+                encodeURIComponent(c.slug) +
+                '">' +
+                '<div class="category-card-img">' +
+                img +
+                "</div>" +
+                "<h3>" +
+                c.name +
+                "</h3>" +
+                "<p>" +
+                c.count +
+                " products</p></a>"
+              );
+            })
+            .join("");
+        }
+
+        var featured = document.getElementById("home-featured");
+        if (featured) {
+          var fibrils = catalog.products
+            .filter(function (p) {
+              return p.categories.some(function (c) {
+                return (
+                  c.slug === "preformed-fibrils" ||
+                  c.name.indexOf("Preformed Fibrils") >= 0
+                );
+              });
+            })
+            .slice(0, 6);
+          if (fibrils.length) {
+            featured.innerHTML = fibrils
+              .map(function (p) {
+                var img = p.image
+                  ? '<div class="product-card-image"><img src="' +
+                    p.image +
+                    '" alt="" loading="lazy"></div>'
+                  : "";
+                return (
+                  '<article class="product-card"><a href="product.html?slug=' +
+                  encodeURIComponent(p.slug) +
+                  '">' +
+                  img +
+                  '<div class="product-body"><p class="product-tag">Preformed fibrils</p><h3>' +
+                  p.name +
+                  '</h3><div class="product-meta"><span>' +
+                  (p.sku || "") +
+                  '</span><span class="price">' +
+                  p.price +
+                  "</span></div></div></a></article>"
+                );
+              })
+              .join("");
+          }
+        }
+      })
+      .catch(function () {});
+
+    fetch("data/blog-posts.json")
+      .then(function (r) {
+        return r.json();
+      })
+      .then(function (posts) {
+        var homeBlog = document.getElementById("home-blog");
+        if (!homeBlog) return;
+        homeBlog.innerHTML = posts
+          .slice(0, 6)
+          .map(function (post) {
             return (
-              '<a class="category-card category-card-rich" href="products.html?category=' +
-              encodeURIComponent(c.slug) +
-              '">' +
-              '<div class="category-card-img">' +
-              img +
-              "</div>" +
-              "<h3>" +
-              c.name +
-              "</h3>" +
-              '<p>' +
-              c.count +
-              " products</p></a>"
+              '<article class="blog-card"><a href="blog-post.html?slug=' +
+              encodeURIComponent(post.slug) +
+              '"><div class="blog-card-image"><img src="' +
+              post.image +
+              '" alt="" loading="lazy"></div><div class="blog-card-body"><p class="product-tag">' +
+              post.category +
+              "</p><h3>" +
+              post.title +
+              "</h3><p>" +
+              post.excerpt +
+              '</p><span class="blog-read">Read article →</span></div></a></article>'
             );
           })
           .join("");
-
-        var featured = document.getElementById("home-featured");
-        if (!featured) return;
-        var fibrils = catalog.products.filter(function (p) {
-          return p.categories.some(function (c) {
-            return c.slug === "preformed-fibrils" || c.name.indexOf("Preformed Fibrils") >= 0;
-          });
-        }).slice(0, 6);
-        featured.innerHTML = fibrils.map(function (p) {
-          var img = p.image
-            ? '<div class="product-card-image"><img src="' + p.image + '" alt="" loading="lazy"></div>'
-            : "";
-          return (
-            '<article class="product-card"><a href="product.html?slug=' +
-            encodeURIComponent(p.slug) +
-            '">' +
-            img +
-            '<div class="product-body"><p class="product-tag">Preformed fibrils</p><h3>' +
-            p.name +
-            "</h3><div class=\"product-meta\"><span>" +
-            (p.sku || "") +
-            '</span><span class="price">' +
-            p.price +
-            "</span></div></div></a></article>"
-          );
-        }).join("");
       })
       .catch(function () {});
   }

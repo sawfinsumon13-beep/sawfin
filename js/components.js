@@ -102,7 +102,7 @@
     ],
     resources: [
       { name: "Citations", href: "resources-citations.html" },
-      { name: "Blogs", href: "resources-blogs.html" },
+      { name: "Blog (50 articles)", href: "blog.html" },
       { name: "International Distributors", href: "resources-distributors.html" },
       { name: "FAQs", href: "resources-faqs.html" },
       { name: "Ordering Overview", href: "resources-ordering.html" },
@@ -189,6 +189,7 @@
       dropdown("menu-products", "Products", '<div class="mega-grid">' + productMegaHtml() + "</div>", "products") +
       dropdown("menu-services", "Services", simpleMega(MEGA.services), "services") +
       dropdown("menu-resources", "Resources", simpleMega(MEGA.resources), "resources") +
+      link("blog.html", "Blog", "blog") +
       dropdown("menu-about", "About Us", simpleMega(MEGA.about), "about") +
       "</nav>" +
       '<div class="header-actions">' +
