@@ -290,6 +290,12 @@
     }
   }
 
+  // Always wire header controls, even if page scripts fail later
+  document.addEventListener("DOMContentLoaded", function () {
+    var header = document.getElementById("site-header");
+    if (header) bindHeaderInteractions(header);
+  });
+
   function footerList(items) {
     return (
       "<ul>" +
