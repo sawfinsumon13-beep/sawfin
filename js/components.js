@@ -218,7 +218,7 @@
 
     el.innerHTML =
       '<div class="container header-inner">' +
-      '<a href="index.html" class="logo"><span class="logo-mark">A</span><span class="logo-text">Apex <strong>Bioreagents</strong><small>Research peptides</small></span></a>' +
+      '<a href="index.html" class="logo"><span class="logo-mark">R</span><span class="logo-text"><strong>Research peptides</strong><small>R&amp;D Starts Here</small></span></a>' +
       '<nav class="nav-main" id="nav-main" aria-label="Primary">' +
       dropdown("menu-products", "Products", '<div class="mega-grid">' + productMegaHtml() + "</div>", "products") +
       dropdown("menu-services", "Services", simpleMega(MEGA.services), "services") +
@@ -314,7 +314,7 @@
       footerList(MEGA.about) +
       "</div>" +
       '<div class="footer-contact-col">' +
-      '<a href="index.html" class="footer-logo">Apex <span>Bioreagents</span></a>' +
+      '<a href="index.html" class="footer-logo">Research <span>peptides</span></a>' +
       '<p class="footer-tagline">Research peptides · Buy peptides · Peptides for sale</p>' +
       '<p class="footer-contact-lines">' +
       "ph: <a href=\"" +
