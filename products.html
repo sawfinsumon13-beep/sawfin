@@ -3,237 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Browse recombinant peptides, proteins, antibodies, kits, and preformed fibrils from Apex Bioreagents.">
   <title>Products | Apex Bioreagents</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=Fraunces:opsz,wght@9..144,500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">A</span>
-        Apex Bioreagents
-      </a>
-      <nav class="nav-main" id="nav-main" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="products.html" class="active">Products</a>
-        <a href="services.html">Custom Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <a href="contact.html" class="btn btn-secondary">Request Quote</a>
-        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-main" aria-label="Open menu">☰</button>
-      </div>
-    </div>
-  </header>
-
+<body data-page="shop">
+  <header class="site-header" id="site-header"></header>
   <main>
     <div class="page-hero">
       <div class="container">
         <p class="breadcrumb"><a href="index.html">Home</a> / Products</p>
-        <h1>Product catalog</h1>
-        <p>Recombinant peptides, proteins, antibodies, fibrils, and research tools for neurodegeneration and related fields.</p>
+        <h1 id="shop-title">All products</h1>
+        <p>Recombinant peptides, proteins, antibodies, fibrils, kits, compounds, and coronavirus research tools.</p>
       </div>
     </div>
-
-    <section class="section" style="padding-top: 2.5rem;">
-      <div class="container">
-        <div class="filter-bar" role="tablist" aria-label="Product categories">
-          <button type="button" class="filter-chip active" data-filter="all">All</button>
-          <button type="button" class="filter-chip" data-filter="peptides">Peptides</button>
-          <button type="button" class="filter-chip" data-filter="proteins">Proteins</button>
-          <button type="button" class="filter-chip" data-filter="antibodies">Antibodies</button>
-          <button type="button" class="filter-chip" data-filter="fibrils">Preformed fibrils</button>
-          <button type="button" class="filter-chip" data-filter="kits">Kits</button>
+    <section class="section" style="padding-top:2rem;">
+      <div class="container shop-layout">
+        <aside id="shop-sidebar" aria-label="Categories"></aside>
+        <div>
+          <div class="shop-toolbar">
+            <input type="search" id="shop-search" placeholder="Search by name, SKU, or category…" aria-label="Search products">
+            <select id="shop-sort" aria-label="Sort products">
+              <option value="name-asc">Name (A–Z)</option>
+              <option value="name-desc">Name (Z–A)</option>
+              <option value="sku">SKU</option>
+            </select>
+          </div>
+          <p id="shop-meta" class="breadcrumb"></p>
+          <div class="product-grid" id="product-grid"></div>
+          <div id="shop-pager"></div>
         </div>
-
-        <div class="product-grid" id="product-catalog">
-          <article class="product-card" data-category="peptides" id="peptides">
-            <div class="product-image" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 12h10M12 7v10"/></svg>
-            </div>
-            <div class="product-body">
-              <p class="product-tag">Peptide</p>
-              <h3>Beta-Amyloid (1–42), HFIP</h3>
-              <p>Monomeric Aβ(1–42) prepared in HFIP for aggregation and toxicity assays.</p>
-              <div class="product-meta"><span>AB-42-HF</span><span>In stock</span></div>
-            </div>
-          </article>
-          <article class="product-card" data-category="peptides">
-            <div class="product-image" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 12h10M12 7v10"/></svg>
-            </div>
-            <div class="product-body">
-              <p class="product-tag">Peptide</p>
-              <h3>Beta-Amyloid (1–40), NH₄OH</h3>
-              <p>Native sequence Aβ(1–40) for comparative fibrillization studies.</p>
-              <div class="product-meta"><span>AB-40-NH</span><span>In stock</span></div>
-            </div>
-          </article>
-          <article class="product-card" data-category="peptides">
-            <div class="product-image" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 12h10M12 7v10"/></svg>
-            </div>
-            <div class="product-body">
-              <p class="product-tag">Peptide · Labeled</p>
-              <h3>N15 Beta-Amyloid (1–42)</h3>
-              <p>Uniformly <sup>15</sup>N-labeled Aβ for NMR and mass spectrometry.</p>
-              <div class="product-meta"><span>AB-42-N15</span><span>Lead time 3–4 wk</span></div>
-            </div>
-          </article>
-          <article class="product-card" data-category="proteins" id="proteins">
-            <div class="product-image" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/></svg>
-            </div>
-            <div class="product-body">
-              <p class="product-tag">Protein</p>
-              <h3>Alpha-Synuclein, Recombinant</h3>
-              <p>Full-length human α-synuclein expressed in E. coli.</p>
-              <div class="product-meta"><span>SYN-WT</span><span>In stock</span></div>
-            </div>
-          </article>
-          <article class="product-card" data-category="proteins">
-            <div class="product-image" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/></svg>
-            </div>
-            <div class="product-body">
-              <p class="product-tag">Protein</p>
-              <h3>Tau-441 (2N4R)</h3>
-              <p>Longest human tau isoform for fibril and phosphorylation studies.</p>
-              <div class="product-meta"><span>TAU-441</span><span>In stock</span></div>
-            </div>
-          </article>
-          <article class="product-card" data-category="proteins">
-            <div class="product-image" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/></svg>
-            </div>
-            <div class="product-body">
-              <p class="product-tag">Protein · Labeled</p>
-              <h3>C13 Tau-441</h3>
-              <p>Uniform <sup>13</sup>C labeling for structural and binding experiments.</p>
-              <div class="product-meta"><span>TAU-441-C13</span><span>Lead time 4–6 wk</span></div>
-            </div>
-          </article>
-          <article class="product-card" data-category="antibodies" id="antibodies">
-            <div class="product-image" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v16M8 8l8 8M16 8l-8 8"/></svg>
-            </div>
-            <div class="product-body">
-              <p class="product-tag">Antibody</p>
-              <h3>Anti–Beta-Amyloid (6E10)</h3>
-              <p>Mouse monoclonal for detection of Aβ species in Western blot and IHC.</p>
-              <div class="product-meta"><span>MAB-6E10</span><span>In stock</span></div>
-            </div>
-          </article>
-          <article class="product-card" data-category="antibodies">
-            <div class="product-image" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v16M8 8l8 8M16 8l-8 8"/></svg>
-            </div>
-            <div class="product-body">
-              <p class="product-tag">Antibody</p>
-              <h3>Anti–Phospho-Tau (AT8)</h3>
-              <p>Recognizes phosphorylated tau at Ser202/Thr205.</p>
-              <div class="product-meta"><span>MAB-AT8</span><span>In stock</span></div>
-            </div>
-          </article>
-          <article class="product-card" data-category="fibrils" id="fibrils">
-            <div class="product-image" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18l4-10 4 6 4-14 4 18"/></svg>
-            </div>
-            <div class="product-body">
-              <p class="product-tag">Preformed fibrils</p>
-              <h3>Beta-Amyloid (1–42) Fibrils</h3>
-              <p>Validated ThT-positive fibrils for seeding and propagation assays.</p>
-              <div class="product-meta"><span>AB-42-PFF</span><span>In stock</span></div>
-            </div>
-          </article>
-          <article class="product-card" data-category="fibrils">
-            <div class="product-image" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18l4-10 4 6 4-14 4 18"/></svg>
-            </div>
-            <div class="product-body">
-              <p class="product-tag">Preformed fibrils</p>
-              <h3>Alpha-Synuclein Fibrils</h3>
-              <p>Recombinant fibrils for synucleinopathy models.</p>
-              <div class="product-meta"><span>SYN-PFF</span><span>In stock</span></div>
-            </div>
-          </article>
-          <article class="product-card" data-category="fibrils">
-            <div class="product-image" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18l4-10 4 6 4-14 4 18"/></svg>
-            </div>
-            <div class="product-body">
-              <p class="product-tag">Preformed fibrils</p>
-              <h3>Tau-441 Preformed Fibrils</h3>
-              <p>Full-length tau fibrils for in vitro and cell-based models.</p>
-              <div class="product-meta"><span>TAU-PFF</span><span>In stock</span></div>
-            </div>
-          </article>
-          <article class="product-card" data-category="kits" id="kits">
-            <div class="product-image" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
-            </div>
-            <div class="product-body">
-              <p class="product-tag">Kit</p>
-              <h3>Aβ Aggregation Monitoring Kit</h3>
-              <p>Includes peptide, ThT, buffers, and protocol for fibril kinetics.</p>
-              <div class="product-meta"><span>KIT-AB-AGG</span><span>In stock</span></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-band">
-      <div class="container">
-        <h2>Need a catalog number or bulk pricing?</h2>
-        <p>Our scientists can match your assay requirements to the right format, scale, and ship date.</p>
-        <a href="contact.html" class="btn btn-outline">Request a quote</a>
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="logo"><span class="logo-mark">A</span>Apex Bioreagents</a>
-          <p>High-quality recombinant reagents for neurodegenerative research worldwide.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Products</h4>
-          <ul>
-            <li><a href="products.html">Peptides</a></li>
-            <li><a href="products.html">Proteins</a></li>
-            <li><a href="products.html">Antibodies</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="about.html">About us</a></li>
-            <li><a href="services.html">Custom services</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:orders@apexbio.example">orders@apexbio.example</a></li>
-            <li><a href="tel:+18005550142">+1 (800) 555-0142</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 Apex Bioreagents.</span>
-        <span>For research use only.</span>
-      </div>
-    </div>
-  </footer>
-
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="js/components.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/shop.js"></script>
 </body>
 </html>

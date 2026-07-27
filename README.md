@@ -1,24 +1,39 @@
-# Apex Bioreagents — static website
+# Apex Bioreagents — peptide supplier website
 
-Professional multi-page HTML site for a peptide and protein research supplier (inspired by industry catalog layouts such as [rPeptide](https://www.rpeptide.com/)).
+Static HTML storefront modeled on [rPeptide](https://www.rpeptide.com/) navigation and product families.
+
+## Catalog
+
+- **367 products** imported into `data/catalog.json` (names, SKUs, prices, size options, categories, descriptions)
+- **7 top-level families**: Antibodies, Peptides, Proteins, Neurodegenerative Related Compounds, Coronavirus Research Tools, Kits, Preformed Fibrils
+- Nested subcategories (e.g. Beta-Amyloid Native, Labeled, Mutant, Synuclein Wild Type, Tau Fragments, COVID compounds)
+
+Refresh catalog from the public WooCommerce API:
+
+```bash
+python3 scripts/build_catalog.py
+python3 -c "import json; ..."  # see script for full category-tree fix, or run build + tree fix in CI
+```
 
 ## Pages
 
-- `index.html` — Home, hero, categories, featured fibrils
-- `products.html` — Catalog with category filters
-- `services.html` — Custom synthesis and contract services
-- `about.html` — Company and quality
-- `contact.html` — Inquiry form (client-side demo submit)
+| File | Purpose |
+|------|---------|
+| `index.html` | Home + category tiles + featured fibrils |
+| `products.html` | Full shop, sidebar, search, pagination |
+| `product.html?slug=…` | Product detail, size selector, add to cart |
+| `cart.html` | Cart (localStorage) |
+| `services.html`, `about.html`, `contact.html` | Company |
+| `resources-*.html` | Resources menu stubs |
 
 ## Run locally
 
 ```bash
-cd /workspace
 python3 -m http.server 8080
 ```
 
-Open `http://localhost:8080` in your browser.
+Open `http://localhost:8080` (required so `fetch('data/catalog.json')` works).
 
-## Customize
+## Customize branding
 
-Replace **Apex Bioreagents** branding, contact details, and product copy in the HTML files. Add real product images by swapping the SVG placeholders in `products.html` and hero backgrounds in `css/styles.css`.
+Edit `js/components.js` (site name) and contact details in footer/contact page.

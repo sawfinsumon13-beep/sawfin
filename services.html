@@ -3,98 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Custom peptide synthesis, protein expression, purification, and isotopic labeling from Apex Bioreagents.">
-  <title>Custom Services | Apex Bioreagents</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <title>Services | Apex Bioreagents</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=Fraunces:opsz,wght@9..144,500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">A</span>
-        Apex Bioreagents
-      </a>
-      <nav class="nav-main" id="nav-main" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="services.html" class="active">Custom Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <a href="contact.html" class="btn btn-secondary">Request Quote</a>
-        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-main" aria-label="Open menu">☰</button>
-      </div>
-    </div>
-  </header>
-
+  <script>window.SITE_ACTIVE = "services";</script>
+  <header class="site-header" id="site-header"></header>
   <main>
-    <div class="page-hero">
+    <div class="page-hero"><div class="container">
+      <h1>Services</h1>
+      <p>Custom peptides &amp; proteins, lab services, bulk quotes, and reference tools.</p>
+    </div></div>
+    <section class="section" id="contract">
       <div class="container">
-        <p class="breadcrumb"><a href="index.html">Home</a> / Custom Services</p>
-        <h1>Contract research &amp; manufacturing</h1>
-        <p>From gene to purified material — peptide synthesis, recombinant expression, and analytical characterization under one quality system.</p>
-      </div>
-    </div>
-
-    <section class="section">
-      <div class="container services-grid">
-        <article class="service-card">
-          <h3>Custom peptide synthesis</h3>
-          <p>Solid-phase synthesis of native, modified, and labeled peptides with HPLC purification and mass confirmation.</p>
-        </article>
-        <article class="service-card">
-          <h3>Protein expression</h3>
-          <p>Bacterial and mammalian expression platforms for difficult targets, including aggregation-prone neuro proteins.</p>
-        </article>
-        <article class="service-card">
-          <h3>Purification &amp; QC</h3>
-          <p>Chromatography, endotoxin testing, identity verification, and documentation aligned to your SOPs.</p>
-        </article>
-        <article class="service-card">
-          <h3>Stable-isotope labeling</h3>
-          <p>Uniform <sup>13</sup>C, <sup>15</sup>N, or dual labeling for NMR, cryo-EM, and quantitative proteomics.</p>
-        </article>
-        <article class="service-card">
-          <h3>Fibril preparation</h3>
-          <p>Custom fibril generation, seeding potency characterization, and aliquoting for long-term storage.</p>
-        </article>
-        <article class="service-card">
-          <h3>Fill &amp; finish</h3>
-          <p>Lyophilization, custom vialing, and private-label packaging for recurring supply agreements.</p>
-        </article>
+        <h2 id="custom">Custom peptides &amp; proteins</h2>
+        <p>Contract synthesis, expression, purification, and QC documentation for academic and industry programs.</p>
       </div>
     </section>
-
-    <section class="section" style="background: var(--color-surface); border-block: 1px solid var(--color-border);">
-      <div class="container split-feature">
-        <div class="split-visual" style="background: linear-gradient(135deg, rgba(13,79,108,0.2), rgba(14,165,164,0.25)), url('https://images.unsplash.com/photo-1576086213369-97a306d36557?w=900&q=80') center/cover;" role="img" aria-label="Laboratory equipment"></div>
-        <div>
-          <h2>How a custom project works</h2>
-          <ol class="feature-list" style="list-style: decimal; padding-left: 1.25rem;">
-            <li style="padding-left: 0.5rem;">Submit sequence, modifications, and target quantity via our inquiry form.</li>
-            <li style="padding-left: 0.5rem;">Receive a technical review, feasibility assessment, and fixed or tiered quote.</li>
-            <li style="padding-left: 0.5rem;">Production with milestone updates and optional pilot batch.</li>
-            <li style="padding-left: 0.5rem;">Delivery with COA, stability guidance, and optional standing inventory.</li>
-          </ol>
-          <a href="contact.html" class="btn btn-primary">Start a project</a>
-        </div>
+    <section class="section" style="background:#fff;border-block:1px solid var(--color-border);" id="bulk">
+      <div class="container">
+        <h2>Bulk production requests</h2>
+        <p>Standing inventory, repeat batches, and volume pricing for core catalog lines.</p>
+        <a href="contact.html" class="btn btn-primary">Request bulk quote</a>
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-bottom" style="border: none; padding: 0;">
-        <span>© 2026 Apex Bioreagents.</span>
-        <span><a href="contact.html" style="color: rgba(255,255,255,0.8);">Contact sales</a></span>
-      </div>
-    </div>
-  </footer>
-
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="js/components.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
