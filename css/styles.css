@@ -362,7 +362,7 @@ a:hover {
 .hero-dots {
   position: absolute;
   left: 50%;
-  bottom: 12.5rem;
+  bottom: 1rem;
   transform: translateX(-50%);
   z-index: 6;
   display: flex;
@@ -1900,13 +1900,14 @@ a:hover {
   }
 
   .hero-badge {
-    position: static;
-    margin-top: 2rem;
-    max-width: none;
+    position: relative;
+    margin-top: 1rem;
+    max-width: 360px;
   }
 
   .hero-inner {
-    max-width: none;
+    max-width: 760px;
+    text-align: center;
   }
 
   .hero-nav {
@@ -2181,9 +2182,11 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-top: 2.5rem;
+  margin-top: 1.75rem;
+  margin-bottom: 2rem;
   position: relative;
   z-index: 5;
+  width: 100%;
 }
 
 .hero-product-card {
