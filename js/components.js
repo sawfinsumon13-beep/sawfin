@@ -315,6 +315,7 @@
       "</div>" +
       '<div class="footer-contact-col">' +
       '<a href="index.html" class="footer-logo">Apex <span>Bioreagents</span></a>' +
+      '<p class="footer-tagline">Peptides · Buy peptides · Peptides for sale · Research peptides</p>' +
       '<p class="footer-contact-lines">' +
       "ph: <a href=\"" +
       (window.SiteContact ? SiteContact.telHref() : "tel:+17867086594") +
@@ -327,8 +328,8 @@
       (window.SiteContact ? SiteContact.EMAIL : "sales@researchpeptidesbio.com") +
       "</a><br>" +
       '<a href="' +
-      (window.SiteContact ? SiteContact.whatsappHref("Hello, I want to buy research peptides.") : "https://wa.me/17867086594") +
-      '" target="_blank" rel="noopener">WhatsApp orders</a>' +
+      (window.SiteContact ? SiteContact.whatsappHref("Hello, I want to buy peptides and research peptides.") : "https://wa.me/17867086594") +
+      '" target="_blank" rel="noopener">WhatsApp — buy peptides</a>' +
       "</p>" +
       '<div class="footer-social" aria-label="Social links">' +
       '<a href="#" aria-label="LinkedIn">in</a>' +
@@ -344,7 +345,7 @@
       "</form></div></div>" +
       '<div class="footer-sub"><div class="container footer-sub-inner">' +
       "<span>© 2026 Apex Bioreagents · <a href=\"sitemap.html\">Sitemap</a> · <a href=\"privacy.html\">Privacy</a> · <a href=\"resources-terms.html\">Terms &amp; Conditions</a></span>" +
-      "<span>Apex Bioreagents products are for research purposes only. Not for human consumption.</span>" +
+      "<span>Peptides, buy peptides, peptides for sale, and research peptides from Apex Bioreagents are for research purposes only. Not for human consumption.</span>" +
       "</div></div></div>";
 
     var form = document.getElementById("newsletter-form");

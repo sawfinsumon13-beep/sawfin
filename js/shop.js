@@ -18,7 +18,7 @@
     peptides: {
       title: "Peptides",
       blurb:
-        "Buy research peptides online — recombinant Beta-Amyloid mutant, native, fragments, labeled, and synthetic formats, plus Amylin and Amyloid Precursor Protein related peptides for Alzheimer’s and neurodegeneration programs.",
+        "Peptides for sale — buy peptides and research peptides online. Recombinant Beta-Amyloid mutant, native, fragments, labeled, and synthetic formats, plus Amylin and Amyloid Precursor Protein related peptides for Alzheimer’s and neurodegeneration programs.",
       featured: "Recombinant Beta-Amyloid Mutant, Native, Fragments, Labeled, & Synthetic",
     },
     proteins: {
@@ -168,7 +168,7 @@
     hub.hidden = false;
     detail.hidden = true;
     document.title =
-      "Products | Buy Research Peptides, Proteins, Antibodies & Fibrils | Apex Bioreagents";
+      "Peptides for Sale | Buy Peptides & Research Peptides | Apex Bioreagents";
 
     var bySlug = {};
     catalog.categories.forEach(function (c) {
@@ -177,9 +177,9 @@
 
     hub.innerHTML =
       '<header class="section-header" style="margin-bottom:2rem">' +
-      '<p class="section-eyebrow">Shop by family</p>' +
-      "<h2>Recombinant Peptides, Proteins, Antibodies, Fibrils &amp; more</h2>" +
-      "<p>Browse every option to buy research peptides and related reagents — the same product families used by leading neurodegeneration suppliers.</p>" +
+      '<p class="section-eyebrow">Peptides · Buy peptides · Peptides for sale · Research peptides</p>' +
+      "<h2>Peptides for sale — buy peptides, research peptides &amp; more</h2>" +
+      "<p>Browse <strong>peptides</strong> and related reagents. Ready to <strong>buy peptides</strong>? Explore our catalog of <strong>peptides for sale</strong> and <strong>research peptides</strong>, plus proteins, antibodies, and fibrils.</p>" +
       "</header>" +
       '<div class="hub-grid">' +
       TOP_ORDER.map(function (slug) {
