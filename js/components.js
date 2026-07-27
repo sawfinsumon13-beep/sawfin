@@ -180,6 +180,11 @@
   window.renderSiteHeader = function () {
     var el = document.getElementById("site-header");
     if (!el) return;
+    // Do not wipe a static HTML menu (homepage)
+    if (el.getAttribute("data-static-header") === "true") {
+      bindHeaderInteractions(el);
+      return;
+    }
 
     el.innerHTML =
       '<div class="container header-inner">' +
@@ -193,31 +198,41 @@
       "</nav>" +
       '<div class="header-actions">' +
       '<form class="header-search" action="products.html" method="get" role="search">' +
-      '<input type="search" name="q" placeholder="Search products…" aria-label="Search products">' +
+      '<input type="search" name="q" placeholder="search" aria-label="Search products">' +
       '<button type="submit" aria-label="Search">🔍</button></form>' +
       '<a href="account.html" class="header-signin">Sign In</a>' +
       '<a href="cart.html" class="header-cart" aria-label="Shopping cart">🛒 <span id="cart-count">0</span></a>' +
       '<button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-main" aria-label="Open menu">☰</button>' +
       "</div></div>";
 
-    document.querySelectorAll(".nav-dropdown").forEach(function (dd) {
+    bindHeaderInteractions(el);
+  };
+
+  function bindHeaderInteractions(root) {
+    root.querySelectorAll(".nav-dropdown").forEach(function (dd) {
       var trigger = dd.querySelector(".nav-dropdown-trigger");
       var panel = dd.querySelector(".nav-dropdown-panel");
+      if (!trigger || !panel || trigger.dataset.bound) return;
+      trigger.dataset.bound = "1";
       trigger.addEventListener("click", function () {
+        root.querySelectorAll(".nav-dropdown-panel.open").forEach(function (p) {
+          if (p !== panel) p.classList.remove("open");
+        });
         var open = panel.classList.toggle("open");
         trigger.setAttribute("aria-expanded", open ? "true" : "false");
       });
     });
 
-    var toggle = document.getElementById("nav-toggle");
-    var nav = document.getElementById("nav-main");
-    if (toggle && nav) {
+    var toggle = root.querySelector("#nav-toggle") || document.getElementById("nav-toggle");
+    var nav = root.querySelector("#nav-main") || document.getElementById("nav-main");
+    if (toggle && nav && !toggle.dataset.bound) {
+      toggle.dataset.bound = "1";
       toggle.addEventListener("click", function () {
         var open = nav.classList.toggle("open");
         toggle.setAttribute("aria-expanded", open ? "true" : "false");
       });
     }
-  };
+  }
 
   function footerList(items) {
     return (

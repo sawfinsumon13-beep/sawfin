@@ -66,10 +66,15 @@ a:hover {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
+  z-index: 1000;
+  background: #ffffff;
   border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+}
+
+.site-header-solid {
+  background: #ffffff !important;
+  backdrop-filter: none;
 }
 
 .header-inner {
@@ -109,24 +114,20 @@ a:hover {
 }
 
 .logo-mark {
-  background: linear-gradient(135deg, #e6b43c, #c9922e);
-}
-
-.logo:hover {
-  text-decoration: none;
-}
-
-.logo-mark {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  background: linear-gradient(135deg, #e6b43c, #c9922e);
   display: grid;
   place-items: center;
   color: #fff;
   font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 600;
+}
+
+.logo:hover {
+  text-decoration: none;
 }
 
 .nav-main {
