@@ -390,14 +390,27 @@ a:hover {
   position: relative;
   z-index: 5;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-inner {
   position: relative;
   z-index: 5;
-  padding: 4rem 0 8.5rem;
-  max-width: 640px;
+  padding: 4.5rem 1rem 2.5rem;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
   text-shadow: 0 2px 18px rgba(8, 53, 73, 0.45);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -434,26 +447,24 @@ a:hover {
   font-size: 1.125rem;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 2rem;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  margin: 0 auto 2rem;
+  max-width: 42rem;
 }
 
 .hero-badge {
-  position: absolute;
-  right: max(1.25rem, calc((100vw - var(--max-width)) / 2));
-  bottom: 2.5rem;
+  position: relative;
+  right: auto;
+  bottom: auto;
   z-index: 5;
   background: var(--color-surface);
   color: var(--color-ink);
-  padding: 1.25rem 1.5rem;
+  padding: 1.1rem 1.35rem;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  max-width: 280px;
+  max-width: 360px;
+  width: 100%;
+  margin: 0.5rem auto 0;
+  text-align: center;
 }
 
 .hero-badge strong {
