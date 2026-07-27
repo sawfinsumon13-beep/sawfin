@@ -350,12 +350,7 @@
       (window.SiteContact ? SiteContact.whatsappHref("Hello, I want to buy peptides and research peptides.") : "https://wa.me/17867086594") +
       '" target="_blank" rel="noopener">WhatsApp — buy peptides</a>' +
       "</p>" +
-      '<div class="footer-social" aria-label="Social links">' +
-      '<a href="#" aria-label="LinkedIn">in</a>' +
-      '<a href="#" aria-label="Bluesky">🦋</a>' +
-      '<a href="#" aria-label="X">𝕏</a>' +
-      '<a href="#" aria-label="YouTube">▶</a>' +
-      "</div></div></div>" +
+      "</div></div>" +
       '<div class="footer-newsletter">' +
       "<h4>Newsletter Signup</h4>" +
       '<form id="newsletter-form" class="newsletter-form">' +

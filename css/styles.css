@@ -1078,23 +1078,6 @@ a:hover {
   color: #fff;
 }
 
-.footer-social {
-  display: flex;
-  gap: 0.65rem;
-}
-
-.footer-social a {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-size: 0.75rem;
-  text-decoration: none;
-}
-
 .footer-newsletter {
   margin-top: 2rem;
   padding-top: 1.5rem;
