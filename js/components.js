@@ -46,20 +46,12 @@
         href: "products.html?category=coronavirus-research-tools",
         children: [
           {
-            name: "COVID-19 / SARS-CoV-2 Related Compounds",
+            name: "COVID-19/ Sars-Cov-2 Related Compounds",
             slug: "covid-19-sars-cov-2-related-compounds",
           },
           {
-            name: "COVID-19 / SARS-CoV-2 Related Proteins",
+            name: "COVID-19/ Sars-Cov-2 Related Proteins",
             slug: "covid-19-sars-cov-2-related-proteins",
-          },
-          {
-            name: "COVID-19 / SARS-CoV-2 Related Antibodies",
-            slug: "covid-19-sars-cov-2-related-antibodies",
-          },
-          {
-            name: "COVID-19 / SARS-CoV-2 Related Kits",
-            slug: "covid-19-sars-cov-2-related-kits",
           },
         ],
       },
@@ -86,10 +78,6 @@
           {
             name: "Tau Preformed Fibrils",
             slug: "tau-preformed-fibrils-preformed-fibrils",
-          },
-          {
-            name: "Preformed Fibrils Complexes",
-            slug: "preformed-fibrils-complexes",
           },
         ],
       },

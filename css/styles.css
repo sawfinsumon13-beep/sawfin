@@ -1516,16 +1516,18 @@ a:hover {
 
 .mega-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem 1.25rem;
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  gap: 1rem 1.5rem;
 }
 
 .mega-col-title {
-  display: block;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.8rem;
+}
+
+.nav-dropdown-panel {
+  min-width: min(94vw, 980px);
 }
 
 .mega-col-links {
@@ -1811,6 +1813,13 @@ a:hover {
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--color-primary);
+}
+
+.price-note {
+  margin: 0 0 0.75rem;
+  font-size: 0.8125rem;
+  color: #b45309;
+  font-weight: 600;
 }
 
 .add-to-cart {

@@ -95,6 +95,9 @@
           '<p class="detail-price">' +
           product.price +
           "</p>" +
+          (product.price_note
+            ? '<p class="price-note">' + product.price_note + "</p>"
+            : '<p class="price-note">Priced 10% below comparable list pricing</p>') +
           '<p class="stock ' +
           (product.in_stock ? "in-stock" : "out-stock") +
           '">' +
