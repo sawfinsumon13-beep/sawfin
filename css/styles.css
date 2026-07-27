@@ -717,6 +717,31 @@ a:hover {
   text-decoration: none;
 }
 
+.header-search {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.header-search input {
+  border: none;
+  padding: 0.45rem 0.7rem;
+  min-width: 160px;
+  font-family: inherit;
+  font-size: 0.8125rem;
+}
+
+.header-search button {
+  border: none;
+  background: #e6b43c;
+  color: #1a2b56;
+  padding: 0 0.7rem;
+  cursor: pointer;
+}
+
 .btn-sm {
   padding: 0.45rem 0.9rem;
   font-size: 0.8125rem;

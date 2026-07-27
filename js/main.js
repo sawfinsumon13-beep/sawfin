@@ -11,7 +11,23 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     if (window.renderSiteHeader) renderSiteHeader();
-    if (window.renderSiteFooter) renderSiteFooter();
+    // Keep static homepage footer; rebuild footer on other pages
+    var footer = document.getElementById("site-footer");
+    if (window.renderSiteFooter && footer && !footer.querySelector(".footer-wrap")) {
+      renderSiteFooter();
+    }
+    var newsletter = document.getElementById("newsletter-form");
+    if (newsletter && !newsletter.dataset.bound) {
+      newsletter.dataset.bound = "1";
+      newsletter.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var list = JSON.parse(localStorage.getItem("apex_newsletter") || "[]");
+        list.push({ email: newsletter.email.value, at: new Date().toISOString() });
+        localStorage.setItem("apex_newsletter", JSON.stringify(list));
+        newsletter.reset();
+        alert("Subscribed — thank you!");
+      });
+    }
     updateCartCount();
 
     var toggle = document.getElementById("nav-toggle");

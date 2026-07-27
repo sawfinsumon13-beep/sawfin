@@ -236,12 +236,15 @@
 
   function initShop() {
     state.category = qs("category") || "all";
+    state.search = qs("q") || "";
     window.SITE_ACTIVE = "products";
     renderSiteHeader();
     renderSiteFooter();
 
     loadCatalog()
       .then(function () {
+        var search = document.getElementById("shop-search");
+        if (search && state.search) search.value = state.search;
         renderSidebar();
         bindControls();
         renderGrid();

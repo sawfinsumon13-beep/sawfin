@@ -192,9 +192,11 @@
       dropdown("menu-about", "About Us", simpleMega(MEGA.about), "about") +
       "</nav>" +
       '<div class="header-actions">' +
-      '<a href="cart.html" class="header-cart" aria-label="Shopping cart">🛒 <span id="cart-count">0</span></a>' +
+      '<form class="header-search" action="products.html" method="get" role="search">' +
+      '<input type="search" name="q" placeholder="Search products…" aria-label="Search products">' +
+      '<button type="submit" aria-label="Search">🔍</button></form>' +
       '<a href="account.html" class="header-signin">Sign In</a>' +
-      '<a href="products.html" class="btn btn-primary btn-sm">Shop</a>' +
+      '<a href="cart.html" class="header-cart" aria-label="Shopping cart">🛒 <span id="cart-count">0</span></a>' +
       '<button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-main" aria-label="Open menu">☰</button>' +
       "</div></div>";
 
