@@ -83,14 +83,14 @@
       },
     ],
     services: [
-      { name: "Custom Peptides & Proteins", href: "services.html#contract" },
-      { name: "Lab Services", href: "services.html#custom" },
-      { name: "Bulk Quote", href: "services.html#bulk" },
-      { name: "Amino Acid Codes", href: "resources-amino-acids.html" },
+      { name: "Custom Peptides & Proteins", href: "services-contract.html" },
+      { name: "Lab Services", href: "services-lab.html" },
+      { name: "Bulk Quote", href: "services-bulk.html" },
+      { name: "Amino Acid Codes", href: "services-amino-acids.html" },
     ],
     resources: [
       { name: "Citations", href: "resources-citations.html" },
-      { name: "Blog (50 articles)", href: "blog.html" },
+      { name: "Blogs", href: "blog.html" },
       { name: "International Distributors", href: "resources-distributors.html" },
       { name: "FAQs", href: "resources-faqs.html" },
       { name: "Ordering Overview", href: "resources-ordering.html" },
@@ -181,7 +181,6 @@
       dropdown("menu-products", "Products", '<div class="mega-grid">' + productMegaHtml() + "</div>", "products") +
       dropdown("menu-services", "Services", simpleMega(MEGA.services), "services") +
       dropdown("menu-resources", "Resources", simpleMega(MEGA.resources), "resources") +
-      link("blog.html", "Blog", "blog") +
       dropdown("menu-about", "About", simpleMega(MEGA.about), "about") +
       "</nav>" +
       '<div class="header-actions">' +

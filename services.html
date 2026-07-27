@@ -6,32 +6,48 @@
   <title>Services | Apex Bioreagents</title>
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=Fraunces:opsz,wght@9..144,500;600;700&display=swap" rel="stylesheet">
+  
 </head>
 <body>
   <script>window.SITE_ACTIVE = "services";</script>
   <header class="site-header" id="site-header"></header>
-  <main>
-    <div class="page-hero"><div class="container">
-      <h1>Services</h1>
-      <p>Custom peptides &amp; proteins, lab services, bulk quotes, and reference tools.</p>
-    </div></div>
-    <section class="section" id="contract">
-      <div class="container">
-        <h2 id="custom">Custom peptides &amp; proteins</h2>
-        <p>Contract synthesis, expression, purification, and QC documentation for academic and industry programs.</p>
-      </div>
-    </section>
-    <section class="section" style="background:#fff;border-block:1px solid var(--color-border);" id="bulk">
-      <div class="container">
-        <h2>Bulk production requests</h2>
-        <p>Standing inventory, repeat batches, and volume pricing for core catalog lines.</p>
-        <a href="contact.html" class="btn btn-primary">Request bulk quote</a>
-      </div>
-    </section>
+  <section class="inner-hero">
+    <div class="inner-hero-bg"></div>
+    <div class="container inner-hero-inner"><h1>SERVICES</h1></div>
+  </section>
+  <nav class="category-bar"><div class="container category-bar-inner" id="subnav-services"></div></nav>
+  <main class="container content-page">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Services</p>
+    
+  <p class="lead">Protein expression, fermentation, labeled peptides, lab services, bulk production, and amino acid reference tools — the same service options offered by leading recombinant peptide suppliers.</p>
+  <div class="hub-grid services-hub">
+    <article class="hub-card"><div class="hub-card-body">
+      <h3><a href="services-contract.html">Custom Peptides &amp; Proteins</a></h3>
+      <p class="hub-featured">Protein Expression, Fermentation, Labeled Peptides, &amp; More</p>
+      <a class="btn btn-primary" href="services-contract.html">View service</a>
+    </div></article>
+    <article class="hub-card"><div class="hub-card-body">
+      <h3><a href="services-lab.html">Lab Services</a></h3>
+      <p class="hub-featured">Protein Extraction, Lyophilization, QC Development, &amp; More</p>
+      <a class="btn btn-primary" href="services-lab.html">View service</a>
+    </div></article>
+    <article class="hub-card"><div class="hub-card-body">
+      <h3><a href="services-bulk.html">Bulk Quote</a></h3>
+      <p class="hub-featured">Bulk production with any catalog or custom products</p>
+      <a class="btn btn-primary" href="services-bulk.html">Request bulk quote</a>
+    </div></article>
+    <article class="hub-card"><div class="hub-card-body">
+      <h3><a href="services-amino-acids.html">Amino Acid Codes</a></h3>
+      <p class="hub-featured">One-letter and three-letter amino acid reference</p>
+      <a class="btn btn-primary" href="services-amino-acids.html">View codes</a>
+    </div></article>
+  </div>
+  
   </main>
   <footer class="site-footer" id="site-footer"></footer>
   <script src="js/components.js"></script>
   <script src="js/cart-store.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/section-nav.js"></script>
 </body>
 </html>

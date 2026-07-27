@@ -1259,10 +1259,106 @@ a:hover {
 }
 
 /* Inner pages */
-.page-hero {
-  background: linear-gradient(180deg, #e8f4f8 0%, var(--color-bg) 100%);
-  padding: 3.5rem 0 2.5rem;
+.inner-hero {
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+  background: #0d4f6c;
+}
+
+.inner-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(13, 40, 80, 0.72), rgba(13, 79, 108, 0.55)),
+    url("../assets/images/hero/lab-hero.jpg") center / cover no-repeat;
+}
+
+.inner-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 0;
+}
+
+.inner-hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #fff;
+  font-family: var(--font-sans);
+}
+
+.lead {
+  font-size: 1.0625rem;
+  color: var(--color-ink-muted);
+  max-width: 720px;
+}
+
+.content-list {
+  padding-left: 1.2rem;
+}
+
+.content-list li {
+  margin-bottom: 0.45rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-wrap th,
+.table-wrap td {
+  padding: 0.65rem 0.85rem;
   border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.table-wrap th {
+  background: #f8fafc;
+}
+
+.faq-list details {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.faq-list summary {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.services-hub {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .dist-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .page-hero h1 {
@@ -1521,9 +1617,14 @@ a:hover {
 }
 
 .mega-col-title {
+  display: block;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   font-size: 0.8rem;
+  text-decoration: none;
 }
 
 .nav-dropdown-panel {
