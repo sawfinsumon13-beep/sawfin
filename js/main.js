@@ -33,9 +33,11 @@
 
     var toggle = document.getElementById("nav-toggle");
     var nav = document.getElementById("nav-main");
-    if (toggle && nav) {
+    if (toggle && nav && !toggle.dataset.bound) {
+      toggle.dataset.bound = "1";
       toggle.addEventListener("click", function () {
-        nav.classList.toggle("open");
+        var openNav = nav.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", openNav ? "true" : "false");
       });
     }
 
