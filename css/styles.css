@@ -674,6 +674,132 @@ a:hover {
   margin: 0 0 1.25rem;
 }
 
+/* Dark story bands (rPeptide-style image + copy panels) */
+.story-band {
+  background: #243a8c;
+  color: #fff;
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.story-band-alt {
+  background: #1e327a;
+}
+
+.story-band-inner {
+  width: min(100% - 2.5rem, var(--max-width));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+  gap: clamp(1.5rem, 4vw, 3.25rem);
+  align-items: center;
+}
+
+.story-band-reverse .story-band-inner {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+}
+
+.story-band-reverse .story-band-media {
+  order: 2;
+}
+
+.story-band-reverse .story-band-copy {
+  order: 1;
+}
+
+.story-band-media {
+  margin: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.story-band-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  max-height: 320px;
+  object-fit: cover;
+}
+
+.story-band-copy h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-sans, "DM Sans", sans-serif);
+  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.story-band-copy p {
+  margin: 0 0 0.85rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  max-width: 36rem;
+}
+
+.story-band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
+}
+
+.btn-pill-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.35rem;
+  border-radius: 999px;
+  border: none;
+  background: #e6b43c;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn-pill-gold:hover {
+  background: #d4a332;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .story-band-inner,
+  .story-band-reverse .story-band-inner {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+  }
+
+  .story-band-reverse .story-band-media,
+  .story-band-reverse .story-band-copy {
+    order: initial;
+  }
+
+  .story-band-media img {
+    min-height: 190px;
+    max-height: 240px;
+  }
+
+  .story-band-copy p {
+    max-width: none;
+  }
+
+  .story-band-actions {
+    gap: 0.55rem;
+  }
+
+  .btn-pill-gold {
+    width: 100%;
+  }
+}
+
 .feature-list {
   list-style: none;
   padding: 0;
