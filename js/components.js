@@ -218,7 +218,7 @@
 
     el.innerHTML =
       '<div class="container header-inner">' +
-      '<a href="index.html" class="logo"><span class="logo-mark">A</span><span class="logo-text">Apex <strong>Bioreagents</strong><small>R&amp;D Starts Here</small></span></a>' +
+      '<a href="index.html" class="logo"><span class="logo-mark">A</span><span class="logo-text">Apex <strong>Bioreagents</strong><small>Research peptides</small></span></a>' +
       '<nav class="nav-main" id="nav-main" aria-label="Primary">' +
       dropdown("menu-products", "Products", '<div class="mega-grid">' + productMegaHtml() + "</div>", "products") +
       dropdown("menu-services", "Services", simpleMega(MEGA.services), "services") +
@@ -315,7 +315,7 @@
       "</div>" +
       '<div class="footer-contact-col">' +
       '<a href="index.html" class="footer-logo">Apex <span>Bioreagents</span></a>' +
-      '<p class="footer-tagline">Peptides · Buy peptides · Peptides for sale · Research peptides</p>' +
+      '<p class="footer-tagline">Research peptides · Buy peptides · Peptides for sale</p>' +
       '<p class="footer-contact-lines">' +
       "ph: <a href=\"" +
       (window.SiteContact ? SiteContact.telHref() : "tel:+17867086594") +
