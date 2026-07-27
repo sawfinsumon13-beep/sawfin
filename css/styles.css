@@ -1891,6 +1891,12 @@ a:hover {
   .hero-inner {
     max-width: none;
   }
+
+  .hero-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 1.4rem;
+  }
 }
 
 @media (max-width: 768px) {
