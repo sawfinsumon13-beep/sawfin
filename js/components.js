@@ -1,9 +1,51 @@
 (function () {
+  var SECTION_HREF = {
+    antibodies: "section-antibodies.html",
+    "beta-amyloid-antibodies": "section-beta-amyloid-antibodies.html",
+    "synuclein-antibodies": "section-synuclein-antibodies.html",
+    "tau-antibodies": "section-tau-antibodies.html",
+    peptides: "section-peptides.html",
+    amylin: "section-amylin.html",
+    "amyloid-precursor-protein-related-peptide":
+      "section-amyloid-precursor-protein-related-peptide.html",
+    "beta-amyloid": "section-beta-amyloid.html",
+    proteins: "section-proteins.html",
+    apolipoprotein: "section-apolipoprotein.html",
+    chemokine: "section-chemokine.html",
+    calmodulin: "section-calmodulin.html",
+    "human-plasma-proteins": "section-human-plasma-proteins.html",
+    surfactants: "section-surfactants.html",
+    synuclein: "section-synuclein.html",
+    tau: "section-tau.html",
+    tubulin: "section-tubulin.html",
+    "neurodegenerative-related-compounds": "section-neurodegenerative.html",
+    "coronavirus-research-tools": "section-coronavirus.html",
+    "covid-19-sars-cov-2-related-compounds":
+      "section-covid-19-sars-cov-2-related-compounds.html",
+    "covid-19-sars-cov-2-related-proteins":
+      "section-covid-19-sars-cov-2-related-proteins.html",
+    kits: "section-kits.html",
+    "beta-amyloid-kits": "section-beta-amyloid-kits.html",
+    "tau-kits": "section-tau-kits.html",
+    "preformed-fibrils": "section-fibrils.html",
+    "beta-amyloid-preformed-fibrils-preformed-fibrils":
+      "section-beta-amyloid-preformed-fibrils-preformed-fibrils.html",
+    "synuclein-preformed-fibrils-preformed-fibrils":
+      "section-synuclein-preformed-fibrils-preformed-fibrils.html",
+    "tau-preformed-fibrils-preformed-fibrils":
+      "section-tau-preformed-fibrils-preformed-fibrils.html",
+  };
+
+  function sectionHref(slug) {
+    return SECTION_HREF[slug] || "products.html?category=" + encodeURIComponent(slug);
+  }
+  window.sectionHref = sectionHref;
+
   var MEGA = {
     products: [
       {
         title: "Antibodies",
-        href: "products.html?category=antibodies",
+        href: sectionHref("antibodies"),
         children: [
           { name: "Beta-Amyloid Antibodies", slug: "beta-amyloid-antibodies" },
           { name: "Synuclein", slug: "synuclein-antibodies" },
@@ -12,7 +54,7 @@
       },
       {
         title: "Peptides",
-        href: "products.html?category=peptides",
+        href: sectionHref("peptides"),
         children: [
           { name: "Amylin", slug: "amylin" },
           {
@@ -24,7 +66,7 @@
       },
       {
         title: "Proteins",
-        href: "products.html?category=proteins",
+        href: sectionHref("proteins"),
         children: [
           { name: "Apolipoprotein", slug: "apolipoprotein" },
           { name: "Chemokine", slug: "chemokine" },
@@ -38,12 +80,12 @@
       },
       {
         title: "Neurodegenerative Related Compounds",
-        href: "products.html?category=neurodegenerative-related-compounds",
+        href: sectionHref("neurodegenerative-related-compounds"),
         children: [],
       },
       {
         title: "Coronavirus Research Tools",
-        href: "products.html?category=coronavirus-research-tools",
+        href: sectionHref("coronavirus-research-tools"),
         children: [
           {
             name: "COVID-19/ Sars-Cov-2 Related Compounds",
@@ -57,7 +99,7 @@
       },
       {
         title: "Kits",
-        href: "products.html?category=kits",
+        href: sectionHref("kits"),
         children: [
           { name: "Beta-Amyloid", slug: "beta-amyloid-kits" },
           { name: "Tau", slug: "tau-kits" },
@@ -65,7 +107,7 @@
       },
       {
         title: "Preformed Fibrils",
-        href: "products.html?category=preformed-fibrils",
+        href: sectionHref("preformed-fibrils"),
         children: [
           {
             name: "Beta-Amyloid Preformed Fibrils",
@@ -132,8 +174,8 @@
         var links = col.children
           .map(function (c) {
             return (
-              '<a href="products.html?category=' +
-              encodeURIComponent(c.slug) +
+              '<a href="' +
+              sectionHref(c.slug) +
               '">' +
               c.name +
               "</a>"
@@ -201,12 +243,26 @@
       var panel = dd.querySelector(".nav-dropdown-panel");
       if (!trigger || !panel || trigger.dataset.bound) return;
       trigger.dataset.bound = "1";
-      trigger.addEventListener("click", function () {
+
+      function open() {
         root.querySelectorAll(".nav-dropdown-panel.open").forEach(function (p) {
           if (p !== panel) p.classList.remove("open");
         });
-        var open = panel.classList.toggle("open");
-        trigger.setAttribute("aria-expanded", open ? "true" : "false");
+        panel.classList.add("open");
+        trigger.setAttribute("aria-expanded", "true");
+      }
+      function close() {
+        panel.classList.remove("open");
+        trigger.setAttribute("aria-expanded", "false");
+      }
+
+      // Hover like rPeptide mega menu
+      dd.addEventListener("mouseenter", open);
+      dd.addEventListener("mouseleave", close);
+      trigger.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (panel.classList.contains("open")) close();
+        else open();
       });
     });
 
@@ -215,8 +271,8 @@
     if (toggle && nav && !toggle.dataset.bound) {
       toggle.dataset.bound = "1";
       toggle.addEventListener("click", function () {
-        var open = nav.classList.toggle("open");
-        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        var openNav = nav.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", openNav ? "true" : "false");
       });
     }
   }

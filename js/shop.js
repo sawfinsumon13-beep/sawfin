@@ -63,6 +63,11 @@
     "preformed-fibrils",
   ];
 
+  function catUrl(slug) {
+    if (window.sectionHref) return window.sectionHref(slug);
+    return catUrl(slug);
+  }
+
   function qs(name) {
     return new URLSearchParams(window.location.search).get(name);
   }
@@ -185,25 +190,19 @@
         var kids = (c.children || [])
           .slice(0, 6)
           .map(function (ch) {
-            return (
-              '<a href="products.html?category=' +
-              encodeURIComponent(ch.slug) +
-              '">' +
-              ch.name +
-              "</a>"
-            );
+            return '<a href="' + catUrl(ch.slug) + '">' + ch.name + "</a>";
           })
           .join("");
         return (
           '<article class="hub-card">' +
-          '<a class="hub-card-media" href="products.html?category=' +
-          encodeURIComponent(slug) +
+          '<a class="hub-card-media" href="' +
+          catUrl(slug) +
           '">' +
           img +
           "</a>" +
           '<div class="hub-card-body">' +
-          "<h3><a href=\"products.html?category=" +
-          encodeURIComponent(slug) +
+          '<h3><a href="' +
+          catUrl(slug) +
           '">' +
           (copy.title || c.name) +
           "</a></h3>" +
@@ -214,8 +213,8 @@
           (copy.blurb || "") +
           "</p>" +
           (kids ? '<div class="hub-sublinks">' + kids + "</div>" : "") +
-          '<a class="btn btn-primary" href="products.html?category=' +
-          encodeURIComponent(slug) +
+          '<a class="btn btn-primary" href="' +
+          catUrl(slug) +
           '">Shop ' +
           (slug === "neurodegenerative-related-compounds"
             ? "Compounds"
@@ -245,8 +244,8 @@
         active +
         '"' +
         pad +
-        ' href="products.html?category=' +
-        encodeURIComponent(slug) +
+        ' href="' +
+        catUrl(slug) +
         '">' +
         label +
         (count != null ? ' <span class="count">' + count + "</span>" : "") +
@@ -452,7 +451,7 @@
   }
 
   function initShop() {
-    state.category = qs("category") || "all";
+    state.category = window.FORCE_CATEGORY || qs("category") || "all";
     state.search = qs("q") || "";
     window.SITE_ACTIVE = "products";
     renderSiteHeader();
@@ -462,6 +461,11 @@
       .then(function () {
         var search = document.getElementById("shop-search");
         if (search && state.search) search.value = state.search;
+        // Section pages always show detail for their category
+        if (window.FORCE_CATEGORY) {
+          showDetail();
+          return;
+        }
         if (!state.category || state.category === "all") {
           renderHub();
         } else {
