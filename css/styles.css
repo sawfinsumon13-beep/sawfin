@@ -447,6 +447,7 @@ a:hover {
   position: absolute;
   right: max(1.25rem, calc((100vw - var(--max-width)) / 2));
   bottom: 2.5rem;
+  z-index: 5;
   background: var(--color-surface);
   color: var(--color-ink);
   padding: 1.25rem 1.5rem;
@@ -2171,7 +2172,7 @@ a:hover {
   gap: 1rem;
   margin-top: 2.5rem;
   position: relative;
-  z-index: 1;
+  z-index: 5;
 }
 
 .hero-product-card {
