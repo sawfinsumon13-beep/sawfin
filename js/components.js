@@ -183,14 +183,13 @@
 
     el.innerHTML =
       '<div class="container header-inner">' +
-      '<a href="index.html" class="logo"><span class="logo-mark">A</span>Apex Bioreagents</a>' +
+      '<a href="index.html" class="logo"><span class="logo-mark">A</span><span class="logo-text">Apex <strong>Bioreagents</strong><small>R&amp;D Starts Here</small></span></a>' +
       '<nav class="nav-main" id="nav-main" aria-label="Primary">' +
-      link("index.html", "Home", "home") +
       dropdown("menu-products", "Products", '<div class="mega-grid">' + productMegaHtml() + "</div>", "products") +
       dropdown("menu-services", "Services", simpleMega(MEGA.services), "services") +
       dropdown("menu-resources", "Resources", simpleMega(MEGA.resources), "resources") +
       link("blog.html", "Blog", "blog") +
-      dropdown("menu-about", "About Us", simpleMega(MEGA.about), "about") +
+      dropdown("menu-about", "About", simpleMega(MEGA.about), "about") +
       "</nav>" +
       '<div class="header-actions">' +
       '<form class="header-search" action="products.html" method="get" role="search">' +
