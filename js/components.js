@@ -270,9 +270,22 @@
     var nav = root.querySelector("#nav-main") || document.getElementById("nav-main");
     if (toggle && nav && !toggle.dataset.bound) {
       toggle.dataset.bound = "1";
-      toggle.addEventListener("click", function () {
-        var openNav = nav.classList.toggle("open");
-        toggle.setAttribute("aria-expanded", openNav ? "true" : "false");
+      toggle.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var willOpen = !nav.classList.contains("open");
+        nav.classList.toggle("open", willOpen);
+        document.body.classList.toggle("nav-open", willOpen);
+        toggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        toggle.setAttribute("aria-label", willOpen ? "Close menu" : "Open menu");
+      });
+      document.addEventListener("click", function (e) {
+        if (!nav.classList.contains("open")) return;
+        if (nav.contains(e.target) || toggle.contains(e.target)) return;
+        nav.classList.remove("open");
+        document.body.classList.remove("nav-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
       });
     }
   }

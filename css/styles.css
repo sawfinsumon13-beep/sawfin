@@ -2003,7 +2003,7 @@ a:hover {
   }
 
   .nav-main.open {
-    display: flex;
+    display: flex !important;
   }
 
   .nav-dropdown {

@@ -31,16 +31,6 @@
     updateCartCount();
     if (window.AuthStore) AuthStore.updateHeaderAuthLinks();
 
-    var toggle = document.getElementById("nav-toggle");
-    var nav = document.getElementById("nav-main");
-    if (toggle && nav && !toggle.dataset.bound) {
-      toggle.dataset.bound = "1";
-      toggle.addEventListener("click", function () {
-        var openNav = nav.classList.toggle("open");
-        toggle.setAttribute("aria-expanded", openNav ? "true" : "false");
-      });
-    }
-
     var form = document.getElementById("contact-form");
     var status = document.getElementById("form-status");
     if (form && status) {
