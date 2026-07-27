@@ -87,23 +87,48 @@
 
         var featured = document.getElementById("home-featured");
         if (featured) {
-          var fibrils = catalog.products
-            .filter(function (p) {
-              return p.categories.some(function (c) {
+          var featuredSlugs = [
+            "beta-amyloid-1-42-preformed-fibrils",
+            "alpha-synuclein-preformed-fibrils",
+            "tau-441-preformed-fibrils",
+          ];
+          var bySlug = {};
+          catalog.products.forEach(function (p) {
+            bySlug[p.slug] = p;
+          });
+          var fibrils = featuredSlugs
+            .map(function (slug) {
+              return bySlug[slug];
+            })
+            .filter(Boolean);
+          if (fibrils.length < 3) {
+            catalog.products.forEach(function (p) {
+              if (fibrils.length >= 6) return;
+              var isFibril = p.categories.some(function (c) {
                 return (
                   c.slug === "preformed-fibrils" ||
                   c.name.indexOf("Preformed Fibrils") >= 0
                 );
               });
-            })
-            .slice(0, 6);
+              if (
+                isFibril &&
+                !fibrils.some(function (row) {
+                  return row.slug === p.slug;
+                })
+              ) {
+                fibrils.push(p);
+              }
+            });
+          }
           if (fibrils.length) {
             featured.innerHTML = fibrils
               .map(function (p) {
                 var img = p.image
                   ? '<div class="product-card-image"><img src="' +
                     p.image +
-                    '" alt="" loading="lazy"></div>'
+                    '" alt="' +
+                    p.name.replace(/"/g, "&quot;") +
+                    '" loading="lazy"></div>'
                   : "";
                 return (
                   '<article class="product-card"><a href="product.html?slug=' +
@@ -121,6 +146,19 @@
               })
               .join("");
           }
+
+          // Keep hero product strip images unique / in sync with catalog
+          document.querySelectorAll(".hero-product-card[href*='slug=']").forEach(function (card) {
+            var match = card.getAttribute("href").match(/slug=([^&]+)/);
+            if (!match) return;
+            var product = bySlug[decodeURIComponent(match[1])];
+            if (!product || !product.image) return;
+            var img = card.querySelector("img");
+            if (img) {
+              img.src = product.image;
+              img.alt = product.name;
+            }
+          });
         }
       })
       .catch(function () {});
