@@ -128,8 +128,22 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
+    <section class="hero" id="home-hero" data-hero-slider>
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-slides">
+          <div class="hero-slide is-active" style="background-image:url('assets/images/hero/hero-lab-benches.png')"></div>
+          <div class="hero-slide" style="background-image:url('assets/images/hero/hero-vascular-network.png')"></div>
+          <div class="hero-slide" style="background-image:url('assets/images/hero/hero-lab-cleanroom.png')"></div>
+          <div class="hero-slide" style="background-image:url('assets/images/hero/hero-neural-veins.png')"></div>
+          <div class="hero-slide" style="background-image:url('assets/images/hero/hero-lab-microscopy.png')"></div>
+          <div class="hero-slide" style="background-image:url('assets/images/hero/lab-hero.jpg')"></div>
+        </div>
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-vein-flow"></div>
+      </div>
+      <button type="button" class="hero-nav hero-nav-prev" aria-label="Previous background">‹</button>
+      <button type="button" class="hero-nav hero-nav-next" aria-label="Next background">›</button>
+      <div class="hero-dots" role="tablist" aria-label="Hero backgrounds"></div>
       <div class="container">
         <div class="hero-inner">
           <span class="hero-eyebrow">Peptides for sale — ready to ship</span>
@@ -394,5 +408,6 @@
   <script src="js/components.js"></script>
   <script src="js/cart-store.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/hero-slider.js"></script>
 </body>
 </html>
