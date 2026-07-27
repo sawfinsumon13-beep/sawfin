@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18441" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#effbe4"/>
+      <stop offset="100%" stop-color="#ffffd5"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18441)"/>
+  <circle cx="414" cy="144" r="54" fill="#817cff" opacity="0.18"/>
+  <circle cx="454" cy="364" r="54" fill="#bf3467" opacity="0.12"/>
+  <rect x="65.0" y="130.0" width="38.0" height="158.0" rx="6" fill="#a11649" opacity="0.92"/><rect x="65.0" y="112.0" width="38.0" height="18" rx="4" fill="#4d5cf5"/><rect x="69.0" y="185.3" width="30.0" height="34.8" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="139.5" y="143.5" width="41.0" height="139.0" rx="6" fill="#b00c51" opacity="0.92"/><rect x="139.5" y="123.5" width="41.0" height="20" rx="4" fill="#5954e6"/><rect x="143.5" y="192.2" width="33.0" height="30.6" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="217.0" y="139.5" width="42.0" height="149.0" rx="6" fill="#a11649" opacity="0.92"/><rect x="217.0" y="117.5" width="42.0" height="22" rx="4" fill="#4d5cf5"/><rect x="221.0" y="191.7" width="34.0" height="32.8" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="293.5" y="143.0" width="43.0" height="134.0" rx="6" fill="#b00c51" opacity="0.92"/><rect x="293.5" y="125.0" width="43.0" height="18" rx="4" fill="#5954e6"/><rect x="297.5" y="189.9" width="35.0" height="29.5" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="374.5" y="139.5" width="43.0" height="147.0" rx="6" fill="#a11649" opacity="0.92"/><rect x="374.5" y="119.5" width="43.0" height="20" rx="4" fill="#4d5cf5"/><rect x="378.5" y="190.9" width="35.0" height="32.3" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="464.0" y="147.5" width="38.0" height="133.0" rx="6" fill="#b00c51" opacity="0.92"/><rect x="464.0" y="125.5" width="38.0" height="22" rx="4" fill="#5954e6"/><rect x="468.0" y="194.1" width="30.0" height="29.3" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="536.5" y="147.0" width="41.0" height="126.0" rx="6" fill="#a11649" opacity="0.92"/><rect x="536.5" y="129.0" width="41.0" height="18" rx="4" fill="#4d5cf5"/><rect x="540.5" y="191.1" width="33.0" height="27.7" rx="2" fill="#fce7f3" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#a11649">P18441</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Compound Protease A #2…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Neurodegenerative Related Compounds · unique image</text>
+</svg>

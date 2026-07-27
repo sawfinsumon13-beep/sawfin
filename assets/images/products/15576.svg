@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g15576" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dae0f2"/>
+      <stop offset="100%" stop-color="#eeeae3"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g15576)"/>
+  <circle cx="236" cy="86" r="36" fill="#ff732c" opacity="0.18"/>
+  <circle cx="576" cy="366" r="76" fill="#554895" opacity="0.12"/>
+  <rect x="107.0" y="139.0" width="40.0" height="144.0" rx="6" fill="#372a77" opacity="0.92"/><rect x="107.0" y="121.0" width="40.0" height="18" rx="4" fill="#d45313"/><rect x="111.0" y="189.4" width="32.0" height="31.7" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="236.0" y="148.0" width="42.0" height="132.0" rx="6" fill="#46207f" opacity="0.92"/><rect x="236.0" y="128.0" width="42.0" height="20" rx="4" fill="#e04b04"/><rect x="240.0" y="194.2" width="34.0" height="29.0" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="363.0" y="145.0" width="38.0" height="126.0" rx="6" fill="#372a77" opacity="0.92"/><rect x="363.0" y="123.0" width="38.0" height="22" rx="4" fill="#d45313"/><rect x="367.0" y="189.1" width="30.0" height="27.7" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="492.0" y="144.5" width="36.0" height="123.0" rx="6" fill="#46207f" opacity="0.92"/><rect x="492.0" y="126.5" width="36.0" height="18" rx="4" fill="#e04b04"/><rect x="496.0" y="187.6" width="28.0" height="27.1" rx="2" fill="#e0e7ff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#372a77">P15576</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Anti-Canine Coronaviru…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Coronavirus Research Tools · unique image</text>
+</svg>

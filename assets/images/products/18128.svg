@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18128" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#edebff"/>
+      <stop offset="100%" stop-color="#fff5f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18128)"/>
+  <circle cx="281" cy="91" r="41" fill="#5091ff" opacity="0.18"/>
+  <circle cx="521" cy="281" r="71" fill="#249090" opacity="0.12"/>
+  <rect x="114.5" y="134.5" width="35.0" height="145.0" rx="6" fill="#067272" opacity="0.92"/><rect x="114.5" y="116.5" width="35.0" height="18" rx="4" fill="#1c71ff"/><rect x="118.5" y="185.2" width="27.0" height="31.9" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="240.0" y="140.0" width="34.0" height="132.0" rx="6" fill="#15687a" opacity="0.92"/><rect x="240.0" y="120.0" width="34.0" height="20" rx="4" fill="#2869f5"/><rect x="244.0" y="186.2" width="26.0" height="29.0" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="362.5" y="135.0" width="39.0" height="146.0" rx="6" fill="#067272" opacity="0.92"/><rect x="362.5" y="113.0" width="39.0" height="22" rx="4" fill="#1c71ff"/><rect x="366.5" y="186.1" width="31.0" height="32.1" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="499.0" y="129.5" width="36.0" height="153.0" rx="6" fill="#15687a" opacity="0.92"/><rect x="499.0" y="111.5" width="36.0" height="18" rx="4" fill="#2869f5"/><rect x="503.0" y="183.1" width="28.0" height="33.7" rx="2" fill="#f8fafc" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#067272">P18128</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Antibody Kit Alpha-Syn…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Kits · unique image</text>
+</svg>

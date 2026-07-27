@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18353" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffeb"/>
+      <stop offset="100%" stop-color="#ffffdc"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18353)"/>
+  <circle cx="242" cy="92" r="42" fill="#34c8ff" opacity="0.18"/>
+  <circle cx="282" cy="282" r="32" fill="#b05026" opacity="0.12"/>
+  <rect x="84.7" y="130.5" width="36.0" height="155.0" rx="6" fill="#923208" opacity="0.92"/><rect x="84.7" y="112.5" width="36.0" height="18" rx="4" fill="#00a8ed"/><rect x="88.7" y="184.8" width="28.0" height="34.1" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="199.8" y="137.5" width="35.0" height="137.0" rx="6" fill="#a12810" opacity="0.92"/><rect x="199.8" y="117.5" width="35.0" height="20" rx="4" fill="#0ca0de"/><rect x="203.8" y="185.4" width="27.0" height="30.1" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="296.5" y="148.0" width="39.0" height="128.0" rx="6" fill="#923208" opacity="0.92"/><rect x="296.5" y="126.0" width="39.0" height="22" rx="4" fill="#00a8ed"/><rect x="300.5" y="192.8" width="31.0" height="28.2" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="405.2" y="150.0" width="41.0" height="124.0" rx="6" fill="#a12810" opacity="0.92"/><rect x="405.2" y="132.0" width="41.0" height="18" rx="4" fill="#0ca0de"/><rect x="409.2" y="193.4" width="33.0" height="27.3" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="515.3" y="146.0" width="42.0" height="122.0" rx="6" fill="#923208" opacity="0.92"/><rect x="515.3" y="126.0" width="42.0" height="20" rx="4" fill="#00a8ed"/><rect x="519.3" y="188.7" width="34.0" height="26.8" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#923208">P18353</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Fibril Complex Beta-Am…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Preformed Fibrils · unique image</text>
+</svg>

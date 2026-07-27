@@ -5,7 +5,7 @@
     sort: "name-asc",
     search: "",
     page: 1,
-    perPage: 24,
+    perPage: 36,
   };
 
   var COPY = {
@@ -217,10 +217,10 @@
           '<a class="btn btn-primary" href="products.html?category=' +
           encodeURIComponent(slug) +
           '">Shop ' +
-          (copy.title || c.name) +
-          " (" +
-          (c.count || 0) +
-          ")</a>" +
+          (slug === "neurodegenerative-related-compounds"
+            ? "Compounds"
+            : copy.title || c.name) +
+          "</a>" +
           "</div></article>"
         );
       }).join("") +
@@ -323,7 +323,7 @@
       '">' +
       (p.in_stock ? "In stock" : "Request quote") +
       "</span></div>" +
-      '<span class="btn btn-primary btn-sm" style="margin-top:0.75rem;display:inline-flex">Buy / view</span>' +
+      '<span class="shop-btn-gold">Buy / view</span>' +
       "</div></a></article>"
     );
   }

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18491" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eadfb9"/>
+      <stop offset="100%" stop-color="#fee9aa"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18491)"/>
+  <circle cx="328" cy="98" r="48" fill="#2882d0" opacity="0.18"/>
+  <circle cx="468" cy="348" r="68" fill="#ae5d22" opacity="0.12"/>
+  <rect x="66.4" y="132.5" width="42.0" height="157.0" rx="6" fill="#903f04" opacity="0.92"/><rect x="66.4" y="114.5" width="42.0" height="18" rx="4" fill="#0062b7"/><rect x="70.4" y="187.4" width="34.0" height="34.5" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="159.9" y="145.0" width="38.0" height="138.0" rx="6" fill="#9f350c" opacity="0.92"/><rect x="159.9" y="125.0" width="38.0" height="20" rx="4" fill="#005aa8"/><rect x="163.9" y="193.3" width="30.0" height="30.4" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="252.8" y="145.5" width="41.0" height="129.0" rx="6" fill="#903f04" opacity="0.92"/><rect x="252.8" y="123.5" width="41.0" height="22" rx="4" fill="#0062b7"/><rect x="256.8" y="190.7" width="33.0" height="28.4" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="342.7" y="147.0" width="42.0" height="124.0" rx="6" fill="#9f350c" opacity="0.92"/><rect x="342.7" y="129.0" width="42.0" height="18" rx="4" fill="#005aa8"/><rect x="346.7" y="190.4" width="34.0" height="27.3" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="440.6" y="152.0" width="43.0" height="122.0" rx="6" fill="#903f04" opacity="0.92"/><rect x="440.6" y="132.0" width="43.0" height="20" rx="4" fill="#0062b7"/><rect x="444.6" y="194.7" width="35.0" height="26.8" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="525.6" y="149.5" width="38.0" height="121.0" rx="6" fill="#9f350c" opacity="0.92"/><rect x="525.6" y="127.5" width="38.0" height="22" rx="4" fill="#005aa8"/><rect x="529.6" y="191.8" width="30.0" height="26.6" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#903f04">P18491</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">SARS-CoV-2 S1 Subunit …</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Coronavirus Research Tools · unique image</text>
+</svg>

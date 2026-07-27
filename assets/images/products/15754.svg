@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g15754" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffefbe"/>
+      <stop offset="100%" stop-color="#fff9af"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g15754)"/>
+  <circle cx="528" cy="78" r="28" fill="#289cd4" opacity="0.18"/>
+  <circle cx="568" cy="358" r="68" fill="#ae5424" opacity="0.12"/>
+  <rect x="70.4" y="151.0" width="42.0" height="122.0" rx="6" fill="#903606" opacity="0.92"/><rect x="70.4" y="133.0" width="42.0" height="18" rx="4" fill="#007cbb"/><rect x="74.4" y="193.7" width="34.0" height="26.8" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="160.9" y="151.5" width="38.0" height="121.0" rx="6" fill="#9f2c0e" opacity="0.92"/><rect x="160.9" y="131.5" width="38.0" height="20" rx="4" fill="#0074ac"/><rect x="164.9" y="193.8" width="30.0" height="26.6" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="258.3" y="147.0" width="36.0" height="120.0" rx="6" fill="#903606" opacity="0.92"/><rect x="258.3" y="125.0" width="36.0" height="22" rx="4" fill="#007cbb"/><rect x="262.3" y="189.0" width="28.0" height="26.4" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="345.2" y="143.0" width="35.0" height="140.0" rx="6" fill="#9f2c0e" opacity="0.92"/><rect x="345.2" y="125.0" width="35.0" height="18" rx="4" fill="#0074ac"/><rect x="349.2" y="192.0" width="27.0" height="30.8" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="439.1" y="149.0" width="34.0" height="130.0" rx="6" fill="#903606" opacity="0.92"/><rect x="439.1" y="129.0" width="34.0" height="20" rx="4" fill="#007cbb"/><rect x="443.1" y="194.5" width="26.0" height="28.6" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="527.6" y="149.5" width="34.0" height="125.0" rx="6" fill="#9f2c0e" opacity="0.92"/><rect x="527.6" y="127.5" width="34.0" height="22" rx="4" fill="#0074ac"/><rect x="531.6" y="193.2" width="26.0" height="27.5" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#903606">P15754</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">CTPB</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Neurodegenerative Related Compounds · unique image</text>
+</svg>

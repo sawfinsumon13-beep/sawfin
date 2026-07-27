@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18179" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dff1ee"/>
+      <stop offset="100%" stop-color="#f3fbdf"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18179)"/>
+  <circle cx="51" cy="81" r="31" fill="#4d8dff" opacity="0.18"/>
+  <circle cx="391" cy="301" r="41" fill="#2e9482" opacity="0.12"/>
+  <rect x="107.5" y="148.0" width="35.0" height="122.0" rx="6" fill="#107664" opacity="0.92"/><rect x="107.5" y="130.0" width="35.0" height="18" rx="4" fill="#196dff"/><rect x="111.5" y="190.7" width="27.0" height="26.8" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="235.5" y="135.5" width="39.0" height="141.0" rx="6" fill="#1f6c6c" opacity="0.92"/><rect x="235.5" y="115.5" width="39.0" height="20" rx="4" fill="#2565f3"/><rect x="239.5" y="184.8" width="31.0" height="31.0" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="365.0" y="145.0" width="36.0" height="130.0" rx="6" fill="#107664" opacity="0.92"/><rect x="365.0" y="123.0" width="36.0" height="22" rx="4" fill="#196dff"/><rect x="369.0" y="190.5" width="28.0" height="28.6" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="492.5" y="148.5" width="35.0" height="125.0" rx="6" fill="#1f6c6c" opacity="0.92"/><rect x="492.5" y="130.5" width="35.0" height="18" rx="4" fill="#2565f3"/><rect x="496.5" y="192.2" width="27.0" height="27.5" rx="2" fill="#f8fafc" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#107664">P18179</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Anti-Human Phospho-199…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Antibodies · unique image</text>
+</svg>

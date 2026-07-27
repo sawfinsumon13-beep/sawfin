@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g19198" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#cff0ea"/>
+      <stop offset="100%" stop-color="#e3fadb"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g19198)"/>
+  <circle cx="489" cy="79" r="29" fill="#e37437" opacity="0.18"/>
+  <circle cx="329" cy="299" r="79" fill="#24709c" opacity="0.12"/>
+  <rect x="62.5" y="141.0" width="43.0" height="132.0" rx="6" fill="#06527e" opacity="0.92"/><rect x="62.5" y="123.0" width="43.0" height="18" rx="4" fill="#af541e"/><rect x="66.5" y="187.2" width="35.0" height="29.0" rx="2" fill="#f0f9ff" opacity="0.85"/><rect x="137.0" y="143.0" width="38.0" height="126.0" rx="6" fill="#154886" opacity="0.92"/><rect x="137.0" y="123.0" width="38.0" height="20" rx="4" fill="#bb4c0f"/><rect x="141.0" y="187.1" width="30.0" height="27.7" rx="2" fill="#f0f9ff" opacity="0.85"/><rect x="226.0" y="134.5" width="36.0" height="143.0" rx="6" fill="#06527e" opacity="0.92"/><rect x="226.0" y="112.5" width="36.0" height="22" rx="4" fill="#af541e"/><rect x="230.0" y="184.6" width="28.0" height="31.5" rx="2" fill="#f0f9ff" opacity="0.85"/><rect x="298.0" y="136.5" width="40.0" height="151.0" rx="6" fill="#154886" opacity="0.92"/><rect x="298.0" y="118.5" width="40.0" height="18" rx="4" fill="#bb4c0f"/><rect x="302.0" y="189.3" width="32.0" height="33.2" rx="2" fill="#f0f9ff" opacity="0.85"/><rect x="384.5" y="141.5" width="37.0" height="135.0" rx="6" fill="#06527e" opacity="0.92"/><rect x="384.5" y="121.5" width="37.0" height="20" rx="4" fill="#af541e"/><rect x="388.5" y="188.8" width="29.0" height="29.7" rx="2" fill="#f0f9ff" opacity="0.85"/><rect x="460.5" y="142.5" width="35.0" height="127.0" rx="6" fill="#154886" opacity="0.92"/><rect x="460.5" y="120.5" width="35.0" height="22" rx="4" fill="#bb4c0f"/><rect x="464.5" y="186.9" width="27.0" height="27.9" rx="2" fill="#f0f9ff" opacity="0.85"/><rect x="543.5" y="148.5" width="39.0" height="123.0" rx="6" fill="#06527e" opacity="0.92"/><rect x="543.5" y="130.5" width="39.0" height="18" rx="4" fill="#af541e"/><rect x="547.5" y="191.6" width="31.0" height="27.1" rx="2" fill="#f0f9ff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#06527e">P19198</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Spike 3CL Protease His…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Coronavirus Research Tools · unique image</text>
+</svg>

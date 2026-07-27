@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g15471" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbeddd"/>
+      <stop offset="100%" stop-color="#fff7ce"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g15471)"/>
+  <circle cx="342" cy="112" r="22" fill="#2fbeff" opacity="0.18"/>
+  <circle cx="482" cy="332" r="32" fill="#b04f36" opacity="0.12"/>
+  <rect x="84.7" y="138.0" width="36.0" height="150.0" rx="6" fill="#923118" opacity="0.92"/><rect x="84.7" y="120.0" width="36.0" height="18" rx="4" fill="#009eee"/><rect x="88.7" y="190.5" width="28.0" height="33.0" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="194.8" y="146.5" width="35.0" height="135.0" rx="6" fill="#a12720" opacity="0.92"/><rect x="194.8" y="126.5" width="35.0" height="20" rx="4" fill="#0796df"/><rect x="198.8" y="193.8" width="27.0" height="29.7" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="299.0" y="138.5" width="34.0" height="147.0" rx="6" fill="#923118" opacity="0.92"/><rect x="299.0" y="116.5" width="34.0" height="22" rx="4" fill="#009eee"/><rect x="303.0" y="189.9" width="26.0" height="32.3" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="406.2" y="142.5" width="39.0" height="133.0" rx="6" fill="#a12720" opacity="0.92"/><rect x="406.2" y="124.5" width="39.0" height="18" rx="4" fill="#0796df"/><rect x="410.2" y="189.1" width="31.0" height="29.3" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="507.8" y="140.0" width="41.0" height="146.0" rx="6" fill="#923118" opacity="0.92"/><rect x="507.8" y="120.0" width="41.0" height="20" rx="4" fill="#009eee"/><rect x="511.8" y="191.1" width="33.0" height="32.1" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#923118">P15471</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Valinomycin</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Coronavirus Research Tools · unique image</text>
+</svg>

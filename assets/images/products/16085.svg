@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g16085" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ecefef"/>
+      <stop offset="100%" stop-color="#fff9e0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g16085)"/>
+  <circle cx="40" cy="70" r="20" fill="#ffd036" opacity="0.18"/>
+  <circle cx="380" cy="290" r="30" fill="#3174a9" opacity="0.12"/>
+  <rect x="141.0" y="132.0" width="34.0" height="150.0" rx="6" fill="#13568b" opacity="0.92"/><rect x="141.0" y="114.0" width="34.0" height="18" rx="4" fill="#edb01d"/><rect x="145.0" y="184.5" width="26.0" height="33.0" rx="2" fill="#ffffff" opacity="0.85"/><rect x="308.0" y="135.5" width="34.0" height="155.0" rx="6" fill="#224c93" opacity="0.92"/><rect x="308.0" y="115.5" width="34.0" height="20" rx="4" fill="#f9a80e"/><rect x="312.0" y="189.8" width="26.0" height="34.1" rx="2" fill="#ffffff" opacity="0.85"/><rect x="463.0" y="135.5" width="34.0" height="157.0" rx="6" fill="#13568b" opacity="0.92"/><rect x="463.0" y="113.5" width="34.0" height="22" rx="4" fill="#edb01d"/><rect x="467.0" y="190.4" width="26.0" height="34.5" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#13568b">P16085</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Biotin Tau-441</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Proteins · unique image</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g15772" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffeb6"/>
+      <stop offset="100%" stop-color="#ffffa7"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g15772)"/>
+  <circle cx="218" cy="48" r="38" fill="#3483d2" opacity="0.18"/>
+  <circle cx="358" cy="328" r="58" fill="#b85c28" opacity="0.12"/>
+  <rect x="71.4" y="132.0" width="42.0" height="154.0" rx="6" fill="#9a3e0a" opacity="0.92"/><rect x="71.4" y="114.0" width="42.0" height="18" rx="4" fill="#0063b9"/><rect x="75.4" y="185.9" width="34.0" height="33.9" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="162.4" y="144.5" width="43.0" height="137.0" rx="6" fill="#a93412" opacity="0.92"/><rect x="162.4" y="124.5" width="43.0" height="20" rx="4" fill="#0c5baa"/><rect x="166.4" y="192.4" width="35.0" height="30.1" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="252.3" y="140.0" width="38.0" height="148.0" rx="6" fill="#9a3e0a" opacity="0.92"/><rect x="252.3" y="118.0" width="38.0" height="22" rx="4" fill="#0063b9"/><rect x="256.3" y="191.8" width="30.0" height="32.6" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="344.2" y="141.0" width="41.0" height="134.0" rx="6" fill="#a93412" opacity="0.92"/><rect x="344.2" y="123.0" width="41.0" height="18" rx="4" fill="#0c5baa"/><rect x="348.2" y="187.9" width="33.0" height="29.5" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="441.1" y="134.5" width="42.0" height="147.0" rx="6" fill="#9a3e0a" opacity="0.92"/><rect x="441.1" y="114.5" width="42.0" height="20" rx="4" fill="#0063b9"/><rect x="445.1" y="185.9" width="34.0" height="32.3" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="528.6" y="139.5" width="38.0" height="133.0" rx="6" fill="#a93412" opacity="0.92"/><rect x="528.6" y="117.5" width="38.0" height="22" rx="4" fill="#0c5baa"/><rect x="532.6" y="186.1" width="30.0" height="29.3" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#9a3e0a">P15772</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Tolcapone</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Neurodegenerative Related Compounds · unique image</text>
+</svg>

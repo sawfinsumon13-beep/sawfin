@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18525" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff1e8"/>
+      <stop offset="100%" stop-color="#fffbd9"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18525)"/>
+  <circle cx="402" cy="92" r="42" fill="#30d6ff" opacity="0.18"/>
+  <circle cx="342" cy="342" r="42" fill="#b04e2a" opacity="0.12"/>
+  <rect x="87.7" y="141.5" width="36.0" height="145.0" rx="6" fill="#92300c" opacity="0.92"/><rect x="87.7" y="123.5" width="36.0" height="18" rx="4" fill="#00b6f3"/><rect x="91.7" y="192.2" width="28.0" height="31.9" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="198.8" y="146.0" width="35.0" height="132.0" rx="6" fill="#a12614" opacity="0.92"/><rect x="198.8" y="126.0" width="35.0" height="20" rx="4" fill="#08aee4"/><rect x="202.8" y="192.2" width="27.0" height="29.0" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="301.5" y="141.0" width="39.0" height="146.0" rx="6" fill="#92300c" opacity="0.92"/><rect x="301.5" y="119.0" width="39.0" height="22" rx="4" fill="#00b6f3"/><rect x="305.5" y="192.1" width="31.0" height="32.1" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="412.7" y="135.5" width="36.0" height="153.0" rx="6" fill="#a12614" opacity="0.92"/><rect x="412.7" y="117.5" width="36.0" height="18" rx="4" fill="#08aee4"/><rect x="416.7" y="189.1" width="28.0" height="33.7" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="516.3" y="144.0" width="40.0" height="136.0" rx="6" fill="#92300c" opacity="0.92"/><rect x="516.3" y="124.0" width="40.0" height="20" rx="4" fill="#00b6f3"/><rect x="520.3" y="191.6" width="32.0" height="29.9" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#92300c">P18525</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Compound Protease A #2…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Neurodegenerative Related Compounds · unique image</text>
+</svg>

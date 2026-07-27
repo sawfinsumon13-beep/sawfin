@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g15426" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eee7d5"/>
+      <stop offset="100%" stop-color="#fff1c6"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g15426)"/>
+  <circle cx="398" cy="128" r="38" fill="#2894cc" opacity="0.18"/>
+  <circle cx="438" cy="288" r="38" fill="#b85f26" opacity="0.12"/>
+  <rect x="65.4" y="152.0" width="42.0" height="124.0" rx="6" fill="#9a4108" opacity="0.92"/><rect x="65.4" y="134.0" width="42.0" height="18" rx="4" fill="#0074b3"/><rect x="69.4" y="195.4" width="34.0" height="27.3" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="164.4" y="141.0" width="43.0" height="142.0" rx="6" fill="#a93710" opacity="0.92"/><rect x="164.4" y="121.0" width="43.0" height="20" rx="4" fill="#006ca4"/><rect x="168.4" y="190.7" width="35.0" height="31.2" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="253.3" y="136.5" width="38.0" height="151.0" rx="6" fill="#9a4108" opacity="0.92"/><rect x="253.3" y="114.5" width="38.0" height="22" rx="4" fill="#0074b3"/><rect x="257.3" y="189.3" width="30.0" height="33.2" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="345.7" y="131.5" width="36.0" height="155.0" rx="6" fill="#a93710" opacity="0.92"/><rect x="345.7" y="113.5" width="36.0" height="18" rx="4" fill="#006ca4"/><rect x="349.7" y="185.8" width="28.0" height="34.1" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="435.6" y="142.5" width="35.0" height="137.0" rx="6" fill="#9a4108" opacity="0.92"/><rect x="435.6" y="122.5" width="35.0" height="20" rx="4" fill="#0074b3"/><rect x="439.6" y="190.4" width="27.0" height="30.1" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="533.1" y="150.0" width="39.0" height="128.0" rx="6" fill="#a93710" opacity="0.92"/><rect x="533.1" y="128.0" width="39.0" height="22" rx="4" fill="#006ca4"/><rect x="537.1" y="194.8" width="31.0" height="28.2" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#9a4108">P15426</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Nafamostat Mesylate</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Coronavirus Research Tools · unique image</text>
+</svg>

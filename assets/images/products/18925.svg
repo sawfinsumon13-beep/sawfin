@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18925" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6fff0"/>
+      <stop offset="100%" stop-color="#ffffe1"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18925)"/>
+  <circle cx="280" cy="130" r="40" fill="#ffd23a" opacity="0.18"/>
+  <circle cx="320" cy="350" r="70" fill="#3175b3" opacity="0.12"/>
+  <rect x="144.0" y="135.5" width="34.0" height="155.0" rx="6" fill="#135795" opacity="0.92"/><rect x="144.0" y="117.5" width="34.0" height="18" rx="4" fill="#edb221"/><rect x="148.0" y="189.8" width="26.0" height="34.1" rx="2" fill="#ffffff" opacity="0.85"/><rect x="301.0" y="131.5" width="34.0" height="157.0" rx="6" fill="#224d9d" opacity="0.92"/><rect x="301.0" y="111.5" width="34.0" height="20" rx="4" fill="#f9aa12"/><rect x="305.0" y="186.4" width="26.0" height="34.5" rx="2" fill="#ffffff" opacity="0.85"/><rect x="463.5" y="134.0" width="39.0" height="158.0" rx="6" fill="#135795" opacity="0.92"/><rect x="463.5" y="112.0" width="39.0" height="22" rx="4" fill="#edb221"/><rect x="467.5" y="189.3" width="31.0" height="34.8" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#135795">P18925</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">SARS-CoV-2 Related Pro…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Coronavirus Research Tools · unique image</text>
+</svg>

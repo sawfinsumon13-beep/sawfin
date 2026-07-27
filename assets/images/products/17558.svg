@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g17558" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffae2"/>
+      <stop offset="100%" stop-color="#ffffd3"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g17558)"/>
+  <circle cx="62" cy="132" r="42" fill="#41c1ff" opacity="0.18"/>
+  <circle cx="502" cy="322" r="52" fill="#b05a31" opacity="0.12"/>
+  <rect x="92.7" y="134.5" width="36.0" height="155.0" rx="6" fill="#923c13" opacity="0.92"/><rect x="92.7" y="116.5" width="36.0" height="18" rx="4" fill="#0da1f4"/><rect x="96.7" y="188.8" width="28.0" height="34.1" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="200.8" y="128.5" width="35.0" height="157.0" rx="6" fill="#a1321b" opacity="0.92"/><rect x="200.8" y="108.5" width="35.0" height="20" rx="4" fill="#1999e5"/><rect x="204.8" y="183.4" width="27.0" height="34.5" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="297.5" y="141.0" width="39.0" height="138.0" rx="6" fill="#923c13" opacity="0.92"/><rect x="297.5" y="119.0" width="39.0" height="22" rx="4" fill="#0da1f4"/><rect x="301.5" y="189.3" width="31.0" height="30.4" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="409.2" y="146.5" width="41.0" height="129.0" rx="6" fill="#a1321b" opacity="0.92"/><rect x="409.2" y="128.5" width="41.0" height="18" rx="4" fill="#1999e5"/><rect x="413.2" y="191.7" width="33.0" height="28.4" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="514.3" y="152.0" width="42.0" height="124.0" rx="6" fill="#923c13" opacity="0.92"/><rect x="514.3" y="132.0" width="42.0" height="20" rx="4" fill="#0da1f4"/><rect x="518.3" y="195.4" width="34.0" height="27.3" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#923c13">P17558</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Mouse Tau K18 E46K #03…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Proteins · unique image</text>
+</svg>

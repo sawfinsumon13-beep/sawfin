@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g17995" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8ffff"/>
+      <stop offset="100%" stop-color="#fcfff0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g17995)"/>
+  <circle cx="433" cy="123" r="33" fill="#eeb632" opacity="0.18"/>
+  <circle cx="373" cy="283" r="73" fill="#367799" opacity="0.12"/>
+  <rect x="70.9" y="137.5" width="37.0" height="143.0" rx="6" fill="#18597b" opacity="0.92"/><rect x="70.9" y="119.5" width="37.0" height="18" rx="4" fill="#ba9619"/><rect x="74.9" y="187.6" width="29.0" height="31.5" rx="2" fill="#ffffff" opacity="0.85"/><rect x="165.9" y="145.5" width="40.0" height="131.0" rx="6" fill="#274f83" opacity="0.92"/><rect x="165.9" y="125.5" width="40.0" height="20" rx="4" fill="#c68e0a"/><rect x="169.9" y="191.3" width="32.0" height="28.8" rx="2" fill="#ffffff" opacity="0.85"/><rect x="252.8" y="138.5" width="37.0" height="145.0" rx="6" fill="#18597b" opacity="0.92"/><rect x="252.8" y="116.5" width="37.0" height="22" rx="4" fill="#ba9619"/><rect x="256.8" y="189.2" width="29.0" height="31.9" rx="2" fill="#ffffff" opacity="0.85"/><rect x="343.2" y="141.0" width="35.0" height="132.0" rx="6" fill="#274f83" opacity="0.92"/><rect x="343.2" y="123.0" width="35.0" height="18" rx="4" fill="#c68e0a"/><rect x="347.2" y="187.2" width="27.0" height="29.0" rx="2" fill="#ffffff" opacity="0.85"/><rect x="432.6" y="135.0" width="39.0" height="146.0" rx="6" fill="#18597b" opacity="0.92"/><rect x="432.6" y="115.0" width="39.0" height="20" rx="4" fill="#ba9619"/><rect x="436.6" y="186.1" width="31.0" height="32.1" rx="2" fill="#ffffff" opacity="0.85"/><rect x="531.6" y="134.5" width="36.0" height="153.0" rx="6" fill="#274f83" opacity="0.92"/><rect x="531.6" y="112.5" width="36.0" height="22" rx="4" fill="#c68e0a"/><rect x="535.6" y="188.1" width="28.0" height="33.7" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#18597b">P17995</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Aggregation Kit Beta-A…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Kits · unique image</text>
+</svg>

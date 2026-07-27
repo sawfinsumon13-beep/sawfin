@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g19655" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e7eeff"/>
+      <stop offset="100%" stop-color="#fbf8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g19655)"/>
+  <circle cx="225" cy="115" r="25" fill="#ff9528" opacity="0.18"/>
+  <circle cx="365" cy="335" r="65" fill="#2f7b53" opacity="0.12"/>
+  <rect x="139.5" y="141.5" width="39.0" height="131.0" rx="6" fill="#115d35" opacity="0.92"/><rect x="139.5" y="123.5" width="39.0" height="18" rx="4" fill="#d7750f"/><rect x="143.5" y="187.3" width="31.0" height="28.8" rx="2" fill="#ffffff" opacity="0.85"/><rect x="301.0" y="143.5" width="36.0" height="125.0" rx="6" fill="#20533d" opacity="0.92"/><rect x="301.0" y="123.5" width="36.0" height="20" rx="4" fill="#e36d00"/><rect x="305.0" y="187.2" width="28.0" height="27.5" rx="2" fill="#ffffff" opacity="0.85"/><rect x="461.5" y="141.0" width="35.0" height="142.0" rx="6" fill="#115d35" opacity="0.92"/><rect x="461.5" y="119.0" width="35.0" height="22" rx="4" fill="#d7750f"/><rect x="465.5" y="190.7" width="27.0" height="31.2" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#115d35">P19655</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Fibril Complex Beta-Am…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Preformed Fibrils · unique image</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g17667" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9ffeb"/>
+      <stop offset="100%" stop-color="#ffffdc"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g17667)"/>
+  <circle cx="225" cy="75" r="25" fill="#ffa628" opacity="0.18"/>
+  <circle cx="565" cy="355" r="65" fill="#2f8351" opacity="0.12"/>
+  <rect x="143.5" y="148.5" width="39.0" height="121.0" rx="6" fill="#116533" opacity="0.92"/><rect x="143.5" y="130.5" width="39.0" height="18" rx="4" fill="#db860f"/><rect x="147.5" y="190.8" width="31.0" height="26.6" rx="2" fill="#ffffff" opacity="0.85"/><rect x="307.0" y="141.0" width="36.0" height="140.0" rx="6" fill="#205b3b" opacity="0.92"/><rect x="307.0" y="121.0" width="36.0" height="20" rx="4" fill="#e77e00"/><rect x="311.0" y="190.0" width="28.0" height="30.8" rx="2" fill="#ffffff" opacity="0.85"/><rect x="466.5" y="132.0" width="35.0" height="150.0" rx="6" fill="#116533" opacity="0.92"/><rect x="466.5" y="110.0" width="35.0" height="22" rx="4" fill="#db860f"/><rect x="470.5" y="184.5" width="27.0" height="33.0" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#116533">P17667</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">PFF Beta-Amyloid (1-42…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Preformed Fibrils · unique image</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18374" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffebfe"/>
+      <stop offset="100%" stop-color="#fff5ef"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18374)"/>
+  <circle cx="394" cy="84" r="34" fill="#8262ff" opacity="0.18"/>
+  <circle cx="334" cy="364" r="34" fill="#bf3364" opacity="0.12"/>
+  <rect x="59.0" y="132.5" width="38.0" height="153.0" rx="6" fill="#a11546" opacity="0.92"/><rect x="59.0" y="114.5" width="38.0" height="18" rx="4" fill="#4e42f9"/><rect x="63.0" y="186.1" width="30.0" height="33.7" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="135.5" y="145.0" width="41.0" height="136.0" rx="6" fill="#b00b4e" opacity="0.92"/><rect x="135.5" y="125.0" width="41.0" height="20" rx="4" fill="#5a3aea"/><rect x="139.5" y="192.6" width="33.0" height="29.9" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="223.5" y="148.0" width="37.0" height="128.0" rx="6" fill="#a11546" opacity="0.92"/><rect x="223.5" y="126.0" width="37.0" height="22" rx="4" fill="#4e42f9"/><rect x="227.5" y="192.8" width="29.0" height="28.2" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="305.0" y="140.0" width="40.0" height="144.0" rx="6" fill="#b00b4e" opacity="0.92"/><rect x="305.0" y="122.0" width="40.0" height="18" rx="4" fill="#5a3aea"/><rect x="309.0" y="190.4" width="32.0" height="31.7" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="379.0" y="146.0" width="42.0" height="132.0" rx="6" fill="#a11546" opacity="0.92"/><rect x="379.0" y="126.0" width="42.0" height="20" rx="4" fill="#4e42f9"/><rect x="383.0" y="192.2" width="34.0" height="29.0" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="458.0" y="146.0" width="38.0" height="126.0" rx="6" fill="#b00b4e" opacity="0.92"/><rect x="458.0" y="124.0" width="38.0" height="22" rx="4" fill="#5a3aea"/><rect x="462.0" y="190.1" width="30.0" height="27.7" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="541.0" y="139.5" width="36.0" height="143.0" rx="6" fill="#a11546" opacity="0.92"/><rect x="541.0" y="121.5" width="36.0" height="18" rx="4" fill="#4e42f9"/><rect x="545.0" y="189.6" width="28.0" height="31.5" rx="2" fill="#fce7f3" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#a11546">P18374</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Fibril Complex Beta-Am…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Preformed Fibrils · unique image</text>
+</svg>

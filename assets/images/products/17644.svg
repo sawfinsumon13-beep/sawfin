@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g17644" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe0ff"/>
+      <stop offset="100%" stop-color="#ffeaf0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g17644)"/>
+  <circle cx="504" cy="134" r="44" fill="#8375ff" opacity="0.18"/>
+  <circle cx="444" cy="324" r="44" fill="#b53673" opacity="0.12"/>
+  <rect x="59.0" y="151.0" width="38.0" height="126.0" rx="6" fill="#971855" opacity="0.92"/><rect x="59.0" y="133.0" width="38.0" height="18" rx="4" fill="#4f55f1"/><rect x="63.0" y="195.1" width="30.0" height="27.7" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="147.0" y="136.5" width="36.0" height="143.0" rx="6" fill="#a60e5d" opacity="0.92"/><rect x="147.0" y="116.5" width="36.0" height="20" rx="4" fill="#5b4de2"/><rect x="151.0" y="186.6" width="28.0" height="31.5" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="225.0" y="140.5" width="40.0" height="131.0" rx="6" fill="#971855" opacity="0.92"/><rect x="225.0" y="118.5" width="40.0" height="22" rx="4" fill="#4f55f1"/><rect x="229.0" y="186.3" width="32.0" height="28.8" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="300.5" y="139.5" width="37.0" height="145.0" rx="6" fill="#a60e5d" opacity="0.92"/><rect x="300.5" y="121.5" width="37.0" height="18" rx="4" fill="#5b4de2"/><rect x="304.5" y="190.2" width="29.0" height="31.9" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="384.5" y="136.0" width="35.0" height="152.0" rx="6" fill="#971855" opacity="0.92"/><rect x="384.5" y="116.0" width="35.0" height="20" rx="4" fill="#4f55f1"/><rect x="388.5" y="189.2" width="27.0" height="33.4" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="458.5" y="129.0" width="39.0" height="156.0" rx="6" fill="#a60e5d" opacity="0.92"/><rect x="458.5" y="107.0" width="39.0" height="22" rx="4" fill="#5b4de2"/><rect x="462.5" y="183.6" width="31.0" height="34.3" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="541.0" y="127.0" width="36.0" height="158.0" rx="6" fill="#971855" opacity="0.92"/><rect x="541.0" y="109.0" width="36.0" height="18" rx="4" fill="#4f55f1"/><rect x="545.0" y="182.3" width="28.0" height="34.8" rx="2" fill="#fce7f3" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#971855">P17644</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Spike Related Antibody…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Coronavirus Research Tools · unique image</text>
+</svg>

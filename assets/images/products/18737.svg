@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18737" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f1f7f5"/>
+      <stop offset="100%" stop-color="#ffffe6"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18737)"/>
+  <circle cx="95" cy="45" r="35" fill="#fd9433" opacity="0.18"/>
+  <circle cx="535" cy="295" r="35" fill="#397c49" opacity="0.12"/>
+  <rect x="138.5" y="145.5" width="39.0" height="133.0" rx="6" fill="#1b5e2b" opacity="0.92"/><rect x="138.5" y="127.5" width="39.0" height="18" rx="4" fill="#c9741a"/><rect x="142.5" y="192.1" width="31.0" height="29.3" rx="2" fill="#ffffff" opacity="0.85"/><rect x="299.5" y="146.0" width="41.0" height="126.0" rx="6" fill="#2a5433" opacity="0.92"/><rect x="299.5" y="126.0" width="41.0" height="20" rx="4" fill="#d56c0b"/><rect x="303.5" y="190.1" width="33.0" height="27.7" rx="2" fill="#ffffff" opacity="0.85"/><rect x="460.5" y="139.5" width="37.0" height="143.0" rx="6" fill="#1b5e2b" opacity="0.92"/><rect x="460.5" y="117.5" width="37.0" height="22" rx="4" fill="#c9741a"/><rect x="464.5" y="189.6" width="29.0" height="31.5" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1b5e2b">P18737</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Aggregation Kit Tau St…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Kits · unique image</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18362" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffaf6"/>
+      <stop offset="100%" stop-color="#ffffe7"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18362)"/>
+  <circle cx="434" cy="144" r="54" fill="#6a71ff" opacity="0.18"/>
+  <circle cx="574" cy="304" r="74" fill="#bf326f" opacity="0.12"/>
+  <rect x="63.0" y="138.0" width="38.0" height="148.0" rx="6" fill="#a11451" opacity="0.92"/><rect x="63.0" y="120.0" width="38.0" height="18" rx="4" fill="#3651eb"/><rect x="67.0" y="189.8" width="30.0" height="32.6" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="136.5" y="140.0" width="41.0" height="134.0" rx="6" fill="#b00a59" opacity="0.92"/><rect x="136.5" y="120.0" width="41.0" height="20" rx="4" fill="#4249dc"/><rect x="140.5" y="186.9" width="33.0" height="29.5" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="219.0" y="139.5" width="42.0" height="147.0" rx="6" fill="#a11451" opacity="0.92"/><rect x="219.0" y="117.5" width="42.0" height="22" rx="4" fill="#3651eb"/><rect x="223.0" y="190.9" width="34.0" height="32.3" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="298.0" y="130.5" width="38.0" height="153.0" rx="6" fill="#b00a59" opacity="0.92"/><rect x="298.0" y="112.5" width="38.0" height="18" rx="4" fill="#4249dc"/><rect x="302.0" y="184.1" width="30.0" height="33.7" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="381.5" y="145.0" width="41.0" height="136.0" rx="6" fill="#a11451" opacity="0.92"/><rect x="381.5" y="125.0" width="41.0" height="20" rx="4" fill="#3651eb"/><rect x="385.5" y="192.6" width="33.0" height="29.9" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="463.5" y="140.0" width="37.0" height="148.0" rx="6" fill="#b00a59" opacity="0.92"/><rect x="463.5" y="118.0" width="37.0" height="22" rx="4" fill="#4249dc"/><rect x="467.5" y="191.8" width="29.0" height="32.6" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="544.0" y="131.0" width="40.0" height="154.0" rx="6" fill="#a11451" opacity="0.92"/><rect x="544.0" y="113.0" width="40.0" height="18" rx="4" fill="#3651eb"/><rect x="548.0" y="184.9" width="32.0" height="33.9" rx="2" fill="#fce7f3" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#a11451">P18362</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">APP Fragment (25-35) #…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Peptides · unique image</text>
+</svg>

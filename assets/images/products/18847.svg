@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18847" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e2e4ff"/>
+      <stop offset="100%" stop-color="#f6eef0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18847)"/>
+  <circle cx="521" cy="111" r="21" fill="#4f80ff" opacity="0.18"/>
+  <circle cx="361" cy="331" r="61" fill="#248c85" opacity="0.12"/>
+  <rect x="113.5" y="147.0" width="35.0" height="130.0" rx="6" fill="#066e67" opacity="0.92"/><rect x="113.5" y="129.0" width="35.0" height="18" rx="4" fill="#1b60fa"/><rect x="117.5" y="192.5" width="27.0" height="28.6" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="239.0" y="151.5" width="34.0" height="125.0" rx="6" fill="#15646f" opacity="0.92"/><rect x="239.0" y="131.5" width="34.0" height="20" rx="4" fill="#2758eb"/><rect x="243.0" y="195.2" width="26.0" height="27.5" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="362.0" y="141.0" width="34.0" height="142.0" rx="6" fill="#066e67" opacity="0.92"/><rect x="362.0" y="119.0" width="34.0" height="22" rx="4" fill="#1b60fa"/><rect x="366.0" y="190.7" width="26.0" height="31.2" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="493.5" y="131.5" width="39.0" height="151.0" rx="6" fill="#15646f" opacity="0.92"/><rect x="493.5" y="113.5" width="39.0" height="18" rx="4" fill="#2758eb"/><rect x="497.5" y="184.3" width="31.0" height="33.2" rx="2" fill="#f8fafc" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#066e67">P18847</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Compound Protease E #2…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Neurodegenerative Related Compounds · unique image</text>
+</svg>

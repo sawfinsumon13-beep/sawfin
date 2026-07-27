@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g15147" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eafffa"/>
+      <stop offset="100%" stop-color="#feffeb"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g15147)"/>
+  <circle cx="524" cy="114" r="24" fill="#727bff" opacity="0.18"/>
+  <circle cx="364" cy="334" r="64" fill="#b53062" opacity="0.12"/>
+  <rect x="65.0" y="135.5" width="38.0" height="141.0" rx="6" fill="#971244" opacity="0.92"/><rect x="65.0" y="117.5" width="38.0" height="18" rx="4" fill="#3e5bfb"/><rect x="69.0" y="184.8" width="30.0" height="31.0" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="139.0" y="141.0" width="36.0" height="130.0" rx="6" fill="#a6084c" opacity="0.92"/><rect x="139.0" y="121.0" width="36.0" height="20" rx="4" fill="#4a53ec"/><rect x="143.0" y="186.5" width="28.0" height="28.6" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="217.5" y="135.5" width="35.0" height="145.0" rx="6" fill="#971244" opacity="0.92"/><rect x="217.5" y="113.5" width="35.0" height="22" rx="4" fill="#3e5bfb"/><rect x="221.5" y="186.2" width="27.0" height="31.9" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="300.0" y="147.0" width="34.0" height="132.0" rx="6" fill="#a6084c" opacity="0.92"/><rect x="300.0" y="129.0" width="34.0" height="18" rx="4" fill="#4a53ec"/><rect x="304.0" y="193.2" width="26.0" height="29.0" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="378.5" y="151.0" width="39.0" height="126.0" rx="6" fill="#971244" opacity="0.92"/><rect x="378.5" y="131.0" width="39.0" height="20" rx="4" fill="#3e5bfb"/><rect x="382.5" y="195.1" width="31.0" height="27.7" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="461.0" y="148.5" width="36.0" height="123.0" rx="6" fill="#a6084c" opacity="0.92"/><rect x="461.0" y="126.5" width="36.0" height="22" rx="4" fill="#4a53ec"/><rect x="465.0" y="191.6" width="28.0" height="27.1" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="539.0" y="146.5" width="40.0" height="121.0" rx="6" fill="#971244" opacity="0.92"/><rect x="539.0" y="128.5" width="40.0" height="18" rx="4" fill="#3e5bfb"/><rect x="543.0" y="188.8" width="32.0" height="26.6" rx="2" fill="#fce7f3" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#971244">P15147</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Beta-Amyloid (1-42), M…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Peptides · unique image</text>
+</svg>

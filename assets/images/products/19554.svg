@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g19554" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#def1fd"/>
+      <stop offset="100%" stop-color="#f2fbee"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g19554)"/>
+  <circle cx="305" cy="75" r="25" fill="#f2ac33" opacity="0.18"/>
+  <circle cx="445" cy="355" r="45" fill="#2f794a" opacity="0.12"/>
+  <rect x="137.5" y="148.5" width="39.0" height="121.0" rx="6" fill="#115b2c" opacity="0.92"/><rect x="137.5" y="130.5" width="39.0" height="18" rx="4" fill="#be8c1a"/><rect x="141.5" y="190.8" width="31.0" height="26.6" rx="2" fill="#ffffff" opacity="0.85"/><rect x="298.0" y="151.0" width="36.0" height="120.0" rx="6" fill="#205134" opacity="0.92"/><rect x="298.0" y="131.0" width="36.0" height="20" rx="4" fill="#ca840b"/><rect x="302.0" y="193.0" width="28.0" height="26.4" rx="2" fill="#ffffff" opacity="0.85"/><rect x="464.5" y="147.0" width="35.0" height="120.0" rx="6" fill="#115b2c" opacity="0.92"/><rect x="464.5" y="125.0" width="35.0" height="22" rx="4" fill="#be8c1a"/><rect x="468.5" y="189.0" width="27.0" height="26.4" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#115b2c">P19554</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Modulator Protease G #…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Neurodegenerative Related Compounds · unique image</text>
+</svg>

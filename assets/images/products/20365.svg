@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g20365" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e6fbf1"/>
+      <stop offset="100%" stop-color="#faffe2"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g20365)"/>
+  <circle cx="120" cy="90" r="40" fill="#ffd22d" opacity="0.18"/>
+  <circle cx="460" cy="340" r="60" fill="#3175b7" opacity="0.12"/>
+  <rect x="143.0" y="134.5" width="34.0" height="155.0" rx="6" fill="#135799" opacity="0.92"/><rect x="143.0" y="116.5" width="34.0" height="18" rx="4" fill="#efb214"/><rect x="147.0" y="188.8" width="26.0" height="34.1" rx="2" fill="#ffffff" opacity="0.85"/><rect x="305.0" y="133.5" width="34.0" height="157.0" rx="6" fill="#224da1" opacity="0.92"/><rect x="305.0" y="113.5" width="34.0" height="20" rx="4" fill="#fbaa05"/><rect x="309.0" y="188.4" width="26.0" height="34.5" rx="2" fill="#ffffff" opacity="0.85"/><rect x="458.5" y="140.0" width="39.0" height="138.0" rx="6" fill="#135799" opacity="0.92"/><rect x="458.5" y="118.0" width="39.0" height="22" rx="4" fill="#efb214"/><rect x="462.5" y="188.3" width="31.0" height="30.4" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#135799">P20365</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Recombinant Alpha-Synu…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Proteins · unique image</text>
+</svg>

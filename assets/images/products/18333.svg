@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18333" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e4ffff"/>
+      <stop offset="100%" stop-color="#f8fff0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18333)"/>
+  <circle cx="125" cy="115" r="25" fill="#ffa434" opacity="0.18"/>
+  <circle cx="365" cy="365" r="65" fill="#2f7b50" opacity="0.12"/>
+  <rect x="137.5" y="144.5" width="39.0" height="131.0" rx="6" fill="#115d32" opacity="0.92"/><rect x="137.5" y="126.5" width="39.0" height="18" rx="4" fill="#d2841b"/><rect x="141.5" y="190.3" width="31.0" height="28.8" rx="2" fill="#ffffff" opacity="0.85"/><rect x="298.0" y="146.5" width="36.0" height="125.0" rx="6" fill="#20533a" opacity="0.92"/><rect x="298.0" y="126.5" width="36.0" height="20" rx="4" fill="#de7c0c"/><rect x="302.0" y="190.2" width="28.0" height="27.5" rx="2" fill="#ffffff" opacity="0.85"/><rect x="462.5" y="135.0" width="35.0" height="142.0" rx="6" fill="#115d32" opacity="0.92"/><rect x="462.5" y="113.0" width="35.0" height="22" rx="4" fill="#d2841b"/><rect x="466.5" y="184.7" width="27.0" height="31.2" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#115d32">P18333</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Anti-Human Beta-Amyloi…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Antibodies · unique image</text>
+</svg>

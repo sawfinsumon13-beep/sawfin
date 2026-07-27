@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18755" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fce8ea"/>
+      <stop offset="100%" stop-color="#fff2db"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18755)"/>
+  <circle cx="531" cy="41" r="31" fill="#4e84ff" opacity="0.18"/>
+  <circle cx="471" cy="291" r="71" fill="#2e8f8b" opacity="0.12"/>
+  <rect x="115.5" y="137.0" width="35.0" height="142.0" rx="6" fill="#10716d" opacity="0.92"/><rect x="115.5" y="119.0" width="35.0" height="18" rx="4" fill="#1a64ff"/><rect x="119.5" y="186.7" width="27.0" height="31.2" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="236.5" y="142.5" width="39.0" height="131.0" rx="6" fill="#1f6775" opacity="0.92"/><rect x="236.5" y="122.5" width="39.0" height="20" rx="4" fill="#265cf3"/><rect x="240.5" y="188.3" width="31.0" height="28.8" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="364.0" y="133.5" width="36.0" height="145.0" rx="6" fill="#10716d" opacity="0.92"/><rect x="364.0" y="111.5" width="36.0" height="22" rx="4" fill="#1a64ff"/><rect x="368.0" y="184.2" width="28.0" height="31.9" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="493.5" y="132.0" width="35.0" height="152.0" rx="6" fill="#1f6775" opacity="0.92"/><rect x="493.5" y="114.0" width="35.0" height="18" rx="4" fill="#265cf3"/><rect x="497.5" y="185.2" width="27.0" height="33.4" rx="2" fill="#f8fafc" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#10716d">P18755</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Recombinant Alpha-Synu…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Proteins · unique image</text>
+</svg>

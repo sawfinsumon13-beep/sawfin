@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g19173" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#efe4fb"/>
+      <stop offset="100%" stop-color="#ffeeec"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g19173)"/>
+  <circle cx="81" cy="71" r="21" fill="#4e80ff" opacity="0.18"/>
+  <circle cx="321" cy="351" r="71" fill="#248f92" opacity="0.12"/>
+  <rect x="114.5" y="144.0" width="35.0" height="140.0" rx="6" fill="#067174" opacity="0.92"/><rect x="114.5" y="126.0" width="35.0" height="18" rx="4" fill="#1a60ff"/><rect x="118.5" y="193.0" width="27.0" height="30.8" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="235.0" y="145.0" width="34.0" height="130.0" rx="6" fill="#15677c" opacity="0.92"/><rect x="235.0" y="125.0" width="34.0" height="20" rx="4" fill="#2658f2"/><rect x="239.0" y="190.5" width="26.0" height="28.6" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="366.0" y="134.5" width="34.0" height="145.0" rx="6" fill="#067174" opacity="0.92"/><rect x="366.0" y="112.5" width="34.0" height="22" rx="4" fill="#1a60ff"/><rect x="370.0" y="185.2" width="26.0" height="31.9" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="493.0" y="140.0" width="34.0" height="132.0" rx="6" fill="#15677c" opacity="0.92"/><rect x="493.0" y="122.0" width="34.0" height="18" rx="4" fill="#2658f2"/><rect x="497.0" y="186.2" width="26.0" height="29.0" rx="2" fill="#f8fafc" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#067174">P19173</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Anti-Human Beta-Amyloi…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Antibodies · unique image</text>
+</svg>

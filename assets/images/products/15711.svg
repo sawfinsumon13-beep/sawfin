@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g15711" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e0eaff"/>
+      <stop offset="100%" stop-color="#f4f4f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g15711)"/>
+  <circle cx="96" cy="86" r="36" fill="#ff8728" opacity="0.18"/>
+  <circle cx="336" cy="366" r="36" fill="#55439b" opacity="0.12"/>
+  <rect x="108.0" y="149.0" width="40.0" height="124.0" rx="6" fill="#37257d" opacity="0.92"/><rect x="108.0" y="131.0" width="40.0" height="18" rx="4" fill="#d6670f"/><rect x="112.0" y="192.4" width="32.0" height="27.3" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="232.0" y="153.0" width="42.0" height="122.0" rx="6" fill="#461b85" opacity="0.92"/><rect x="232.0" y="133.0" width="42.0" height="20" rx="4" fill="#e25f00"/><rect x="236.0" y="195.7" width="34.0" height="26.8" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="360.0" y="137.5" width="38.0" height="141.0" rx="6" fill="#37257d" opacity="0.92"/><rect x="360.0" y="115.5" width="38.0" height="22" rx="4" fill="#d6670f"/><rect x="364.0" y="186.8" width="30.0" height="31.0" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="493.0" y="148.0" width="36.0" height="130.0" rx="6" fill="#461b85" opacity="0.92"/><rect x="493.0" y="130.0" width="36.0" height="18" rx="4" fill="#e25f00"/><rect x="497.0" y="193.5" width="28.0" height="28.6" rx="2" fill="#e0e7ff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#37257d">P15711</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Bovine Coronavirus Hem…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Coronavirus Research Tools · unique image</text>
+</svg>

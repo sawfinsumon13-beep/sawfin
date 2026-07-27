@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g20247" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dcf8e0"/>
+      <stop offset="100%" stop-color="#f0ffd1"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g20247)"/>
+  <circle cx="465" cy="55" r="45" fill="#ffa929" opacity="0.18"/>
+  <circle cx="305" cy="305" r="55" fill="#2f8248" opacity="0.12"/>
+  <rect x="137.5" y="135.0" width="39.0" height="156.0" rx="6" fill="#11642a" opacity="0.92"/><rect x="137.5" y="117.0" width="39.0" height="18" rx="4" fill="#cd8910"/><rect x="141.5" y="189.6" width="31.0" height="34.3" rx="2" fill="#ffffff" opacity="0.85"/><rect x="304.0" y="143.0" width="36.0" height="138.0" rx="6" fill="#205a32" opacity="0.92"/><rect x="304.0" y="123.0" width="36.0" height="20" rx="4" fill="#d98101"/><rect x="308.0" y="191.3" width="28.0" height="30.4" rx="2" fill="#ffffff" opacity="0.85"/><rect x="457.0" y="147.5" width="40.0" height="129.0" rx="6" fill="#11642a" opacity="0.92"/><rect x="457.0" y="125.5" width="40.0" height="22" rx="4" fill="#cd8910"/><rect x="461.0" y="192.7" width="32.0" height="28.4" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#11642a">P20247</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Compound Protease E #5…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Neurodegenerative Related Compounds · unique image</text>
+</svg>

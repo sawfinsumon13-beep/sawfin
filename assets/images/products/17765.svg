@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g17765" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e1ffeb"/>
+      <stop offset="100%" stop-color="#f5ffdc"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g17765)"/>
+  <circle cx="156" cy="66" r="56" fill="#ff8329" opacity="0.18"/>
+  <circle cx="496" cy="286" r="46" fill="#554e9c" opacity="0.12"/>
+  <rect x="111.0" y="147.5" width="40.0" height="129.0" rx="6" fill="#37307e" opacity="0.92"/><rect x="111.0" y="129.5" width="40.0" height="18" rx="4" fill="#e86310"/><rect x="115.0" y="192.7" width="32.0" height="28.4" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="236.0" y="140.0" width="42.0" height="144.0" rx="6" fill="#462686" opacity="0.92"/><rect x="236.0" y="120.0" width="42.0" height="20" rx="4" fill="#f45b01"/><rect x="240.0" y="190.4" width="34.0" height="31.7" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="366.5" y="138.0" width="43.0" height="152.0" rx="6" fill="#37307e" opacity="0.92"/><rect x="366.5" y="116.0" width="43.0" height="22" rx="4" fill="#e86310"/><rect x="370.5" y="191.2" width="35.0" height="33.4" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="490.0" y="140.0" width="38.0" height="136.0" rx="6" fill="#462686" opacity="0.92"/><rect x="490.0" y="122.0" width="38.0" height="18" rx="4" fill="#f45b01"/><rect x="494.0" y="187.6" width="30.0" height="29.9" rx="2" fill="#e0e7ff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#37307e">P17765</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Fibril Complex Beta-Am…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Preformed Fibrils · unique image</text>
+</svg>

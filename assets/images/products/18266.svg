@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18266" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ebffff"/>
+      <stop offset="100%" stop-color="#fffff0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18266)"/>
+  <circle cx="493" cy="123" r="33" fill="#f5ab28" opacity="0.18"/>
+  <circle cx="433" cy="313" r="33" fill="#36849c" opacity="0.12"/>
+  <rect x="69.9" y="135.5" width="37.0" height="153.0" rx="6" fill="#18667e" opacity="0.92"/><rect x="69.9" y="117.5" width="37.0" height="18" rx="4" fill="#c18b0f"/><rect x="73.9" y="189.1" width="29.0" height="33.7" rx="2" fill="#ffffff" opacity="0.85"/><rect x="158.9" y="136.0" width="40.0" height="156.0" rx="6" fill="#275c86" opacity="0.92"/><rect x="158.9" y="116.0" width="40.0" height="20" rx="4" fill="#cd8300"/><rect x="162.9" y="190.6" width="32.0" height="34.3" rx="2" fill="#ffffff" opacity="0.85"/><rect x="251.8" y="131.0" width="37.0" height="158.0" rx="6" fill="#18667e" opacity="0.92"/><rect x="251.8" y="109.0" width="37.0" height="22" rx="4" fill="#c18b0f"/><rect x="255.8" y="186.3" width="29.0" height="34.8" rx="2" fill="#ffffff" opacity="0.85"/><rect x="342.7" y="131.5" width="40.0" height="159.0" rx="6" fill="#275c86" opacity="0.92"/><rect x="342.7" y="113.5" width="40.0" height="18" rx="4" fill="#cd8300"/><rect x="346.7" y="187.2" width="32.0" height="35.0" rx="2" fill="#ffffff" opacity="0.85"/><rect x="432.1" y="131.5" width="42.0" height="159.0" rx="6" fill="#18667e" opacity="0.92"/><rect x="432.1" y="111.5" width="42.0" height="20" rx="4" fill="#c18b0f"/><rect x="436.1" y="187.2" width="34.0" height="35.0" rx="2" fill="#ffffff" opacity="0.85"/><rect x="526.1" y="131.5" width="43.0" height="159.0" rx="6" fill="#275c86" opacity="0.92"/><rect x="526.1" y="109.5" width="43.0" height="22" rx="4" fill="#cd8300"/><rect x="530.1" y="187.2" width="35.0" height="35.0" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#18667e">P18266</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Modulator Protease G #…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Neurodegenerative Related Compounds · unique image</text>
+</svg>

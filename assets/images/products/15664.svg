@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g15664" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fdfdf2"/>
+      <stop offset="100%" stop-color="#ffffe3"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g15664)"/>
+  <circle cx="73" cy="83" r="33" fill="#eaac39" opacity="0.18"/>
+  <circle cx="513" cy="303" r="63" fill="#36779a" opacity="0.12"/>
+  <rect x="72.9" y="139.5" width="37.0" height="143.0" rx="6" fill="#18597c" opacity="0.92"/><rect x="72.9" y="121.5" width="37.0" height="18" rx="4" fill="#b68c20"/><rect x="76.9" y="189.6" width="29.0" height="31.5" rx="2" fill="#ffffff" opacity="0.85"/><rect x="157.9" y="141.5" width="40.0" height="131.0" rx="6" fill="#274f84" opacity="0.92"/><rect x="157.9" y="121.5" width="40.0" height="20" rx="4" fill="#c28411"/><rect x="161.9" y="187.3" width="32.0" height="28.8" rx="2" fill="#ffffff" opacity="0.85"/><rect x="251.8" y="147.5" width="37.0" height="125.0" rx="6" fill="#18597c" opacity="0.92"/><rect x="251.8" y="125.5" width="37.0" height="22" rx="4" fill="#b68c20"/><rect x="255.8" y="191.2" width="29.0" height="27.5" rx="2" fill="#ffffff" opacity="0.85"/><rect x="345.2" y="138.0" width="35.0" height="142.0" rx="6" fill="#274f84" opacity="0.92"/><rect x="345.2" y="120.0" width="35.0" height="18" rx="4" fill="#c28411"/><rect x="349.2" y="187.7" width="27.0" height="31.2" rx="2" fill="#ffffff" opacity="0.85"/><rect x="432.6" y="130.5" width="39.0" height="151.0" rx="6" fill="#18597c" opacity="0.92"/><rect x="432.6" y="110.5" width="39.0" height="20" rx="4" fill="#b68c20"/><rect x="436.6" y="183.3" width="31.0" height="33.2" rx="2" fill="#ffffff" opacity="0.85"/><rect x="534.6" y="130.5" width="36.0" height="155.0" rx="6" fill="#274f84" opacity="0.92"/><rect x="534.6" y="108.5" width="36.0" height="22" rx="4" fill="#c28411"/><rect x="538.6" y="184.8" width="28.0" height="34.1" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#18597c">P15664</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Proteinase K, Molecula…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Coronavirus Research Tools · unique image</text>
+</svg>

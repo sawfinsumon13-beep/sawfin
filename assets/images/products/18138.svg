@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18138" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9ffdd"/>
+      <stop offset="100%" stop-color="#ffffce"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18138)"/>
+  <circle cx="362" cy="132" r="42" fill="#3bc1ff" opacity="0.18"/>
+  <circle cx="502" cy="352" r="52" fill="#b05534" opacity="0.12"/>
+  <rect x="91.7" y="138.5" width="36.0" height="135.0" rx="6" fill="#923716" opacity="0.92"/><rect x="91.7" y="120.5" width="36.0" height="18" rx="4" fill="#07a1fa"/><rect x="95.7" y="185.8" width="28.0" height="29.7" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="193.8" y="136.5" width="35.0" height="147.0" rx="6" fill="#a12d1e" opacity="0.92"/><rect x="193.8" y="116.5" width="35.0" height="20" rx="4" fill="#1399eb"/><rect x="197.8" y="187.9" width="27.0" height="32.3" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="295.5" y="136.5" width="39.0" height="153.0" rx="6" fill="#923716" opacity="0.92"/><rect x="295.5" y="114.5" width="39.0" height="22" rx="4" fill="#07a1fa"/><rect x="299.5" y="190.1" width="31.0" height="33.7" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="409.2" y="134.0" width="41.0" height="156.0" rx="6" fill="#a12d1e" opacity="0.92"/><rect x="409.2" y="116.0" width="41.0" height="18" rx="4" fill="#1399eb"/><rect x="413.2" y="188.6" width="33.0" height="34.3" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="516.8" y="138.0" width="37.0" height="138.0" rx="6" fill="#923716" opacity="0.92"/><rect x="516.8" y="118.0" width="37.0" height="20" rx="4" fill="#07a1fa"/><rect x="520.8" y="186.3" width="29.0" height="30.4" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#923716">P18138</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">APP Fragment (25-35) #…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Peptides · unique image</text>
+</svg>

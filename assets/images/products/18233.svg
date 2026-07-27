@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18233" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#effde3"/>
+      <stop offset="100%" stop-color="#ffffd4"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18233)"/>
+  <circle cx="521" cy="91" r="41" fill="#5a85ff" opacity="0.18"/>
+  <circle cx="461" cy="281" r="61" fill="#249292" opacity="0.12"/>
+  <rect x="107.5" y="129.5" width="35.0" height="155.0" rx="6" fill="#067474" opacity="0.92"/><rect x="107.5" y="111.5" width="35.0" height="18" rx="4" fill="#2665f6"/><rect x="111.5" y="183.8" width="27.0" height="34.1" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="235.0" y="137.5" width="34.0" height="137.0" rx="6" fill="#156a7c" opacity="0.92"/><rect x="235.0" y="117.5" width="34.0" height="20" rx="4" fill="#325de7"/><rect x="239.0" y="185.4" width="26.0" height="30.1" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="359.5" y="138.0" width="39.0" height="148.0" rx="6" fill="#067474" opacity="0.92"/><rect x="359.5" y="116.0" width="39.0" height="22" rx="4" fill="#2665f6"/><rect x="363.5" y="189.8" width="31.0" height="32.6" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="487.5" y="145.0" width="41.0" height="134.0" rx="6" fill="#156a7c" opacity="0.92"/><rect x="487.5" y="127.0" width="41.0" height="18" rx="4" fill="#325de7"/><rect x="491.5" y="191.9" width="33.0" height="29.5" rx="2" fill="#f8fafc" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#067474">P18233</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Aggregation Kit Alpha-…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Kits · unique image</text>
+</svg>
