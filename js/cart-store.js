@@ -2,6 +2,9 @@
   var STORAGE_KEY = "apex_cart";
 
   function parsePriceMin(priceText) {
+    if (global.Pricing) {
+      return Pricing.parsePriceRange(priceText).lo || 0;
+    }
     if (!priceText) return 0;
     var m = String(priceText).match(/\$([\d,]+(?:\.\d{2})?)/);
     if (!m) return 0;

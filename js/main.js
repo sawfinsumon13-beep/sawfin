@@ -29,6 +29,7 @@
       });
     }
     updateCartCount();
+    if (window.AuthStore) AuthStore.updateHeaderAuthLinks();
 
     var toggle = document.getElementById("nav-toggle");
     var nav = document.getElementById("nav-main");

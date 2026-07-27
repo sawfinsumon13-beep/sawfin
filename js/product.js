@@ -3,30 +3,64 @@
     return new URLSearchParams(window.location.search).get(name);
   }
 
-  function cartItemFromForm(product) {
+  function selectedSize() {
     var sizeEl = document.getElementById("size");
+    return sizeEl ? sizeEl.value : null;
+  }
+
+  function selectedQty() {
+    var qtyEl = document.getElementById("qty");
+    return qtyEl ? parseInt(qtyEl.value, 10) || 1 : 1;
+  }
+
+  function pricingSnapshot(product) {
+    return Pricing.lineTotal(product, selectedSize(), selectedQty());
+  }
+
+  function cartItemFromForm(product) {
+    var snap = pricingSnapshot(product);
     return {
       slug: product.slug,
       name: product.name,
       sku: product.sku,
-      price: product.price,
+      price: snap.unitLabel,
+      unitPrice: snap.unit,
       image: product.image,
-      qty: parseInt(document.getElementById("qty").value, 10) || 1,
-      size: sizeEl ? sizeEl.value : null,
+      qty: snap.qty,
+      size: selectedSize(),
     };
   }
 
   function currentOrderProduct(product) {
-    var sizeEl = document.getElementById("size");
-    var qtyEl = document.getElementById("qty");
+    var snap = pricingSnapshot(product);
     return {
       slug: product.slug,
       name: product.name,
       sku: product.sku,
-      price: product.price,
-      size: sizeEl ? sizeEl.value : null,
-      qty: qtyEl ? parseInt(qtyEl.value, 10) || 1 : 1,
+      price: snap.unitLabel + " each · Total " + snap.totalLabel,
+      unitPrice: snap.unit,
+      size: selectedSize(),
+      qty: snap.qty,
     };
+  }
+
+  function refreshPrice(product) {
+    var snap = pricingSnapshot(product);
+    var priceEl = document.getElementById("detail-price");
+    var unitEl = document.getElementById("unit-price-meta");
+    var totalEl = document.getElementById("line-total-meta");
+    if (priceEl) priceEl.textContent = snap.totalLabel;
+    if (unitEl) {
+      unitEl.textContent =
+        "Unit price" +
+        (selectedSize() ? " (" + selectedSize() + ")" : "") +
+        ": " +
+        snap.unitLabel;
+    }
+    if (totalEl) {
+      totalEl.textContent =
+        "Total for qty " + snap.qty + ": " + snap.totalLabel;
+    }
   }
 
   function refreshBuyLinks(product) {
@@ -35,6 +69,11 @@
     wrap.innerHTML = SiteContact.buyButtonsHtml(currentOrderProduct(product), {
       includeCart: true,
     });
+  }
+
+  function refreshAll(product) {
+    refreshPrice(product);
+    refreshBuyLinks(product);
   }
 
   function initProduct() {
@@ -62,7 +101,7 @@
           return;
         }
 
-        document.title = product.name + " | Research Peptides Bio";
+        document.title = product.name + " | Buy Peptides & Research Peptides";
 
         var sizes =
           product.sizes && product.sizes.length
@@ -87,7 +126,9 @@
           .map(function (c) {
             return (
               '<a href="' +
-              (window.sectionHref ? window.sectionHref(c.slug) : "products.html?category=" + encodeURIComponent(c.slug)) +
+              (window.sectionHref
+                ? window.sectionHref(c.slug)
+                : "products.html?category=" + encodeURIComponent(c.slug)) +
               '">' +
               c.name +
               "</a>"
@@ -106,23 +147,32 @@
             : "<span>Reagent</span>") +
           "</div></div>" +
           '<div class="product-detail-info">' +
-          "<p class=\"product-tag\">" +
+          '<p class="product-tag">' +
           cats +
           "</p>" +
           "<h1>" +
           product.name +
           "</h1>" +
-          (product.sku ? '<p class="product-sku">Catalog #: <strong>' + product.sku + "</strong></p>" : "") +
-          '<p class="detail-price">' +
+          (product.sku
+            ? '<p class="product-sku">Catalog #: <strong>' + product.sku + "</strong></p>"
+            : "") +
+          '<p class="detail-price" id="detail-price">' +
           product.price +
           "</p>" +
+          '<p class="price-breakdown" id="unit-price-meta"></p>' +
+          '<p class="price-breakdown price-total-line" id="line-total-meta"></p>' +
           (product.price_note
             ? '<p class="price-note">' + product.price_note + "</p>"
             : '<p class="price-note">Priced 10% below comparable list pricing</p>') +
+          (product.price
+            ? '<p class="price-range-note">Catalog size range: ' + product.price + "</p>"
+            : "") +
           '<p class="stock ' +
           (product.in_stock ? "in-stock" : "out-stock") +
           '">' +
-          (product.in_stock ? "In stock — order via Email or WhatsApp" : "Contact us for availability") +
+          (product.in_stock
+            ? "In stock — order via Email or WhatsApp"
+            : "Contact us for availability") +
           "</p>" +
           '<form id="add-to-cart" class="add-to-cart">' +
           sizes +
@@ -149,7 +199,7 @@
           "</a>.</p>" +
           "</section>";
 
-        refreshBuyLinks(product);
+        refreshAll(product);
 
         var form = document.getElementById("add-to-cart");
         form.addEventListener("submit", function (e) {
@@ -162,10 +212,10 @@
           var el = document.getElementById(id);
           if (el) {
             el.addEventListener("change", function () {
-              refreshBuyLinks(product);
+              refreshAll(product);
             });
             el.addEventListener("input", function () {
-              refreshBuyLinks(product);
+              refreshAll(product);
             });
           }
         });

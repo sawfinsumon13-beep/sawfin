@@ -1521,6 +1521,162 @@ a:hover {
   padding: 2rem;
 }
 
+.auth-shell {
+  max-width: 480px;
+  margin: 2.5rem auto 3.5rem;
+}
+
+.auth-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  padding: 2rem 1.75rem 1.75rem;
+}
+
+.auth-card h1 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--color-ink);
+}
+
+.auth-lead {
+  margin: 0 0 1.5rem;
+  color: var(--color-ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.auth-form .req {
+  color: #dc2626;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 4.25rem;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.45rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.35rem 0.5rem;
+}
+
+.auth-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 1.15rem;
+  font-size: 0.875rem;
+}
+
+.auth-row a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-row a:hover {
+  text-decoration: underline;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-ink-muted);
+  line-height: 1.4;
+}
+
+.checkbox-label input {
+  margin-top: 0.15rem;
+}
+
+.auth-terms {
+  margin: 0 0 1.15rem;
+}
+
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+.auth-switch,
+.auth-footnote {
+  margin: 1.15rem 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+}
+
+.auth-switch a {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+.auth-status {
+  margin: 0.85rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.auth-status-ok {
+  color: #047857;
+}
+
+.auth-status-error {
+  color: #b91c1c;
+}
+
+.field-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+  color: var(--color-ink-subtle);
+}
+
+.account-meta {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0.45rem 0.75rem;
+  margin: 0 0 1.5rem;
+  font-size: 0.92rem;
+}
+
+.account-meta dt {
+  color: var(--color-ink-subtle);
+  font-weight: 600;
+}
+
+.account-meta dd {
+  margin: 0;
+  color: var(--color-ink);
+}
+
+.auth-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
 .form-group {
   margin-bottom: 1.25rem;
 }
@@ -2006,6 +2162,24 @@ a:hover {
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--color-primary);
+  margin: 0.35rem 0 0.25rem;
+}
+
+.price-breakdown {
+  margin: 0.15rem 0;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+}
+
+.price-total-line {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.price-range-note {
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
+  color: var(--color-ink-subtle);
 }
 
 .price-note {
