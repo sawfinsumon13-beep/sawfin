@@ -192,8 +192,9 @@
       dropdown("menu-about", "About Us", simpleMega(MEGA.about), "about") +
       "</nav>" +
       '<div class="header-actions">' +
-      '<a href="cart.html" class="header-cart" aria-label="Cart">Cart <span id="cart-count">0</span></a>' +
-      '<a href="contact.html" class="btn btn-secondary">Request Quote</a>' +
+      '<a href="cart.html" class="header-cart" aria-label="Shopping cart">🛒 <span id="cart-count">0</span></a>' +
+      '<a href="account.html" class="header-signin">Sign In</a>' +
+      '<a href="products.html" class="btn btn-primary btn-sm">Shop</a>' +
       '<button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-main" aria-label="Open menu">☰</button>' +
       "</div></div>";
 
@@ -216,33 +217,77 @@
     }
   };
 
+  function footerList(items) {
+    return (
+      "<ul>" +
+      items
+        .map(function (i) {
+          return '<li><a href="' + i.href + '">' + i.name + "</a></li>";
+        })
+        .join("") +
+      "</ul>"
+    );
+  }
+
   window.renderSiteFooter = function () {
     var el = document.getElementById("site-footer");
     if (!el) return;
+
+    var productLinks = MEGA.products.map(function (p) {
+      return { name: p.title, href: p.href };
+    });
+
     el.innerHTML =
-      '<div class="container">' +
-      '<div class="footer-grid">' +
-      '<div class="footer-brand"><a href="index.html" class="logo"><span class="logo-mark">A</span>Apex Bioreagents</a>' +
-      "<p>Full-line catalog: antibodies, peptides, proteins, kits, fibrils, and research compounds for neurodegeneration and virology programs.</p></div>" +
-      '<div class="footer-col"><h4>Shop</h4><ul>' +
-      MEGA.products
-        .map(function (p) {
-          return "<li><a href=\"" + p.href + '">' + p.title + "</a></li>";
-        })
-        .join("") +
-      "</ul></div>" +
-      '<div class="footer-col"><h4>Services</h4><ul>' +
-      MEGA.services
-        .map(function (s) {
-          return '<li><a href="' + s.href + '">' + s.name + "</a></li>";
-        })
-        .join("") +
-      "</ul></div>" +
-      '<div class="footer-col"><h4>Contact</h4><ul>' +
-      '<li><a href="mailto:orders@apexbio.example">orders@apexbio.example</a></li>' +
-      '<li><a href="tel:+18005550142">+1 (800) 555-0142</a></li>' +
-      '<li><a href="contact.html">Contact form</a></li></ul></div></div>' +
-      '<div class="footer-bottom"><span>© 2026 Apex Bioreagents. Demo catalog structure modeled on industry suppliers.</span>' +
-      "<span>For research use only.</span></div></div>";
+      '<div class="footer-wrap">' +
+      '<div class="container footer-main">' +
+      '<div class="footer-columns">' +
+      '<div class="footer-col"><h4>Products</h4>' +
+      footerList(productLinks) +
+      "</div>" +
+      '<div class="footer-col"><h4>Services</h4>' +
+      footerList(MEGA.services) +
+      "</div>" +
+      '<div class="footer-col"><h4>Resources</h4>' +
+      footerList(MEGA.resources) +
+      "</div>" +
+      '<div class="footer-col"><h4>About</h4>' +
+      footerList(MEGA.about) +
+      "</div>" +
+      '<div class="footer-contact-col">' +
+      '<a href="index.html" class="footer-logo">Apex <span>Bioreagents</span></a>' +
+      '<p class="footer-contact-lines">' +
+      "ph: <a href=\"tel:+18667530747\">866.753.0747</a><br>" +
+      "fax: 678.753.0746<br>" +
+      'e: <a href="mailto:sales@apexbio.example">sales@apexbio.example</a>' +
+      "</p>" +
+      '<div class="footer-social" aria-label="Social links">' +
+      '<a href="#" aria-label="LinkedIn">in</a>' +
+      '<a href="#" aria-label="Bluesky">🦋</a>' +
+      '<a href="#" aria-label="X">𝕏</a>' +
+      '<a href="#" aria-label="YouTube">▶</a>' +
+      "</div></div></div>" +
+      '<div class="footer-newsletter">' +
+      "<h4>Newsletter Signup</h4>" +
+      '<form id="newsletter-form" class="newsletter-form">' +
+      '<input type="email" name="email" placeholder="email address" required aria-label="Email address">' +
+      '<button type="submit" class="btn btn-newsletter">Subscribe</button>' +
+      "</form></div></div>" +
+      '<div class="footer-sub"><div class="container footer-sub-inner">' +
+      "<span>© 2026 Apex Bioreagents · <a href=\"sitemap.html\">Sitemap</a> · <a href=\"privacy.html\">Privacy</a> · <a href=\"resources-terms.html\">Terms &amp; Conditions</a></span>" +
+      "<span>Apex Bioreagents products are for research purposes only. Not for human consumption.</span>" +
+      "</div></div></div>";
+
+    var form = document.getElementById("newsletter-form");
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var email = form.email.value;
+        var list = JSON.parse(localStorage.getItem("apex_newsletter") || "[]");
+        list.push({ email: email, at: new Date().toISOString() });
+        localStorage.setItem("apex_newsletter", JSON.stringify(list));
+        form.reset();
+        alert("Subscribed — thank you!");
+      });
+    }
   };
 })();

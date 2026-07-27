@@ -2,8 +2,11 @@
   window.updateCartCount = function () {
     var el = document.getElementById("cart-count");
     if (!el) return;
-    var cart = JSON.parse(localStorage.getItem("apex_cart") || "[]");
-    el.textContent = String(cart.length);
+    var cart = typeof CartStore !== "undefined" ? CartStore.getCart() : JSON.parse(localStorage.getItem("apex_cart") || "[]");
+    var qty = cart.reduce(function (n, row) {
+      return n + (row.qty || 1);
+    }, 0);
+    el.textContent = String(qty);
   };
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -96,13 +99,15 @@
   function initCart() {
     var root = document.getElementById("cart-root");
     if (!root) return;
-    var cart = JSON.parse(localStorage.getItem("apex_cart") || "[]");
+    var cart = CartStore.getCart();
     if (!cart.length) {
-      root.innerHTML = '<p>Your cart is empty. <a href="products.html">Browse products</a>.</p>';
+      root.innerHTML = '<p>Your cart is empty. <a href="products.html">Browse products</a> to purchase.</p>';
       return;
     }
+
+    var sub = CartStore.cartSubtotal(cart);
     root.innerHTML =
-      '<table class="cart-table"><thead><tr><th>Product</th><th>SKU</th><th>Size</th><th>Qty</th><th></th></tr></thead><tbody>' +
+      '<table class="cart-table"><thead><tr><th>Product</th><th>SKU</th><th>Size</th><th>Qty</th><th>Line total</th><th></th></tr></thead><tbody>' +
       cart
         .map(function (item, idx) {
           return (
@@ -114,8 +119,12 @@
             (item.sku || "—") +
             "</td><td>" +
             (item.size || "—") +
-            "</td><td>" +
+            '</td><td><input class="cart-qty-input" type="number" min="1" value="' +
             item.qty +
+            '" data-idx="' +
+            idx +
+            '"></td><td>' +
+            CartStore.formatMoney((item.unitPrice || 0) * item.qty) +
             '</td><td><button type="button" data-idx="' +
             idx +
             '" class="cart-remove">Remove</button></td></tr>"
@@ -123,15 +132,27 @@
         })
         .join("") +
       "</tbody></table>" +
-      '<p><a href="contact.html" class="btn btn-primary">Request quote for cart</a></p>';
+      '<p class="checkout-total"><span>Estimated subtotal</span><strong>' +
+      CartStore.formatMoney(sub) +
+      "</strong></p>" +
+      '<div class="product-actions-row"><a href="checkout.html" class="btn btn-primary btn-lg">Proceed to checkout</a>' +
+      '<a href="products.html" class="btn btn-secondary">Continue shopping</a></div>';
 
     root.querySelectorAll(".cart-remove").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var i = parseInt(btn.getAttribute("data-idx"), 10);
         cart.splice(i, 1);
-        localStorage.setItem("apex_cart", JSON.stringify(cart));
+        CartStore.setCart(cart);
         initCart();
-        updateCartCount();
+      });
+    });
+
+    root.querySelectorAll(".cart-qty-input").forEach(function (input) {
+      input.addEventListener("change", function () {
+        var i = parseInt(input.getAttribute("data-idx"), 10);
+        cart[i].qty = Math.max(1, parseInt(input.value, 10) || 1);
+        CartStore.setCart(cart);
+        initCart();
       });
     });
   }

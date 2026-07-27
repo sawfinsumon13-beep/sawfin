@@ -3,6 +3,19 @@
     return new URLSearchParams(window.location.search).get(name);
   }
 
+  function cartItemFromForm(product) {
+    var sizeEl = document.getElementById("size");
+    return {
+      slug: product.slug,
+      name: product.name,
+      sku: product.sku,
+      price: product.price,
+      image: product.image,
+      qty: parseInt(document.getElementById("qty").value, 10) || 1,
+      size: sizeEl ? sizeEl.value : null,
+    };
+  }
+
   function initProduct() {
     var slug = qs("slug");
     window.SITE_ACTIVE = "products";
@@ -90,9 +103,11 @@
           '<form id="add-to-cart" class="add-to-cart">' +
           sizes +
           '<div class="form-group"><label for="qty">Quantity</label><input type="number" id="qty" name="qty" min="1" value="1"></div>' +
+          '<div class="product-actions-row">' +
           '<button type="submit" class="btn btn-primary">Add to cart</button>' +
-          '<a href="contact.html" class="btn btn-secondary">Request quote</a>' +
-          "</form>" +
+          '<button type="button" id="buy-now" class="btn btn-secondary">Buy now</button>' +
+          '<a href="cart.html" class="btn btn-secondary">View cart</a>' +
+          "</div></form>" +
           "</div></div>" +
           '<section class="product-description section-tight">' +
           "<h2>Overview</h2>" +
@@ -107,19 +122,14 @@
         var form = document.getElementById("add-to-cart");
         form.addEventListener("submit", function (e) {
           e.preventDefault();
-          var cart = JSON.parse(localStorage.getItem("apex_cart") || "[]");
-          var sizeEl = document.getElementById("size");
-          cart.push({
-            slug: product.slug,
-            name: product.name,
-            sku: product.sku,
-            price: product.price,
-            qty: parseInt(document.getElementById("qty").value, 10) || 1,
-            size: sizeEl ? sizeEl.value : null,
-          });
-          localStorage.setItem("apex_cart", JSON.stringify(cart));
-          if (window.updateCartCount) window.updateCartCount();
-          alert("Added to cart: " + product.name);
+          CartStore.addToCart(cartItemFromForm(product));
+          window.location.href = "cart.html";
+        });
+
+        document.getElementById("buy-now").addEventListener("click", function () {
+          CartStore.setCart([]);
+          CartStore.addToCart(cartItemFromForm(product));
+          window.location.href = "checkout.html";
         });
       });
   }
