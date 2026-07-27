@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g19032" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe9f4"/>
+      <stop offset="100%" stop-color="#fff3e5"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g19032)"/>
+  <circle cx="382" cy="112" r="22" fill="#2bd8ff" opacity="0.18"/>
+  <circle cx="422" cy="362" r="72" fill="#b05931" opacity="0.12"/>
+  <rect x="88.7" y="132.0" width="36.0" height="150.0" rx="6" fill="#923b13" opacity="0.92"/><rect x="88.7" y="114.0" width="36.0" height="18" rx="4" fill="#00b8f5"/><rect x="92.7" y="184.5" width="28.0" height="33.0" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="200.8" y="130.5" width="35.0" height="155.0" rx="6" fill="#a1311b" opacity="0.92"/><rect x="200.8" y="110.5" width="35.0" height="20" rx="4" fill="#03b0e6"/><rect x="204.8" y="184.8" width="27.0" height="34.1" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="303.0" y="137.5" width="34.0" height="137.0" rx="6" fill="#923b13" opacity="0.92"/><rect x="303.0" y="115.5" width="34.0" height="22" rx="4" fill="#00b8f5"/><rect x="307.0" y="185.4" width="26.0" height="30.1" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="409.2" y="144.0" width="39.0" height="128.0" rx="6" fill="#a1311b" opacity="0.92"/><rect x="409.2" y="126.0" width="39.0" height="18" rx="4" fill="#03b0e6"/><rect x="413.2" y="188.8" width="31.0" height="28.2" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="513.8" y="149.0" width="41.0" height="124.0" rx="6" fill="#923b13" opacity="0.92"/><rect x="513.8" y="129.0" width="41.0" height="20" rx="4" fill="#00b8f5"/><rect x="517.8" y="192.4" width="33.0" height="27.3" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#923b13">P19032</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">PFF Beta-Amyloid (1-42…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Preformed Fibrils · unique image</text>
+</svg>

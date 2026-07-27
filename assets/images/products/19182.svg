@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g19182" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8ffe1"/>
+      <stop offset="100%" stop-color="#ffffd2"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g19182)"/>
+  <circle cx="352" cy="102" r="52" fill="#2cc5ff" opacity="0.18"/>
+  <circle cx="292" cy="352" r="42" fill="#ba5933" opacity="0.12"/>
+  <rect x="93.7" y="132.0" width="36.0" height="148.0" rx="6" fill="#9c3b15" opacity="0.92"/><rect x="93.7" y="114.0" width="36.0" height="18" rx="4" fill="#00a5fa"/><rect x="97.7" y="183.8" width="28.0" height="32.6" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="192.3" y="129.0" width="40.0" height="154.0" rx="6" fill="#ab311d" opacity="0.92"/><rect x="192.3" y="109.0" width="40.0" height="20" rx="4" fill="#049deb"/><rect x="196.3" y="182.9" width="32.0" height="33.9" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="297.0" y="137.5" width="42.0" height="137.0" rx="6" fill="#9c3b15" opacity="0.92"/><rect x="297.0" y="115.5" width="42.0" height="22" rx="4" fill="#00a5fa"/><rect x="301.0" y="185.4" width="34.0" height="30.1" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="403.7" y="134.0" width="38.0" height="148.0" rx="6" fill="#ab311d" opacity="0.92"/><rect x="403.7" y="116.0" width="38.0" height="18" rx="4" fill="#049deb"/><rect x="407.7" y="185.8" width="30.0" height="32.6" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="516.8" y="139.0" width="41.0" height="134.0" rx="6" fill="#9c3b15" opacity="0.92"/><rect x="516.8" y="119.0" width="41.0" height="20" rx="4" fill="#00a5fa"/><rect x="520.8" y="185.9" width="33.0" height="29.5" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#9c3b15">P19182</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Mouse Tau K18 N15 #363…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Proteins · unique image</text>
+</svg>

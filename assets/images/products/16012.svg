@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g16012" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d5f3eb"/>
+      <stop offset="100%" stop-color="#e9fddc"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g16012)"/>
+  <circle cx="319" cy="109" r="59" fill="#da8139" opacity="0.18"/>
+  <circle cx="359" cy="359" r="59" fill="#2e7ea2" opacity="0.12"/>
+  <rect x="60.5" y="138.5" width="43.0" height="149.0" rx="6" fill="#106084" opacity="0.92"/><rect x="60.5" y="120.5" width="43.0" height="18" rx="4" fill="#a66120"/><rect x="64.5" y="190.7" width="35.0" height="32.8" rx="2" fill="#f0f9ff" opacity="0.85"/><rect x="133.5" y="130.0" width="43.0" height="154.0" rx="6" fill="#1f568c" opacity="0.92"/><rect x="133.5" y="110.0" width="43.0" height="20" rx="4" fill="#b25911"/><rect x="137.5" y="183.9" width="35.0" height="33.9" rx="2" fill="#f0f9ff" opacity="0.85"/><rect x="221.5" y="127.5" width="43.0" height="157.0" rx="6" fill="#106084" opacity="0.92"/><rect x="221.5" y="105.5" width="43.0" height="22" rx="4" fill="#a66120"/><rect x="225.5" y="182.4" width="35.0" height="34.5" rx="2" fill="#f0f9ff" opacity="0.85"/><rect x="303.0" y="129.0" width="38.0" height="158.0" rx="6" fill="#1f568c" opacity="0.92"/><rect x="303.0" y="111.0" width="38.0" height="18" rx="4" fill="#b25911"/><rect x="307.0" y="184.3" width="30.0" height="34.8" rx="2" fill="#f0f9ff" opacity="0.85"/><rect x="379.5" y="128.5" width="41.0" height="159.0" rx="6" fill="#106084" opacity="0.92"/><rect x="379.5" y="108.5" width="41.0" height="20" rx="4" fill="#a66120"/><rect x="383.5" y="184.2" width="33.0" height="35.0" rx="2" fill="#f0f9ff" opacity="0.85"/><rect x="462.0" y="143.5" width="42.0" height="139.0" rx="6" fill="#1f568c" opacity="0.92"/><rect x="462.0" y="121.5" width="42.0" height="22" rx="4" fill="#b25911"/><rect x="466.0" y="192.2" width="34.0" height="30.6" rx="2" fill="#f0f9ff" opacity="0.85"/><rect x="542.5" y="145.5" width="43.0" height="129.0" rx="6" fill="#106084" opacity="0.92"/><rect x="542.5" y="127.5" width="43.0" height="18" rx="4" fill="#a66120"/><rect x="546.5" y="190.7" width="35.0" height="28.4" rx="2" fill="#f0f9ff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#106084">P16012</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Tau 1A6 Antibody Kit</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Antibodies · unique image</text>
+</svg>

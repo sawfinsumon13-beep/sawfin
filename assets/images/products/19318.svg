@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g19318" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f1fffb"/>
+      <stop offset="100%" stop-color="#ffffec"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g19318)"/>
+  <circle cx="190" cy="40" r="30" fill="#ffbd3c" opacity="0.18"/>
+  <circle cx="530" cy="290" r="30" fill="#3b70ae" opacity="0.12"/>
+  <rect x="141.0" y="141.0" width="34.0" height="132.0" rx="6" fill="#1d5290" opacity="0.92"/><rect x="141.0" y="123.0" width="34.0" height="18" rx="4" fill="#e39d23"/><rect x="145.0" y="187.2" width="26.0" height="29.0" rx="2" fill="#ffffff" opacity="0.85"/><rect x="302.5" y="135.0" width="39.0" height="146.0" rx="6" fill="#2c4898" opacity="0.92"/><rect x="302.5" y="115.0" width="39.0" height="20" rx="4" fill="#ef9514"/><rect x="306.5" y="186.1" width="31.0" height="32.1" rx="2" fill="#ffffff" opacity="0.85"/><rect x="459.0" y="134.5" width="36.0" height="153.0" rx="6" fill="#1d5290" opacity="0.92"/><rect x="459.0" y="112.5" width="36.0" height="22" rx="4" fill="#e39d23"/><rect x="463.0" y="188.1" width="28.0" height="33.7" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1d5290">P19318</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Antibody Kit Alpha-Syn…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Kits · unique image</text>
+</svg>

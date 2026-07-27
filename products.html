@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Peptides for sale — buy peptides and research peptides online. Full catalog of peptides, proteins, antibodies, fibrils, and kits.">
+  <meta name="keywords" content="Peptides, Buy peptides, Peptides for sale, Research peptides">
+  <title>Peptides for Sale | Buy Peptides &amp; Research Peptides | Apex Bioreagents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=Fraunces:opsz,wght@9..144,500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+</head>
+<body data-page="shop">
+  <script>window.SITE_ACTIVE = "products";</script>
+  <header class="site-header" id="site-header"></header>
+
+  <main>
+    <section class="products-hero" aria-label="Products">
+      <div class="products-hero-bg"></div>
+      <div class="container products-hero-inner">
+        <h1>PRODUCTS</h1>
+        <p>Peptides for sale — buy peptides &amp; research peptides, plus proteins, antibodies, fibrils &amp; more</p>
+      </div>
+    </section>
+
+    <nav class="category-bar" aria-label="Product categories">
+      <div class="container category-bar-inner">
+        <a href="section-antibodies.html">Antibodies</a>
+        <a href="section-peptides.html">Peptides</a>
+        <a href="section-proteins.html">Proteins</a>
+        <a href="section-neurodegenerative.html">Neurodegenerative Related Compounds</a>
+        <a href="section-coronavirus.html">Coronavirus Research Tools</a>
+        <a href="section-kits.html">Kits</a>
+        <a href="section-fibrils.html">Preformed Fibrils</a>
+      </div>
+    </nav>
+
+    <section class="section products-section">
+      <div class="container">
+        <div id="category-hub" class="category-hub" hidden></div>
+
+        <div id="category-detail" hidden>
+          <header class="category-intro">
+            <p class="breadcrumb"><a href="index.html">Home</a> / <a href="products.html">Products</a> / <span id="cat-crumb">Category</span></p>
+            <h2 id="shop-title">Category</h2>
+            <p id="shop-desc" class="category-desc"></p>
+            <div id="subcat-bar" class="subcat-bar"></div>
+          </header>
+
+          <div class="shop-layout">
+            <aside id="shop-sidebar" aria-label="Subcategories"></aside>
+            <div>
+              <div class="shop-toolbar">
+                <input type="search" id="shop-search" placeholder="search" aria-label="Search products">
+                <select id="shop-sort" aria-label="Sort products">
+                  <option value="name-asc">Default sorting</option>
+                  <option value="name-desc">Sort by name: Z–A</option>
+                  <option value="sku">Sort by SKU</option>
+                </select>
+              </div>
+              <p id="shop-meta" class="breadcrumb"></p>
+              <div class="product-grid" id="product-grid"></div>
+              <div id="shop-pager"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="js/contact-config.js"></script>
+  <script src="js/auth-store.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/cart-store.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

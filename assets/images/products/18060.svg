@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18060" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d8fbe8"/>
+      <stop offset="100%" stop-color="#ecffd9"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18060)"/>
+  <circle cx="220" cy="90" r="40" fill="#ffd23c" opacity="0.18"/>
+  <circle cx="460" cy="310" r="60" fill="#3170a9" opacity="0.12"/>
+  <rect x="145.0" y="141.5" width="34.0" height="135.0" rx="6" fill="#13528b" opacity="0.92"/><rect x="145.0" y="123.5" width="34.0" height="18" rx="4" fill="#eeb223"/><rect x="149.0" y="188.8" width="26.0" height="29.7" rx="2" fill="#ffffff" opacity="0.85"/><rect x="308.0" y="135.5" width="34.0" height="147.0" rx="6" fill="#224893" opacity="0.92"/><rect x="308.0" y="115.5" width="34.0" height="20" rx="4" fill="#faaa14"/><rect x="312.0" y="186.9" width="26.0" height="32.3" rx="2" fill="#ffffff" opacity="0.85"/><rect x="460.5" y="129.5" width="39.0" height="153.0" rx="6" fill="#13528b" opacity="0.92"/><rect x="460.5" y="107.5" width="39.0" height="22" rx="4" fill="#eeb223"/><rect x="464.5" y="183.1" width="31.0" height="33.7" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#13528b">P18060</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Polyclonal Tau 6H10 #1…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Antibodies · unique image</text>
+</svg>

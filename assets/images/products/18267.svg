@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18267" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fffff0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18267)"/>
+  <circle cx="407" cy="77" r="27" fill="#2ab5d6" opacity="0.18"/>
+  <circle cx="447" cy="327" r="47" fill="#5f6063" opacity="0.12"/>
+  <rect x="86.2" y="142.5" width="41.0" height="131.0" rx="6" fill="#414245" opacity="0.92"/><rect x="86.2" y="124.5" width="41.0" height="18" rx="4" fill="#0095bd"/><rect x="90.2" y="188.3" width="33.0" height="28.8" rx="2" fill="#ffffff" opacity="0.85"/><rect x="197.8" y="135.5" width="37.0" height="145.0" rx="6" fill="#50384d" opacity="0.92"/><rect x="197.8" y="115.5" width="37.0" height="20" rx="4" fill="#028dae"/><rect x="201.8" y="186.2" width="29.0" height="31.9" rx="2" fill="#ffffff" opacity="0.85"/><rect x="302.5" y="132.0" width="35.0" height="152.0" rx="6" fill="#414245" opacity="0.92"/><rect x="302.5" y="110.0" width="35.0" height="22" rx="4" fill="#0095bd"/><rect x="306.5" y="185.2" width="27.0" height="33.4" rx="2" fill="#ffffff" opacity="0.85"/><rect x="406.2" y="133.0" width="39.0" height="156.0" rx="6" fill="#50384d" opacity="0.92"/><rect x="406.2" y="115.0" width="39.0" height="18" rx="4" fill="#028dae"/><rect x="410.2" y="187.6" width="31.0" height="34.3" rx="2" fill="#ffffff" opacity="0.85"/><rect x="511.3" y="130.0" width="36.0" height="158.0" rx="6" fill="#414245" opacity="0.92"/><rect x="511.3" y="110.0" width="36.0" height="20" rx="4" fill="#0095bd"/><rect x="515.3" y="185.3" width="28.0" height="34.8" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#414245">P18267</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">SARS-CoV-2 S1 Subunit …</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Coronavirus Research Tools · unique image</text>
+</svg>

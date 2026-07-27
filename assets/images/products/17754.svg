@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g17754" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#edebff"/>
+      <stop offset="100%" stop-color="#fff5f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g17754)"/>
+  <circle cx="70" cy="120" r="30" fill="#ffcc3d" opacity="0.18"/>
+  <circle cx="310" cy="280" r="60" fill="#3b66aa" opacity="0.12"/>
+  <rect x="138.0" y="140.0" width="34.0" height="132.0" rx="6" fill="#1d488c" opacity="0.92"/><rect x="138.0" y="122.0" width="34.0" height="18" rx="4" fill="#e3ac24"/><rect x="142.0" y="186.2" width="26.0" height="29.0" rx="2" fill="#ffffff" opacity="0.85"/><rect x="303.5" y="147.0" width="39.0" height="126.0" rx="6" fill="#2c3e94" opacity="0.92"/><rect x="303.5" y="127.0" width="39.0" height="20" rx="4" fill="#efa415"/><rect x="307.5" y="191.1" width="31.0" height="27.7" rx="2" fill="#ffffff" opacity="0.85"/><rect x="460.0" y="145.5" width="36.0" height="123.0" rx="6" fill="#1d488c" opacity="0.92"/><rect x="460.0" y="123.5" width="36.0" height="22" rx="4" fill="#e3ac24"/><rect x="464.0" y="188.6" width="28.0" height="27.1" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1d488c">P17754</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Mouse Tau K18 Desalted…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Proteins · unique image</text>
+</svg>

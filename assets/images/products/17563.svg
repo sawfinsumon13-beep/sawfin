@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g17563" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eefbf6"/>
+      <stop offset="100%" stop-color="#ffffe7"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g17563)"/>
+  <circle cx="50" cy="100" r="50" fill="#ffc832" opacity="0.18"/>
+  <circle cx="290" cy="290" r="40" fill="#3b73ab" opacity="0.12"/>
+  <rect x="146.0" y="133.5" width="34.0" height="147.0" rx="6" fill="#1d558d" opacity="0.92"/><rect x="146.0" y="115.5" width="34.0" height="18" rx="4" fill="#eaa819"/><rect x="150.0" y="184.9" width="26.0" height="32.3" rx="2" fill="#ffffff" opacity="0.85"/><rect x="298.5" y="131.5" width="39.0" height="153.0" rx="6" fill="#2c4b95" opacity="0.92"/><rect x="298.5" y="111.5" width="39.0" height="20" rx="4" fill="#f6a00a"/><rect x="302.5" y="185.1" width="31.0" height="33.7" rx="2" fill="#ffffff" opacity="0.85"/><rect x="457.5" y="140.0" width="41.0" height="136.0" rx="6" fill="#1d558d" opacity="0.92"/><rect x="457.5" y="118.0" width="41.0" height="22" rx="4" fill="#eaa819"/><rect x="461.5" y="187.6" width="33.0" height="29.9" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1d558d">P17563</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Anti-Human Phospho-199…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Antibodies · unique image</text>
+</svg>

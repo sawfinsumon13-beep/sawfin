@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g15842" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fde6ff"/>
+      <stop offset="100%" stop-color="#fff0f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g15842)"/>
+  <circle cx="441" cy="91" r="41" fill="#568cff" opacity="0.18"/>
+  <circle cx="281" cy="281" r="31" fill="#24958c" opacity="0.12"/>
+  <rect x="105.5" y="144.5" width="35.0" height="125.0" rx="6" fill="#06776e" opacity="0.92"/><rect x="105.5" y="126.5" width="35.0" height="18" rx="4" fill="#226ced"/><rect x="109.5" y="188.2" width="27.0" height="27.5" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="243.0" y="135.0" width="34.0" height="142.0" rx="6" fill="#156d76" opacity="0.92"/><rect x="243.0" y="115.0" width="34.0" height="20" rx="4" fill="#2e64de"/><rect x="247.0" y="184.7" width="26.0" height="31.2" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="369.5" y="142.5" width="39.0" height="131.0" rx="6" fill="#06776e" opacity="0.92"/><rect x="369.5" y="120.5" width="39.0" height="22" rx="4" fill="#226ced"/><rect x="373.5" y="188.3" width="31.0" height="28.8" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="490.0" y="145.5" width="36.0" height="125.0" rx="6" fill="#156d76" opacity="0.92"/><rect x="490.0" y="127.5" width="36.0" height="18" rx="4" fill="#2e64de"/><rect x="494.0" y="189.2" width="28.0" height="27.5" rx="2" fill="#f8fafc" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#06776e">P15842</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Bexarotene</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Neurodegenerative Related Compounds · unique image</text>
+</svg>

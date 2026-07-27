@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18457" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8fffe"/>
+      <stop offset="100%" stop-color="#fcffef"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18457)"/>
+  <circle cx="266" cy="76" r="26" fill="#ff7636" opacity="0.18"/>
+  <circle cx="506" cy="326" r="56" fill="#4b51a3" opacity="0.12"/>
+  <rect x="104.0" y="136.5" width="40.0" height="141.0" rx="6" fill="#2d3385" opacity="0.92"/><rect x="104.0" y="118.5" width="40.0" height="18" rx="4" fill="#cf561d"/><rect x="108.0" y="185.8" width="32.0" height="31.0" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="241.5" y="133.0" width="37.0" height="150.0" rx="6" fill="#3c298d" opacity="0.92"/><rect x="241.5" y="113.0" width="37.0" height="20" rx="4" fill="#db4e0e"/><rect x="245.5" y="185.5" width="29.0" height="33.0" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="371.5" y="135.5" width="35.0" height="155.0" rx="6" fill="#2d3385" opacity="0.92"/><rect x="371.5" y="113.5" width="35.0" height="22" rx="4" fill="#cf561d"/><rect x="375.5" y="189.8" width="27.0" height="34.1" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="491.0" y="128.5" width="34.0" height="157.0" rx="6" fill="#3c298d" opacity="0.92"/><rect x="491.0" y="110.5" width="34.0" height="18" rx="4" fill="#db4e0e"/><rect x="495.0" y="183.4" width="26.0" height="34.5" rx="2" fill="#e0e7ff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#2d3385">P18457</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Aggregation Kit Tau St…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Kits · unique image</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g15474" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffec"/>
+      <stop offset="100%" stop-color="#ffffdd"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g15474)"/>
+  <circle cx="437" cy="67" r="57" fill="#31bdcf" opacity="0.18"/>
+  <circle cx="377" cy="287" r="77" fill="#69585b" opacity="0.12"/>
+  <rect x="88.2" y="143.5" width="41.0" height="139.0" rx="6" fill="#4b3a3d" opacity="0.92"/><rect x="88.2" y="125.5" width="41.0" height="18" rx="4" fill="#009db6"/><rect x="92.2" y="192.2" width="33.0" height="30.6" rx="2" fill="#ffffff" opacity="0.85"/><rect x="190.3" y="147.5" width="42.0" height="129.0" rx="6" fill="#5a3045" opacity="0.92"/><rect x="190.3" y="127.5" width="42.0" height="20" rx="4" fill="#0995a7"/><rect x="194.3" y="192.7" width="34.0" height="28.4" rx="2" fill="#ffffff" opacity="0.85"/><rect x="296.5" y="137.0" width="43.0" height="144.0" rx="6" fill="#4b3a3d" opacity="0.92"/><rect x="296.5" y="115.0" width="43.0" height="22" rx="4" fill="#009db6"/><rect x="300.5" y="187.4" width="35.0" height="31.7" rx="2" fill="#ffffff" opacity="0.85"/><rect x="401.2" y="143.0" width="43.0" height="132.0" rx="6" fill="#5a3045" opacity="0.92"/><rect x="401.2" y="125.0" width="43.0" height="18" rx="4" fill="#0995a7"/><rect x="405.2" y="189.2" width="35.0" height="29.0" rx="2" fill="#ffffff" opacity="0.85"/><rect x="511.3" y="150.0" width="38.0" height="126.0" rx="6" fill="#4b3a3d" opacity="0.92"/><rect x="511.3" y="130.0" width="38.0" height="20" rx="4" fill="#009db6"/><rect x="515.3" y="194.1" width="30.0" height="27.7" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#4b3a3d">P15474</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">H89</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Coronavirus Research Tools · unique image</text>
+</svg>

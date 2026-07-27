@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g20135" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faffc1"/>
+      <stop offset="100%" stop-color="#ffffb2"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g20135)"/>
+  <circle cx="128" cy="78" r="28" fill="#288fcd" opacity="0.18"/>
+  <circle cx="568" cy="358" r="68" fill="#ae5732" opacity="0.12"/>
+  <rect x="66.4" y="146.0" width="42.0" height="132.0" rx="6" fill="#903914" opacity="0.92"/><rect x="66.4" y="128.0" width="42.0" height="18" rx="4" fill="#006fb4"/><rect x="70.4" y="192.2" width="34.0" height="29.0" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="165.9" y="149.0" width="38.0" height="126.0" rx="6" fill="#9f2f1c" opacity="0.92"/><rect x="165.9" y="129.0" width="38.0" height="20" rx="4" fill="#0067a5"/><rect x="169.9" y="193.1" width="30.0" height="27.7" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="258.3" y="140.5" width="36.0" height="143.0" rx="6" fill="#903914" opacity="0.92"/><rect x="258.3" y="118.5" width="36.0" height="22" rx="4" fill="#006fb4"/><rect x="262.3" y="190.6" width="28.0" height="31.5" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="349.7" y="143.5" width="40.0" height="131.0" rx="6" fill="#9f2f1c" opacity="0.92"/><rect x="349.7" y="125.5" width="40.0" height="18" rx="4" fill="#0067a5"/><rect x="353.7" y="189.3" width="32.0" height="28.8" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="441.6" y="138.5" width="37.0" height="145.0" rx="6" fill="#903914" opacity="0.92"/><rect x="441.6" y="118.5" width="37.0" height="20" rx="4" fill="#006fb4"/><rect x="445.6" y="189.2" width="29.0" height="31.9" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="536.1" y="138.0" width="35.0" height="152.0" rx="6" fill="#9f2f1c" opacity="0.92"/><rect x="536.1" y="116.0" width="35.0" height="22" rx="4" fill="#0067a5"/><rect x="540.1" y="191.2" width="27.0" height="33.4" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#903914">P20135</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Compound Protease E #5…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Neurodegenerative Related Compounds · unique image</text>
+</svg>

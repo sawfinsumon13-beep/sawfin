@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g15237" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4f7ea"/>
+      <stop offset="100%" stop-color="#e8ffdb"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g15237)"/>
+  <circle cx="420" cy="30" r="20" fill="#ffba3e" opacity="0.18"/>
+  <circle cx="460" cy="280" r="60" fill="#316da5" opacity="0.12"/>
+  <rect x="145.0" y="146.0" width="34.0" height="120.0" rx="6" fill="#134f87" opacity="0.92"/><rect x="145.0" y="128.0" width="34.0" height="18" rx="4" fill="#f39a25"/><rect x="149.0" y="188.0" width="26.0" height="26.4" rx="2" fill="#ffffff" opacity="0.85"/><rect x="303.0" y="136.0" width="34.0" height="140.0" rx="6" fill="#22458f" opacity="0.92"/><rect x="303.0" y="116.0" width="34.0" height="20" rx="4" fill="#ff9216"/><rect x="307.0" y="185.0" width="26.0" height="30.8" rx="2" fill="#ffffff" opacity="0.85"/><rect x="465.0" y="141.0" width="34.0" height="130.0" rx="6" fill="#134f87" opacity="0.92"/><rect x="465.0" y="119.0" width="34.0" height="22" rx="4" fill="#f39a25"/><rect x="469.0" y="186.5" width="26.0" height="28.6" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#134f87">P15237</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">C13, N15 Beta-Amyloid …</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Peptides · unique image</text>
+</svg>

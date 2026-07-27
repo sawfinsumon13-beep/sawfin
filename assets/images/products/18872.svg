@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18872" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe6e7"/>
+      <stop offset="100%" stop-color="#fff0d8"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18872)"/>
+  <circle cx="517" cy="127" r="37" fill="#34b4dc" opacity="0.18"/>
+  <circle cx="557" cy="317" r="57" fill="#696662" opacity="0.12"/>
+  <rect x="84.2" y="130.0" width="41.0" height="154.0" rx="6" fill="#4b4844" opacity="0.92"/><rect x="84.2" y="112.0" width="41.0" height="18" rx="4" fill="#0094c3"/><rect x="88.2" y="183.9" width="33.0" height="33.9" rx="2" fill="#ffffff" opacity="0.85"/><rect x="190.3" y="127.5" width="42.0" height="157.0" rx="6" fill="#5a3e4c" opacity="0.92"/><rect x="190.3" y="107.5" width="42.0" height="20" rx="4" fill="#0c8cb4"/><rect x="194.3" y="182.4" width="34.0" height="34.5" rx="2" fill="#ffffff" opacity="0.85"/><rect x="304.0" y="141.0" width="38.0" height="138.0" rx="6" fill="#4b4844" opacity="0.92"/><rect x="304.0" y="119.0" width="38.0" height="22" rx="4" fill="#0094c3"/><rect x="308.0" y="189.3" width="30.0" height="30.4" rx="2" fill="#ffffff" opacity="0.85"/><rect x="410.2" y="136.5" width="41.0" height="149.0" rx="6" fill="#5a3e4c" opacity="0.92"/><rect x="410.2" y="118.5" width="41.0" height="18" rx="4" fill="#0c8cb4"/><rect x="414.2" y="188.7" width="33.0" height="32.8" rx="2" fill="#ffffff" opacity="0.85"/><rect x="510.3" y="132.0" width="42.0" height="154.0" rx="6" fill="#4b4844" opacity="0.92"/><rect x="510.3" y="112.0" width="42.0" height="20" rx="4" fill="#0094c3"/><rect x="514.3" y="185.9" width="34.0" height="33.9" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#4b4844">P18872</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Polyclonal Tau 6E10 #3…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Antibodies · unique image</text>
+</svg>

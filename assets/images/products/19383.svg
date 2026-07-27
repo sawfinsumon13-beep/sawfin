@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g19383" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe8f6"/>
+      <stop offset="100%" stop-color="#fff2e7"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g19383)"/>
+  <circle cx="347" cy="37" r="27" fill="#28c0d0" opacity="0.18"/>
+  <circle cx="287" cy="317" r="37" fill="#5f605f" opacity="0.12"/>
+  <rect x="84.2" y="141.5" width="41.0" height="131.0" rx="6" fill="#414241" opacity="0.92"/><rect x="84.2" y="123.5" width="41.0" height="18" rx="4" fill="#00a0b7"/><rect x="88.2" y="187.3" width="33.0" height="28.8" rx="2" fill="#ffffff" opacity="0.85"/><rect x="194.8" y="137.5" width="37.0" height="145.0" rx="6" fill="#503849" opacity="0.92"/><rect x="194.8" y="117.5" width="37.0" height="20" rx="4" fill="#0098a8"/><rect x="198.8" y="188.2" width="29.0" height="31.9" rx="2" fill="#ffffff" opacity="0.85"/><rect x="303.5" y="147.0" width="35.0" height="132.0" rx="6" fill="#414241" opacity="0.92"/><rect x="303.5" y="125.0" width="35.0" height="22" rx="4" fill="#00a0b7"/><rect x="307.5" y="193.2" width="27.0" height="29.0" rx="2" fill="#ffffff" opacity="0.85"/><rect x="406.2" y="147.0" width="39.0" height="126.0" rx="6" fill="#503849" opacity="0.92"/><rect x="406.2" y="129.0" width="39.0" height="18" rx="4" fill="#0098a8"/><rect x="410.2" y="191.1" width="31.0" height="27.7" rx="2" fill="#ffffff" opacity="0.85"/><rect x="520.3" y="141.5" width="36.0" height="143.0" rx="6" fill="#414241" opacity="0.92"/><rect x="520.3" y="121.5" width="36.0" height="20" rx="4" fill="#00a0b7"/><rect x="524.3" y="191.6" width="28.0" height="31.5" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#414241">P19383</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Anti-Human Phospho-199…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Antibodies · unique image</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g20137" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7fb"/>
+      <stop offset="100%" stop-color="#ffffec"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g20137)"/>
+  <circle cx="387" cy="77" r="27" fill="#37b1d8" opacity="0.18"/>
+  <circle cx="327" cy="327" r="77" fill="#5f5961" opacity="0.12"/>
+  <rect x="84.2" y="137.5" width="41.0" height="141.0" rx="6" fill="#413b43" opacity="0.92"/><rect x="84.2" y="119.5" width="41.0" height="18" rx="4" fill="#0391bf"/><rect x="88.2" y="186.8" width="33.0" height="31.0" rx="2" fill="#ffffff" opacity="0.85"/><rect x="194.8" y="143.0" width="37.0" height="130.0" rx="6" fill="#50314b" opacity="0.92"/><rect x="194.8" y="123.0" width="37.0" height="20" rx="4" fill="#0f89b0"/><rect x="198.8" y="188.5" width="29.0" height="28.6" rx="2" fill="#ffffff" opacity="0.85"/><rect x="307.5" y="150.5" width="35.0" height="125.0" rx="6" fill="#413b43" opacity="0.92"/><rect x="307.5" y="128.5" width="35.0" height="22" rx="4" fill="#0391bf"/><rect x="311.5" y="194.2" width="27.0" height="27.5" rx="2" fill="#ffffff" opacity="0.85"/><rect x="414.7" y="141.0" width="34.0" height="142.0" rx="6" fill="#50314b" opacity="0.92"/><rect x="414.7" y="123.0" width="34.0" height="18" rx="4" fill="#0f89b0"/><rect x="418.7" y="190.7" width="26.0" height="31.2" rx="2" fill="#ffffff" opacity="0.85"/><rect x="509.8" y="133.5" width="39.0" height="151.0" rx="6" fill="#413b43" opacity="0.92"/><rect x="509.8" y="113.5" width="39.0" height="20" rx="4" fill="#0391bf"/><rect x="513.8" y="186.3" width="31.0" height="33.2" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#413b43">P20137</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Aggregation Kit Tau St…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Kits · unique image</text>
+</svg>

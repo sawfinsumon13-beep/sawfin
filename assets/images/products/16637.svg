@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g16637" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffdfef"/>
+      <stop offset="100%" stop-color="#ffe9e0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g16637)"/>
+  <circle cx="144" cy="94" r="44" fill="#6f74ff" opacity="0.18"/>
+  <circle cx="284" cy="314" r="34" fill="#b5366e" opacity="0.12"/>
+  <rect x="64.0" y="150.0" width="38.0" height="126.0" rx="6" fill="#971850" opacity="0.92"/><rect x="64.0" y="132.0" width="38.0" height="18" rx="4" fill="#3b54ff"/><rect x="68.0" y="194.1" width="30.0" height="27.7" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="138.0" y="138.5" width="36.0" height="143.0" rx="6" fill="#a60e58" opacity="0.92"/><rect x="138.0" y="118.5" width="36.0" height="20" rx="4" fill="#474cf1"/><rect x="142.0" y="188.6" width="28.0" height="31.5" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="217.0" y="145.5" width="40.0" height="131.0" rx="6" fill="#971850" opacity="0.92"/><rect x="217.0" y="123.5" width="40.0" height="22" rx="4" fill="#3b54ff"/><rect x="221.0" y="191.3" width="32.0" height="28.8" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="304.5" y="138.5" width="37.0" height="145.0" rx="6" fill="#a60e58" opacity="0.92"/><rect x="304.5" y="120.5" width="37.0" height="18" rx="4" fill="#474cf1"/><rect x="308.5" y="189.2" width="29.0" height="31.9" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="378.5" y="148.0" width="35.0" height="132.0" rx="6" fill="#971850" opacity="0.92"/><rect x="378.5" y="128.0" width="35.0" height="20" rx="4" fill="#3b54ff"/><rect x="382.5" y="194.2" width="27.0" height="29.0" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="455.5" y="137.0" width="39.0" height="146.0" rx="6" fill="#a60e58" opacity="0.92"/><rect x="455.5" y="115.0" width="39.0" height="22" rx="4" fill="#474cf1"/><rect x="459.5" y="188.1" width="31.0" height="32.1" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="545.0" y="130.5" width="36.0" height="153.0" rx="6" fill="#971850" opacity="0.92"/><rect x="545.0" y="112.5" width="36.0" height="18" rx="4" fill="#3b54ff"/><rect x="549.0" y="184.1" width="28.0" height="33.7" rx="2" fill="#fce7f3" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#971850">P16637</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Alpha-Synuclein 2G9 An…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Antibodies · unique image</text>
+</svg>

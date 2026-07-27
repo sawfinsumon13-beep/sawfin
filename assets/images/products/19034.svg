@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g19034" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#edf4e3"/>
+      <stop offset="100%" stop-color="#fffed4"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g19034)"/>
+  <circle cx="221" cy="31" r="21" fill="#3e90ff" opacity="0.18"/>
+  <circle cx="461" cy="281" r="61" fill="#249690" opacity="0.12"/>
+  <rect x="108.5" y="142.0" width="35.0" height="130.0" rx="6" fill="#067872" opacity="0.92"/><rect x="108.5" y="124.0" width="35.0" height="18" rx="4" fill="#0a70f3"/><rect x="112.5" y="187.5" width="27.0" height="28.6" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="237.0" y="133.5" width="34.0" height="145.0" rx="6" fill="#156e7a" opacity="0.92"/><rect x="237.0" y="113.5" width="34.0" height="20" rx="4" fill="#1668e4"/><rect x="241.0" y="184.2" width="26.0" height="31.9" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="365.0" y="134.0" width="34.0" height="152.0" rx="6" fill="#067872" opacity="0.92"/><rect x="365.0" y="112.0" width="34.0" height="22" rx="4" fill="#0a70f3"/><rect x="369.0" y="187.2" width="26.0" height="33.4" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="494.5" y="129.0" width="39.0" height="156.0" rx="6" fill="#156e7a" opacity="0.92"/><rect x="494.5" y="111.0" width="39.0" height="18" rx="4" fill="#1668e4"/><rect x="498.5" y="183.6" width="31.0" height="34.3" rx="2" fill="#f8fafc" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#067872">P19034</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">APP Fragment (25-35) #…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Peptides · unique image</text>
+</svg>

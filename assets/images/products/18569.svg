@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18569" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0fff7"/>
+      <stop offset="100%" stop-color="#ffffe8"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18569)"/>
+  <circle cx="317" cy="147" r="57" fill="#28b3de" opacity="0.18"/>
+  <circle cx="457" cy="337" r="57" fill="#69585a" opacity="0.12"/>
+  <rect x="90.2" y="139.5" width="41.0" height="139.0" rx="6" fill="#4b3a3c" opacity="0.92"/><rect x="90.2" y="121.5" width="41.0" height="18" rx="4" fill="#0093c5"/><rect x="94.2" y="188.2" width="33.0" height="30.6" rx="2" fill="#ffffff" opacity="0.85"/><rect x="193.3" y="146.5" width="42.0" height="129.0" rx="6" fill="#5a3044" opacity="0.92"/><rect x="193.3" y="126.5" width="42.0" height="20" rx="4" fill="#008bb6"/><rect x="197.3" y="191.7" width="34.0" height="28.4" rx="2" fill="#ffffff" opacity="0.85"/><rect x="295.5" y="149.0" width="43.0" height="124.0" rx="6" fill="#4b3a3c" opacity="0.92"/><rect x="295.5" y="127.0" width="43.0" height="22" rx="4" fill="#0093c5"/><rect x="299.5" y="192.4" width="35.0" height="27.3" rx="2" fill="#ffffff" opacity="0.85"/><rect x="407.2" y="153.0" width="43.0" height="122.0" rx="6" fill="#5a3044" opacity="0.92"/><rect x="407.2" y="135.0" width="43.0" height="18" rx="4" fill="#008bb6"/><rect x="411.2" y="195.7" width="35.0" height="26.8" rx="2" fill="#ffffff" opacity="0.85"/><rect x="512.3" y="149.5" width="38.0" height="121.0" rx="6" fill="#4b3a3c" opacity="0.92"/><rect x="512.3" y="129.5" width="38.0" height="20" rx="4" fill="#0093c5"/><rect x="516.3" y="191.8" width="30.0" height="26.6" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#4b3a3c">P18569</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Aggregation Kit ThT St…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Kits · unique image</text>
+</svg>

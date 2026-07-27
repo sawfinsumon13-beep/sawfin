@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g19969" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffdeff"/>
+      <stop offset="100%" stop-color="#ffe8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g19969)"/>
+  <circle cx="314" cy="44" r="34" fill="#7469ff" opacity="0.18"/>
+  <circle cx="354" cy="354" r="54" fill="#bf3a70" opacity="0.12"/>
+  <rect x="58.0" y="136.5" width="38.0" height="143.0" rx="6" fill="#a11c52" opacity="0.92"/><rect x="58.0" y="118.5" width="38.0" height="18" rx="4" fill="#4049ef"/><rect x="62.0" y="186.6" width="30.0" height="31.5" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="139.5" y="130.5" width="41.0" height="151.0" rx="6" fill="#b0125a" opacity="0.92"/><rect x="139.5" y="110.5" width="41.0" height="20" rx="4" fill="#4c41e0"/><rect x="143.5" y="183.3" width="33.0" height="33.2" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="224.5" y="144.5" width="37.0" height="135.0" rx="6" fill="#a11c52" opacity="0.92"/><rect x="224.5" y="122.5" width="37.0" height="22" rx="4" fill="#4049ef"/><rect x="228.5" y="191.8" width="29.0" height="29.7" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="304.5" y="145.5" width="35.0" height="127.0" rx="6" fill="#b0125a" opacity="0.92"/><rect x="304.5" y="127.5" width="35.0" height="18" rx="4" fill="#4c41e0"/><rect x="308.5" y="189.9" width="27.0" height="27.9" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="384.5" y="134.5" width="39.0" height="143.0" rx="6" fill="#a11c52" opacity="0.92"/><rect x="384.5" y="114.5" width="39.0" height="20" rx="4" fill="#4049ef"/><rect x="388.5" y="184.6" width="31.0" height="31.5" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="459.5" y="136.5" width="41.0" height="151.0" rx="6" fill="#b0125a" opacity="0.92"/><rect x="459.5" y="114.5" width="41.0" height="22" rx="4" fill="#4c41e0"/><rect x="463.5" y="189.3" width="33.0" height="33.2" rx="2" fill="#fce7f3" opacity="0.85"/><rect x="538.5" y="134.5" width="37.0" height="155.0" rx="6" fill="#a11c52" opacity="0.92"/><rect x="538.5" y="116.5" width="37.0" height="18" rx="4" fill="#4049ef"/><rect x="542.5" y="188.8" width="29.0" height="34.1" rx="2" fill="#fce7f3" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#a11c52">P19969</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Aggregation Kit ThT St…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Kits · unique image</text>
+</svg>

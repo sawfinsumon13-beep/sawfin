@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g20192" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffdc"/>
+      <stop offset="100%" stop-color="#ffffcd"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g20192)"/>
+  <circle cx="482" cy="72" r="22" fill="#38d7ff" opacity="0.18"/>
+  <circle cx="322" cy="352" r="72" fill="#b05238" opacity="0.12"/>
+  <rect x="84.7" y="146.0" width="36.0" height="120.0" rx="6" fill="#92341a" opacity="0.92"/><rect x="84.7" y="128.0" width="36.0" height="18" rx="4" fill="#04b7f7"/><rect x="88.7" y="188.0" width="28.0" height="26.4" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="194.8" y="140.0" width="35.0" height="140.0" rx="6" fill="#a12a22" opacity="0.92"/><rect x="194.8" y="120.0" width="35.0" height="20" rx="4" fill="#10afe8"/><rect x="198.8" y="189.0" width="27.0" height="30.8" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="298.0" y="142.0" width="34.0" height="130.0" rx="6" fill="#92341a" opacity="0.92"/><rect x="298.0" y="120.0" width="34.0" height="22" rx="4" fill="#04b7f7"/><rect x="302.0" y="187.5" width="26.0" height="28.6" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="404.7" y="135.5" width="34.0" height="145.0" rx="6" fill="#a12a22" opacity="0.92"/><rect x="404.7" y="117.5" width="34.0" height="18" rx="4" fill="#10afe8"/><rect x="408.7" y="186.2" width="26.0" height="31.9" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="512.3" y="135.0" width="34.0" height="152.0" rx="6" fill="#92341a" opacity="0.92"/><rect x="512.3" y="115.0" width="34.0" height="20" rx="4" fill="#04b7f7"/><rect x="516.3" y="188.2" width="26.0" height="33.4" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#92341a">P20192</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Spike Related Antibody…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Coronavirus Research Tools · unique image</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g19346" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e2efff"/>
+      <stop offset="100%" stop-color="#f6f9f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g19346)"/>
+  <circle cx="431" cy="141" r="51" fill="#3e8bff" opacity="0.18"/>
+  <circle cx="571" cy="361" r="71" fill="#2e9d85" opacity="0.12"/>
+  <rect x="112.5" y="127.5" width="35.0" height="157.0" rx="6" fill="#107f67" opacity="0.92"/><rect x="112.5" y="109.5" width="35.0" height="18" rx="4" fill="#0a6bfa"/><rect x="116.5" y="182.4" width="27.0" height="34.5" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="231.5" y="133.0" width="39.0" height="158.0" rx="6" fill="#1f756f" opacity="0.92"/><rect x="231.5" y="113.0" width="39.0" height="20" rx="4" fill="#1663eb"/><rect x="235.5" y="188.3" width="31.0" height="34.8" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="360.5" y="144.5" width="41.0" height="139.0" rx="6" fill="#107f67" opacity="0.92"/><rect x="360.5" y="122.5" width="41.0" height="22" rx="4" fill="#0a6bfa"/><rect x="364.5" y="193.2" width="33.0" height="30.6" rx="2" fill="#f8fafc" opacity="0.85"/><rect x="491.0" y="139.5" width="42.0" height="149.0" rx="6" fill="#1f756f" opacity="0.92"/><rect x="491.0" y="121.5" width="42.0" height="18" rx="4" fill="#1663eb"/><rect x="495.0" y="191.7" width="34.0" height="32.8" rx="2" fill="#f8fafc" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#107f67">P19346</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Antibody Kit Beta-Amyl…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Kits · unique image</text>
+</svg>

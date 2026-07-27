@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g18851" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffecbb"/>
+      <stop offset="100%" stop-color="#fff6ac"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g18851)"/>
+  <circle cx="478" cy="128" r="38" fill="#2899bd" opacity="0.18"/>
+  <circle cx="318" cy="288" r="68" fill="#b8612a" opacity="0.12"/>
+  <rect x="72.4" y="147.0" width="42.0" height="134.0" rx="6" fill="#9a430c" opacity="0.92"/><rect x="72.4" y="129.0" width="42.0" height="18" rx="4" fill="#0079a4"/><rect x="76.4" y="193.9" width="34.0" height="29.5" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="158.4" y="138.5" width="43.0" height="147.0" rx="6" fill="#a93914" opacity="0.92"/><rect x="158.4" y="118.5" width="43.0" height="20" rx="4" fill="#007195"/><rect x="162.4" y="189.9" width="35.0" height="32.3" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="254.3" y="140.5" width="38.0" height="133.0" rx="6" fill="#9a430c" opacity="0.92"/><rect x="254.3" y="118.5" width="38.0" height="22" rx="4" fill="#0079a4"/><rect x="258.3" y="187.1" width="30.0" height="29.3" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="350.2" y="133.0" width="41.0" height="146.0" rx="6" fill="#a93914" opacity="0.92"/><rect x="350.2" y="115.0" width="41.0" height="18" rx="4" fill="#007195"/><rect x="354.2" y="184.1" width="33.0" height="32.1" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="439.6" y="131.5" width="37.0" height="153.0" rx="6" fill="#9a430c" opacity="0.92"/><rect x="439.6" y="111.5" width="37.0" height="20" rx="4" fill="#0079a4"/><rect x="443.6" y="185.1" width="29.0" height="33.7" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="533.6" y="143.0" width="40.0" height="136.0" rx="6" fill="#a93914" opacity="0.92"/><rect x="533.6" y="121.0" width="40.0" height="22" rx="4" fill="#007195"/><rect x="537.6" y="190.6" width="32.0" height="29.9" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#9a430c">P18851</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Anti-Human Phospho-199…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Antibodies · unique image</text>
+</svg>

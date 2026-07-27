@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g17885" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f2eef2"/>
+      <stop offset="100%" stop-color="#fff8e3"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g17885)"/>
+  <circle cx="312" cy="122" r="32" fill="#36d3ff" opacity="0.18"/>
+  <circle cx="552" cy="312" r="52" fill="#ba5a2d" opacity="0.12"/>
+  <rect x="91.7" y="134.5" width="36.0" height="153.0" rx="6" fill="#9c3c0f" opacity="0.92"/><rect x="91.7" y="116.5" width="36.0" height="18" rx="4" fill="#02b3ec"/><rect x="95.7" y="188.1" width="28.0" height="33.7" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="194.3" y="136.0" width="40.0" height="156.0" rx="6" fill="#ab3217" opacity="0.92"/><rect x="194.3" y="116.0" width="40.0" height="20" rx="4" fill="#0eabdd"/><rect x="198.3" y="190.6" width="32.0" height="34.3" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="299.5" y="131.0" width="37.0" height="158.0" rx="6" fill="#9c3c0f" opacity="0.92"/><rect x="299.5" y="109.0" width="37.0" height="22" rx="4" fill="#02b3ec"/><rect x="303.5" y="186.3" width="29.0" height="34.8" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="409.7" y="141.5" width="40.0" height="139.0" rx="6" fill="#ab3217" opacity="0.92"/><rect x="409.7" y="123.5" width="40.0" height="18" rx="4" fill="#0eabdd"/><rect x="413.7" y="190.2" width="32.0" height="30.6" rx="2" fill="#fffbeb" opacity="0.85"/><rect x="509.3" y="132.5" width="42.0" height="149.0" rx="6" fill="#9c3c0f" opacity="0.92"/><rect x="509.3" y="112.5" width="42.0" height="20" rx="4" fill="#02b3ec"/><rect x="513.3" y="184.7" width="34.0" height="32.8" rx="2" fill="#fffbeb" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#9c3c0f">P17885</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Anti-Human Beta-Amyloi…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Antibodies · unique image</text>
+</svg>

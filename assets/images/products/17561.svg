@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g17561" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7effa"/>
+      <stop offset="100%" stop-color="#fff9eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g17561)"/>
+  <circle cx="50" cy="80" r="30" fill="#ffd02e" opacity="0.18"/>
+  <circle cx="390" cy="360" r="40" fill="#3b70b4" opacity="0.12"/>
+  <rect x="143.0" y="148.0" width="34.0" height="132.0" rx="6" fill="#1d5296" opacity="0.92"/><rect x="143.0" y="130.0" width="34.0" height="18" rx="4" fill="#ebb015"/><rect x="147.0" y="194.2" width="26.0" height="29.0" rx="2" fill="#ffffff" opacity="0.85"/><rect x="305.5" y="139.0" width="39.0" height="146.0" rx="6" fill="#2c489e" opacity="0.92"/><rect x="305.5" y="119.0" width="39.0" height="20" rx="4" fill="#f7a806"/><rect x="309.5" y="190.1" width="31.0" height="32.1" rx="2" fill="#ffffff" opacity="0.85"/><rect x="458.0" y="145.5" width="36.0" height="133.0" rx="6" fill="#1d5296" opacity="0.92"/><rect x="458.0" y="123.5" width="36.0" height="22" rx="4" fill="#ebb015"/><rect x="462.0" y="192.1" width="28.0" height="29.3" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1d5296">P17561</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Aggregation Kit Beta-A…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Kits · unique image</text>
+</svg>

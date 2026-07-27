@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g17986" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ebffff"/>
+      <stop offset="100%" stop-color="#fffff0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g17986)"/>
+  <circle cx="386" cy="96" r="46" fill="#ff8240" opacity="0.18"/>
+  <circle cx="526" cy="346" r="76" fill="#4b52a6" opacity="0.12"/>
+  <rect x="110.0" y="136.0" width="40.0" height="146.0" rx="6" fill="#2d3488" opacity="0.92"/><rect x="110.0" y="118.0" width="40.0" height="18" rx="4" fill="#dc6227"/><rect x="114.0" y="187.1" width="32.0" height="32.1" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="234.5" y="136.5" width="37.0" height="153.0" rx="6" fill="#3c2a90" opacity="0.92"/><rect x="234.5" y="116.5" width="37.0" height="20" rx="4" fill="#e85a18"/><rect x="238.5" y="190.1" width="29.0" height="33.7" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="366.0" y="136.0" width="40.0" height="156.0" rx="6" fill="#2d3488" opacity="0.92"/><rect x="366.0" y="114.0" width="40.0" height="22" rx="4" fill="#dc6227"/><rect x="370.0" y="190.6" width="32.0" height="34.3" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="491.5" y="139.0" width="37.0" height="138.0" rx="6" fill="#3c2a90" opacity="0.92"/><rect x="491.5" y="121.0" width="37.0" height="18" rx="4" fill="#e85a18"/><rect x="495.5" y="187.3" width="29.0" height="30.4" rx="2" fill="#e0e7ff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#2d3488">P17986</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Modulator Protease G #…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Neurodegenerative Related Compounds · unique image</text>
+</svg>

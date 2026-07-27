@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g20110" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dce4ee"/>
+      <stop offset="100%" stop-color="#f0eedf"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g20110)"/>
+  <circle cx="386" cy="36" r="26" fill="#ff813e" opacity="0.18"/>
+  <circle cx="526" cy="286" r="76" fill="#4b4297" opacity="0.12"/>
+  <rect x="110.0" y="151.5" width="40.0" height="121.0" rx="6" fill="#2d2479" opacity="0.92"/><rect x="110.0" y="133.5" width="40.0" height="18" rx="4" fill="#e36125"/><rect x="114.0" y="193.8" width="32.0" height="26.6" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="239.5" y="147.0" width="37.0" height="120.0" rx="6" fill="#3c1a81" opacity="0.92"/><rect x="239.5" y="127.0" width="37.0" height="20" rx="4" fill="#ef5916"/><rect x="243.5" y="189.0" width="29.0" height="26.4" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="366.5" y="146.0" width="35.0" height="120.0" rx="6" fill="#2d2479" opacity="0.92"/><rect x="366.5" y="124.0" width="35.0" height="22" rx="4" fill="#e36125"/><rect x="370.5" y="188.0" width="27.0" height="26.4" rx="2" fill="#e0e7ff" opacity="0.85"/><rect x="500.0" y="136.0" width="34.0" height="140.0" rx="6" fill="#3c1a81" opacity="0.92"/><rect x="500.0" y="118.0" width="34.0" height="18" rx="4" fill="#ef5916"/><rect x="504.0" y="185.0" width="26.0" height="30.8" rx="2" fill="#e0e7ff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#2d2479">P20110</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">Preformed Fibrils Beta…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Preformed Fibrils · unique image</text>
+</svg>

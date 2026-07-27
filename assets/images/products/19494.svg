@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="g19494" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ddfdf3"/>
+      <stop offset="100%" stop-color="#f1ffe4"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g19494)"/>
+  <circle cx="135" cy="125" r="35" fill="#f7a436" opacity="0.18"/>
+  <circle cx="375" cy="285" r="75" fill="#397c49" opacity="0.12"/>
+  <rect x="141.5" y="144.5" width="39.0" height="133.0" rx="6" fill="#1b5e2b" opacity="0.92"/><rect x="141.5" y="126.5" width="39.0" height="18" rx="4" fill="#c3841d"/><rect x="145.5" y="191.1" width="31.0" height="29.3" rx="2" fill="#ffffff" opacity="0.85"/><rect x="298.5" y="148.0" width="41.0" height="126.0" rx="6" fill="#2a5433" opacity="0.92"/><rect x="298.5" y="128.0" width="41.0" height="20" rx="4" fill="#cf7c0e"/><rect x="302.5" y="192.1" width="33.0" height="27.7" rx="2" fill="#ffffff" opacity="0.85"/><rect x="464.5" y="135.5" width="37.0" height="143.0" rx="6" fill="#1b5e2b" opacity="0.92"/><rect x="464.5" y="113.5" width="37.0" height="22" rx="4" fill="#c3841d"/><rect x="468.5" y="185.6" width="29.0" height="31.5" rx="2" fill="#ffffff" opacity="0.85"/>
+  <text x="24" y="36" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1b5e2b">P19494</text>
+  <text x="24" y="62" font-family="Arial, sans-serif" font-size="14" fill="#334155">PFF Beta-Amyloid (1-42…</text>
+  <text x="24" y="380" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Preformed Fibrils · unique image</text>
+</svg>
