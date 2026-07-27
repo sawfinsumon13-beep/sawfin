@@ -66,9 +66,11 @@
           product.name +
           "</nav>" +
           '<div class="product-detail">' +
-          '<div class="product-detail-media"><div class="product-image detail-thumb"><span>' +
-          (product.categories[0] ? product.categories[0].name : "Reagent") +
-          "</span></div></div>" +
+          '<div class="product-detail-media"><div class="product-image detail-thumb">' +
+          (product.image
+            ? '<img src="' + product.image + '" alt="">'
+            : "<span>Reagent</span>") +
+          "</div></div>" +
           '<div class="product-detail-info">' +
           "<p class=\"product-tag\">" +
           cats +

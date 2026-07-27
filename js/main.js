@@ -72,10 +72,15 @@
           });
         }).slice(0, 6);
         featured.innerHTML = fibrils.map(function (p) {
+          var img = p.image
+            ? '<div class="product-card-image"><img src="' + p.image + '" alt="" loading="lazy"></div>'
+            : "";
           return (
             '<article class="product-card"><a href="product.html?slug=' +
             encodeURIComponent(p.slug) +
-            '"><div class="product-body"><p class="product-tag">Preformed fibrils</p><h3>' +
+            '">' +
+            img +
+            '<div class="product-body"><p class="product-tag">Preformed fibrils</p><h3>' +
             p.name +
             "</h3><div class=\"product-meta\"><span>" +
             (p.sku || "") +

@@ -132,14 +132,17 @@
       p.sizes && p.sizes.length
         ? '<p class="product-sizes">Sizes: ' + p.sizes.join(", ") + "</p>"
         : "";
+    var img = p.image
+      ? '<img src="' + p.image + '" alt="" loading="lazy">'
+      : '<span class="thumb-label">' + (p.categories[0] ? p.categories[0].name : "Product") + "</span>";
     return (
       '<article class="product-card shop-card">' +
       '<a href="product.html?slug=' +
       encodeURIComponent(p.slug) +
       '" class="shop-card-link">' +
-      '<div class="product-image shop-thumb"><span class="thumb-label">' +
-      (p.categories[0] ? p.categories[0].name : "Product") +
-      "</span></div>" +
+      '<div class="product-image shop-thumb product-card-image">' +
+      img +
+      "</div>" +
       '<div class="product-body">' +
       '<p class="product-tag">' +
       cats +

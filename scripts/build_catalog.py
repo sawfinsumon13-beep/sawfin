@@ -10,6 +10,50 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
+# Local category/product imagery (bundled in repo — no external CDN required)
+CATEGORY_IMAGES = {
+    "antibodies": "assets/images/categories/antibodies.jpg",
+    "peptides": "assets/images/categories/peptides.jpg",
+    "proteins": "assets/images/categories/proteins.jpg",
+    "kits": "assets/images/categories/kits.jpg",
+    "preformed-fibrils": "assets/images/categories/fibrils.jpg",
+    "neurodegenerative-related-compounds": "assets/images/categories/neuro.jpg",
+    "coronavirus-research-tools": "assets/images/categories/coronavirus.jpg",
+}
+
+FAMILY_KEYWORDS = [
+    ("preformed-fibrils", "preformed-fibrils"),
+    ("fibril", "preformed-fibrils"),
+    ("antibod", "antibodies"),
+    ("peptide", "peptides"),
+    ("protein", "proteins"),
+    ("kit", "kits"),
+    ("coronavirus", "coronavirus-research-tools"),
+    ("covid", "coronavirus-research-tools"),
+    ("sars-cov", "coronavirus-research-tools"),
+    ("neurodegenerative", "neurodegenerative-related-compounds"),
+    ("synuclein", "proteins"),
+    ("tau", "proteins"),
+    ("amyloid", "peptides"),
+]
+
+
+def image_for_slug(slug: str) -> str:
+    if slug in CATEGORY_IMAGES:
+        return CATEGORY_IMAGES[slug]
+    for needle, family in FAMILY_KEYWORDS:
+        if needle in slug:
+            return CATEGORY_IMAGES[family]
+    return CATEGORY_IMAGES["proteins"]
+
+
+def product_image(categories: list[dict]) -> str:
+    for cat in categories:
+        path = image_for_slug(cat["slug"])
+        if path:
+            return path
+    return CATEGORY_IMAGES["proteins"]
+
 
 def fetch(url: str):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -79,6 +123,12 @@ def main():
                 "permalink": p.get("permalink", ""),
                 "sizes": sizes,
                 "type": p.get("type"),
+                "image": product_image(
+                    [
+                        {"id": c["id"], "name": c["name"], "slug": c["slug"]}
+                        for c in p.get("categories", [])
+                    ]
+                ),
             }
         )
 
@@ -88,17 +138,20 @@ def main():
             continue
         by_parent.setdefault(c.get("parent", 0), []).append(c)
 
-    def build_tree(parent_id: int) -> list:
+    def build_tree(parent_id: int, parent_image: str | None = None) -> list:
         nodes = []
         for c in sorted(by_parent.get(parent_id, []), key=lambda x: x["name"]):
+            local_img = CATEGORY_IMAGES.get(c["slug"]) or parent_image
+            if not local_img:
+                local_img = image_for_slug(c["slug"])
             nodes.append(
                 {
                     "id": c["id"],
                     "name": c["name"],
                     "slug": c["slug"],
                     "count": c.get("count", 0),
-                    "image": (c.get("image") or {}).get("src"),
-                    "children": build_tree(c["id"]),
+                    "image": local_img,
+                    "children": build_tree(c["id"], local_img),
                 }
             )
         return nodes
